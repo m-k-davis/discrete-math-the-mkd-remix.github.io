@@ -24,19 +24,30 @@ given in the table.
 The vertical intercept $b$ (in this case, the $y$_-intercept_) is 
 the $y$-value that corresponds to $x = 0$, that is, $(0,\,b)$ is 
 on the same continuous line as the 
- points represented in the table.
- on the s. In this example, $0$ is not 
+ points represented in the table. In this example, $0$ is not 
 a value of $x$, but we can still find the vertical intercept 
 by _subtracting_ $1$ from the smallest $x$-value and 
  _subtracting_ $2$ from the corresponding $y$-value , which tells 
  us that the point $(0,\,-1)$ lies on the same continuous line as the 
  points represented in the table.
  
-The equation 
+The equation of the linear function determined 
+by the points in the table is $y = 2 \cdot x + (-1)$, 
+which can be written more simply as $y = 2x - 1$. 
+This also is the equation of the continuous line that passes 
+through the points with $xy$-coordinates 
+given in the table, but the linear function can be restricted to 
+a smaller domain as needed by the context where it is being used, 
+for example, we may only need to use inputs $x$ from the set of 
+positive integers or possibly just the set 
+$\{ 1,\,2,\,3,\,4,\,5 \}$.
 
 
 
-== MKD EDIT ALL BELOW
+MORE TO COME!
+////
+
+// MKD NEEDS TO EDIT ALL BELOW
 
 Functions can in many cases be visualized graphically,
 for example when mapping from the real line, $\mathbb{R}$
@@ -250,3 +261,5 @@ When the base $b$ is less than 1, the logarithm function is decreasing exponenti
 [.left.text-left]
 image::images/log_1_3.png[geometricsequence,1000,1000]
 --
+
+////

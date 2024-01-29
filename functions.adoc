@@ -1,5 +1,8 @@
 = Functions
 
+COMING SOON!
+////
+
 
 //MKD clean this up - move \rightarrow to second paragraph? And include set of ordered paris definition?
 //A *function*, written $f : A \rightarrow B$, is a  mathematical relation where each element of a set $A$,
@@ -584,3 +587,5 @@ increasing* if whenever asciimath:[x<y], then asciimath:[f(x)<f(y)].
 
 .. State this using logical quantifiers.
 .. State a similar definition for a *strictly decreasing* function, and then translate using logical quantifiers.
+
+////

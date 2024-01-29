@@ -233,7 +233,14 @@ We say that two sets are *equal* if and only if they contain the same elements.
 //MKD COMMENTED THIS OUT SINCE SET THEORY NOW COMES BEFORE LOGIC In other words, $A$ and $B$ are equal sets if and only if \[\forall x (x \in A \iff x \in B).\]
 When $A$ and $B$ are equal sets, we write $A = B$. When $A$ and $B$ are not equal sets, we write $A \neq B$.
 
-The sets $\{2,3,5\}$ and $\{5,2,3\}$ are equal sets, since they contain the same elements. The order in which the elements of a set are listed does not matter. Additionally, it does not matter whether elements are repeated. Thus, the sets $\{a,b,c\}$ and $\{b,b,a,c,b,a,c,c,c\}$ are equal sets as well.
+The sets $\{2,3,5\}$ and $\{5,2,3\}$ are equal sets, since they contain the same elements. 
+//MKD added the next sentence.
+In fact, $\{2,3,5\}$ and $\{5,2,3\}$ are really just two different descriptions of the _same_ set, in the same way that 
+$2 + 2$ and $5 - 1$ are two different descriptions of the _same_ number. 
+So we can write $\{2,3,5\} = \{5,2,3\}$ for the same reason we 
+can write $2 + 2 = 5 - 1$.
+
+//The order in which the elements of a set are listed does not matter. Additionally, it does not matter whether elements are repeated. Thus, the sets $\{a,b,c\}$ and $\{b,b,a,c,b,a,c,c,c\}$ are equal sets as well.
 
 
 //MKD maybe move all the subset section up to right after the basic definition of sets?
@@ -588,10 +595,15 @@ $\mathbb{R}^2=\mathbb{R}\times \mathbb{R}=\{(x,y)|x,y\in \mathbb{R}\}$, and,
 $\mathbb{R}^3=\mathbb{R}\times \mathbb{R}\times \mathbb{R}=\{(x,y,z)|x,y,z\in \mathbb{R}\}$
 
 
-// MKD - start of unneeded section
+
+
+// MKD - start of unneeded section?
 ====
 
 == Representing Sets as Lists
+
+COMING SOON!
+////
 
 We can represent sets in Python using lists. The empty set $\{ \}$ is represented by the empty list []. Several different lists may represent the same set. For example, the lists [2, 0, 1] and [1, 2, 2, 0, 1, 0, 1] both represent the set $\{0,1,2\}.$
 
@@ -812,3 +824,5 @@ image::images/venn_exercises.png[GGC,1000,1000]
 .. $\mathbb{N}\subseteq \mathbb{Z}\subseteq \mathbb{Q}\subseteq \mathbb{R}$
 .. $\{x \in \mathbb{R} : |x|<3\}\subseteq \{x \in \mathbb{R}||x|<5\}$
 .. $\{x \in \mathbb{R} : |x|>3\}\subseteq \{x \in \mathbb{R}||x|>5\}$
+
+////

@@ -1,5 +1,7 @@
 = Algorithms
 
+COMING SOON!
+////
 
 
 An *algorithm* is a step-by-step process, defined by a set of
@@ -455,7 +457,7 @@ The binary search algorithm then is $O(p)=O(\log{n})$.
 
 == Exercises
 
-////
+// MKD start THIS NEEDS EDITING
 . The selection sort algorithm is another algorithm to sort a list of $n$ elements.
 It finds the smallest element in the list and exchanges it with whatever is in
 position $1$ of the list. It then finds the next smallest integer, and exchanges it
@@ -471,7 +473,7 @@ method.
 .. Devise an algorithm in pseudocode to implement the selection sort algorithm.
 .. Explain why the selection sort algorithm, in the worst case is $O(n^2)$.
 You may use the formula $1+2+3…+n=\frac{n(n+1)}{2}$, or a variation of it.
-////
+// MKD end THIS NEEDS EDITING
 
 . Explain why the insertion sort algorithm is $O(n^2)$.
 
@@ -572,3 +574,5 @@ B. $\{9,14,16,25,26,33,44,45,52,55,57,68,72,72,84,94\}$
 C. $\{11,14,23,29,31,36,41,41,44,47,47,50,65,70,82,85,88,89,92,96\}$
 +
 Apply the binary search algorithm to search for the target $x=65$. Give a count of the number of steps involved in each search.
+
+////

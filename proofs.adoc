@@ -1,8 +1,10 @@
 = Proofs
 
+
+COMING SOON!
 ////
-MKD: Need to add info on Rules of Inference and/or chapter on Proof
-////
+
+//MKD: Need to add info on Rules of Inference and/or chapter on Proof
 
 == Rules Of Inference
 
@@ -12,7 +14,8 @@ To this end, we use *rules of inference*, which are ways to draw a conclusion fr
 
  
 
-== MKD all content below is old and should be replaced/eliminated.
+// MKD all content below is old and should be replaced/eliminated.
+// note that the counter for examples has already been changed to match this chapter
 
 == Propositional Logic
 
@@ -1029,4 +1032,6 @@ image::images/logic_gate_1.png[]
 image::images/logic_gate_2.png[]
 
 . Design a logic circuit for $r\land (p\lor (r\land \neg q))$.
-/// MKD end of old content
+// MKD end of old content
+
+////

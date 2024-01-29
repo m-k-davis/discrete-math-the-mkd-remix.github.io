@@ -1,7 +1,6 @@
 = Logic
 
-////
-MKD: Need to add info on Rules of Inference and/or chapter on Proof
+COMING SOON!
 ////
 
 
@@ -1020,3 +1019,5 @@ image::images/logic_gate_1.png[]
 image::images/logic_gate_2.png[]
 
 . Design a logic circuit for $r\land (p\lor (r\land \neg q))$.
+
+////

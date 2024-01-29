@@ -148,7 +148,7 @@ $\{ \text{"a","b","c",...,"x","y","z"} \}$.
 .Example - One-To-One Correspondence
 --
 --
-The code below shows two functions that are user-defined in Python.
+The code below gives an example of a one-to-one correspondence.
 
 Click on the "Next" button to step through the code.
 include::python_tutor.adoc[]
@@ -179,8 +179,12 @@ Two predicates are *equivalent* if the first must be true when the second one is
 
 * The *multiplication principle* (also called the *product rule*) is a basic counting technique. Suppose that we have a procedure that consists of completing two steps, that there are $k$ possible ways to complete the first step, and for each possible way of completing the first step, there are $m$ possible ways to complete the second step, then there are $k \cdot m$ ways to complete the two steps. As an example, the number of ways to construct a two-character string whose first character is one of the 26 uppercase letters from the English alphabet and whose second character is one of the 10 Hindu-Arabic numerals is $26 \cdot 10$ or $260$.
 
-* A *(vertex-edge) graph* is a mathematical object that consists of vertices connnected by edges. 
-// MKD NEEDS ARTWORK HERE.
+* A *(vertex-edge) graph* is a mathematical object that consists of vertices connnected by edges. In the example below, there are $6$ vertices and $7$ edges. Unlike a geometric figure, each edge only contains its endpoints,that is, edges are just connectors between endpoints and locations/points along an edge are ignored. 
+
+image::images/graph1.png[]
+
+ 
+// MKD NEEDS MORE ARTWORK HERE.
 // maybe https://eng.libretexts.org/@api/deki/files/42793/clipboard_e2c0029f031ce8d39860aa77e76b909cf.png?revision=1&size=bestfit&width=321&height=151 from https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_and_Computation_Fundamentals/Mathematics_for_Computer_Science_%28Lehman_Leighton_and_Meyer%29/02%3A_Structures/11%3A_Simple_Graphs/11.01%3A_Vertex_Adjacency_and_Degrees (MIT Courseware, so should be CC BY-NC)
 //MKD also want to define the complete graph on n vertices, and the star graph on n vertices here... This lays some groundwork for the Math Induction Task so that it can be done before formally introducing graph theory. Consider graphic at https://www.researchgate.net/figure/a-A-complete-graph-with-5-nodes-b-A-star-graph-with-9-nodes_fig1_368473539, but we may need to create our own graphics for these to maintain SA NC 4.0 status.
 
@@ -197,10 +201,11 @@ You are NOT expected to know the Python programming language before you start th
 
  
 
-////
-MKD: NEED TO EDIT ALL ORIGINAL TEXT BELOW.
+//MKD: NEED TO EDIT ALL ORIGINAL TEXT BELOW.
 
 == Applications of Discrete Mathematics
+
+Remixer's Note: This section is taken from the original https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book, with only a few minor edits.
 
 Discrete mathematics is applied in many areas including the physical, engineering, and increasingly,
 the social sciences.
@@ -368,7 +373,8 @@ image::images/gerrymandering.png[]
 
 ****
 
-
+////
+//MKD This subsection has MAJOR issues... Maybe omit???
 == Understanding Continuous and Discrete Sets
 
 Sets of objects are *discrete* if there is a _gap_ between each of the elements.
@@ -469,4 +475,5 @@ $\{0, 1, 2\}$, and explain why the set is discrete.
 a $2$, followed by rolling a $3$, or $(3,2)$, corresponding to rolling a $3$, followed by a $2$.
 .. List all possible outcomes.
 .. Explain why the set of all possible outcomes is a discrete set.
+// MKD major issues
 ////

@@ -1,4 +1,10 @@
 = Sequences and Recursive Definitions
+
+
+COMING SOON!
+////
+
+
 == Sequences, Series, and Sigma Notation
 
 === Sequences
@@ -458,3 +464,4 @@ divides into two halves. The second part of Merge Sort merges $n$ elements which
 AND the second parts, we multiply to obtain that the complexity is $O(n \log{n})$.
 
 
+////

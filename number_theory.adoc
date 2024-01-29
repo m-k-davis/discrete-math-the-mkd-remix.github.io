@@ -1,4 +1,8 @@
 = Number Theory
+
+COMING SOON!
+////
+
 == Divisibility
 
 Let $a$ be a nonzero integer and let $b$ be an integer. We say that *$a$ divides $b$* if and only if there is an integer $c$ such that $b = ac.$
@@ -429,3 +433,5 @@ The following table can be used to covert quickly between decimal, hexadecimal, 
 .. $\left(1111100111010101101\right)_2$
 .. $\left(\ 10001111101011\right)_2$
 .. $\left(1100101011111110\right)_2$
+
+////

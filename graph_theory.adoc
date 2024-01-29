@@ -1,7 +1,22 @@
 = Graph Theory
 Graphs are discrete mathematical structures that have many applications in a diversity of fields including chemistry, network analysis, algorithms, and social sciences.
 
+
+MORE TO COME!
+////
+
 == Introduction and Basic Definitions
+
+//MKD rewrite of first paragraph
+//A *graph* $G=\left(V,\ E\right)$ is a structure consisting of 
+a set of objects called vertices $V$
+and a set of objects called edges $E$.
+An *edge* $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, 
+where $x,y\in\ V$. That is, an edge is a set of vertices. 
+We call the vertices $x$ and $y$ the *endpoints* of the edge $E$. 
+In the case where $x = y$, we call the edge a *loop* since the edge 
+connects the one endpoint to itself.
+
 
 A *graph* $G=\left(V,\ E\right)$ is a structure consisting of a set of objects called vertices $V$
 and a set of objects called edges $E$.
@@ -11,6 +26,7 @@ be *adjacent*, with $x$  and $y$,called the endpoints.
 
 A *simple graph* is one in which there are no loops (edges joining the same vertex) and no two edges
 joining the same pair of vertices. The graphs we consider are assumed to be simple unless stated otherwise.
+
 
 ****
 .Example {counter:graphex} - an undirected graph.
@@ -468,3 +484,4 @@ algorithm is,
 Apply Kruskal's algorithm to the following graphs.
 +
 image::images/graphex3.png[GGC,500,500]
+////

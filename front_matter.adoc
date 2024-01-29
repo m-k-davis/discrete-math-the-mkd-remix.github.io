@@ -27,13 +27,13 @@ by Mark Kelly Davis.
 
 == How does the MKD Remix differ from the original work?
 
-Here is a partial list of changes made to the original. 
+Here is a partial list of changes made (or to be made) to the original. 
 
 * Throughout the remix, definitions were changed to align with ones found in other commonly-used textbooks. One example: The remix defines the natural numbers $\mathbb{N}$ to include the integer $0$ as a member.
 
 * Some existing code snippets were altered. New code snippets were introduced throughout the remix.
 
-* Informal definitions of several core concepts were inserted in the chapter "Introducing Discrette Mathematics". 
+* Informal definitions of several core concepts were inserted in the chapter "Introducing Discrete Mathematics". 
 
 * The chapter "Introduction to Python" was moved to the appendices. In this book, Python is used as a tool for understanding abstract concepts that are important to discrete mathematics, but Python is not a part of the course content.
 

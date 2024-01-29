@@ -1,6 +1,7 @@
 //= Discrete Math
 //Mohamed Jamaloodeen, Kathy Pinzon, Daniel Pragel, Joshua Roberts, Sebastien Siva
 = Discrete Math - The MKD Remix
+#A Work In Progress# by 
 Mark Kelly Davis
 :toc: left
 :toclevels: 2

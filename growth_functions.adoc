@@ -1,4 +1,8 @@
 = Growth of Functions
+
+COMING SOON!
+////
+
 == Introducing _Big O_
 
 Computer programmers  are often concerned with two questions:
@@ -326,3 +330,5 @@ $g\left(x\right)=\sqrt x+x^2\log{x}$. Find the best big $O$ estimates of
 
 . Negate the definition of "$ f(x)$ is $ O(g(x))$" using logical quantifiers, and then state in
 words what it means that $ f(x)$ is [.underline]#not# $ O(g(x))$.
+
+////

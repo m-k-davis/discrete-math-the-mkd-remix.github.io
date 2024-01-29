@@ -1,4 +1,9 @@
 = Mathematical Induction
+
+
+COMING SOON!
+////
+
 == What is Mathematical Induction?
 
 // MKD: The commonly-used "infinite ladder" analogy that appears in the original book is misleading. 
@@ -74,9 +79,7 @@ The following code could be used to prove $P(n)$ for many more values of $n$, bu
 // MKD: FIX THIS PYTHONTUTOR CODE - IT IS PULLING IN AN EARLIER EXAMPLE
 :pt_code_height: 400
 :pt_rawinput: false
-////
-:pt_code: n%20%3D%204%0Ai%20%3D%201%0AsumInt%20%3D%200%0AsumStr%20%3D%20%22%22%0Awhile%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20oddInt%20%3D%20%282*i-1%29%0A%20%20%20%20sumInt%20%2B%3D%20oddInt%0A%20%20%20%20sumStr%20%2B%3D%20str%28oddInt%29%0A%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20if%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20%20%20%20%20sumStr%20%2B%3D%20%22%20%2B%20%22%0Aprint%20%28sumStr,%22%3D%22,%20sumInt%29%0A
-////
+//:pt_code: n%20%3D%204%0Ai%20%3D%201%0AsumInt%20%3D%200%0AsumStr%20%3D%20%22%22%0Awhile%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20oddInt%20%3D%20%282*i-1%29%0A%20%20%20%20sumInt%20%2B%3D%20oddInt%0A%20%20%20%20sumStr%20%2B%3D%20str%28oddInt%29%0A%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20if%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20%20%20%20%20sumStr%20%2B%3D%20%22%20%2B%20%22%0Aprint%20%28sumStr,%22%3D%22,%20sumInt%29%0A
 :pt_code: def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0An%20%3D%204%0Ai%20%3D%201%0AsumInt%20%3D%200%0AsumStr%20%3D%20%22%22%0Awhile%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20oddInt%20%3D%20%282*i-1%29%0A%20%20%20%20sumInt%20%2B%3D%20oddInt%0A%20%20%20%20sumStr%20%2B%3D%20str%28oddInt%29%0A%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20if%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20%20%20%20%20sumStr%20%2B%3D%20%22%20%2B%20%22%0Aprint%20%28sumStr,%22%3D%22,%20sumInt%29%0AnSquared%20%3D%20n*n%0Aif%20%28sumInt%20%3D%3D%20nSquared%29%3A%0A%20%20%20%20print%28P%28n%29%29%0A
 
 
@@ -195,7 +198,7 @@ and the induction step justifies that if we have built a tower that has height $
 
 
 //MKD start of copy of square example
-////
+//
 ****
 .Example {counter:indrecexample} - Proof by Induction
 
@@ -261,7 +264,7 @@ So $1+2+...+m+(m+1)=\frac{\left(m+1\right)\left(m+2\right)}{2}$, which means we 
 
 So, by induction, $\sum\limits_{i=1}^{n}i=1+2+...+n=\frac{n\left(n+1\right)}{2}$ for all positive integers $n$.
 ****
-//// 
+// 
 //MKD end of copy of square example
 
 
@@ -661,3 +664,4 @@ f_1+f_2+\ldots+f_n=\sum_{i=1}^{n}{f_i=f_{n+2}-1}.
 \[
 f_1^2+f_2^2+ \cdots + f_n^2 = \sum_{i=1}^{n} f_i^2=f_n \cdot\ f_{n+1}.
 \]
+////
