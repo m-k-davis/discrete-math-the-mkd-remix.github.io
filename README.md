@@ -1,7 +1,30 @@
+# Discrete Mathematics - The MKD Remix
 
-# Instructional Materials
+This textbook, "Discrete Mathematics - The MKD Remix", is a work in progress.
+
+This work, "Discrete Mathematics - The MKD Remix", by 
+[Mark Kelly Davis](https://github.com/m-k-davis/), 
+is adapted from 
+[“Discrete Math”](https://ggc-discrete-math.github.io/index.html), 
+by 
+[Mohamed Jamaloodeen](https://www.ggc.edu/directory/mohamed-jamaloodeen), 
+[Kathy Pinzon](https://www.ggc.edu/directory/katherine-pinzon), 
+[Daniel Pragel](https://www.ggc.edu/directory/daniel-pragel), 
+[Joshua Roberts](https://www.ggc.edu/directory/joshua-roberts), and 
+[Sebastien Siva](https://www.ggc.edu/directory/sebastien-siva). 
+
+[“Discrete Math”](https://ggc-discrete-math.github.io/index.html) is used under 
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). All files for [“Discrete Math”](https://ggc-discrete-math.github.io/index.html) are available at its associated [GitHub repository](https://github.com/ggc-discrete-math/ggc-discrete-math.github.io). 
+
+This work, "Discrete Mathematics - The MKD Remix", 
+is licensed under 
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 
+by Mark Kelly Davis.
+
+<!-- 
+# Instructional Materials for the original “Discrete Math" book
 - [Textbook (by chapter)](https://ggc-discrete-math.github.io/)
-<!-- - [Full textbook (all on one page)](https://ggc-discrete-math.github.io/book.html) -->
+- [Full textbook (all on one page)](https://ggc-discrete-math.github.io/book.html)
 - [Guided notes on select chapters](https://github.com/ggc-discrete-math/ggc-discrete-math.github.io/tree/main/guided-notes)
 - [Pre-Built Edfinity Homework Assignments](https://edfinity.com/products/6029c68aa18e9800377eaace)
 - [Python Syntax Sheet](https://github.com/ggc-discrete-math/ggc-discrete-math.github.io/blob/main/guided-notes/PythonSyntaxExamples.pdf)
@@ -25,4 +48,4 @@ The writing of the book was funded by an Affordable Learning Georgia Textbook Tr
 **License:**  
 ![Creative Commons License](https://github.com/ggc-discrete-math/ggc-discrete-math.github.io/blob/main/images/CC.png)  
 The instructional materials found here are licensed under [Creative Commons Attribution License v4.0 Attribution-NonCommercial](https://creativecommons.org/licenses/by-nc/4.0/) (CC BY-NC).
-
+ -->

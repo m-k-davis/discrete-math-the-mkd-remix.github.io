@@ -1,7 +1,51 @@
 = About this text
 
-This text is the result of work by mathematics and information technology professors at Georgia Gwinnett College working under an https://www.affordablelearninggeorgia.org/[Affordable Learning Georgia] (ALG) textbook transformation grant.
-ALG is a University System of Georgia sponsored organization that promotes free and low-cost educational resources. This textbook is licensed under Creative Commons Attribution License v4.0 Attribution-NonCommercial https://creativecommons.org/licenses/by-nc/4.0/[](CC BY-NC)].
+
+This work, "Discrete Mathematics - The MKD Remix", 
+by 
+https://github.com/m-k-davis/[Mark Kelly Davis], 
+is adapted from 
+https://ggc-discrete-math.github.io/index.html[“Discrete Math”], 
+by 
+//a group of mathematics and information technology professors 
+//at Georgia Gwinnett College, namely, 
+https://www.ggc.edu/directory/mohamed-jamaloodeen[Mohamed Jamaloodeen], 
+https://www.ggc.edu/directory/katherine-pinzon[Kathy Pinzon], 
+https://www.ggc.edu/directory/daniel-pragel[Daniel Pragel], 
+https://www.ggc.edu/directory/joshua-roberts[Joshua Roberts], and https://www.ggc.edu/directory/sebastien-siva[Sebastien Siva]. 
+https://ggc-discrete-math.github.io/index.html[“Discrete Math”] is used under https://creativecommons.org/licenses/by-nc/4.0/[CC BY-NC 4.0]. 
+All files for 
+https://ggc-discrete-math.github.io/index.html[“Discrete Math”] 
+are available at its associated 
+https://github.com/ggc-discrete-math/ggc-discrete-math.github.io[GitHub repository]. 
+
+This work, "Discrete Mathematics - The MKD Remix", 
+is licensed under 
+https://creativecommons.org/licenses/by-nc/4.0/[CC BY-NC 4.0] 
+by Mark Kelly Davis.
+
+
+== How does the MKD Remix differ from the original work?
+
+Here is a partial list of changes made to the original. 
+
+* Throughout the remix, definitions were changed to align with ones found in other commonly-used textbooks. One example: The remix defines the natural numbers $\mathbb{N}$ to include the integer $0$ as a member.
+
+* Some existing code snippets were altered. New code snippets were introduced throughout the remix.
+
+* Informal definitions of several core concepts were inserted in the chapter "Introducing Discrette Mathematics". 
+
+* The chapter "Introduction to Python" was moved to the appendices. In this book, Python is used as a tool for understanding abstract concepts that are important to discrete mathematics, but Python is not a part of the course content.
+
+* The order of the chapters "Set Theory" and "Logic" were swapped. New material was inserted into each of the two chapters.
+
+* A new chapter, "Proofs," was written and inserted after the chapter on Logic.
+
+* The old chapter "Sequences, Recursive Definitions, and Induction" was broken into two new chapters, "Sequences and Recursive Definitions" and "Induction". The new chapter "Induction" was heavily rewritten and new content was inserted.
+
+
+////
+MKD: NEED TO EDIT ALL ORIGINAL TEXT BELOW.
 
 == Additional Resources
 
@@ -41,5 +85,4 @@ recursively versus iteratively.
 The approach we take is one with an integrative incorporation of programming and
 algorithms into the course. The aim is to help improve students success
 with their broad programming curricula in courses like Intermediate and Advanced Programming.
-
-
+////

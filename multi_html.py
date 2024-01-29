@@ -11,13 +11,18 @@ os.system("asciidoctor-latex -b html " + 'book.adoc')
 
 # get list of chapter files for asciidoctor
 # chap_adocs = sorted([f for f in os.listdir() if f.startswith("chapter") and f.endswith(".adoc")])
-chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'python_intro.adoc', 'logic.adoc', 'set_theory.adoc', 'functions.adoc', 'growth_functions.adoc', 'algorithms.adoc', 'counting.adoc', 'number_theory.adoc', 'induction_recursion.adoc', 'graph_theory.adoc', 'appendix_one.adoc', 'appendix_two.adoc']
+# chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'python_intro.adoc', 'logic.adoc', 'set_theory.adoc', 'functions.adoc', 'growth_functions.adoc', 'algorithms.adoc', 'counting.adoc', 'number_theory.adoc', 'induction_recursion.adoc', 'graph_theory.adoc', 'appendix_one.adoc', 'appendix_two.adoc']
+# chap_htmls = [f.replace('.adoc', '.html') for f in chap_adocs]
+chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'functions.adoc', 'growth_functions.adoc', 'algorithms.adoc', 'counting.adoc', 'number_theory.adoc', 'recursion.adoc', 'induction.adoc', 'graph_theory.adoc', 'python_intro.adoc', 'appendix_one.adoc', 'appendix_two.adoc', 'appendix_three.adoc']
 chap_htmls = [f.replace('.adoc', '.html') for f in chap_adocs]
 
 # go through master toc and update links to point to separate html files.
 soup = get_soup('book.html')
 toc_html = soup.find(id="toc")
 anchors = toc_html.find_all('a')
+# MKD added next line
+#for a in anchors: print(a)
+
 chap_index = 0
 for a in anchors:
 	label = str(a.text)

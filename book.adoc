@@ -1,5 +1,7 @@
-= Discrete Math
-Mohamed Jamaloodeen, Kathy Pinzon, Daniel Pragel, Joshua Roberts, Sebastien Siva
+//= Discrete Math
+//Mohamed Jamaloodeen, Kathy Pinzon, Daniel Pragel, Joshua Roberts, Sebastien Siva
+= Discrete Math - The MKD Remix
+Mark Kelly Davis
 :toc: left
 :toclevels: 2
 :linkcss:
@@ -13,21 +15,33 @@ Mohamed Jamaloodeen, Kathy Pinzon, Daniel Pragel, Joshua Roberts, Sebastien Siva
 //To force build.
 [.float-group]
 --
-[.left.text-left]
-image::images/GGC_Logo.png[GGC,250,200]
+//[.left.text-left]
+//image::images/GGC_Logo.png[GGC,250,200]
+// MKD may want to insert a new image here - use PD or CC BY-NC 4.0 only
 --
 
 :leveloffset: +1
 
+//MKD turn off sectnums
+//:sectnums!:
+
 include::front_matter.adoc[]
+
+//MKD turn on sectnums
+//:sectnums:
 
 include::introduction_discrete_math.adoc[]
 
-include::python_intro.adoc[]
+//include::python_intro.adoc[]
+
+//MKD swapped order of logic and set_theory
+
+include::set_theory.adoc[]
 
 include::logic.adoc[]
 
-include::set_theory.adoc[]
+//MKD
+include::proofs.adoc[]
 
 include::functions.adoc[]
 
@@ -41,18 +55,26 @@ include::counting.adoc[]
 
 include::number_theory.adoc[]
 
-include::induction_recursion.adoc[]
+//include::induction_recursion.adoc[]
+include::recursion.adoc[]
+
+include::induction.adoc[]
 
 include::graph_theory.adoc[]
+
+include::python_intro.adoc[]
 
 include::appendix_one.adoc[]
 
 include::appendix_two.adoc[]
 
+include::appendix_three.adoc[]
+
 :leveloffset: -1
 
 [.float-group]
 --
-[.right.text-right]
-image::images/GGC_Logo.png[GGC,250,200]
+//[.right.text-right]
+//image::images/GGC_Logo.png[GGC,250,200]
+// MKD may want to insert a new image here - use PD or CC BY-NC 4.0 only
 --

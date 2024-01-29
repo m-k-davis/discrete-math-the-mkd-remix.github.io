@@ -1,16 +1,25 @@
-= Logic
+= Proofs
 
 ////
 MKD: Need to add info on Rules of Inference and/or chapter on Proof
 ////
 
+== Rules Of Inference
+
+In order to make a valid argument, we must allow ourselves to proceed from true statements to other true statements without introducing false statements using faulty reasoning. 
+
+To this end, we use *rules of inference*, which are ways to draw a conclusion from from one or more premises that are already assumed to be true (either as axioms or as previously-derived conclusions.)
+
+ 
+
+== MKD all content below is old and should be replaced/eliminated.
 
 == Propositional Logic
 
 A *proposition* is a statement that declares a fact that is either True or False.
 
 ****
-.Examples {counter:logicexample} - Propositions
+.Examples {counter:proofexample} - Propositions
 
 // MKD: altered all three examples
 //* Atlanta is the capital of Iowa.
@@ -54,7 +63,7 @@ For example, the negation of the proposition "Today is Friday." would be "It is 
 :pt_code: def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20a%20%3D%20negation%28p%29%0A%20%20%20%20print%28p,%20a%29
 
 ****
-.Example {counter:logicexample} - Negation in Python
+.Example {counter:proofexample} - Negation in Python
 --
 --
 The code below prints the truth table for negation.  Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
@@ -81,7 +90,7 @@ Let $p$ and $q$ be propositions.  The conjunction of $p$ and $q$, denoted in mat
 :pt_code: def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20conjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
 
 ****
-.Example {counter:logicexample} - Conjunction in Python
+.Example {counter:proofexample} - Conjunction in Python
 --
 --
 The code below prints the truth table for conjunction.  Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
@@ -108,7 +117,7 @@ Let $p$ and $q$ be propositions.  The disjunction of $p$ and $q$, denoted in mat
 :pt_code: def%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29%0A%20%20%20%20%20%20%20%20
 
 ****
-.Example {counter:logicexample} - Disjunction in Python
+.Example {counter:proofexample} - Disjunction in Python
 --
 --
 The code below prints the truth table for disjunction.  Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
@@ -141,7 +150,7 @@ Exclusive disjunction can be thought of as one or the other, but not both.
 :pt_code: def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20exclusive_disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
 
 ****
-.Example {counter:logicexample} - Exclusive Disjunction in Python
+.Example {counter:proofexample} - Exclusive Disjunction in Python
 --
 --
 The code below prints the truth table for exclusive disjunction.  Try to predict the variable names, values, and data types at different steps in the execution. Use the _Forward_ button to check your answers.
@@ -213,7 +222,7 @@ logically equivalent.
 We illustrate these ideas with an example.
 
 ****
-.Example {counter:logicexample} - Conditional, Converse, Contrapositive and Inverse.
+.Example {counter:proofexample} - Conditional, Converse, Contrapositive and Inverse.
 
 .. Translate the statement, "If an integer $n$, is divisible by $4$, then it is
 divisible by $2$", using a conditional.
@@ -263,7 +272,7 @@ denoted in mathematics by $p \iff q$, is short hand for the statement "p if and 
 :pt_code: def%20bi_implication%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20bi_implication%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
 
 ****
-.Example {counter:logicexample} - Bi-Implication in Python
+.Example {counter:proofexample} - Bi-Implication in Python
 --
 --
 Try to complete the code below by clicking edit and replacing $#FIX ME#$. Once correctly defined, the correct truth table should print.
@@ -286,7 +295,7 @@ To find truth values of compound propositions, it is useful to break them up int
 :pt_code: def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Adef%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28conjunction%28p,%20q%29,%20not%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
 
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 --
 --
 The code below reveals the truth table of the compound proposition:
@@ -308,7 +317,7 @@ $(p \lor \neg q) \land \neg p$
 
 When creating your own truth table it is crucial to be systematic about ensuring you have all possible truth values for each of the simple propositions.  Each simple proposition has two possible truth values, so the number of rows in the table should be $2^n$ where $n$ is the number of propositions. You should also consider breaking complex propositions into smaller pieces.
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 --
 --
 Create a truth table for the compound proposition:
@@ -344,7 +353,7 @@ Two propositions are considered *logically equivalent* (or simply *equivalent*) 
 //MKD: Need to emphasize that "p and q are logically equivalent iff p<->q"; as this lays the groundwork for the rules of inference and the concept of a proof.
 
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 Consider the propositions $\neg p \lor q$ versus $p\implies q$.
 [width=50%",align="center",options="header"]
 |====
@@ -363,7 +372,7 @@ Since the truth table in all rows is the same for the two compound propositions,
 :pt_code: def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Adef%20implication%28p,%20q%29%3A%0A%20%20%20%20return%20not%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20r%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20for%20r%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20a%20%3D%20implication%28conjunction%28p,%20q%29,%20r%29%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28p,%20q,%20r,%20a%29
 
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 --
 --
 Consider three compound propositions:
@@ -393,7 +402,7 @@ $\neg (p \lor q)\equiv \neg p \land \neg q$
 NOTE: We use the symbol $\equiv$ to denote two statements which are logically equivalent.
 
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 
 Recall the truth table for the implication proposition from above.
 
@@ -422,7 +431,7 @@ A proposition that is neither a tautology nor a contradiction is said to
 be a *contingency*.
 
 ****
-.Example {counter:logicexample} - Tautology and Contradiction
+.Example {counter:proofexample} - Tautology and Contradiction
 $  p \lor \neg p$ is an example of a tautology.
 
 $ p \land \neg p$ is an example of a contradiction.
@@ -446,7 +455,7 @@ Notice that the truth values for $p \lor \neg p$ are all True and $p \land \neg 
 A *predicate* is a statement involving a variable.
 
 ****
-.Example {counter:logicexample} - Predicates
+.Example {counter:proofexample} - Predicates
 
 * $x \leq 3$
 * computer $c$ is infected
@@ -467,7 +476,7 @@ After a value is assigned to each variable, the predicate becomes a proposition 
 :pt_rawinput: false
 :pt_code: def%20P%28x%29%3A%0A%20%20%20%20return%20str%28x%29%20%2B%20%22%20%E2%89%A4%203%22%0A%0Adef%20truth_value_of_P%28x%29%3A%0A%20%20%20%20return%20x%20%3C%3D%203%0A%0Aprint%28%20P%285%29,%22is%22,truth_value_of_P%285%29%29%0Aprint%28%20P%282%29,%22is%22,truth_value_of_P%282%29%29
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 --
 --
 Let $P(x)$ be the predicate $x \leq 3$.  What are the propositions $P(5)$ and $P(2)$?  What are the truth values of $P(5)$ and $P(2)$?
@@ -483,7 +492,7 @@ include::python_tutor.adoc[]
 // OLD CODE :pt_code: def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0An%20%3D%204%0Aprint%28P%28n%29%29%0A
 :pt_code: def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0Afor%20n%20in%20%5B1000,%201000000%5D%3A%0A%20%20%20%20s%20%3D%20P%28n%29%0A%20%20%20%20print%28s%29%0A
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 --
 --
 Let $P(x)$ be the predicate "The sum of the first $n$ positive odd integers is equal to $n^{2}$."  
@@ -498,7 +507,7 @@ include::python_tutor.adoc[]
 :pt_rawinput: false
 :pt_code: def%20Q%28x,%20y%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aa%20%3D%20Q%286,%202%29%0Ab%20%3D%20Q%281,%205%29%0Ac%20%3D%20Q%28-2,%202%29
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 --
 --
 Let $Q(x,y)$ be the statement $x-y=4$.
@@ -523,7 +532,7 @@ The *Universal Quantifier*, $\forall$, represents the statement "for all", "for 
 :pt_code: stmt%20%3D%20%22For%20all%20x,%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x%20%2B%201%20%3E%20x%0A%0Aforall%20%3D%20True%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20false%0A%20%20%20%20if%20P%28x%29%20%3D%3D%20False%3A%0A%20%20%20%20%20%20%20%20forall%20%3D%20False%0A%20%20%20%20%20%20%20%20%0Aprint%28stmt%29%0Aprint%28forall%29
 ****
 .
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 
 Universal Quantifier $\forall x, x + 1 \gt x$
 --
@@ -540,7 +549,7 @@ NOTE: We use the example domain [-2, -1, 0, 1, 2] because code can not check all
 :pt_code: stmt%20%3D%20%22For%20all%20x,%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x%20%2B%20x%20%3E%20x%0A%0Aforall%20%3D%20True%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20false%0A%20%20%20%20if%20not%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20forall%20%3D%20False%0Aprint%28stmt%29%0Aprint%28forall%29
 
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 
 Universal Quantifier $\forall x, x + x \gt x$
 --
@@ -558,7 +567,7 @@ The *Existential Quantifier*, $\exists$, represents the statement "there exists"
 :pt_code: stmt%20%3D%20%22There%20exists%20an%20x,%20such%20that%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x**2%20%3D%3D%204%0A%0Aexists%20%3D%20False%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20true%0A%20%20%20%20if%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20exists%20%3D%20True%0Aprint%28stmt%29%0Aprint%28exists%29
 
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 
 Existential Quantifier $\exists x, x^2 = 4$
 --
@@ -574,7 +583,7 @@ include::python_tutor.adoc[]
 :pt_code: stmt%20%3D%20%22There%20exists%20an%20x,%20such%20that%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x**3%20%3D%3D%204%0A%0Aexists%20%3D%20False%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20true%0A%20%20%20%20if%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20exists%20%3D%20True%0Aprint%28stmt%29%0Aprint%28exists%29
 
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 
 Existential Quantifier $\exists x, x^3 = 4$
 --
@@ -622,7 +631,7 @@ $\neg \exists x P(x) \equiv \forall x \neg P(x)$
 ****
 
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 * Someone in the class can speak Latin.
 
 Using quantifiers, we write this statement as $\exists x L(x)$ where $L(x)$ is the proposition "$x$ speaks Latin." and the domain is the students in the class.
@@ -665,7 +674,7 @@ The first statement, for all integers $x$, there exists an integer $y$ such that
 While the second statement, there exists an integer $x$, such that for all integers $y$, $x+y=0$, is false.
 
 ****
-.Example {counter:logicexample}
+.Example {counter:proofexample}
 Let $Q(x,y)$ be the statement $xy=0$.  If the domain for both variables consists of all integers, what are the truth values of the following statements?
 
 * $Q(0,3)$ is True since $0\cdot 3=0$
@@ -691,7 +700,7 @@ To negate nested quantifiers, repeatedly apply De Morgan's Laws of negating a qu
 Namely, $\neg \forall x P(x) \equiv \exists x \neg P(x)$ and $\neg \exists x P(x) \equiv \forall x \neg P(x)$.
 
 ****
-.Example {counter:logicexample} - Negation of quantified statements
+.Example {counter:proofexample} - Negation of quantified statements
 Find the negation of the statment "For all integers $x$, there exists an integer $y$ such that $x=-y$."
 
 .Solution
@@ -739,7 +748,7 @@ We summarize the truth tables for the bitwise boolean operators.
 
 
 ****
-.Example {counter:logicexample} - Bitwise Operations
+.Example {counter:proofexample} - Bitwise Operations
 Find  the bitwise $AND, OR, XOR$ for the following binary numbers,
 
 \[ A = 111101\]
@@ -816,7 +825,7 @@ We end this section by  first analyzing logic circuits to give their outputs in
 terms of their input variables, and then, constructing logic circuits based on logical statements.
 
 ****
-.Example {counter:logicexample} - Output of a logic circuit in terms Input
+.Example {counter:proofexample} - Output of a logic circuit in terms Input
 Determine the output of the following logic circuit in terms of the input variables, $p, q$, and $r$.
 
 image::images/logic_gate_3.png[]
@@ -834,7 +843,7 @@ In the next two examples, we design logic circuits based on logical propositions
 is to work backward using order of operations from the right to the left.
 
 ****
-.Example {counter:logicexample} - Design a Logic Circuit
+.Example {counter:proofexample} - Design a Logic Circuit
 Design a logic circuit for $(p\vee\lnot\ q)\land\lnot\ p$.
 
 .Solution
@@ -859,7 +868,7 @@ image::images/logic_gate_4.png[]
 
 
 ****
-.Example {counter:logicexample} - Design a Logic Circuit
+.Example {counter:proofexample} - Design a Logic Circuit
 Design a logic circuit for $r\land (p\lor (r\land \neg q))$.
 
 .Solution
@@ -1020,3 +1029,4 @@ image::images/logic_gate_1.png[]
 image::images/logic_gate_2.png[]
 
 . Design a logic circuit for $r\land (p\lor (r\land \neg q))$.
+/// MKD end of old content

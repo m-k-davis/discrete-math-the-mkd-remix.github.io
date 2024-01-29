@@ -1,18 +1,17 @@
 = Functions
 
 
-A *function*, written $f : A \rightarrow B$, is a  mathematical relation where each element of a set $A$,
-called the *domain*, is associated with a unique element of another set $B$, called the *codomain*
-of the function.
+//MKD clean this up - move \rightarrow to second paragraph? And include set of ordered paris definition?
+//A *function*, written $f : A \rightarrow B$, is a  mathematical relation where each element of a set $A$,
+//called the *domain*, is associated with a unique element of another set $B$, called the *codomain*
+//of the function.
 
-For   each  element $a \in  A$, we  associate a  unique  element  $b \in  B$.  The set of all such associations is called a function $f$  from $A$ into $B$, denoted $f : A \rightarrow B$, with $(a,b)$ used to indicate the mapping
-$f: a \rightarrow  b$, or $f(a)=b$. Here $b$ is understood to be the *image* of $a$ assigned by $f$.
-The *range* is the set of all image values $f(a)$. With this notation, $a$ is allowed to vary over all elements in the set $A$.
+A *function* $f$ with domain set $A$ and codomain set $B$, is a subset of the Cartesian product $A\times B$ where each element of $A$ is associated with a unique element of $B$. That is, for each element $a \in  A$ there is exactly one $b \in  B$ such that $f(a)=b$, where $b$ is called the *image* of $a$ assigned by $f$. We can also write $f: a \rightarrow  b$ to mean that $f(a)=b$. and we write $f : A \rightarrow B$ to state that $f$ is a function with domain set $A$ and codomain set $B$. The *range* is the set of all image values $f(a)$. With this notation, $a$ is allowed to vary over all elements in the set $A$.
 
 
 == Injective Surjective, Bijective and Inverse Functions
 A function $f$ is *injective*, or *one to one*, if every element in the range $B$ is
-associated with a unique element from the domain $A$. This means that if $f(m)=b$
+associated with a unique element from the domain $A$, that is, different elements of $A$ have nonequal images in $B$. This means that if $f(m)=b$
 and $f(n)=b$, then necessarily $m=n$.
 
 Real-valued functions, $f: \mathbb{R} \rightarrow \mathbb{R}$, that are strictly
@@ -30,6 +29,7 @@ in the range.
 ====
 On a Cartesian plane, this means that _every_ horizontal line intersects
 the graph _at most once_ for an injective function.  A function is not injective if _at least one_ horizontal line intersects the graph _more than once_.
+//MKD ADD GRAPH SHOWING NOT INJECTIVE
 ====
 A function $f$ from the set $A$ to the set $B$ is *surjective*, or *onto*, if the image set of $A$ is the entire set $B$. This means than for any element $b \in B$ there is some element $a \in A$ with $f(a)=b$.
 
@@ -45,6 +45,7 @@ this means that _every_ horizontal line intersects
 the graph _at least once_ for a surjective function.
 A function is not surjective if
 _there is_ a horizontal line  that _does not intersect_ the graph.
+//MKD ADD GRAPH SHOWING NOT SURJECTIVE
 ====
 ****
 .Example {counter:funcex} - injective but not surjective.

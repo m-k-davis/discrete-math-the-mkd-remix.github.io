@@ -1,5 +1,7 @@
 = Introducing Discrete Mathematics
 
+//// OMITTED FOR NOW - NEEDS MAJOR EDITING
+MKD: These Course Objectives are the same as the ones in the front matter of the original text; see https://github.com/ggc-discrete-math/ggc-discrete-math.github.io/blob/main/front_matter.html
 == Course Objectives
 
 At Georgia Gwinnett College, students who have successfully completed the Discrete Mathematics course will,
@@ -32,7 +34,169 @@ recursively versus iteratively.
 The approach we take is one with an integrative incorporation of programming and
 algorithms into the course. The aim is to help improve students success
 with their broad programming curricula in courses like Intermediate and Advanced Programming.
+//// end OMITTED
 
+
+
+// MKD: Added a new section on basic content; this should be Chapter 0 to emphasize that the basis of induction is 0 :), but I need to figure out how to force that numbering.
+// MKD notes
+// musing to helg students understand our approach: Math is one of human civilization's greatest tools. It involves pattern noticing, counting, collecting , generalizing, formalizing, abstracting. This is a continuing work that spans at least 5,000 years, and will continue long after we are all gone: Do not forget that we are living currently in an era that will be someone else's Ancient History!
+// natural numbers, trees, collections, statements (expressions, words, etc)
+// number theory - properties of the natural numbers
+// logic - how to reason about truth and falsity
+// graphs and trees - how to describe networks of connections
+// combinatorics - how rto count fast
+// JUST-IN-TIME appendices: Python, Algebra
+
+
+// MKD: new section on basic content
+== Basics 
+//This section informally introduces some basic foundational mathematical concepts that will be used throughout the book. These concepts will be discussed much more formally later in the textbook.
+
+Here is an informal introduction to some basic foundational mathematical concepts that will be used throughout the book. These concepts will be discussed much more formally later in the textbook.
+
+* A *set* is an unordered collection of zero or more objects. You can think of a set as a list of names of the objects, where the list may contain duplicate entries and may be unsorted. 
+// not be sorted in any particular way, BUT we 
+We only care whether an object's name is in the list -  we do not care where in the list the name appears or how many times the name appears in the list. An example is the set of the names of the additive primary colors of light which can be written as $\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}$ which contains exactly three elements: "red", "green", and "blue". 
+
+** NOTE: 
+//Mathematical 
+In mathematics, sets like $\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}$ are  _constants_ - once a set has been defined and described you cannot change the set by removing elements or inserting new elements. As an example, $\text{"yellow"}$ [.underline]#cannot# be inserted into the old set $\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}$ defined above, but we [.underline]#can# define a _new set_ $\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"},\,\text{"yellow"} \}$ that contains four elements by appending $\text{"yellow"}$ to the end of the list used to define the old set.
+
+//* In this book, the *natural numbers*, denoted by the letter $\mathbb{N}$, is the set of _nonnegative integers_ $\{ 0,\,1,\,2,\,3,\,\ldots \}$. Be careful when looking at other books or sources on the internet - some of them may define the natural numbers to be the same as the positive integers.
+
+// MKD NOTE ON NATURAL NUMBERS: Both "Rosen" and "Haggard, Schlipf, and Whitesides" define the natural numbers as $\{ 0,\,1,\,2,\,3,\,\ldots \}$ 
+// MKD ISO 80000-2 ALSO DEFINES NATURAL NUMBERS TO INCLUDE 0
+//A *natural number* is one of the _nonnegative integers_.
+* #A *natural number* is one of the _nonnegative integers_.# 
+The letter $\mathbb{N}$ denotes the set of natural numbers, that is, $\mathbb{N} = \{ 0,\,1,\,2,\,3,\,\ldots \}$ 
+//(The three dots are used because the list is infinite, but we cannot write out an infinite list). 
+where the three dots are used because we cannot write down the entire,  infinitely-long list of natural numbers. 
+** WARNING: Be careful when looking at other sources (older books or websites) - 
+most use the standardized definition of "natural numbers" that is used in this textbook, but a few may define a natural number to be a positive integer.
+//some use the same definition of "natural number" as this textbook does, but others may define natural numbers to be positive integers.
+
+:pt_code_height: 350
+:pt_rawinput: false
+:pt_code: %23%20L%20is%20a%20Python%20list%20object%20containing%202%20items%0AL%20%3D%20%5B%22Discrete%22,%20%22Mathematics%22%5D%0Aprint%28L%5B0%5D%29%0Aprint%28L%5B1%5D%29%0Aprint%28L.index%28%22Discrete%22%29%29%0A
+****
+//.Example {counter:introdm:0} - Counting From 0
+.Example - Counting From 0
+--
+--
+//The code below shows that it is quite "natural" to use $0$ as the index of  the initial element of a list in Python. 
+The code below shows that it is "natural" to start counting from $0$ in certain contexts. 
+
+Click on the "Next" button to step through the code.
+include::python_tutor.adoc[]
+****
+
+
+//MKD Move discussion of primes to later Chapter?
+* A positive integer $n$ that is greater than $1$ is called *prime* if the only positive integer factors of $n$ are $1$ and $n$ itself, and is called *composite* otherwise. For example, $2$ is prime since its set of positive integer factors is $\{ 1,\,2 \}$, but $6$ is composite since its set of positive integer factors is $\{ 1,\,2,\,3,\,6 \}$. 
+** NOTE: #The integer $1$ is considered neither prime nor composite.# The reason for this is beyond the scope of this textbook but would be discussed in a more advanced math course in _ring theory_.
+
+
+* A *function* is a rule that assigns to each valid input exactly one output value. The set of valid input values is called the _domain_ and the set that contains the output values is called the _codomain_ (The _range_ is the set that contains only the output values and no other elements).
+One example of a function is described by 
+//"Return the first character of the unicode string that is typed by the user." Another example is described by "Return the concatenation of 'Hello, ' and the name typed in by the user." 
+"Return the first character of the input string." 
+Another example is described by "Return the concatenation of 'Hello, ' and the input string." 
+Other examples, described by mathematical formulae, are $f(n) = n^{2}$, $g(x,\,y) = xy + y$, and $h(z) = 2z+1$.
+//MKD may use this: code=def%20firstChar%28%29%3A%0A%20%20%20%20print%28%22Hello!%20What's%20your%20name%3F%22%29%0A%20%20%20%20X%3Dinput%28%29%0A%20%20%20%20print%28X%5B0%5D%29%0AfirstChar%28%29
+//MKD may use this instead: def%20getFirstChar%28%29%3A%0A%20%20%20%20print%28%22Hello!%20What's%20your%20name%3F%22%29%0A%20%20%20%20return%28input%28%29%5B0%5D%29%0Aprint%28getFirstChar%28%29%29
+
+// MKD ALTERNATE CODE FOR EXAMPLE: def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E%200%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20%23%20We%20should%20handle%20an%20IndexError%20here%20%0A%20%20%20%20%20%20%20%20%23%20but%20for%20now,%20just%20return%20theString.%0A%20%20%20%20%20%20%20%20return%20theString%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28getFirstChar%28%22%22%29%29%0Aprint%28squareMe%289%29%29%0A
+// MKD ANOTHER ALTERNATIVE ef%20getFirstChar%28theString%29%3A%0A%20%20%20%20%23%20BAD%20CODER!%20You%20need%20to%20check%0A%20%20%20%20%23%20%20%20for%20the%20empty%20string!%0A%20%20%20%20return%20theString%5B0%5D%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0A
+
+:pt_code_height: 400
+:pt_rawinput: false
+:pt_code: def%20getFirstChar%28theString%29%3A%0A%20%20%20%20%23%20BAD%20CODE!%20Throws%20an%20IndexError%20%0A%20%20%20%20%23%20%20%20when%20theString%20is%20%22%22%0A%20%20%20%20return%20theString%5B0%5D%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0A
+
+
+****
+//.Example {counter:introdm} - Functions
+.Example - Functions
+--
+--
+The code below shows two functions that are user-defined in Python.
+
+Click on the "Next" button to step through the code.
+include::python_tutor.adoc[]
+****
+
+* A *one-to-one correspondence* between two sets $A$ and $B$ is a function with domain $A$ and range $B$ such that every output value in $B$ corresponds to exactly one input value. That is, a one-to-one correspondence pairs each member of the set $A$ with exactly one member of set $B$, and pairs each member of set $B$ with exactly one member of set $A$
+//: Each member of the domain appears in exactly one pair. 
+For example, the function that assigns each uppercase English letter to its corresponding lowercase English letter is a one-to-one correspondence between 
+the set of uppercase English letters 
+//$\{ "A",\,"B",\,"C",\,\ldots,\,"X",\,"Y",\,"Z" \}$ and 
+$\{ \text{"A","B","C",...,"X","Y","Z"} \}$ and 
+the set of lowercase English letters 
+//$\{ "a",\,"b",\,"c",\,\ldots,\,"x",\,"y",\,"z" \}$.
+$\{ \text{"a","b","c",...,"x","y","z"} \}$.
+
+:pt_code_height: 400
+:pt_rawinput: false
+:pt_code: %23import%20string%0A%23Lower%20%3D%20string.ascii_lowercase%0A%23Upper%20%3D%20string.ascii_uppercase%0ALower%20%3D%20%22abcdefghijklmnopqrstuvwxyz%22%0AUpper%20%3D%20%22ABCDEFGHIJKLMNOPQRSTUVWXYZ%22%0Adef%20upperToLower%28theLetter%29%3A%0A%20%20%20%20thePosition%20%3D%20Upper.find%28theLetter%29%0A%20%20%20%20if%20thePosition%20%3D%3D%20-1%3A%20%0A%20%20%20%20%20%20%20%20%23%20theLetter%20was%20not%20found%20in%20Upper%0A%20%20%20%20%20%20%20%20print%28theLetter,%22is%20not%20a%20valid%20input.%22%29%0A%20%20%20%20%20%20%20%20return%20%22%22%20%23%20Not%20very%20good%20error%20handling%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20Lower%5BthePosition%5D%0Aprint%28%20upperToLower%28%22B%22%29%20%29%0Aprint%28%20upperToLower%28%22y%22%29%20%29
+//import%20string%0ALower%20%3D%20string.ascii_lowercase%0AUpper%20%3D%20string.ascii_uppercase%0AtheMapping%20%3D%20%7B%7D%20%23%20initialize%20an%20empty%20dictionary%0Afor%20i%20in%20range%2826%29%3A%0A%20%20%20%20theMapping%5B%20Upper%5Bi%5D%20%5D%20%3D%20Lower%5Bi%5D%0Aprint%28%20theMapping%20%29
+
+
+****
+//.Example {counter:introdm} - One-To-One Correspondence
+.Example - One-To-One Correspondence
+--
+--
+The code below shows two functions that are user-defined in Python.
+
+Click on the "Next" button to step through the code.
+include::python_tutor.adoc[]
+****
+
+
+* *Summation notation* is used to abbreviate a _finite_ sum of numbers that contains a large number of addends. As an example, the sum $1+3+5+7+9+11+13+15+17+19$ can be abbreviated as $\sum\limits_{i=0}^{9}(2i+1)$. Likewise, 
+the sum of the first $500$ positive odd integers,  
+$1+3+5+\ldots+995+997+999$, can be abbreviated as  $\sum\limits_{i=0}^{499}(2i+1)$. 
+
+** NOTE 1: The variable $i$ is commonly used in summation notation and is called the _index of summation_. We substitute each integer value for $i$, starting with the lower limit and stopping at the upper limit, into the algebraic expression or function written to the right of the capital Greek letter $\sum$, which is called "sigma". This index of summation $i$ has nothing to do with the complex number constant $i$ - Mathematicians recycle and reuse letters!
+
+** NOTE 2: "Infinite sums," more properly called _infinite series_, are not discussed in this discrete mathematics textbook. Each infinite series is defined as the limit of sequences of partial (finite) sums, and "limits" is a topic from continuous mathematics, not discrete mathematics.
+// involving properties of the real numbers.
+
+* A *statement* is a finite number of words, symbols, etc., that express human communication. For example, "The previous sentence contained more than three words" is a statement. Other examples of statements are "$2 + 2 = 5$" and "Some positive integers are prime." 
+Two statements are *equivalent* if the first must be true when the second one is true AND the second must be true when the first one is true. 
+
+* A *predicate* is an incomplete statement that contains one or more variables that need to be filled in. Two examples are 
+"My major is $\rule{3mm}{.1pt}$." 
+and 
+"The positive integer $n$ is a prime number." 
+We will often use notation that is similar to function notation: $P(n)$ = "The positive integer $n$ is a prime number."
+Two predicates are *equivalent* if the first must be true when the second one is true AND the second must be true when the first one is true. 
+
+* A *bitstring* is a finite sequence of _bits_ (that is the binary digits 0 and 1). Bitstrings can be used to represent a sequence of answers to "No-Yes" or "False-True" questions. Bitstrings can also be used to represent numbers in _binary notation_ as in the example "There are 10 kinds of people in this world — those who understand binary and those who don’t."
+//MKD maybe say a bit more about binary notation vs. decimal notation
+
+* The *multiplication principle* (also called the *product rule*) is a basic counting technique. Suppose that we have a procedure that consists of completing two steps, that there are $k$ possible ways to complete the first step, and for each possible way of completing the first step, there are $m$ possible ways to complete the second step, then there are $k \cdot m$ ways to complete the two steps. As an example, the number of ways to construct a two-character string whose first character is one of the 26 uppercase letters from the English alphabet and whose second character is one of the 10 Hindu-Arabic numerals is $26 \cdot 10$ or $260$.
+
+* A *(vertex-edge) graph* is a mathematical object that consists of vertices connnected by edges. 
+// MKD NEEDS ARTWORK HERE.
+// maybe https://eng.libretexts.org/@api/deki/files/42793/clipboard_e2c0029f031ce8d39860aa77e76b909cf.png?revision=1&size=bestfit&width=321&height=151 from https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_and_Computation_Fundamentals/Mathematics_for_Computer_Science_%28Lehman_Leighton_and_Meyer%29/02%3A_Structures/11%3A_Simple_Graphs/11.01%3A_Vertex_Adjacency_and_Degrees (MIT Courseware, so should be CC BY-NC)
+//MKD also want to define the complete graph on n vertices, and the star graph on n vertices here... This lays some groundwork for the Math Induction Task so that it can be done before formally introducing graph theory. Consider graphic at https://www.researchgate.net/figure/a-A-complete-graph-with-5-nodes-b-A-star-graph-with-9-nodes_fig1_368473539, but we may need to create our own graphics for these to maintain SA NC 4.0 status.
+
+
+The design of this book is to introduce each concept informally, as was done above for the basic concepts, then notice properties and patterns, generalize what has been noticed, and formalize the ideas to prepare for even deeper analysis.
+
+
+== Just-In-Time Appendices
+Two appendices to this textbook contain additional mathematics that you may need to review as you work your way through the textbook. 
+
+In addition, this book contains code snippets written in Python that are designed to aid your understanding of the mathematical concepts. 
+One of the appendices introduces some (but not all) basic concepts from the Python programming language - the goal is to learn _"just enough Python"_ to be able to examine, run, and alter the existing code snippets. 
+You are NOT expected to know the Python programming language before you start this course, and it is NOT one of the goals for you to master Python during this course.
+
+ 
+
+////
+MKD: NEED TO EDIT ALL ORIGINAL TEXT BELOW.
 
 == Applications of Discrete Mathematics
 
@@ -237,20 +401,22 @@ image::images/set_integers.png[]
 
 ****
 
-****
-
-.Example--The discrete set of rational numbers
-
-The set of all fractions or rational numbers in
+//MKD - may omit the "The discrete set of rational numbers" example
+// since per https://mathworld.wolfram.com/RationalNumber.html (need to get original ref), "It is always possible to find another rational number between any two members of the set of rationals. Therefore, rather counterintuitively, the rational numbers are a continuous set, but at the same time countable."
+//****
+//
+//.Example--The discrete set of rational numbers
+//
+//The set of all fractions or rational numbers in
 the interval $[0,1]$ is countable, by contrast, with the set of
 all real numbers in the continuous interval, $[0,1]$, which is uncountable and also not
 discrete.
-
-.The set of rational numbers in the interval, $[0,1]$.
-
-image::images/set_rationals.png[]
-
-****
+//
+//.The set of rational numbers in the interval, $[0,1]$.
+//
+//image::images/set_rationals.png[]
+//
+//****
 
 ****
 
@@ -301,3 +467,4 @@ $\{0, 1, 2\}$, and explain why the set is discrete.
 a $2$, followed by rolling a $3$, or $(3,2)$, corresponding to rolling a $3$, followed by a $2$.
 .. List all possible outcomes.
 .. Explain why the set of all possible outcomes is a discrete set.
+////
