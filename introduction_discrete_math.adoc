@@ -1,6 +1,7 @@
 = Introducing Discrete Mathematics
 
-//// OMITTED FOR NOW - NEEDS MAJOR EDITING
+// OMITTED FOR NOW - NEEDS MAJOR EDITING
+////
 MKD: These Course Objectives are the same as the ones in the front matter of the original text; see https://github.com/ggc-discrete-math/ggc-discrete-math.github.io/blob/main/front_matter.html
 == Course Objectives
 
@@ -34,7 +35,8 @@ recursively versus iteratively.
 The approach we take is one with an integrative incorporation of programming and
 algorithms into the course. The aim is to help improve students success
 with their broad programming curricula in courses like Intermediate and Advanced Programming.
-//// end OMITTED
+//// 
+//end OMITTED
 
 
 
