@@ -1337,7 +1337,7 @@ More formally, \[A \setminus B = \{x \in U: x \in A \text{ and } x \not\in B\}.\
        </div>
        <div class="paragraph">
         <p>
-         Note that, for any sets \(A\) and \(B, if \)A \neq B,$ then \[A \setminus B \neq B \setminus A.\]
+         Note that, for any sets \(A\) and \(B\), if \(A \neq B,\) then \[A \setminus B \neq B \setminus A.\]
 However, if \(A = B,\) then \(A\setminus B = B \setminus A = \emptyset\).
         </p>
        </div>
@@ -1887,6 +1887,32 @@ Cartesian product sets,
        <p>
         For an integer \(n &gt; 3\), the Venn diagram is less useful for representing the partitioning of the universe created by \(n\) subsets, but we can still reason that there ought to be \(2^{n}\) subsets in the partition, where each of the subsets can be described by a unique bitstring of length \(n\) (We will be able give a formal mathematical proof of this for every positive integer \(n\) later in the textbook after we’ve discussed mathematical induction.)
        </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_disjunctive_normal_form_set_version">
+        3.4.1. Disjunctive Normal Form (Set Version)
+       </h4>
+       <div class="paragraph">
+        <p>
+         Suppose we have three sets \(A\), \(B\), and \(C\), and have partitioned the universe \(U\) into the 8 subsets as discussed above. Then a set that corresponds to any shading of the Venn diagram can be
+written as a union of intersections of three sets, with one set chosen from each of the pairs \(\{ A,\,\overline{A} \}\), \(\{ B,\,\overline{B} \}\), and \(\{ C,\,\overline{C} \}\). For example, the set shown in the figure below is equal to
+\((\overline{A} \cap \overline{B} \cap \overline{C}) \cup (A \cap \overline{B} \cap \overline{C}) \cup (\overline{A} \cap B \cap \overline{C}) \cup (\overline{A} \cap B \cap C)\).
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="ABC DNF EXAMPLE" src="imagesMKD/ABC_DNF_EXAMPLE.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         This type of expression is called a
+         <strong>
+          disjunctive normal form
+         </strong>
+         (or DNF) for the set that it represents. We will see an analog of these in a different context in the chapter on Logic.
+        </p>
+       </div>
       </div>
      </div>
      <div class="sect2">
