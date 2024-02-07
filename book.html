@@ -80,7 +80,11 @@ $(document).on('page:load', ready2);
 <ul class="sectlevel2">
 <li><a href="#_sets">3.1. Sets</a></li>
 <li><a href="#_set_operations">3.2. Set Operations</a></li>
-<li><a href="#_representing_sets_as_lists">3.3. Representing Sets as Lists</a></li>
+<li><a href="#_set_identities">3.3. Set Identities</a></li>
+<li><a href="#_venn_diagrams_partitions_and_bitstrings">3.4. Venn Diagrams, Partitions, and Bitstrings</a></li>
+<li><a href="#_the_principle_of_inclusion_exclusion_pie">3.5. The Principle Of Inclusion-Exclusion (PIE)</a></li>
+<li><a href="#_representing_sets_as_lists">3.6. Representing Sets as Lists</a></li>
+<li><a href="#_exercises">3.7. Exercises</a></li>
 </ul>
 </li>
 <li><a href="#_logic">4. Logic</a></li>
@@ -105,7 +109,7 @@ $(document).on('page:load', ready2);
 <li><a href="#_lists_and_loops">14.8. Lists and Loops</a></li>
 <li><a href="#_list_appending_and_slicing">14.9. List Appending and Slicing</a></li>
 <li><a href="#_defining_custom_functions">14.10. Defining Custom Functions</a></li>
-<li><a href="#_exercises">14.11. Exercises</a></li>
+<li><a href="#_exercises_2">14.11. Exercises</a></li>
 </ul>
 </li>
 <li><a href="#_appendix_1_library_of_functions">15. Appendix 1: Library of Functions</a>
@@ -367,7 +371,7 @@ Two predicates are <strong>equivalent</strong> if the first must be true when th
 <p>The <strong>multiplication principle</strong> (also called the <strong>product rule</strong>) is a basic counting technique. Suppose that we have a procedure that consists of completing two steps, that there are \(k\) possible ways to complete the first step, and for each possible way of completing the first step, there are \(m\) possible ways to complete the second step, then there are \(k \cdot m\) ways to complete the two steps. As an example, the number of ways to construct a two-character string whose first character is one of the 26 uppercase letters from the English alphabet and whose second character is one of the 10 Hindu-Arabic numerals is \(26 \cdot 10\) or \(260\).</p>
 </li>
 <li>
-<p>A <strong>(vertex-edge) graph</strong> is a mathematical object that consists of vertices connnected by edges. In the example below, there are \(6\) vertices and \(7\) edges. Unlike a geometric figure, the edge only contains its endpoints,that is, the edges are just connectors between its endpoints, and locations/points along an edge are ignored.</p>
+<p>A <strong>(vertex-edge) graph</strong> is a mathematical object that consists of vertices connnected by edges. In the example below, there are \(6\) vertices and \(7\) edges. Unlike a geometric figure, each edge only contains its endpoints,that is, edges are just connectors between endpoints and locations/points along an edge are ignored.</p>
 </li>
 </ul>
 </div>
@@ -1194,7 +1198,13 @@ Note that other textbooks and internet sources may use different notation for th
 </div>
 </div>
 <div class="paragraph">
-<p>For any set \(A,\) \[\overline{A} = U \setminus A.\]</p>
+<p>For any set \(A,\)
+
+\[ \overline{\overline{A}} = A \]
+
+\[ \overline{A} \cup A = U \]
++
+\[ \overline{A} \cap A = \emptyset. \]</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1494,9 +1504,569 @@ Cartesian product sets,</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_representing_sets_as_lists">3.3. Representing Sets as Lists</h3>
+<h3 id="_set_identities">3.3. Set Identities</h3>
 <div class="paragraph">
-<p>COMING SOON!</p>
+<p>Here is a collection of additional properties of the operations on sets. Each of these can be verified by drawing two Venn diagrams, one that represents the left-hand side of the equation and another that represents the right-hand side of the equation and showing that the resulting shadings of the Venn diagrams are the same.</p>
+</div>
+<div class="paragraph">
+<p>Note that it is traditional to focus on complement, union, and intersection as the three primary set operations because the other operations such as difference and symmetric difference can be written in terms of those three primary operations, for example,
+\(A \setminus B = A \cap \overline{B}\) and
+\(A \oplus B = (A \cap \overline{B}) \cup (\overline{A} \cap B)\).</p>
+</div>
+<div class="paragraph">
+<p>Associative laws:
+
+\[ A ∪ (B ∪ C) = (A ∪ B) ∪ C \]
+
+\[ A ∩ (B ∩ C) = (A ∩ B) ∩ C \]</p>
+</div>
+<div class="paragraph">
+<p>Distributive laws:
+
+\[ A ∪ (B ∩ C) = (A ∪ B) ∩(A ∪ C) \]
+
+\[ A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) \]</p>
+</div>
+<div class="paragraph">
+<p>De Morgan’s laws:
+
+\[ \overline{A \cup B} = \overline{A} \cap \overline{B} \]
+
+\[ \overline{A \cap B} = \overline{A} \cup \overline{B} \]</p>
+</div>
+<div class="sect3">
+<h4 id="_operator_precedence_order_of_operations">3.3.1. Operator Precedence (Order Of Operations)</h4>
+<div class="paragraph">
+<p>To ensure that we can properly interpret an expression involving multiple set operations, we can either use parentheses or rely on <em>operator precedence</em>.</p>
+</div>
+<div class="paragraph">
+<p>When an expression for sets involves parentheses, complementation, intersection, and union, we start by evaluating all expressions enclosed in parentheses from left to right, then all complementations from left to right, then all intersections from left to right, and finally all unions from left to right. (Set difference and symmetric difference were left out of this discussion because there does not seem to be a standard definition for where they fit in! But, as shown earlier, those two operations can be rewritten in terms of complementation, union, and intersection.)</p>
+</div>
+<div class="paragraph">
+<p>For example, the expression \(\overline{A} \cup B \cap C\) represents the same set as \((\overline{A}) \cup (B \cap C)\). Parentheses must be used if you want to represent a different set such as \((\overline{A} \cup B) \cap C\).</p>
+</div>
+<div class="paragraph">
+<p>This is the same way arithmetic expressions like \(-3 + 5 \cdot 2\) are evaluated: The value of \(-3 + 5 \cdot 2\) is \((-3) + (5 \cdot 2) = 7\), <strong>not</strong> \((-3 + 5) \cdot 2 = 4\).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_venn_diagrams_partitions_and_bitstrings">3.4. Venn Diagrams, Partitions, and Bitstrings</h3>
+<div class="paragraph">
+<p>A <strong>partition</strong> of a set \(U\) is a set of subsets of \(U\) such that each element \(x \in U\) is a member of exactly one of the subsets in the partition. You already know at least one example of such a partition -  the partitoning of the integers \(\mathbb{Z}\) by its 2 subsets in \(\Pi = \{ \text{the set of even integers}, \text{the set of odd integers} \}\); every integer belongs to exactly one of the two elements of the set \(\Pi\).</p>
+</div>
+<div class="paragraph">
+<p>In fact, for any chosen subset \(A \subseteq U\) we have a partition of \(U\) into the 2 sets that are elements of \(\{ A,\,\overline{A} \}\). Note that each element of \(U\) must be in exactly one of the subsets \(A\) and \(\overline{A}\).</p>
+</div>
+<div class="paragraph">
+<p>For two subsets \(A\) and \(B\) of a universal set \(U\), consider the Venn diagram of \(A\) and \(B\). By considering all possible intersections of these two sets and their complements, \(U\) is partitioned into 4 subsets, namely, the 4 elements of \(\{ \overline{A} \cap \overline{B},\, \overline{A} \cap B,\,A \cap \overline{B},\,A \cap B \}\). We can refer to each of these 4 subsets by using bitstrings of length 2 as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The leftmost bit is 1 if an element of the subset is an element of \(A\), and is 0 if an element of the subset is not an element of \(A\).</p>
+</li>
+<li>
+<p>The rightmost bit is 1 if an element of the subset is an element of \(B\), and is 0 if an element of the subset is not an element of \(B\).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, in the following Venn diagram, the subset \(A \setminus B\) is labeled with the bitstring \(10\) because an element of \(A \setminus B\) is an element of \(A\) and not an element of \(B\).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="imagesMKD/ABbitstrings.png" alt="ABbitstrings">
+</div>
+</div>
+<div class="paragraph">
+<p>If we had instead three sets \(A\), \(B\), and \(C\), we could partition the universe \(U\) into 8 subsets. In detail, if we have an element \(x \in U\), either \(x \in A\) or \(x \not\in A\), and for each of those possibilities, either \(x \in B\) or \(x \not\in B\), and for each of those possibilities, either \(x \in C\) or \(x \not\in C\). We can apply (twice) the <em>multiplication principle</em> that was first mentioned in chapter 2 to show that there are \(2 \cdot 2 \cdot 2\) possible subsets determined by the Venn diagrams of the 3 sets \(A\), \(B\), and \(C\). Using bitstrings of length 3, we can label these 8 subsets as shown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="imagesMKD/ABCbitstrings.png" alt="ABCbitstrings">
+</div>
+</div>
+<div class="paragraph">
+<p>For an integer \(n > 3\), the Venn diagram is less useful for representing the partitioning of the universe created by \(n\) subsets, but we can still reason that there ought to be \(2^{n}\) subsets in the partition, where each of the subsets can be described by a unique bitstring of length \(n\) (We will be able give a formal mathematical proof of this for every positive integer \(n\) later in the textbook after we&#8217;ve discussed mathematical induction.)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_principle_of_inclusion_exclusion_pie">3.5. The Principle Of Inclusion-Exclusion (PIE)</h3>
+<div class="paragraph">
+<p>In certain application problems, we want to compute the cardinality \(|A \cup B|\) of the union of two given finite sets \(A\) and \(B\). It is tempting to simply add \(|A|\) and \(|B|\), but as the Venn diagram below shows, each element of the intersection \(|A \cap B|\) will be counted <em>twice</em>, once for each bit that is \(1\), if we do so.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="imagesMKD/ABbitstrings.png" alt="ABbitstrings">
+</div>
+</div>
+<div class="paragraph">
+<p>The correct relationship between \(|A \cup B|\), \(|A|\), and \(|B|\) is given by \[ |A \cup B| = |A| + |B| -  |A \cap B|. \]</p>
+</div>
+<div class="paragraph">
+<p>Another way to see that this is the correct relationship is to use the partition
+\(\{ \overline{A} \cap \overline{B},\, \overline{A} \cap B,\,A \cap \overline{B},\,A \cap B \}\) to write</p>
+</div>
+<div class="paragraph">
+<p>\(| A | = | A \cap \overline{B} | + | A \cap B |\), <br>
+\(| B | = | \overline{A} \cap B | + | A \cap B |\), and<br>
+\(| A \cup B | = | A \cap \overline{B} | + | A \cap B | + | \overline{A} \cap B |\), so<br></p>
+</div>
+<div class="paragraph">
+<p>\(| A | + | B | = | A \cap \overline{B} | + | A \cap B | + | \overline{A} \cap B | + | A \cap B | = | A \cup B | + | A \cap B |\).</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 20</div>
+<p>Consider the set \(U = \{ n \in \mathbb{N} : 1 \leq 60 \}\). How many elements of \(U\) are divisible by either 2 or 3 or both? How many elements of \(U\) are divisible by neither 2 nor 3?</p>
+</div>
+<div class="paragraph">
+<p>Let \(A\) stand for the subset of \(U\) that consists of multiples of 2, and
+let \(B\) stand for the subset of \(U\) that consists of multiples of 3.
+It&#8217;s not too difficult to see that
+\(|A| = \frac{60}{2} = 30\) and \(|B| = \frac{60}{3} = 20\).
+Also, \(A \cap B\) must be the subset of \(U\) that consists of multiples of 6, so \(| A \cap B | = \frac{60}{6} = 10\).
+(If these computations don&#8217;t make sense to you, just start counting off the pattern \(1,\,2,\,3,\,4,\,5,\,6,\,\ldots\) and notice that every 2nd number is divisible by 2, every 3rd number is divisible by 3, and every 6th number is divisible by both 2 and 3.)
+Now apply the Principle Of Inclusion-Exclusion to find the number of integers in \(U\) that are divisible by either 2 or 3 or both:
+\(|A \cup B| = |A| + |B| -  |A \cap B| = 30 + 20 - 10 = 40\).
+There are 40 integers in \(U\) that are divisible by either 2 or 3 or both,
+so there are \(60 - 40 = 20\) integers in \(U\) that are divisible by neither 2 nor 3.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If want to compute the cardinality \(|A \cup B \cup C|\) of the union of three given finite sets \(A\), \(B\), and \(C\), we can again look at the Venn diagram of the partition of \(U\) into 8 sets to see that some of the intersections  will be counted <em>one</em>, <em>two</em>, or <em>three</em> times, once for each bit that is \(1\).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="imagesMKD/ABCbitstrings.png" alt="ABCbitstrings">
+</div>
+</div>
+<div class="paragraph">
+<p>We can derive the following formula in much that same way that we did above; in fact, we can just apply the formula we found for two sets to \(| A \cup (B \cup C) |\) and use some of the set identities to help simplify the formula. CSC 230 Spring '24 students at SFSU can see the full derivation in the slide deck <em>Sets part 2 Spring '24</em>.
++
+\[ |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|. \]</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 21</div>
+<p>Consider the set \(U = \{ n \in \mathbb{N} : 1 \leq 60 \}\) as in the previous example. How many elements of \(U\) are divisible by at lest one of 2, 3, or 5?? How many elements of \(U\) are divisible by none of 2, 3, or 5?</p>
+</div>
+<div class="paragraph">
+<p>As in the previous example,
+let \(A\) stand for the subset of \(U\) that consists of multiples of 2,
+let \(B\) stand for the subset of \(U\) that consists of multiples of 3, and
+now let \(C\) stand for the subset of \(U\) that consists of multiples of 5.</p>
+</div>
+<div class="paragraph">
+<p>We have
+\(|A| = \frac{60}{2} = 30\),
+\(|B| = \frac{60}{3} = 20\),
+\(|C| = \frac{60}{5} = 12\),
+\(|A \cap B| = \frac{60}{6} = 10\),
+\(|A \cap C| = \frac{60}{10} = 6\),
+\(|B \cap C| = \frac{60}{15} = 4\),
+and
+\(|A \cap B \cap C| = \frac{60}{30} = 2\).</p>
+</div>
+<div class="paragraph">
+<p>Apply Principle Of Inclusion-Exclusion to find the number of integers in \(U\) that are divisible by at least one of 2, 3, or 5:</p>
+</div>
+<div class="paragraph">
+<p>\(|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|\)</p>
+</div>
+<div class="paragraph">
+<p>\(|A \cup B \cup C| = 30 + 20 + 12 - 10 - 6 - 4 + 1 = 44\)</p>
+</div>
+<div class="paragraph">
+<p>There are 44 integers in \(U\) that are divisible by at least one of 2, 3, or 5, and there are \(60 - 44 = 16\) integers in \(U\) that are divisible by none of 2, 3, or 5.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_representing_sets_as_lists">3.6. Representing Sets as Lists</h3>
+<div class="paragraph">
+<p>Remixer&#8217;s Note: This section was omitted from the remix since sets can be represented using the types <em>set</em> and <em>frozenset</em> in Python 3.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exercises">3.7. Exercises</h3>
+<div class="paragraph">
+<p>Remixer&#8217;s Note: This section is taken from the original
+<a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> book with no changes.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Consider as universal set, the set of all \(26\), lowercase letters of the English alphabet,
+\(U=\{a,b,c,…,v,w,x,y,z\}\), and the sets \(A=\{a,b,c,d,e,f,g,h\}\), \(B=\{f,g,h,i,j,k\}\), and \(C=\{x,y,z\}\). For the sets given below:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>List the sets below using roster form, and</p>
+</li>
+<li>
+<p>Draw Venn Diagrams for each of the sets</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>\(A\cup B\)</p>
+</li>
+<li>
+<p>\(A\cap B\)</p>
+</li>
+<li>
+<p>\(A\cup C\)</p>
+</li>
+<li>
+<p>\(A\cap C\)</p>
+</li>
+<li>
+<p>\(A \setminus B\)</p>
+</li>
+<li>
+<p>\(B \setminus A\)</p>
+</li>
+<li>
+<p>\(A \setminus C\)</p>
+</li>
+<li>
+<p>\(C \setminus A\)</p>
+</li>
+<li>
+<p>\(A\cup C\)</p>
+</li>
+<li>
+<p>\(A\cap C\)</p>
+</li>
+<li>
+<p>\(\overline{A}\)</p>
+</li>
+<li>
+<p>\(\overline{B}\)</p>
+</li>
+<li>
+<p>\(\overline{C}\)</p>
+</li>
+<li>
+<p>\(\overline{B} \cap \overline{C}\)</p>
+</li>
+<li>
+<p>\( (\overline{A} \cap \overline{B}) \cup (\overline{B} \cap \overline{C})\)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Using Venn Diagrams, determine which of the following are equivalent</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>\(A \setminus (A \setminus B)),\)</p>
+<div class="paragraph">
+<p>\(A\cup B,\) and</p>
+</div>
+<div class="paragraph">
+<p>\(A\cap B\)</p>
+</div>
+</li>
+<li>
+<p>\(A\cup  \overline{A},\)</p>
+<div class="paragraph">
+<p>\(A\cap  \overline{A},\)</p>
+</div>
+<div class="paragraph">
+<p>\(U,\) and</p>
+</div>
+<div class="paragraph">
+<p>\(\emptyset\)</p>
+</div>
+</li>
+<li>
+<p>\(\overline{A}\cap  \overline{B}, \)</p>
+<div class="paragraph">
+<p>\(\overline{A\cap B},\)</p>
+</div>
+<div class="paragraph">
+<p>\(\overline{A}\cup  \overline{B},\) and</p>
+</div>
+<div class="paragraph">
+<p>\(\overline{A\cup B}\)</p>
+</div>
+</li>
+<li>
+<p>\(A\cup (B\cap C),\)</p>
+<div class="paragraph">
+<p>\(A\cap (B\cup C),\)</p>
+</div>
+<div class="paragraph">
+<p>\((A\cap B)\cup (A\cap C),\) and</p>
+</div>
+<div class="paragraph">
+<p>\((A\cup B)\cap (A\cup C),\)</p>
+</div>
+</li>
+<li>
+<p>\(\overline{\overline{A}\cup(C \setminus B) }),\)</p>
+<div class="paragraph">
+<p>\(A\cap (B \cup \overline{C}),\) and</p>
+</div>
+<div class="paragraph">
+<p>\(A \setminus (C \setminus B)\)</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Write each of the following sets using set builder notation</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>\(\{\ldots, -9, -7, -5, -3, -2, -1, 1, 3, 5, 7, 9, \ldots \}\)</p>
+</li>
+<li>
+<p>\(\{\ldots, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10,\ \ldots \}\)</p>
+</li>
+<li>
+<p>\(\{ 1, 2, 3, 4, 5,  6, 7, 8, 9, 10 \}\)</p>
+</li>
+<li>
+<p>\(\left\{ 1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\ldots \right\}\)</p>
+</li>
+<li>
+<p>\(\{0, 1, 4, 9, 16, 25, 36, 49, \ldots \}\)</p>
+</li>
+<li>
+<p>\(\{\ldots,-10,-6, -2, 2, 6, 10, 14, 18, 22, \ldots \}\)</p>
+</li>
+<li>
+<p>\(\{ 3, 9, 27, 81, 243,\ldots\}\)</p>
+</li>
+<li>
+<p>\(\{ 1, 9, 25, 49, 81, \ldots \}\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Write each of the following sets in roster form</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>\(\{x \in \mathbb{R} : |2x+5|=7\}\)</p>
+</li>
+<li>
+<p>\(\{10n : n \in \mathbb{N}\}\)</p>
+</li>
+<li>
+<p>\(\{10n : n \in \mathbb{Z}\}\)</p>
+</li>
+<li>
+<p>\(\left\{2^n : n \in \mathbb{N}\right\}\)</p>
+</li>
+<li>
+<p>\(\left\{2^n : n \in \mathbb{Z}\right\}\)</p>
+</li>
+<li>
+<p>\(\left\{x \in \mathbb{R} : x^2=4\right\}\)</p>
+</li>
+<li>
+<p>\(\left\{x \in \mathbb{R} : x^3=64\right\}\)</p>
+</li>
+<li>
+<p>\(\left\{x \in \mathbb{Z} : x^2=5\right\}\)</p>
+</li>
+<li>
+<p>\(\left\{x \in \mathbb{R} : x^2= -4\right\}\)</p>
+</li>
+<li>
+<p>\(\left\{x \in \mathbb{Z} : |x-5|=3\right\}\)</p>
+</li>
+<li>
+<p>\(\left\{3n+4 : n \in \mathbb{N}\right\}\)</p>
+</li>
+<li>
+<p>\(\left\{3n+4 : n \in \mathbb{Z}\right\}\)</p>
+</li>
+<li>
+<p>\(\left\{i^n : n \in\mathbb{N}\right\}\), where \(i\) is such that \(i^2=-1\) (the imaginary unit).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Consider the  sets \(A=\{1, 3, 5, 7, 9, 11, 13, 15, 17\}\), \(B=\{2, 5, 7, 11\}\), and \(C=\{1, 2, 3\}\),</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Determine the cardinalities of following sets,</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>\(|A|\)</p>
+</li>
+<li>
+<p>\(|A\cup B|\)</p>
+</li>
+<li>
+<p>\(|A\cap C|\)</p>
+</li>
+<li>
+<p>\(|\mathcal{P}(A)|\)</p>
+</li>
+<li>
+<p>\(|\mathcal{P}(B)|\)</p>
+</li>
+<li>
+<p>\(|\mathcal{P}(C)|\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Give the following power sets,</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>\(\mathcal{P}(B)\)</p>
+</li>
+<li>
+<p>\(\mathcal{P}(C)\)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Determine the cardinalities of following sets,</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>\(\{n \in \mathbb{Z} : |n|\leq 10\}\)</p>
+</li>
+<li>
+<p>\(\{A,B, \emptyset,\{2,5,6\}\}\)</p>
+</li>
+<li>
+<p>\(\{\{A,B\},\{\},\{\{2,5,6\}\},\{\{2,5,6\},C\},\{A,B,C\}\}\)</p>
+</li>
+<li>
+<p>\(\{\{\{A,B\},\emptyset,\{\{2,5,6\},C\},\{A,B,C\}\}\}\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Consider the sets, \(B=\{0, 1\}\), \( S=\{spring, summer, fall, winter\}\), and
+\(C=\{ a, b, c, d,e\}\). For each of the following sets:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Determine the following Cartesian products.</p>
+</li>
+<li>
+<p>Calculate the cardinality of each Cartesian product.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>\(B \times S\)</p>
+</li>
+<li>
+<p>\(S \times B\)</p>
+</li>
+<li>
+<p>\(B \times C\)</p>
+</li>
+<li>
+<p>\(C \times B\)</p>
+</li>
+<li>
+<p>\(B \times B \times B \times B\)</p>
+</li>
+<li>
+<p>\(S  \times B \times B\)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Determine the following power sets,</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>\(\mathcal{P}(\{Alabama, Georgia, Florida, Louisiana\} )\)</p>
+</li>
+<li>
+<p>\(\mathcal{P}(\emptyset )\)</p>
+</li>
+<li>
+<p>\(\mathcal{P}(\{\emptyset\} )\)</p>
+</li>
+<li>
+<p>\(\mathcal{P}(\{Alabama \} )\)</p>
+</li>
+<li>
+<p>\(\mathcal{P}(\{Alabama, Georgia, Florida \} )\)</p>
+</li>
+<li>
+<p>\(\mathcal{P}(\{\{Alabama, Georgia \}, \{Florida \} \} )\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Write the shaded regions in each of the following Venn diagrams using set notation.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/venn_exercises.png" alt="GGC" width="1000" height="1000">
+</div>
+</div>
+</li>
+<li>
+<p>Determine if each of the following are true or false. Explain your reasoning.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>\(\{7,4,6,2,11,3,5\}\subseteq \{1,2,3,4,5,6,7,8,9,10,11,12,13\}\)</p>
+</li>
+<li>
+<p>\(\{1,2,3,4,5,6,7,8,9,10,11,12,13\}\subseteq \{7,4,6,2,11,3,5\}\)</p>
+</li>
+<li>
+<p>\(\{7,4,6,2,11,3,5\}\subseteq \{7,4,6,2,11,3,5\}\)</p>
+</li>
+<li>
+<p>\(\{3,8\}\nsubseteq \{7,4,6,2,11,3,5\}\)</p>
+</li>
+<li>
+<p>\( \{3n+4 : n \in \mathbb{N}\} \nsubseteq \mathbb{Z}\)</p>
+</li>
+<li>
+<p>\(\mathbb{N}\subseteq \mathbb{Z}\subseteq \mathbb{Q}\subseteq \mathbb{R}\)</p>
+</li>
+<li>
+<p>\(\{x \in \mathbb{R} : |x|<3\}\subseteq \{x \in \mathbb{R}||x|<5\}\)</p>
+</li>
+<li>
+<p>\(\{x \in \mathbb{R} : |x|>3\}\subseteq \{x \in \mathbb{R}||x|>5\}\)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1569,7 +2139,14 @@ Cartesian product sets,</p>
 <h2 id="_mathematical_induction">12. Mathematical Induction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>COMING SOON!</p>
+<p><em>Mathematical induction</em> is a proof technique that is used to prove
+infinitely many propositions using only two steps, where each of the
+steps is of finite length (in terms of time, symbols, words, phonemes, etc.).
+Recall that a proof consists of finitely many propositions,
+where each proposition has a finite length.</p>
+</div>
+<div class="paragraph">
+<p>MORE TO COME!</p>
 </div>
 </div>
 </div>
@@ -2124,7 +2701,7 @@ The first index specifies the starting point of the slice while the second index
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercises">14.11. Exercises</h3>
+<h3 id="_exercises_2">14.11. Exercises</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>

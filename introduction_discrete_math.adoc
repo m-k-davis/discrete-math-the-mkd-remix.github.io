@@ -69,6 +69,7 @@ In mathematics, sets like $\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\t
 
 // MKD NOTE ON NATURAL NUMBERS: Both "Rosen" and "Haggard, Schlipf, and Whitesides" define the natural numbers as $\{ 0,\,1,\,2,\,3,\,\ldots \}$ 
 // MKD ISO 80000-2 ALSO DEFINES NATURAL NUMBERS TO INCLUDE 0
+// "ISO" is the International Organization for Standardization
 //A *natural number* is one of the _nonnegative integers_.
 * #A *natural number* is one of the _nonnegative integers_.# 
 The letter $\mathbb{N}$ denotes the set of natural numbers, that is, $\mathbb{N} = \{ 0,\,1,\,2,\,3,\,\ldots \}$ 

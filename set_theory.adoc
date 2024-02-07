@@ -384,7 +384,13 @@ We have the following Venn Diagram for $\overline{A}$:
 
 image::images/ComplementA.png[]
 
-For any set $A,$ \[\overline{A} = U \setminus A.\]
+//MKD replaced next line
+//For any set $A,$ \[\overline{A} = U \setminus A.\]
+For any set $A,$ 
+\[ \overline{\overline{A}} = A \]
+\[ \overline{A} \cup A = U \] 
+\[ \overline{A} \cap A = \emptyset. \]
+
 
 ****
 .Example {counter:setex}
@@ -593,18 +599,185 @@ Cartesian product sets,
 $\mathbb{R}^2=\mathbb{R}\times \mathbb{R}=\{(x,y)|x,y\in \mathbb{R}\}$, and,
 
 $\mathbb{R}^3=\mathbb{R}\times \mathbb{R}\times \mathbb{R}=\{(x,y,z)|x,y,z\in \mathbb{R}\}$
+====
+
+
+
+
+== Set Identities
+
+Here is a collection of additional properties of the operations on sets. Each of these can be verified by drawing two Venn diagrams, one that represents the left-hand side of the equation and another that represents the right-hand side of the equation and showing that the resulting shadings of the Venn diagrams are the same.
+
+Note that it is traditional to focus on complement, union, and intersection as the three primary set operations because the other operations such as difference and symmetric difference can be written in terms of those three primary operations, for example, 
+$A \setminus B = A \cap \overline{B}$ and 
+$A \oplus B = (A \cap \overline{B}) \cup (\overline{A} \cap B)$.
+
+
+//4. Complementation law 		(A’)’ =  A
+
+//5. Commutative laws		A ∪ B = B ∪ A, 
+//						A ∩ B = B ∩ A
+
+Associative laws:	
+\[ A ∪ (B ∪ C) = (A ∪ B) ∪ C \]
+\[ A ∩ (B ∩ C) = (A ∩ B) ∩ C \]
+
+Distributive laws:
+\[ A ∪ (B ∩ C) = (A ∪ B) ∩(A ∪ C) \]
+\[ A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) \]
+
+De Morgan’s laws:
+\[ \overline{A \cup B} = \overline{A} \cap \overline{B} \]
+\[ \overline{A \cap B} = \overline{A} \cup \overline{B} \]
+
+//Identity laws			A ∪ ∅ = A, A ∩ U = A (Note: U is the universe)
+
+//2. Domination laws		A ∪ U = U, A ∩ ∅ = ∅ 
+//3. Idempotent laws		A ∪ A = A, A ∩ A = A 
+
+//7. More properties :      	A ⊆ A ∪ B, B ⊆ A ∪ B, 
+//                                         	A ∩ B ⊆ A, A ∩ B ⊆ B
+
+
+=== Operator Precedence (Order Of Operations)
+
+To ensure that we can properly interpret an expression involving multiple set operations, we can either use parentheses or rely on _operator precedence_. 
+
+When an expression for sets involves parentheses, complementation, intersection, and union, we start by evaluating all expressions enclosed in parentheses from left to right, then all complementations from left to right, then all intersections from left to right, and finally all unions from left to right. (Set difference and symmetric difference were left out of this discussion because there does not seem to be a standard definition for where they fit in! But, as shown earlier, those two operations can be rewritten in terms of complementation, union, and intersection.)
+
+For example, the expression $\overline{A} \cup B \cap C$ represents the same set as $(\overline{A}) \cup (B \cap C)$. Parentheses must be used if you want to represent a different set such as $(\overline{A} \cup B) \cap C$.
+
+This is the same way arithmetic expressions like $-3 + 5 \cdot 2$ are evaluated: The value of $-3 + 5 \cdot 2$ is $(-3) + (5 \cdot 2) = 7$, *not* $(-3 + 5) \cdot 2 = 4$. 
+
+
+
+
+== Venn Diagrams, Partitions, and Bitstrings
+
+A *partition* of a set $U$ is a set of subsets of $U$ such that each element $x \in U$ is a member of exactly one of the subsets in the partition. You already know at least one example of such a partition -  the partitoning of the integers $\mathbb{Z}$ by its 2 subsets in $\Pi = \{ \text{the set of even integers}, \text{the set of odd integers} \}$; every integer belongs to exactly one of the two elements of the set $\Pi$.
+
+In fact, for any chosen subset $A \subseteq U$ we have a partition of $U$ into the 2 sets that are elements of $\{ A,\,\overline{A} \}$. Note that each element of $U$ must be in exactly one of the subsets $A$ and $\overline{A}$.
+
+For two subsets $A$ and $B$ of a universal set $U$, consider the Venn diagram of $A$ and $B$. By considering all possible intersections of these two sets and their complements, $U$ is partitioned into 4 subsets, namely, the 4 elements of $\{ \overline{A} \cap \overline{B},\, \overline{A} \cap B,\,A \cap \overline{B},\,A \cap B \}$. We can refer to each of these 4 subsets by using bitstrings of length 2 as follows: 
+
+* The leftmost bit is 1 if an element of the subset is an element of $A$, and is 0 if an element of the subset is not an element of $A$.
+
+* The rightmost bit is 1 if an element of the subset is an element of $B$, and is 0 if an element of the subset is not an element of $B$.
+
+For example, in the following Venn diagram, the subset $A \setminus B$ is labeled with the bitstring $10$ because an element of $A \setminus B$ is an element of $A$ and not an element of $B$.
+
+//MKD needs to credit image to original authors
+// derived from images/A Subtract B.png
+//image::imagesMKD/A Union B bitstrings.jpg[]
+image::imagesMKD/ABbitstrings.png[]
+
+
+If we had instead three sets $A$, $B$, and $C$, we could partition the universe $U$ into 8 subsets. In detail, if we have an element $x \in U$, either $x \in A$ or $x \not\in A$, and for each of those possibilities, either $x \in B$ or $x \not\in B$, and for each of those possibilities, either $x \in C$ or $x \not\in C$. We can apply (twice) the _multiplication principle_ that was first mentioned in chapter 2 to show that there are $2 \cdot 2 \cdot 2$ possible subsets determined by the Venn diagrams of the 3 sets $A$, $B$, and $C$. Using bitstrings of length 3, we can label these 8 subsets as shown.
+
+//MKD needs to credit image to original authors
+// derived from images/AminusBunionCminusB.png
+image::imagesMKD/ABCbitstrings.png[]
+
+ 
+For an integer $n > 3$, the Venn diagram is less useful for representing the partitioning of the universe created by $n$ subsets, but we can still reason that there ought to be $2^{n}$ subsets in the partition, where each of the subsets can be described by a unique bitstring of length $n$ (We will be able give a formal mathematical proof of this for every positive integer $n$ later in the textbook after we've discussed mathematical induction.)
+
+
+== The Principle Of Inclusion-Exclusion (PIE)
+
+In certain application problems, we want to compute the cardinality $|A \cup B|$ of the union of two given finite sets $A$ and $B$. It is tempting to simply add $|A|$ and $|B|$, but as the Venn diagram below shows, each element of the intersection $|A \cap B|$ will be counted _twice_, once for each bit that is $1$, if we do so. 
+
+//MKD needs to credit image to original authors
+// derived from images/A Subtract B.png
+//image::imagesMKD/A Union B bitstrings.jpg[]
+image::imagesMKD/ABbitstrings.png[]
+
+The correct relationship between $|A \cup B|$, $|A|$, and $|B|$ is given by \[ |A \cup B| = |A| + |B| -  |A \cap B|. \]
+
+Another way to see that this is the correct relationship is to use the partition 
+$\{ \overline{A} \cap \overline{B},\, \overline{A} \cap B,\,A \cap \overline{B},\,A \cap B \}$ to write 
+
+$| A | = | A \cap \overline{B} | + | A \cap B |$,  + 
+$| B | = | \overline{A} \cap B | + | A \cap B |$, and + 
+$| A \cup B | = | A \cap \overline{B} | + | A \cap B | + | \overline{A} \cap B |$, so +
+
+$| A | + | B | = | A \cap \overline{B} | + | A \cap B | + | \overline{A} \cap B | + | A \cap B | = | A \cup B | + | A \cap B |$.
+
+//[env.equationalign]
+//--
+//| A | = | A \cap \overline{B} | + | A \cap B |\\
+//| B | = | \overline{A} \cap B | + | A \cap B |\\
+//| A \cup B | = | \overline{A} \cap B | + | A \cap B | + | \overline{A} //\cap B |\\
+//so $| A | + | B | = | A \cap \overline{B} | + | A \cap B | + | //\overline{A} \cap B | + | A \cap B | = | A \cup B | + | A \cap B |.
+//--
+
+****
+.Example {counter:setex}
+
+Consider the set $U = \{ n \in \mathbb{N} : 1 \leq 60 \}$. How many elements of $U$ are divisible by either 2 or 3 or both? How many elements of $U$ are divisible by neither 2 nor 3?
+
+Let $A$ stand for the subset of $U$ that consists of multiples of 2, and 
+let $B$ stand for the subset of $U$ that consists of multiples of 3.
+It's not too difficult to see that 
+$|A| = \frac{60}{2} = 30$ and $|B| = \frac{60}{3} = 20$.  
+Also, $A \cap B$ must be the subset of $U$ that consists of multiples of 6, so $| A \cap B | = \frac{60}{6} = 10$. 
+(If these computations don't make sense to you, just start counting off the pattern $1,\,2,\,3,\,4,\,5,\,6,\,\ldots$ and notice that every 2nd number is divisible by 2, every 3rd number is divisible by 3, and every 6th number is divisible by both 2 and 3.)
+Now apply the Principle Of Inclusion-Exclusion to find the number of integers in $U$ that are divisible by either 2 or 3 or both: 
+$|A \cup B| = |A| + |B| -  |A \cap B| = 30 + 20 - 10 = 40$. 
+There are 40 integers in $U$ that are divisible by either 2 or 3 or both, 
+so there are $60 - 40 = 20$ integers in $U$ that are divisible by neither 2 nor 3. 
+
+****
+
+If want to compute the cardinality $|A \cup B \cup C|$ of the union of three given finite sets $A$, $B$, and $C$, we can again look at the Venn diagram of the partition of $U$ into 8 sets to see that some of the intersections  will be counted _one_, _two_, or _three_ times, once for each bit that is $1$. 
+
+//MKD needs to credit image to original authors
+// derived from images/AminusBunionCminusB.png
+image::imagesMKD/ABCbitstrings.png[]
+
+We can derive the following formula in much that same way that we did above; in fact, we can just apply the formula we found for two sets to $| A \cup (B \cup C) |$ and use some of the set identities to help simplify the formula. CSC 230 Spring '24 students at SFSU can see the full derivation in the slide deck _Sets part 2 Spring '24_.
+\[ |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|. \]
+
+
+****
+.Example {counter:setex}
+
+Consider the set $U = \{ n \in \mathbb{N} : 1 \leq 60 \}$ as in the previous example. How many elements of $U$ are divisible by at lest one of 2, 3, or 5?? How many elements of $U$ are divisible by none of 2, 3, or 5?
+
+As in the previous example, 
+let $A$ stand for the subset of $U$ that consists of multiples of 2,  
+let $B$ stand for the subset of $U$ that consists of multiples of 3, and 
+now let $C$ stand for the subset of $U$ that consists of multiples of 5. 
+
+We have  
+$|A| = \frac{60}{2} = 30$, 
+$|B| = \frac{60}{3} = 20$, 
+$|C| = \frac{60}{5} = 12$,  
+$|A \cap B| = \frac{60}{6} = 10$, 
+$|A \cap C| = \frac{60}{10} = 6$,   
+$|B \cap C| = \frac{60}{15} = 4$, 
+and   
+$|A \cap B \cap C| = \frac{60}{30} = 2$.
+
+Apply Principle Of Inclusion-Exclusion to find the number of integers in $U$ that are divisible by at least one of 2, 3, or 5:
+
+$|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|$
+
+$|A \cup B \cup C| = 30 + 20 + 12 - 10 - 6 - 4 + 1 = 44$
+ 
+
+There are 44 integers in $U$ that are divisible by at least one of 2, 3, or 5, and there are $60 - 44 = 16$ integers in $U$ that are divisible by none of 2, 3, or 5. 
+
+****
 
 
 
 
 // MKD - start of unneeded section?
-====
-
 == Representing Sets as Lists
 
-COMING SOON!
-////
+Remixer's Note: This section was omitted from the remix since sets can be represented using the types _set_ and _frozenset_ in Python 3.
 
+////
 We can represent sets in Python using lists. The empty set $\{ \}$ is represented by the empty list []. Several different lists may represent the same set. For example, the lists [2, 0, 1] and [1, 2, 2, 0, 1, 0, 1] both represent the set $\{0,1,2\}.$
 
 It can be helpful for us to remove duplicate elements from a list. For example, this will be necesssary when computing the cardinality of a set.
@@ -679,10 +852,15 @@ The following code contains a function that finds the difference of two sets.
 
 include::python_tutor.adoc[]
 ****
+////
 //MKD - end of unneeded section
 
 
 == Exercises
+
+Remixer's Note: This section is taken from the original 
+https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with no changes.
+
 . Consider as universal set, the set of all $26$, lowercase letters of the English alphabet,
 $U=\{a,b,c,…,v,w,x,y,z\}$, and the sets $A=\{a,b,c,d,e,f,g,h\}$, $B=\{f,g,h,i,j,k\}$, and $C=\{x,y,z\}$. For the sets given below:
 .. List the sets below using roster form, and
@@ -824,5 +1002,3 @@ image::images/venn_exercises.png[GGC,1000,1000]
 .. $\mathbb{N}\subseteq \mathbb{Z}\subseteq \mathbb{Q}\subseteq \mathbb{R}$
 .. $\{x \in \mathbb{R} : |x|<3\}\subseteq \{x \in \mathbb{R}||x|<5\}$
 .. $\{x \in \mathbb{R} : |x|>3\}\subseteq \{x \in \mathbb{R}||x|>5\}$
-
-////

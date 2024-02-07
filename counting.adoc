@@ -108,7 +108,9 @@ If your events are not mutually exclusive, to find the total number of possibili
 Suppose event $E$ can occur $n$ ways, event $F$ can occur $m$ ways, and there are $p$ ways that $E$ and $F$ both occur. Then there are $n+m-p$ ways
 $E$ or $F$ can occur.
 ****
-The subtraction rule is also called the inclusion-exclusion principle.
+//MKD Edited next sentence
+//The subtraction rule is also called the inclusion-exclusion principle.
+The subtraction rule is a special case of the Inclusion-Exclusion Principle.
 ****
 .Example {counter:countexample}
 A tech company recieves 200 applications for a position. 150 of the applicants were ITEC majors, 43 were business majors, and 25 were double majors in

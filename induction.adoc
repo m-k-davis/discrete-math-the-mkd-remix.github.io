@@ -1,16 +1,16 @@
 = Mathematical Induction
 
 
-COMING SOON!
-////
 
-== What is Mathematical Induction?
+//MKD add discussion of Well-Oredering Principle axion (after the example?)
+//== What is Mathematical Induction?
 
 // MKD: The commonly-used "infinite ladder" analogy that appears in the original book is misleading. 
 // The goal of mathematical induction is to produce a proof of FINITE LENGTH 
 // that shows that a ladder of any specified natural number height $n$ 
 // can be built, and that there is no upper bound on $n$. 
-// That is, a FINITE ladder of any possible height can be built, but not an infinite ladder.
+// That is, a FINITE ladder of any possible height can be built, but not an infinite ladder. 
+// The analogy is code that uses a loop. The loop can be executed any FINITE number of times, but cannot truly be an "infinite loop" that never breaks.
 
 _Mathematical induction_ is a proof technique that is used to prove 
 infinitely many propositions using only two steps, where each of the
@@ -18,15 +18,26 @@ steps is of finite length (in terms of time, symbols, words, phonemes, etc.).
 Recall that a proof consists of finitely many propositions, 
 where each proposition has a finite length.
 
+
+MORE TO COME!
+////
+
 The next example illustrates why mathematical induction is needed.
 
 // MKD start of square example
+
+// MKD Remember to add in Python loop code as an analogy for induction
+//	initialization is the basis step
+//	the loop represents multiple applications of the induction step
+//	the loop executes only a finite number of times, but as many times as needed, and we could store the results if we need to prove the predicate for a larger value.
+
 ****
 .Example {counter:MKDinductionexample} - Why Use Mathematical Induction?
 
 
 [.float-group]
 --
+// MKD needs to make attribution visible
 [.left.text-left]
 //image::imagesMKD/Square_number_16_as_sum_of_gnomons.svg[GGC,250,250]
 image::imagesMKD/Square_number_16_as_sum_of_gnomons.svg[GGC]
@@ -181,6 +192,7 @@ NOTE: In some cases, that basis step will involve a positive integer $c$ instead
 
 [.float-group]
 --
+// MKD needs to make attribution visible
 [.left.text-left]
 image::imagesMKD/CLIP-IS-A-BRICK_2x3.svg[GGC,250,250]
 // Illustration of color plastic block.
@@ -395,6 +407,7 @@ $\sum\limits_{k=1}^{m+1}k(k!)=((m+1)+1)!-1$
 Therefore, the inductive step has been verified $\sum\limits_{k=1}^{m+1}k(k!)=((m+1)+1)!-1$
 ****
 
+// MKD Delete this example since it duplicates the motivating example at the beginning of the chapter.
 ****
 .Example {counter:indrecexample} -  Another Summation Formula
 Prove  the proposition that the sum of the ﬁrst n odd numbers is $n^2$; that is,

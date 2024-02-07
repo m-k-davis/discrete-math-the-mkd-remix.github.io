@@ -1,6 +1,7 @@
 = Logic
 
 COMING SOON!
+
 ////
 
 
@@ -21,6 +22,7 @@ A *proposition* is a statement that declares a fact that is either True or False
 
 .Not propositions
 * How much is this cookie?
+* Please sit down.
 * This sentence is false.
 
 ****
