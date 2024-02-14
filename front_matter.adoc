@@ -1,7 +1,7 @@
 = About this text
 
 
-This work, "Discrete Mathematics - The MKD Remix", 
+This work, "Discrete Math - The MKD Remix", 
 by 
 https://github.com/m-k-davis/[Mark Kelly Davis], 
 is adapted from 
@@ -19,7 +19,7 @@ https://ggc-discrete-math.github.io/index.html[“Discrete Math”]
 are available at its associated 
 https://github.com/ggc-discrete-math/ggc-discrete-math.github.io[GitHub repository]. 
 
-This work, "Discrete Mathematics - The MKD Remix", 
+This work, "Discrete Math - The MKD Remix", 
 is licensed under 
 https://creativecommons.org/licenses/by-nc/4.0/[CC BY-NC 4.0] 
 by Mark Kelly Davis.

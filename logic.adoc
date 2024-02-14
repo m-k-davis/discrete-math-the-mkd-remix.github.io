@@ -1,13 +1,24 @@
 = Logic
 
-COMING SOON!
+//COMING SOON!
 
-////
+// MKD consider making the following substitutions throughout
+// \lnot for \neg
+// \land for \wedge
+// \lor for \vee
+// \\rightarrow for \implies (made this change - Both Rosen and Haggard, Schlipf, and Whitesides use \\rightarrow; Liben-Nowell uses \\Rightarrow which is shorter than \implies)
+// \leftrightarrow for \iff (made this change - Both Rosen and Haggard, Schlipf, and Whitesides use \leftrightarrow; Liben-Nowell uses \iff)
 
+// MKD added the following introductory text about how logic is used in computer science: circuit design, validation of algorithms, etc.
+*Logic* is the study of reasoning. Logic is used to create, analyze, and validate *arguments*, where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument. 
+//Two applications of logic to computer science are correct and efficient design of electronic circuits and validation of algorithms and programs.
+
+Among the applications of logic to computer science are design of electronic circuits and validation of algorithms and programs.
 
 == Propositional Logic
 
-A *proposition* is a statement that declares a fact that is either True or False.
+//MKD added "(but not both)"
+A *proposition* is a statement that declares a fact that is either True or False (but not both!)
 
 ****
 .Examples {counter:logicexample} - Propositions
@@ -16,32 +27,120 @@ A *proposition* is a statement that declares a fact that is either True or False
 //* Atlanta is the capital of Iowa.
 //* 1 + 1 is 2.
 //* 1 + 1 is 3.
+.Propositions
 * Atlanta is the capital of California.
 * $1 + 1 = 2$
-* $1 + 1 = 3$.
+* $1 + 1 = 3$
 
 .Not propositions
 * How much is this cookie?
 * Please sit down.
+* Wow!
+//* It's a beautiful day!
 * This sentence is false.
+* $x + 1 = y$
 
 ****
 
-Propositional logic consists of a set of formal rules for combining propositions in order to derive new propositions.
+*Propositional logic* consists of a set of formal rules for combining propositions in order to derive new propositions. 
+
+//MKD added the following 2 paragraphs
+//An *argument* is a finite sequence of propositions that ends with a conclusion based on inferences made from earlier propositions in the argument. 
+A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based _solely_ on the propositions' *truth values* (True and False), ignoring the actual content of the propositions. Choosing to ignore the actual content of the propositions may seem strange at first, but compare this to doing algebra: We can write $2 (x + 3 y) = 2x + 6y$ because we know that it is correct and valid to distribute multiplication over addition - we can do the algebra and ignore the actual real-world meaning of the "numerical content" that $x$ and $y$ stand for. 
+
+
+In propositional logic, it is traditional to use *propositional variables* such as _p_, _q_, and _r_ to represent the possible assignments of truth values to propositions; often, we refer to the variables themselves as the propositions. Again, compare this to the algebraic example where we can treat $x$ and $y$ as numbers even though they are actually variables that stand for numbers.
+
+//MKD moved this section of original book to appear earlier
+*Logical Translations*
+
+A long time ago philosophers discovered we could put our thoughts into symbols and more easily follow lines of reasoning. This was an important step in the eventual development of our modern technological society and our use of digital computers. Before computers can work, we have to put our thoughts into them.
+
+BUT, the English language is difficult and we use many different phrases to represent the same logical statements.  Translating statements from English sentences to symbols and back is a skill that needs lots of practice.
+
+****
+.Example {counter:logicexample} - Generalizing and abstracting an argument
+//MKD inserted this example 2/13/24
+Consider the following argument consisting of three propositions:
+
+* Sarah earned a B.S. in Computer Science.
+//* Anyone who earned a B.S. in Computer Science earned a C or better in Discrete Math.
+* Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
+* Therefore, Sarah earned a C or better in Discrete Math.
+
+This argument is 
+//correct and 
+valid: If we ASSUME that the first two propositions are True, then we can correctly conclude that the third proposition (which follows the introductory phrase "Therefore,") must be True as well.
+
+Notice that we could change the name "Sarah" to "Daniel" without affecting the 
+//correctness and 
+validity of the argument. 
+
+We can generalize the argument by changing "Sarah" to "the student." In fact, we can generalize much more by noticing that the _form_ of the argument matches the following argument.
+
+//* Person X (or object X) is a member of category A
+//* Any person (or object) that is a member of category A must also be a member of category B.
+//* Therefore, Person X (or object X) is a member of category B
+
+* Individual X is a member of category A
+* Any individual that is a member of category A must also be a member of category B.
+* Therefore, individual X is a member of category B
+
+//We can abstract this argument fully as follows.
+Now we can make this argument completely abstract using propositional variables.
+
+* _p_ is true.
+//* The implication "if _p_ is true then _q_ is true" is true, too.
+* The implication "if _p_ then _q_" is true, too.
+* Therefore, _q_ is true
+
+****
+
+
+//MKD added on 2/13/24
+We can build *compound propositions* (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if _p_ then _q_" as a new proposition built from the propositional variables _p_ and _q_.
 
 //MKD: Reword - Python is not necessary here, but is useful as a tool 
-In Python, we can use boolean variables (typically $p$ and $q$) to represent propositions and define functions for each propositional rule.  Each rule can be implemented using the boolean operators (and, or, not) discussed in the section on <<Operators and Expressions>>.
+[TIP]
+====
+In Python, we 
+//can 
+use $\texttt{Boolean}$ variables 
+//(typically $p$ and $q$) 
+to represent propositions and define functions for each 
+//propositional rule.
+compound proposition. 
+//Each rule can be 
+Each compound proposition can implemented using the $\texttt{Boolean}$ operations $\texttt{not}$, $\texttt{and}$, and $\texttt{or}$ discussed in the section  
+//on <<Operators and Expressions>> 
+_Operators and Expressions_ in the chapter "Appendix 0: An Introduction to Python".
+//python_intro.html#_operators_and_expressions
 //how do I know where sections begin and can I reference them?
+====
 
 //MKD: truth tables provide a method??? 
-A *truth table* is a method of showing truth values of compound propositions using the truth values of its components.  It is typically created with rows representing possible truth values and columns representing the propositions.
+//A *truth table* is a method of showing truth values of compound propositions using the truth values of its components.  It is typically created with rows representing possible truth values and columns representing the propositions.
+
+A *truth table* can be used to show the truth values of compound propositions 
+that are built from other propositional variables.
+//, using the truth values of its components. 
+A truth table typically is created with rows representing all possible *interpretations* of the propositional variables (that is, all possible assignments of truth values to the propositional variables), and columns representing the propositional variables and compound propositions built up from the variables.
+// (This description will make more sense as we begin to use truth tables below).
 
 === Negation
 //MKD: Mention other common notations for negation
-The *negation* is a statement that has the opposite truth value.
-The negation of a proposition $p$, denoted by $\neg p$, is the proposition "It is __not the case__, that $p$".
+//The *negation* is a statement that has the opposite truth value.
 
-For example, the negation of the proposition "Today is Friday." would be "It is not the case that, today is Friday." or more succinctly "Today is not Friday."
+"I am *not* an astronaut."
+
+The negation of a proposition $p$, denoted in mathematics by $\neg p$ and 
+read as "not $p$", is the proposition 
+"It is __not the case__ that $p$". 
+//Note that other books and sources may use different notation such as $\overline{p}$ or $\sim \! p$ for the negation of $p$.
+Note that $\neg p$ can also be denoted by $\overline{p}$ or $\sim \! p.$
+
+For example, the negation of the proposition "Today is Friday." would be 
+"It is not the case that, today is Friday." or more succinctly "Today is not Friday."
 
 [width=50%",align="center",options="header"]
 |====
@@ -50,15 +149,34 @@ For example, the negation of the proposition "Today is Friday." would be "It is 
 | False | True
 |====
 
+From the truth table it can be seen that 
+exactly one of the two propositions $p$ and $\neg p$ is True and 
+exactly one is False.
+
+It can also be seen that the two propositions $p$ and $\neg (\neg p)$ always have the _same_ truth value.
+
+
+NOTE: In the first few truth tables in this chapter, "True" and "False" 
+are spelled out, but it is more often the case that these words are 
+abbreviated to their first letters, "T" and "F" in truth tables. 
+
+
+//MKD - original code follows def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20a%20%3D%20negation%28p%29%0A%20%20%20%20print%28p,%20a%29
+  
 :pt_code_height: 350
 :pt_rawinput: false
-:pt_code: def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20a%20%3D%20negation%28p%29%0A%20%20%20%20print%28p,%20a%29
+:pt_code: def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20%C2%ACp%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20print%28p,%20negation%28p%29%29
 
 ****
 .Example {counter:logicexample} - Negation in Python
 --
 --
-The code below prints the truth table for negation.  Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
+The code below prints the truth table for negation. 
+Note that the values _True_ and _False_ are constants in Python, and 
+that _not p_ implements the negation $\neg p$ in Python.
+
+
+Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
 include::python_tutor.adoc[]
 ****
 
@@ -66,7 +184,7 @@ include::python_tutor.adoc[]
 //MKD: Mention other common notations for negation
 "I am a rock *and* I am an island."
 
-Let $p$ and $q$ be propositions.  The conjunction of $p$ and $q$, denoted in mathematics by $p \land q$, is True when both $p$ and $q$ are True, False otherwise.
+Let $p$ and $q$ be propositions.  The conjunction of $p$ and $q$, denoted in mathematics by $p \land q$ and read as "$p$ and $q$", is True when both $p$ and $q$ are True and is False otherwise.
 
 [width=50%",align="center",options="header"]
 |====
@@ -77,9 +195,15 @@ Let $p$ and $q$ be propositions.  The conjunction of $p$ and $q$, denoted in mat
 | False | False | False
 |====
 
+//From the truth table it can be seen 
+Notice that the two propositions $p \land q$ and $q \land p$ always have the same truth value.
+
+// MKD original code def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20conjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
+
+
 :pt_code_height: 350
 :pt_rawinput: false
-:pt_code: def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20conjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
+:pt_code: def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20p%20%E2%88%A7%20q%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20conjunction%28p,%20q%29%29
 
 ****
 .Example {counter:logicexample} - Conjunction in Python
@@ -91,9 +215,9 @@ include::python_tutor.adoc[]
 
 === Disjunction
 //MKD: Mention other common notations for negation
-"She studied hard *or* she is extremely bright."
+"They studied hard *or* they are extremely bright."
 
-Let $p$ and $q$ be propositions.  The disjunction of $p$ and $q$, denoted in mathematics by $p \lor q$, is True when at least one of $p$ and $q$ are True, False otherwise.
+Let $p$ and $q$ be propositions.  The disjunction of $p$ and $q$, denoted in mathematics by $p \lor q$ and read as "$p$ or $q$", is True when at least one of $p$ and $q$ are True and is False otherwise.
 
 [width=50%",align="center",options="header"]
 |====
@@ -104,9 +228,15 @@ Let $p$ and $q$ be propositions.  The disjunction of $p$ and $q$, denoted in mat
 | False | False | False
 |====
 
+//From the truth table it can be seen 
+Notice that the two propositions $p \lor q$ and $q \lor p$ always have the same truth value.
+
+// MKD 
+// def%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29%0A%20%20%20%20%20%20%20%20
+
 :pt_code_height: 350
 :pt_rawinput: false
-:pt_code: def%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29%0A%20%20%20%20%20%20%20%20
+:pt_code: def%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20p%20%E2%88%A8%20q%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20disjunction%28p,%20q%29%29
 
 ****
 .Example {counter:logicexample} - Disjunction in Python
@@ -121,7 +251,7 @@ include::python_tutor.adoc[]
 // also, can we use xor in the code instead of the (p and not q) or (q and not p)
 "Take *either* 2 Advil *or* 2 Tylenol."
 
-Let $p$ and $q$ be propositions.  The exclusive disjunction of $p$ and $q$ (also known as _xor_), denoted in mathematics by $p \oplus q$, is True when exactly one of $p$ and $q$ are True, False otherwise.
+Let $p$ and $q$ be propositions.  The exclusive disjunction of $p$ and $q$ (also known as _xor_), denoted in mathematics by $p \oplus q$, is True when exactly one of $p$ and $q$ are True and False otherwise.
 
 [width=50%",align="center",options="header"]
 |====
@@ -132,14 +262,21 @@ Let $p$ and $q$ be propositions.  The exclusive disjunction of $p$ and $q$ (also
 | False | False | False
 |====
 
+//From the truth table it can be seen 
+Notice that the two propositions $p \oplus q$ and $q \oplus p$ always have the same truth value.
+
 [NOTE]
 ====
 Exclusive disjunction can be thought of as one or the other, but not both.
 ====
 
+//MKD 
+// def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20exclusive_disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
+
+
 :pt_code_height: 350
 :pt_rawinput: false
-:pt_code: def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20exclusive_disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
+:pt_code: def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20p%20%E2%8A%95%20q%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20exclusive_disjunction%28p,%20q%29%29
 
 ****
 .Example {counter:logicexample} - Exclusive Disjunction in Python
@@ -149,142 +286,222 @@ The code below prints the truth table for exclusive disjunction.  Try to predict
 include::python_tutor.adoc[]
 ****
 
-=== Implication
+=== Conditional
+//=== Implication
 //MKD: Mention other common notations for negation
 //MKD: May want to fly in some info from MIT Courseware here
 "*If* you get a 100 on the final exam, *then* you earn an A in the class."
 
-Let $p$ and $q$ be propositions.  The implication of $p$ and $q$,
-denoted in mathematics by $p \implies q$, is short hand for the statement "if p then q".  As such, implication requires $q$ to be True whenever $p$ is True.  If $p$ is not True, then $q$ can be any value. In other words, implication fails (is False) when $p$ is True and $q$ is False. Note, this is different from "p if and only if q".
+// MKD material conditional relates truth values but does not describe a cause-and-effect relationship 
+
+//MKD rewrote the following paragraph
+//Let $p$ and $q$ be propositions. The *implication* of $p$ and $q$, denoted in mathematics by $p \implies q$, is short hand for the statement "if p then q".  As such, implication requires $q$ to be True whenever $p$ is True.  If $p$ is not True, then $q$ can be any value. In other words, implication fails (is False) when $p$ is True and $q$ is False. Note, this is different from "p if and only if q".
+
+Let $p$ and $q$ be propositions. The *conditional statement* $p \rightarrow q$, read as "if _p_ then _q_", "_p_ implies _q_", or, more formally, "the conditional with hypothesis _p_ and conclusion _q_", is the proposition that is False when _p_ is True and _q_ is False, and True otherwise. The conditional statement $p \rightarrow q$ is also called "the implication  $p \rightarrow q$". 
+//Other books and sources may use $p \Rightarrow q$ or $p \implies q$ for the conditional statement. 
+Note that $p \rightarrow q$ can also be denoted by $p \Rightarrow q$ or $p \implies q.$
+In addition, there are [.underline]#many# other ways to express the conditional $p \rightarrow q$ in English, two of which are "_p_ only if _q_" and "_q_ if _p_".
 
 [width=50%",align="center",options="header"]
 |====
-| $p$ | $q$ | $p \implies q$
+| $p$ | $q$ | $p \rightarrow q$
 | True | True | True
 | True | False | False
 | False | True | True
 | False | False | True
 |====
 
+
+[IMPORTANT]
+====
+* #$p \rightarrow q$ and $q \rightarrow p$ do NOT always have the same truth value!#
+====
+
 [NOTE]
 ====
-Implication can be considered a "contract" which fails _only when_ the conditions are met and the results are not fulfilled.
+//* Implication can be considered a "contract" which fails _only when_ the conditions are met and the results are not fulfilled.
+* The conditional can be considered a "contract" which fails _only when_ the conditions are met and the results are not fulfilled.
+
+//MKD added 
+//* Implication CANNOT be considered evidence of a "cause-and-effect" relationship. For example, consider the implication "If $2 + 2 = 4$ then Shakespeare wrote the play _Hamlet_." This implication is True since both "$2 + 2 = 4$" and "Shakespeare wrote the play _Hamlet_" are True, but the arithmetic equation likely was neither cause nor inspiration for the writing of the play.
+* The conditional may or may not represent a "cause-and-effect" relationship. For example, the conditional "if Shakespeare wrote _Hamlet_ then $2 + 2 = 4$" is a True proposition because the conclusion "$2 + 2 = 4$" is True, but the arithmetic equation is not an effect that was caused by the authorship of _Hamlet_.
 ====
+
+//MKD
+// def%20implication%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20implication%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
 
 :pt_code_height: 350
 :pt_rawinput: false
-:pt_code: def%20implication%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20implication%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
+:pt_code: def%20implication%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20p%20%E2%86%92%20q%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20implication%28p,%20q%29%29
+
 
 ****
-.Implication in Python
+.Example {counter:logicexample} - You Try: Conditional in Python
 --
 --
-Try to complete the code below by clicking edit and replacing $#FIX ME#$. Once correctly defined, the correct truth table for implication should print.
+
+Complete the code below by clicking one of the "edit" links then replacing $#FIX ME#$ with an expression involving $p$, $q$, and some of the Python operators _not_, _and_, and _or_. Once correctly defined, the correct truth table for the conditional statement should print.
 include::python_tutor.adoc[]
 ****
 
-=== Converse, Contrapositive and Inverse of an Implication
+=== The Converse, Contrapositive and Inverse of a Conditional Statement
 //MKD: Mention other common notations for negation
 
 //MKD: REWORD - these are related to p->q but not from It
-We can form new compound propositions from the implication, $p \implies q$.  They are
+Given propositions _p_ and _q_, we can form three additional compound propositions that are related to the conditional $p \rightarrow q$:
 
-* The *converse*:  $q \implies p$
-* The *contrapositive*: $ \neg q \implies \neg p$
-* The *inverse* $ \neg p \implies \neg q$
+* $q \rightarrow p$, called the *converse of $p \rightarrow q$*  
+* $ \neg q \rightarrow \neg p$, called the *contrapositive of $p \rightarrow q$*
+* $ \neg p \rightarrow \neg q$, called the *inverse of $p \rightarrow q$* 
 
-The truth tables for these new propositions are shown in the table.
+The exteneded truth table for the conditional and the three related propositions is shown below.
 
 [width=50%",align="center",options="header"]
 |====
-| $p$ | $q$ | $p \implies q$ (conditional)| $q \implies p $ (converse)|
-$ \neg q \implies \neg p$ (contrapositive) |$ \neg p \implies \neg q$ (inverse)
+| $p$ | $q$ | $p \rightarrow q$ (conditional)| $q \rightarrow p $ (converse)|
+$ \neg q \rightarrow \neg p$ (contrapositive) |$ \neg p \rightarrow \neg q$ (inverse)
 | True | True | True | True |True | True
 | True | False | False | True| False | True
 | False | True | True | False | True | False
 | False | False | True | True |True | True
 |====
 
-In the section <<Proposition Equivalences>> we will explain why the truth table
-shows that the conditional $p \implies q$ and contrapositive
-$ \neg q \implies \neg p$ are logically equivalent, and why
-the converse $q \implies p$ and inverse $ \neg p \implies \neg q$ are
-logically equivalent.
+[NOTE]
+====
+From the truth table it can be seen that 
 
-We illustrate these ideas with an example.
+* #$p \rightarrow q$ and the converse $q \rightarrow p$ do NOT always have the same truth value!#
+
+* $p \rightarrow q$ and its contrapositive $ \neg q \rightarrow \neg p$ MUST have the same truth value!
+
+* The converse $q \rightarrow p$ and the inverse $ \neg p \rightarrow \neg q$ MUST have the same truth value.
+====
+
+In the section 
+//<<Proposition Equivalences>>
+on <<Logically Equivalent Propositions>> we will discuss the bullet points in the preceding note in more detail.
+//why the truth table shows that the conditional $p \rightarrow q$ and contrapositive$ \neg q \rightarrow \neg p$ are logically equivalent, and why the converse $q \rightarrow p$ and inverse $ \neg p \rightarrow \neg q$ are logically equivalent.
+
+//MKD This example was problematic since p and q were not propositions but predicates!!! Revised to eliminate the n in the statement. 
+// if the number of students in class is divisible by 4, then the number of students in class is divisible by 2
+
+We illustrate these four propositions with an example.
 
 ****
 .Example {counter:logicexample} - Conditional, Converse, Contrapositive and Inverse.
 
-.. Translate the statement, "If an integer $n$, is divisible by $4$, then it is
-divisible by $2$", using a conditional.
+.. Translate the statement "If the number of students in class is divisible by 4, then the number of students in class is divisible by 2" using a conditional.
 
-.. Form its converse, contrapositive, and inverse and translate.
+.. Form and translate the converse, contrapositive, and inverse.
 
 .Solution
 
 .. Let
 +
-$p$: An integer $n$, is divisible by $4$
+$p$ be the propostion "The number of students in class is divisible by 4."
 +
-$q$: An integer $n$, is divisible by $2$
+$q$ be the propostion "The number of students in class is divisible by 2."
 +
-The sentence, "If an integer $n$, is divisible by $4$, then it is
-divisible by $2$", is translated $p\implies q$.
+The conditional $p\rightarrow q$ translates as "If the number of students in class is divisible by 4, then the number of students in class is divisible by 2."
 
-.. Its converse is $q \implies p$, which may be translated,
-"If an integer $n$, is divisible by $2$, then it is
-divisible by $4$."
+.. The converse $q \rightarrow p$ may be translated as 
+"If the number of students in class is divisible by 2, then the number of students in class is divisible by 4."
 +
-The contrapositive is $ \neg  q \implies \neg p$, which may be translated,
-"If an integer $n$, is  not divisible by $2$, then it is not divisible by 4."
+The contrapositive $ \neg q \rightarrow \neg p$ may be translated as 
+"If the number of students in class is not divisible by 2, then the number of students in class is not divisible by 4."
 +
-The inverse  is $ \neg p \implies \neg q$, which may be translated,
-"If an integer $n$, is  not divisible by $4$, then it is not divisible by $2$."
+The inverse $ \neg p \rightarrow \neg q$ may be translated as 
+"If the number of students in class is not divisible by 4, then the number of students in class is not divisible by 2."
+
+Notice that in this example, the conditional must be True, based on properties of factors of integers, but its converse could be False:  Consider the case where the number of students in class is equal to 26, so $p$ is False and $q$ is True, and $p\rightarrow q$ is True but $q\rightarrow p$ is False. This also shows, again, that the conditional need not represent a "cause-and-effect" relationship, since NOT being "divisible by 4" does not let us conclude anything about being "divisible by 2".
 ****
 
-
-=== Bi-Implication
+=== Biconditional
+//=== Bi-Implication
 "It is raining outside *if and only if* it is a cloudy day."
 
-Let $p$ and $q$ be propositions. The *bi-implication* of $p$ and $q$,
-denoted in mathematics by $p \iff q$, is short hand for the statement "p if and only if q". As such, bi-implication requires $q$ to be True only when $p$ is True.  In other words, bi-implication fails (is False) when $p$ is True and $q$ is False or when $p$ is False and $q$ is True.
+//MKD
+//Let $p$ and $q$ be propositions. The *biconditional* of $p$ and $q$, denoted in mathematics by $p \leftrightarrow q$, is short hand for the statement "p if and only if q". As such, bi-implication requires $q$ to be True only when $p$ is True.  In other words, bi-implication fails (is False) when $p$ is True and $q$ is False or when $p$ is False and $q$ is True.
+
+Let $p$ and $q$ be propositions. The *biconditional* $p \leftrightarrow q$, read as "_p_ if and only if _q_", is the proposition that is True when _p_ and _q_ have the _same_ truth value, and False otherwise. The biconditional is also called "the bi-implication". 
+//Other books and sources may use $p \iff q$ for the biconditional statement.
+Note that $p \leftrightarrow q$ can also be denoted by $p \Leftrightarrow q$ or $p \iff q.$
+
 
 [width=50%",align="center",options="header"]
 |====
-| $p$ | $q$ | $p \iff q$
+| $p$ | $q$ | $p \leftrightarrow q$
 | True | True | True
 | True | False | False
 | False | True | False
 | False | False | True
 |====
 
-:pt_code_height: 350
-:pt_rawinput: false
-:pt_code: def%20bi_implication%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20bi_implication%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
+From the truth table it can be seen that the two propositions $p \leftrightarrow q$ and $q \leftrightarrow p$ always have the same truth value.
 
-****
-.Example {counter:logicexample} - Bi-Implication in Python
---
---
-Try to complete the code below by clicking edit and replacing $#FIX ME#$. Once correctly defined, the correct truth table should print.
-include::python_tutor.adoc[]
-****
 [NOTE]
 ====
-Bi-implication is True if the propositions have the same truth value and False otherwise.
+The biconditional $p \leftrightarrow q$ is read as "_p_ if and only if _q_" because it has the same truth table as the conjunction of the two conditionals "_p_ if _q_" (that is, $q \rightarrow p$) and "_p_ only if _q_" (that is, $p \rightarrow q$).
 ====
 
-It is important to contrast implication with bi-implication.  Consider the implication example "If you get a 100 on the final exam, then you earn an A in the class."  This means that when you get a 100 on the final you also get an A in the class.
+//MKD
+//def%20bi_implication%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20bi_implication%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
 
-As a bi-implication it would say "You get a 100 on the final exam if and only if you earn an A in the class."  This becomes a two-way contract where you can earn an A in the class by getting a 100 on the final, but if you do not get a 100 on the final you will not earn an A.
+:pt_code_height: 350
+:pt_rawinput: false
+:pt_code: def%20biconditional%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20p%20%E2%86%94%20q%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20biconditional%28p,q%29%29
+
+****
+.Example {counter:logicexample} - You Try: Biconditional in Python
+
+--
+--
+
+Complete the code below by clicking one of the "edit" links then replacing $#FIX ME#$ with an expression involving $p$, $q$, and some of the Python operators _not_, _and_, and _or_. Once correctly defined, the correct truth table for the biconditional statement should print.
+include::python_tutor.adoc[]
+****
+
+//[NOTE]
+//====
+//Bi-implication is True if the propositions have the same truth value and False otherwise.
+//====
+
+It is important to contrast the conditional with the biconditional.  Consider the conditional example "If you get a 100 on the final exam, then you earn an A in the class."  This means that when you get a 100 on the final you also get an A in the class. 
+//MKD: 
+The conditional represents a one-way contract: You earn an A in the class _if_ you get a 100 on the final exam. There is nothing said about the result (the grade you earn in the class) if you do NOT meet the condition (get a 100 on the final exam). 
+
+As a biconditional the example would say "You get a 100 on the final exam if and only if you earn an A in the class."  This becomes a two-way contract: You earn an A in the class if you get a 100 on the final, _but_ you do not earn an A in the class if you do not get a 100 on the final.
+
+
+//MKD added operator precedence
+=== Operator Precedence (Order Of Operations)
+
+To ensure that we can properly interpret a compund proposition involving multiple logical operations, we can either use parentheses or rely on _operator precedence_. 
+
+To evaluate a compound proposition, we start by evaluating 
+
+* all expressions enclosed in parentheses from left to right, then all negations from left to right, then 
+* all conjunctions from left to right, then 
+* all disjunctions from left to right, then 
+* all conditionals from left to right, and finally 
+* all biconditionals from left to right. 
+
+Note that exclusive-disjunction $\oplus$ was left out of the discussion - this is because different sources assign it different precedences, usually just above or just below the disjunction $\lor$. For this reason, it’s best to use parentheses whenever $\oplus$ is present in a compound proposition.
+
+For example, the compound proposition $\neg p \lor q \land r \rightarrow s$ represents the same proposition as $((\neg p) \lor (q \land r)) \rightarrow s$. Parentheses must be used if you want to represent a different proposition such as $(\neg p \lor q) \land (r \rightarrow s)$.
+
+
 
 === Compound Propositions
 To find truth values of compound propositions, it is useful to break them up into smaller parts.
 
+//MKD
+//def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Adef%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28conjunction%28p,%20q%29,%20not%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
+
+
 :pt_code_height: 400
 :pt_rawinput: false
-:pt_code: def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Adef%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28conjunction%28p,%20q%29,%20not%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
+:pt_code: def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Adef%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20%28p%20%E2%88%A7%20q%29%20%E2%88%A8%20%C2%ACq%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28conjunction%28p,%20q%29,%20not%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
 
 ****
 .Example {counter:logicexample}
@@ -314,14 +531,14 @@ When creating your own truth table it is crucial to be systematic about ensuring
 --
 Create a truth table for the compound proposition:
 
-$(p \land q) \implies (p \land r)$ for all values of $p, q, r$.
+$(p \land q) \rightarrow (p \land r)$ for all values of $p, q, r$.
 
 .Solution
 It should have 8 rows - since there are three simple propositions and each one has two possible truth values.
 
 [width=50%",align="center",options="header"]
 |====
-| $p$ | $q$ | $r$ | $p \land q$ | $p \land r$| $(p \land q) \implies (p \land r)$
+| $p$ | $q$ | $r$ | $p \land q$ | $p \land r$| $(p \land q) \rightarrow (p \land r)$
 | T | T | T | T | T | T
 | T | T | F | T | F | F
 | T | F | T | F | T | T
@@ -333,23 +550,25 @@ It should have 8 rows - since there are three simple propositions and each one h
 |====
 ****
 
-*Logical Translations*
+//MKD moved *Logical Translations* from here up to just after Sarah and Daniel
 
-A long time ago philosophers discovered we could put our thoughts into symbols and more easily follow lines of reasoning. This was an important step in the eventual development of our modern technological society and our use of digital computers. Before computers can work, we have to put our thoughts into them.
+//== Proposition Equivalences
+== Logically Equivalent Propositions
 
-BUT, the English language is difficult and we use many different phrases to represent the same logical statements.  Translating statements from English sentences to symbols and back is a skill that needs lots of practice.
+//MKD added definition of interpreteation
+Recall that an *interpretation* of a proposition is an assignment of truth values to the propositional variables. 
 
-== Proposition Equivalences
-Two propositions are considered *logically equivalent* (or simply *equivalent*) if they have the same truth values in every instance.  It is often easiest to see this by constructing a truth table for the two propositions and comparing.
+Two propositions are considered *logically equivalent* (or simply *equivalent*) if they have the same truth values 
+//in every instance.  
+for every possible interpretation. It is often easiest to see this by constructing a truth table for the two propositions and comparing.
 
-//MKD: Need to emphasize that "p and q are logically equivalent iff p<->q"; as this lays the groundwork for the rules of inference and the concept of a proof.
 
 ****
 .Example {counter:logicexample}
-Consider the propositions $\neg p \lor q$ versus $p\implies q$.
+Consider the propositions $\neg p \lor q$ versus $p\rightarrow q$.
 [width=50%",align="center",options="header"]
 |====
-| $p$ | $q$ | $\neg p \lor q$ | $p \implies q$
+| $p$ | $q$ | $\neg p \lor q$ | $p \rightarrow q$
 | True | True | True | True
 | True | False | False | False
 | False | True | True | True
@@ -357,7 +576,20 @@ Consider the propositions $\neg p \lor q$ versus $p\implies q$.
 |====
 
 Since the truth table in all rows is the same for the two compound propositions, they are equivalent.
+
 ****
+
+We use the symbol $\equiv$ to denote that two propositions are logically equivalent. So in the preceding example, we would write 
+$\neg p \lor q \equiv p\rightarrow q$. 
+
+NOTE: $\equiv$ is NOT a logical operator used to build compound propositions, but instead is used to say that two propositions are logically equivalent. 
+This is similar to how $=$ is used in arithmetic: We can write $2 + 2 = 5 - 1$ to say that $2 + 2$ and $5 - 1$ are numerically equivalent, but we don't use the $=$ sign as an arithmetic operator to actually _do_ any arithmetic.
+
+//MKD: Need to emphasize that "p and q are logically equivalent iff p<->q"; as this lays the groundwork for the rules of inference and the concept of a proof.
+
+NOTE: Saying that two propositions _p_ and _q_ are logically equivalent is the same as saying that the biconditional compound proposition $p \leftrightarrow q$ is always True.
+
+
 
 :pt_code_height: 400
 :pt_rawinput: false
@@ -369,9 +601,9 @@ Since the truth table in all rows is the same for the two compound propositions,
 --
 Consider three compound propositions:
 
-. $(p\land q) \implies r$
-. $(p \implies q) \land (p \implies r)$
-. $p \implies (q \land r)$
+. $(p\land q) \rightarrow r$
+. $(p \rightarrow q) \land (p \rightarrow r)$
+. $p \rightarrow (q \land r)$
 
 The code below reveals the truth table for 1.  Modify it for 2 and 3 in order to determine which set of compound propositions are equivalent.
 
@@ -380,53 +612,30 @@ The code below reveals the truth table for 1.  Modify it for 2 and 3 in order to
 include::python_tutor.adoc[]
 ****
 
-
-=== De Morgan's Laws
-Two important logical equivalences are De Morgan's Law.  These describe how we "distribute" the negation across the and and or operators.
-
-.De Morgan's Laws
-****
-$\neg (p \land q)\equiv \neg p \lor \neg q$
-
-$\neg (p \lor q)\equiv \neg p \land \neg q$
-****
-
-NOTE: We use the symbol $\equiv$ to denote two statements which are logically equivalent.
-
-****
-.Example {counter:logicexample}
-
-Recall the truth table for the implication proposition from above.
-
-[width=50%",align="center",options="header"]
-|====
-| $p$ | $q$ | $p \implies q$ | $\neg (p \implies q)$
-| True | True | True | False
-| True | False | False | True
-| False | True | True | False
-| False | False | True | False
-|====
-
-.You Try
-Use the truth table to find a proposition that is logically equivalent to $ \neg (p \implies q) $?
-****
-
-
+//MKD maybe rename subsection and include other Tautologies like assocaitivety, distributivity, etc. - compare to set Thoery chapter
 === Tautologies, Contradictions and Contingencies
 
-A proposition is a *tautology* if its truth value is _always_ True.
+//MKD added material on satisfiable and unsatisfiable
+
+
+A proposition is a *tautology* if its truth value is _always_ True. 
+That is, a tautology is True for every possible interpretation of its propositional variables.
+
+A proposition is called *satisfiable* if there is at least one interpretation for which the proposition is True. 
+
+A proposition is *unsatisfiable* if there is no interpretation for which the proposition is True. 
 
 A proposition is a *contradiction* if its truth value is _always_ False.
-
+That is, a contradiction is False for every possible interpretation of its propositional variables. This is just another way of saying that it is unsatisfiable.
 
 A proposition that is neither a tautology nor a contradiction is said to
-be a *contingency*.
+be a *contingency* since its truth value can be either True or False, contingent on the truth value assigned to its propositional variables.
 
 ****
 .Example {counter:logicexample} - Tautology and Contradiction
-$  p \lor \neg p$ is an example of a tautology.
+$p \lor \neg p$ is an example of a tautology.
 
-$ p \land \neg p$ is an example of a contradiction.
+$p \land \neg p$ is an example of a contradiction.
 
 This can be seen in the truth table.
 
@@ -442,20 +651,216 @@ This can be seen in the truth table.
 Notice that the truth values for $p \lor \neg p$ are all True and $p \land \neg p$ are all False.
 ****
 
+The two compound propositions in the previous example are so important that they have their own names,
+ 
+.The Laws of Excluded Middle and Contradiction
+****
+//Given any proposition $p$, the following proposition, called "The Law of Excluded Middle." is a tautology.
+
+$ p  \lor \neg p \text{, "The Law of Excluded Middle," is always True.}$
+
+//And the following proposition, called "The Law of Contradiction" is a contradiction.
+
+$p  \land \neg p \text{, "The Law of Contradiction," is always False.}$
+****
+
+
+=== De Morgan's Laws
+Two important logical equivalences are De Morgan's Law.  These describe how we "distribute" the $\neg$ operator across the $\land$ and $\lor$ operators.
+
+.De Morgan's Laws
+****
+$\neg (p \land q)\equiv \neg p \lor \neg q$
+
+$\neg (p \lor q)\equiv \neg p \land \neg q$
+****
+
+De Morgan's Laws can be verified by creating truth tables for 
+$\neg (p \land q) \leftrightarrow \neg p \lor \neg q$ and 
+$\neg (p \lor q) \leftrightarrow \neg p \land \neg q$ to show that 
+these propositions are True for every interpretation of $p$ and $q$. 
+
+
+//MKD maybe insert code sammple for one of De Morgan;s laws with "you Try" for the other
+
+//NOTE: We use the symbol $\equiv$ to denote two statements which are logically equivalent.
+
+
+//=== Some Other Tautologies
+=== Some Other Logical Equivalencies
+
+//Here is a collection of additional properties of the operations on propositions. Each of these can be verified by constructing a truth table to show that 
+//the biconditional of the left-hand side and the right-hand side of the //logical equivalence
+//the proposition is true for all interpretations of the propositional variables.
+
+Here is a collection of additional equivalencies of compound propositions. Each of these can be verified by constructing a truth table to show that 
+the biconditional of the left-hand side and the right-hand side of the logical equivalence is true for all interpretations of the propositional variables.
+
+Double Negation: 
+//\[ p \leftrightarrow \neg (\neg p) \]
+\[ p \equiv \neg (\neg p) \]
+
+Commutative laws:
+//\[ p \lor q \leftrightarrow q \lor p \]
+//\[ p \land q \leftrightarrow q \land p \]
+\[ p \lor q \equiv q \lor p) \]
+\[ p \land q \equiv q \land p) \]
+
+Associative laws:	
+//\[ p \lor (q \lor r) \leftrightarrow (p \lor q) \lor r \]
+//\[ p \land (q \land r) \leftrightarrow (p \land q) \land r \]
+\[ p \lor (q \lor r) \equiv (p \lor q) \lor r \]
+\[ p \land (q \land r) \equiv (p \land q) \land r \]
+
+Distributive laws:
+//\[ p \lor (q \land r) \leftrightarrow (p \lor q) \land (p \lor r) \]
+//\[ p \land (q \lor r) \leftrightarrow (p \land q) \lor (p \land r) \]
+\[ p \lor (q \land r) \equiv (p \lor q) \land (p \lor r) \]
+\[ p \land (q \lor r) \equiv (p \land q) \lor (p \land r) \]
+
+
+//Identity laws			A ∪ ∅ = A, A ∩ U = A (Note: U is the universe)
+
+//2. Domination laws		A ∪ U = U, A ∩ ∅ = ∅ 
+//Idempotent laws		A ∪ A = A, A ∩ A = A 
+
+//7. More properties :      	A ⊆ A ∪ B, B ⊆ A ∪ B, 
+//                                         	A ∩ B ⊆ A, A ∩ B ⊆ B
+
+
+
+// MKD insert subsection on DNF here?
+=== Disjunctive Normal Form (DNF)
+
+It is traditional to focus on negation $\neg$, conjunction $\land$, and disjunction $\lor$ as the three primary logical operations. This is because _any_ compound proposition can be rewritten in terms of these three operations and the propositional variables present in the original compound proposition. 
+//For example, the conditional $p \rightarrow q$ is logically equivalent to $\neg p \lor q$, as shown earlier in this chapter.
+
+One way to justify this is by using an expression in *disjunctive normal form* (DNF), which is a disjunction of one or more conjunctions, where only one of the conjunctions can be true for any interpretation of the propositional variables. This description should become clearer after reading the following example.
+
+//Consider the following example.
+
+****
+.Example {counter:logicexample} - Finding A Logically Equivalent Proposition (DNF) From A Truth Table
+--
+--
+Suppose we have a truth table for an unknown compound proposition. Perhaps someone wrote the truth table but did not write down the expression for the compound proposition in the header of the rightmost column.
+
+[width=50%",align="center",options="header"]
+|====
+| $p$ | $q$ | $r$ | $\text{unknown}$
+| T | T | T | F 
+| T | T | F | F 
+| T | F | T | T 
+| T | F | F | F 
+| F | T | T | F 
+| F | T | F | T 
+| F | F | T | T 
+| F | F | F | F 
+|====
+
+We can write a new compound proposition that is equivalent to the unknown one, using the propositional variables $p$, $q$, and $r$ and the logical operators $\neg$, $\land$ and $\lor$ as follows:
+
+* For each row of the truth table that has T in the rightmost column, write the conjunction that would have a T in only that one row of its truth table.
+
+* Form the disjunction of all the conjunctions found in the previous step. This new expression is called a disjunctive normal form (DNF) for the unknown proposition.
+
+For the truth table above, we have three rows with T in the rightmost column. The first of the three rows corresponds to $p \land \neg q \land r$, which is only True if $p$ is True, $q$ is False, and $r$ is True. In the same way, the second of the three rows corresponds to $\neg p \land q \land \neg r$, and the third of the three rows corresponds to $\neg p \land \neg q \land r$. We now form the disjunction of these three expressions. \[(p \land \neg q \land r) \lor (\neg p \land q \land \neg r) \lor (\neg p \land \neg q \land r)\]
+
+This new compound proposition has a truth table that is the same as the one for the unknown proposition. This means that the expression we found is logically equivalent to the unknown proposition.
+
+[width=50%",align="center",options="header"]
+|====
+| $p$ | $q$ | $r$ | $\text{unknown}$ |  $(p \land \neg q \land r) \lor (\neg p \land q \land \neg r) \lor (\neg p \land \neg q \land r)$
+| T | T | T | F | F 
+| T | T | F | F | F
+| T | F | T | T | T
+| T | F | F | F | F
+| F | T | T | F | F
+| F | T | F | T | T
+| F | F | T | T | T
+| F | F | F | F | F
+|====
+
+****
+
+
+=== Conjunctive Normal Form (CNF)
+
+In some applications of propositional logic, it is more useful to find a logically equivalent expression for a given proposition that is written as a conjunction of several disjunctions. This *conjunctive normal form* (CNF) can be constructed as shown in the following example.
+
+****
+.Example {counter:logicexample} - Finding A Logically Equivalent Proposition (CNF) From A Truth Table
+--
+--
+Consider the same unknown proposition we used in the previous example.
+
+[width=50%",align="center",options="header"]
+|====
+| $p$ | $q$ | $r$ | $\text{unknown}$
+| T | T | T | F 
+| T | T | F | F 
+| T | F | T | T 
+| T | F | F | F 
+| F | T | T | F 
+| F | T | F | T 
+| F | F | T | T 
+| F | F | F | F 
+|====
+
+One way to find a CNF is as follows.
+
+* Find the disjunctive normal form for the negation of the unknown proposition.
+
+* Apply De Morgan's Laws to the DNF for the negation of the unknown proposition found in the first step - the result will be a CNF for the double negation of the unknown proposition (which is logically equivalent to the unknown proposition).
+
+[width=50%",align="center",options="header"]
+|====
+| $p$ | $q$ | $r$ | $\text{unknown}$ | $\neg \text{unknown}$
+| T | T | T | F | T 
+| T | T | F | F | T 
+| T | F | T | T | F
+| T | F | F | F | T
+| F | T | T | F | T
+| F | T | F | T | F
+| F | F | T | T | F
+| F | F | F | F | T
+|====
+
+From the truth table above, we obtain the following DNF for the negation of the unknown proposition: 
+$(p \land q \land r) \lor (p \land q \land \neg r) \lor (p \land \neg q \land \neg r) \lor (\neg p \land q \land r) \lor (\neg p \land \neg q \land \neg r)$.
+
+Next, we negate the DNF, using De Morgan's Laws, and simplify the resulting expression 
+\[\neg [ (p \land q \land r) \lor (p \land q \land \neg r) \lor (p \land \neg q \land \neg r) \lor (\neg p \land q \land r) \lor (\neg p \land \neg q \land \neg r) ],\] which simplifies to the CNF we wanted to find, 
+\[(\neg p \lor \neg q \lor \neg r) \land (\neg p \lor \neg q \lor r) \land (\neg p \lor q \lor r) \land (p \lor \neg q \lor \neg r) \land (p \lor q \lor r).\] 
+
+The last expression is logically equivalent to the unknown proposition.
+
+****
+
+
+
+
+//MKD Moved "Tautologies, Contradictions and Contingencies" from here to before De Morgan's laws
+
+
 == Predicates and Quantifiers
 === Predicates
-A *predicate* is a statement involving a variable.
+//A *predicate* is a statement involving one or more variables. When values are assigned to the variables, the value of the predicate is a proposition. 
+
+A *predicate* is a statement that includes one or more variables such that when values are assigned to the variables the predicate becomes a proposition. 
+//That is, we "evaluate" the predicate by substituting inputs into the variables and get a proposition as the output. 
 
 ****
 .Example {counter:logicexample} - Predicates
 
 * $x \leq 3$
-* computer $c$ is infected
-* country $x$ is on continent $y$
+* Computer $c$ is infected.
+* Country $x$ is on continent $y$.
 ****
 
-Predicates are denoted as $P(x)$ or $Q(x,y)$ where $P$ and $Q$ represent the statements and $x$ and $y$ represent the possible values.
-After a value is assigned to each variable, the predicate becomes a proposition which has a truth value.
+Predicates are denoted as $P(x)$ or $Q(x,y)$ where $P$ and $Q$ represent the statements and $x$ and $y$ are variables.
+After a value is assigned to each variable, the predicate becomes a proposition which has a truth value. 
+That is, we "evaluate" a predicate by substituting inputs into the variables and get a proposition as the output. 
 
 // MKD: Changed the code since a predicate is NOT a Boolean-valued function, but a "PROPOSITION-valued" function.
 //<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20P%28x%29%3A%0A%20%20%20%20return%20str%28x%29%20%2B%20%22%20%E2%89%A4%203%22%0A%0Adef%20truth_value_of_P%28x%29%3A%0A%20%20%20%20return%20x%20%3C%3D%203%0A%0Aprint%28%20P%285%29,%22is%22,truth_value_of_P%285%29%29%0Aprint%28%20P%282%29,%22is%22,truth_value_of_P%282%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=16&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
@@ -464,14 +869,17 @@ After a value is assigned to each variable, the predicate becomes a proposition 
 // NEW CODE: :pt_code: def%20P%28x%29%3A%0A%20%20%20%20return%20str%28x%29%20%2B%20%22%20%E2%89%A4%203%22%0A%0Adef%20truth_value_of_P%28x%29%3A%0A%20%20%20%20return%20x%20%3C%3D%203%0A%0Aprint%28%20P%285%29,%22is%22,truth_value_of_P%285%29%29%0Aprint%28%20P%282%29,%22is%22,truth_value_of_P%282%29%29 
 // ALTERNATE NEW CODE :pt_code: def%20P%28x%29%3A%0A%20%20%20%20%23%20we%20could%20enforce%20the%20domain%20%0A%20%20%20%20%23%20by%20adding%20code%20to%20check%20that%20the%20type%20of%20x%20is%20int%0A%20%20%20%20%23%20and%20only%20continue%20if%20x%20is%20an%20int,%20since%20the%20%0A%20%20%20%20%23%20domain%20of%20P%20in%20this%20example%20is%20the%20set%20of%20integers.%0A%20%20%20%20return%20str%28x%29%20%2B%20%22%20%E2%89%A4%203%22%0A%0Adef%20truth_value_of_P%28x%29%3A%0A%20%20%20%20%23%20we%20could%20enforce%20the%20domain%20%0A%20%20%20%20%23%20by%20adding%20code%20to%20check%20that%20the%20type%20of%20x%20is%20int%0A%20%20%20%20%23%20and%20only%20continue%20if%20x%20is%20an%20int,%20since%20the%20%0A%20%20%20%20%23%20domain%20of%20P%20in%20this%20example%20is%20the%20set%20of%20integers.%0A%20%20%20%20return%20x%20%3C%3D%203%0A%0Aprint%28P%28%22dog%22%29%29%0A%0A%23%20the%20next%20line%20raises%20a%20TypeError%20since%20the%20string%20%22dog%22%0Aprint%28truth_value_of_P%28%22dog%22%29%29%0A%0A%23%20print%28%20P%285%29,%22is%22,truth_value_of_P%285%29%29%0A%23%20print%28%20P%282%29,%22is%22,truth_value_of_P%282%29%29
 // junk this: https://pythontutor.com/render.html#code=def%20P%28x%29%3A%0A%20%20%20%20%23%20we%20could%20enforce%20the%20domain%20%0A%20%20%20%20%23%20by%20adding%20code%20to%20check%20that%20the%20type%20of%20x%20is%20int%0A%20%20%20%20%23%20and%20only%20continue%20if%20x%20is%20an%20int,%20since%20the%20%0A%20%20%20%20%23%20domain%20of%20P%20in%20this%20example%20is%20the%20set%20of%20integers.%0A%20%20%20%20return%20str%28x%29%20%2B%20%22%20%E2%89%A4%203%22%0A%0Adef%20truth_value_of_P%28x%29%3A%0A%20%20%20%20%23%20we%20could%20enforce%20the%20domain%20%0A%20%20%20%20%23%20by%20adding%20code%20to%20check%20that%20the%20type%20of%20x%20is%20int%0A%20%20%20%20%23%20and%20only%20continue%20if%20x%20is%20an%20int,%20since%20the%20%0A%20%20%20%20%23%20domain%20of%20P%20in%20this%20example%20is%20the%20set%20of%20integers.%0A%20%20%20%20return%20x%20%3C%3D%203%0A%0Aprint%28P%28%22dog%22%29%29%0A%0A%23%20the%20next%20line%20raises%20a%20TypeError%20since%20the%20string%20%22dog%22%0Aprint%28truth_value_of_P%28%22dog%22%29%29%0A%0A%23%20print%28%20P%285%29,%22is%22,truth_value_of_P%285%29%29%0A%23%20print%28%20P%282%29,%22is%22,truth_value_of_P%282%29%29&cumulative=false&heapPrimitives=false&mode=edit&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
-:pt_code_height: 300
+
+:pt_code_height: 350
 :pt_rawinput: false
-:pt_code: def%20P%28x%29%3A%0A%20%20%20%20return%20str%28x%29%20%2B%20%22%20%E2%89%A4%203%22%0A%0Adef%20truth_value_of_P%28x%29%3A%0A%20%20%20%20return%20x%20%3C%3D%203%0A%0Aprint%28%20P%285%29,%22is%22,truth_value_of_P%285%29%29%0Aprint%28%20P%282%29,%22is%22,truth_value_of_P%282%29%29
+:pt_code: def%20P%28x%29%3A%0A%20%20%20%20return%20str%28x%29%20%2B%20%22%20%E2%89%A4%203%22%0Adef%20truth_value_of_P%28x%29%3A%0A%20%20%20%20return%20x%20%3C%3D%203%0Aprint%28%20P%285%29,%22is%22,truth_value_of_P%285%29%29%0Aprint%28%20P%282%29,%22is%22,truth_value_of_P%282%29%29
 ****
 .Example {counter:logicexample}
 --
 --
-Let $P(x)$ be the predicate $x \leq 3$.  What are the propositions $P(5)$ and $P(2)$?  What are the truth values of $P(5)$ and $P(2)$?
+Let $P(x)$ be the predicate $x \leq 3$. 
+
+What are the propositions $P(5)$ and $P(2)$?  What are the truth values of $P(5)$ and $P(2)$?
 
 include::python_tutor.adoc[]
 
@@ -479,32 +887,46 @@ include::python_tutor.adoc[]
 
 
 // MKD: USE THIS NEW EXAMPLE TO PRIME THE PUMP FOR MATHEMATICAL INDUCTION
-:pt_code_height: 350
+:pt_code_height: 400
 :pt_rawinput: false
 // OLD CODE :pt_code: def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0An%20%3D%204%0Aprint%28P%28n%29%29%0A
-:pt_code: def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0Afor%20n%20in%20%5B1000,%201000000%5D%3A%0A%20%20%20%20s%20%3D%20P%28n%29%0A%20%20%20%20print%28s%29%0A
+// def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0Afor%20n%20in%20%5B1000,%201000000%5D%3A%0A%20%20%20%20s%20%3D%20P%28n%29%0A%20%20%20%20print%28s%29%0A
+
+
+:pt_code: def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28f%22%7Bn%3A,%7D%22%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28f%22%7Bn*n%3A,%7D%22%29%20%2B%20%22.%22%0Afor%20n%20in%20%5B1000,%201000000%5D%3A%0A%20%20%20%20s%20%3D%20P%28n%29%0A%20%20%20%20print%28s%29
 ****
 .Example {counter:logicexample}
 --
 --
 Let $P(x)$ be the predicate "The sum of the first $n$ positive odd integers is equal to $n^{2}$."  
-What are the propositions $P(1,000)$ and $P(1,000,000)$ ?
+
+What are the propositions $P(1{\small,}000)$ and $P(1{\small,}000{\small,}000)$ ? 
+//Notice that the predicate gives us two propositions, but does not tell us whether the propositions are True or False.
+Notice that code correctly outputs the two propositions as strings (of type _str_ in Python). The predicate does not tell us whether the propositions it outputs are True or False.
 
 include::python_tutor.adoc[]
 
 ****
 
+//MKD
+//def%20Q%28x,%20y%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aa%20%3D%20Q%286,%202%29%0Ab%20%3D%20Q%281,%205%29%0Ac%20%3D%20Q%28-2,%202%29
+//MKD
+//def%20Q%28x,y%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0Adef%20truth_value_of_Q%28x,%20y%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0Aprint%28Q%286,%202%29,%22is%22,truth_value_of_Q%286,%202%29%29%0Aprint%28Q%281,%205%29,%22is%22,truth_value_of_Q%281,%205%29%29%0Aprint%28Q%28-2,%202%29,%22is%22,truth_value_of_Q%28-2,%202%29%29
+
 
 :pt_code_height: 350
 :pt_rawinput: false
-:pt_code: def%20Q%28x,%20y%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aa%20%3D%20Q%286,%202%29%0Ab%20%3D%20Q%281,%205%29%0Ac%20%3D%20Q%28-2,%202%29
+:pt_code: def%20Q%28x,y%29%3A%0A%20%20%20%20return%20str%28x%29%2B%22%20-%20%22%2Bstr%28y%29%2B%22%20%3D%204%22%0Adef%20truth_value_of_Q%28x,%20y%29%3A%0A%20%20%20%20return%20x-y%20%3D%3D%204%0Aprint%28Q%286,%202%29,%22is%22,truth_value_of_Q%286,%202%29%29%0Aprint%28Q%281,%205%29,%22is%22,truth_value_of_Q%281,%205%29%29%0Aprint%28Q%28-2,%202%29,%22is%22,truth_value_of_Q%28-2,%202%29%29
+
 ****
 .Example {counter:logicexample}
 --
 --
 Let $Q(x,y)$ be the statement $x-y=4$.
 
-Edit the Python tutor below to find the truth values of $Q(6,2)$, $Q(1,5)$, and $Q(-2,2)$.
+//Edit the Python code below to find the truth values of $Q(6,2)$, $Q(1,5)$, and $Q(-2,2)$.
+
+The Python code displays each of the three propositions $Q(6,2)$, $Q(1,5)$, and $Q(-2,2)$ and describes their truth values.
 
 include::python_tutor.adoc[]
 ****
@@ -523,7 +945,6 @@ The *Universal Quantifier*, $\forall$, represents the statement "for all", "for 
 :pt_rawinput: false
 :pt_code: stmt%20%3D%20%22For%20all%20x,%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x%20%2B%201%20%3E%20x%0A%0Aforall%20%3D%20True%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20false%0A%20%20%20%20if%20P%28x%29%20%3D%3D%20False%3A%0A%20%20%20%20%20%20%20%20forall%20%3D%20False%0A%20%20%20%20%20%20%20%20%0Aprint%28stmt%29%0Aprint%28forall%29
 ****
-.
 .Example {counter:logicexample}
 
 Universal Quantifier $\forall x, x + 1 \gt x$
@@ -677,8 +1098,9 @@ Let $Q(x,y)$ be the statement $xy=0$.  If the domain for both variables consists
 
 * $\forall x \exists y Q(x,y)$ is True.  If you have any integer $x$, you can pick the value $y=0$ and get $x\cdot 0=0$.
 
+//MKD added "Determine the truth value of each statement and justify the answer." per SH
+.You Try - Determine the truth value of each statement and justify the answer.
 
-.You Try
 
 * $\forall y Q(1,y)$
 
@@ -699,7 +1121,7 @@ Find the negation of the statment "For all integers $x$, there exists an integer
 Using quantifiers, we write this statement as $\forall x \exists y N(x,y)$ where $N(x,y)$ is the proposition "$x=-y$." and the domain of $x$ and $y$ is the integers.
 Its negation would be $\exists x \forall y \neg N(x,y)$.
 
-* There exists an integer x, such that for all integers y, $x \neq -y$.
+* There exists an integer $x$, such that for all integers $y$, $x \neq -y$.
 
 .You Try
 Find the negation of the statement "Some student in the class will solve every practice problem."
@@ -708,6 +1130,10 @@ Hint:  Let $x$ be a student in the class, $y$ be a practice problem, and $P(x,y)
 ****
 
 == Applications of Logic
+
+Remixer's Note: This section is taken from the original 
+https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with no changes.
+
 In this section we consider two applications of logic to information technology and
 computer science. The first involves bitwise operations, and the second designing and analyzing logic circuits.
 
@@ -889,6 +1315,11 @@ image::images/logic_gate_5.png[]
 ****
 
 == Exercises
+
+Remixer's Note: This section is taken from the original 
+https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with no changes.
+
+
 //MKD: Maybe add an interrogative ("Did you read the instructions?") and an exclamatory ("Hello!")
 . 	Which of these statements are propositions? Explain your reasoning
 .. Is Atlanta the capital of Georgia?
@@ -1022,4 +1453,5 @@ image::images/logic_gate_2.png[]
 
 . Design a logic circuit for $r\land (p\lor (r\land \neg q))$.
 
+////
 ////

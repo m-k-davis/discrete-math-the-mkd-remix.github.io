@@ -128,6 +128,8 @@ Click on the "Next" button to step through the code.
 include::python_tutor.adoc[]
 ****
 
+// MKD AFTER MAY 24 2024 Maybe move one-to-one correspondence immediately after sets and define as a pairing (then mention under functions that one-to-one correspondences are specific examples of functions)
+
 * A *one-to-one correspondence* between two sets $A$ and $B$ is a function with domain $A$ and range $B$ such that every output value in $B$ corresponds to exactly one input value. That is, a one-to-one correspondence pairs each member of the set $A$ with exactly one member of set $B$, and pairs each member of set $B$ with exactly one member of set $A$
 //: Each member of the domain appears in exactly one pair. 
 For example, the function that assigns each uppercase English letter to its corresponding lowercase English letter is a one-to-one correspondence between 

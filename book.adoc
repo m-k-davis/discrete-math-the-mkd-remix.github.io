@@ -44,6 +44,8 @@ include::logic.adoc[]
 //MKD
 include::proofs.adoc[]
 
+include::induction.adoc[]
+
 include::functions.adoc[]
 
 include::growth_functions.adoc[]
@@ -59,7 +61,7 @@ include::number_theory.adoc[]
 //include::induction_recursion.adoc[]
 include::recursion.adoc[]
 
-include::induction.adoc[]
+//include::induction.adoc[]
 
 include::graph_theory.adoc[]
 

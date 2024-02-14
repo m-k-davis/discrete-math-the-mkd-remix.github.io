@@ -8,9 +8,35 @@ COMING SOON!
 
 == Rules Of Inference
 
+//MKD need to define an argument somewhere
+
 In order to make a valid argument, we must allow ourselves to proceed from true statements to other true statements without introducing false statements using faulty reasoning. 
 
 To this end, we use *rules of inference*, which are ways to draw a conclusion from from one or more premises that are already assumed to be true (either as axioms or as previously-derived conclusions.)
+
+One source of rules of inference are tautologies as discussed in the chapter on Logic.
+
+//MKD Modus Ponens, Modus Tollens, Hypothetical Syllogism
+//MKD get list of rules of inference from the te TWTask "Logic" and have students verify using truth tables.
+
+// MKD begin slide
+Logically valid inferences
+
+The general form of a rule of inference is:
+
+  p1
+  p2
+  .
+  .
+  .
+  pn
+____
+  q
+
+The rule states that if p1 and p2 and … and pn are all true, then q is true as well.
+Each rule is an established tautology of p1 ∧ p2 ∧ … ∧ pn → q
+These rules of inference can be used in any mathematical argument and do not require any proof.
+// MKD end slide
 
  
 

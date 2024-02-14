@@ -7,6 +7,7 @@
 //	Other identifies (e.g., Distriutive Law)
 //	immutability of math sets vs Python Sets
 //	ACTIVITY: Given Venn diagram of 3 sets with parts shaded, write at least TWO different expressions for the shaded set. THEH write the shaded set as a union of the smallest intersections (i.e., there are 8 regions defined in the Venn Diagram - write the union of the shaded parts (DNF))
+//	On sets of sets: Consider set C given as a roster of students in this section of Discrete Math, and a second roster D listing all sections of Discrete Math this semester. Is a student who is an element of C also and element of D? Is C a subset of D? Is C and element of D? 
 
 
 //MKD changed A to S throughtout following paragraph since A will be used in the Python WARNING
@@ -694,6 +695,14 @@ image::imagesMKD/ABC_DNF_EXAMPLE.png[]
 
 This type of expression is called a *disjunctive normal form* (or DNF) for the set that it represents. We will see an analog of these in a different context in the chapter on Logic.
 
+//MKD: Add conjunctive normal form - additional text to be revealed after May 24, 2024 (end of Spring '24 semester)
+//We can also find an expression in *conjunctive normal form* (or CNF) for the set that corresponds to the shading of the Venn diagram; this expression will be written as an intersection of unions of three sets, with one set chosen from each of the pairs $\{ A,\,\overline{A} \}$, $\{ B,\,\overline{B} \}$, and $\{ C,\,\overline{C} \}$. One way to do this is to start with a DNF expression for the complement of the shaded set, and then apply De Morgan's laws to obtain the CNF. In our example, the union of the 4 _unshaded_ regions 
+//MKD REMOVE THIS LINE represent the complement of the set we care about, and the union of the unshaded regions 
+//is $(A \cap B \cap \overline{C}) \cup (A \cap B \cap C) \cup (A \cap \overline{B} \cap C) \cup (\overline{A} \cap \overline{B} \cap C)$. This means that $\overline{(A \cap B \cap \overline{C}) \cup (A \cap B \cap C) \cup (A \cap \overline{B} \cap C) \cup (\overline{A} \cap \overline{B} \cap C)}$ represents the union of the _shaded_ regions. We now apply De Morgan's laws multiple times to rewrite the previous expression in CNF: $\overline{(A \cap B \cap \overline{C}) \cup (A \cap B \cap C) \cup (A \cap \overline{B} \cap C) \cup (\overline{A} \cap \overline{B} \cap C)}$ $\overline{(A \cap B \cap \overline{C})} \cap \overline{(A \cap B \cap C)} \cap \overline{(A \cap \overline{B} \cap C)} \cap \overline{(\overline{A} \cap \overline{B} \cap C)}$ $(\overline{A} \cup \overline{B} \cup \overline{\overline{C}}) \cap (\overline{A} \cup \overline{B} \cup \overline{C}) \cap (\overline{A} \cup \overline{\overline{B}} \cup \overline{C}) \cap (\overline{\overline{A}} \cup \overline{\overline{B}} \cup \overline{C})$ $(\overline{A} \cup \overline{B} \cup C) \cap (\overline{A} \cup \overline{B} \cup \overline{C}) \cap (\overline{A} \cup B \cup \overline{C}) \cap (A \cup B \cup \overline{C})$
+
+
+
+
 
 == The Principle Of Inclusion-Exclusion (PIE)
 
@@ -726,7 +735,7 @@ $| A | + | B | = | A \cap \overline{B} | + | A \cap B | + | \overline{A} \cap B 
 ****
 .Example {counter:setex}
 
-Consider the set $U = \{ n \in \mathbb{N} : 1 \leq 60 \}$. How many elements of $U$ are divisible by either 2 or 3 or both? How many elements of $U$ are divisible by neither 2 nor 3?
+Consider the set $U = \{ n \in \mathbb{N} : 1 \leq n \leq 60 \}$. How many elements of $U$ are divisible by either 2 or 3 or both? How many elements of $U$ are divisible by neither 2 nor 3?
 
 Let $A$ stand for the subset of $U$ that consists of multiples of 2, and 
 let $B$ stand for the subset of $U$ that consists of multiples of 3.
@@ -741,7 +750,7 @@ so there are $60 - 40 = 20$ integers in $U$ that are divisible by neither 2 nor 
 
 ****
 
-If want to compute the cardinality $|A \cup B \cup C|$ of the union of three given finite sets $A$, $B$, and $C$, we can again look at the Venn diagram of the partition of $U$ into 8 sets to see that some of the intersections  will be counted _one_, _two_, or _three_ times, once for each bit that is $1$. 
+If we want to compute the cardinality $|A \cup B \cup C|$ of the union of three given finite sets $A$, $B$, and $C$, we can again look at the Venn diagram of the partition of $U$ into 8 sets to see that some of the intersections  will be counted _one_, _two_, or _three_ times, once for each bit that is $1$. 
 
 //MKD needs to credit image to original authors
 // derived from images/AminusBunionCminusB.png
@@ -754,7 +763,7 @@ We can derive the following formula in much that same way that we did above; in 
 ****
 .Example {counter:setex}
 
-Consider the set $U = \{ n \in \mathbb{N} : 1 \leq 60 \}$ as in the previous example. How many elements of $U$ are divisible by at lest one of 2, 3, or 5?? How many elements of $U$ are divisible by none of 2, 3, or 5?
+Consider the set $U = \{ n \in \mathbb{N} : 1 \leq n \leq 60 \}$ as in the previous example. How many elements of $U$ are divisible by at lest one of 2, 3, or 5?? How many elements of $U$ are divisible by none of 2, 3, or 5?
 
 As in the previous example, 
 let $A$ stand for the subset of $U$ that consists of multiples of 2,  
