@@ -480,7 +480,8 @@ To ensure that we can properly interpret a compund proposition involving multipl
 
 To evaluate a compound proposition, we start by evaluating 
 
-* all expressions enclosed in parentheses from left to right, then all negations from left to right, then 
+* all expressions enclosed in parentheses from left to right, then 
+* all negations from left to right, then 
 * all conjunctions from left to right, then 
 * all disjunctions from left to right, then 
 * all conditionals from left to right, and finally 
@@ -703,8 +704,8 @@ Double Negation:
 Commutative laws:
 //\[ p \lor q \leftrightarrow q \lor p \]
 //\[ p \land q \leftrightarrow q \land p \]
-\[ p \lor q \equiv q \lor p) \]
-\[ p \land q \equiv q \land p) \]
+\[ p \lor q \equiv q \lor p \]
+\[ p \land q \equiv q \land p \]
 
 Associative laws:	
 //\[ p \lor (q \lor r) \leftrightarrow (p \lor q) \lor r \]
@@ -842,6 +843,8 @@ The last expression is logically equivalent to the unknown proposition.
 
 //MKD Moved "Tautologies, Contradictions and Contingencies" from here to before De Morgan's laws
 
+
+//MKD The section on Predicates and Quantifiers still needs changes
 
 == Predicates and Quantifiers
 === Predicates

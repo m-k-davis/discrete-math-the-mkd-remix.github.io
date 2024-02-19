@@ -96,7 +96,12 @@ $(document).on('page:load', ready2);
 <li><a href="#_exercises_2">4.5. Exercises</a></li>
 </ul>
 </li>
-<li><a href="#_proofs">5. Proofs</a></li>
+<li><a href="#_proofs">5. Proofs</a>
+<ul class="sectlevel2">
+<li><a href="#_rules_of_inference">5.1. Rules Of Inference</a></li>
+<li><a href="#_proof_techniques_section_in_progress">5.2. Proof Techniques - SECTION IN PROGRESS</a></li>
+</ul>
+</li>
 <li><a href="#_mathematical_induction">6. Mathematical Induction</a></li>
 <li><a href="#_functions">7. Functions</a></li>
 <li><a href="#_growth_of_functions">8. Growth of Functions</a></li>
@@ -2912,7 +2917,10 @@ The conditional represents a one-way contract: You earn an A in the class <em>if
 <div class="ulist">
 <ul>
 <li>
-<p>all expressions enclosed in parentheses from left to right, then all negations from left to right, then</p>
+<p>all expressions enclosed in parentheses from left to right, then</p>
+</li>
+<li>
+<p>all negations from left to right, then</p>
 </li>
 <li>
 <p>all conjunctions from left to right, then</p>
@@ -3332,9 +3340,9 @@ the biconditional of the left-hand side and the right-hand side of the logical e
 <div class="paragraph">
 <p>Commutative laws:
 
-\[ p \lor q \equiv q \lor p) \]
+\[ p \lor q \equiv q \lor p \]
 
-\[ p \land q \equiv q \land p) \]</p>
+\[ p \land q \equiv q \land p \]</p>
 </div>
 <div class="paragraph">
 <p>Associative laws:
@@ -4916,13 +4924,790 @@ Determine the true value of the  following, an explain your reasoning.</p>
 <h2 id="_proofs">5. Proofs</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>COMING SOON!</p>
+<p>Recall from the chapter on Logic that an <strong>argument</strong> is a finite sequence of statements that ends with a final statement, the <strong>conclusion</strong>, that is based on inferences made from the earlier statements, called <strong>premises</strong>.</p>
+</div>
+<div class="paragraph">
+<p>An argument is <strong>valid</strong> if it is of a form such that if all premises are True then the conclusion must be True, too. An argument is not valid just because it exists! Compare this situation to a proposition, which is a single statement that may be either True or False (but not both); an argument is a finite sequence of statements that may be either valid or invalid.</p>
+</div>
+<div class="paragraph">
+<p>A <strong>proof</strong> is a valid argument made up of propositions. In a proof, some premises may be <strong>axioms</strong> or <strong>postulates</strong>, which are propositions that we simply ASSUME to be True. Other premises used in a proof may be previously-proven propositions called <strong>theorems</strong>. There are many other terms used for theorems depending on the context, such as <strong>lemma</strong> (a minor theorem needed to prove a more important major theorem) and <strong>corollary</strong> (a theorem that is a conclusion based on a premise that is a more important theorem),
+but each of these specialized terms describes a theorem.</p>
+</div>
+<div class="sect2">
+<h3 id="_rules_of_inference">5.1. Rules Of Inference</h3>
+<div class="paragraph">
+<p>To create a proof, we must
+proceed from True propositions to other True propositions without introducing False propositions into the argument.
+To do this, we use <strong>rules of inference</strong>, which are ways to draw a True conclusion from one or more premises that are already known to be True (or assumed to be True). That is, a <strong>rule of inference</strong> is an argument form that corresponds to a tautology, and so is valid.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 1 - Notation For A Rule Of Inference</div>
+<p>A rule of inference can be represented as
+follows.</p>
+</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(p_{1}\)</p>
+</li>
+<li>
+<p>\(p_{2}\)</p>
+</li>
+<li>
+<p>\(\vdots\)</p>
+</li>
+<li>
+<p>\(p_{n}\)</p>
+</li>
+<li>
+<p>\(\therefore q\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The propositional variables \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) represent the premises of the argument, and \(q\) represents the conclusion of the argument. The symbol \(\therefore\) is read as "therefore".</p>
+</div>
+<div class="paragraph">
+<p>This rule of inference is interpreted to mean that if all of the propositions \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) are True then the proposition \(q\) MUST be True.
+The rule of inference
+in this example
+corresponds to
+the tautology
+\((p_{1} \land p_{2} \land \ldots \land p_{n})\rightarrow q\).</p>
+</div>
+<div class="paragraph">
+<p>Note that the conclusion \(q\) must be the last proposition, but
+the order in which the premises  \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) are listed in the argument does not matter since we use the conjunction of all premises to prove the conclusion.
+The premises \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) are usually presented in an order that follows the flow of thought.</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 2 - Valid and Invalid Arguments</div>
+<p>Consider the following three arguments.</p>
+</div>
+<div class="paragraph">
+<div class="title">A Valid Argument</div>
+<p>The following argument was used as an example in the Logic chapter.</p>
+</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>Sarah earned a B.S. in Computer Science.</p>
+</li>
+<li>
+<p>Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.</p>
+</li>
+<li>
+<p>Therefore, Sarah earned a C or better in Discrete Math.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The argument is of the form</p>
+</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p><em>p</em></p>
+</li>
+<li>
+<p>if <em>p</em> then <em>q</em></p>
+</li>
+<li>
+<p>\(\therefore\) <em>q</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This argument form is named <strong><em>modus ponens</em></strong>, which is translated roughly from Latin as "method of affirming".
+<em>Modus ponens</em> is a <strong>valid</strong> argument form because it corresponds to the  tautology \((p \land (p \rightarrow q)) \rightarrow q\).</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">\(p\)</th>
+<th class="tableblock halign-left valign-top">\(q\)</th>
+<th class="tableblock halign-left valign-top">\(p \rightarrow q\)</th>
+<th class="tableblock halign-left valign-top">\(p \land (p \rightarrow q)\)</th>
+<th class="tableblock halign-left valign-top">\(q\)</th>
+<th class="tableblock halign-left valign-top">\((p \land (p \rightarrow q)) \rightarrow q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>That is, <em>modus ponens</em> is a rule of inference.</p>
+</div>
+<div class="paragraph">
+<div class="title">An Invalid Argument</div>
+<p>Consider this second argument.</p>
+</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>Arya earned a C or better in Discrete Math.</p>
+</li>
+<li>
+<p>Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.</p>
+</li>
+<li>
+<p>Therefore, Arya earned a B.S. in Computer Science.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This argument is NOT valid.
+If we assume that
+the first two propositions
+are True, we do not have enough information to reach the conclusion
+that Arya earned a B.S. in Computer Science:
+Arya <em>may</em> have earned that degree, but <em>may</em> still be working towards the degree, or <em>may</em> have changed majors and
+earned a degree in the new major, or perhaps there is some other possibility -  we cannot determine
+whether the conclusion
+is True or False
+based on the assumption that
+the two premises are True.</p>
+</div>
+<div class="paragraph">
+<p>The argument
+corresponds to the
+argument form</p>
+</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p><em>q</em></p>
+</li>
+<li>
+<p>if <em>p</em> then <em>q</em></p>
+</li>
+<li>
+<p>\(\therefore\) <em>p</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This argument form is an example of a <strong>fallacy</strong> or <strong><em>non sequitur</em></strong>, which is Latin for "it does not follow".
+The argument form is <strong>invalid</strong>
+because it
+corresponds to a
+proposition that is NOT a
+tautology,
+as can be seen in the truth table for the compound proposition
+\((q \land (p \rightarrow q)) \rightarrow p\).</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">\(p\)</th>
+<th class="tableblock halign-left valign-top">\(q\)</th>
+<th class="tableblock halign-left valign-top">\(p \rightarrow q\)</th>
+<th class="tableblock halign-left valign-top">\(q \land (p \rightarrow q)\)</th>
+<th class="tableblock halign-left valign-top">\(p\)</th>
+<th class="tableblock halign-left valign-top">\((q \land (p \rightarrow q)) \rightarrow p\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>F</mark></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>T</mark></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>T</mark></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>T</mark></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>F</mark></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>F</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>F</mark></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>T</mark></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>T</mark></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>T</mark></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>F</mark></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>F</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Notice that there are two rows of the truth table in which both \(q\) and \(p \rightarrow q\) are True but \(p\) is False! This means that we can NOT infer that \(p\) is True whenever \((q \land (p \rightarrow q))\) is True. The argument form is <strong>invalid</strong> because \((q \land (p \rightarrow q)) \rightarrow p\) is not a tautology.</p>
+</div>
+<div class="paragraph">
+<p>This particular fallacy is used so often that it has its own name: The <strong>converse error</strong>, or <strong>fallacy of the converse</strong>.</p>
+</div>
+<div class="paragraph">
+<div class="title">A Third Argument - You Try</div>
+<p>Write the argument form for the following argument.</p>
+</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>Ping did not earn a B.S. in Computer Science.</p>
+</li>
+<li>
+<p>Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.</p>
+</li>
+<li>
+<p>Therefore, Ping did not earn a C or better in Discrete Math.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Find a compound proposition that corresponds to the argument form you wrote, and write the truth table for that compound proposition.</p>
+</div>
+<div class="openblock question">
+<div class="title">Question</div>
+<div class="content">
+<div class='click_oblique'>
+Is the argument valid?
+</div>
+</div>
+</div>
+<div class="openblock click">
+<div class="title">Hint</div>
+<div class="content">
+<div class='click_oblique'>
+The argument is valid if and only if the compound proposition is a tautology.
+</div>
+</div>
+</div>
+<div class="openblock click">
+<div class="title">Answer</div>
+<div class="content">
+<div class='click_oblique'>
+No. The argument is invalid and is an example of the <strong>inverse error</strong> or <strong>fallacy of the inverse</strong>.
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In the following subsections we will discuss some of the more common rules of inference.</p>
+</div>
+<div class="sect3">
+<h4 id="_transitivity_of_the_conditional">5.1.1. Transitivity Of The Conditional</h4>
+<div class="paragraph">
+<p>The following rule of inference is called <strong>pure hypothetical syllogism,</strong> but we will use the less formal name <strong>transitivity.</strong> It is the basis of conditional proof in mathematics.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Transitivity (Pure Hypothetical Syllogism)</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(p \rightarrow q\)</p>
+</li>
+<li>
+<p>\(q \rightarrow r\)</p>
+</li>
+<li>
+<p>\(\therefore p \rightarrow r\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This rule of inference corresponds to the tautology
+\(((p \rightarrow q) \land (q \rightarrow r)) \rightarrow (p \rightarrow r)\).</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>By applying transitivity multiple times, we can build a finite chain of implications of any length we want:</p>
+</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(p \rightarrow p_{1}\)</p>
+</li>
+<li>
+<p>\(p_{1} \rightarrow p_{2}\)</p>
+</li>
+<li>
+<p>\(p_{2} \rightarrow p_{3}\)</p>
+</li>
+<li>
+<p>\(\vdots\)</p>
+</li>
+<li>
+<p>\(p_{k-1} \rightarrow p_{k}\)</p>
+</li>
+<li>
+<p>\(p_{k} \rightarrow r\)</p>
+</li>
+<li>
+<p>\(\therefore p \rightarrow r\)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rules_of_inference_and_fallacies_arising_from_the_conditional">5.1.2. Rules Of Inference And Fallacies Arising From The Conditional</h4>
+<div class="paragraph">
+<p>Recall that if we have propositions <em>p</em> and <em>q</em>, we can form the conditional with <strong>hypothesis</strong> \(p\) and <strong>consequent</strong> \(q\), written as \(p \rightarrow q\), as well as three other related
+conditionals.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(p \rightarrow q\), the conditional</p>
+</li>
+<li>
+<p>\(q \rightarrow p\), the converse of \(p \rightarrow q\)</p>
+</li>
+<li>
+<p>\(\neg q \rightarrow \neg p\), the contrapositive of \(p \rightarrow q\)</p>
+</li>
+<li>
+<p>\(\neg p \rightarrow \neg q\), the inverse of \(p \rightarrow q\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Also, recall that \((p \rightarrow q) \equiv (\neg q \rightarrow \neg p)\). That is, \((p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)\) is a tautology. This means that the conditional is logically equivalent to its contrapositive. The conditional is NOT logically equivalent to either its converse or its inverse, as was shown using truth tables in the Logic chapter.</p>
+</div>
+<div class="paragraph">
+<p>From the four conditionals we get two rules of inference and two fallacies.
+Together, these four argument forms are referred to as the
+<strong>mixed hypothetical syllogisms.</strong></p>
+</div>
+<div class="paragraph">
+<p>First, here are the two rules of inference.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Modus Ponens ("Method Of Affirming")</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(p \rightarrow q\)</p>
+</li>
+<li>
+<p>\(p\)</p>
+</li>
+<li>
+<p>\(\therefore q\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This rule of inference corresponds to the tautology
+\(((p \rightarrow q) \land p) \rightarrow q\).</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Modus Tollens ("Method Of Denying")</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(p \rightarrow q\)</p>
+</li>
+<li>
+<p>\(\neg q\)</p>
+</li>
+<li>
+<p>\(\therefore \neg p\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This rule of inference corresponds to the tautology
+\(((p \rightarrow q) \land \neg q) \rightarrow \neg p\).</p>
+</div>
+<div class="paragraph">
+<p>This rule of inference corresponds to replacing the conditional
+\(p \rightarrow q\) by its logically equivalent contrapositive \(\neg q \rightarrow \neg p\).</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, here are the two fallacies. They are included because they are very common errors to be aware of and to avoid.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Inverse Error</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(p \rightarrow q\)</p>
+</li>
+<li>
+<p>\(\neg p\)</p>
+</li>
+<li>
+<p><span class="line-through">∴¬<em>q</em></span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This fallacy arises by mistakenly treating the inverse \(\neg p \rightarrow \neg q\) as if it were logically equivalent to \(p \rightarrow q\). It is also called the "fallacy of the inverse" and "fallacy of denying the hypothesis".</p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Converse Error</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(p \rightarrow q\)</p>
+</li>
+<li>
+<p>\(q\)</p>
+</li>
+<li>
+<p><span class="line-through">∴<em>p</em></span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This fallacy arises by mistakenly treating the converse \(q \rightarrow p\) as if it were logically equivalent to \(p \rightarrow q\). It is also called the "fallacy of the converse" and the "fallacy of affirming the consequent".</p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following image uses an <strong>Euler diagram</strong> of two sets \(A \subseteq B\) to explain why the converse error is a fallacy. The image can also be used to explain why the inverse error is a fallacy.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="imagesMKD/ConverseErrorForSets.png" alt="ConverseErrorForSets">
+</div>
+</div>
+<div class="paragraph">
+<p>Suppose you were told that \(c\) is an element of \(B\) in the preceding image. Can you determine whether \(c\) is an element of \(A\), too?</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_other_common_rules_of_inference">5.1.3. Other Common Rules Of Inference</h4>
+<div class="paragraph">
+<p>Any tautology of the form \(p \rightarrow q\)
+can be used to define a rule of inference.
+In particular, we can define a rule of inference corresponding to the tautology \((p_{1} \land p_{2} \land \ldots \land p_{n})\rightarrow p_{1}\) for each integer \(n \geq 1\).
+This means that there are at least as many possible tautologies as there are natural numbers! How do we deal with infinitely many tautologies?</p>
+</div>
+<div class="paragraph">
+<p>In general, there is a small number of rules of inference that are used in most proofs. Proofs often are built up to a large size by applying just a few rules of inference multiple times.</p>
+</div>
+<div class="paragraph">
+<p>Here are some of the more commonly-used rules of inference. In the remix author&#8217;s opinion, it&#8217;s better to practice <em>using</em> these rules of inference rather than to focus on memorizing them as formal rules with special names.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Proof by Cases</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(p \rightarrow r\)</p>
+</li>
+<li>
+<p>\(q \rightarrow r\)</p>
+</li>
+<li>
+<p>\(p \lor q\)</p>
+</li>
+<li>
+<p>\(\therefore r\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This rule of inference corresponds to the tautology
+\(((p \rightarrow q) \land (q \rightarrow r) \land (p \lor q)) \rightarrow r\).</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Resolution</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(p \rightarrow q\)</p>
+</li>
+<li>
+<p>\(\neg p \rightarrow r\)</p>
+</li>
+<li>
+<p>\(\therefore q \lor r\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This rule of inference corresponds to the tautology
+\(((p \rightarrow q) \land (\neg p \rightarrow r)) \rightarrow (q \lor r)\).</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Elimination</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(p \lor q\)</p>
+</li>
+<li>
+<p>\(\neg q\)</p>
+</li>
+<li>
+<p>\(\therefore p\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This rule of inference corresponds to the tautology
+\(((p \lor q) \land \neg q) \rightarrow p\).</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Contradiction Rule</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(\neg p \rightarrow (q \land \neg q)\)</p>
+</li>
+<li>
+<p>\(\therefore p\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This rule of inference corresponds to the tautology
+\((\neg p \rightarrow (q \land \neg q)) \rightarrow p\).</p>
+</div>
+<div class="paragraph">
+<p>Note that this tautology is
+often written in the alternate form
+\(((\neg p \rightarrow q) \land (\neg p \rightarrow \neg q)) \rightarrow p\), which
+can be more useful in some contexts.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>There are <span class="underline">many</span> more rules of inference we could
+write down and give names to. Instead, we&#8217;ll just list a few tautologies.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">You Try</div>
+<p>For each of the tautologies shown, write the argument form for the corresponding rule of inference. If needed, refer to Example 2 in this chapter to see how the argument, argument form, and tautology are related.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\((p \land q) \rightarrow p\)</p>
+</li>
+<li>
+<p>\(p \rightarrow (p \lor q)\)</p>
+</li>
+<li>
+<p>\(p \rightarrow (q \rightarrow (p \land q))\)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proof_techniques_section_in_progress">5.2. Proof Techniques - SECTION IN PROGRESS</h3>
+<div class="paragraph">
+<p>In this section we will give several examples of formal mathematical proofs to illustrate different techniques.</p>
+</div>
+<div class="paragraph">
+<p>Each proof starts with us stating a <strong>conjecture</strong>, which is a proposition with undetermined truth value. The goal of each proof is to determine the truth value of the relevant conjecture.</p>
+</div>
+<div class="paragraph">
+<p>To simplify the description of the proof techniques, we&#8217;ll only consider the case where the proof has a <em>single premise</em> \(p\), that is, we&#8217;ll always assume that our proof
+involves a single conditional \(p \rightarrow q\). This may seem like an oversimplification, but it is not: We are simply renaming the conjunction \((p_{1} \land p_{2} \land \ldots \land p_{n})\) of the actual premises by using the single propositional variable \(p\), that is we are <em>defining</em> \(p\) by the logical equivalence \(p \equiv (p_{1} \land p_{2} \land \ldots \land p_{n})\)</p>
+</div>
+<div class="paragraph">
+<p>MORE TO COME!!</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_mathematical_induction">6. Mathematical Induction</h2>
 <div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 3 - Justify that this code works</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>The code below prints the sum of the first \(n\) odd positive numbers for a chosen value of \(n\). How do we know that the code does what it claims to do?</p>
+</div>
+<div class="paragraph">
+<p>Try to predict the variable names, values, and data types at different steps in the execution. Use the <em>Next</em> button to check your answers.</p>
+</div>
+<iframe width="100%" frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20%C2%ACp%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20print%28p,%20negation%28p%29%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=350"> </iframe>
+
+<div style="text-align: right;">
+<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20%C2%ACp%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20print%28p,%20negation%28p%29%29&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p><em>Mathematical induction</em> is a proof technique that is used to prove
 infinitely many propositions using only two steps, where each of the

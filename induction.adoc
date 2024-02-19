@@ -2,15 +2,48 @@
 
 
 
-//MKD add discussion of Well-Oredering Principle axion (after the example?)
+
+//MKD add discussion of Well-Ordering Principle axion (after the example?)
 //== What is Mathematical Induction?
 
-// MKD: The commonly-used "infinite ladder" analogy that appears in the original book is misleading. 
+//MKD other stuff to add
+// "Small" integer is a relative term - consider the sequence of numbers 2, 2^2=4, 2^4=16, 2^16=65536, 2^65536 which is approximately 2 × 10^19728, and 2^(2^65536) which has about 6.031226062630295×10^19727 decimal digits, ... would you like to see other "small" integers?
+// Induction is like verifying that a loop produces the expected output, for example 
+// n = input("Type a positive whole number.")
+// s = 0 
+// for i = 1 to n
+//		s = s + 2i-1
+// print("The sum of the first",n,"odd positive integers is", str(s)+".")
+// #Is s always a perfect square? How can you know for a "small" integer like 2^65536?
+//MKD code for motivating example
+//https://pythontutor.com/render.html#code=n%20%3D%20int%28input%28%22Type%20a%20positive%20integer%20into%20the%20box%3A%22%29%29%0A%23%20code%20throws%20ValueError%20if%20input%20is%20not%20an%20integer%0A%23%20initialize%20variables%0As%20%3D%200%0Ai%20%3D%201%0A%23%20loop%20n%20times%0Awhile%20i%20%3C%3D%20n%3A%0A%20%20%20%20s%20%3D%20s%20%2B%20%282*i-1%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28s%29&cumulative=false&curInstr=17&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%224%22%5D&textReferences=false
+
+ 
+:pt_code_height: 350
+:pt_rawinput: false
+:pt_code: def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20%C2%ACp%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20print%28p,%20negation%28p%29%29
+
+****
+.Example {counter:proofexample} - Justify that this code works
+--
+--
+The code below prints the sum of the first $n$ odd positive numbers for a chosen value of $n$. How do we know that the code does what it claims to do?
+
+
+
+Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
+include::python_tutor.adoc[]
+****
+
+
+
+// MKD: The commonly-used "infinite ladder" analogy is misleading. 
+// This analogy may appear in the original book. 
 // The goal of mathematical induction is to produce a proof of FINITE LENGTH 
 // that shows that a ladder of any specified natural number height $n$ 
 // can be built, and that there is no upper bound on $n$. 
 // That is, a FINITE ladder of any possible height can be built, but not an infinite ladder. 
-// The analogy is code that uses a loop. The loop can be executed any FINITE number of times, but cannot truly be an "infinite loop" that never breaks.
+// MKD thinks that a better analogy is code that uses a loop. The loop can be executed any FINITE number of times, but cannot truly be an "infinite loop" that never breaks.
 
 _Mathematical induction_ is a proof technique that is used to prove 
 infinitely many propositions using only two steps, where each of the

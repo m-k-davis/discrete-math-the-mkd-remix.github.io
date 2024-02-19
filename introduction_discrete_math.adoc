@@ -52,6 +52,18 @@ with their broad programming curricula in courses like Intermediate and Advanced
 
 
 // MKD: new section on basic content
+// add (possible) additional content after May 24, 2024
+//		mention "partition of a set"? Maybe better for Set Theory chapter
+//		Sequences (both finite and infinite, mention recursion)
+//		EDIT infinite cardinals discussion - for most studnets at this 	
+//			level, |N|=|Q| would not be surprising since they'd likely
+//			think that there is only one infinity; |Q|<|R| is surprising!
+//		Code for one-to-one correspondence of N to Z below 
+//		(may be better for functions chapter?)
+//			...,  3,  1, 0, 2, 4, .....
+//			..., -2, -1, 0, 1, 2, .....
+
+
 == Basics 
 //This section informally introduces some basic foundational mathematical concepts that will be used throughout the book. These concepts will be discussed much more formally later in the textbook.
 
