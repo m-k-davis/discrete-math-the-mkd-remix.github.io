@@ -167,12 +167,8 @@ _Modus ponens_ is a *valid* argument form because it corresponds to the  tautolo
 |====
 | $p$ | $q$ | $p \rightarrow q$ | $p \land (p \rightarrow q)$ | $q$ | $(p \land (p \rightarrow q)) \rightarrow q$
 | T | T | T | T | T | T
-| T | T | T | T | T | T
-| T | F | F | F | F | T
 | T | F | F | F | F | T
 | F | T | T | F | T | T
-| F | T | T | F | T | T
-| F | F | T | F | F | T
 | F | F | T | F | F | T
 |====
 
@@ -243,18 +239,14 @@ $(q \land (p \rightarrow q)) \rightarrow p$.
 |====
 | $p$ | $q$ | $p \rightarrow q$ | $q \land (p \rightarrow q)$ | $p$ | $(q \land (p \rightarrow q)) \rightarrow p$
 | T | T | T | T | T | T
-| T | T | T | T | T | T
-| T | F | F | F | T | T
 | T | F | F | F | T | T
 | #F# | #T# | #T# | #T# | #F# | #F#
-| #F# | #T# | #T# | #T# | #F# | #F#
-| F | F | T | F | F | T
 | F | F | T | F | F | T
 |====
 
 //That is, we can not infer $p$ from $q \land (p \rightarrow q)$ because both
 
-Notice that there are two rows of the truth table in which both $q$ and $p \rightarrow q$ are True but $p$ is False! This means that we can NOT infer that $p$ is True whenever $(q \land (p \rightarrow q))$ is True. The argument form is *invalid* because $(q \land (p \rightarrow q)) \rightarrow p$ is not a tautology. 
+Notice that there is at least one row of the truth table in which both $q$ and $p \rightarrow q$ are True but $p$ is False! This means that we can NOT infer that $p$ is True whenever $(q \land (p \rightarrow q))$ is True. The argument form is *invalid* because $(q \land (p \rightarrow q)) \rightarrow p$ is not a tautology. 
 
 This particular fallacy is used so often that it has its own name: The *converse error*, or *fallacy of the converse*.
 
