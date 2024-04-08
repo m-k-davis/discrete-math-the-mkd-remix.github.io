@@ -190,37 +190,137 @@ $(document).on('page:load', ready2);
       </ul>
      </li>
      <li>
-      <a href="functions.html#_mathematical_induction">
+      <a href="induction.html#_mathematical_induction">
        6. Mathematical Induction
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="induction.html#_why_is_mathematical_induction_needed">
+         6.1. Why Is Mathematical Induction Needed?
+        </a>
+       </li>
+       <li>
+        <a href="induction.html#_strong_induction">
+         6.2. Strong Induction
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="growth_functions.html#_functions">
+      <a href="functions.html#_functions">
        7. Functions
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="functions.html#_a_very_formal_mathematical_definition_of_function">
+         7.1. A Very Formal Mathematical Definition Of "Function"
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_injective_surjective_bijective_and_inverse_functions">
+         7.2. Injective Surjective, Bijective and Inverse Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_ceiling_floor_maximum_and_minimum_functions">
+         7.3. The Ceiling, Floor, Maximum and  Minimum Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_algebra_of_functions">
+         7.4. The Algebra of Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_composition_of_functions">
+         7.5. Composition of Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_inverse_of_a_function">
+         7.6. The Inverse of a Function
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_exercises_3">
+         7.7. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="algorithms.html#_growth_of_functions">
+      <a href="growth_functions.html#_growth_of_functions">
        8. Growth of Functions
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="growth_functions.html#_introducing_big_o">
+         8.1. Introducing
+         <em>
+          Big O
+         </em>
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_properties_of_big_o_notation">
+         8.2. Properties of
+         <em>
+          Big O
+         </em>
+         notation.
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_using_limits_to_compare_the_growth_of_two_functions_calculus_i_required">
+         8.3. Using Limits to Compare the Growth of Two Functions (CALCULUS I REQUIRED!)
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_exercises_4">
+         8.4. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="counting.html#_algorithms">
+      <a href="algorithms.html#_algorithms">
        9. Algorithms
       </a>
      </li>
      <li>
-      <a href="number_theory.html#_counting">
+      <a href="counting.html#_counting">
        10. Counting
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="counting.html#_three_basic_counting_rules">
+         10.1. Three Basic Counting Rules
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_the_pigeonhole_principle">
+         10.2. The Pigeonhole Principle
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_permutations_and_combinations">
+         10.3. Permutations and Combinations
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_exercises_5">
+         10.4. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="recursion.html#_number_theory">
+      <a href="number_theory.html#_number_theory">
        11. Number Theory
       </a>
      </li>
      <li>
-      <a href="induction.html#_sequences_and_recursive_definitions">
+      <a href="recursion.html#_sequences_and_recursive_definitions">
        12. Sequences and Recursive Definitions
       </a>
      </li>
@@ -228,6 +328,13 @@ $(document).on('page:load', ready2);
       <a href="graph_theory.html#_graph_theory">
        13. Graph Theory
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="graph_theory.html#_introduction_and_basic_definitions">
+         13.1. Introduction and Basic Definitions
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
       <a href="python_intro.html#_appendix_0_an_introduction_to_python">
@@ -285,7 +392,7 @@ $(document).on('page:load', ready2);
         </a>
        </li>
        <li>
-        <a href="python_intro.html#_exercises_3">
+        <a href="python_intro.html#_exercises_6">
          14.11. Exercises
         </a>
        </li>
@@ -348,14 +455,1484 @@ $(document).on('page:load', ready2);
     </div>
    </div>
    <div class="sect1">
-    <h2 id="_algorithms">
-     9. Algorithms
+    <h2 id="_counting">
+     10. Counting
     </h2>
     <div class="sectionbody">
      <div class="paragraph">
       <p>
-       COMING SOON!
+       Many of us learned how to count when we were young children, but we probably never counted up to more than 100, or perhaps at most 1000. However, there are many problems that arise in math and computer science that require counting the number of elements of sets that contain much greater numbers of elements - hundreds of thousands of elements, or millions, or even more.
       </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       This chapter introduces techniques for
+counting the number of elements of finite sets.
+These techniques can be used quickly and efficiently no matter the size of the set.
+      </p>
+     </div>
+     <div class="sect2">
+      <h3 id="_three_basic_counting_rules">
+       10.1. Three Basic Counting Rules
+      </h3>
+      <div class="paragraph">
+       <p>
+        There are three basic counting rules
+introduced in this section, one for each of
+the arithmetic operations of multiplication, addition and subtraction.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_the_product_rule_and">
+        10.1.1. The Product Rule (
+        <em>
+         and
+        </em>
+        )
+       </h4>
+       <div class="paragraph">
+        <p>
+         To find the total number of outcomes for two or more successive events where both events must occur, multiply the number of outcomes for each event together.  For instance, if you want to find the number of outcomes possible when you roll a die and toss a coin, you could use the product rule. It is important to note that the events must be independent, meaning one doesn’t effect the other.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          The Product Rule
+         </div>
+         <div class="paragraph">
+          <p>
+           If there are \(n\) ways event \(E\) can occur and \(m\) ways to event \(F\) can occur, where the occurance of \(E\) has no effect on \(F\), then there are \(nm\) ways \(E\) and \(F\) can occur.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         This is called the product rule for counting because it involves multiplying to find a product. The product rule can be extended to more than two choices.
+        </p>
+       </div>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           Think of the product rule when you see AND.
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 1
+          </div>
+          <p>
+           A startup with four employee rents an office suite with seven offices. How many ways are there to assign the employees?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           The first employee has 7 offices to choose from, the second has 6 offices to choose from, the third can choose from 5, and the fourth can choose from 4. By the
+product rule, there are \(7 \times 6 \times 5 \times 4 = 840\) ways to assign the offices.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 2 - Product Rule in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           What will be the value 'counter' when the following code is run?
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20counter%28n1,%20n2,%20n3,%20n4,%20n5%29%3A%0A%20%20%20%20k%20%3D%200%0A%20%20%20%20for%20i1%20in%20range%281,%20n1%2B1%29%3A%0A%20%20%20%20%20%20%20%20for%20i2%20in%20range%281,%20n2%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20i3%20in%20range%281,%20n3%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20i4%20in%20range%281,%20n4%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20i5%20in%20range%281,%20n5%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20return%20k&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20counter%28n1,%20n2,%20n3,%20n4,%20n5%29%3A%0A%20%20%20%20k%20%3D%200%0A%20%20%20%20for%20i1%20in%20range%281,%20n1%2B1%29%3A%0A%20%20%20%20%20%20%20%20for%20i2%20in%20range%281,%20n2%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20i3%20in%20range%281,%20n3%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20i4%20in%20range%281,%20n4%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20i5%20in%20range%281,%20n5%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20return%20k&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 3
+          </div>
+          <p>
+           Suppose there are 27 computers in a computer center and each computer has 15 ports. How many different ways are there to choose a specific port?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           Choosing a port means you first choose a computer and then a port on that computer. Since there are 27 computers and 15 ways to choose a port on a computer, there are \(27 \times 15 = 405\) ways to choose a port.
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           How many functions are there from a set \(A\) with \(m\) elements to a set \(B\) with \(n\) elements?
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Video Example
+         </strong>
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The following video example features
+Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 4
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_nv3yif36&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_uy3482xl" title="Kaltura Player" webkitallowfullscreen="" width="700">
+         </iframe>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_the_sum_rule_xor">
+        10.1.2. The Sum Rule (
+        <em>
+         xor
+        </em>
+        )
+       </h4>
+       <div class="paragraph">
+        <p>
+         Consider finding the total number of ways a particular event occurs from a variety of different mutually exclusive options (mutually exclusive means that the options do not have anything in common.) For instance, if you want to find the number of ways to pick, at random, a student enrolled in Discrete Math this semester, you could use the sum rule to add the number of students in each section of Discrete Math (assuming that no student is enrolled in more than one section).
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          The Sum Rule
+         </div>
+         <div class="paragraph">
+          <p>
+           If there are \(n\) ways event \(E\) can occur and \(m\) ways event \(F\) can occur, and suppose that both events cannot occur at the same time, then there are \(n + m\) ways for \(E\) or \(F\) to occur.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         This is called the sum rule for counting because it involves adding to find a total. The sum rule can also be extended to more than two choices.
+        </p>
+       </div>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           Think of the sum rule when you see OR.
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 5
+          </div>
+          <p>
+           A student in a Capstone course can choose a project from three different professors. The professors have 3, 7, and 4 possible projects, and no project
+is on more than one professor’s list. How many possible projects can the student choose?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           The student can pick out a project by choosing from the first professor, the second professor, or the third professor. Since no project is on more than
+one list, the sum rules says that there are \(3 + 7 + 4 = 14\) projects to choose from.
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           If a card is drawn from a standard 52-card deck, how many ways can the card be an even number or a King?
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Video Example
+         </strong>
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The following video example features
+Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
+        </p>
+       </div>
+       <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_vkqpuw8o&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_jo4vqwqx" title="Kaltura Player" webkitallowfullscreen="" width="700">
+       </iframe>
+      </div>
+      <div class="sect3">
+       <h4 id="_the_subtraction_rule_or">
+        10.1.3. The Subtraction Rule (
+        <em>
+         or
+        </em>
+        )
+       </h4>
+       <div class="paragraph">
+        <p>
+         If your events are not mutually exclusive, to find the total number of possibilities use the subtraction rule.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          The Subtraction Rule
+         </div>
+         <div class="paragraph">
+          <p>
+           Suppose event \(E\) can occur \(n\) ways, event \(F\) can occur \(m\) ways, and there are \(p\) ways that \(E\) and \(F\) both occur. Then there are \(n+m-p\) ways
+\(E\) or \(F\) can occur.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Note that the subtraction rule is just a special case of the Principle of Inclusion-Exclusion seen in the chapter Set Theory.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 6
+          </div>
+          <p>
+           A tech company recieves 200 applications for a position. 150 of the applicants were ITEC majors, 43 were business majors, and 25 were double majors in
+business and ITEC.
+How many applicants did not major in ITEC or business?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           By the subtraction rule, there are \(150 + 43 - 25 = 168\) applicants that majored in ITEC or business. Thus \(200 - 168 = 32\) majored in neither of these.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 7
+          </div>
+          <p>
+           How many bit strings of length four start with 1 or end with 00?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           A bit string of length four that starts with 1 will be of the form \(1~*~*~*\). For each \(*\) there are two choices, 0 or 1, so by the product rule, there are \(2^3\) bit strings of this form. A bit string of length four that ends with 00 will be of the form \(*~*~0~0\), so there are \(2^2\) bit strings of this form.
+Finally,
+a bit string of length four that starts with 1 and ends with 00 will be of the form \(1~*~0~0\), so there are 2 bit strings of this form. By the subtraction rule
+there are \(2^3 + 2^2 - 2 = 8+4-2=10\) possibilities.
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           If a card is drawn from a standard 52-card deck, how many ways can the card be black or a face card?
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Video Example
+         </strong>
+        </p>
+       </div>
+       <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_axn9cnwt&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_ng802csp" title="Kaltura Player" webkitallowfullscreen="" width="700">
+       </iframe>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_pigeonhole_principle">
+       10.2. The Pigeonhole Principle
+      </h3>
+      <div class="paragraph">
+       <p>
+        A suprising number of counting problems can be solved with the so-called pigeonhole principle.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Pigeon Hole Principle
+        </div>
+        <div class="paragraph">
+         <p>
+          If \(n+1\) pigeons are resting in \(n\) pigeonholes then at least one pigeonhold contains more than one pigeon.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="imageblock">
+       <div class="content">
+        <img alt="pigeons" height="300" src="images/pigeons.png" width="300"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        <strong>
+         Ten pigeons in nine pigeonholes
+        </strong>
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example
+         </div>
+         <p>
+          In a group of 367 people at least two will have the same birthday because there are only 366 possible birthdays (counting February 29).
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          You Try
+         </div>
+         <p>
+          How many people, with English names, must be in a room for two of them to have a first name that starts with the same letter?
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_permutations_and_combinations">
+       10.3. Permutations and Combinations
+      </h3>
+      <div class="paragraph">
+       <p>
+        Many counting problems involve choosing, from a set of \(n\) objects, either an ordered sequence of \(r\) objects or a subset of \(r\) objects, with no repetition allowed. We will describe ways to do this type of counting in this section.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_permutations">
+        10.3.1. Permutations
+       </h4>
+       <div class="paragraph">
+        <p>
+         A
+         <strong>
+          permutation
+         </strong>
+         of a set of elements is an ordered arrangement of the elements.
+A permutation may involve every element of the set, or only some of the elements of the set.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Consider the first four letters of the English alphabet, \(A, B, C, D\).
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           \(ABCD, BACD, ABDC\) are permutations of the letters taken four at a time
+          </p>
+         </li>
+         <li>
+          <p>
+           \(BDA, ABC, ABD\) are permutations of the letters taken three at a time
+          </p>
+         </li>
+         <li>
+          <p>
+           \(AB, AC, DB\) are permutations of the letters taken two at a time
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         By listing all possible permutations of \(A, B, C, D\), we can determine that
+there are 24 permutations of the letters taken four at a time,
+24 permutations of the letters taken three at a time,
+and 6 permutations of the letters taken three at a time.
+But what if we wanted to find all the possible permutations of the twenty six letters \(A, B, C, D, \ldots , X, Y, Z\)? It is very time consuming to write out all possible permutations of the twenty six letters taken, say, twenty one at a time, so we will develop a method and formula for doing this.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In general, given a set of \(n\) objects, an
+         <em>
+          ordered arrangment
+         </em>
+         of \(r \le n\) of
+the objects is called an
+         <strong>
+          \(r\)-permutation
+         </strong>
+         or a
+         <strong>
+          permutation of \(n\) objects taken \(r\) at a time
+         </strong>
+         . We
+use the notation
+\(P(n,r)\) to represent the number of permutations of \(n\) objects taken \(r\) at a time. Note that \(_nP_r\) is
+another commonly used notation, especially on calculators.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Suppose we have \(n\) objects and want to construct a \(2\)-permutation of the objects. There are \(n\) possible choices for the first object, and once that object is chosen, there are \(n-1\) possible choices for the second object.
+We now use the product rule to conclude that there are \(n(n-1)\) ways to choose the two objects; note that the order of the choices matters here.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We can generalize this argument, informally, as follows: Suppose we have \(n\) objects and want to construct an \(r\)-permutation, where \(r \le n.\) There are \(n\) possible choices for the first object, \(n-1\) possible choices for the second object, and so on, until we have \(n-(r-1)\) possible choices for the \(r\text{th}\) object. Apply the product rule repeatedly to find that there are \( n(n-1)\cdots (n-r+1)\) \(r\)-permutations of the \(n\) objects.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           \(P(n,r) = n(n-1)(n-2) \cdots (n-r+1)\)
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that a formal proof can be done by using mathematical induction.
+        </p>
+       </div>
+       <div class="videoblock">
+        <div class="content">
+         <iframe allowfullscreen="" frameborder="0" height="500" src="https://www.youtube.com/embed/tTvaodWc6ic?rel=0" width="700">
+         </iframe>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 8 - Permutations of 5 objects taken 3 at a time
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Try to predict what happens with the code and verify.
+          </p>
+         </div>
+         <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23Listing%20Permutations%20of%203%20objects%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20!%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20!%3D%20i%20and%20k%20!%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0Aprint%28Counter%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=%23Listing%20Permutations%20of%203%20objects%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20!%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20!%3D%20i%20and%20k%20!%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0Aprint%28Counter%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You try
+          </div>
+          <p>
+           Try using
+           <a href="http://pythontutor.com/live.html#mode=edit">
+            Pythontutor
+           </a>
+           to list permutations of 5 objects taken 4 at a time.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 9 - Counting Permutations
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below calculates the number of permutations given \(n\) and \(r\).  Try to predict the variable names, values, and data types at different steps in the execution. Use the
+           <em>
+            Next
+           </em>
+           button to check your answers.
+          </p>
+         </div>
+         <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23Counting%20Permutations%0A%0Adef%20ProdCount%28n,r%29%3A%0A%20%20%20%20product%20%3D%20n%0A%20%20%20%20k%20%3D%20n-r%0A%20%20%20%20for%20i%20in%20range%28n-r%2B1,%20n%29%3A%0A%20%20%20%20%20%20%20%20product%20%3D%20product*i%0A%20%20%20%20return%20product%0A%20%20%20%20%0Aprint%28ProdCount%285,2%29%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=%23Counting%20Permutations%0A%0Adef%20ProdCount%28n,r%29%3A%0A%20%20%20%20product%20%3D%20n%0A%20%20%20%20k%20%3D%20n-r%0A%20%20%20%20for%20i%20in%20range%28n-r%2B1,%20n%29%3A%0A%20%20%20%20%20%20%20%20product%20%3D%20product*i%0A%20%20%20%20return%20product%0A%20%20%20%20%0Aprint%28ProdCount%285,2%29%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           Try using
+           <a href="http://pythontutor.com/live.html#mode=edit">
+            Pythontutor
+           </a>
+           to count permutations using a factorial formula.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         The previous code example gives evidence for the following theorem.
+Again, a formal proof can be done by using mathematical induction.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           \(P(n,r) = \displaystyle \frac{n!}{(n-r)!}\)
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Video Example
+         </strong>
+        </p>
+       </div>
+       <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_julbjvm6&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_s0uli5zb" title="Kaltura Player" webkitallowfullscreen="" width="700">
+       </iframe>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 10
+          </div>
+          <p>
+           If there are 10 runners in a race, how many different ways can the gold, silver, and bronze medals be awarded?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           There are 10 objects (the runners) and we are choosing 3 to win medals. So the number of ways they can be awarded is
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(P(10,3) = \displaystyle \frac{10!}{(10-3)!} = \frac{10!}{7!} = 10 \times 9 \times 8 = 720\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Alternatively, we could have used the product rule and noticed that there are 10 ways to award the gold, then there are 9 ways to award the silver,
+then 8 ways to award the brozne.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 11
+          </div>
+          <p>
+           How many permutations of the digits 0123456789 are there that contain the string 456?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           We can regard this as a permutation of 8 objects: the string 456 and the other 7 digits. Since they can occur in any order, the number of permutations is
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(P(8,8) = 8! = 40320.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           From a group of 100 workers, how many ways can there be a union President, Vice President, and Treasurer?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           How many different words (including nonsense words), can be formed using the letters in 'HEROIC' where the vowels must appear together?
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_combinations">
+        10.3.2. Combinations
+       </h4>
+       <div class="paragraph">
+        <p>
+         A selection
+of objects from a set of \(n\) objects
+where order
+of selection
+does not matter is called a
+         <strong>
+          combination
+         </strong>
+         .
+Notice that each combination corresponds to a subset of the set of \(n\) objects.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Consider the letters \(A, B, C, D\) and choose three at a time where the order does not matter.
+In this case we are selecting a subset of size three instead of a sequence of length three. The sets \(\{ A, B, C \}\) and \(\{ B, C, A \}\) are just two ways of describing the same set since the order in which elements of a set are listed does not matter.
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           There are four possible ways to choose three letters without regard to order:
+\(\{ A, B, C \}\),
+\(\{ A, B, D \}\),
+\(\{ A, C, D \}\), and
+\(\{ B, C, D \}\).
+          </p>
+         </li>
+         <li>
+          <p>
+           There are six possible ways to choose three letters without regard to order:
+\(\{ A, B \}\),
+\(\{ A, C \}\),
+\(\{ A, D \}\),
+\(\{ B, C \}\),
+\(\{ B, D \}\), and
+\(\{ C, D \}\).
+          </p>
+         </li>
+         <li>
+          <p>
+           There are four possible ways to choose one letter (without regard to order):
+\(\{ D \}\),
+\(\{ C \}\),
+\(\{ B \}\), and
+\(\{ A \}\). (Keep reading to find out why this "reversed" ordering of the subsets was used.)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         This shows that there are
+4 combinations of 4 objects taken 3 at a time,
+6 combinations of 4 objects taken 2 at a time, and
+4 combinations of 4 objects taken 1 at a time.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In general, given a set of \(n\) objects,
+an
+         <em>
+          unordered selection
+         </em>
+         of \(r\le n\) of them is
+called
+an
+         <strong>
+          \(r\)-combination
+         </strong>
+         or a
+         <strong>
+          combination of \(n\) objects taken \(r\) at a time
+         </strong>
+         . We will denote this by \(C(n,r)\), read as '\(n\) choose \(r\)'. Note that \(_nC_r\) is commonly used by calculators.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Using this notation, we can write \(C(4,3) = 4\), \(C(4,2) = 6\), and \(C(4,1) = 4\).
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Notice that \(C(4,3) = C(4,1)\); it may appear that this "just happens to be true", but in fact is an example of the next theorem. In this case, a combination of 4 objects taken 3 at a time corresponds to a combination of 4 objects taken 1 at a time - we can choose 3 of the 4 elements by "throwing out" the 1 element we don’t want to keep. That is, we choose the 3-element subset we care about indirectly by instead choosing the 1-element complement of the subset.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In general, there is always a one-to-one correspondence between
+the combinations of \(n\) objects taken \(r\) at a time and the combinations of \(n\) objects taken \(n-r\) at a time: Choosing \(r\) elements for a subset corresponds to choosing the \(n-r\) elements for the complement of the subset.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           \(C(n,r) = C(n,n-r)\)
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         A formal proof of the theorem can be written by proving that, for any set \(S\), the function with domain and codomain \(\mathcal{P}(S)\) and that maps each subset of \(S\) to its complement is both injective and surjective.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Next, notice that every \(r\)-combination corresponds to \(P(r, r) = r!\) different \(r\)-permutations. That is, to select a \(r\)-permutation we could instead first select a \(r\)-combination without regard to order and then order the \(r\) elements.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         As an example, suppose we have \(n\) objects and want to construct a \(3\)-permutation. We could instead first choose a \(3\)-combination of the objects. There are \(C(n,3)\) possible \(3\)-combinations. Once we have chosen a specific \(3\)-combination, we can reorder the 3 elements
+in \(P(3,3) = 3!\) ways.
+This argument shows that
+\(P(n,3) = C(n,3) \cdot P(3,3) =  C(n,3) \cdot 3!\), so
+\(C(n,3) = \displaystyle \frac{P(n,3)}{3!}\).
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We can generalize this argument for each natural number \(r \leq n\) to arrive at the next theoren.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           \(C(n,r) = \displaystyle \frac{P(n,r)}{r!} = \frac{n!}{r!(n-r)!}\)
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         A formal proof of the theorem can be done by using mathematical induction.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 12 - Combinations of 5 objects 3 at at time
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below calculates the number of and lists combinations given \(n\) and \(r\).  Try to predict the variable names, values, and data types at different steps in the execution. Use the
+           <em>
+            Next
+           </em>
+           button to check your answers.
+          </p>
+         </div>
+         <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%235%20choose%203%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20%3E%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0Aprint%28Counter%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=%235%20choose%203%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20%3E%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0Aprint%28Counter%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You try
+          </div>
+          <p>
+           Try using
+           <a href="http://pythontutor.com/live.html#mode=edit">
+            Pythontutor
+           </a>
+           to list and count combinations of 5 choose 4.
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You try
+          </div>
+          <p>
+           Now try using
+           <a href="http://pythontutor.com/live.html#mode=edit">
+            Pythontutor
+           </a>
+           to calculate combinations using factorials.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Video Example
+         </strong>
+        </p>
+       </div>
+       <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_q7vdemao&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_kbgw9kgq" title="Kaltura Player" webkitallowfullscreen="" width="700">
+       </iframe>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Video Example
+         </strong>
+        </p>
+       </div>
+       <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_mwu49tz8&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_azbrfaq2" title="Kaltura Player" webkitallowfullscreen="" width="700">
+       </iframe>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 13
+          </div>
+          <p>
+           How many ways can five cards be dealt from a standard 52-card deck?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           We are choosing 5 cards from 52 cards and the order does not matter, so \(C(52,5)=\displaystyle \frac{52!}{5!47!}\)
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 14
+          </div>
+          <p>
+           How many bit strings of length \(n\) contain exactly \(r\) 0s?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           Choosing the positions of the \(r\) 0s corresponds to the \(r\)-combinations of the set \(\{1, 2, 3, \dots, n\}\). Thus there are exactly
+\(C(n,r)\) such bit strings.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_exercises_5">
+       10.4. Exercises
+      </h3>
+      <div class="olist arabic">
+       <ol class="arabic">
+        <li>
+         <p>
+          There are 67 math majors and 124 ITEC majors at a college.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             In how many ways can two representatives be picked so that one is a math major and one is an ITEC major?
+            </p>
+           </li>
+           <li>
+            <p>
+             In how many ways can one representative be picked who is either a math major or an ITEC major?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          A multiple-choice test contains 20 questions, and each question has four choices.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             In how many ways can a student answer all of the questions on the test?
+            </p>
+           </li>
+           <li>
+            <p>
+             In how many ways can a student answer all of the questions if she is allowed to leave some blank?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          How many different three-letter initials can a person have?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many different three-letter initials end with "R"?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many bit strings are there of length five?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many bit strings are there of length five that begin and end with 1?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many bit strings are there of length less than \(n\), where \(n\) is a positive integer, that start and end with 1?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many license plates can be made using three digits followed by four uppercase English letters if:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Digits and letters can be repeated?
+            </p>
+           </li>
+           <li>
+            <p>
+             Digits and letters cannot be repeated?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          If each student in Discrete Mathematics is a mathematics major, an ITEC major, or a double major, and a class has 5 math majors (including double majors), 23 ITEC
+majors (including double majors), and 7 double majors, how many students are in the class?
+         </p>
+        </li>
+        <li>
+         <p>
+          Suppose a computer system requires a password of length no less than 7 and no more than 10 characters, and each character must be an English lowercase
+letter, an English uppercase letter, a digit, or one of six special characters (*, &gt;, &lt;, !, +, =).
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             How many different passwords are available?
+            </p>
+           </li>
+           <li>
+            <p>
+             Suppose a hacker can check a potential password once every nanosecond (1 nanosecond is \(1 \times 10^{-9}\) seconds). How long will it take the hacker
+to check every potential password?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Show that if there are 29 students in a class at least two have last names that begin with the same letter.
+         </p>
+        </li>
+        <li>
+         <p>
+          How many students need to be in a class in order for at least two students to receive the same grade on an exam that is graded on a scale 0 to 100 points?
+         </p>
+        </li>
+        <li>
+         <p>
+          Show that in any set of 5 integers, there are at least two of them that have the same remainder when divided by 4.
+         </p>
+        </li>
+        <li>
+         <p>
+          A bag contains 8 red balls and 7 blue balls.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             How many balls must be chosen to be sure of choosing 3 of the same color?
+            </p>
+           </li>
+           <li>
+            <p>
+             How many must be chosen to be sure of choosing 3 red balls?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Someone cleaning out their attic finds a box containing 12 rock CDs and 12 country CDs. What is the minimum number of CDs they can take out to guarantee at least
+one of each type?
+         </p>
+        </li>
+        <li>
+         <p>
+          Give an argument that there are at least two people in Atlanta with the same number of hairs on their head.
+         </p>
+        </li>
+        <li>
+         <p>
+          There are 67 math majors and 124 ITEC majors at a college.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             In how many ways can two representatives be picked so that one is a math major and one is an ITEC major?
+            </p>
+           </li>
+           <li>
+            <p>
+             In how many ways can one representative be picked who is either a math major or an ITEC major?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          A multiple-choice test contains 20 questions, and each question has four choices.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             In how many ways can a student answer all of the questions on the test?
+            </p>
+           </li>
+           <li>
+            <p>
+             In how many ways can a student answer all of the questions if she is allowed to leave some blank?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          How many different three-letter initials can a person have?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many different three-letter initials end with "R"?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many bit strings are there of length five?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many bit strings are there of length seven that begin and end with 0?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many bit strings are there of length less than \(n\), where \(n\) is a positive integer, that start and end with 1?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many license plates can be made using four digits followed by three uppercase English letters if:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Digits and letters can be repeated?
+            </p>
+           </li>
+           <li>
+            <p>
+             Digits and letters cannot be repeated?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          If each student in Discrete Mathematics is a mathematics major, an ITEC major, or a double major, and a class has
+18 math majors (including double majors), 25 ITEC
+majors (including double majors), and 8 double majors, how many students are in the class?
+         </p>
+        </li>
+        <li>
+         <p>
+          Suppose a computer system requires a password of length no less than 8 and no
+more than 11 characters, and each character must be an English lowercase
+letter, an English uppercase letter, a digit, or one of six special characters (*, &gt;, &lt;, !, +, =).
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             How many different passwords are available?
+            </p>
+           </li>
+           <li>
+            <p>
+             Suppose a hacker can check a potential password once every nanosecond (1 nanosecond is \(1 \times 10^{-9}\) seconds). How long will it take the hacker
+to check every potential password?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Show that if there are 29 students in a class at least two have last names that begin with the same letter.
+         </p>
+        </li>
+        <li>
+         <p>
+          How many students need to be in a class in order for at least two students
+to receive the same grade on an exam that is graded on a scale 0 to 50 points?
+         </p>
+        </li>
+        <li>
+         <p>
+          Show that in any set of 8 integers, there are at least two of them that have the same
+remainder when divided by 7.
+         </p>
+        </li>
+        <li>
+         <p>
+          A bag contains 12 red balls and 7 blue balls.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             How many balls must be chosen to be sure of choosing 4 of the same color?
+            </p>
+           </li>
+           <li>
+            <p>
+             How many must be chosen to be sure of choosing 4 red balls?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Someone cleaning out their attic finds a box containing 12 rock CDs, 12 hip hop CDs, and 12 country CDs. What is the minimum number of CDs they can take out to guarantee at least
+one of each type?
+         </p>
+        </li>
+        <li>
+         <p>
+          Give an argument that there are at least two people in Atlanta with the same number of hairs on their head.
+         </p>
+        </li>
+        <li>
+         <p>
+          List all the permutations of \(\{1, 2, 3\}\).
+         </p>
+        </li>
+        <li>
+         <p>
+          How many permutations are there of the set \(\{1, a, 2, b, 3, c, 5\}\)?
+         </p>
+        </li>
+        <li>
+         <p>
+          Let \(A=\{a, b, c, d\}\)
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             List all the 3-permutations of \(A\).
+            </p>
+           </li>
+           <li>
+            <p>
+             List all the 3-combinations of \(A\).
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Let \(A=\{a, b, c, d, e\}\)
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             List all the 2-permutations of \(A\).
+            </p>
+           </li>
+           <li>
+            <p>
+             List all the 2-combinations of \(A\).
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Find the value of the following
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(P(5,2)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(P(10,8)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(P(14,10)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(P(12,8)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(C(5,2)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(C(10,8)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(C(14,10)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(C(12,8)\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          How many bit strings of length 10 contain:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Exactly five 1s?
+            </p>
+           </li>
+           <li>
+            <p>
+             At most five 1s?
+            </p>
+           </li>
+           <li>
+            <p>
+             At least four 1s?
+            </p>
+           </li>
+           <li>
+            <p>
+             The same number of 0s and 1s?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          How many permutations of the digits \(12345678\) contain:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             The string 284?
+            </p>
+           </li>
+           <li>
+            <p>
+             The string 3581?
+            </p>
+           </li>
+           <li>
+            <p>
+             The string 21 and 57?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          How many ways are there to choose 9 cards from a standard 52 card deck?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many ways can you be dealt a pair in a 5 card hand (2 cards of the same rank and 3 cards of a different rank)?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many ways can you be dealt a full house in a 5 card hand (2 cards of the same rank and 3 cards of the same rank)?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many license plates consist of 4 letters followed by 3 digits if:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Repetition is allowed?
+            </p>
+           </li>
+           <li>
+            <p>
+             Repetition is not allowed?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Using \(C(n,r) = \displaystyle  \frac{n!}{r!(n-r)!}\), evaluate the terms of this triangular table. Will you need the formula to extend the table to more rows?
+         </p>
+        </li>
+       </ol>
+      </div>
+      <div class="paragraph">
+       <p>
+        \begin{array}{ccccccccccccc}
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;C(0,0)&amp;&amp;&amp;&amp;&amp;&amp;\\
+&amp;&amp;&amp;&amp;&amp;&amp; C(1,0) &amp;&amp; C(1,1) &amp;&amp;&amp;&amp;&amp;\\
+&amp;&amp;&amp;&amp;&amp; C(2,0) &amp;&amp; C(2,1) &amp;&amp; C(2,2) &amp;&amp;&amp;&amp;\\
+&amp;&amp;&amp;&amp; C(3,0) &amp;&amp; C(3,1) &amp;&amp; C(3,2) &amp;&amp; C(3,3) &amp;&amp;&amp;\\
+&amp;&amp;&amp; C(4,0) &amp;&amp; C(4,1) &amp;&amp; C(4,2) &amp;&amp; C(4,3) &amp;&amp; C(4,4) &amp;&amp;\\
+\end{array}
+       </p>
+      </div>
      </div>
     </div>
    </div>

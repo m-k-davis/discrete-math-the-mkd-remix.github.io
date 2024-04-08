@@ -2,6 +2,7 @@
 
 
 
+//MKD - note that everything ater the "lego block" example may need to be rewritten.
 
 //MKD add discussion of Well-Ordering Principle axion (after the example?)
 //== What is Mathematical Induction?
@@ -15,26 +16,6 @@
 //		s = s + 2i-1
 // print("The sum of the first",n,"odd positive integers is", str(s)+".")
 // #Is s always a perfect square? How can you know for a "small" integer like 2^65536?
-//MKD code for motivating example
-//https://pythontutor.com/render.html#code=n%20%3D%20int%28input%28%22Type%20a%20positive%20integer%20into%20the%20box%3A%22%29%29%0A%23%20code%20throws%20ValueError%20if%20input%20is%20not%20an%20integer%0A%23%20initialize%20variables%0As%20%3D%200%0Ai%20%3D%201%0A%23%20loop%20n%20times%0Awhile%20i%20%3C%3D%20n%3A%0A%20%20%20%20s%20%3D%20s%20%2B%20%282*i-1%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28s%29&cumulative=false&curInstr=17&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%224%22%5D&textReferences=false
-
- 
-:pt_code_height: 350
-:pt_rawinput: false
-:pt_code: def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20%C2%ACp%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20print%28p,%20negation%28p%29%29
-
-****
-.Example {counter:proofexample} - Justify that this code works
---
---
-The code below prints the sum of the first $n$ odd positive numbers for a chosen value of $n$. How do we know that the code does what it claims to do?
-
-
-
-Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
-include::python_tutor.adoc[]
-****
-
 
 
 // MKD: The commonly-used "infinite ladder" analogy is misleading. 
@@ -52,10 +33,41 @@ Recall that a proof consists of finitely many propositions,
 where each proposition has a finite length.
 
 
-MORE TO COME!
-////
 
-The next example illustrates why mathematical induction is needed.
+
+
+== Why Is Mathematical Induction Needed?
+
+//We often come across a connection between two different patterns tath may not seem to be connected at first, but for which there is a 
+
+//MKD code for motivating example
+//https://pythontutor.com/render.html#code=n%20%3D%20int%28input%28%22Type%20a%20positive%20integer%20into%20the%20box%3A%22%29%29%0A%23%20code%20throws%20ValueError%20if%20input%20is%20not%20an%20integer%0A%23%20initialize%20variables%0As%20%3D%200%0Ai%20%3D%201%0A%23%20loop%20n%20times%0Awhile%20i%20%3C%3D%20n%3A%0A%20%20%20%20s%20%3D%20s%20%2B%20%282*i-1%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28s%29&cumulative=false&curInstr=17&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%224%22%5D&textReferences=false
+
+//https://pythontutor.com/render.html#code=numOdds%20%3D%204%0Asum%20%3D%200%0Ai%20%3D%201%0A%23%20loop%20n%20times%0Awhile%20i%20%3C%3D%20numOdds%3A%0A%20%20%20%20sum%20%3D%20sum%20%2B%20%282*i-1%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28sum%29&cumulative=false&curInstr=17&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+:pt_code_height: 350
+:pt_rawinput: false
+:pt_code:  sum%20%3D%200%0Ai%20%3D%201%0A%23%20loop%20n%20times%0An%20%3D%204%0Awhile%20i%20%3C%3D%20n%3A%0A%20%20%20%20sum%20%3D%20sum%20%2B%20%282*i-1%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28sum%29
+
+****
+.Example {counter:MKDinductionexample}
+--
+--
+The code below prints the sum of the first $n$ odd positive numbers for the assigned value of $n$. 
+//What does 
+//How do we know that the code does what it claims to do?
+How can we verify that the code computes this correctly for _every_ possible value of $n$?
+
+
+Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
+include::python_tutor.adoc[]
+****
+
+
+
+//The next example illustrates why mathematical induction is needed.
+In the preceding example, we could imagine running the code for each positive integer value of $n$, but this would require an infinite number of runs and/or using a loop that must execute an infinite number of times. 
+If we could find a pattern linking the computed result for one integer to the result computed for the next largest integer, we could try to use that to justify that the code will always work without needing to run it for every value of $n$.  The following example illustrates how we can do this. 
 
 // MKD start of square example
 
@@ -70,7 +82,7 @@ The next example illustrates why mathematical induction is needed.
 
 [.float-group]
 --
-// MKD needs to make attribution visible
+// MKD needs to make attribution visible in HTML
 [.left.text-left]
 //image::imagesMKD/Square_number_16_as_sum_of_gnomons.svg[GGC,250,250]
 image::imagesMKD/Square_number_16_as_sum_of_gnomons.svg[GGC]
@@ -175,7 +187,7 @@ $P(1)$ is the proposition ``The sum of the first $1$ positive odd integers is eq
 $P(1)$ is a true proposition since $1 = 1^{2}$ (Note that the only term in the sum on the left-hand side of the equation is $1$). 
 The predicate $P(n)$ is true for $n=1$.
 
-It may seem a bit strange to use ``the sum of the first $1$ odd integers'', so we can do an additional basis step for $n=2$. THIS IS NOT NECESSARY, but may aid in seeing the pattern. $P(2)$ is the proposition ``The sum of the first $2$ positive odd integers is equal to $2^{2}$.''
+It may seem a bit strange to use "the sum of the first $1$ odd integers", so we can do an additional basis step for $n=2$. THIS IS NOT NECESSARY, but may aid in seeing the pattern. $P(2)$ is the proposition ``The sum of the first $2$ positive odd integers is equal to $2^{2}$.''
 
 Induction Step:
 We will _assume_ that the proposition $P(k)$ is true and prove that $P(k+1)$ must also be true. In this context, the proposition $P(k)$ is called the *induction hypothesis* (and $P(k+1)$ could probably be called the induction conclusion, but I've never seen anyone use that name).
@@ -186,27 +198,27 @@ We can add a new row of $k$ balls at the top, and a new column of $k$ balls to t
 So, as an algebraic equation, we'd like to show that 
 $k^{2} + k + k + 1 = (k+1)^{2}$.
 
-MKD: POINT OUT THAT $2k-1$ REPRESENTS THE $k\text{th}$ POSITIVE ODD INTEGER - MAYPE INTRODUCE A TABLE AND HAVE STUDENTS SHOW THAT THE LINEAR EXPRESSION $2k-1$ CAN BE FOUND FROM THE TABLE.
+//MKD: POINT OUT THAT $2k-1$ REPRESENTS THE $k\text{th}$ POSITIVE ODD INTEGER - MAYPE INTRODUCE A TABLE AND HAVE STUDENTS SHOW THAT THE LINEAR EXPRESSION $2k-1$ CAN BE FOUND FROM THE TABLE.
 
-That is, assume that $P(k)$ is true, where $k$ is some unspecified positive integer (again, this is called the *inductive hypothesis*). Based on the formula for the $k\text{th}$ odd positive integer, we can rewrite $P(k)$ as the equation $1+3+...+(2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}$.
+That is, assume that $P(k)$ is true, where $k$ is some unspecified positive integer (again, this is called the *inductive hypothesis*). Based on the formula for the $k\text{th}$ odd positive integer, we can rewrite $P(k)$ as the equation \[1+3+...+(2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}.\]
 
 Now we _prove that this implies $P(k+1)$ is true._
 That is show 
-$$\sum\limits_{i=1}^{k+1}(2i-1) = (\sum\limits_{i=1}^{k}(2i-1)) + (2(k+1)-1) =  k^{2} +  (2(k+1)-1)$$ 
+\[\sum\limits_{i=1}^{k+1}(2i-1) = \left(\sum\limits_{i=1}^{k}(2i-1)\right) + (2(k+1)-1) =  k^{2} +  (2(k+1)-1)\] 
 where we have substituted $k^{2}$
 for the sum $\sum\limits_{i=1}^{k}(2i-1)$ based on the inductive hypothesis. 
 
 Now we simplify this using algebra and show that it is the same as the right hand side.
-$$\sum\limits_{i=1}^{k+1}(2i-1) = k^{2} + (2(k+1)-1) = k^{2} + 2k + 2 - 1 
-= k^{2} + 2k + 1 = (k+1)^2$$
+\[\sum\limits_{i=1}^{k+1}(2i-1) = k^{2} + (2(k+1)-1) = k^{2} + 2k + 2 - 1 
+= k^{2} + 2k + 1 = (k+1)^2.\]
 
 We have proven that the equation $1+3+...+(2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}$ implies the equation 
-$1+3+...+(2k-1) + (2k+1) = \sum\limits_{i=1}^{k+1}(2i-1) = (k+1)^{2}$, that is, $P(k) \implies P(k+1)$.
+$1+3+...+(2k-1) + (2k+1) = \sum\limits_{i=1}^{k+1}(2i-1) = (k+1)^{2}$, that is, $P(k) \rightarrow P(k+1)$.
 
 Conclusion of the proof:
 We have proven both the basis step and the induction step, therefore, 
-// by the priniciple of mathematical induction, 
-$1+3+...+(2n-1) = \sum\limits_{i=1}^{n}(2i-1) = n^{2}$$ for all positive integers $n$.
+// by the principle of mathematical induction, 
+$1+3+...+(2n-1) = \sum\limits_{i=1}^{n}(2i-1) = n^{2}$ for all positive integers $n$.
 ****
 //MKD end of square example
 
@@ -225,7 +237,7 @@ NOTE: In some cases, that basis step will involve a positive integer $c$ instead
 
 [.float-group]
 --
-// MKD needs to make attribution visible
+// MKD needs to make attribution visible in html
 [.left.text-left]
 image::imagesMKD/CLIP-IS-A-BRICK_2x3.svg[GGC,250,250]
 // Illustration of color plastic block.
@@ -242,82 +254,20 @@ and the induction step justifies that if we have built a tower that has height $
 
 
 
-//MKD start of copy of square example
+// MKD: Not sure where this code goes - window was open after several days of fighting the flu :(
+//https://pythontutor.com/render.html#code=%23%20set%20value%20of%20n%0An%20%3D%204%0A%23%20loop%20n%20times%0Ai%20%3D%201%0Asum%20%3D%200%0Awhile%20i%20%3C%3D%20n%3A%0A%20%20%20%20nextOdd%20%3D%20%282*i-1%29%0A%20%20%20%20sum%20%3D%20sum%20%2B%20nextOdd%0A%20%20%20%20print%28nextOdd,%22%2B%20%22,%20end%3D%22%22%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28%22%3D%22,sum%29&cumulative=false&heapPrimitives=false&mode=edit&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+
+
+//MORE TO COME!
+////
+// MKD start of skipped example
 //
-****
-.Example {counter:indrecexample} - Proof by Induction
-
-Consider the predicate $P(n)$: ``The sum of the first $n$ positive odd integers is equal to $n^{2}$.'' 
-
-[.float-group]
---
-[.left.text-left]
-//image::imagesMKD/Square_number_16_as_sum_of_gnomons.svg[GGC,250,250]
-image::imagesMKD/Square_number_16_as_sum_of_gnomons.svg[GGC]
-// Page URL: https://commons.wikimedia.org/wiki/File:Square_number_16_as_sum_of_gnomons.svg
-// File URL: https://upload.wikimedia.org/wikipedia/commons/0/06/Square_number_16_as_sum_of_gnomons.svg
-// Attribution: Stefan Friedrich Birkner, CC BY-SA 3.0, via Wikimedia Commons
-// Stefan Friedrich Birkner, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons
-// Description: English: 16 balls arranged as sum of gnomons of squares.
---
-
-The preceding image, which shows $16$ colored balls arranged as a square, can be used to justify that the four propositions $P(1)$, $P(2)$, $P(3)$, and $P(4)$ are all true. In fact, you could use this image to notice a pattern that suggests that $P(n)$ ought to be true for all the other positive integers $5,\ 6,\ 7,\ 8,\ldots$ as well, but we need a stronger justification... technically, we would need to look at an infinite number of drawings to justify an infinite number of propositions. For example, if you needed to convince someone that the proposition $P(1,000,000)$ must be true by drawing the complete image for that value of $n$, you would draw a square with $1,000,000$ rows each containing $1,000,000$ dots, for a total of $1,000,000,000,000$ dots. And then what if that person asked you to prove that $P($1,000,000,000,000$)$ is true ?!?!?
-
-This is why mathematical injunction is used: The induction step justifies that we _could_ in principle complete as large a finite number of these proofs as 
-we need to by assuming we already have drawn the $k \times k$ square of balls to prove that $P(k)$ is true 
-then we can use the pattern suggested in the image to enlarge the square to a $(k+1) \times (k+1)$ square of balls that proves $P(k+1)$ must be true. 
- 
-That is, we _could_ write down as large a finite number of proofs as we need to prove $P(n)$ for a specifically chosen value of $n$... and since there is no bound on this chosen $n$, we will have proven the predicate for *all* positive values of $n$.
-
-We will prove that the predicate $P(n)$ is true for all positive integers $n$ - in this case it does not make sense to have ``the sum of the first $0$ positive integers'', so the basis step will use $n=1$, which corresponds to the single red ball in the image, instead of $n=0$, which would correspond to $0$ balls.
-
-
-.Solution
-Basis Step: In this case, the basis corresponds to $n=1$.
-// Is $1 = 1^{2}$? (Please answer "Yes!")
-// Since $1 = 1^{2}$, the predicate $P(n)$ is true for $n=1$.
-$P(1)$ is the proposition ``The sum of the first $1$ positive odd integers is equal to $1^{2}$.''
-
-$P(1)$ is a true proposition since $1 = 1^{2}$ (Note that the only term in the sum on the left-hand side of the equation is $1$). 
-The predicate $P(n)$ is true for $n=1$.
-
-It may seem a bit strange to use ``the sum of the first $1$ odd integers'', so we can do an additional basis step for $n=2$. THIS IS NOT NECESSARY, but may aid in seeing the pattern. $P(2)$ is the proposition ``The sum of the first $2$ positive odd integers is equal to $2^{2}$.''
-
-Induction Step:
-We will _assume_ that the proposition $P(k)$ is true and prove that $P(k+1)$ must also be true. In this context, the proposition $P(k)$ is called the *induction hypothesis* (and $P(k+1)$ could probably be called the induction conclusion, but I've never seen anyone use that name).
-
-
-
-That is $\sum\limits_{i=1}^{m}i=1+2+...+m=\frac{m\left(m+1\right)}{2}$ (called the inductive hypothesis).
-
-_Prove that this implies $P(m+1)$ is true._
-That is show $\sum\limits_{i=1}^{m+1}i=1+2+...+m+(m+1)=\frac{(m+1)\left(m+1+1\right)}{2}=\frac{(m+1)\left(m+2\right)}{2}$
-
-Begin with the left side $1+2+...+m+(m+1)$
-
-We can rewrite this as $\frac{m\left(m+1\right)}{2}+(m+1)$ using the induction hypothesis.
-
-Now we simplify this using algebra and show that it is the same as the right hand side.
-
-Factoring out $(m+1)$ gives,
-
-$\left(m+1\right)\left(\frac{m}{2}+1\right)=\left(m+1\right)\left(\frac{m}{2}+\frac{2}{2}\right)=\left(m+1\right)\left(\frac{m+2}{2}\right)=\frac{\left(m+1\right)\left(m+2\right)}{2}$
-
-Which is the same as the right-hand side!
-
-So $1+2+...+m+(m+1)=\frac{\left(m+1\right)\left(m+2\right)}{2}$, which means we have shown $P(m+1)$ follows from $P(m)$.
-
-So, by induction, $\sum\limits_{i=1}^{n}i=1+2+...+n=\frac{n\left(n+1\right)}{2}$ for all positive integers $n$.
-****
-// 
-//MKD end of copy of square example
-
 
 Here is another example
 
 
 ****
-.Example {counter:indrecexample} - Proof by Induction
+.Example {counter:MKDinductionexample} - Proof by Induction
 $$\sum\limits_{i=1}^{n}i=1+2+...+n=\frac{n\left(n+1\right)}{2}$$by 
 
 This is a sequence of statements in terms of $n$ telling me that the sum of the first $n$ integers is going be equal to some formula that depends on the final number $n$ that you want to add.
@@ -356,8 +306,13 @@ So $1+2+...+m+(m+1)=\frac{\left(m+1\right)\left(m+2\right)}{2}$, which means we 
 
 So, by induction, $\sum\limits_{i=1}^{n}i=1+2+...+n=\frac{n\left(n+1\right)}{2}$ for all positive integers $n$.
 ****
+////
+// MKD end of skipped example
+//
 
-
+//MKD
+//// 
+// unreviewed original content 1
 Types of statements that can be proven by induction:
 
 * Summation formulas:
@@ -392,7 +347,7 @@ end
 
 
 ****
-.Example {counter:indrecexample} - A Summation Formula
+.Example {counter:MKDinductionexample} - A Summation Formula
 Prove by mathematical induction $1·1!+2·2!+3·3!+···+n· n!=\underset{k=1}{\overset{n}{\sum }}k\left( k!\right) =\left(n+1\right)!-1$
 
 .Solution:
@@ -439,10 +394,17 @@ $\sum\limits_{k=1}^{m+1}k(k!)=((m+1)+1)!-1$
 
 Therefore, the inductive step has been verified $\sum\limits_{k=1}^{m+1}k(k!)=((m+1)+1)!-1$
 ****
+//MKD
+//// 
+// unreviewed original content 1
+
 
 // MKD Delete this example since it duplicates the motivating example at the beginning of the chapter.
+////
+// MKD end of sum of odds example
+//
 ****
-.Example {counter:indrecexample} -  Another Summation Formula
+.Example {counter:MKDinductionexample} -  Another Summation Formula
 Prove  the proposition that the sum of the ﬁrst n odd numbers is $n^2$; that is,
 
 $1+3+5+···+2n-1=\sum_{k=1}^{n} (2k-1) =n^2$ for n a positive integer $n\in\mathbb{Z}$
@@ -492,9 +454,17 @@ In other words, $\sum_{k=1}^{m} {(2k-1)}=m^2$, implies $\sum_{k=1}^{m+1} {(2k-1)
 
 Therefore, the inductive step has been verified.
 ****
+////
+// MKD end of sum of odds example
+//
+
+
+//MKD
+//// 
+// unreviewed original content 2
 
 ****
-.Example {counter:indrecexample} - Inequality
+.Example {counter:MKDinductionexample} - Inequality
 Prove that $n! > 3^n$ for every positive integer $n$ with $n > 6$.
 
 .Solution:
@@ -544,7 +514,7 @@ image::images/induction3.png[]
 ****
 
 ****
-.Example {counter:indrecexample} - Divisibility
+.Example {counter:MKDinductionexample} - Divisibility
 
 Prove the following using the principle of mathematical induction:
 
@@ -593,10 +563,15 @@ $\left((m+1)^2+(m+1)\right)\mod 2=0$
 
 Therefore, the inductive step has been verified.
 ****
+//MKD
+//// 
+// unreviewed original content 2
 
 
+// MKD - strong induction section needs cleanup/rewrite
 == Strong Induction
-Recall the idea behind mathematical induction, prove that a proposition $P\left(m\right)$  is true for a base step, say $P_1$. Then prove the inductive step. This involves proving that $P_m$ implies $P_{m+1}$.
+Recall the idea behind mathematical induction, prove that a proposition //$P\left(m\right)$  
+$P_n$ is true for a base step, say $P_1$. Then prove the inductive step. This involves proving that $P_k$ implies $P_{k+1}$.
 *Strong induction* is a generalized version of induction where in the inductive step we assume $P_1, P_2,\ldots, P_m$ is true and show all these together imply $P_{m+1}$ is true.
 
 
@@ -615,7 +590,7 @@ Algorithmically:
 * Inductive step: Assuming, $P_{1,\ }P_2\ ,\ldots,\ P_m$ are all true for some  $ m  ≥ 1$,  prove that $P_{m+1}$ is true.
 
 ****
-.Example {counter:indrecexample} - Recurrence Relations
+.Example {counter:MKDinductionexample} - Recurrence Relations
 Consider the sequence $\left\{a_n\right\}$ defined as a a recurrence relation,
 
 $a_1=5$, $a_2=13$, and $a_{n+2}=5a_{n+1}-6a_n$, for all $n \geq 1$.
@@ -653,6 +628,10 @@ So $a_{m+1}=2^{m+1} + 3^{m+1}$ and therefore, $a_n=2^n +3^n$ for all $n \geq 1$.
 
 
 
+
+//MKD
+//// 
+// unreviewed original content 3
 
 == Exercises
 Prove using induction.
@@ -710,4 +689,7 @@ f_1+f_2+\ldots+f_n=\sum_{i=1}^{n}{f_i=f_{n+2}-1}.
 \[
 f_1^2+f_2^2+ \cdots + f_n^2 = \sum_{i=1}^{n} f_i^2=f_n \cdot\ f_{n+1}.
 \]
-////
+
+//MKD
+//// 
+// unreviewed original content 3

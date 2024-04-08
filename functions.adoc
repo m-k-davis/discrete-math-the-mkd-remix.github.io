@@ -1,16 +1,156 @@
 = Functions
 
-COMING SOON!
-////
 
+// MKD start of topics
+////
+Function, domain, codomain, range
+Equality of functions (same domain, codomain, and ordered pairs)
+One-to-one (injective)
+Onto (surjective) - NOTE this is why the codomain is part of the definition
+1-1 Correspondence (bijective i.e. both one-to-one and onto)
+Compostion of Functions
+Inverse functions
+adding and multiplying functions
+sequence as a function mapping {0, 1, 2..., n} to a set
+subsequence
+summation notation, double summations
+Pigeonhole Principle (? using function notation)
+Cardinality - finite sets, infinite sets (countable, uncountable)
+Examples: even naturals, integers, pairs of natural numbers, Q, reals (Cantor diagonlization)
+
+NOTE: NEED A NEW CHAPTER ON RELATIONS
+Relations
+Binary relations - examples, inverses and compositions
+Identity relation Id
+Properties: 
+	Reflexive (Id is a subset), Irreflexive (is disjoint from Id)
+	Symmetric (equals its own inverse), Antisymmetric (intersection with inverse is a subset of Id)
+	Transitive (composition with self is a subset of self)
+
+Definition: A binary relation Rα on a set S is the closure of a relation R on S with respect to property P if
+(a) Rα has property P, (b)R ⊆ Rα and
+(c) Rα is a smallest relation on S that includes R and has property P.
+
+Definition: Let R be any binary relation on S, then
+R ∪ Id is called reflexive closure of R R ∪ R-1 is called symmetric closure of R R+ is called transitive closure of R
+R* is called reflexive and transitive closure of R
+Example: For a digraph, (a,b) in transitive closure = “there exists a path from (a,b)”
+
+equivalence relation: reflexive, symmetric, and transitive
+	these correspond to partitions of the set into equivalence classes (classic example is Odd and Even integers) - Partition is defined in Set Theory chapter and/or Intro chapter.
+
+
+partial ordering on S is reflexive, antisymmetric, and transitive
+
+Definition: Relations on Multiple Sets Given two sets S and T, a binary relation from S to
+T is a subset of S x T. Given n sets S1, S2, ...Sn, n > 2, an n-ary relation on
+S1 xS2 x...xSn isasubset of S1 xS2 x...xSn.
+
+
+Intro. to Relational Databases Let us take a look at a type of database representation that is based on relations, namely the relational data model.
+A database consists of n-tuples called records, which are made up of fields. These fields are the entries of the n-tuples.
+The relational data model represents a database as an n-ary relation, that is, a set of records
+
+Example: Consider a database of students, whose records are represented as 4-tuples with the fields Student Name, ID Number, Major, and GPA:
+R = {
+(Ackermann, 231455, CS, 3.88),
+(Adams, 888323, Physics, 3.45), (Chou, 102147, CS, 3.79),
+(Goodfriend, 453876, Math, 3.45), (Rao, 678543, Math, 3.90),
+(Stevens, 786576, Psych, 2.99)}
+Relations that represent databases are also called tables, since they are often displayed as tables.
+We can apply a variety of operations on n-ary relations to form new relations.
+
+Definition: The projection Pi1, i2, ..., im maps the n-tuple (a1, a2, ..., an) to the m-tuple (ai1, ai2, ..., aim), where m ≤ n. i.e. select some fields from a record
+Example: What is the result when we apply the projection P2,4 to the student record (Stevens, 786576, Psych, 2.99) ?
+Solution: It is the pair (786576, 2.99).
+In some cases, applying a projection to an entire table may not only result in fewer columns, but also in fewer rows. (select fields from entire table)
+Why is that? Some records may only have differed in those fields that were deleted, so they become identical, and there is no need to list identical records more than once.
+
+We can use the join operation to combine two tables into one if they share some identical fields.
+Definition: Let R be a relation of degree m and S a relation of degree n. The join Jp(R, S), where p ≤ m and p ≤ n, is a relation of degree m + n – p that consists of all (m + n – p)- tuples (a1, a2, ..., am-p, c1, c2, ..., cp, b1, b2, ..., bn-p), where the m-tuple (a1, a2, ..., am-p, c1, c2, ..., cp) belongs to R and the n-tuple (c1, c2, ..., cp, b1, b2, ..., bn-p) belongs to S.
+In other words, to generate Jp(R, S), we have to find all the elements in R whose p last components match the p first components of an element in S. The new relation contains exactly these matches, which are combined to tuples that contain each matching field only once
+
+Example: What is J1(Y, R), where Y contains the fields Student Name and Year of Birth,
+Y = {(1978, Ackermann), (1972, Adams), (1917, Chou), (1984, Goodfriend), (1982, Rao), (1970, Stevens)},
+and R contains the student records as defined before ?
+Solution: The resulting relation is:
+{(1978, Ackermann, 231455, CS, 3.88), (1972, Adams, 888323, Physics, 3.45), (1917, Chou, 102147, CS, 3.79), (1984, Goodfriend, 453876, Math, 3.45), (1982, Rao, 678543, Math, 3.90), (1970, Stevens, 786576, Psych, 2.99)}
+Since Y has two fields and R has four, the relation J1(Y, R) has 2 + 4 – 1 = 5 fields.
+////
+// MKD end of topics
+
+
+// MKD added following paragraph
+Informally, a function $f$ is a rule that assigns to each 
+//valid 
+input value 
+//from set $A$ 
+exactly one output value. 
+//from set $B$. 
+//The domain is the set of valid input values, and the codomain is a set that contains the output values; the _range_ of the function $f$ is the subset of the codomain that contains only the output values and no other elements.
+However, for our purposes we will need a more formal definition.
+
+== A Very Formal Mathematical Definition Of "Function"
 
 //MKD clean this up - move \rightarrow to second paragraph? And include set of ordered paris definition?
 //A *function*, written $f : A \rightarrow B$, is a  mathematical relation where each element of a set $A$,
 //called the *domain*, is associated with a unique element of another set $B$, called the *codomain*
 //of the function.
 
-A *function* $f$ with domain set $A$ and codomain set $B$, is a subset of the Cartesian product $A\times B$ where each element of $A$ is associated with a unique element of $B$. That is, for each element $a \in  A$ there is exactly one $b \in  B$ such that $f(a)=b$, where $b$ is called the *image* of $a$ assigned by $f$. We can also write $f: a \rightarrow  b$ to mean that $f(a)=b$. and we write $f : A \rightarrow B$ to state that $f$ is a function with domain set $A$ and codomain set $B$. The *range* is the set of all image values $f(a)$. With this notation, $a$ is allowed to vary over all elements in the set $A$.
+// MKD added excessively formal definition
+//We now give a formal mathematical definition of function.
+A *function $f$ with domain $A$ and codomain $B$* is an ordered triple 
+$(A,\, B,\, f)$ 
+consisting of sets $A$, $B$, and a subset $f$ of the Cartesian product $A\times B$ such that each element of $A$ is associated with a unique element of $B$. That is, $f \subseteq A \times B$ and for each element $a \in A$ there is exactly one $b \in B$ such that $(a,\, b) \in f$.
 
+
+We write $f : A \rightarrow B$ to state that $f$ is a function with domain set $A$ and codomain set $B$. The *range* is the set $\{ f(a) : a \in A \}$, that is, the set of all images (that is, output values) assigned by $f$. 
+//With this notation, $a$ is allowed to vary over all elements in the set $A$.
+We write $f(a)=b$ instead $(a,\, b) \in f$, and $b$ is called the *image* of $a$ assigned by $f$. We also write $f: a \rightarrow  b$ to mean that $f(a)=b$. 
+
+We often refer to a function $f : A \rightarrow B$ by only the letter $f$, but it is important to remember that the actual definition includes the domain and codomain as well. 
+
+****
+.Example {counter:funcex}
+
+Consider the function with domain $\mathbb{R}$, codomain $\mathbb{R}$, and 
+subset $f \subseteq \mathbb{R} \times \mathbb{R}$ defined by 
+$f = \{ (x,\,x^{2}) : x \in \mathbb{R} \}$ or even more formally as 
+$(\mathbb{R},\, \mathbb{R},\, \{ (x,\,x^{2}) : x \in \mathbb{R} \}).$ 
+
+This function is a formal representation of the usual squaring function defined for real number inputs by the formula $f(x)=x^{2}$. We can write $f: \mathbb{R} \rightarrow \mathbb{R}$. 
+// defined by the rule $f(x)=x^{2}$. 
+Notice that the codomain is $\mathbb{R}$ but the range is the non-negative real numbers $\mathbb R^{\ge 0} = \{ y \in \mathbb{R} : y \geq 0 \}$. 
+
+****
+
+Two functions are *equal* if they have the same domain, the same codomain, and are defined by the exact same ordered pairs.
+
+****
+.Example {counter:funcex} -  A Function's Definition Includes The Domain And Codomain.
+
+
+//Let $\mathbb R^{\ge 0}$ stand for the set $\{ x \in \mathbb{R} : x \geq 0 \}$. 
+
+Consider functions $f$, $g$, and $h$ defined as follows:
+
+$f \subseteq \mathbb{R} \times \mathbb{R}$ is defined by  
+$f = \{ (x,\,x^{2}) : x \in \mathbb{R} \}.$ 
+
+$g \subseteq \mathbb{R} \times \mathbb R^{\ge 0}$ is defined by 
+$g = \{ (x,\,x^{2}) : x \in \mathbb{R} \}.$ 
+
+$h \subseteq \mathbb{N} \times \mathbb{N}$ is defined by 
+$g = \{ (x,\,x^{2}) : x \in \mathbb{N} \}.$ 
+
+No two of these functions are equal even though they are defined by the same rule "the output is the square of the input" because they are defined for different domains and/or codomains. In particular, $f$ and $g$ are formally considered to be not equal even though the two functions are defined by the exact same set of ordred pairs. 
+
+****
+
+
+
+//COMING SOON!
+// MKD little or no changes have been made below.
 
 == Injective Surjective, Bijective and Inverse Functions
 A function $f$ is *injective*, or *one to one*, if every element in the range $B$ is
@@ -516,7 +656,8 @@ or $g:11\rightarrow 2$.
 $f: \mathbb{R} \rightarrow \mathbb{R}$, but is in fact a bijection
 from $f: \mathbb{R} \rightarrow \mathbb{R}^+$.
 
-. Explain why ceiling function $ \left \lceil x \right \rceil is not surjective from
+//MKD inserted missing $ after \rceil
+. Explain why ceiling function $ \left \lceil x \right \rceil$ is not surjective from
 $f: \mathbb{R} \rightarrow \mathbb{R}$, but is surjective from
 from $f: \mathbb{R} \rightarrow \mathbb{Z}$.
 
@@ -588,4 +729,3 @@ increasing* if whenever asciimath:[x<y], then asciimath:[f(x)<f(y)].
 .. State this using logical quantifiers.
 .. State a similar definition for a *strictly decreasing* function, and then translate using logical quantifiers.
 
-////

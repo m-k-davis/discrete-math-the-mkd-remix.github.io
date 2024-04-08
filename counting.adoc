@@ -1,11 +1,51 @@
 = Counting
 
-COMING SOON!
+
+Many of us learned how to count when we were young children, but we probably never counted up to more than 100, or perhaps at most 1000. However, there are many problems that arise in math and computer science that require counting the number of elements of sets that contain much greater numbers of elements - hundreds of thousands of elements, or millions, or even more. 
+
+This chapter introduces techniques for 
+//finding the size (cardinality) of a 
+counting the number of elements of finite sets. 
+These techniques can be used quickly and efficiently no matter the size of the set.
+
+
+// MKD start topics list
 ////
+"The sum rule" (cardinality of union of non-overlapping sets of various cardinalities)
+"The product rule" (or "multiplication rule" as used earlier in this book - cardinality of Cartesian product of sets of various cardinalities)
+PIE
+Using a tree diagram to count possibilities
+Pigeonhole Principle (if a finite set S is partitioned into n subsets where 
+n < |S| (e.g., |S| = n+1), then one of the subsets must contain at least 2 elements)
+Choosing when order matters (permutations - repeated use of the product rule)
+Choosing when order does not matter (combinations)
+Understand P(n, r) = C(n, r)⋅P(r, r) without computing
+Understand C(n,r)=C(n,n–r) without computing
+Applications (e.g., "ball-box" type problems)
+Activity: Binomial
+	Discover Pascal’s Identity: C(n+1,k)=C(n,k–1)+C(n,k).
+	Binomial coefficients
+	Connect to Pascal's triangle, so-called, but known earlier by other non-non-French mathematicians: 
+		Al-Karaji, Persian (953–1029) (but called Khayyam's triangle)
+		Jia Xian (1010–1070), China (but called Yang Hui's triangle)
+		INCLUDE IMAGE: https://commons.wikimedia.org/wiki/File:TrianguloPascal.jpg via https://cudl.lib.cam.ac.uk/view/PR-CCB-00013-00024/5, but need to verify that this is USA Public Domain. NOTE that the rectangular array makes it easy to set up a spreadsheet for the triangle.
+		IMAGE also found at "https://cudl.lib.cam.ac.uk/embed/#item=PR-CCB-00013-00024&page=5&hide-info=true"
+Exercises (proofs by induction)
+	If r \geq 0 and r \leq n, then P(n,r) = n!/(n-r)! (Induct on r, treat n as constant)
+	If r \geq 0 and r \leq n, then C(n,r) = n!/(n-r)!r! (Induct on r, treat n as constant OR apply previous exercise and reason that P(n, r) = C(n, r)⋅P(r, r))
+////
+// MKD end topics list
 
-There are three basic counting rules used in this section, one for each of the arithmetic operations of multiplication, addition and subtraction.
 
-== The Product Rule (_and_)
+
+== Three Basic Counting Rules
+
+There are three basic counting rules 
+//used 
+introduced in this section, one for each of 
+the arithmetic operations of multiplication, addition and subtraction.
+
+=== The Product Rule (_and_)
 To find the total number of outcomes for two or more successive events where both events must occur, multiply the number of outcomes for each event together.  For instance, if you want to find the number of outcomes possible when you roll a die and toss a coin, you could use the product rule. It is important to note that the events must be independent, meaning one doesn't effect the other.
 
 .The Product Rule
@@ -53,8 +93,14 @@ How many functions are there from a set $A$ with $m$ elements to a set $B$ with 
 ****
 
 
+*Video Example*
+
+The following video example features 
+Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
+
 ****
-.Example {counter:countexample} - Video using the product rule
+.Example {counter:countexample}
+// - Video using the product rule
 --
 --
 ++++
@@ -67,8 +113,11 @@ How many functions are there from a set $A$ with $m$ elements to a set $B$ with 
 
 
 
-== The Sum Rule (_xor_)
-Consider finding the total number of ways a particular event occurs from a variety of different options.  For instance, if you want to find the number of ways to pick an ITEC major to win a prize knowing there are students from many concentrations, you could use the sum rule.  It is important to note the events must be mutually exclusive, meaning they do not have anything in common.
+=== The Sum Rule (_xor_)
+
+//Consider finding the total number of ways a particular event occurs from a variety of different options.  For instance, if you want to find the number of ways to pick an ITEC major to win a prize knowing there are students from many concentrations, you could use the sum rule.  It is important to note the events must be mutually exclusive, meaning they do not have anything in common.
+
+Consider finding the total number of ways a particular event occurs from a variety of different mutually exclusive options (mutually exclusive means that the options do not have anything in common.) For instance, if you want to find the number of ways to pick, at random, a student enrolled in Discrete Math this semester, you could use the sum rule to add the number of students in each section of Discrete Math (assuming that no student is enrolled in more than one section).
 
 .The Sum Rule
 ****
@@ -94,27 +143,34 @@ If a card is drawn from a standard 52-card deck, how many ways can the card be a
 
 *Video Example*
 
+The following video example features 
+Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
+
 ++++
 <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&playerId=kaltura_player&entry_id=0_vkqpuw8o&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_jo4vqwqx" width="700" height="500" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
 ++++
 
 // video::QFIhdE2CQJk[youtube, 700, 500]
 
-== The Subtraction Rule (_or_)
+=== The Subtraction Rule (_or_)
 If your events are not mutually exclusive, to find the total number of possibilities use the subtraction rule.
 
 .The Subtraction Rule
 ****
 Suppose event $E$ can occur $n$ ways, event $F$ can occur $m$ ways, and there are $p$ ways that $E$ and $F$ both occur. Then there are $n+m-p$ ways
 $E$ or $F$ can occur.
-****
-//MKD Edited next sentence
+
+//MKD Edited next sentence and moved all into the box
 //The subtraction rule is also called the inclusion-exclusion principle.
-The subtraction rule is a special case of the Inclusion-Exclusion Principle.
+Note that the subtraction rule is just a special case of the Principle of Inclusion-Exclusion seen in the chapter Set Theory.
+****
+
 ****
 .Example {counter:countexample}
 A tech company recieves 200 applications for a position. 150 of the applicants were ITEC majors, 43 were business majors, and 25 were double majors in
-business and ITEC. How many application did not major in ITEC or business?
+business and ITEC. 
+// MKD application -> applicants
+How many applicants did not major in ITEC or business?
 
 .Solution
 By the subtraction rule, there are $150 + 43 - 25 = 168$ applicants that majored in ITEC or business. Thus $200 - 168 = 32$ majored in neither of these.
@@ -136,6 +192,10 @@ If a card is drawn from a standard 52-card deck, how many ways can the card be b
 
 
 *Video Example*
+
+//The following video example features 
+//Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
+
 
 ++++
 <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&playerId=kaltura_player&entry_id=0_axn9cnwt&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_ng802csp" width="700" height="500" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
@@ -165,20 +225,61 @@ How many people, with English names, must be in a room for two of them to have a
 ****
 
 
+
 == Permutations and Combinations
 
-Consider the first four letters of the alphabet, $A, B, C, D$. A *permutation* of these letters would be an arrangement of them in different orders.
+
+//MKD added subsection header and text
+
+Many counting problems involve choosing, from a set of $n$ objects, either an ordered sequence of $r$ objects or a subset of $r$ objects, with no repetition allowed. We will describe ways to do this type of counting in this section.
+
+=== Permutations
+
+// MKD rewrote this paragraph
+//Consider the first four letters of the alphabet, $A, B, C, D$. A //*permutation* of these letters would be an arrangement of them in //different orders.
+
+A *permutation* of a set of elements is an ordered arrangement of the elements. 
+// MKD added
+A permutation may involve every element of the set, or only some of the elements of the set.
+
+Consider the first four letters of the English alphabet, $A, B, C, D$.
 
 * $ABCD, BACD, ABDC$ are permutations of the letters taken four at a time
-* $BDA, ABC, ABD$ are permuations of the letters taken three at a time
+* $BDA, ABC, ABD$ are permutations of the letters taken three at a time
 * $AB, AC, DB$ are permutations of the letters taken two at a time
 
-In general, given a set of $n$ objects, an _ordered arrangment_ of $r \le n$ of them is called an *$r$-permutation* or a *permutation of $n$ objects taken $r$ at a time*. We will denote this by $P(n,r)$. (Note that $_nP_r$ is a commonly used notation, especially on calculators.)
+// MKD added the following paragraph
+By listing all possible permutations of $A, B, C, D$, we can determine that 
+there are 24 permutations of the letters taken four at a time, 
+24 permutations of the letters taken three at a time, 
+and 6 permutations of the letters taken three at a time. 
+But what if we wanted to find all the possible permutations of the twenty six letters $A, B, C, D, \ldots , X, Y, Z$? It is very time consuming to write out all possible permutations of the twenty six letters taken, say, twenty one at a time, so we will develop a method and formula for doing this.
+
+In general, given a set of $n$ objects, an _ordered arrangment_ of $r \le n$ of 
+//them 
+the objects is called an *$r$-permutation* or a *permutation of $n$ objects taken $r$ at a time*. We 
+//will denote this by 
+use the notation 
+$P(n,r)$ to represent the number of permutations of $n$ objects taken $r$ at a time. Note that $_nP_r$ is 
+//a 
+another commonly used notation, especially on calculators.
+
+//MKD added the following two paragraphs
+Suppose we have $n$ objects and want to construct a $2$-permutation of the objects. There are $n$ possible choices for the first object, and once that object is chosen, there are $n-1$ possible choices for the second object. 
+We now use the product rule to conclude that there are $n(n-1)$ ways to choose the two objects; note that the order of the choices matters here.
+
+We can generalize this argument, informally, as follows: Suppose we have $n$ objects and want to construct an $r$-permutation, where $r \le n.$ There are $n$ possible choices for the first object, $n-1$ possible choices for the second object, and so on, until we have $n-(r-1)$ possible choices for the $r\text{th}$ object. Apply the product rule repeatedly to find that there are $ n(n-1)\cdots (n-r+1)$ $r$-permutations of the $n$ objects. 
 
 .Theorem
 ****
-$P(n,r) = n(n-1)(n-2) \cdots (n-r+1) = \displaystyle \frac{n!}{(n-r)!}$.
+$P(n,r) = n(n-1)(n-2) \cdots (n-r+1)$
+// = \displaystyle \frac{n!}{(n-r)!}$.
 ****
+
+// MKD - added text - maybe add an exercise for the induction, too?
+Note that a formal proof can be done by using mathematical induction.
+// on $r$, treating $n$ as a constant.
+
 
 video::tTvaodWc6ic[youtube, 700, 500]
 
@@ -211,6 +312,16 @@ include::python_tutor.adoc[]
 .You Try
 Try using link:http://pythontutor.com/live.html#mode=edit[Pythontutor] to count permutations using a factorial formula.
 ****
+
+// MKD - added text - maybe add an exercise for the induction, too?
+The previous code example gives evidence for the following theorem. 
+Again, a formal proof can be done by using mathematical induction. 
+
+.Theorem
+****
+$P(n,r) = \displaystyle \frac{n!}{(n-r)!}$
+****
+
 
 *Video Example*
 
@@ -251,16 +362,100 @@ From a group of 100 workers, how many ways can there be a union President, Vice 
 How many different words (including nonsense words), can be formed using the letters in 'HEROIC' where the vowels must appear together?
 ****
 
-Now consider the letters $A, B, C, D$ and choose three at a time where the order does not matter. That is, the choice $ABC$ is the same choice as $BCA$.  This selection where order does not matter is called a *combination*. There are only four possible ways to choose three letters without regard to order:
 
-*$ABC, ABD, ACD,$ and $BCD$.
+//MKD added subsection header 
 
-In general, given a set of $n$ objects, and _unordered selection_ of $r\le n$ of them is an *$r$-combination* or a *combination of $n$ objects taken $r$ at a time*. We will denote this by $C(n,r)$, read as '$n$ choose $r$'. (Note that $_nC_r$ is commonly used by calculators.)
+=== Combinations
+
+A selection 
+of objects from a set of $n$ objects 
+where order 
+of selection 
+does not matter is called a *combination*. 
+Notice that each combination corresponds to a subset of the set of $n$ objects.
+//, that is, each combination is the unordered list that describes a subset.
+
+Consider the letters $A, B, C, D$ and choose three at a time where the order does not matter. 
+//That is, the choice $ABC$ is the same choice as $BCA$.  
+//MKD inserted sentences
+In this case we are selecting a subset of size three instead of a sequence of length three. The sets $\{ A, B, C \}$ and $\{ B, C, A \}$ are just two ways of describing the same set since the order in which elements of a set are listed does not matter.  
+
+//This 
+//A selection where order does not matter is called a *combination*. 
+* There are four possible ways to choose three letters without regard to order:
+//*$ABC, ABD, ACD,$ and $BCD$.
+$\{ A, B, C \}$, 
+$\{ A, B, D \}$, 
+$\{ A, C, D \}$, and 
+$\{ B, C, D \}$.
+* There are six possible ways to choose three letters without regard to order:
+$\{ A, B \}$, 
+$\{ A, C \}$, 
+$\{ A, D \}$, 
+$\{ B, C \}$, 
+$\{ B, D \}$, and 
+$\{ C, D \}$. 
+* There are four possible ways to choose one letter (without regard to order):
+//*$ABC, ABD, ACD,$ and $BCD$.
+$\{ D \}$, 
+$\{ C \}$, 
+$\{ B \}$, and 
+$\{ A \}$. (Keep reading to find out why this "reversed" ordering of the subsets was used.)
+
+
+This shows that there are 
+4 combinations of 4 objects taken 3 at a time,  
+6 combinations of 4 objects taken 2 at a time, and 
+4 combinations of 4 objects taken 1 at a time.  
+
+
+In general, given a set of $n$ objects, 
+//and 
+an 
+_unordered selection_ of $r\le n$ of them is 
+called 
+an *$r$-combination* or a *combination of $n$ objects taken $r$ at a time*. We will denote this by $C(n,r)$, read as '$n$ choose $r$'. Note that $_nC_r$ is commonly used by calculators.
+
+Using this notation, we can write $C(4,3) = 4$, $C(4,2) = 6$, and $C(4,1) = 4$.
+
+
+Notice that $C(4,3) = C(4,1)$; it may appear that this "just happens to be true", but in fact is an example of the next theorem. In this case, a combination of 4 objects taken 3 at a time corresponds to a combination of 4 objects taken 1 at a time - we can choose 3 of the 4 elements by "throwing out" the 1 element we don't want to keep. That is, we choose the 3-element subset we care about indirectly by instead choosing the 1-element complement of the subset.
+
+In general, there is always a one-to-one correspondence between 
+the combinations of $n$ objects taken $r$ at a time and the combinations of $n$ objects taken $n-r$ at a time: Choosing $r$ elements for a subset corresponds to choosing the $n-r$ elements for the complement of the subset. 
+
+// MKD - need to add this to set theory chapter after May 24, 2024:
+// The one-to-one correspondence on power set that maps A to its complement.
+
+.Theorem
+****
+$C(n,r) = C(n,n-r)$
+****
+
+A formal proof of the theorem can be written by proving that, for any set $S$, the function with domain and codomain $\mathcal{P}(S)$ and that maps each subset of $S$ to its complement is both injective and surjective.
+
+
+//MKD added the following two paragraphs
+Next, notice that every $r$-combination corresponds to $P(r, r) = r!$ different $r$-permutations. That is, to select a $r$-permutation we could instead first select a $r$-combination without regard to order and then order the $r$ elements. 
+
+As an example, suppose we have $n$ objects and want to construct a $3$-permutation. We could instead first choose a $3$-combination of the objects. There are $C(n,3)$ possible $3$-combinations. Once we have chosen a specific $3$-combination, we can reorder the 3 elements 
+//in the subset of 3 elements 
+in $P(3,3) = 3!$ ways. 
+This argument shows that 
+$P(n,3) = C(n,3) \cdot P(3,3) =  C(n,3) \cdot 3!$, so 
+$C(n,3) = \displaystyle \frac{P(n,3)}{3!}$. 
+
+We can generalize this argument for each natural number $r \leq n$ to arrive at the next theoren.
 
 .Theorem
 ****
 $C(n,r) = \displaystyle \frac{P(n,r)}{r!} = \frac{n!}{r!(n-r)!}$
 ****
+
+// MKD - added text - maybe add an exercise for the induction, too?
+A formal proof of the theorem can be done by using mathematical induction.
+// on $r$, treating $n$ as a constant.
+
 
 :pt_code_height: 500
 :pt_rawinput: false
@@ -474,4 +669,6 @@ one of each type?
 &&& C(4,0) && C(4,1) && C(4,2) && C(4,3) && C(4,4) &&\\
 \end{array}
 
+////
+COMING SOON!
 ////

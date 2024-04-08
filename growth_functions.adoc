@@ -1,7 +1,65 @@
 = Growth of Functions
 
-COMING SOON!
+// MKD start of topics
 ////
+Definition of algorithm
+example - find maximum element of a finite list
+ACTIVITY: Algorithms And Functions
+	Binary search, Linear search (NOTE: can require recurrence relations)
+Complexity - time, space
+Complexity Functions and Growth of functions
+big-O notation
+
+“Popular” functions g(n) are : 1, log n, n, n log n, n2, n3, 2n , n!
+(above are listed from slowest to fastest growth)
+• A problem that can be solved with polynomial worst- case complexity is called tractable.
+• Problems of higher complexity are called intractable.
+• Problems that no algorithm can solve are called
+unsolvable. (more on this later...
+
+Big-O rules for sums and products
+
+Complexity examples:
+	Find max difference between elements of a list (nested loops) - O(n^2)
+	Find max difference between elements of a list (single loop) - O(n)
+
+A little bit of computability theory (informal intro.)
+• A decision problem is a question with a “yes” or “no” answer, depending on the values of some input parameters. Example: Given two numbers x and y, does x < y?"
+• A decision problem which can be solved (or decided) by an algorithm, is called decidable, i.e. the algorithm always returns “yes” or “no”
+• A decision problem is undecidable (or unsolvable) if it is impossible to construct an algorithm that leads to a “yes” or “no” answer
+• The Halting Problem: Given an algorithm A and an input string I, will A ultimately halt on A or will it run on forever?
+i.e. Is there a program H takes input (A,I) and returns “yes” if A halts on input I and “no” if A runs for ever on input I
+
+Theorem: The Halting Problem is undecidable Proof (informal) by contradiction:
+Assume H(A, I) existed. Let define the following algorithm K(A): input: A Output: see comment below
+if (H(A,A) == “no”) return “yes”
+else
+for(;;){}
+// if A(A) runs for ever, return “yes”
+// If A(A) halts // loop forever and never return
+Note: K(A) halts if and only if H(A,A) returns “no” if and only if A(A) does not halt
+Now, call the algorithm K with input K, i.e. K(K) Then, K(K)halts ifandonlyifH(K,K)returns“no”
+if and only if K(K) does not halt This is a contradiction!
+
+
+NUMBER THEORY - Most of this should 
+EITHER be its own chapter 
+OR some of this can go in the Intro chapter and the rest in a "just-in-time"/refresher index:
+divisibility, (factors, multiples)
+prime numbers (and composite numbers)
+THE DIVISION ALGORITHM (Euclid's algorithm)
+relatively prime integers (?) and pairwise relatively primes
+greatest common divisors, 
+least common multiples, and 
+	Theorem: a⋅b = gcd(a,b)⋅lcm(a,b)
+modular arithmetic (a mod m as remainder in a=qm+r), congruences
+
+Eulcidean Algorithm - program correctness via induction
+
+////
+// MKD end of topics
+
+//MKD intends to make MANY changes to this chapter after the Spring 2024 semester.
 
 == Introducing _Big O_
 
@@ -15,6 +73,11 @@ __Big O__  notation is a standard way mathematicians and computer scientists use
 
 __Big O__  is typically used to analyze the worst case complexity of an algorithm.
 If, for example, $n$ is the size of the input data, then __Big O__ really only cares about what happens when your input data size $n$ becomes arbitrarily large and not quite as interested in when the input is small.  Mathematically, we want to speak of complexity in the asymptotic sense, when $n$ is arbitrarily large. In this asymptotic sense of large $n$, we may ignore constants.
+//MKD added the following.
+That we can ignore constants will make sense after discussing how 
+//L'hopital's Rule 
+limits, borrowed from continuous mathematics (calculus), can be used to compare the rates of growth of two different functions. 
+//MKD needs a circumflex accent above the o in L'hopital
 
 The size of the input complexities ordered from smallest to largest:
 
@@ -28,12 +91,19 @@ The size of the input complexities ordered from smallest to largest:
 * Exponential complexity: $O(b^n)$, $ b > 1$
 * Factorial complexity: $ O(n!)$
 
+//MKD added following lines.
+To understand the sizes of input complexities, we will look at the graphs of functions; it is  easier to consider these functions as ones that are defined for any _real value_ input instead of just the natural numbers. This will also allow us to use continuous mathematics (that is, calculus) to analyze and compare the growth of different functions. 
+
+
 Radical growth is larger than logarithmic growth:
 [.float-group]
 --
 [.left.text-left]
 image::images/radicalgrowth.png[geometricsequence,500,500]
 --
+//MKD added following lines.
+NOTE: In the preceding graph, we've used $\text{Log}[x]$ to label the graph of a logarithmic function without stating the base for the logarithm: Is this the function $y = log_{2}(x)$, $y = log_{10}(x)$, $y = ln(x) =  log_{e}(x)$, or a logarithm to some other base? For the purposes of studying growth of functions, it does not matter which of these logarithms we use: You may recall that one of the properties of logarithms states that for two different positive constant bases $a$ and $b$ we must have $log_{a}(x) = log_{a}(b) \cdot log_{b}(x)$, where $log_{a}(b)$ is also a constant. As stated earlier, we may ignore constants when considering the growth of functions.
+
 Polynomial growth is larger than radical  growth:
 [.float-group]
 --
@@ -53,6 +123,18 @@ Factorial growth is larger than exponential growth:
 [.left.text-left]
 image::images/factorialgrowth.png[geometricsequence,500,500]
 --
+//MKD added following lines.
+NOTE: In the preceding graph, we've used $x!$ 
+to label the graph of the function $y = \Gamma(x+1)$
+//the factorial $x!$ is represented by the function $\Gamma(x+1)$
+, where $\Gamma$ is the _Gamma function_ which is 
+defined and continuous for all nonnegative real numbers. 
+That is, $n! = \Gamma(n+1)$ for every $n \in \mathbb{N}$. 
+// That is, the outputs for the factorial function 
+//which is 
+// defined _for only natural number inputs_ matches the outputs of the function // $\Gamma(x+1)$ which is defined and continuous for all nonnegative real 
+// numbers, so that $n! = \Gamma(n+1)$ for every $n \in \mathbb{N}$. 
+Further study of the Gamma function is beyond the scope of this textbook. 
 
 Using the graphical analysis of the growth of typical functions
 we have the following growth ordering, also presented graphically on a logarithmic scale graph.
@@ -81,7 +163,7 @@ Motivated by these we formally define the _Big O_ notation.
 ._Big_ $O$ notation
 ****
 Suppose $f$ and $g$ are real valued functions from $f(x):\mathbb{R}→\mathbb{R}$,
-we say $f(x)$ is *Big $O$* of $g(x)$, written $f(x)$ is  $O(g(x))$, if there exists
+we say $f(x)$ is *Big $O$* of $g(x)$, written "$f(x)$ is $O(g(x))$", if there exists
 positive integers $A$ and $n$, so that $|f(x)| \leq A|g(x)|$ whenever $x  > n$.
 ****
 
@@ -260,6 +342,115 @@ facts that $2^x$ grows faster than $x^4$, and $x^x$ grows faster than $x!$.
 
 ****
 
+//MKD inserted this subsection on L'hopital's rule.
+== Using Limits to Compare the Growth of Two Functions (CALCULUS I REQUIRED!)
+
+In general, we 
+have avoided using calculus methods in this textbook because calculus is part of _continuous mathematics,_ not discrete mathematics. However, it is can be useful to use calculus to compare the growth of two functions $f(x)$ and $g(x)$  that are defined for real numbers $x$, are differentiable functions
+//and have only nonnegative values 
+on the interval $(0,\, \infty)$, 
+//.
+and 
+//Suppose that functions $f$ and $g$ are such functions and that 
+satisfy 
+$\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) = \infty$.
+
+
+If $f(x)$ and $g(x)$ are such functions and  
+//If 
+$\lim_{x \to \infty} \frac{f(x)}{g(x)} = L$, 
+// where $L$ is a nonnegative number (that is, $L$ is not infinity), 
+where $0 \leq L < \infty$, 
+then $f(x)$ is $O(g(x))$. 
+To see this, recall that $\lim_{x \to \infty} \frac{f(x)}{g(x)} = L$ 
+means that we can make the value of $\frac{f(x)}{g(x)}$ be as close 
+to $L$ as we want by choosing $x$ values that are sufficiently large. 
+In particular, 
+//between $L - \epsilon$ and $L + \epsilon$ for any positive $\epsilon$ by //choosing $x$ sufficiently large, say, larger than a number $A_{\epsilon}$. 
+we can make $L-1 < \frac{f(x)}{g(x)} < L+1$ be true for all $x$ greater than some real number $r$. 
+Now we can use the earlier stated assumption that $0 \leq g(x)$ to rewrite the inequality as  
+$(L-1) \cdot g(x) < f(x) < (L+1) \cdot g(x)$, which is true for all $x > r$. 
+//In this case, we can take as our witnesses $A$ equal to the ceiling of $L + \epsilon$ and $n$ equal to the ceiling of $A_{\epsilon}$ so that 
+We can choose for our witnesses $A = \lceil (L + 1) \rceil$, the 
+least integer that is greater than or equal to $L + 1$, and 
+$n = \lceil r \rceil$, the 
+least integer that is greater than or equal to $r$. 
+This means that $f(x) < A \cdot g(x)$ whenever $x > n$, which 
+shows that $f(x)$ is $O(g(x))$. Note that using this method does not 
+focus on determining the actual numerical values of $A$ and $n$ but just guarantees that the witnesses exist, which is all that is needed to show that $f(x)$ is $O(g(x))$.
+
+//In such a case, we get an _indeterminate form_ for the limit $\lim_{x \to \infty} \frac{f(x)}{g(x)} = \frac{\infty}{\infty}$. We can often correctly evaluate such an indeterminate form using _L'Hôpital's rule_, which states that $\lim_{x \to \infty} \frac{f(x)}{g(x)} = \frac{f'(x)}{g'(x)}$. 
+
+
+//MKD needs an example here, using L'Hôpital's rule.
+
+// simpler: 100n + n \cdot log n is O(n \cdot log n)
+****
+
+.Example {counter:growex} 
+
+Show that  $100,000 n + n \cdot log (n)$ is $O(n \cdot log (n))$.
+
+.Solution
+Notice that the expressions 
+$100,000 x + x \cdot log (x)$ and 
+$x \cdot log (x)$ 
+can be used to define differentiable functions on the interval 
+$(0,\, \infty)$. We changed the variable from $x$ to $n$ to stress 
+that we are treating the variable as a real number in this example. 
+Also, we will assume that $log (x)$ is the natural logarithm; as mentioned earlier, any other base for the logarithm results in a constant multiple fo the natural logarithm and will not effect the Big-$O$ computations.
+
+Let $f(x) = 100,000 x + x \cdot log (x)$ and 
+$g(x) = x \cdot log (x)$. It is easy to see that 
+$\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) = \infty$.
+
+Now let's compute $\lim_{x \to \infty} \frac{f(x)}{g(x)}$, that is, 
+$\lim_{x \to \infty} \frac{100,000 x + x \cdot log(x)}{x \cdot log (x)}$. 
+Direct computation gives the indeterminate form $\frac{\infty}{\infty}$, so we can use L'Hôpital's rule to write 
+$\lim_{x \to \infty} \frac{100,000 x + x \cdot log(x)}{x \cdot log(x)} = \lim_{x \to \infty} \frac{100,000 + (1 \cdot log (x) + x \cdot \frac{1}{x})}{1 \cdot log(x) + x \cdot \frac{1}{x}} = \lim_{x \to \infty} \frac{100,000 + log (x) + 1}{log(x) + 1}$. This limit still gives us an indeterminate form if we try to directly find the limits of the numerator and denominator separately without some simplification, but we can divide both numerator and denominator by $log (x)$ to rewrite the last limit as the equivalent limit 
+$\lim_{x \to \infty} \frac{\frac{100,001}{log (x)} + 1}{1 + \frac{1}{log(x)}} = \frac{0+1}{1+0} = 1$. Since the limit is a positive finite number, $100,000 x + x \cdot log (x)$ is  
+$O(x \cdot log (x))$. As mentioned above, we do not need to find the actual values of the witnesses when using this method.
+
+
+
+****
+
+
+// MKD start complicated big O example
+////
+****
+
+.Example {counter:growex} 
+
+Show that 
+$\frac{ 500n + n^{2} \cdot \log_2⁡ n}{ n + \log_2⁡ n }$ is 
+$O(n \cdot \log_2⁡ n)$.
+
+.Solution
+Notice that the expressions 
+$\frac{500x + x^{2} \cdot \log_2⁡ x}{x + \log_2⁡ x}$ and 
+$x \cdot \log_2⁡ x$ 
+can be used to define differentiable functions on the interval 
+$(0,\, \infty)$. We changed the variable from $x$ to $n$ to stress 
+that we are treating the variable as a real number in this example. 
+
+We could compute the very messy limit 
+$\lim_{x \to \infty} \frac{ \frac{500x + x^{2} \cdot \log_2⁡ x}{x + \log_2⁡ x}} { x \cdot \log_2⁡ x }$ to show that we get a nonnegative limit, but this would be unnecessarily complicated. 
+
+Instead, we will show that $f(x) = 500x + x^{2} \cdot \log_2⁡ x$ is 
+$O(g(x)$ where $g(x) = (x + \log_2⁡ x)(x \cdot \log_2⁡ x))$; 
+this statement is equivalent to what we want to show.
+
+In such a case, we get an _indeterminate form_ for the limit $\lim_{x \to \infty} \frac{f(x)}{g(x)} = \frac{\infty}{\infty}$. We can evaluate this 
+limit by applying _L'Hôpital's rule_, which states that 
+$\lim_{x \to \infty} \frac{f(x)}{g(x)} = \lim_{x \to \infty} \frac{f'(x)}{g'(x)}$. 
+
+****
+////
+// MKD end complicated big O example
+
+
+
 == Exercises
 
 . Give _Big O_ estimates for
@@ -331,4 +522,3 @@ $g\left(x\right)=\sqrt x+x^2\log{x}$. Find the best big $O$ estimates of
 . Negate the definition of "$ f(x)$ is $ O(g(x))$" using logical quantifiers, and then state in
 words what it means that $ f(x)$ is [.underline]#not# $ O(g(x))$.
 
-////

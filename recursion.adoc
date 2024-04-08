@@ -1,6 +1,35 @@
 = Sequences and Recursive Definitions
 
 
+
+// MKD start topic list
+////
+Recursion
+Recursive definition - sequences, functions, sets
+Fibonacci numbers
+Ackermann Function
+ID, C++ identifers (???)
+Recursive Algorithms
+
+For every recursive algorithm, there is an equivalent iterative algorithm.
+• Recursive algorithms are often shorter, more elegant, and easier to understand than their iterative counterparts.
+• However, iterative algorithms may be more efficient in their use of space and time.
+• Recursive definitions that specifies one or more initial terms and rules for determining subsequent terms is called recurrence relation (or equation
+
+Recurrence ralations
+Solivng simple recurrence relations
+	S(n), where S(0)=a, S(n+1)=S(n)+d
+	T(n), where T(0)=a, T(n+1)=r*T(n)
+	
+Informal intro. to divide and conquer strategy
+• Splitaproblemofsizenintoanumberof instances of the same problem but each with a smaller size
+• Solvesmallerproblemsseparately
+• Putthesolutionsofsmallerproblemstogetherto solve the original problem
+Example: Binary search of a sorted list (proof of correction uses induction)
+////
+// MKD end topic list
+
+
 COMING SOON!
 ////
 

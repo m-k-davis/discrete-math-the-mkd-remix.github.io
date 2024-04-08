@@ -190,37 +190,137 @@ $(document).on('page:load', ready2);
       </ul>
      </li>
      <li>
-      <a href="functions.html#_mathematical_induction">
+      <a href="induction.html#_mathematical_induction">
        6. Mathematical Induction
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="induction.html#_why_is_mathematical_induction_needed">
+         6.1. Why Is Mathematical Induction Needed?
+        </a>
+       </li>
+       <li>
+        <a href="induction.html#_strong_induction">
+         6.2. Strong Induction
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="growth_functions.html#_functions">
+      <a href="functions.html#_functions">
        7. Functions
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="functions.html#_a_very_formal_mathematical_definition_of_function">
+         7.1. A Very Formal Mathematical Definition Of "Function"
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_injective_surjective_bijective_and_inverse_functions">
+         7.2. Injective Surjective, Bijective and Inverse Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_ceiling_floor_maximum_and_minimum_functions">
+         7.3. The Ceiling, Floor, Maximum and  Minimum Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_algebra_of_functions">
+         7.4. The Algebra of Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_composition_of_functions">
+         7.5. Composition of Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_inverse_of_a_function">
+         7.6. The Inverse of a Function
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_exercises_3">
+         7.7. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="algorithms.html#_growth_of_functions">
+      <a href="growth_functions.html#_growth_of_functions">
        8. Growth of Functions
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="growth_functions.html#_introducing_big_o">
+         8.1. Introducing
+         <em>
+          Big O
+         </em>
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_properties_of_big_o_notation">
+         8.2. Properties of
+         <em>
+          Big O
+         </em>
+         notation.
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_using_limits_to_compare_the_growth_of_two_functions_calculus_i_required">
+         8.3. Using Limits to Compare the Growth of Two Functions (CALCULUS I REQUIRED!)
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_exercises_4">
+         8.4. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="counting.html#_algorithms">
+      <a href="algorithms.html#_algorithms">
        9. Algorithms
       </a>
      </li>
      <li>
-      <a href="number_theory.html#_counting">
+      <a href="counting.html#_counting">
        10. Counting
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="counting.html#_three_basic_counting_rules">
+         10.1. Three Basic Counting Rules
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_the_pigeonhole_principle">
+         10.2. The Pigeonhole Principle
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_permutations_and_combinations">
+         10.3. Permutations and Combinations
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_exercises_5">
+         10.4. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="recursion.html#_number_theory">
+      <a href="number_theory.html#_number_theory">
        11. Number Theory
       </a>
      </li>
      <li>
-      <a href="induction.html#_sequences_and_recursive_definitions">
+      <a href="recursion.html#_sequences_and_recursive_definitions">
        12. Sequences and Recursive Definitions
       </a>
      </li>
@@ -228,6 +328,13 @@ $(document).on('page:load', ready2);
       <a href="graph_theory.html#_graph_theory">
        13. Graph Theory
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="graph_theory.html#_introduction_and_basic_definitions">
+         13.1. Introduction and Basic Definitions
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
       <a href="python_intro.html#_appendix_0_an_introduction_to_python">
@@ -285,7 +392,7 @@ $(document).on('page:load', ready2);
         </a>
        </li>
        <li>
-        <a href="python_intro.html#_exercises_3">
+        <a href="python_intro.html#_exercises_6">
          14.11. Exercises
         </a>
        </li>
@@ -357,10 +464,173 @@ $(document).on('page:load', ready2);
        Graphs are discrete mathematical structures that have many applications in a diversity of fields including chemistry, network analysis, algorithms, and social sciences.
       </p>
      </div>
-     <div class="paragraph">
-      <p>
-       MORE TO COME!
-      </p>
+     <div class="sect2">
+      <h3 id="_introduction_and_basic_definitions">
+       13.1. Introduction and Basic Definitions
+      </h3>
+      <div class="paragraph">
+       <p>
+        A graph consists of a set of
+        <strong>
+         vertices
+        </strong>
+        (also called
+        <strong>
+         nodes
+        </strong>
+        ) and a set of
+        <strong>
+         edges
+        </strong>
+        ,
+where each edge either
+connects two different vertices or
+connects a vertex to itself.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          For each edge, its
+          <strong>
+           endpoints
+          </strong>
+          are the vertices that it connects. The edge is said to be incident with each endpoint, and to connect the endpoints.
+         </p>
+        </li>
+        <li>
+         <p>
+          If an edge has only one endpoint, it is called a
+          <strong>
+           loop
+          </strong>
+          .
+         </p>
+        </li>
+        <li>
+         <p>
+          An
+          <strong>
+           isolated vertex
+          </strong>
+          is a vertex that is not an endpoint of any edge.
+         </p>
+        </li>
+        <li>
+         <p>
+          If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a
+          <strong>
+           multigraph
+          </strong>
+          .
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         simple graph
+        </strong>
+        is one in which there are no loops and no two edges
+connect the same endpoints. The graphs we consider are assumed to be simple unless stated otherwise.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We will define simple graphs formally using set theory
+after the next example, but we will usually represent graphs using a
+drawing as in the  example. The formal definition of simple graphs may be useful to you if you need to implement a simple graph in code.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 1
+         </div>
+         <p>
+          The graph shown has 6 vertices
+and 5 edges.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Note that this is
+          <em>
+           one graph
+          </em>
+          , but it is made up of three separate
+          <em>
+           connected components
+          </em>
+          (This terminology will be defined in detail later in the chapter, but is introduced informally here).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          One connected component contains the vertices \(A\) and \(C\) and one edge that connects them,
+a second connected component contains the vertices \(B\), \(D\), and \(F\) and the edges that are incident to those vertices, and
+a third connected component contains the single isolated vertex \(E\) and no edges.
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph1withAddedLoopAndComponents" src="imagesMKD/graph1withAddedLoopAndComponents.png"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Here is a formal definition of simple graph:
+A
+        <strong>
+         simple graph
+        </strong>
+        \(G=\left(V,\ E\right)\) is an ordered pair consisting of a set \(V\) of objects called
+        <strong>
+         vertices
+        </strong>
+        (or
+        <strong>
+         nodes
+        </strong>
+        ) and a set \(E\) of objects called
+        <strong>
+         edges
+        </strong>
+        .
+An edge \(e\in\ E\) is a set of the form \(e=\left\{x,y\right\}\), where the vertices \(x\) and \(y\) are two different elements of \(V\). The two vertices \(x\) and \(y\) in the edge \(e=\left\{x,y\right\}\) are said to be
+        <strong>
+         adjacent
+        </strong>
+        or
+        <strong>
+         connected
+        </strong>
+        , and \(x\) and \(y\) are called the
+        <strong>
+         endpoints
+        </strong>
+        of \(e\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The graph in the previous example has vertex set
+\(\left\{A,\ B,\ C,\ D,\ E,\ F\right\}\) and
+edge set
+\(\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.\) Note that the graph is not a simple graph because there is a loop that has endpoint \(D\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        MORE TO COME!
+       </p>
+      </div>
      </div>
     </div>
    </div>

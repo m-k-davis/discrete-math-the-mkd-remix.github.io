@@ -26,6 +26,9 @@ Mark Kelly Davis
 //MKD turn off sectnums
 //:sectnums!:
 
+// MKD: The order of the chapters is determined by chap_adocs in multi_html.py
+
+
 include::front_matter.adoc[]
 
 //MKD turn on sectnums
@@ -59,6 +62,7 @@ include::counting.adoc[]
 include::number_theory.adoc[]
 
 //include::induction_recursion.adoc[]
+
 include::recursion.adoc[]
 
 //include::induction.adoc[]

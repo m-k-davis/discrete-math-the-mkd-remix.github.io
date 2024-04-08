@@ -6,8 +6,14 @@
 //	De Morgan Laws
 //	Other identifies (e.g., Distriutive Law)
 //	immutability of math sets vs Python Sets
+//	Application of Partitions: Number of integers from 1 to 100, inclusive, 
+//		divislble by 2, 5, etc.
 //	ACTIVITY: Given Venn diagram of 3 sets with parts shaded, write at least TWO different expressions for the shaded set. THEH write the shaded set as a union of the smallest intersections (i.e., there are 8 regions defined in the Venn Diagram - write the union of the shaded parts (DNF))
 //	On sets of sets: Consider set C given as a roster of students in this section of Discrete Math, and a second roster D listing all sections of Discrete Math this semester. Is a student who is an element of C also and element of D? Is C a subset of D? Is C and element of D? 
+
+// MKD - need to add this to set theory chapter after May 24, 2024:
+// say more about the basic partition formed by a single subset - compare to odds and evens for the integers Z
+// The one-to-one correspondence on power set that maps A to its complement.
 
 
 //MKD changed A to S throughtout following paragraph since A will be used in the Python WARNING

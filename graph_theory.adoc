@@ -1,32 +1,140 @@
 = Graph Theory
+
+// MKD start topics lists
+////
+Simple Graphs
+Multigraphs (allows loops and multiple edges between vertices)
+Directed Graphs
+Modeling (how to choose simple vs multigraphs, undirected vs directed)
+Terminology: ADJACENT vertices (NEIGHBORS), edges are INCIDENT WITH (or CONNNECT) their ENDPOINTS, DEGREE of a vertex in a graph (and loops contribute twice), an ISOLATED vertex has degree 0 that is it is not an endpoint of any edge,
+ACTIVITY: HANDSHAKE
+	students experiment to arrive at the conjecture for the Handshake theorem for undirected graphs
+More Terminology for Directed Graphs: ADJACENT FROM/TO, INITIAL and TERMINAL vertices, IN-DEGREE and OUT-DEGREE of a vertex, 
+Theorem: The sum of the in-degrees equals the sum of the out-degrees (sums taken over all vertices of the graph)
+Complete Graphs
+N-Cube
+Bipartite Graphs (the set of vertices can be partitioned into two subsets, and each edge connects across these subsets, NO edges connect within)
+Complete Bipartite Graphs
+
+Subgraphs
+Unions of Graphs
+
+Adjacency Matrix of a Graph
+Adjacency Lists of a Graph
+Isomorphism ("same shape" or "equal form" -  it's easier to determine NONisomorphic graphs than to prove that two are isomorphic)
+
+Connectivity: Path of length n, Circuit, Cycle (i.e., simple circuit - uses no edge more than once) 
+Hamiltonian Cycle - contains all vertices of the graph
+Euler Paths and Cycles - uses each edge exactly once (The Königsberg Bridges)
+Theorem: Let G be a connected graph. G has a Eulerian circuit if and only if each vertex is even degree
+
+connected components
+
+An directed graph is strongly connected if there is a path from a to b and from b to a whenever a and b are vertices in the graph.
+
+An directed graph is weakly connected if there is a path between any two vertices in the underlying undirected graph
+
+PLanar graphs
+
+Applications:
+	shortest path (or minimal sum of weights)
+	Dijkstra’s algorithm
+	The Traveling Salesman Problem (discuss Big-O and approximation algorithms?)
+
+ACTIVITY: RAMSEY
+	students experiment to derive conjecture about K5 and K6
+
+TREES - should this be in it's own chapter? They are only mentioned in exercises in the GGC book
+Trees and forests
+Spanning trees and spanning forests
+Kruskal's algorithm for (minimal cost) spanning tree
+rooted TREES
+binary trees -  full binary tree, complete binary trees, balanced???
+APPLICATIONS:
+	counting problems
+	arithmietic/algebraic expressions
+Bianry tree representation
+Tree traversal algorithms - preorder, inorder, postorder
+
+
+
+
+////
+// MKD end topics lists
+
 Graphs are discrete mathematical structures that have many applications in a diversity of fields including chemistry, network analysis, algorithms, and social sciences.
 
 
-MORE TO COME!
-////
 
 == Introduction and Basic Definitions
 
 //MKD rewrite of first paragraph
-//A *graph* $G=\left(V,\ E\right)$ is a structure consisting of 
-a set of objects called vertices $V$
-and a set of objects called edges $E$.
-An *edge* $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, 
-where $x,y\in\ V$. That is, an edge is a set of vertices. 
-We call the vertices $x$ and $y$ the *endpoints* of the edge $E$. 
-In the case where $x = y$, we call the edge a *loop* since the edge 
-connects the one endpoint to itself.
+//A *graph* $G=\left(V,\ E\right)$ is a structure consisting of a set of objects called vertices $V$ and a set of objects called edges $E$. An *edge* $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where $x,y\in\ V$. That is, an edge is a set of vertices. We call the vertices $x$ and $y$ the *endpoints* of the edge $E$. In the case where $x = y$, we call the edge a *loop* since the edge connects the one endpoint to itself.
+
+A graph consists of a set of *vertices*  (also called *nodes*) and a set of *edges*, 
+where each edge either 
+connects two different vertices or
+connects a vertex to itself. 
+
+* For each edge, its *endpoints* are the vertices that it connects. The edge is said to be incident with each endpoint, and to connect the endpoints.
+* If an edge has only one endpoint, it is called a *loop*. 
+* An *isolated vertex* is a vertex that is not an endpoint of any edge.
+* If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a *multigraph*.
 
 
-A *graph* $G=\left(V,\ E\right)$ is a structure consisting of a set of objects called vertices $V$
-and a set of objects called edges $E$.
-An *edge* $e\in\ E$ is denoted in the form $e=\left\{x,y\right\}$, where the vertices
-$x,y\in\ V$. Two vertices $x$ and $y$ connected by the edge $e=\left\{x,y\right\}$, are said to
-be *adjacent*, with $x$  and $y$,called the endpoints.
+A *simple graph* is one in which there are no loops and no two edges
+connect the same endpoints. The graphs we consider are assumed to be simple unless stated otherwise.
 
-A *simple graph* is one in which there are no loops (edges joining the same vertex) and no two edges
-joining the same pair of vertices. The graphs we consider are assumed to be simple unless stated otherwise.
+We will define simple graphs formally using set theory 
+//which is done 
+after the next example, but we will usually represent graphs using a 
+//"connect-the-dots" style 
+drawing as in the  example. The formal definition of simple graphs may be useful to you if you need to implement a simple graph in code.
 
+****
+.Example {counter:graphex} 
+//- An undirected graph.
+
+//The graph shown has vertex set $\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
+//edge set $\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ 
+
+The graph shown has 6 vertices 
+// set $\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ 
+and 5 edges.
+// set $\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ 
+
+Note that this is _one graph_, but it is made up of three separate _connected components_ (This terminology will be defined in detail later in the chapter, but is introduced informally here). 
+
+One connected component contains the vertices $A$ and $C$ and one edge that connects them, 
+a second connected component contains the vertices $B$, $D$, and $F$ and the edges that are incident to those vertices, and 
+a third connected component contains the single isolated vertex $E$ and no edges.
+
+image::imagesMKD/graph1withAddedLoopAndComponents.png[]
+//image::images/graph1.png[]
+
+****
+
+
+
+// MKD define digraphs in separate section
+
+// MKD - probably need to keep this formal definition
+Here is a formal definition of simple graph: 
+A *simple graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a set $V$ of objects called *vertices* (or *nodes*) and a set $E$ of objects called *edges*.
+// MKD need to update to say that edges can be any of 
+// an unordered pair, a singleton, or an ordered pair. 
+An edge $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where the vertices $x$ and $y$ are two different elements of $V$. The two vertices $x$ and $y$ in the edge $e=\left\{x,y\right\}$ are said to be *adjacent* or *connected*, and $x$ and $y$ are called the *endpoints* of $e$. 
+// MKD no loops in simple graphs.
+//If the two vertices of an edge are the same, that is, $e=\left\{x,y\right\}$, then the edge $e$ is called a *loop*.  
+
+The graph in the previous example has vertex set 
+$\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
+edge set
+$\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ Note that the graph is not a simple graph because there is a loop that has endpoint $D$.
+
+
+MORE TO COME!
+////
 
 ****
 .Example {counter:graphex} - an undirected graph.
@@ -38,15 +146,18 @@ image::images/graph1.png[]
 
 ****
 
-A *directed graph* (or *digraph*) is an extension of the definition of a graph in which the edges are
-recognized to be ordered.
+A *directed graph* (or *digraph*) is 
+//an extension of the definition of 
+a graph in which the edges are directed from one vertex to another vertex.
 
 ****
-.Example {counter:graphex} - a directed graph.
+.Example {counter:graphex} - A directed graph.
 
-The graph  $G=(V,E)$ with vertex set  $V=\{A,B,C,D,E,F\}$  and edge set
-$E=\{\{A,C\},\{D,A\},\{B,D\}\{F,B\},\{C,F\},\{D,F\},\{F,E\}\}$ with edge set considered as
-ordered is a directed graph and shown below.
+The graph $G=(V,E)$ with vertex set 
+$V=\{A,B,C,D,E,F\}$  and 
+edge set
+$E=\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}$. 
+The first coordinate of each edge is the initial vertex and the second coordinate is the terminal vertex.
 
 image::images/graph2.png[]
 
@@ -94,6 +205,7 @@ in $G$. That is, $\displaystyle \sum_{v\in V}{d\left(v\right)=2\ \left|E\right|}
 ====
 A useful consequence of this to keep in mind is that the sum of the degrees of a graph is always even.
 ====
+
 
 == Representing graphs.
 

@@ -54,7 +54,9 @@ with their broad programming curricula in courses like Intermediate and Advanced
 // MKD: new section on basic content
 // add (possible) additional content after May 24, 2024
 //		mention "partition of a set"? Maybe better for Set Theory chapter
-//		Sequences (both finite and infinite, mention recursion)
+//		Sequences (both finite and infinite, mention recursion/recurrence relations)
+//		divisibility of integers: primes, divisors (or factors), gcd
+//		ceiling and floor functions as examples of functions
 //		EDIT infinite cardinals discussion - for most studnets at this 	
 //			level, |N|=|Q| would not be surprising since they'd likely
 //			think that there is only one infinity; |Q|<|R| is surprising!

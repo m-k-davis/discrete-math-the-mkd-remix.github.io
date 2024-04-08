@@ -190,37 +190,137 @@ $(document).on('page:load', ready2);
       </ul>
      </li>
      <li>
-      <a href="functions.html#_mathematical_induction">
+      <a href="induction.html#_mathematical_induction">
        6. Mathematical Induction
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="induction.html#_why_is_mathematical_induction_needed">
+         6.1. Why Is Mathematical Induction Needed?
+        </a>
+       </li>
+       <li>
+        <a href="induction.html#_strong_induction">
+         6.2. Strong Induction
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="growth_functions.html#_functions">
+      <a href="functions.html#_functions">
        7. Functions
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="functions.html#_a_very_formal_mathematical_definition_of_function">
+         7.1. A Very Formal Mathematical Definition Of "Function"
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_injective_surjective_bijective_and_inverse_functions">
+         7.2. Injective Surjective, Bijective and Inverse Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_ceiling_floor_maximum_and_minimum_functions">
+         7.3. The Ceiling, Floor, Maximum and  Minimum Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_algebra_of_functions">
+         7.4. The Algebra of Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_composition_of_functions">
+         7.5. Composition of Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_inverse_of_a_function">
+         7.6. The Inverse of a Function
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_exercises_3">
+         7.7. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="algorithms.html#_growth_of_functions">
+      <a href="growth_functions.html#_growth_of_functions">
        8. Growth of Functions
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="growth_functions.html#_introducing_big_o">
+         8.1. Introducing
+         <em>
+          Big O
+         </em>
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_properties_of_big_o_notation">
+         8.2. Properties of
+         <em>
+          Big O
+         </em>
+         notation.
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_using_limits_to_compare_the_growth_of_two_functions_calculus_i_required">
+         8.3. Using Limits to Compare the Growth of Two Functions (CALCULUS I REQUIRED!)
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_exercises_4">
+         8.4. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="counting.html#_algorithms">
+      <a href="algorithms.html#_algorithms">
        9. Algorithms
       </a>
      </li>
      <li>
-      <a href="number_theory.html#_counting">
+      <a href="counting.html#_counting">
        10. Counting
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="counting.html#_three_basic_counting_rules">
+         10.1. Three Basic Counting Rules
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_the_pigeonhole_principle">
+         10.2. The Pigeonhole Principle
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_permutations_and_combinations">
+         10.3. Permutations and Combinations
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_exercises_5">
+         10.4. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="recursion.html#_number_theory">
+      <a href="number_theory.html#_number_theory">
        11. Number Theory
       </a>
      </li>
      <li>
-      <a href="induction.html#_sequences_and_recursive_definitions">
+      <a href="recursion.html#_sequences_and_recursive_definitions">
        12. Sequences and Recursive Definitions
       </a>
      </li>
@@ -228,6 +328,13 @@ $(document).on('page:load', ready2);
       <a href="graph_theory.html#_graph_theory">
        13. Graph Theory
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="graph_theory.html#_introduction_and_basic_definitions">
+         13.1. Introduction and Basic Definitions
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
       <a href="python_intro.html#_appendix_0_an_introduction_to_python">
@@ -285,7 +392,7 @@ $(document).on('page:load', ready2);
         </a>
        </li>
        <li>
-        <a href="python_intro.html#_exercises_3">
+        <a href="python_intro.html#_exercises_6">
          14.11. Exercises
         </a>
        </li>
@@ -348,14 +455,576 @@ $(document).on('page:load', ready2);
     </div>
    </div>
    <div class="sect1">
-    <h2 id="_sequences_and_recursive_definitions">
-     12. Sequences and Recursive Definitions
+    <h2 id="_mathematical_induction">
+     6. Mathematical Induction
     </h2>
     <div class="sectionbody">
      <div class="paragraph">
       <p>
-       COMING SOON!
+       <em>
+        Mathematical induction
+       </em>
+       is a proof technique that is used to prove
+infinitely many propositions using only two steps, where each of the
+steps is of finite length (in terms of time, symbols, words, phonemes, etc.).
+Recall that a proof consists of finitely many propositions,
+where each proposition has a finite length.
       </p>
+     </div>
+     <div class="sect2">
+      <h3 id="_why_is_mathematical_induction_needed">
+       6.1. Why Is Mathematical Induction Needed?
+      </h3>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 1
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The code below prints the sum of the first \(n\) odd positive numbers for the assigned value of \(n\).
+How can we verify that the code computes this correctly for
+          <em>
+           every
+          </em>
+          possible value of \(n\)?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Try to predict the variable names, values, and data types at different steps in the execution. Use the
+          <em>
+           Next
+          </em>
+          button to check your answers.
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=sum%20%3D%200%0Ai%20%3D%201%0A%23%20loop%20n%20times%0An%20%3D%204%0Awhile%20i%20%3C%3D%20n%3A%0A%20%20%20%20sum%20%3D%20sum%20%2B%20%282*i-1%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28sum%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=sum%20%3D%200%0Ai%20%3D%201%0A%23%20loop%20n%20times%0An%20%3D%204%0Awhile%20i%20%3C%3D%20n%3A%0A%20%20%20%20sum%20%3D%20sum%20%2B%20%282*i-1%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28sum%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        In the preceding example, we could imagine running the code for each positive integer value of \(n\), but this would require an infinite number of runs and/or using a loop that must execute an infinite number of times.
+If we could find a pattern linking the computed result for one integer to the result computed for the next largest integer, we could try to use that to justify that the code will always work without needing to run it for every value of \(n\).  The following example illustrates how we can do this.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock float-group">
+         <div class="title">
+          Example 2 - Why Use Mathematical Induction?
+         </div>
+         <div class="content">
+          <div class="imageblock left text-left">
+           <div class="content">
+            <img alt="GGC" src="imagesMKD/Square_number_16_as_sum_of_gnomons.svg"/>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The preceding image shows \(16\) colored "balls" arranged as a square.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Consider the predicate \(P(n)\): "The sum of the first \(n\) positive odd integers is equal to \(n^{2}\)."
+Recall that a predicate is a function that maps each input in
+the predicate’s domain to a proposition.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In the following code snippet, function \(P\) implements the predicate used in this example.
+Recall that the predicate’s output is the
+          <em>
+           proposition
+          </em>
+          itself, but the output does not indicate whether that proposition is true of false.
+         </p>
+        </div>
+        <iframe frameborder="5" height="300" src="https://pythontutor.com/iframe-embed.html#code=def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0An%20%3D%204%0Aprint%28P%28n%29%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=300" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0An%20%3D%204%0Aprint%28P%28n%29%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="paragraph">
+         <p>
+          Think about how the image can be used to prove that each of the following four propositions is true.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            \(P(1)\): "The sum of the first \(1\) positive odd integers is equal to \(1^{2}\)." (I know, this is not proper US English!)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(P(2)\): "The sum of the first \(2\) positive odd integers is equal to \(2^{2}\)."
+           </p>
+          </li>
+          <li>
+           <p>
+            \(P(3)\): "The sum of the first \(3\) positive odd integers is equal to \(3^{2}\)."
+           </p>
+          </li>
+          <li>
+           <p>
+            \(P(4)\): "The sum of the first \(4\) positive odd integers is equal to \(4^{2}\)."
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          How can you change the image so that it could be used to prove that \(P(5)\) is true, too ?
+How would you need to change the image to prove that \(P(n)\) is true for
+          <em>
+           every
+          </em>
+          possible choice for the positive integer \(n\) ? Note that stating a
+          <em>
+           conjecture
+          </em>
+          such as "It seems like it must be true for any positive integer \(n\)" is
+          <strong>
+           not
+          </strong>
+          a valid mathematical proof !
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          To prove that \(P(n)\) is true for
+          <em>
+           every
+          </em>
+          positive integer \(n\) using images,
+we need either an infinite number of images (one image for each positive
+integer \(n\)) or one image of an infinitely large "square".
+Notice that neither of these options gives a proof of finite length.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The following code could be used to prove \(P(n)\) for many more values of \(n\), but we would eventually run into constraints based on time and computing resources.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Use the
+          <em>
+           Next
+          </em>
+          button to step through the program below.
+         </p>
+        </div>
+        <iframe frameborder="5" height="400" src="https://pythontutor.com/iframe-embed.html#code=def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0An%20%3D%204%0Ai%20%3D%201%0AsumInt%20%3D%200%0AsumStr%20%3D%20%22%22%0Awhile%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20oddInt%20%3D%20%282*i-1%29%0A%20%20%20%20sumInt%20%2B%3D%20oddInt%0A%20%20%20%20sumStr%20%2B%3D%20str%28oddInt%29%0A%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20if%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20%20%20%20%20sumStr%20%2B%3D%20%22%20%2B%20%22%0Aprint%20%28sumStr,%22%3D%22,%20sumInt%29%0AnSquared%20%3D%20n*n%0Aif%20%28sumInt%20%3D%3D%20nSquared%29%3A%0A%20%20%20%20print%28P%28n%29%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=400" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0An%20%3D%204%0Ai%20%3D%201%0AsumInt%20%3D%200%0AsumStr%20%3D%20%22%22%0Awhile%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20oddInt%20%3D%20%282*i-1%29%0A%20%20%20%20sumInt%20%2B%3D%20oddInt%0A%20%20%20%20sumStr%20%2B%3D%20str%28oddInt%29%0A%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20if%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20%20%20%20%20sumStr%20%2B%3D%20%22%20%2B%20%22%0Aprint%20%28sumStr,%22%3D%22,%20sumInt%29%0AnSquared%20%3D%20n*n%0Aif%20%28sumInt%20%3D%3D%20nSquared%29%3A%0A%20%20%20%20print%28P%28n%29%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="paragraph">
+         <p>
+          To prove that \(P(n)\) is true for
+          <em>
+           every
+          </em>
+          positive integer \(n\) using the code,
+we need one output from the function for each positive integer \(n\), that is,
+we would need an infinitely long proof, which is infeasible.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For example, if you needed to convince someone that the proposition
+\(P(1,\!000,\!000)\) must be true by drawing the complete image for that
+value of \(n\), you would draw a square with \(1,\!000,\!000\) rows
+each containing \(1,\!000,\!000\) balls, for a total of
+\(1,\!000,\!000,\!000,\!000\)
+balls. And then what if that person asked you to prove that
+\(P(1,\!000,\!000,\!000,\!000\))$ is true ?!?!? Even the code would likely
+fail to prove this unless you have a lot of time and computing resources
+available.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          This is why mathematical induction is used: The induction step justifies that we can (in principle) complete as large a finite number of these proofs as
+we need to by assuming we already have drawn the \(k \times k\) square of balls to prove that \(P(k)\) is true
+then we can use the pattern suggested in the image to enlarge the square to a \((k+1) \times (k+1)\) square of balls that proves \(P(k+1)\) must be true. Or, in terms of the Python code, we already can prove that the output for input int \(k\) is a square, and can show that this implies that the output for input int \(k+1\) is
+          <em>
+           also
+          </em>
+          a square.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          That is, we
+          <em>
+           could
+          </em>
+          write down as large a finite number of proofs as we need to prove \(P(n)\) for a specifically chosen value of \(n\)…​ but since there is no bound on this chosen value of \(n\), we in fact have proven the predicate \(P(n)\) for
+          <strong>
+           all
+          </strong>
+          positive values of \(n\).
+         </p>
+        </div>
+        <div class="admonitionblock note">
+         <table>
+          <tr>
+           <td class="icon">
+            <i class="fa icon-note" title="Note">
+            </i>
+           </td>
+           <td class="content">
+            Mathematical induction does NOT state that we can write a
+            <em>
+             single
+            </em>
+            proof of \(\forall n P(n)\) but instead
+let’s us justify that we can in principle write down a proof of \(P(n)\) for
+every possible value of \(n\). To clarify, if we first choose a
+            <em>
+             specific value for the integer
+            </em>
+            \(n\), then we can
+write a proof of \(P(0)\) (and stop if \(n = 0\)), and then
+write a proof of \(P(1)\) that builds on the proof of \(P(0)\) (and stop if \(n = 1\)), and then
+write a proof of \(P(2)\) that builds on the proof of \(P(1)\) (and stop if \(n = 2\)), and so on,
+until we have written a proof of \(P(n)\) that builds on the proof of \(P(n-1)\).
+           </td>
+          </tr>
+         </table>
+        </div>
+        <div class="paragraph">
+         <p>
+          We will prove that the predicate \(P(n)\) is true for all positive integers \(n\) - in this case it does not make sense to have ``the sum of the first \(0\) positive integers'', so the basis step will use \(n=1\), which corresponds to the single red ball in the image, instead of \(n=0\), which would correspond to \(0\) balls.
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          Basis Step: In this case, the basis corresponds to \(n=1\).
+\(P(1)\) is the proposition ``The sum of the first \(1\) positive odd integers is equal to \(1^{2}\).''
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(P(1)\) is a true proposition since \(1 = 1^{2}\) (Note that the only term in the sum on the left-hand side of the equation is \(1\)).
+The predicate \(P(n)\) is true for \(n=1\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          It may seem a bit strange to use "the sum of the first \(1\) odd integers", so we can do an additional basis step for \(n=2\). THIS IS NOT NECESSARY, but may aid in seeing the pattern. \(P(2)\) is the proposition ``The sum of the first \(2\) positive odd integers is equal to \(2^{2}\).''
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Induction Step:
+We will
+          <em>
+           assume
+          </em>
+          that the proposition \(P(k)\) is true and prove that \(P(k+1)\) must also be true. In this context, the proposition \(P(k)\) is called the
+          <strong>
+           induction hypothesis
+          </strong>
+          (and \(P(k+1)\) could probably be called the induction conclusion, but I’ve never seen anyone use that name).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Now, how do we
+          <em>
+           generalize
+          </em>
+          the pattern seen in the image of the \(16\) "balls" ?
+Well, suppose we have a \(k \times k\) square arrangement of such balls…​ how do we add in the new gnomon of balls to increaese the square to \((k+1) \times (k+{1)}\) ?
+We can add a new row of \(k\) balls at the top, and a new column of \(k\) balls to the right, and then \(1\) additional ball at the upper right.
+So, as an algebraic equation, we’d like to show that
+\(k^{2} + k + k + 1 = (k+1)^{2}\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          That is, assume that \(P(k)\) is true, where \(k\) is some unspecified positive integer (again, this is called the
+          <strong>
+           inductive hypothesis
+          </strong>
+          ). Based on the formula for the \(k\text{th}\) odd positive integer, we can rewrite \(P(k)\) as the equation \[1+3+…​+(2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}.\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Now we
+          <em>
+           prove that this implies \(P(k+1)\) is true.
+          </em>
+          That is show
++
+\[\sum\limits_{i=1}^{k+1}(2i-1) = \left(\sum\limits_{i=1}^{k}(2i-1)\right) + (2(k+1)-1) =  k^{2} +  (2(k+1)-1)\]
+where we have substituted \(k^{2}\)
+for the sum \(\sum\limits_{i=1}^{k}(2i-1)\) based on the inductive hypothesis.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Now we simplify this using algebra and show that it is the same as the right hand side.
++
+\[\sum\limits_{i=1}^{k+1}(2i-1) = k^{2} + (2(k+1)-1) = k^{2} + 2k + 2 - 1
+= k^{2} + 2k + 1 = (k+1)^2.\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We have proven that the equation \(1+3+...+(2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}\) implies the equation
+\(1+3+...+(2k-1) + (2k+1) = \sum\limits_{i=1}^{k+1}(2i-1) = (k+1)^{2}\), that is, \(P(k) \rightarrow P(k+1)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Conclusion of the proof:
+We have proven both the basis step and the induction step, therefore,
+\(1+3+...+(2n-1) = \sum\limits_{i=1}^{n}(2i-1) = n^{2}\) for all positive integers \(n\).
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can now formalize what we did in the example above.
+Suppose that we have a predicate \(P(n)\) that is defined for all \(n \in \mathbb{N}\), that is, \(P\) is a function that maps each natural number to a corresponding proposition, and that we need to prove that each of the infinitely many propositions \(P(0),\ P(1),\ P(2),\ldots\) is true. Since there are infinitely many values of \(n\), this would appear to require infinitely many proofs, which is not feasible. BUT…​ let’s suppose that we can prove the following two things about the predicate \(P(n)\):
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          ``The proposition \(P(0)\) is true.'' This is called the
+          <strong>
+           basis step
+          </strong>
+          .
+         </p>
+        </li>
+        <li>
+         <p>
+          ``The implication \(P(k) \implies P(k+1)\) is true for every possible choice for the natural number \(k\).'' This is called the
+          <strong>
+           induction step
+          </strong>
+          .
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        The proofs of each of the two bulleted statements will be of finite length, but will allow us to conclude (by using the Well-Ordering Principle) that \(P(n)\) is true for
+        <strong>
+         every
+        </strong>
+        natural number \(n \geq 0\). That is, we can conclude that \(\forall n P(n)\) is a true propostion.
+       </p>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          In some cases, that basis step will involve a positive integer \(c\) instead of \(0\). As long as both the basis step and induction step have been proven, we can conclude that that \(P(n)\) is true for
+          <strong>
+           every
+          </strong>
+          natural number \(n \geq c\).
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="openblock float-group">
+       <div class="content">
+        <div class="imageblock left text-left">
+         <div class="content">
+          <img alt="GGC" height="250" src="imagesMKD/CLIP-IS-A-BRICK_2x3.svg" width="250"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        As an analogy, imagine we are building a tower using interlocking toy blocks. How tall can the tower be?
+The basis step involves placing a foundation on the ground (either a flat surface for \(n = 0\), or a first block for \(n = 1\)),
+and the induction step justifies that if we have built a tower that has height \(k\) then we can build a tower of height \(k+1\) by placing one more block on the tower. Note that we never build an infinitely tall tower, but we show that we can build a tower that is of any finite height \(n\) (as long as we have \(n\) or more blocks and ignore issues arising from real-world physics!).
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_strong_induction">
+       6.2. Strong Induction
+      </h3>
+      <div class="paragraph">
+       <p>
+        Recall the idea behind mathematical induction, prove that a proposition //\(P\left(m\right)\)
+\(P_n\) is true for a base step, say \(P_1\). Then prove the inductive step. This involves proving that \(P_k\) implies \(P_{k+1}\).
+        <strong>
+         Strong induction
+        </strong>
+        is a generalized version of induction where in the inductive step we assume \(P_1, P_2,\ldots, P_m\) is true and show all these together imply \(P_{m+1}\) is true.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Strong version of Mathematical Induction:
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Base Case: Prove the first statement \(P_1\). (Or the first several \(P_r\), if needed.)
+         </p>
+        </li>
+        <li>
+         <p>
+          Inductive Step: Given any integer \(m \geq 1\), prove  \(P_1\land {P_2\land {\ P_3\land {\ldots\land {P_m,\ }}}}\) implies  \(P_{m+1}\)
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        Algorithmically:
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Base Case: Prove that \(P_{1,\ }P_2\ ,\ldots,\ P_r\), are all true.
+         </p>
+        </li>
+        <li>
+         <p>
+          Inductive Hypotheses: Assume, \(P_{1,\ }P_2\ ,\ldots,\ P_m\)are all true for some \(m  ≥ 1\),
+         </p>
+        </li>
+        <li>
+         <p>
+          Inductive step: Assuming, \(P_{1,\ }P_2\ ,\ldots,\ P_m\) are all true for some  \( m  ≥ 1\),  prove that \(P_{m+1}\) is true.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 3 - Recurrence Relations
+         </div>
+         <p>
+          Consider the sequence \(\left\{a_n\right\}\) defined as a a recurrence relation,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(a_1=5\), \(a_2=13\), and \(a_{n+2}=5a_{n+1}-6a_n\), for all \(n \geq 1\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Prove that \(a_n=2^{n} +3^{n}\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          Base case: Consider the case \(n=1\), \(a_1=5=2^{1} +3^{1}\), and \(a_2=13=2^2 +3^2=4+9\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Induction hypothesis: Assume \(a_1,\ a_2,..a_m\) are all given by \(a_m=2^m + 3^m\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We want to show that \(a_{m+1}=2^{m+1} +3^{m+1}\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Well, \( a_{m+1}=5a_m-6a_{m-1}\), using the definition of the recurrence relation.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          By the inductive hypothesis, \(a_m=2^m+3^m\) and \(a_{m-1}=2^{m-1} +3^{m-1}\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \( a_{m+1}=5\left(2^m +3^m \right)-6\left(2^{m-1} +3^{m-1}\right)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Consider then,
+         </p>
+        </div>
+        <div class="openblock equationalign">
+         <div class="content">
+          <table class="equation_table_style">
+           <tr class="equation_row_style">
+            <td ;="" class="equation_content_style">
+             \[\begin{split}
+5\left(2^m+ 3^m \right)-6\left(2^{m-1} +3^{m-1}\right) &amp;=5\times 2^m +5\times 3^m -6\times 2^{m-1} -6\times 3^{m-1}\\
+&amp;=5\times 2^m+5\times 3^m-3\times 2\times 2^{m-1}-2\times 3\times 3^{m-1}\\
+&amp;=5\times\ 2^m+5\times 3^m-3{\times 2}^m-2\times 3^m\\
+&amp;=\left( 5\times 2^m-3\times 2^m \right) + \left( 5 \times 3^m -2\times 3^m \right)\\
+&amp;=\left(5-3\right) \times 2^m + \left(5-2\right) \times 3^m\\
+&amp;=2\times\ 2^m+3\times 3^m\\
+&amp;=2^{m+1} + 3^{m+1}
+\end{split}\]
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          So \(a_{m+1}=2^{m+1} + 3^{m+1}\) and therefore, \(a_n=2^n +3^n\) for all \(n \geq 1\).
+         </p>
+        </div>
+       </div>
+      </div>
      </div>
     </div>
    </div>

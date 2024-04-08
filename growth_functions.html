@@ -190,37 +190,137 @@ $(document).on('page:load', ready2);
       </ul>
      </li>
      <li>
-      <a href="functions.html#_mathematical_induction">
+      <a href="induction.html#_mathematical_induction">
        6. Mathematical Induction
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="induction.html#_why_is_mathematical_induction_needed">
+         6.1. Why Is Mathematical Induction Needed?
+        </a>
+       </li>
+       <li>
+        <a href="induction.html#_strong_induction">
+         6.2. Strong Induction
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="growth_functions.html#_functions">
+      <a href="functions.html#_functions">
        7. Functions
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="functions.html#_a_very_formal_mathematical_definition_of_function">
+         7.1. A Very Formal Mathematical Definition Of "Function"
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_injective_surjective_bijective_and_inverse_functions">
+         7.2. Injective Surjective, Bijective and Inverse Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_ceiling_floor_maximum_and_minimum_functions">
+         7.3. The Ceiling, Floor, Maximum and  Minimum Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_algebra_of_functions">
+         7.4. The Algebra of Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_composition_of_functions">
+         7.5. Composition of Functions
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_the_inverse_of_a_function">
+         7.6. The Inverse of a Function
+        </a>
+       </li>
+       <li>
+        <a href="functions.html#_exercises_3">
+         7.7. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="algorithms.html#_growth_of_functions">
+      <a href="growth_functions.html#_growth_of_functions">
        8. Growth of Functions
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="growth_functions.html#_introducing_big_o">
+         8.1. Introducing
+         <em>
+          Big O
+         </em>
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_properties_of_big_o_notation">
+         8.2. Properties of
+         <em>
+          Big O
+         </em>
+         notation.
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_using_limits_to_compare_the_growth_of_two_functions_calculus_i_required">
+         8.3. Using Limits to Compare the Growth of Two Functions (CALCULUS I REQUIRED!)
+        </a>
+       </li>
+       <li>
+        <a href="growth_functions.html#_exercises_4">
+         8.4. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="counting.html#_algorithms">
+      <a href="algorithms.html#_algorithms">
        9. Algorithms
       </a>
      </li>
      <li>
-      <a href="number_theory.html#_counting">
+      <a href="counting.html#_counting">
        10. Counting
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="counting.html#_three_basic_counting_rules">
+         10.1. Three Basic Counting Rules
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_the_pigeonhole_principle">
+         10.2. The Pigeonhole Principle
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_permutations_and_combinations">
+         10.3. Permutations and Combinations
+        </a>
+       </li>
+       <li>
+        <a href="counting.html#_exercises_5">
+         10.4. Exercises
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
-      <a href="recursion.html#_number_theory">
+      <a href="number_theory.html#_number_theory">
        11. Number Theory
       </a>
      </li>
      <li>
-      <a href="induction.html#_sequences_and_recursive_definitions">
+      <a href="recursion.html#_sequences_and_recursive_definitions">
        12. Sequences and Recursive Definitions
       </a>
      </li>
@@ -228,6 +328,13 @@ $(document).on('page:load', ready2);
       <a href="graph_theory.html#_graph_theory">
        13. Graph Theory
       </a>
+      <ul class="sectlevel2">
+       <li>
+        <a href="graph_theory.html#_introduction_and_basic_definitions">
+         13.1. Introduction and Basic Definitions
+        </a>
+       </li>
+      </ul>
      </li>
      <li>
       <a href="python_intro.html#_appendix_0_an_introduction_to_python">
@@ -285,7 +392,7 @@ $(document).on('page:load', ready2);
         </a>
        </li>
        <li>
-        <a href="python_intro.html#_exercises_3">
+        <a href="python_intro.html#_exercises_6">
          14.11. Exercises
         </a>
        </li>
@@ -348,14 +455,963 @@ $(document).on('page:load', ready2);
     </div>
    </div>
    <div class="sect1">
-    <h2 id="_functions">
-     7. Functions
+    <h2 id="_growth_of_functions">
+     8. Growth of Functions
     </h2>
     <div class="sectionbody">
-     <div class="paragraph">
-      <p>
-       COMING SOON!
-      </p>
+     <div class="sect2">
+      <h3 id="_introducing_big_o">
+       8.1. Introducing
+       <em>
+        Big O
+       </em>
+      </h3>
+      <div class="paragraph">
+       <p>
+        Computer programmers  are often concerned with two questions:
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        a) How much time does an algorithm need to complete?
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        b) How much memory does an algorithm need for its computation?
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <em>
+         Big O
+        </em>
+        notation is a standard way mathematicians and computer scientists use to describe how much time and how much memory is required for an algorithm to run
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <em>
+         Big O
+        </em>
+        is typically used to analyze the worst case complexity of an algorithm.
+If, for example, \(n\) is the size of the input data, then
+        <em>
+         Big O
+        </em>
+        really only cares about what happens when your input data size \(n\) becomes arbitrarily large and not quite as interested in when the input is small.  Mathematically, we want to speak of complexity in the asymptotic sense, when \(n\) is arbitrarily large. In this asymptotic sense of large \(n\), we may ignore constants.
+That we can ignore constants will make sense after discussing how
+limits, borrowed from continuous mathematics (calculus), can be used to compare the rates of growth of two different functions.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The size of the input complexities ordered from smallest to largest:
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Constant Complexity: \(O(1)\)
+         </p>
+        </li>
+        <li>
+         <p>
+          Logarithmic Complexity: \(O(\log (n))\),
+         </p>
+        </li>
+        <li>
+         <p>
+          Radical complexity : \(O(\sqrt{n})\)
+         </p>
+        </li>
+        <li>
+         <p>
+          Linear Complexity: \(O(n)\)
+         </p>
+        </li>
+        <li>
+         <p>
+          Linearithmic Complexity: \(O(n\log (n))\),
+         </p>
+        </li>
+        <li>
+         <p>
+          Quadratic complexity: \(O(n^2)\)
+         </p>
+        </li>
+        <li>
+         <p>
+          Cubic complexity: \(O(n^3)\),
+         </p>
+        </li>
+        <li>
+         <p>
+          Exponential complexity: \(O(b^n)\), \( b &gt; 1\)
+         </p>
+        </li>
+        <li>
+         <p>
+          Factorial complexity: \( O(n!)\)
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        To understand the sizes of input complexities, we will look at the graphs of functions; it is  easier to consider these functions as ones that are defined for any
+        <em>
+         real value
+        </em>
+        input instead of just the natural numbers. This will also allow us to use continuous mathematics (that is, calculus) to analyze and compare the growth of different functions.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Radical growth is larger than logarithmic growth:
+       </p>
+      </div>
+      <div class="openblock float-group">
+       <div class="content">
+        <div class="imageblock left text-left">
+         <div class="content">
+          <img alt="geometricsequence" height="500" src="images/radicalgrowth.png" width="500"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          In the preceding graph, we’ve used \(\text{Log}[x\)] to label the graph of a logarithmic function without stating the base for the logarithm: Is this the function \(y = log_{2}(x)\), \(y = log_{10}(x)\), \(y = ln(x) =  log_{e}(x)\), or a logarithm to some other base? For the purposes of studying growth of functions, it does not matter which of these logarithms we use: You may recall that one of the properties of logarithms states that for two different positive constant bases \(a\) and \(b\) we must have \(log_{a}(x) = log_{a}(b) \cdot log_{b}(x)\), where \(log_{a}(b)\) is also a constant. As stated earlier, we may ignore constants when considering the growth of functions.
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="paragraph">
+       <p>
+        Polynomial growth is larger than radical  growth:
+       </p>
+      </div>
+      <div class="openblock float-group">
+       <div class="content">
+        <div class="imageblock left text-left">
+         <div class="content">
+          <img alt="geometricsequence" height="500" src="images/polynomialgrowth.png" width="500"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Exponential growth is larger than polynomial growth:
+       </p>
+      </div>
+      <div class="openblock float-group">
+       <div class="content">
+        <div class="imageblock left text-left">
+         <div class="content">
+          <img alt="geometricsequence" height="500" src="images/exponentialgrowth.png" width="500"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Factorial growth is larger than exponential growth:
+       </p>
+      </div>
+      <div class="openblock float-group">
+       <div class="content">
+        <div class="imageblock left text-left">
+         <div class="content">
+          <img alt="geometricsequence" height="500" src="images/factorialgrowth.png" width="500"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          In the preceding graph, we’ve used \(x!\)
+to label the graph of the function \(y = \Gamma(x+1)\)
+, where \(\Gamma\) is the
+          <em>
+           Gamma function
+          </em>
+          which is
+defined and continuous for all nonnegative real numbers.
+That is, \(n! = \Gamma(n+1)\) for every \(n \in \mathbb{N}\).
+Further study of the Gamma function is beyond the scope of this textbook.
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="paragraph">
+       <p>
+        Using the graphical analysis of the growth of typical functions
+we have the following growth ordering, also presented graphically on a logarithmic scale graph.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Ordering of Basic Functions by Growth
+        </div>
+        <div class="stemblock">
+         <div class="content">
+          \$1,\log \ ⁡n, root(3)(n),  sqrt n , n, n^2, n^3,2^n,3^n,n!, n^n\$
+         </div>
+        </div>
+        <div class="openblock float-group">
+         <div class="content">
+          <div class="imageblock left text-left">
+           <div class="content">
+            <img alt="geometricsequence" height="500" src="images/growthorder.png" width="500"/>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The asymptotic behavior for large \(n\) should be determined by the most dominant term in the function for large \(n\). For example, \(f(x)=x^{3} + 2x^{2}-2x\) for large \(x\), is dominated by the term \(x^3\). In this case we want to state that \(O(f(x))=x^3\). For example \(f(1000) =1.001998×10^9≈ 1×10^9 =1000^3\). For large \(x\), \(f(x) ≈x^3\)  or asymptotically, \(f(x)\) behaves as \(x^3\) for large \(x\). We say \(O(f(x))=x^3\) for \(f(x)=x^3 +2x^2-2x\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Likewise we want to say that if \(c\) is a constant that \(c \cdot f(x)\), and \(f(x)\) have the same asymptotic behavior for large \(n\), or \(O(c \cdot f(x))=O(f(x))\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Motivated by these we formally define the
+        <em>
+         Big O
+        </em>
+        notation.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         <em>
+          Big
+         </em>
+         \(O\) notation
+        </div>
+        <div class="paragraph">
+         <p>
+          Suppose \(f\) and \(g\) are real valued functions from \(f(x):\mathbb{R}→\mathbb{R}\),
+we say \(f(x)\) is
+          <strong>
+           Big \(O\)
+          </strong>
+          of \(g(x)\), written "\(f(x)\) is \(O(g(x))\)", if there exists
+positive integers \(A\) and \(n\), so that \(|f(x)| \leq A|g(x)|\) whenever \(x  &gt; n\).
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        To determine if a function \(f(x)\) is \(O(g(x))\) amounts to
+identifying the positive constants \(A\) and \(n\), (sometimes called witnesses).
+That is, we must find the factor \( A\)  and the point \( k \) for which \( f(x)  \leq A g(x)\), whenever \( x &gt; k.\)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 1
+         </div>
+         <p>
+          Show that \(f\left(x\right)=2x^2 +4x\) is \(O(x^2)\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          While intuitively we may understand that
+the dominant term for large \(x\) is \(x^2\) so that \(f(x) = O\left(x^2\right)\),
+we show this formally by producing as witnesses \(A=3\) and \(n =4\) with
+reference to the following graph.
+         </p>
+        </div>
+        <div class="openblock float-group">
+         <div class="content">
+          <div class="imageblock left text-left">
+           <div class="content">
+            <img alt="geometricsequence" height="750" src="images/witnessexample.png" width="750"/>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 2
+         </div>
+         <p>
+          Show that \(f(x) =2x^3 +3x\) is \(O(x^3)\), with \(A=3\) and \(n=2\). Support
+your answer graphically.
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          Notice that \( x^3 &gt; 3x\) when \( x  \geq 2\). This means \(2x^3 +x^3 &gt;  2x^3 +3x \) when \(x &gt;2 \).
+In other words \( 3x^3 &gt; 2x^3 +3x\) whenever \( x&gt;2\), confirming \(A=3\) and \(n=2\) as witnesses, and supported by the
+following graph.
+         </p>
+        </div>
+        <div class="openblock float-group">
+         <div class="content">
+          <div class="imageblock left text-left">
+           <div class="content">
+            <img alt="geometricsequence" height="750" src="images/cubic_big_o_example.png" width="750"/>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        To show that a function \( f(x)\) is not \(O(g(x))\), means that no \(A\) can scale
+\(g(x)\) so that \( Ag(x)  \geq  f(x)\) for \(x\) large enough as in the following example.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 3
+         </div>
+         <p>
+          Show that \( f(x) = x^2\) is not \(  O( \sqrt{x})\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          Consider the graphs of \( \sqrt{x}\), \( 2 \sqrt{x}\), \( 3\sqrt{x}\), and the graph of \(x^2\).
+Notice that eventually, or for \(x\) large enough, \(x^2\) is larger than any \(A \sqrt{x}\)
+as in the figure below
+         </p>
+        </div>
+        <div class="openblock float-group">
+         <div class="content">
+          <div class="imageblock left text-left">
+           <div class="content">
+            <img alt="geometricsequence" height="750" src="images/not_big_o.png" width="750"/>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Suppose \(A&gt;1\) is  given and
+          <u>
+           fixed
+          </u>
+          ,
+then if \( f(x) = x^2\) is
+\( O(g(x))=O( \sqrt{x})\) ,  there is a corresponding \(n\), also
+          <u>
+           fixed
+          </u>
+          ,
+for which \(A  \sqrt{x}  \geq x^2\) whenever \(x&gt;n\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We solve the inequality \(A  \sqrt{x}  ≥ x^2\) by dividing both sides by \(\sqrt{x}  =x^{1/2}\), to obtain, \(A  \sqrt{x}  ≥ x^{3/2}\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          But \(A\) is fixed and cannot be greater than all  arbitrarily large \( x^{3/2}\). Hence no such \(n\)
+can
+exist for a given fixed \(A\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For example, consider \(g(x)=A  \sqrt{x}\) and \( f(x) =x^2 \),
+when \( x= A^2\) we obtain \( g(A^2) = A  \sqrt{(A^2)}= A^2\) and \( f(A^2) = {\left ( {A}^2 \right )}^2\) and
+\( f(A^2)= A^4 &gt; A^2 = g(A^2) \) when \(A&gt;1\).
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_properties_of_big_o_notation">
+       8.2. Properties of
+       <em>
+        Big O
+       </em>
+       notation.
+      </h3>
+      <div class="paragraph">
+       <p>
+        Suppose \(f(x)\) is \(O(F(x))\) and \(g(x)\) is \(O(G(x))\).
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Properties of
+         <em>
+          Big O
+         </em>
+         Notation
+        </div>
+        <div class="olist arabic">
+         <ol class="arabic">
+          <li>
+           <p>
+            \(c \cdot f(x)\) is \(O(F(x))\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \( f (x )+g(x)\) is \(O(\max \left ( F(x), G(x) \right )\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \( f (x ) \cdot g(x))\) is \(O(F(x) \cdot G(x))\)
+           </p>
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can use these properties to show for instance \( 2x^2\) is  \(O\left(x^2\right)\). Likewise
+if \(f(x) =2x^2\) and \(g(x) =4x\), then \( 2x^2\) is \(O(x^2)\) and \( 4x\) is \(O(x)\),
+and the maximum gives that \(2x^2+4x\) is \( O(\max(x^2, x)) =O(x^2)\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        It is true in general that if a polynomial \(f(x)\) has degree \(n\) then \(f(x)\) is \(O(x^n)\).
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         <em>
+          Big O
+         </em>
+         for Polynomials
+        </div>
+        <div class="paragraph">
+         <p>
+          \(p(x)=a_nx^n +a_{n-1}x^{n-1} +a_{n-2}x^{n-2}+\ldots +a_2x^2 +a_1x^1+a_0\) is \(O(x^n)\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        For example, if \(f(x)= x^3+1\) being \( O(x^3)\), and \(g(x)=x^2-x\) being \(O(x^2)\), then
+\(f(x) \cdot g(x)\) is \(O(x^3 \cdot x^2) =O(x^5)\).  This is verified explicitly by multiplying
+\(f(x) \cdot g(x)= (x^3+1) \cdot (x^2-x)= x^5 -x^4+x^2-x  \) which clearly is \(O(x^5)\)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 4 - ordering by growth
+         </div>
+         <p>
+          Order the following functions by growth:
+\(n⋅\log_2⁡ n\)  , \(n^2\), \(n^{4/3}\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          Recall the ordering,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\log_2⁡ n\), \(n^{1/3}\), and \(n\),
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          which is ordered by logarithmic, then radical, and then
+polynomial (or linear) growth.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice also, that multiplying each by \(n\), preserves the order.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(n⋅\log_{2⁡}n=n\times \log_{2⁡}n\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(n^{4/3} =n \times n^{1/3}\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(n^2=n \times n\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The using the original ordering, \(\log{n}\), \(n^{1/3}\), \(n\), we obtain
+also the following ordering
+\(n⋅\log n\), \(n^{4/3}\),  \(n^2\).
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        As a final example we consider ordering three functions by
+growth using the basic properties for Big O and the basic orderings.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 5
+         </div>
+         <p>
+          Find the Big O of each of the following and then rank by
+          <em>
+           Big
+          </em>
+          \(O\) growth:
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(f\left(x\right)=\left({3x}^3+x\right)2^x+\left(x+x!\right)x^4\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(g\left(x\right)=x^x(2^x+x^2)\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(h\left(x\right)=5x!+4x^3\log{x}\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          First consider \(f\left(x\right)\) and using the polynomial
+property observe that \(\left({3x}^3+x\right)\) is \(O(x^3)\).
+Using the multiplicative property, conclude that
+\(\left({3x}^3+x\right)2^x\) is \(O(x^32^x)\).  Likewise using
+the sum property, \(\left(x+x!\right)\) is
+\(O\left(\max{\left(x,x!\right)}\right)= O (x!)\). Then using the
+multiplicative property, \(\left(x+x!\right)x^4\)  is  \(O (x^4x!)\).
+Then  \(f\left(x\right)=\left({3x}^3+x\right)2^x+\left(x+x!\right)x^4\) is
+\(O\left(\max{\left(x^32^x,x^4x!\right)}\right)=O\left(x^4x!\right)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For \(g(x)\), notice using the maximum property for the sum, that
+\(2^x+x^2\) is \(O(2^x)\). Then using the multiplicative property,
+\(x^x(2^x+x^2)\) is \(O(2^xx^x)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For \(h\left(x\right)\), we want
+\(O\left(\max{\left(x!,\ x^3\log{x}\right)}\right)=O(x!)\).
+Notice here, that \(4x^3\log{x}\) is \(O(x^4)\),  and \(x^4\) has smaller
+asymptotic growth than \(x!\). In fact, \(x^4\) is \(O(x!)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          So,  \(f(x)\) is \(O\left(x^4x!\right)\),  and \(g(x)\) is
+\(O\left(2^xx^x\right)\).  Also, \(h(x)\) is, \(O\left(x!\right)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We conclude that from an ordering perspective,
+we have by increasing growth order, \(h(x)\), \(f(x)\), and \(g(x)\).
+To convince yourself that \(g(x)\) grows faster than \(f(x)\), use the
+facts that \(2^x\) grows faster than \(x^4\), and \(x^x\) grows faster than \(x!\).
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_using_limits_to_compare_the_growth_of_two_functions_calculus_i_required">
+       8.3. Using Limits to Compare the Growth of Two Functions (CALCULUS I REQUIRED!)
+      </h3>
+      <div class="paragraph">
+       <p>
+        In general, we
+have avoided using calculus methods in this textbook because calculus is part of
+        <em>
+         continuous mathematics,
+        </em>
+        not discrete mathematics. However, it is can be useful to use calculus to compare the growth of two functions \(f(x)\) and \(g(x)\)  that are defined for real numbers \(x\), are differentiable functions
+on the interval \((0,\, \infty)\),
+and
+satisfy
+\(\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) = \infty\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        If \(f(x)\) and \(g(x)\) are such functions and
+\(\lim_{x \to \infty} \frac{f(x)}{g(x)} = L\),
+where \(0 \leq L &lt; \infty\),
+then \(f(x)\) is \(O(g(x))\).
+To see this, recall that \(\lim_{x \to \infty} \frac{f(x)}{g(x)} = L\)
+means that we can make the value of \(\frac{f(x)}{g(x)}\) be as close
+to \(L\) as we want by choosing \(x\) values that are sufficiently large.
+In particular,
+we can make \(L-1 &lt; \frac{f(x)}{g(x)} &lt; L+1\) be true for all \(x\) greater than some real number \(r\).
+Now we can use the earlier stated assumption that \(0 \leq g(x)\) to rewrite the inequality as
+\((L-1) \cdot g(x) &lt; f(x) &lt; (L+1) \cdot g(x)\), which is true for all \(x &gt; r\).
+We can choose for our witnesses \(A = \lceil (L + 1) \rceil\), the
+least integer that is greater than or equal to \(L + 1\), and
+\(n = \lceil r \rceil\), the
+least integer that is greater than or equal to \(r\).
+This means that \(f(x) &lt; A \cdot g(x)\) whenever \(x &gt; n\), which
+shows that \(f(x)\) is \(O(g(x))\). Note that using this method does not
+focus on determining the actual numerical values of \(A\) and \(n\) but just guarantees that the witnesses exist, which is all that is needed to show that \(f(x)\) is \(O(g(x))\).
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 6
+         </div>
+         <p>
+          Show that  \(100,000 n + n \cdot log (n)\) is \(O(n \cdot log (n))\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          Notice that the expressions
+\(100,000 x + x \cdot log (x)\) and
+\(x \cdot log (x)\)
+can be used to define differentiable functions on the interval
+\((0,\, \infty)\). We changed the variable from \(x\) to \(n\) to stress
+that we are treating the variable as a real number in this example.
+Also, we will assume that \(log (x)\) is the natural logarithm; as mentioned earlier, any other base for the logarithm results in a constant multiple fo the natural logarithm and will not effect the Big-\(O\) computations.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Let \(f(x) = 100,000 x + x \cdot log (x)\) and
+\(g(x) = x \cdot log (x)\). It is easy to see that
+\(\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) = \infty\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Now let’s compute \(\lim_{x \to \infty} \frac{f(x)}{g(x)}\), that is,
+\(\lim_{x \to \infty} \frac{100,000 x + x \cdot log(x)}{x \cdot log (x)}\).
+Direct computation gives the indeterminate form \(\frac{\infty}{\infty}\), so we can use L’Hôpital’s rule to write
+\(\lim_{x \to \infty} \frac{100,000 x + x \cdot log(x)}{x \cdot log(x)} = \lim_{x \to \infty} \frac{100,000 + (1 \cdot log (x) + x \cdot \frac{1}{x})}{1 \cdot log(x) + x \cdot \frac{1}{x}} = \lim_{x \to \infty} \frac{100,000 + log (x) + 1}{log(x) + 1}\). This limit still gives us an indeterminate form if we try to directly find the limits of the numerator and denominator separately without some simplification, but we can divide both numerator and denominator by \(log (x)\) to rewrite the last limit as the equivalent limit
+\(\lim_{x \to \infty} \frac{\frac{100,001}{log (x)} + 1}{1 + \frac{1}{log(x)}} = \frac{0+1}{1+0} = 1\). Since the limit is a positive finite number, \(100,000 x + x \cdot log (x)\) is
+\(O(x \cdot log (x))\). As mentioned above, we do not need to find the actual values of the witnesses when using this method.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_exercises_4">
+       8.4. Exercises
+      </h3>
+      <div class="olist arabic">
+       <ol class="arabic">
+        <li>
+         <p>
+          Give
+          <em>
+           Big O
+          </em>
+          estimates for
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(f\left(x\right)=4\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=3x-2\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=5x^6-4x^3+1\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=2\ \ \sqrt x+5\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=x^5+4^x\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=x\log{x}+3x^2\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=5{x^2e}^x+4x!\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=\displaystyle \frac{x^6}{x^2+1}\)
+             <strong>
+              (Hint: Use long division.)
+             </strong>
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Give
+          <em>
+           Big O
+          </em>
+          estimates for
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(f\left(x\right)=2^5\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=5x-2\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=5x^8-4x^6+x^3\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=\) \$4 root(3)(x)+3\$
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=3^x+4^x\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=x^2\log{x}+5x^3\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=5{x^610}^x+4x!\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(f\left(x\right)=\displaystyle \frac{x^5+2x^4-x+2}{x+2}\)
+             <strong>
+              (Hint: Use long division.)
+             </strong>
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Show, using the definition, that
+\(f\left(x\right)=3x^2+5x\)  is \(O(x^2)\) with \(A=4\) and \(n=5\). Support your answer graphically.
+         </p>
+        </li>
+        <li>
+         <p>
+          Show, using the definition, that
+\(f\left(x\right)=x^2+6x+2\)  is \(O(x^2)\) with \(A=3\) and \(n=6\). Support your answer graphically.
+         </p>
+        </li>
+        <li>
+         <p>
+          Show, using the definition, that \(f\left(x\right)=2x^3+6x^2+3\)  is \(O(x^2)\).
+State witnesses \(A\) and \(n\), and support your answer graphically.
+         </p>
+        </li>
+        <li>
+         <p>
+          Show, using the definition, that \(f\left(x\right)=\ {3x}^3+10x^2+1000\) is \(O(x^2)\).
+State the witnesses \(A\) and \(n\), and support your answer graphically.
+         </p>
+        </li>
+        <li>
+         <p>
+          Show that \(f\left(x\right)=\sqrt x\) is \(O\left(x^3\right)\), but \(g\left(x\right)=x^3\)
+is not\(\ O(\ \sqrt x)\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Show that \(f\left(x\right)=  x^2\) is \(O\left(x^3\right)\), but \(g\left(x\right)=x^3\)
+is not\(\ O(  x^2)\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Show that \(f\left(x\right)=\sqrt x\) is \(O\left(x\right)\), but \(g\left(x\right)=x\) is not\(\ O(\ \sqrt x)\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Show that \(f\left(x\right)=\)  \$root(3)(x)\$ is \(O\left(x^2\right)\), but \(g\left(x\right)=x^2\)
+is not  \$O( root(3)(x))\$
+         </p>
+        </li>
+        <li>
+         <p>
+          Show that \(f\left(x\right)=\)  \$root(3)(x)\$ is \(O\left(x\right)\), but \(g\left(x\right)=x\) is
+not    \$root(3)(x)\$.
+         </p>
+        </li>
+        <li>
+         <p>
+          Order the following functions by growth
+\(x^\frac{7}{3},\ e^x,\ 2^x,\ x^5,\ 5x+3,\ 10x^2+5x+2,\ x^3,\log{x,\ x^3\log{x}}\)
+         </p>
+        </li>
+        <li>
+         <p>
+          Order the following functions by growth from slowest to fastest.
+\(\ 3x!,\ {10}^x,\ x\cdot\log{x},\ \log{x\cdot\log{x,\ \ }2x^2+5x+1,\ \pi^x,x^\frac{3}{2}\ },\ 4^5,\ \ \sqrt{x\ }\cdot\log{x}\)
+         </p>
+        </li>
+        <li>
+         <p>
+          Consider the functions \(f\left(x\right)=2^x+2x^3+e^x\log{x}\) and
+\(g\left(x\right)=\sqrt x+x\log{x}\). Find the best big \(O\) estimates of
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \((f+g)(x)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \((f\cdot\ g)(x)\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Consider the functions  \(f\left(x\right)=2x+3x^3+5\log{x}\) and
+\(g\left(x\right)=\sqrt x+x^2\log{x}\). Find the best big \(O\) estimates of
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \((f+g)(x)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \((f\cdot\ g)(x)\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          State the definition of "\( f(x)\) is \( O(g(x))\)"" using logical quantifiers and witnesses \(A\) and \(n\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Negate the definition of "\( f(x)\) is \( O(g(x))\)" using logical quantifiers, and then state in
+words what it means that \( f(x)\) is
+          <span class="underline">
+           not
+          </span>
+          \( O(g(x))\).
+         </p>
+        </li>
+       </ol>
+      </div>
      </div>
     </div>
    </div>
