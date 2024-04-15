@@ -124,7 +124,9 @@ the edge with endpoints $B$ and $F$ and
 the edge with endpoints $D$ and $E$ 
 cross, but the point of intersection is ignored 
 because it is not a vertex. 
-We could redraw this graph with $E$ to the left of $D$ so that the two edges do not cross; however, there are some graphs for which it is impossible to redraw the graph to avoid this kind of edge crossing.
+//We could redraw this graph with $E$ to the left of $D$ so that the two edges do not cross; 
+We could redraw this graph so that the two edges do not cross; for example, we could move $E$ inside the triangle. 
+However, there are some graphs which cannot be drawn in 2 dimensions without some edge crossings.
 
 This graph is a multigraph because there are multiple edges that connect the pair of vertices $\{A,C\}$.
 
