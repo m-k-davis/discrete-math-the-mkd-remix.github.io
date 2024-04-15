@@ -44,7 +44,7 @@ Applications:
 ACTIVITY: RAMSEY
 	students experiment to derive conjecture about K5 and K6
 
-TREES - should this be in it's own chapter? They are only mentioned in exercises in the GGC book
+TREES - break this out to it's own chapter? They are only mentioned in exercises in the GGC book
 Trees and forests
 Spanning trees and spanning forests
 Kruskal's algorithm for (minimal cost) spanning tree
@@ -57,7 +57,16 @@ Bianry tree representation
 Tree traversal algorithms - preorder, inorder, postorder
 
 
-
+ACM CCECC: 11 hours (so 3.66 weeks)
+directed graphs; 
+undirected graphs; 
+weighted graphs; 
+Eulerian and Hamiltonian circuits; 
+traveling sales person; 
+graph coloring; 
+trees (binary, spanning); 
+expression trees; 
+tree traversals
 
 ////
 // MKD end topics lists
@@ -80,46 +89,75 @@ connects a vertex to itself.
 * If an edge has only one endpoint, it is called a *loop*. 
 * An *isolated vertex* is a vertex that is not an endpoint of any edge.
 * If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a *multigraph*.
+* A *simple graph* is a graph that has no loops and does not have two or more edges that connect the same endpoints.
+//If there are no loops and no two edges connect the same endpoints, the graph is called *simple.* 
 
-
-A *simple graph* is one in which there are no loops and no two edges
-connect the same endpoints. The graphs we consider are assumed to be simple unless stated otherwise.
-
-We will define simple graphs formally using set theory 
-//which is done 
-after the next example, but we will usually represent graphs using a 
-//"connect-the-dots" style 
-drawing as in the  example. The formal definition of simple graphs may be useful to you if you need to implement a simple graph in code.
+Graphs discussed in this textbook are assumed to be simple unless stated otherwise.
 
 ****
 .Example {counter:graphex} 
+//- A multigraph that contains a loop and an isolated point
 //- An undirected graph.
 
 //The graph shown has vertex set $\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
 //edge set $\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ 
 
-The graph shown has 6 vertices 
+The graph shown has 7 vertices 
 // set $\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ 
-and 5 edges.
+and 7 edges.
 // set $\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ 
 
-Note that this is _one graph_, but it is made up of three separate _connected components_ (This terminology will be defined in detail later in the chapter, but is introduced informally here). 
-
-One connected component contains the vertices $A$ and $C$ and one edge that connects them, 
-a second connected component contains the vertices $B$, $D$, and $F$ and the edges that are incident to those vertices, and 
-a third connected component contains the single isolated vertex $E$ and no edges.
-
-image::imagesMKD/graph1withAddedLoopAndComponents.png[]
+image::imagesMKD/graphMKD1.png[]
+//image::imagesMKD/graph1withAddedLoopAndComponents_MultigraphVersion.png[]
+//image::imagesMKD/graph1withAddedLoopAndComponents.png[]
 //image::images/graph1.png[]
+
+This is _one graph_ that is made up of three separate _connected components_ (Connectivity will be defined in detail later in the chapter, but is introduced informally here). 
+
+* One connected component contains the vertices $A$ and $C$ and two edges that connect them.  
+* A second connected component contains the vertices $B$, $D$, $E$, and $F$ and the edges that are incident to those vertices. 
+* A third connected component contains the single isolated vertex $G$ and no edges.
+ 
+In the second connected component, 
+the graph is drawn so that 
+the edge with endpoints $B$ and $F$ and 
+the edge with endpoints $D$ and $E$ 
+cross, but the point of intersection is ignored 
+because it is not a vertex. 
+We could redraw this graph with $E$ to the left of $D$ so that the two edges do not cross; however, there are some graphs for which it is impossible to redraw the graph to avoid this kind of edge crossing.
+
+This graph is a multigraph because there are multiple edges that connect the pair of vertices $\{A,C\}$.
+
+This graph is not simple because (1) it contains a loop and (2) it has a pair of vertices that are connected by two different edges.
+
 
 ****
 
 
 
+MORE TO COME!
+////
+
+
+//We will define simple graphs formally using set theory 
+//which is done 
+//after the next example, but we will usually represent graphs using a 
+//"connect-the-dots" style 
+It is possible to write a formal definition of graphs in terms of set theory, but it is common to use a drawing as in the preceding example when there are small numbers of vertices and edges. 
+
 // MKD define digraphs in separate section
 
+== Simple Graphs
+
+
+
 // MKD - probably need to keep this formal definition
+
 Here is a formal definition of simple graph: 
+The formal definition of 
+//simple graphs 
+may be useful to you if you need to implement a simple graph in code.
+
 A *simple graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a set $V$ of objects called *vertices* (or *nodes*) and a set $E$ of objects called *edges*.
 // MKD need to update to say that edges can be any of 
 // an unordered pair, a singleton, or an ordered pair. 
@@ -127,14 +165,11 @@ An edge $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where the vertice
 // MKD no loops in simple graphs.
 //If the two vertices of an edge are the same, that is, $e=\left\{x,y\right\}$, then the edge $e$ is called a *loop*.  
 
-The graph in the previous example has vertex set 
-$\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
-edge set
-$\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ Note that the graph is not a simple graph because there is a loop that has endpoint $D$.
+//The graph in the previous example has vertex set 
+//$\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
+//edge set
+//$\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ Note that the graph is not a //simple graph because there is a loop that has endpoint $D$.
 
-
-MORE TO COME!
-////
 
 ****
 .Example {counter:graphex} - an undirected graph.
@@ -146,9 +181,13 @@ image::images/graph1.png[]
 
 ****
 
+
+=== Directed Graphs
+
 A *directed graph* (or *digraph*) is 
 //an extension of the definition of 
 a graph in which the edges are directed from one vertex to another vertex.
+
 
 ****
 .Example {counter:graphex} - A directed graph.
@@ -205,6 +244,8 @@ in $G$. That is, $\displaystyle \sum_{v\in V}{d\left(v\right)=2\ \left|E\right|}
 ====
 A useful consequence of this to keep in mind is that the sum of the degrees of a graph is always even.
 ====
+
+
 
 
 == Representing graphs.

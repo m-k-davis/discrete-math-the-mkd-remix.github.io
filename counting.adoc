@@ -215,6 +215,7 @@ If $n+1$ pigeons are resting in $n$ pigeonholes then at least one pigeonhold con
 
 image::images/pigeons.png[pigeons, 300, 300]
 *Ten pigeons in nine pigeonholes*
+// MKD check rights - is this pubic domain?
 
 ****
 .Example

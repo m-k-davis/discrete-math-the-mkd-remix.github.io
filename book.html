@@ -8551,49 +8551,58 @@ connects a vertex to itself.</p>
 <li>
 <p>If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a <strong>multigraph</strong>.</p>
 </li>
+<li>
+<p>A <strong>simple graph</strong> is a graph that has no loops and does not have two or more edges that connect the same endpoints.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>A <strong>simple graph</strong> is one in which there are no loops and no two edges
-connect the same endpoints. The graphs we consider are assumed to be simple unless stated otherwise.</p>
-</div>
-<div class="paragraph">
-<p>We will define simple graphs formally using set theory
-after the next example, but we will usually represent graphs using a
-drawing as in the  example. The formal definition of simple graphs may be useful to you if you need to implement a simple graph in code.</p>
+<p>Graphs discussed in this textbook are assumed to be simple unless stated otherwise.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <div class="title">Example 1</div>
-<p>The graph shown has 6 vertices
-and 5 edges.</p>
-</div>
-<div class="paragraph">
-<p>Note that this is <em>one graph</em>, but it is made up of three separate <em>connected components</em> (This terminology will be defined in detail later in the chapter, but is introduced informally here).</p>
-</div>
-<div class="paragraph">
-<p>One connected component contains the vertices \(A\) and \(C\) and one edge that connects them,
-a second connected component contains the vertices \(B\), \(D\), and \(F\) and the edges that are incident to those vertices, and
-a third connected component contains the single isolated vertex \(E\) and no edges.</p>
+<p>The graph shown has 7 vertices
+and 7 edges.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="imagesMKD/graph1withAddedLoopAndComponents.png" alt="graph1withAddedLoopAndComponents">
-</div>
-</div>
+<img src="imagesMKD/graphMKD1.png" alt="graphMKD1">
 </div>
 </div>
 <div class="paragraph">
-<p>Here is a formal definition of simple graph:
-A <strong>simple graph</strong> \(G=\left(V,\ E\right)\) is an ordered pair consisting of a set \(V\) of objects called <strong>vertices</strong> (or <strong>nodes</strong>) and a set \(E\) of objects called <strong>edges</strong>.
-An edge \(e\in\ E\) is a set of the form \(e=\left\{x,y\right\}\), where the vertices \(x\) and \(y\) are two different elements of \(V\). The two vertices \(x\) and \(y\) in the edge \(e=\left\{x,y\right\}\) are said to be <strong>adjacent</strong> or <strong>connected</strong>, and \(x\) and \(y\) are called the <strong>endpoints</strong> of \(e\).</p>
+<p>This is <em>one graph</em> that is made up of three separate <em>connected components</em> (Connectivity will be defined in detail later in the chapter, but is introduced informally here).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One connected component contains the vertices \(A\) and \(C\) and two edges that connect them.</p>
+</li>
+<li>
+<p>A second connected component contains the vertices \(B\), \(D\), \(E\), and \(F\) and the edges that are incident to those vertices.</p>
+</li>
+<li>
+<p>A third connected component contains the single isolated vertex \(G\) and no edges.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>The graph in the previous example has vertex set
-\(\left\{A,\ B,\ C,\ D,\ E,\ F\right\}\) and
-edge set
-\(\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.\) Note that the graph is not a simple graph because there is a loop that has endpoint \(D\).</p>
+<p>In the second connected component,
+the graph is drawn so that
+the edge with endpoints \(B\) and \(F\) and
+the edge with endpoints \(D\) and \(E\)
+cross, but the point of intersection is ignored
+because it is not a vertex.
+We could redraw this graph with \(E\) to the left of \(D\) so that the two edges do not cross; however, there are some graphs for which it is impossible to redraw the graph to avoid this kind of edge crossing.</p>
+</div>
+<div class="paragraph">
+<p>This graph is a multigraph because there are multiple edges that connect the pair of vertices \(\{A,C\}\).</p>
+</div>
+<div class="paragraph">
+<p>This graph is not simple because (1) it contains a loop and (2) it has a pair of vertices that are connected by two different edges.</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>MORE TO COME!</p>
