@@ -1,0 +1,309 @@
+//= Appendix 1: Library of Functions
+= Appendix: Library of Functions
+
+_This chapter was last updated on August 25, 2024._
+
+// MKD note June 11, 2024
+//	additions to be made:
+//		power functions (NO, use POLYNOMIALS instead)
+//		"proofs" of laws of exponents and powers
+//		the Gamma function (as extension of the factorial)
+//
+// MKD aug 16 2024
+//		need to add Max and Abs functions, too	
+
+
+Recall that for any function, 
+
+* the domain is the given set of input values for the function, 
+* the codomain is a given set that contains all possible output values (but may contains other values that are not outputs, too), and 
+* the range is the set that contains only the output values of the function.
+
+
+Functions can in many cases be visualized graphically,
+for example when mapping from the real line, $\mathbb{R}$
+to the real line, such maps are viewed on a Cartesian plan.
+
+
+
+== Polynomial Functions
+
+A *polynomial* is an algebraic expression of the form 
+$a_{n}x^{n} + a_{n-1}x^{n-1} + \ldots + a_{1}x^{1} + a_{0}$, that is, 
+$\sum\limits_{i=0}^{n}a_{i}x^{i}$,  where _n_ is a natural number, _x_ is a variable, and $a_{n}, a_{n-1}, \ldots, a_{1}, a_{0}$ are real numbers. 
+Examples of such expressions are
+
+* 7, a constant, 
+* $2x + 7$, a linear polynomial, 
+* $3x^{2} + 2x + 7$, a quadratic polynomial.
+
+A polynomial can be evaluated by substituting a number for each occurence of _x_. 
+For example, if we substitute $-1$ for _x_ in each of the three polynomials above, we get
+
+* 7 evaluated at $x = -1$ is 7, 
+* $2x + 7$ evaluated at $x = -1$ is $2 \cdot (-1) + 7 = 5$,  
+* $3x^{2} + 2x + 7$ evaluated at $x = -1$ is $3 \cdot (-1)^{2} + 2 \cdot (-1) + 7 = 8.$
+
+In this way, every polynomial can be used to define a corresponding *polynomial function* with domain $\mathbb{R}$ and codomain $\mathbb{R}.$
+
+//== Power Functions
+
+//A *power function* is a function of the form $f(x) = x^r$, where _r_ is a real number constant (NOTE: Some other textbooks denine power functions to be of the form $f(x) = c \cdot x^r$ where _c_ and _r_ are real number constants, but the remixer chose the simpler definition). That is, _f_ denotes the association of the input _a_ with the output $a^r$. 
+// * The domain of a power function is $\mathbb{R}$ if $r \geq 0$ 
+// and $\mathbb{R}$ if $r < 0$ 
+// * The codomain is $\mathbb{R}.$ 
+// $f : \mathbb{R} \rightarrow \mathbb{R}$. 
+
+//=== Linear functions
+//MKD needs to add something here
+
+=== Quadratic Function
+
+The function $f(x) =x^2$, denotes the association $(a,b) =(x, x^2)$ with
+$f : \mathbb{R} \rightarrow \mathbb{R}$. We notice that the range is the set of
+real numbers $[0,  \infty)= \mathbb{R}^{+}$.
+The function is not invertible, since it is not injective. For example, we have both $f(-3) =9$ and $f(3)=9$.
+With $f : \mathbb{Z} \rightarrow \mathbb{Z}$ notice that the range is now $\mathbb{N}$
+
+
+\begin{array}{lccccccccccc}
+ & x & -5 & -4 & -3 & -2 & -1 & 0 & 1 & 2 & 3 & 4 & 5 \\
+  &  x^2  & 25 & 16 & 9 & 4 & 1 & 0 & 1 & 4 & 9 & 16 & 25
+\end{array}
+
+.The graph of $x^2$
+[.float-group]
+--
+[.left.text-left]
+image::images/quadratic.png[geometricsequence,1000,1000]
+--
+
+
+=== The Cubic function
+
+
+The function $f(x) =x^3$, denotes the association $(a,b) =(x, x^3)$ with
+$f : \mathbb{R} \rightarrow \mathbb{R}$. Also, we notice that the range is the set of all real
+numbers $(- \infty ,  \infty)=\mathbb{R}$.
+The function is bijective and so invertible.
+With $f : \mathbb{Z} \rightarrow \mathbb{Z}$, notice that the range,
+in addition to domain, is also    $\mathbb{Z}$
+
+
+\begin{array}{llcccccccccl}
+   & x & -5 & -4 & -3 & -2 & -1 & 0 & 1 & 2 & 3 & 4 & 5 \\
+   &  x^3 & -125 & -64 & -27 & -8 & -1 & 0 & 1 & 8 & 27 & 64 & 125
+\end{array}
+
+.The graph of $x^3$
+[.float-group]
+--
+[.left.text-left]
+image::images/cubic.png[geometricsequence,1000,1000]
+--
+
+
+=== The Square Root and Cube Root Functions
+For the purposes of completeness and for comparing
+how fast functions $f(x)$ grow for large x, we present the
+inverse of the functions
+$f(x)= x^2$ and $f(x)= x^3$, when
+$f(x):\mathbb{R}+→\mathbb{R}+$. Respectively, the functions$ f(x)=\sqrt{x}$
+and $f(x)= $ asciimath:[root(3)(x)].
+
+\begin{array}{lcccccccccclll}
+  & x & 0 & 1 & 4 & 9 & 16 & 25 & 36 & 49 & 64 & 81 & 100 & 121 & 144 \\
+  &     \sqrt{x} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12
+\end{array}
+
+.The graph of $√x$
+[.float-group]
+--
+[.left.text-left]
+image::images/squareroot.png[geometricsequence,1000,1000]
+--
+
+
+\begin{array}{lcccccl}
+  & x & 0 & 1 & 8 & 27 & 64 & 125 \\
+ & \sqrt[3]{x}  & 0 & 1 & 2 & 3 & 4 & 5
+\end{array}
+
+.The graph of asciimath:[root(3)(x)]
+[.float-group]
+--
+[.left.text-left]
+image::images/cuberoot.png[geometricsequence,1000,1000]
+--
+
+== Exponential and Logarithmic Functions
+
+We begin by summarizing important properties of exponentials.
+
+.Properties of Exponentials
+****
+.. For $a>0, a  ≠ 1$,
+$a^m.\ a^n=a^{m+n}$. For example, $3^4\cdot 3^5=3^{4+5}=3^9$.
+
+.. $\frac{a^m}{a^n}=a^{m-n}$. For example,
+$\frac{3^5}{3^2}=3^{5-2}=3^3 $.
+
+.. $\left(a^m\right)^n=a^{m.n\ }$. For example, $\left(3^4\right)^3=3^{4\cdot 3}=3^{12}$.
+
+.. $\left(a.b\right)^m=a^mb^m$. For example, $\left(3x\right)^4=3^4.x^4$
+
+.. $a^0=1$
+
+.. $a^{-1}=\frac{1}{a}$ For example, $3^{-1}=\frac{1}{3}$.
+
+.. $ a^\frac{1}{n}=root(n)(a)$.
+
+****
+
+=== Exponential Functions
+
+Exponential functions are of the form
+$f\left(x\right)=b^x$, where $b$ is the base and the variable $x$
+is in the exponent. The base  $b>0$ and $b  ≠ 1$. Properties of
+exponential functions come from properties of exponents.
+When the base $b$ is greater than 1 the exponential function is increasing exponentially,
+as in the case $f(x) = 2^x$.
+
+\begin{array}{llcccccccccl}
+  & x & -5 & -4 & -3 & -2 & -1 & 0 & 1 & 2 & 3 & 4 & 5 \\
+  & 2^x & \frac{1}{32} & \frac{1}{16} & \frac{1}{8} & \frac{1}{4} & \frac{1}{2} & 1 & 2 & 4 & 8 & 16 & 32
+\end{array}
+
+.The graph of $2^x$
+[.float-group]
+--
+[.left.text-left]
+image::images/exponential_base2.png[geometricsequence,1000,1000]
+--
+
+
+When the base $b$ is less than 1 the exponential function is decreasing exponentially, as in the
+case $f(x) = \left(\frac{1}{3}\right) ^x$.
+
+
+
+\begin{array}{llcccccccccl}
+ & x & -5 & -4 & -3 & -2 & -1 & 0 & 1 & 2 & 3 & 4 & 5 \\
+ & (\frac{1}{3})^x  & 243 & 81 & 27 & 9 & 3 & 1 & \frac{1}{3} & \frac{1}{9} & \frac{1}{27} & \frac{1}{81} & \frac{1}{243}
+\end{array}
+
+.The graph of $\left(\frac{1}{3}\right)^x$
+[.float-group]
+--
+[.left.text-left]
+image::images/exponent_base1_3.png[geometricsequence,1000,1000]
+--
+
+
+
+=== Logarithmic Functions
+
+Logarithmic functions are the inverse functions corresponding
+to exponential functions and are used to solve exponential equations.
+For example, $y=2^x$ is solved for $x$ by inverting $x=\log_2{y}$.
+Properties of logarithms follow from this relationship
+between exponentials and logarithms and properties of the
+exponentials.
+
+We summarize three important properties of logarithms.
+
+
+.Properties of Logarithms
+****
+.. The exponential function $f\left(x\right)=y=b^x$, written in exponential
+form is $\log_b{f\left(x\right)=\log_b{y=x}}$.  Its inverse is the logarithmic
+function $x=b^y$, which is denoted   $y=\log_b{x}$.
+
+.. The power rule for logarithms states
+that $\log_b m^x=x\cdot \log_b m$.
+
+.. Comparing the solutions of $2^x$, $x=\log_2{5}\text{,}$ and $x=\frac{\log_{10}{5}}{\log_{10}{2}}$, gives
+$\log_2{5}=\frac{\log_{10}{5}}{\log_{10}{2}}$, which, essentially, is the change of base formula
+$\log_b{A}=\frac{\log_a{A}}{\log_a{b}}$.
+
+****
+
+
+All  other properties of logarithmic functions come from properties relating the logarithm as
+the inverse of the exponential and the equivalence of the logarithm $a =\log_b m$ with $b^a=m$.
+
+
+When the base $b$ is greater than 1, the logarithm function is increasing, as in the case $f(x) = \log_2 x$.
+
+\begin{array}{llllllcccccc}
+  & x & \frac{1}{32} & \frac{1}{16} & \frac{1}{8} & \frac{1}{4} & \frac{1}{2} & 1 & 2 & 4 & 8 & 16 & 32 \\
+  & log_2 x & -5 & -4 & -3 & -2 & -1 & 0 & 1 & 2 & 3 & 4 & 5
+\end{array}
+
+.The graph of $\log_2 x$
+[.float-group]
+--
+[.left.text-left]
+image::images/log_2.png[geometricsequence,1000,1000]
+--
+
+
+
+When the base $b$ is less than 1, the logarithm function is decreasing exponentially, as in the case $f(x) = \log_{\frac{1}{3}} \ x$.
+
+
+\begin{array}{llllllcccccl}
+  & x & \frac{1}{243} & \frac{1}{81} & \frac{1}{27} & \frac{1}{9} & \frac{1}{3} & 1 & 3 & 9 & 27 & 81 & 243 \\
+  & \log_{\frac{1}{3}} x & 5 & 4 & 3 & 2 & 1 & 0 & -1 & -2 & -3 & -4 & -5
+\end{array}
+
+.The graph of $\log_{\frac{1}{3}} \ x$
+[.float-group]
+--
+[.left.text-left]
+image::images/log_1_3.png[geometricsequence,1000,1000]
+--
+
+
+== The Floor and Ceiling Functions
+
+//MKD
+The *floor* and *ceiling* functions round a real number input to an integer. 
+
+* The *floor of _x_*, written as $\lfloor x \rfloor,$ is the greatest integer that is less than or equal to _x_. 
+In older textbooks you may see this function named as the *greatest integer function* and denoted by $[ x \] .$  
+For example, 
+//$\lfloor 1.5 \rfloor = 1$ and 
+$\lfloor -1.5 \rfloor = -2$. 
+
+* The *ceiling of _x_*, written as $\lceil x \rceil,$ is the least integer that is greater than or equal to _x_. For example, 
+//$\lceil 1.5 \rceil = 2$ and 
+$\lceil -1.5 \rceil = -1$. 
+//That is, the floor of _x_ is "just below _x_" and the ceiling of _x_ is "just above _x_." 
+
+On a number line, the floor of _x_ and the ceiling of _x_ 
+are the consecutive integers such that $\lfloor x \rfloor \leq x \leq \lceil x \rceil$.
+//MKD consider adding number line to show this floor and ceiling stuff.
+
+
+The floor and ceiling functions are *step functions:* 
+In the plane, their plots look like they are made of horizontal steps.
+// of length 1 in an infinite staircase. 
+
+//image::imagesMKD/id_floor_and_ceil.png[826,567]
+//image::imagesMKD/id_floor_and_ceil.jpg[]
+//[geometricsequence,1000,1000]
+//image::imagesMKD/id_floor_and_ceil.png[id_floor_and_ceil,275,187,float="right",align="center"]
+//image::imagesMKD/id_floor_and_ceil.png[id_floor_and_ceil,413,284,align="center"]
+image::imagesMKD/id_floor_and_ceil.png[id_floor_and_ceil,621,426,align="center"]
+Note that the plot of the floor function, shown in green, is always at the same height or below the graph of the line $y = x$, and that the plot of the ceiling function, shown in red, is always at the same height or above the graph of the line $y = x.$
+
+
+== Other Functions
+
+MORE TO COME!!
+
+//MKD https://pythontutor.com/render.html#code=import%20math%0Ax%20%3D%20-1.5%0Aprint%28%22The%20floor%20of%22,x,%22is%22,math.floor%28x%29%29%0Aprint%28%22The%20ceiling%20of%22,x,%22is%22,math.ceil%28x%29%29&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+//MKD
+
+

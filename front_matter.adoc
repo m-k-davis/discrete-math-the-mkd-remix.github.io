@@ -1,88 +1,176 @@
 = About this text
 
-
-This work, "Discrete Math - The MKD Remix", 
-by 
-https://github.com/m-k-davis/[Mark Kelly Davis], 
-is adapted from 
-https://ggc-discrete-math.github.io/index.html[“Discrete Math”], 
-by 
-//a group of mathematics and information technology professors 
-//at Georgia Gwinnett College, namely, 
-https://www.ggc.edu/directory/mohamed-jamaloodeen[Mohamed Jamaloodeen], 
-https://www.ggc.edu/directory/katherine-pinzon[Kathy Pinzon], 
-https://www.ggc.edu/directory/daniel-pragel[Daniel Pragel], 
-https://www.ggc.edu/directory/joshua-roberts[Joshua Roberts], and https://www.ggc.edu/directory/sebastien-siva[Sebastien Siva]. 
-https://ggc-discrete-math.github.io/index.html[“Discrete Math”] is used under https://creativecommons.org/licenses/by-nc/4.0/[CC BY-NC 4.0]. 
-All files for 
-https://ggc-discrete-math.github.io/index.html[“Discrete Math”] 
-are available at its associated 
-https://github.com/ggc-discrete-math/ggc-discrete-math.github.io[GitHub repository]. 
+This work, "Discrete Math - The MKD Remix" by https://github.com/m-k-davis/[Mark Kelly Davis,] is adapted from https://ggc-discrete-math.github.io/index.html[“Discrete Math”] by https://www.ggc.edu/directory/mohamed-jamaloodeen[Mohamed Jamaloodeen,] https://www.ggc.edu/directory/katherine-pinzon[Kathy Pinzon,] https://www.ggc.edu/directory/daniel-pragel[Daniel Pragel,] https://www.ggc.edu/directory/joshua-roberts[Joshua Roberts,] and https://www.ggc.edu/directory/sebastien-siva[Sebastien Siva.] https://ggc-discrete-math.github.io/index.html[“Discrete Math”] is used under https://creativecommons.org/licenses/by-nc/4.0/[CC BY-NC 4.0]. All files for https://ggc-discrete-math.github.io/index.html[“Discrete Math”] are available at its associated https://github.com/ggc-discrete-math/ggc-discrete-math.github.io[GitHub repository]. 
 
 This work, "Discrete Math - The MKD Remix", 
 is licensed under 
 https://creativecommons.org/licenses/by-nc/4.0/[CC BY-NC 4.0] 
 by Mark Kelly Davis.
 
+== How does the Remix differ from the original work?
 
-== How does the MKD Remix differ from the original work?
+The remixer's goal is to adapt the original https://ggc-discrete-math.github.io/index.html[“Discrete Math”] to create an OER textbook for a one-semester [underline]#_Discrete Mathematics/Discrete Structures_# course for Computer Science students who have some experience coding in Java, Python, or another high-level programming language, and have completed an Algebra Ⅱ-level (or equivalent) mathematics course. The Remix is a work-in-progress that will continue to evolve over time toward this goal. 
 
-Here is a partial list of changes made (or to be made) to the original. 
+The remixer's intent is that the Remix: 
 
-* Throughout the remix, definitions were changed to align with ones found in other commonly-used textbooks. One example: The remix defines the natural numbers $\mathbb{N}$ to include the integer $0$ as a member.
+//* include topics listed for the following courses: 
+* address topics and learning outcomes listed for  
 
-* Some existing code snippets were altered. New code snippets were introduced throughout the remix.
+** ACM/IEEE-CS/AAAI Joint Task Force on Computer Science Curricula "Computer Science Curricula 2023"  https://dl.acm.org/doi/pdf/10.1145/3664191#page=187[MSF-Discrete: Discrete Mathematics] 
+// MKD also see page 89 of the 2023 curriculum, Algorithmic Foundations (AL), for additional content
+//** ACM CCECC Computer Science Curricular Guidance for Associate-Degree Transfer Programs with Infused Cybersecurity, June 2017  https://ccecc.acm.org/files/publications/CSTransfer2017.pdf#page=38[Discrete Structures Knowledge Area (DS)] omitting the DS/Discrete Probability Knowledge Unit. + 
+//[small]#Note that this 2017 document revises some learning outcomes listed in the ACM/IEEE-CS Joint Task Force on Computing Curricula "Computer Science Curricula 2013" https://dl.acm.org/doi/pdf/10.1145/2534860#page=79[Discrete Structures (DS)] course, and includes some new learning outcomes as well. The 2013 documents lists the content topics which are not given in the 2017 document.#
+** ACM/IEEE-CS Joint Task Force on Computing Curricula "Computer Science Curricula 2013" https://dl.acm.org/doi/pdf/10.1145/2534860#page=79[Discrete Structures (DS)] but omitting the DS/Discrete Probability topics and learning outcomes. + 
+[small]#Note: ACM CCECC "Computer Science Curricular Guidance for Associate-Degree Transfer Programs with Infused Cybersecurity"  https://ccecc.acm.org/files/publications/CSTransfer2017.pdf#page=38[Discrete Structures Knowledge Area (DS)] is a list of learning outcomes and assessment rubrics that does not specify topics, so the remixer preferred the 2013 document to that  https://ccecc.acm.org/guidance/computer-science[June 2017 update.]# 
+//The remixer preferred the 2013 document's learning outcomes to those listed in the https://ccecc.acm.org/guidance/computer-science[June 2017 update.] 
+//Also, the 2017 update omits some learning outcomes and revises the wording of other learning outcomes listed in the 2013 document, and introduces some new learning outcomes.
+** California Community Colleges (CCC) https://c-id.net/descriptors/final/show/344[C-ID Math 152: Discrete Structures] content areas Ⅰ through Ⅴ, omitting area Ⅵ. Discrete Probability. + 
+[small]#Note that the content listed for  https://c-id.net/descriptors/final/show/344[C-ID Math 152: Discrete Structures] is identical to the topics listed for ACM/IEEE-CS CS2008 Review Taskforce "Computer Science Curriculum 2008: An Interim Revision of CS 2001" https://www.acm.org/binaries/content/assets/education/curricula-recommendations/computerscience2008.pdf#page=37[Discrete Structures (DS).]#
+** additional topics from the ACM CCECC Software Engineering curriculum 2005  https://ccecc.acm.org/guidance/software-engineering/courses/discrete-structures[Discrete Structures] Mathematics course. 
+// but omitting "discrete probability" which is listed under the topic "Combinatorics"
+// MKD The ACM Committee for Computing Education in Community Colleges (CCECC) "Software Engineering" curriculum was created in 2005 - this is probably much too old to include now.
+// MKD also 
+// ACM CCECC Computer Science Curricular Guidance for Associate-Degree Transfer Programs with Infused Cybersecurity, June 2017  https://ccecc.acm.org/files/publications/CSTransfer2017.pdf#page=38
 
-* Informal definitions of several core concepts were inserted in the chapter "Introducing Discrete Mathematics". 
+////
+in link:https://www.acm.org/binaries/content/assets/education/curricula-recommendations/cc2001.pdf[_Computing Curricula 2001 Computer Science — Final Report — (December 15, 2001)_] by the 
+Joint Task Force on Computing Curricula, Association for Computing Machinery (ACM) and IEEE Computer Society.
+////
 
-* The chapter "Introduction to Python" was moved to the appendices. In this book, Python is used as a tool for understanding abstract concepts that are important to discrete mathematics, but Python is not a part of the course content.
+//https://www.acm.org/binaries/content/assets/education/curricula-recommendations/computerscience2008.pdf#page=37
 
-* The order of the chapters "Set Theory" and "Logic" were swapped. New material was inserted into each of the two chapters.
 
-* A new chapter, "Proofs," was written and inserted after the chapter on Logic.
+//// 
+// MKD 2013 and older standards begins
+** ACM/IEEE-CS Joint Task Force on Computing Curricula _Computer Science Curricula 2013_ https://dl.acm.org/doi/pdf/10.1145/2534860#page=79[Discrete Structures (DS)]  
+// MKD proper citation from https://ai.stanford.edu/users/sahami/CS2013/: ACM/IEEE-CS Joint Task Force on Computing Curricula. 2013. Computer Science Curricula 2013. 
 
-* The old chapter "Sequences, Recursive Definitions, and Induction" was broken into two new chapters, "Sequences and Recursive Definitions" and "Induction". The new chapter "Induction" was heavily rewritten and new content was inserted.
+//ACM/IEEE-CS Joint Task Force on Computing Curricula. “Computing Science Curricula 2013.” (New York, USA: ACM Press and IEEE Computer Society Press, 2013).
+// MKD 2013 and older standards ends
+////
 
 
 ////
-MKD: NEED TO EDIT ALL ORIGINAL TEXT BELOW.
+// MKD more on standards begins
+It should be noted that the topic list for link:https://c-id.net/descriptors/final/show/344[C-ID Math 152: Discrete Structures] 
+is nearly identical to the topics list for Discrete Structures (DS) in link:https://www.acm.org/binaries/content/assets/education/curricula-recommendations/cc2001.pdf[_Computing Curricula 2001 Computer Science — Final Report — (December 15, 2001)_] by the 
+Joint Task Force on Computing Curricula, Association for Computing Machinery (ACM) and IEEE Computer Society.
+// MKD needs a proper citation here - pp 86-88 of 2001 final report
 
-== Additional Resources
+// (From the ACM/IEEE Joint Task Force on Computing Curricula, “Computing Curricula 2001: Computer Science,” Dec. 2001, available at http://www.computer.org/portal/cms_docs_ieeecs/ieeecs/education /cc2001/cc2001.pdf)
 
-Additional instructional materials, including guided notes, applets, and links to pre-built homework assignments using https://edfinity.com/[Edfinity] are available in the book's https://github.com/ggc-discrete-math/ggc-discrete-math.github.io#readme[GitHub readme page].
+// also need to check against 2013 version (pp 77-81 of Computer Science Curricula 2013
+Curriculum Guidelines for Undergraduate Degree Programs in Computer Science
+December 20, 2013
+The Joint Task Force on Computing Curricula Association for Computing Machinery (ACM) IEEE Computer Society) 
+https://dl.acm.org/doi/pdf/10.1145/2534860
 
-Please report any errors, suggestions, or comments using the form at https://forms.office.com/Pages/ResponsePage.aspx?id=21KVzwpmkUqb1mXCMA-cscUcLDJuuLtGtmN7hxi3Vs9URFcyMDhSWTBZWkxIVzlZRjJVVzVXUThZVS4u[this link].
+// 2008 interim revision of CS 2001 https://www.acm.org/binaries/content/assets/education/curricula-recommendations/computerscience2008.pdf
 
-== Course Objectives
-
-At Georgia Gwinnett College, students who have successfully completed the Discrete Mathematics course will,
-
-. Reason mathematically and use mathematical language appropriately to demonstrate an understanding of comprehending and constructing mathematical arguments.
-. Perform combinatorial analysis to solve counting problems and analyze algorithms.
-. Demonstrate an understanding of discrete structures including sets, permutations, relations, graphs, and trees.
-. Demonstrate algorithmic thinking using mathematical creativity and critical thinking by specifying algorithms, verifying that algorithms work, and analyzing the time required to perform specific algorithms.
-. Use appropriate technology in the evaluation, analysis, and synthesis of information in problem-solving situations.
-
-These course goals help structure the content of this class, which is
-aimed at students of
-information technology, computer science, and applied mathematics.  The focus is on applying
-discrete math techniques from the two broad component areas of discrete
-math, namely
-combinatorics or enumerative techniques, and graph theory.
-
-To that end, algorithmic thinking figures
-prominently in this course.
-Designing algorithms, particularly algorithms
-applied to networks, involves the use of graph theory methods. Implementing algorithms
-requires a careful understanding of logical structures, and usually a top down implementation
-approach, beginning with a specifications description,  and then proceeding
-to a pseudocode implementation and finally a language dependent coding
-implementation. Moreover, analyzing the complexity of algorithms requires a knowledge of functions,
-the growth of functions, and counting techniques from combinatorial analysis.  Similarly, mathematical induction and recursive
-definitions are used in a cohesive way to understand algorithms and the options in implementing these
-recursively versus iteratively.
-
-The approach we take is one with an integrative incorporation of programming and
-algorithms into the course. The aim is to help improve students success
-with their broad programming curricula in courses like Intermediate and Advanced Programming.
+// MKD more on standards ends
 ////
+
+* use terminology, definitions, notation, and symbols that align with commonly-used textbooks such as Kenneth H. Rosen's https://www.mheducation.com/highered/product/discrete-mathematics-applications-rosen/M9781259676512.html[_Discrete Mathematics and Its Applications,_ 8th Edition.]
+// MKD needs a proper citation here
+
+* incorporate https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/[team-worthy tasks], currently in beta testing, for many of the topics
+// MKD needs proper link and citation
+
+//* organizes the content in "chunks" for ease of reading and digestion of new ideas
+* give learners the ability to start learning new content based on what the learners likely know already, then move toward building a formal understanding (e.g., pointing out that the set of odd integers and the set of even integers are the two equivalence classes corresponding to a relation, and that the rules for adding and multiplying odd and/or even numbers is an example of modular arithmetic.) 
+//* starts with basic mathematical ideas, listed in the next chapter, that learners are likely familiar with, then builds upon that to formalize the new ideas by making explicit connections between the new ideas and the basics ideas (e.g., pointing out that the set of odd integers and the set of even integers are the two equivalence classes corresponding to a relation).
+
+* organize the content in "chunks" for ease of reading and digestion of new ideas
+
+* refer to original sources (e.g., https://cudl.lib.cam.ac.uk/view/PR-CCB-00013-00024/5[Pascal's handwritten  triangle] as well as https://aperiodical.com/2021/12/pascals-triangle-and-its-secrets-introduction/[earlier non-European references to and uses of the number triangle].)
+// also Euclidean algorithm, etc.
+
+
+//MKD - intro comment block 1
+//// 
+//// 
+//MKD - intro comment block 1
+
+ 
+If you are looking for 
+//a free, open source textbook 
+an OER textbook for a Discrete Mathematics course intended primarily for Mathematics majors 
+(e.g., one that does not include topics such as Big-_O_ complexity analysis of algorithms, relations, and binary tree traversal algorithms), 
+there are many suitable ones that exist. For example, see 
+Oscar Levin's https://discrete.openmathbooks.org/dmoi3.html[_Discrete Mathematics: An Open Introduction,_ 3rd edition.]
+
+
+=== About the use of Python in the Remix
+
+The Remix is intended for a course that does not require programming. Python is not part of the course content. 
+
+The original https://ggc-discrete-math.github.io/index.html[“Discrete Math”] uses Python code samples throughout the textbook and includes "Introduction to Python" as its 3rd chapter. The Remix repurposes this content: Code samples in the Remix are used as "pseudocode that can run on a computer," with coding that uses "_just enough Python_" to illustrate important abstract ideas and concepts. Most of the existing Python examples were altered, and many new Python examples were introduced throughout the Remix. Note that, #in order to illustrate concepts and ideas in the style of pseudocode, much of the Python code shown in the Remix avoids using built-in functions and often uses less efficient data structures and algorithms!# For example, in the chapter 
+// MKD fix this link
+"Algorithms & Big-_O_", 
+code samples for sorting and searching avoid using built-in Python functions in order to illustrate all steps needed by the algorithm. In many cases, a comment can be found near a non-optimal code example that explains or illustrates a more link:https://docs.python.org/3/glossary.html#term-Pythonic[Pythonic] way of coding. 
+
+
+* The chapter "Introduction to Python" was moved to the appendices.
+
+//Here is a partial list of changes made (or to be made) to the original. 
+
+=== Partial list of changes made (or to be made) to the Remix. 
+
+* Terminology, definitions, and notation and symbols were changed throughout the Remix to align with other commonly-used textbooks. For example, the Remix defines the set of natural numbers $\mathbb{N}$ to include the integer 0 as an element; this definition is very common and is in fact a "standard" that appears in 
+_International Standard ISO 80000-2:2019, Quantities and units — Part 2: Mathematics._
+// MKD needs proper citation
+
+* In the chapter "Introducing Discrete Mathematics," informal definitions of  foundational mathematical ideas needed in the course are introduced. This is done so that learners can see what they do (or do not) already know and create the necessary basis to learn the course content. In addition, a new Appendix, "On-Demand Math Resources" was written which includes material that learners can refer to as needed.
+// MKD note that the ceiling and floor functions should be given here.
+// or in Library???
+
+//MKD already mentioned above
+//* The chapter "Introduction to Python" was moved to the appendices. 
+
+* The "Counting" chapter was split into two chapters, "Counting: Arithmetic Techniques" and "Counting: Peermutations And Combinations".
+
+* The "new" chapter "Number Bases" is based on the original "Number Theory" chapter, but content on divisibility, congruence, and modular arithmetic was moved into the chapters "Introducing Discrete Mathematics" and "Relations" of the Remix. 
+//"Number Bases" was moved before discussion of algorithms because some of the content acts as a lead-in to the analysis of algorithms. 
+
+* The order of the chapters "Set Theory" and "Logic" was swapped. New material was inserted into each of the two chapters. The section "Representing Sets as Lists" was omitted from the "Set Theory" chapter. 
+
+* A new chapter, "Proofs: Basic Techniques," was written and inserted after "Logic."
+
+* The chapter "Sequences and Recursion" is based on the original chapter "Sequences, Recursive Definitions, and Induction," which was split into two new chapters, "Sequences and Recursion" and "Proofs: Mathematical Induction." "Sequences and Recursion" appears before and as a lead-in to "Functions" since sequences are a special case of functions and recursion is often used to define functions.
+
+* The chapter "Functions" was moved to its new position, several chapters after "Set Theory." This was done for the following reasons: 
+** The learner is expected to have a basic working understanding, from previous classes, of the _one-to-one correspondence_ concept: A unique pairing of each element in one set with elements in another set. 
+** The learner is expected also to have a basic working understanding of the function concept: A rule/mapping/association that takes certain objects as inputs and assigns each such input to exactly one output object. 
+** It is likely that the learner has some ability to work with function notation and operations such as composition and inversion of functions from previous mathematics courses. 
+** The remixer felt that a precise, formal definition of function, as well as properties such as injectivity and surjectivity, could be delayed until after learners had used their previous knowledge of functions.
+//so this chapter was placed at this position of the Remix. 
+//The material on the ceiling and floor functions was moved to the "Introducing Discrete Mathematics" chapter.
+// MKD Ceiling and Floor will also be in the "Library Of Functions" appendix
+
+* A new chapter, "Relations," was written to include topics listed in the ACM/IEEE-CS/AAAI and CCC C-ID courses but absent from the original work, and was inserted after "Functions". This chapter also includes some of the content on divisibility, congruence, and modular arithmetic from the "Number Theory" chapter of the original work. 
+
+* The order of the chapters "Algorithms" and "Growth of Functions" was swapped, then the title "Growth of Functions" was changed to "Rates of Growth of Functions" and the title "Algorithms" was changed to "Algorithms and Their Analysis." New content was inserted into each of the chapters and existing content was revised. + 
+Note that algorithms and their analysis are not mentioned explicitly as topics to be included in the ACM/IEEE-CS/AAAI and CCC C-ID courses, but these topics fit naturally as a motivation to learn much of the other content of the Remix.
+
+* The chapter "Proofs: Mathematical Induction" is based in part on the original chapter "Sequences, Recursive Definitions, and Induction," but  
+the content of this chapter was heavily rewritten and new content was inserted. This chapter now appears after the chapter "Algorithms and Their Analysis;" this placement was done so that mathematical induction can be 
+viewed as a way of validating algorithms  
+rather than as 
+just 
+another 
+more complicated 
+proof technique.
+
+
+//MKD any changes to counting?
+//* The "Counting" chapter has had only minor revisions made at this time.
+
+* The original chapter "Graph Theory" 
+will be 
+split into two chapters, "Graphs" and "Trees". Additional content as well as team-worthy activities 
+will be 
+introduced into each of the new chapters.
+
+
+// MKD the 2023 ACM/IEEE-CS/AAAI standards do not include probability in MSF-Discrete: Discrete Mathematics
+// * A new chapter on "Discrete Probability" is planned. It will include all topics listed in the ACM CCECC and CCC C-ID courses but absent from the original work.

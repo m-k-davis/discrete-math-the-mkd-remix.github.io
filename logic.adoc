@@ -15,11 +15,78 @@
 
 Among the applications of logic to computer science are design of electronic circuits and validation of algorithms and programs.
 
+////
+LOGIC (GGC04)
+	ACM CCECC Logic and Boolean algebra	
+    COMP 152 Basic Logic and DS2.
+		propositional calculus
+        Propositional logic
+		truth tables
+        Logical connectives
+        Truth tables
+		Boolean algebra and Boolean circuits (MKD NEEDS TO ADDRESS)
+        Normal forms (conjunctive and disjunctive)
+        Validity - MKD NEEDS TO ADDRESS THIS 
+        Predicate logic
+        Universal and existential quantification
+        Limitations of predicate logic
+    2013 changes/additions:
+    	Propositional logic (cross-reference: Propositional logic is also reviewed in IS/Knowledge Based Reasoning)
+    	Logical connectives
+    	Truth tables
+    	Normal forms (conjunctive and disjunctive)
+		Validity of well-formed formula
+    	Propositional inference rules (concepts of modus ponens and modus tollens)
+    	Predicate logic
+			Universal and existential quantification
+    	Limitations of propositional and predicate logic (e.g., expressiveness issues)
+
+AUG 2024 update on topics
+DS2013/Basic Logic	Propositional logic
+DS2008/BasicLogic	Propositional logic
+ACM_CCECC_2005/Logic and Boolean algebra	propositional calculus
+DS2013/Basic Logic	Logical connectives
+DS2008/BasicLogic	Logical connectives
+DS2013/Basic Logic	Truth tables
+DS2008/BasicLogic	Truth tables
+ACM_CCECC_2005/Logic and Boolean algebra	truth tables
+DS2013/Basic Logic	Normal forms (conjunctive and disjunctive)
+DS2008/BasicLogic	Normal forms (conjunctive and disjunctive)
+DS2013/Basic Logic	Validity of well-formed formula
+DS2008/BasicLogic	Validity
+ACM_CCECC_2005/Logic and Boolean algebra	Boolean algebra and Boolean circuits
+MKD: Inference/Modus ponens/modus tollens are discussed in Proofs chpater
+	DS2013/Basic Logic	Propositional inference rules (concepts of modus ponens and modus tollens)
+	DS2008/BasicLogic	Modus ponens and modus tollens
+DS2013/Basic Logic	Predicate logic
+DS2008/BasicLogic	Predicate logic
+DS2013/Basic Logic	Predicate logic: Universal and existential quantification
+DS2008/BasicLogic	Universal and existential quantification
+DS2013/Basic Logic	Limitations of propositional and predicate logic (e.g., expressiveness issues)
+DS2008/BasicLogic	Limitations of predicate logic
+--
+MKD: These are dicussed a bit here and expanded on in Proofs
+	DS2013/Proof Techniques	Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction
+	DS2008/ProofTechniques	Notions of implication, converse, inverse, contrapositive, negation, and contradiction
+--
+Additional ideas
+	building on "all compound propositions are l.e. to a DNF or (CNF)"
+	 which shows that every wff or compound proposition using NOT AND OR -> and <--> only needs NOT AND OR, 
+	show that NOT AND OR are definable in terms either one of NAND or NOR
+	so that ALL can be done with NANDs or NORs	
+    	
+////
+
+
 == Propositional Logic
+//MKD add "propositional calculus"
+
+//MKD further down, add "Boolean algebra and Boolean circuits"
 
 //MKD added "(but not both)"
 A *proposition* is a statement that declares a fact that is either True or False (but not both!)
 
+// MKD consider using a similar example in the Intro chapter
 ****
 .Examples {counter:logicexample} - Propositions
 
@@ -100,6 +167,7 @@ Now we can make this argument completely abstract using propositional variables.
 //MKD added on 2/13/24
 We can build *compound propositions* (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if _p_ then _q_" as a new proposition built from the propositional variables _p_ and _q_.
 
+
 //MKD: Reword - Python is not necessary here, but is useful as a tool 
 [TIP]
 ====
@@ -113,7 +181,7 @@ compound proposition.
 //Each rule can be 
 Each compound proposition can implemented using the $\texttt{Boolean}$ operations $\texttt{not}$, $\texttt{and}$, and $\texttt{or}$ discussed in the section  
 //on <<Operators and Expressions>> 
-_Operators and Expressions_ in the chapter "Appendix 0: An Introduction to Python".
+_Operators and Expressions_ in the chapter "Appendix: An Introduction to Python".
 //python_intro.html#_operators_and_expressions
 //how do I know where sections begin and can I reference them?
 ====
@@ -126,6 +194,9 @@ that are built from other propositional variables.
 //, using the truth values of its components. 
 A truth table typically is created with rows representing all possible *interpretations* of the propositional variables (that is, all possible assignments of truth values to the propositional variables), and columns representing the propositional variables and compound propositions built up from the variables.
 // (This description will make more sense as we begin to use truth tables below).
+
+// MKD Truth tables (for each of the 6 above and more generally, 
+//			Also see "Boolean Algebra" by Korfhage)
 
 === Negation
 //MKD: Mention other common notations for negation
@@ -246,6 +317,7 @@ The code below prints the truth table for disjunction.  Try to predict the varia
 include::python_tutor.adoc[]
 ****
 
+//MKD consider moving XOR to a subsection "Other Operations" and including NAND and NOR there
 === Exclusive Disjunction
 //MKD: Mention other common notations for negation
 // also, can we use xor in the code instead of the (p and not q) or (q and not p)
@@ -473,10 +545,41 @@ The conditional represents a one-way contract: You earn an A in the class _if_ y
 As a biconditional the example would say "You get a 100 on the final exam if and only if you earn an A in the class."  This becomes a two-way contract: You earn an A in the class if you get a 100 on the final, _but_ you do not earn an A in the class if you do not get a 100 on the final.
 
 
-//MKD added operator precedence
-=== Operator Precedence (Order Of Operations)
 
-To ensure that we can properly interpret a compund proposition involving multiple logical operations, we can either use parentheses or rely on _operator precedence_. 
+//MKD added on August 11 2024, then combined with Operator Precedence
+//===  Well-Formed Formulae
+[[wff_recursion]]
+=== Well-Formed Formulae and Operator Precedence (Order Of Operations)
+
+//MKD add that a wff is valid if it is true for every interpretation 
+
+A *well-formed formula* (or *wff* for short) is a string of symbols that represents a compound propsition. 
+
+Here is a recursive definition of wff:
+
+* A propositional variable is a well-formed formula.
+// T and F are formulas.
+
+* If $\alpha$ ("alpha") and $\beta$ ("beta") are well-formed formulas, then the following are also well-formed formulas: 
+** $\left( \neg \alpha \right)$ 
+** $\left( \alpha \land \beta \right)$ 
+** $\left( \alpha \lor \beta \right)$ 
+** $\left( \alpha \rightarrow \beta \right)$ 
+** $\left( \alpha \leftrightarrow \beta \right)$ 
+
+The definition of wff allows you to analyze any string of symbols to determine whether it is a wff. For example, $(p \land q \lor r)$ isn't a wff but both $(p \land (q \lor r))$ and $((p \land q) \lor r)$ are wffs. You could write code to implement an algorithm to validate a string as a wff. 
+// MKD expression trees needed here
+
+It can be seen that there is a one-to-one correspondence between the set of well-formed formulae and the set of compound propositions. 
+However, a wff may be difficult to read quickly if it contains many parentheses. As an example, it is not easy to read $((p \rightarrow q) \lor ((\neg r) \land (s \leftrightarrow t))$. For this reason, we can introduce  _operator precedence_ rules that allow us to eliminate some of the parentheses. 
+
+
+//MKD added operator precedence
+//=== Operator Precedence (Order Of Operations)
+
+//To ensure that we can properly interpret a compound proposition involving multiple logical operations, we can either use 
+//parentheses or rely on _operator precedence_.
+//a wff or rely on _operator precedence_.  
 
 To evaluate a compound proposition, we start by evaluating 
 
@@ -487,11 +590,17 @@ To evaluate a compound proposition, we start by evaluating
 * all conditionals from left to right, and finally 
 * all biconditionals from left to right. 
 
-Note that exclusive-disjunction $\oplus$ was left out of the discussion - this is because different sources assign it different precedences, usually just above or just below the disjunction $\lor$. For this reason, it’s best to use parentheses whenever $\oplus$ is present in a compound proposition.
+This allows us to drop some parentheses from the wff that represents a compound proposition. 
 
-For example, the compound proposition $\neg p \lor q \land r \rightarrow s$ represents the same proposition as $((\neg p) \lor (q \land r)) \rightarrow s$. Parentheses must be used if you want to represent a different proposition such as $(\neg p \lor q) \land (r \rightarrow s)$.
+For example, the compound proposition $\neg p \lor q \land r \rightarrow s$ represents the same proposition as 
+the wff 
+$((\neg p) \lor (q \land r)) \rightarrow s$. 
+At least some of the parentheses must be used if you want to represent a different proposition such as $(\neg p \lor q) \land (r \rightarrow s)$.
 
+//Note that 
+NOTE: The exclusive-disjunction $\oplus$ was left out of the discussion - this is because different sources assign it different precedences, usually just above or just below the disjunction $\lor$. For this reason, it’s best to use parentheses whenever $\oplus$ is present in a compound proposition. Also note that $p \oplus q$ and $(\neg p) \leftrightarrow q$ have identical truth tables, so any compound expression involving $\oplus$ can be rewritten as one involving $\leftrightarrow$ instead.
 
+// MKD may need to define logical equivalence here or earlier
 
 === Compound Propositions
 To find truth values of compound propositions, it is useful to break them up into smaller parts.
@@ -552,6 +661,8 @@ It should have 8 rows - since there are three simple propositions and each one h
 ****
 
 //MKD moved *Logical Translations* from here up to just after Sarah and Daniel
+
+
 
 //== Proposition Equivalences
 == Logically Equivalent Propositions
@@ -614,6 +725,9 @@ include::python_tutor.adoc[]
 ****
 
 //MKD maybe rename subsection and include other Tautologies like assocaitivety, distributivity, etc. - compare to set Thoery chapter
+// MKD 			"tautology equivalence laws" 
+//				(see slides 14-15, Jose Ortiz pages 9-10)
+
 === Tautologies, Contradictions and Contingencies
 
 //MKD added material on satisfiable and unsatisfiable
@@ -727,7 +841,6 @@ Distributive laws:
 
 //7. More properties :      	A ⊆ A ∪ B, B ⊆ A ∪ B, 
 //                                         	A ∩ B ⊆ A, A ∩ B ⊆ B
-
 
 
 // MKD insert subsection on DNF here?
@@ -853,6 +966,16 @@ The last expression is logically equivalent to the unknown proposition.
 A *predicate* is a statement that includes one or more variables such that when values are assigned to the variables the predicate becomes a proposition. 
 //That is, we "evaluate" the predicate by substituting inputs into the variables and get a proposition as the output. 
 
+//MKD add: "When a variable is given a value, it is said to be instantiated."
+////
+		Other Examples:
+			greater (x, y) = which is true if x >y; false otherwise 
+			prime(x) = which is true if x is a prime number, false otherwise
+		A predicate (of degree n) is a function of the form
+			P(x1, x2, ..., xn) with outputs (True or False)
+		(MKD: proposition can be viewed as predicate with 0 variables)
+////
+
 ****
 .Example {counter:logicexample} - Predicates
 
@@ -934,13 +1057,25 @@ The Python code displays each of the three propositions $Q(6,2)$, $Q(1,5)$, and 
 include::python_tutor.adoc[]
 ****
 
+
+////
+		Inference rules for predicate logic
+			(see also https://www.cs.odu.edu/~toida/nerzic/content/logic/pred_logic/inference/infer_intro.html)
+			(Universal instantiation, Existential instantiation, 
+			Universal generalization, Existential generalization)
+			(see slides 41-44)
+////
+
+// MKD also point out the "for all" and "there exist" can create propositions from predicates
+
 === Quantifiers
 Consider the statements
 
 *  For all integers $x$, $x^2\geq 0$.
 *  Some student in the class has a birthday in July.
 
-Each of these statements considers a proposition over an entire population or set, called the domain, and quantifies how many elements (or people) in the set satisfy the proposition.  To represent this idea, we use two main quantifiers, the *universal quantifier* and the *existential quantifier*.
+Each of these statements considers a proposition over an entire population or set, called the *domain,* and quantifies how many elements (or people) in the set satisfy the proposition.  To represent this idea, we use two main quantifiers, the *universal quantifier* and the *existential quantifier*.
+[small]#The domain is also called the *domain of discourse* or the *universe of discourse.*
 
 The *Universal Quantifier*, $\forall$, represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true _for all values_ in the domain.
 

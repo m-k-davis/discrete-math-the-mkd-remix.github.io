@@ -1,15 +1,80 @@
-= Graph Theory
+= Graphs
+//= Graph Theory
 
 // MKD start topics lists
 ////
+
+ACM CCECC TOPICS: Graphs and trees 	11 hours 	
+
+// MKD move trees to a separate chapter
+directed graphs
+undirected graphs
+weighted graph
+Eulerian and Hamiltonian circuits
+traveling sales person
+graph coloring
+//
+trees (binary, spanning)
+expression trees
+tree traversals
+
+Learning Outcome CS. 26.
+Illustrate the basic terminology and properties of graphs and trees.
+
+Learning Outcome CS. 32.
+Use graphs and trees to solve problems algorithmically
+
+
+GRAPHS (MKD) based on GRAPH THEORY (GGC12)
+	Graphs and trees	undirected graphs
+	Graphs and trees	directed graphs
+	ACTIVITY: Handshake
+	Graphs and trees	weighted graphs
+	Graphs and trees	Eulerian and Hamiltonian circuits
+	Graphs and trees	traveling sales person
+	Graphs and trees	graph coloring
+	ACTIVITY: Ramsey
+    COMP 152 Graphs and Trees and DS5.
+        Undirected graphs
+        Directed graphs        
+	AL3. Fundamental computing algorithms [core] (12 hours minimum) 
+		- COVER SOME, NOT ALL
+		Representations of graphs (adjacency list, adjacency matrix)
+		Shortest-path algorithms (Dijkstra’s and Floyd’s algorithms)
+		Transitive closure (Floyd’s algorithm)
+		Topological sort
+	2003 changes/additions:
+		[Core-Tier1]
+			• Trees (MOVE TO TREES)
+				o Properties (MOVE TO TREES)
+				o Traversal strategies (MOVE TO TREES)
+			• Undirected graphs
+			• Directed graphs
+			• Weighted graphs
+		[Core-Tier2]
+			• Spanning trees/forests (MOVE TO TREES)
+			• Graph isomorphism	
+
+
+AUG 2024 update on topics
+Undirected graphs
+Directed graphs
+Weighted graphs
+isomorphism
+Eulerian and Hamiltonian circuits
+traveling sales person
+graph coloring
+
+More topics:
 Simple Graphs
 Multigraphs (allows loops and multiple edges between vertices)
-Directed Graphs
 Modeling (how to choose simple vs multigraphs, undirected vs directed)
-Terminology: ADJACENT vertices (NEIGHBORS), edges are INCIDENT WITH (or CONNNECT) their ENDPOINTS, DEGREE of a vertex in a graph (and loops contribute twice), an ISOLATED vertex has degree 0 that is it is not an endpoint of any edge,
+Terminology: 
+	ADJACENT vertices (NEIGHBORS), edges are INCIDENT WITH (or CONNNECT) their ENDPOINTS, DEGREE of a vertex in a graph (and loops contribute twice), an ISOLATED vertex has degree 0 that is it is not an endpoint of any edge,
 ACTIVITY: HANDSHAKE
 	students experiment to arrive at the conjecture for the Handshake theorem for undirected graphs
-More Terminology for Directed Graphs: ADJACENT FROM/TO, INITIAL and TERMINAL vertices, IN-DEGREE and OUT-DEGREE of a vertex, 
+More Terminology for Directed Graphs: 
+	ADJACENT FROM/TO, INITIAL and TERMINAL vertices, IN-DEGREE and OUT-DEGREE of a vertex, 
 Theorem: The sum of the in-degrees equals the sum of the out-degrees (sums taken over all vertices of the graph)
 Complete Graphs
 N-Cube
@@ -56,17 +121,36 @@ APPLICATIONS:
 Bianry tree representation
 Tree traversal algorithms - preorder, inorder, postorder
 
-
-ACM CCECC: 11 hours (so 3.66 weeks)
-directed graphs; 
-undirected graphs; 
-weighted graphs; 
-Eulerian and Hamiltonian circuits; 
+MKD SECTIONS AND SUBSECTIONS
+Introduction and Basic Definitions
+(Undirected) Graphs
+	Formal definition (set theoretic)
+	Simple Example implemented in Python??? ()
+	Degree
+	Handshake Theorem (HANDSHAKE ACTIVITY)
+	Example of Graph (application)
+	REPRESENTATIONS
+		drawing
+		adjacency Matrix
+		adjacency List
+Directed Graphs 
+	In- and Out-degree
+	Analog to Handshake Theorem 
+	Example of Directed Graph (application)
+	REPRESENTATIONS
+		drawing
+		adjacency Matrix
+		adjacency List
+Weighted Graphs 
+	Example of Weighted Graph (application) - minimal cost path
+PATHS AND CIRCUITS
+Eulerian and 
+Hamiltonian circuits; 
 traveling sales person; 
 graph coloring; 
-trees (binary, spanning); 
-expression trees; 
-tree traversals
+	vertex coloring (example - )
+	edge coloring (RAMSEY ACTIVITY)
+
 
 ////
 // MKD end topics lists
@@ -80,17 +164,20 @@ Graphs are discrete mathematical structures that have many applications in a div
 //MKD rewrite of first paragraph
 //A *graph* $G=\left(V,\ E\right)$ is a structure consisting of a set of objects called vertices $V$ and a set of objects called edges $E$. An *edge* $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where $x,y\in\ V$. That is, an edge is a set of vertices. We call the vertices $x$ and $y$ the *endpoints* of the edge $E$. In the case where $x = y$, we call the edge a *loop* since the edge connects the one endpoint to itself.
 
-A graph consists of a set of *vertices*  (also called *nodes*) and a set of *edges*, 
-where each edge either 
-connects two different vertices or
-connects a vertex to itself. 
+A graph consists of a set of *vertices*  (also called *nodes*) and a set of *edges,* 
+where each edge  
+connects either two different vertices or a vertex to itself. 
 
 * For each edge, its *endpoints* are the vertices that it connects. The edge is said to be incident with each endpoint, and to connect the endpoints.
-* If an edge has only one endpoint, it is called a *loop*. 
+* If an edge has only one endpoint, it is called a *loop.* 
 * An *isolated vertex* is a vertex that is not an endpoint of any edge.
-* If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a *multigraph*.
+* If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a *multigraph.*
+// MKD - can a multigraph contain ANY loops???
 * A *simple graph* is a graph that has no loops and does not have two or more edges that connect the same endpoints.
 //If there are no loops and no two edges connect the same endpoints, the graph is called *simple.* 
+
+// MKD add additional terms after May 24, 2024 (also add to the example): 
+//		adjacent, neighbor, neighborhood, parallel edges
 
 Graphs discussed in this textbook are assumed to be simple unless stated otherwise.
 
@@ -135,37 +222,32 @@ This graph is not simple because (1) it contains a loop and (2) it has a pair of
 
 ****
 
+//It is possible to write a formal definition of graphs in terms of set //theory, but it is common to use a drawing as in the preceding example when //there are small numbers of vertices and edges. 
 
-
-MORE TO COME!
-////
-
-
-//We will define simple graphs formally using set theory 
-//which is done 
-//after the next example, but we will usually represent graphs using a 
-//"connect-the-dots" style 
-It is possible to write a formal definition of graphs in terms of set theory, but it is common to use a drawing as in the preceding example when there are small numbers of vertices and edges. 
+In the next section, we will _define_ graphs in terms of set theory, 
+but it is more useful to _represent_ a graph using either a drawing as in the preceding example, or a list or a matrix as described later in this chapter.
 
 // MKD define digraphs in separate section
+
+
+== Undirected Graphs
+
+In this section, we will assume that graphs must have undirected edges, but could have loops and/or *parallel edges* (that is, multiple edges with the same endpoints.)
+
+// MKD move handshake here
+
+
+
 
 == Simple Graphs
 
 
-
 // MKD - probably need to keep this formal definition
 
-Here is a formal definition of simple graph: 
-The formal definition of 
-//simple graphs 
-may be useful to you if you need to implement a simple graph in code.
+Recall that in a simple graph, there are no loops and no two edges can connect the same endpoints. This means that each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of "simple graph". This formal definition can be useful if you need to implement a simple graph in code.
 
-A *simple graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a set $V$ of objects called *vertices* (or *nodes*) and a set $E$ of objects called *edges*.
-// MKD need to update to say that edges can be any of 
-// an unordered pair, a singleton, or an ordered pair. 
-An edge $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where the vertices $x$ and $y$ are two different elements of $V$. The two vertices $x$ and $y$ in the edge $e=\left\{x,y\right\}$ are said to be *adjacent* or *connected*, and $x$ and $y$ are called the *endpoints* of $e$. 
-// MKD no loops in simple graphs.
-//If the two vertices of an edge are the same, that is, $e=\left\{x,y\right\}$, then the edge $e$ is called a *loop*.  
+A *simple graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a set $V$ of objects called *vertices* (also called *nodes*) and a set $E$ of objects called *edges*.
+An edge $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where the vertices $x$ and $y$ are two different elements of $V$. The two vertices $x$ and $y$ in the edge $e=\left\{x,y\right\}$ are said to be *adjacent* or *connected* or *neighbors*, and $x$ and $y$ are called the *endpoints* of the edge $e$. 
 
 //The graph in the previous example has vertex set 
 //$\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
@@ -174,35 +256,24 @@ An edge $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where the vertice
 
 
 ****
-.Example {counter:graphex} - an undirected graph.
+.Example {counter:graphex} - a simple graph.
 
-The graph shown has vertex set $V=\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and edge set
-$E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,E\}\}$
+The graph shown has vertex set 
+$\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
+edge set 
+$ \{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}.$
+
+// MKD - relabel graph so that E is not both the Edge set and vertex E???
 
 image::images/graph1.png[]
 
 ****
 
 
-=== Directed Graphs
 
-A *directed graph* (or *digraph*) is 
-//an extension of the definition of 
-a graph in which the edges are directed from one vertex to another vertex.
+// MKD create a python code sample for the example; maybe replace the one introduced immediately above by the one in the earlier simple graph example. 
 
 
-****
-.Example {counter:graphex} - A directed graph.
-
-The graph $G=(V,E)$ with vertex set 
-$V=\{A,B,C,D,E,F\}$  and 
-edge set
-$E=\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}$. 
-The first coordinate of each edge is the initial vertex and the second coordinate is the terminal vertex.
-
-image::images/graph2.png[]
-
-****
 
 The *degree* of a vertex $v \in V$, denoted $d(v)$, is the number of edges in the graph $G$
 containing the vertex $v$.
@@ -230,13 +301,15 @@ $d\left(G\right)=1$
 
 ****
 
-Notice that the total sum of all the degrees
-$d\left(A\right)+\ d\left(B\right)\ +\ d\left(C\right)+\ \ d\left(D\right)\ \ +d\left(E\right)+\ d\left(F\right) + d\left(G\right)=14$
-is twice the number of edges $\left|E\right|=7$ in the graph.
-This is true in general and we state this result as  theorem, often called the handshaking lemma.
+Notice that the sum of all the degrees
+$d\left(A\right)+\ d\left(B\right)\ +\ d\left(C\right)+\ \ d\left(D\right)\ \ +d\left(E\right)+\ d\left(F\right) + d\left(G\right)=14$, which is 
+is twice the number of edges, $2 \cdot \left|E\right|=7$.
+In fact, this is true for any undirected graph with finitely many edges as long as any loops are counted twice. 
+This result is called the Handshaking Theorem. A formal proof of the Handshaking Lemma can be written using mathematical induction on the predicate 
+$P(n):$ "If graph $G$ has $n$ edges, then the sum of the degrees of the vertices of $G$ is equal to $2n.$"
 
 
-.Handshaking Lemma
+.Handshaking Theorem
 ****
 The sum of the degrees of the vertices of a graph $G=\left(V,\ E\right)$ is equal to twice the number of edges
 in $G$. That is, $\displaystyle \sum_{v\in V}{d\left(v\right)=2\ \left|E\right|}$.
@@ -248,6 +321,79 @@ A useful consequence of this to keep in mind is that the sum of the degrees of a
 ====
 
 
+=== Simple Directed Graphs
+
+A *directed graph* (or *digraph*) is a graph in which the edges are directed from one vertex to another vertex.
+
+
+****
+.Example {counter:graphex} - A directed graph.
+
+The graph $G=(V,E)$ with vertex set 
+$V=\{A,B,C,D,E,F\}$  and 
+edge set
+$E=\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}$. 
+The first coordinate of each edge is the initial vertex and the second coordinate is the terminal vertex.
+
+image::images/graph2.png[]
+
+****
+
+=== Directed Graphs
+
+
+We can give a formal set-theoretic definition of simple directed graph as well. To indicate the directed edges, ordered pairs of vertices are used instead of 2-element sets.
+
+A *simple directed graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a set $V$ of objects called *vertices* (or *nodes*) and a set $E$ of objects called *edges*.
+A *directed edge* $e\in\ E$ is an ordered pair of the form $e=\left(x,y\right)$, where the vertices $x$ and $y$ are two different elements of $V$. Vertex $x$ is the *initial vertex* of $e$ and vertex $y$  is the *terminal vertex* of edge $e$. 
+
+//The graph in the previous example has vertex set 
+//$\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
+//edge set
+//$\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ Note that the graph is not a //simple graph because there is a loop that has endpoint $D$.
+
+// MKD - insert the analog of Handshake :
+// sum of in-degrees = sum of out-degrees = number of directed edges
+
+
+== Examples of Graphs
+
+// MKD - 
+//		Complete Graph on $n$ Vertices
+//		cycles, wheels, $n-$cubes
+//		Bipartite Graphs and Complete Bipartite Graphs
+//			mention coloring here
+
+
+== Weighted Graphs
+
+In some applications, each edge has a *weight*. The weight could represent the distance between the endpoints, or could represent the cost to travel or transmit data between the endpoints. 
+
+
+Additional topics will be added to this chapter soon!
+
+
+* Paths and Circuits 
+
+* Eulerian paths and circuits
+
+* Hamiltonian paths and circuits
+
+* Traveling Salesperson Problem (TSP)
+
+* Graph Coloring
+
+* Graph Isomorphism
+
+* Algorithms for Graphs
+
+* Representations of graphs (adjacency list, adjacency matrix)
+* Shortest-path algorithms (Dijkstra’s and Floyd’s algorithms)
+* Transitive closure (Floyd’s algorithm)
+* Topological sort
+
+MORE TO COME!
+////
 
 
 == Representing graphs.

@@ -7,13 +7,23 @@ def get_soup(html_file):
 
 # build master toc
 #print('Hello')
-os.system("asciidoctor-latex -b html " + 'book.adoc')
+#os.system("asciidoctor-latex -b html " + 'book.adoc')
+# MKD altered this call to try to implement collapsible toc
+#os.system("asciidoctor-latex -a toc=left -a docinfo=shared --doctype book -b html " + 'book.adoc')
+#os.system("/opt/homebrew/lib/ruby/gems/3.3.0/gems/asciidoctor-latex-1.5.0.17.dev/bin/asciidoctor-latex -a toc=left -a docinfo=shared --doctype book -b html " + 'book.adoc')
+os.system("/opt/homebrew/Cellar/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/asciidoctor-latex-1.5.0.17.dev/bin/asciidoctor-latex -a toc=left -a docinfo=shared --doctype book -b html " + 'book.adoc')
+
 
 # get list of chapter files for asciidoctor
 # chap_adocs = sorted([f for f in os.listdir() if f.startswith("chapter") and f.endswith(".adoc")])
 # chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'python_intro.adoc', 'logic.adoc', 'set_theory.adoc', 'functions.adoc', 'growth_functions.adoc', 'algorithms.adoc', 'counting.adoc', 'number_theory.adoc', 'induction_recursion.adoc', 'graph_theory.adoc', 'appendix_one.adoc', 'appendix_two.adoc']
 # chap_htmls = [f.replace('.adoc', '.html') for f in chap_adocs]
-chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'induction.adoc', 'functions.adoc', 'growth_functions.adoc', 'algorithms.adoc', 'counting.adoc', 'number_theory.adoc', 'recursion.adoc', 'graph_theory.adoc', 'python_intro.adoc', 'appendix_one.adoc', 'appendix_two.adoc', 'appendix_three.adoc']
+# MKD addded lines below
+#chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'algorithms_and_big_o.adoc', 'induction.adoc', 'functions.adoc', 'relations.adoc', 'counting.adoc', 'probability.adoc', 'number_bases.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+#chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'number_bases.adoc', 'algorithms_and_big_o.adoc', 'induction.adoc', 'counting.adoc', 'graph_theory.adoc', 'trees.adoc', 'probability.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+#chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'number_bases.adoc', 'algorithms.adoc', 'induction.adoc', 'growth_functions.adoc', 'counting.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+#chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'number_bases.adoc', 'growth_of_functions.adoc', 'algorithms.adoc', 'induction.adoc', 'counting.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'number_bases.adoc', 'counting_binomial.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'growth_of_functions.adoc', 'algorithms.adoc', 'induction.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
 chap_htmls = [f.replace('.adoc', '.html') for f in chap_adocs]
 
 # go through master toc and update links to point to separate html files.
@@ -29,8 +39,13 @@ for a in anchors:
 	#print(label)
 	if not (label.startswith(str(chap_index+1) + ".")):
 		chap_index += 1
-	a['href'] = chap_htmls[chap_index] + a['href']
-
+	#a['href'] = chap_htmls[chap_index] + a['href']
+	# MKD
+	try: 
+		a['href'] = chap_htmls[chap_index] + a['href']
+	except IndexError: 
+		print(a)
+		raise
 
 # build copies of book with just 1 chapter in each.
 for chap_index in range(0, len(chap_htmls)):

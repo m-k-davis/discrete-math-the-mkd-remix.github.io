@@ -1,6 +1,9 @@
-= Algorithms
+= Algorithms and Their Analysis
 
-COMING SOON!
+_This chapter was last updated on August 25, 2024._
+
+//// 
+State, Explain, or Calculate complexity in the ideal and in the worst-case scenario for both implementations. [Remembering, Understanding, Applying]
 ////
 
 
@@ -10,139 +13,30 @@ a determined output.
 
 Examples of common discrete mathematics algorithms include:
 
-* Searching  Algorithms to search  for an item in a data set or data structure like a tree.
-* Sorting Algorithms to sort items in a specific  order.
-* Insertion and Deletion  Algorithms to insert or delete item in a data structure such as a tree or list.
-* Division Algorithms such as a procedure for dividing two integers or the Euclidean Algorithm to determine  the greatest common divisor between two  integers.
-* Optimization algorithms such as finding the line of best fit of set of points, or the problem of finding the nearest neighbor in a set of points to a given point  (here close could mean most similar according to some mathematically defined measure of closeness or similarity)
+* Arithmetic algorithms such as the integer division or computation of the greatest common divisor of two integers presented earlier in the textbook. 
+// MKD needs links back to Division
+* Sorting algorithms to place items of a list in a specific order.
+* Searching algorithms to find an item in a data set or data structure like a tree.
+* Insertion and deletion algorithms to insert or delete an item in a data structure such as a tree or list.
+//* Optimization algorithms such as finding the line of best fit of set of points, or the problem of finding the nearest neighbor in a set of points to a given point  (here close could mean most similar according to some mathematically defined measure of closeness or similarity)
+// MKD need link to such algorithms OR change to graph/tree algorithms
 
-== Structure of Algorithms in Pseudocode
 
-While the algorithms we describe are implemented in the Python programming language, we also provide an overview of pseudocode syntax here. Pseudocode is used to provide high level description of a program or algorithm intended to be more human understandable than computer or program language. Its syntax preserves the structure of the program or algorithm while ignoring programming language specific details. It is meant to be easier to read and analyze.  Often, in designing an algorithm for language specific implementation, a pseudocode implementation is obtained first.  In addition to coming early in the design of a computer program, pseudocode also has two other important uses:
+//MKD added the following
+NOTE: Most of the Python examples in the Remix use non-optimal code. As mentioned in the link:./index.html[About this text] chapter, this was a deliberate choice because the code examples are designed for _teaching the mathematical concepts_ but not for illustrating the link:https://docs.python.org/3/glossary.html#term-Pythonic["Pythonic"] way of coding. However, a few code examples in this chapter _do_ show how you can complete the same task by using some of Python's built-in methods.
 
-. It can be used to help non-programmers understand what a program or algorithm does and how it works.
-
-. It can be used for debugging purposes when a programmer is trying to debug and solve a logic error in a computer program as it is closer to human language. Defects can be easier to find in a program implementation by analyzing the sequence of implementation steps in the pseudocode description.
-
-[NOTE]
-====
-Many of the terms in this section were also discussed in link:python_intro.html#_introduction_to_python[Introduction to Python].
-====
-
-Recall that an algorithm is a process of finite sequences of instructions used to solve a problem or obtain a result of a computation.
-The key features of an algorithm include:
-
-* Input
-* Variables
-* Data and data types
-* Instructions or statements
-* Output
-
-.Pseudocode Example
-[%header,cols="1a,1a"]
-|===
-|Pseudo Code
-|Python Code
-
-|[source, pseudocode, subs="normal, verbatim"]
-----
-*procedure* search(_{a~1~, a~2~, ..., a~n~}, x_) //<1>
-*begin* //<2>
-	*for* _i_ = 1 *to* _n_ *do* //<3>
-		*if* _a~i~_ equals _x_ *then* //<4>
-			*return* _i_ //<5>
-		*end if*
-	*end for*
-	*return* -1
-*end* //<6>
-----
-<1> Define a new _procedure_ with inputs
-<2> Explicitely start each _block_
-<3> Loop _block_ using a sequence of integers
-<4> Conditionally execute _block_
-<5> Return (exit) from _procedure_ with specific value
-<6> Explicitely end each _block_
-|[source, python]
-----
-def search(a, x): //<1>
-	for i in range(0, len(a)): //<2>
-		if a[i] == x: //<3>
-			return i //<4>
-	return -1
-<5>
-----
-<1> Define a new _function_ and start its _block_ with a *:*
-<2> Loop _block_ using a sequence of integers
-<3> Conditionally execute _block_
-<4> Return (exit) from _function_ with specific value
-<5> Each _block_ of code ends with unindent
-|===
 
 == Examples of Algorithms
 We now proceed to develop some algorithms beginning with algorithms for common mathematical
 operations.  Much of mathematical notation can be considered pseudocode.
 
-=== Sum Notation
-Consider the sum
+//MKD Euclidean Algorithm? and Lame's Theorem??
 
-$Sum=a_1+a_2+\ldots+a_n=\sum_{i=1}^{n}a_i,$
-
-which is a description of adding using the index $i$, the numbers $a_i$,
-running from $i=1$ to $i=n$.
-
-:pt_code_height: 370
-:pt_rawinput: false
-:pt_code:  def%20Sum_Notation%28a,%20n%29%3A%0A%20%20%20%20sum%20%3D%200%0A%20%20%20%20for%20i%20in%20range%280,%20n%29%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%20a%5Bi%5D%0A%20%20%20%20return%20sum%0A%20%20%20%20%0AS%20%3D%20Sum_Notation%28%5B1,%204,%209,%2016,%2025%5D,%203%29%0Aprint%28%22Sum%20of%20first%203%20nums%3A%22,%20S%29%0A
-****
-.Example {counter:algoex} - Sum Notation in Python
---
---
-
-The Python code below uses a *for* loop to implement sum notation, adding the first $n$ terms of a sequence $a=(a_i)$.
-
-include::python_tutor.adoc[]
-****
-
-=== Exponentiation
-Suppose we want to evaluate $b^n$, with base $b>0$, and exponent,
-$n$ a positive integer.
-For example to evaluate $5^6$, we could multiply iteratively, 5,
-
-$1, 5, 5\times5, 5\times5\times5, 5\times5\times5\times5,$ etc .
-
-:pt_code_height: 370
-:pt_rawinput: false
-:pt_code: def%20Exponentiation%28n,%20b%29%3A%0A%20%20%20%20Power%20%3D%201%0A%20%20%20%20for%20i%20in%20range%280,%20n%29%3A%0A%20%20%20%20%20%20%20%20Power%20%3D%20b%20*%20Power%0A%20%20%20%20return%20Power%0Ap%20%3D%20Exponentiation%285,%203%29%0Aprint%28%223%20raised%20to%205th%20power%3A%22,%20p%29%0A
-****
-.Example {counter:algoex} - Exponentiation in Python
---
---
-
-The Python code below uses a *for* loop to implement exponentiation,
-multiplying a positive base $b$ with itself $n$ times.
-
-include::python_tutor.adoc[]
-****
-
-
-=== Factorial
-The *factorial* of a positive integer $n$ can be computed iteratively. For example $4!$ can be calculated as
-
-$1,  1\times2, 1\times2\times3, 1\times2\times3\times4.$
-
-
-
-:pt_code_height: 350
-:pt_rawinput: false
-:pt_code: def%20factorial%28n%29%3A%0A%20%20%20%20result%20%3D%201%0A%20%20%20%20for%20i%20in%20range%281,%20n%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20result%20%3D%20result%20*%20i%0A%20%20%20%20return%20result%0A%0Af%20%3D%20factorial%286%29%0Aprint%28%226%20factorial%3A%22,%20f%29%0A
-****
-.Example {counter:algoex} - Factorial ($n!$) in Python
---
---
-The Python code below uses a *for* loop to implement $n!$ by iteratively multiplying.
-
-include::python_tutor.adoc[]
-****
+//MKD use compare Division-As-Multiple-Subtractions and the following 
+// https://pythontutor.com/render.html#code=a%20%3D%20299%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Adelta%20%3D%201%0Amultb%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%3Emultb%29%3A%0A%20%20%20%20delta%20%3D%20delta%3C%3C1%20%23%20multiply%20by%202%0A%20%20%20%20multb%20%3D%20multb%3C%3C1%20%23%20multiply%20by%202%0Adelta%20%3D%20delta%3E%3E1%0Amultb%20%3D%20multb%3E%3E1%0Awhile%28r%3Eb%29%3A%0A%20%20%20%20if%28r%3E%3Dmultb%29%3A%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20multb%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20delta%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20delta%20%3D%20delta%3E%3E1%20%0A%20%20%20%20multb%20%3D%20multb%3E%3E1%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+// or better still https://pythontutor.com/render.html#code=a%20%3D%201300%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%20%23%20multiply%20by%202%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%20%23%20multiply%20by%202%0Apower_of_2%20%3D%20power_of_2%20%3E%3E%201%0Ab_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%0Awhile%28r%3Eb%29%3A%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&cumulative=false&curInstr=90&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false 
+// or even better still https://pythontutor.com/render.html#code=a%20%3D%2013%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0A%23%20shift%20b%20over%20to%20correct%20column...%20but%20as%20done%20in%20binary%20notation!%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20*%202%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20*%202%0Apower_of_2%20%3D%20power_of_2%20%3E%3E%201%20%23%20floor%20division%20by%202%0Ab_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%0A%23%20now%20subtract%20down%20columns%20as%20in%20long%20division%20with%20decimals%0Awhile%28r%3Eb%29%3A%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&cumulative=false&curInstr=28&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+// this may be the same as "or even better still"  https://pythontutor.com/render.html#code=a%20%3D%2013%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0A%23%20shift%20b%20over%20to%20correct%20column...%20but%20as%20done%20in%20binary%20notation!%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20*%202%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20*%202%0Apower_of_2%20%3D%20power_of_2%20%3E%3E%201%20%23%20floor%20division%20by%202%0Ab_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%0A%23%20now%20subtract%20down%20columns%20as%20in%20long%20division%20with%20decimals%0Awhile%28r%3Eb%29%3A%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 
 
 === Find Minimum in a List of Integers
@@ -150,7 +44,6 @@ Consider an algorithm to determine the minimum element in a finite sequence or
 list of integers.
 
 The algorithm would be constructed as follows:
-
 
 * We define a variable $min$ and assign it to the first indexed element in the list.
 
@@ -161,8 +54,6 @@ then update the value of $min$.
 * Repeat the previous step if there are more elements in the list to inspect and compare.
 * Stop when the entire list has been traversed and all elements in the list
 have been inspected and compared against the variable $min$.
-
-
 
 A Python implementation of finding the minimum in a set of $n$ integers is given below.
 
@@ -178,212 +69,47 @@ The Python code below uses a *for* loop to implement an algorithm to find the mi
 include::python_tutor.adoc[]
 ****
 
-== The Linear Search Algorithm
-A linear search algorithm involves searching for a target integer $x$ in a list of
-distinct integers $ (a_1, a_2, ..., a_n)$, and returns the location $i$ in the list that the
-target element $x$ is found or returns a value indicating that the target element $x$ is not
-in the list $ (a_1, a_2, ..., a_n)$.
 
+== Search Algorithms
+
+//MKD inserted paragraph
+In the first two subsections you will see two algorithms for searching for a target integer within a list of integers. In the third subsection, Python's built-in search methods are discussed.  
+
+#*RECOMMENDATION:* The link:https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/["Algorithms" activity] can replace one or both of the first two subsections.#
+
+=== The Linear Search Algorithm
+
+// MKD reworded paragraph
+Linear search compares a target integer, _t,_ to each element in a list of distinct integers, starting at index 0, and returns either the index _i_ at which the target integer was found or a value indicating that the target integer was not found in the list.
 
 A Python implementation of the linear search algorithm is given below.
 
-:pt_code_height: 370
+// MKD reimplemented code based on Rosen
+:pt_code_height: 450
 :pt_rawinput: false
-:pt_code: def%20Linear_Search%28a,%20x%29%3A%20%0A%20%20%20%20for%20i%20in%20range%280,%20len%28a%29%29%3A%20%0A%20%20%20%20%20%20%20%20if%20a%5Bi%5D%20%3D%3D%20x%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20i%20%0A%20%20%20%20return%20-1%0A%0Aindex%20%3D%20Linear_Search%28%5B6,%203,%204,%205,%207%5D,%204%29%0Aprint%28%224%20found%20at%20index%22,%20index%29%0A
+:pt_code: s%20%3D%20%5B67,22,59,38,45,16%5D%0At%20%3D%205%0An%20%3D%20len%28s%29%0Ai%20%3D%200%0Awhile%20%28i%20%3C%20n%20and%20t%20!%3D%20s%5Bi%5D%29%3A%0A%20%20%20%20i%20%3D%20i%20%2B%201%0Aif%20%28i%3Cn%29%3A%0A%20%20%20%20print%20%28i%29%0Aelse%3A%0A%20%20%20%20print%20%28None%29
+
 ****
 .Example {counter:algoex} - Linear Search Algorithm in Python
 --
 --
-The Python code below uses a *for* loop to implement the linear search algorithm.  The algorithm returns the position $i$
-of the list where the target $x$ is found, returning $-1$ if the target is not in the list.
-
-
-include::python_tutor.adoc[]
-****
-
-== The Bubble Sort Algorithm
-The bubble sort algorithm is a simple  sorting procedure.  It is typically used to sort  an array of $n$ data elements in either increasing or decreasing order.  We describe the bubble sort algorithm for arranging a list of $n$ real numbers in increasing order.
-
-* The algorithm compares the first two elements of the array and swaps them if they are out of order.
-* It continues by traversing up the array comparing each pair of adjacent elements and swaps them if they are out of order until we reach the last entry in the array at location $n$.
-* The last entry in the array will then be the largest element of the original list.
-* After the largest element has been sorted into position $n$, the algorithm continues by again comparing the first two elements and
-swapping if they are out of order.
-* Continue traversing the array and comparing and swapping adjacent elements that are out of order until position $n-1$ of the array, after which the 2nd largest element is in position $n-1$. The elements, now at positions $n$, and $n-1$, are sorted.
-* Continue to sort at positions $n-2$, then $n-3$ until position $1$.
-
-
-A Python implementation of the bubble sort algorithm is given below.
-
-:pt_code_height: 450
-:pt_rawinput: false
-:pt_code: def%20BubbleSort%28a%29%3A%0A%20%20%20%20n%20%3D%20len%28a%29%0A%20%20%20%20for%20i%20in%20range%280,%20n%29%3A%0A%20%20%20%20%20%20%20%20%20for%20j%20in%20range%280,%20n%20-%20i%20-%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20if%20a%5Bj%5D%20%3E%20a%20%5Bj%2B1%5D%20%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20a%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20a%5Bj%5D%20%3D%20a%5Bj%2B1%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20a%5Bj%2B1%5D%20%3D%20temp%0A%20%20%20%20return%20a%0A%0Aarr%20%3D%20BubbleSort%28%5B6,%202,%205,%203,%204,%201%20%5D%29%0Aprint%28%22Sorted%20array%20is%3A%22,%20arr%29%0A
-****
-.Python implementation of the Bubble Sort Algorithm
---
---
-The Python code below uses two *for* loops to implement the Bubble Sort as found in the pseudocode description.
+// MKD revised text 
+The Python code below uses a *while* loop to implement the linear search algorithm. The code prints either the index at which the target was found in the list or the built-in constant link:https://docs.python.org/3/library/constants.html#None[`None`] to indicate that the target was not found.
 
 include::python_tutor.adoc[]
-****
 
-****
-.Example {counter:algoex} - Tracing a Bubble Sort
-As an example we consider explicitly the steps of the Bubble Sort Algorithm to sort $6, 2, 5, 3, 4, 1, $ in increasing
-order.
-
-.Solution
-
-
-First Pass
-
-$\left(\mathbf{6}\ \mathbf{2}\ 5\ 3\ 4\ 1\right)\rightarrow\ \left(\mathbf{2}\ \mathbf{6}\ 5\ 3\ 4\ 1\right)\ $ compare and swap
-
-$\left(2\ \mathbf{6}\ \mathbf{5}\ 3\ 4\ 1\right)\rightarrow\ \left(2\ \mathbf{5}\ \mathbf{6}\ 3\ 4\ 1\right)\ $ compare and swap
-
-$\left(2\ 5\ \mathbf{6}\ \mathbf{3}\ 4\ 1\right)\rightarrow\ \left(2\ 5\ \mathbf{3}\ \mathbf{6}\ 4\ 1\right)\ $ compare and swap
-
-$\left(2\ 5\ 3\ \mathbf{6}\ \mathbf{4}\ 1\right)\rightarrow\ \left(2\ 5\ 3\ \mathbf{4}\ \mathbf{6}\ 1\right)\ $ compare and swap
-
-$\left(2\ 5\ 3\ 4\ \mathbf{6}\ \mathbf{1}\right)\rightarrow\ \left(2\ 5\ 3\ 4\ \mathbf{1}\ \mathbf{6}\right)\ $ compare and swap
-
-Second pass
-
-$\left(\mathbf{2}\ \mathbf{5}\ 3\ 4\ 1\ 6\right)\rightarrow\ \left(\mathbf{2}\ \mathbf{5}\ 3\ 4\ 1\ 6\right)\ $ compare and no swap
-
-$\left(2\ \mathbf{5}\ \mathbf{3}\ 4\ 1\ 6\right)\rightarrow\ \left(2\ \mathbf{3}\ \mathbf{5}\ 4\ 1\ 6\right)\ $ compare and swap
-
-$\left(2\ 3\ \mathbf{5}\ \mathbf{4}\ 1\ 6\right)\rightarrow\ \left(2\ 3\ \mathbf{4}\ \mathbf{5}\ 1\ 6\right)\ $ compare and swap
-
-$\left(2\ 3\ 4\ \mathbf{5}\ \mathbf{1}\ 6\right)\rightarrow\ \left(2\ 3\ 4\ \mathbf{1}\ \mathbf{5}\ 6\right)\ $ compare and swap
-
-Third pass
-
-$\left(\mathbf{2}\ \mathbf{3}\ 4\ 1\ 5\ 6\right)\rightarrow\ \left(\mathbf{2}\ \mathbf{3}\ 4\ 1\ 5\ 6\right)\ $ compare and no swap
-
-$\left(2\ \mathbf{3}\ \mathbf{4}\ 1\ 5\ 6\right)\rightarrow\ \left(2\ \mathbf{3}\ \mathbf{4}\ 1\ 5\ 6\right)\ $ compare and no swap
-
-$\left(2\ 3\ \mathbf{4}\ \mathbf{1}\ 5\ 6\right)\rightarrow\ \left(2\ 3\ \mathbf{1}\ \mathbf{4}\ 5\ 6\right)\ $ compare and swap
-
-
-Fourth Pass
-
-$\left(\mathbf{2}\ \mathbf{3}\ 1\ 4\ 5\ 6\right)\rightarrow\ \left(\mathbf{2}\ \mathbf{3}\ 1\ 4\ 5\ 6\right)\ $ compare and  no swap
-
-$\left(2\ \mathbf{3}\ \mathbf{1}\ 4\ 5\ 6\right)\rightarrow\ \left(2\ \mathbf{1}\ \mathbf{3}\ 4\ 5\ 6\right)\ $ compare and swap
-
-
-Fifth Pass
-
-
-$\left( \mathbf{2}\ \mathbf{1}\ 3\ 4\ 5\ 6)\rightarrow\ (\mathbf{1}\ \mathbf{2}\ 3\ 4\ 5\ 6)\right)\ $ compare and swap
-****
-
-
-== The Insertion Sort Algorithm
-
-The insertion sort works by working through a list and classifying two pieces as sorted and unsorted.
-
-* The insertion sort scans through each element of the list
-using an outer loop with a variable, say $i$.
-
-* At each stage, the list is divided into a sorted section, say the left section, and a section that is not sorted, say the right.
-
-* The location up to which the list is sorted, is denoted by a pointer or index, called a key.
-
-* At the current stage, the next element from the unsorted section, on the right,
-is inserted into its appropriate position in the sorted section on the left.
-
-* The process of inserting smaller elements in the left involves shifting,
-larger elements to the right, using a variable, say $j$.
-
-
-A Python implementation of the Insertion Sort Algorithm is given below:
-
-:pt_code_height: 350
-:pt_rawinput: false
-:pt_code:   def%20insertion_sort%28a%29%3A%0A%20%20%20%20for%20i%20in%20range%281,%20len%28a%29%29%3A%0A%20%20%20%20%20%20%20%20j%20%3D%20i-1%20%0A%20%20%20%20%20%20%20%20key%20%3D%20a%5Bi%5D%0A%20%20%20%20%20%20%20%20while%20%28a%5Bj%5D%20%3E%20key%29%20and%20%28j%20%3E%3D%200%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20a%5Bj%2B1%5D%20%3D%20a%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%0A%20%20%20%20%20%20%20%20a%5Bj%2B1%5D%20%3D%20key%0A%20%0A%23%20Driver%20code%20to%20test%20above%0Aarr%20%3D%20%5B64,%2034,%2025,%2012,%2022,%2011,%2090%5D%0A%20%0Ainsertion_sort%28arr%29%0A%20%0Aprint%20%28%22Sorted%20array%20is%3A%22%29%0Afor%20i%20in%20range%28len%28arr%29%29%3A%0A%20%20%20%20print%20%28%22%25d%22%20%25arr%5Bi%5D%29,%0A
-****
-.Example {counter:algoex} - Insertion Sort in Python
 --
---
-The Python code below uses a *for* loop and a nested while loop to implement the Insertion Sort
-Algorithm.
-
-include::python_tutor.adoc[]
-****
-
-****
-.Example {counter:algoex} - Tracing the Insertion Sort Algorithm
-
-
-As an example we consider explicitly the steps of the Insertion Sort Algorithm to sort $6, 2, 5, 3, 4, 1, $ in increasing
-order.
-The key, or boundary, between the sorted and unsorted portions is denoted by the vertical bar or pipe character.
-
-.Solution
-First pass
-
-$(\underbrace{\mathbf{6}\ |\ \mathbf{2}}\ 5\ 3\ 4\ 1)$ compare and insert
-
-Second pass
-
-$(2\ \underbrace{\mathbf{6}\ |\ \mathbf{5}}\ 3\ 4\ 1)$ compare and  insert
-
-$(\underbrace{\mathbf{2}\ \mathbf{5}}\ |\ 6\ 3\ 4\ 1)$ compare and do not insert
-
-Third pass
-
-$(2\ 5\ \underbrace{\mathbf{6}\ |\ \mathbf{3}}\ 4\ 1)$ compare and  insert
-
-$(2\ \underbrace{\mathbf{5}\ \mathbf{3}}\ |\ 6\ 4\ 1)$ compare and  insert
-
-$(\underbrace{\mathbf{2}\ \mathbf{3}}\ 5\ |\ 6\ 4\ 1)$ compare and  do not insert
-
-Fourth pass
-
-$(2\ 3\ 5\ \underbrace{\mathbf{6}\ |\ \mathbf{4}}\ 1)$ compare and  insert
-
-$(2\ 3\ \underbrace{\mathbf{5}\ \mathbf{4}\ }|\ 6\ 1)$ compare and  insert
-
-$(2\ \underbrace{\mathbf{3}\ \mathbf{4}}\ 5\ |\ 6\ 1)$ compare and  do no insert
-
-Fifth pass
-
-$(2\ 3\ 4\ 5\ \ \underbrace{\mathbf{6}\ |\ \mathbf{1}})$    compare and  insert
-
-$(2\ 3\ 4\ \underbrace{\mathbf{5}\ \mathbf{1}}\ |\ 6)$    compare and  insert
-
-$(2\ 3\ \underbrace{\mathbf{4}\ \mathbf{1}}\ 5\ |\ 6)$    compare and  insert
-
-$(2\ \underbrace{\mathbf{3}\ \mathbf{1}}\ 4\ \ 5\ |\ 6)$    compare and  insert
-
-$(\underbrace{\mathbf{2}\ \mathbf{1}\ }3\ 4\ \ 5\ |\ 6)$    compare and  insert
-
-$( 1\ 2\ 3\ 4\ \ 5\ |\ 6)$
-****
-
-== The Binary Search Algorithm
-The binary search algorithm searches a *sorted* array of integers for a target value $t$.  The algorithms looks for $t$ in the middle of the array.  If it does not find $t$ in the middle, it considers either the first half or the second half.  It continues recursively splitting the search space in half until it either finds $t$ or fails.
-
-
-:pt_code_height: 520
-:pt_rawinput: false
-:pt_code: from%20math%20import%20floor%0Adef%20BinarySearch%28a,%20t%29%3A%0A%20%20%20%20L%20%3D%200%0A%20%20%20%20R%20%3D%20len%28a%29%20-%201%0A%20%20%20%20while%20L%20%3C%3D%20R%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20floor%28%28L%20%2B%20R%29%20/%202%29%0A%20%20%20%20%20%20%20%20if%20a%5Bm%5D%20%3C%20t%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20L%20%3D%20m%20%2B%201%0A%20%20%20%20%20%20%20%20elif%20a%5Bm%5D%20%3E%20t%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20R%20%3D%20m%20-%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20m%0A%20%20%20%20return%20-1%0A%0Ai%20%3D%20BinarySearch%28%5B200,%20205,%20315,%20498%5D,%20498%29%0Aprint%28%22498%20is%20at%20index%22,%20i%29
-****
-.Example {counter:algoex} - Binary Search Algorithm in Python
---
+Why not use -1 to indicate that the target integer was not found?::
+Negative integers can be _valid indices_ for a Python list! This ivery different than other languages like Java in which indices [underline]#must# be natural numbers. 
+As an example, for the list $L = \lbrack 2,4,7 \rbrack$ we have $L \lbrack -1 \rbrack = 7,$ $L \lbrack -2 \rbrack = 4,$ and $L \lbrack -3 \rbrack = 2.$ If you are coding in Python it may be safer either to raise an exception or to use the built-in constant `None` to indicate that no index for the target was found.
 --
 
-include::python_tutor.adoc[]
 ****
 
-== Algorithmic Complexity of Common Algorithms
 
-In this section we give time complexity using big 0 notation of some of the important algorithms in this section.
-Recall big $O$ notation is used to quantify the worst case an algorithm performs on a data input size of n.
-
-=== The Linear Search Algorithm is $O(n)$.
+==== Big-O Analysis of Linear Search
+// MKD moved content from below
+// === The Linear Search Algorithm is $O(n)$.
 
 The linear search algorithm iterates across a list of $n$ data elements. If the first element in the list is the target
 element, the algorithm stops. Otherwise, move to the next element and continue
@@ -397,7 +123,238 @@ or the target element  is not  actually  in the search list at all. The algorith
 runs in $O(n)$ time in the worst case.
 
 
-=== The Bubble Sort and Insertion Sort Algorithms are $O(n^2)$.
+=== The Binary Search Algorithm
+
+// MKD reworded paragraph
+//The binary search algorithm searches a *sorted* array of integers for a target value $t$.  The algorithms looks for $t$ in the middle of the array.  If it does not find $t$ in the middle, it considers either the first half or the second half.  It continues recursively splitting the search space in half until it either finds $t$ or fails.
+The binary search algorithm searches a _sorted_ list _L_ of integers for a target value _t._  The algorithm starts looking for _t_ in the middle of the sorted list. If _t_ is greater than the value in the middle, the algorithm continues the binary search in the upper half of the list, otherwise the algorithm continues the binary search in the lower half of the list. The algorithm continues in this way until we reach a list of length 1 that either does or does not have _t_ as its only element.
+
+
+//:pt_code_height: 520
+//:pt_rawinput: false
+//:pt_code: from%20math%20import%20floor%0Adef%20BinarySearch%28a,%20t%29%3A%0A%20%20%20%20L%20%3D%200%0A%20%20%20%20R%20%3D%20len%28a%29%20-%201%0A%20%20%20%20while%20L%20%3C%3D%20R%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20floor%28%28L%20%2B%20R%29%20/%202%29%0A%20%20%20%20%20%20%20%20if%20a%5Bm%5D%20%3C%20t%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20L%20%3D%20m%20%2B%201%0A%20%20%20%20%20%20%20%20elif%20a%5Bm%5D%20%3E%20t%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20R%20%3D%20m%20-%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20m%0A%20%20%20%20return%20-1%0A%0Ai%20%3D%20BinarySearch%28%5B200,%20205,%20315,%20498%5D,%20498%29%0Aprint%28%22498%20is%20at%20index%22,%20i%29
+
+//:pt_code: import%20math%0Athe_sequence%20%3D%20%5B1,2,3,5,6,7,8,10,12,13,15,16,18,19,20,22%5D%0Athe_target%20%3D%2019%0Adef%20binarySearch%28s,t%29%3A%0A%20%20%20%20low%20%3D%200%20%23%20lowest%20index%0A%20%20%20%20high%20%3D%20len%28s%29-1%20%23%20highest%20index%0A%20%20%20%20while%20low%20%3C%20high%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20math.floor%28%28low%2Bhigh%29/2%29%0A%20%20%20%20%20%20%20%20if%20s%5Bm%5D%3Ct%3A%20low%20%3D%20m%2B1%0A%20%20%20%20%20%20%20%20else%3A%20high%20%3D%20m%0A%20%20%20%20if%20t%20%3D%3D%20s%5Blow%5D%3A%20return%20low%0A%20%20%20%20else%3A%20return%20None%0Athe_index%20%3D%20binarySearch%28the_sequence,the_target%29%0Aif%20the_index%20%3D%3D%20None%3A%0A%20%20%20%20print%28%22Value%22,the_target,%22not%20found%20in%22,str%28the_sequence%29%2B'.'%29%0Aelse%3A%0A%20%20%20%20print%28%22Value%22,the_target,%22found%20at%20index%22,the_index,%22of%22,str%28the_sequence%29%2B'.'%29&
+
+:pt_code_height: 550
+:pt_rawinput: false
+:pt_code: import%20math%0As%20%3D%20%5B1,2,3,5,6,7,8,10,12,13,15,16,18,19,20,22%5D%0At%20%3D%2017%0Alow_index%20%3D%200%0Ahigh_index%20%3D%20len%28s%29-1%0Awhile%20low_index%20%3C%20high_index%3A%0A%20%20%20%20middle_index%20%3D%20math.floor%28%28low_index%2Bhigh_index%29/2%29%0A%20%20%20%20if%20s%5Bmiddle_index%5D%3Ct%3A%20%0A%20%20%20%20%20%20%20%20low_index%20%3D%20middle_index%2B1%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20high_index%20%3D%20middle_index%0Aif%20t%20%3D%3D%20s%5Blow_index%5D%3A%20%0A%20%20%20%20print%28low_index%29%0Aelse%3A%20%0A%20%20%20%20print%28None%29
+****
+.Example {counter:algoex} - Binary Search Algorithm in Python
+--
+--
+
+include::python_tutor.adoc[]
+****
+
+
+==== Big-O Analysis of Binary Search
+// MKD moved from later section
+//=== The Binary  Search Algorithm is $O(\log{n})$.
+
+The binary search algorithm searches for a target element $x$  in a list of $n$ elements
+by comparing the middle element in the the sorted data set with the target $x$. The algorithm
+stops if the middle element $a_m$ is  the target element. Otherwise the search continues with
+half the data set--the half to the left if the middle element is larger than the target $x$
+or the half to the right if the middle element is smaller than the target.
+
+The number of steps in the binary search then is the number of times we have to split the data set until we locate the target
+element, or determine that the target element is not in the search list after splitting down to 1 element.
+
+The number of times we need to split the data set of size $n$, in the worst case then, is $p$ which is
+found by solving the exponential equation,
+
+$2^p = n$.
+
+The algorithm then is $O(p)$.
+
+The solution of the exponential equation, $2^p = n$, is in log form,
+
+$p=\log_2{n}$.
+
+The binary search algorithm then is $O(p)=O(\log{n})$.
+
+
+=== Searching Within a List using Python
+
+In this subsection you will see how to use Python to efficiently search lists. 
+
+//MKD note and code sample begins
+****
+.Example {counter:algoex} - Searching a List in Python
+--
+--
+//TIP: 
+You can search for the index of a target value in a Python list by calling the list.index(x) method. This method returns the _least_ natural number index of the target value if it is found in the list, otherwise it raises a ValueError. 
+//You can search for the index of the target value `x` in a Python list `s` by calling `s.index(x)`, which either returns the _least index_ `i` of `x` in `s` or raises a ValueError if `x` is not in `s`. +  
+//Also, you could use the list.count(x) method, which returns the number of occurrences of x in the list (so it returns 0 if x is not found.)
+
+:pt_code_height: 420
+:pt_rawinput: false
+:pt_code: s%20%3D%20%5B67,22,59,38,45,16%5D%0Ax%20%3D%2044%0Ai%20%3D%20s.index%28x%29%0A%23%20Change%20x%20to%20a%20value%20in%20s%20%0A%23%20%20%20to%20avoid%20the%20ValueError%0A
+include::python_tutor.adoc[]
+
+If need to know whether the target value _x_ is in the list _s_ but do not need the least index, you can use `x in s` which returns a `Boolean.`
+
+:pt_code_height: 320
+:pt_rawinput: false
+:pt_code: s%20%3D%20%5B67,22,59,38,45,16%5D%0Ax%20%3D%2044%0Ab%20%3D%20x%20in%20s%0A
+include::python_tutor.adoc[]
+
+If need to know how many times the target value _x_ occurs in the list _s_ you can use the `list.count(x)` method.
+
+:pt_code_height: 320
+:pt_rawinput: false
+:pt_code: s%20%3D%20%5B67,22,59,38,45,16%5D%0Ax%20%3D%2044%0An%20%3D%20s.count%28x%29%0A
+include::python_tutor.adoc[]
+****
+
+//MKD created new section
+== Sorting Algorithms
+
+//MKD inserted paragraph
+In this section you will see three 
+//In this section you will see two simple 
+//, easy-to-understand algorithms for 
+algorithms for 
+sorting a list of real numbers. 
+//are presented in this section. 
+//Neither of these algorithms are efficient. They are presented here, as in some other textbooks, because they are easy to understand and analyze, but there are much more efficient algorithms that should be used in actual "production code."
+Two of these algorithms, bubble sort and insertion sort, are inefficient but are presented here as in many other textbooks because they are easy to understand and analyze. The third algorithm, merge sort, is an efficient recursive algorithm. 
+
+//MKD note and code sample begins
+TIP: In Python, 
+//if L is a list, then L.sort() will sort the list in-place, in increasing order. This link:https://docs.python.org/3/howto/sorting.html[built-in method] uses  sorting algorithms that won't be discussed in this textbook: the Timsort algorithm in Python versions 2.3 to 3.10, and the Powersort algorithm in Python versions 3.11 to 3.12 (the current version as of this writing). 
+the elements of a list L can be sorted into increasing order by calling the link:https://docs.python.org/3/howto/sorting.html[list.sort()] method. This built-in method uses one of two sorting algorithms that won't be discussed in this textbook: the Timsort algorithm in Python versions 2.3 to 3.10, or the Powersort algorithm in Python versions 3.11 to 3.12 (the current version as of this writing). 
+
+:pt_code_height: 300
+:pt_rawinput: false
+:pt_code: s%20%3D%20%5B67,22,59,38,45,16%5D%0As.sort%28%29%0A
+
+// 	[6,2,5,3,4,1] is list used in the original work
+// MKD now uses [67,22,59,38,45,16]
+
+
+****
+.Python built-in sort() method
+--
+--
+The code below uses Python's built-in sort() method. 
+
+include::python_tutor.adoc[]
+****
+//MKD note and code sample ends
+
+
+
+//MKD bubble sort is now a subsection
+//== The Bubble Sort Algorithm
+=== Bubble Sort
+
+// MKD CONSIDER INSERTING AN IMAGE LIKE https://introcs.cs.princeton.edu/java/11cheatsheet/images/array.png, but with clear license for reuse
+// MKD inserted image //image::imagesMKD/ArrayWithSixIntegerValues.png[align="center"]
+//.A Python list with six _int_ items.
+image::imagesMKD/ArrayWithSixIntegerValues.png[ArrayWithSixIntegerValues,190,309,float="right",align="center"]
+The bubble sort algorithm is a simple  sorting procedure.  It is typically used to sort 
+// MKD revised wording to 
+// an array of $n$ data elements in either increasing or decreasing order. 
+a  
+list of _n_ data elements in either increasing or decreasing order. + 
+// MKD moved a copy of this next sentence after the warning. 
+//We describe the bubble sort algorithm for arranging a list of $n$ real numbers in increasing order. 
+// MKD inserted comment on naming 
+ + 
+NOTE: This algorithm is called "bubble sort" because "the lighter items  bubble up to the top" of the list, closer to index 0, like bubbles in a drink. + 
+ + 
+WARNING: The bubble sort algorithm 
+//is 
+produces the correct result but is 
+[.underline]#*_very_*# inefficient. You should almost never use bubble sort in code that you write. In almost every application that requires sorting a list, there is an algorithm that can be used that is much more efficient than bubble sort. 
+//Bubble sort is presented here, and in other textbooks, because it is so simple and very easy to understand. 
+You have been warned!
+
+
+//MKD inserted comment on naming
+//[NOTE]
+//====
+//====
+
+//MKD inserted warning
+//WARNING: The bubble sort algorithm is [.underline]#*_very_*# inefficient. 
+//You should almost never use bubble sort in code that you write. 
+//In almost every application that requires sorting a list, there is an algorithm that can be used that is much more efficient than bubble sort. 
+//Bubble sort is presented here, and in other textbooks, because it is so simple and very easy to understand. 
+//You have been warned!
+
+We describe the bubble sort algorithm for arranging a list of $n$ real numbers in increasing order. 
+
+//MKD changed array to list and subtracted 1 from indices throughout the bullet points
+* The algorithm compares the first two elements of the 
+//array 
+list 
+and swaps them if they are out of order.
+* It continues by traversing 
+//up the array 
+the list in order of increasing index,  
+comparing each pair of adjacent elements and 
+//swaps 
+swapping them if they are out of order until we reach the last entry in the 
+//array at location $n$. 
+list at index $n-1$.
+* The last entry in the 
+//array 
+list 
+will then be the largest element of the original list.
+* After the largest element has been sorted into position 
+//$n$, 
+$n-1$, 
+the algorithm continues by again comparing the first two elements and
+swapping if they are out of order.
+* Continue traversing the 
+//array 
+list and comparing and swapping adjacent elements that are out of order until position 
+//$n-1$ of the array, 
+$n-2$ of the array, 
+after which the 2nd largest element is 
+//in position $n-1$. 
+at index $n-2$. 
+The elements, now at 
+//positions $n$, and $n-1$, are sorted.
+indices $n-1$ and $n-2$ are sorted.
+* Continue to sort at 
+//positions $n-2$, then $n-3$ until position $1$.
+indices $n-3,$ then $n-4,$ and so on, until all elements are in increasing order.
+
+
+A Python implementation of the bubble sort algorithm is given below.
+
+//:pt_code_height: 450
+//:pt_rawinput: false
+//:pt_code: //def%20BubbleSort%28a%29%3A%0A%20%20%20%20n%20%3D%20len%28a%29%0A%20%20%20%20for%20i%20in%20range%280,%20n%29%3A%0A%20%20%20%20%20%20%20%20%20for%20j%20in%20range%280,%20n%20-%20i%20-%201%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20if%20a%5Bj%5D%20%3E%20a%20%5Bj%2B1%5D%20%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20a%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20a%5Bj%5D%20%3D%20a%5Bj%2B1%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20a%5Bj%2B1%5D%20%3D%20temp%0A%20%20%20%20return%20a%0A%0Aarr%20%3D%20BubbleSort%28%5B6,%202,%205,%203,%204,%201%20%5D%29%0Aprint%28%22Sorted%20array%20is%3A%22,%20arr%29%0A
+
+:pt_code_height: 500
+:pt_rawinput: false
+:pt_code: s%20%3D%20%5B67,22,59,38,45,16%5D%0An%20%3D%20len%28s%29%0Ai%20%3D%200%0Awhile%20i%20%3C%20%28n-1%29%3A%0A%20%20%20%20j%20%3D%200%0A%20%20%20%20while%20j%20%3C%20%28%28n-1%29-i%29%3A%0A%20%20%20%20%20%20%20%20if%20s%5Bj%5D%20%3E%20s%5Bj%2B1%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20temp%20%3D%20s%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20s%5Bj%5D%20%3D%20s%5Bj%2B1%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20s%5Bj%2B1%5D%20%3D%20temp%0A%20%20%20%20%20%20%20%20j%20%3D%20j%20%2B%201%0A%20%20%20%20i%20%3D%20i%20%2B%201
+
+// MKD reimplemented code based on Rosen
+// 	[6,2,5,3,4,1] is list used in the original work
+//	[2,5,1,4,7] is alternate list, but would need to rewrite trace below
+// MKD reimplemented code based on Rosen
+// MKD now uses [67,22,59,38,45,16]
+
+****
+.Python implementation of the Bubble Sort Algorithm
+--
+--
+//MKD edited text 
+//The Python code below uses two *for* loops to implement the Bubble Sort as found in the pseudocode description.
+The code below uses two nested while loops to implement the Bubble Sort algorithm. 
+
+include::python_tutor.adoc[]
+****
+
+
+==== Big-O Analysis of Bubble Sort
 
 We analyze the bubble sort algorithm beginning with a concrete list of size $n=5$ and
 generalize the analysis.
@@ -429,31 +386,102 @@ We will show later, that
 
 $ 1+2+3+\cdots+n-1= \frac{(n-1)\cdot\ n}{2}=\frac{n^2}{2}-\frac{n}{2}$, which is $O(n^2)$.
 
+
+=== Insertion Sort
+
+//MKD rewrote sentence
+//The insertion sort works by working through a list and classifying two pieces as sorted and unsorted.
+The insertion sort works through a list and classifies two sections as sorted and unsorted.
+
+* The insertion sort scans through each element of the list
+using an outer loop with a variable, say $i$.
+
+* At each stage, the list is divided into a sorted section, say the left section, and a section that is not sorted, say the right.
+
+* The location up to which the list is sorted, is denoted by a pointer or index, called a key.
+
+* At the current stage, the next element from the unsorted section, on the right,
+is inserted into its appropriate position in the sorted section on the left.
+
+* The process of inserting smaller elements in the left involves shifting,
+larger elements to the right, using a variable, say $j$.
+
+
+A Python implementation of the Insertion Sort Algorithm is given below:
+
+//:pt_code_height: 350
+//:pt_rawinput: false
+//:pt_code:   def%20insertion_sort%28a%29%3A%0A%20%20%20%20for%20i%20in%20range%281,%20len%28a%29%29%3A%0A%20%20%20%20%20%20%20%20j%20%3D%20i-1%20%0A%20%20%20%20%20%20%20%20key%20%3D%20a%5Bi%5D%0A%20%20%20%20%20%20%20%20while%20%28a%5Bj%5D%20%3E%20key%29%20and%20%28j%20%3E%3D%200%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20a%5Bj%2B1%5D%20%3D%20a%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%0A%20%20%20%20%20%20%20%20a%5Bj%2B1%5D%20%3D%20key%0A%20%0A%23%20Driver%20code%20to%20test%20above%0Aarr%20%3D%20%5B64,%2034,%2025,%2012,%2022,%2011,%2090%5D%0A%20%0Ainsertion_sort%28arr%29%0A%20%0Aprint%20%28%22Sorted%20array%20is%3A%22%29%0Afor%20i%20in%20range%28len%28arr%29%29%3A%0A%20%20%20%20print%20%28%22%25d%22%20%25arr%5Bi%5D%29,%0A
+
+// MKD most like Rosen's example, but harder to follow 
+//:pt_code: s%20%3D%20%5B2,5,1,4,7%5D%0An%20%3D%20len%28s%29%0Aj%20%3D%201%0Awhile%20j%20%3C%20n%3A%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20while%20s%5Bj%5D%20%3E%20s%5Bi%5D%3A%0A%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20temp%20%3D%20s%5Bj%5D%0A%20%20%20%20k%20%3D%200%0A%20%20%20%20while%20k%20%3C%20%28j-i%29%3A%0A%20%20%20%20%20%20%20%20s%5Bj-k%5D%20%3D%20s%5Bj-k-1%5D%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%0A%20%20%20%20s%5Bi%5D%20%3D%20temp%0A%20%20%20%20j%20%3D%20j%20%2B%201
+
+//MKD like Rosen's but counts back in swap loop, without test for j == i 
+//:pt_code: s%20%3D%20%5B2,5,1,4,7%5D%0An%20%3D%20len%28s%29%0Aj%20%3D%201%0Awhile%20j%20%3C%20n%3A%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20while%20s%5Bj%5D%20%3E%20s%5Bi%5D%3A%0A%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20temp%20%3D%20s%5Bj%5D%0A%20%20%20%20k%20%3D%20j%0A%20%20%20%20while%20k%20%3E%20i%3A%0A%20%20%20%20%20%20%20%20s%5Bk%5D%20%3D%20s%5Bk-1%5D%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20-%201%0A%20%20%20%20s%5Bi%5D%20%3D%20temp%0A%20%20%20%20j%20%3D%20j%20%2B%201
+
+//MKD preferred code (counts back in swap loop, tests for j == i)
+:pt_code_height: 550
+:pt_rawinput: false
+:pt_code: s%20%3D%20%5B67,22,59,38,45,16%5D%0An%20%3D%20len%28s%29%0Aj%20%3D%201%0Awhile%20j%20%3C%20n%3A%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20while%20s%5Bj%5D%20%3E%20s%5Bi%5D%3A%0A%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20if%20i%20%3C%20j%3A%0A%20%20%20%20%20%20%20%20temp%20%3D%20s%5Bj%5D%0A%20%20%20%20%20%20%20%20k%20%3D%20j%0A%20%20%20%20%20%20%20%20while%20k%20%3E%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20s%5Bk%5D%20%3D%20s%5Bk-1%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20k%20%3D%20k%20-%201%0A%20%20%20%20%20%20%20%20s%5Bi%5D%20%3D%20temp%0A%20%20%20%20j%20%3D%20j%20%2B%201
+
+// MKD reimplemented code based on Rosen
+// 	[6,2,5,3,4,1] is list used in the original work
+//	[2,5,1,4,7] is alternate list, but would need to rewrite trace below
+// MKD now uses [67,22,59,38,45,16]
+
+****
+.Example {counter:algoex} - Insertion Sort in Python
+--
+--
+// MKD rewrote text
+//The Python code below uses a *for* loop and a nested while loop to implement the Insertion Sort
+//Algorithm.
+The code below uses two nested while loops to implement the Insertion Sort algorithm. 
+
+include::python_tutor.adoc[]
+****
+
+
+==== Big-O Analysis of Insertion Sort
+
 It is left as an exercise to verify that the insertion sort algorithm is $O(n^2)$.
 
-=== The Binary  Search Algorithm is $O(\log{n})$.
 
-The binary search algorithm searches for a target element $x$  in a list of $n$ elements
-by comparing the middle element in the the sorted data set with the target $x$. The algorithm
-stops if the middle element $a_m$ is  the target element. Otherwise the search continues with
-half the data set--the half to the left if the middle element is larger than the target $x$
-or the half to the right if the middle element is smaller than the target.
+//MKD merge sort begins
+=== Merge Sort
 
-The number of steps in the binary search then is the number of times we have to split the data set until we locate the target
-element, or determine that the target element is not in the search list after splitting down to 1 element.
+Merge Sort is a recursive sorting algorithm. The general idea is to divide a list of length $n$ into $n$ sublists of length $1$, where a list of length one is considered already sorted. Subsequently, the algorithm repeatedly merges the sublists to make sorted lists until only a single list of length $n$ is remaining. This will be the a sorted list consisting of the elements of the original list.
 
-The number of times we need to split the data set of size $n$, in the worst case then, is $p$ which is
-found by solving the exponential equation,
+The picture below illustrates this with a list of length seven.
+[.float-group]
+--
+.Illustration of Merge Sort courtesy of Wikipedia
+[.left.text-center]
+image::images/mergesort.png[GGC,600,600, align="center"]
+--
 
-$2^p = n$.
 
-The algorithm then is $O(p)$.
+****
+.Example {counter:algoex} - The Merge Sort Algorithm in Python
+--
+--
+:pt_code_height: 1100
+:pt_rawinput: false
+:pt_code: def%20mergeSort%28A%29%3A%0A%20%20%20%20if%20len%28A%29%20%3E%201%3A%0A%20%20%20%20%20%20%20%20%23finds%20the%20middle%20of%20list%20A%0A%20%20%20%20%20%20%20%20mid%20%3D%20len%28A%29%20//%202%20%0A%20%20%20%20%20%20%20%20%23left%20sublist%20going%20from%20the%20beginning%20to%20the%20middle%0A%20%20%20%20%20%20%20%20L%20%3D%20A%5B%3Amid%5D%20%0A%20%20%20%20%20%20%20%20%23right%20sublist%20going%20from%20the%20middle%20to%20the%20end%0A%20%20%20%20%20%20%20%20R%20%3D%20A%5Bmid%3A%5D%20%0A%20%20%20%20%20%20%20%20%23sorts%20the%20left%20half-list%0A%20%20%20%20%20%20%20%20mergeSort%28L%29%20%0A%20%20%20%20%20%20%20%20%23sorts%20the%20right%20half-list%0A%20%20%20%20%20%20%20%20mergeSort%28R%29%20%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20i%20%3D%20j%20%3D%20k%20%3D%200%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%23following%20code%20merges%20L%20and%20R%20back%20into%20A%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20len%28L%29%20and%20j%20%3C%20len%28R%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20L%5Bi%5D%20%3C%20R%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20A%5Bk%5D%20%3D%20L%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20A%5Bk%5D%20%3D%20R%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%23follwing%20code%20checks%20if%20any%20elements%20are%20left%20out%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20len%28L%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20A%5Bk%5D%20%3D%20L%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20while%20j%20%3C%20len%28R%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20A%5Bk%5D%20%3D%20R%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20return%20A%0A%20%20%20%20%20%20%20%20%0Alist%20%3D%20%5B12,%2011,%2013,%205,%206,%207%5D%0Aprint%28%22The%20sorted%20is%22,%20mergeSort%28list%29%29&
+include::python_tutor.adoc[]
+****
 
-The solution of the exponential equation, $2^p = n$, is in log form,
+==== Big-O Analysis of Merge Sort
 
-$p=\log_2{n}$.
+//Notice that Merge Sort has complexity $n \log{n}$. 
+In the first part of Merge Sort, similar to Binary Search which is $O(\log{n})$, the list of size $n$ is recursively split into sublists. 
+In the second part of Merge Sort, $n$ elements are merged which is $O(n)$. Since the algorithm performs the first and the second parts, we can multiply to find that the complexity of Merge Sort is $O(n \log{n})$.
+//MKD merge sort ends 
 
-The binary search algorithm then is $O(p)=O(\log{n})$.
+
+MORE TO COME!
+////
+
 
 == Exercises
 

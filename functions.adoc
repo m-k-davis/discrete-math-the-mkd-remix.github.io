@@ -3,6 +3,39 @@
 
 // MKD start of topics
 ////
+
+FUNCTIONS (GGC06)
+	ACM CCECC Set/rels/funcs/congruence	
+    COMP 152 Functions, Relations and Sets and DS1.
+		functions including 
+			injective, 
+			surjective, 
+			inverse, 
+			composition, 
+			domain, 
+			co-domain, 
+			range
+        Functions (surjections, injections, inverses, composition)
+        Pigeonhole principles ??? (MKD - Sets? Functions? Combinatorics?)
+		(DS1. lists "Pigeonhole principle" in the singular)
+	MKD: application -  One-to-One Correspondences and Infinite Cardinals
+	2013 changes/additions:
+		Surjections, injections, bijections 
+		Inverses
+		Composition
+
+AUG 2024 update on topics
+DS2013/Sets, Relations, and Functions	Functions: Surjections, injections, bijections
+DS2013/Sets, Relations, and Functions	Functions: Inverses
+DS2013/Sets, Relations, and Functions	Functions: Composition
+DS2008/FunctionsRelationsAndSets	Functions (surjections, injections, inverses, composition)
+ACM_CCECC_2005/Sets, relations, functions, congruences	functions including injective, surjective, inverse, composition, domain, co-domain, range
+DS2008/FunctionsRelationsAndSets	Pigeonhole principle
+
+
+
+
+(MKD: Is the following list from James Wong's slides?)
 Function, domain, codomain, range
 Equality of functions (same domain, codomain, and ordered pairs)
 One-to-one (injective)
@@ -18,133 +51,357 @@ Pigeonhole Principle (? using function notation)
 Cardinality - finite sets, infinite sets (countable, uncountable)
 Examples: even naturals, integers, pairs of natural numbers, Q, reals (Cantor diagonlization)
 
-NOTE: NEED A NEW CHAPTER ON RELATIONS
-Relations
-Binary relations - examples, inverses and compositions
-Identity relation Id
-Properties: 
-	Reflexive (Id is a subset), Irreflexive (is disjoint from Id)
-	Symmetric (equals its own inverse), Antisymmetric (intersection with inverse is a subset of Id)
-	Transitive (composition with self is a subset of self)
-
-Definition: A binary relation Rα on a set S is the closure of a relation R on S with respect to property P if
-(a) Rα has property P, (b)R ⊆ Rα and
-(c) Rα is a smallest relation on S that includes R and has property P.
-
-Definition: Let R be any binary relation on S, then
-R ∪ Id is called reflexive closure of R R ∪ R-1 is called symmetric closure of R R+ is called transitive closure of R
-R* is called reflexive and transitive closure of R
-Example: For a digraph, (a,b) in transitive closure = “there exists a path from (a,b)”
-
-equivalence relation: reflexive, symmetric, and transitive
-	these correspond to partitions of the set into equivalence classes (classic example is Odd and Even integers) - Partition is defined in Set Theory chapter and/or Intro chapter.
 
 
-partial ordering on S is reflexive, antisymmetric, and transitive
 
-Definition: Relations on Multiple Sets Given two sets S and T, a binary relation from S to
-T is a subset of S x T. Given n sets S1, S2, ...Sn, n > 2, an n-ary relation on
-S1 xS2 x...xSn isasubset of S1 xS2 x...xSn.
-
-
-Intro. to Relational Databases Let us take a look at a type of database representation that is based on relations, namely the relational data model.
-A database consists of n-tuples called records, which are made up of fields. These fields are the entries of the n-tuples.
-The relational data model represents a database as an n-ary relation, that is, a set of records
-
-Example: Consider a database of students, whose records are represented as 4-tuples with the fields Student Name, ID Number, Major, and GPA:
-R = {
-(Ackermann, 231455, CS, 3.88),
-(Adams, 888323, Physics, 3.45), (Chou, 102147, CS, 3.79),
-(Goodfriend, 453876, Math, 3.45), (Rao, 678543, Math, 3.90),
-(Stevens, 786576, Psych, 2.99)}
-Relations that represent databases are also called tables, since they are often displayed as tables.
-We can apply a variety of operations on n-ary relations to form new relations.
-
-Definition: The projection Pi1, i2, ..., im maps the n-tuple (a1, a2, ..., an) to the m-tuple (ai1, ai2, ..., aim), where m ≤ n. i.e. select some fields from a record
-Example: What is the result when we apply the projection P2,4 to the student record (Stevens, 786576, Psych, 2.99) ?
-Solution: It is the pair (786576, 2.99).
-In some cases, applying a projection to an entire table may not only result in fewer columns, but also in fewer rows. (select fields from entire table)
-Why is that? Some records may only have differed in those fields that were deleted, so they become identical, and there is no need to list identical records more than once.
-
-We can use the join operation to combine two tables into one if they share some identical fields.
-Definition: Let R be a relation of degree m and S a relation of degree n. The join Jp(R, S), where p ≤ m and p ≤ n, is a relation of degree m + n – p that consists of all (m + n – p)- tuples (a1, a2, ..., am-p, c1, c2, ..., cp, b1, b2, ..., bn-p), where the m-tuple (a1, a2, ..., am-p, c1, c2, ..., cp) belongs to R and the n-tuple (c1, c2, ..., cp, b1, b2, ..., bn-p) belongs to S.
-In other words, to generate Jp(R, S), we have to find all the elements in R whose p last components match the p first components of an element in S. The new relation contains exactly these matches, which are combined to tuples that contain each matching field only once
-
-Example: What is J1(Y, R), where Y contains the fields Student Name and Year of Birth,
-Y = {(1978, Ackermann), (1972, Adams), (1917, Chou), (1984, Goodfriend), (1982, Rao), (1970, Stevens)},
-and R contains the student records as defined before ?
-Solution: The resulting relation is:
-{(1978, Ackermann, 231455, CS, 3.88), (1972, Adams, 888323, Physics, 3.45), (1917, Chou, 102147, CS, 3.79), (1984, Goodfriend, 453876, Math, 3.45), (1982, Rao, 678543, Math, 3.90), (1970, Stevens, 786576, Psych, 2.99)}
-Since Y has two fields and R has four, the relation J1(Y, R) has 2 + 4 – 1 = 5 fields.
+MKD MOVED THIS FROM Intro - 
+then revised to contrast reals and integers
+** $f(n) = 2n+1$ where _n_ is an integer.
+*** The domain is the set of integers.
+*** The range is the set of odd integers: Every odd integer is of the form $q \cdt 2 + 1$ for some integer _q._ 
+*** The codomain is the set of integers.
+** $f(x) = 2x+1$ where _x_ is a real number.
+*** The domain is the set of real number.
+*** The range is the set of real numbers. 
+*** The codomain is the same set as the range, that is, every real number is an output of the function because we can solve every equation of the form $2x+1 = y$ for _x_, no matter what real number _y_ stands for.
+*** This is an example of a one-to-one correspondence. As stated above, we can always solve the equation $2x+1 = y$ for _x:_ If we solve for _x,_ we get $x=\frac{1}{2}(y-1)$ which tells us how to "go back" from an output to its corresponding input. We can write a formula for the *inverse function* by swapping the symbols _x_ and _y_ to get $y=\frac{1}{2}(x-1)$ and then naming a new function with the rule $g(x) = \frac{1}{2}(x-1)$ where _x_ is a real number (The inverse function is also referred to using the symbol $f^{-1}$ which will be discussed in the link:./functions.html[Functions] chapter.)
 ////
 // MKD end of topics
 
 
-// MKD added following paragraph
-Informally, a function $f$ is a rule that assigns to each 
-//valid 
-input value 
-//from set $A$ 
-exactly one output value. 
-//from set $B$. 
-//The domain is the set of valid input values, and the codomain is a set that contains the output values; the _range_ of the function $f$ is the subset of the codomain that contains only the output values and no other elements.
-However, for our purposes we will need a more formal definition.
 
-== A Very Formal Mathematical Definition Of "Function"
+//MKD start of actual content 
 
-//MKD clean this up - move \rightarrow to second paragraph? And include set of ordered paris definition?
-//A *function*, written $f : A \rightarrow B$, is a  mathematical relation where each element of a set $A$,
-//called the *domain*, is associated with a unique element of another set $B$, called the *codomain*
-//of the function.
+// MKD added following two paragraphs
+//function as a rule that assigns to each input exactly one output
 
-// MKD added excessively formal definition
+Informally, 
+//a 
+//As an informal definition, 
+//a function _f_ is a rule that assigns to each input value exactly one output value. 
+a function $f$ from set _D_ to set _C_ is a rule that assigns to each input element in _D_ exactly one output element from _C._ The set _D_ is called the domain of the function, and the set _C_ is called the codomain of the function. This informal definition was introduced in the link:introduction_discrete_math.html#informal_function_definition[ Introducing Discrete Mathematics] chapter.
+
+//This informal definition was introduced in <<introduction_discrete_math.adoc#informal_function_definition,the Introducing Discrete Mathematics>>  chapter.
+
+Notice that the informal definition states that _every_ element in the domain _D_ is assigned an output value in the codomain _C._ #The informal definition does not specify whether _every_ element in the codomain _C_ is an output for some input in the domain _D._# 
+The previous highlighted sentence may seem unimportant since we usually only care about the outputs we can actually get from a function, but the following example attempts to show why it is important to be precise about what set the codomain is. 
+////
+//;_ 
+//that is, some elements of _C_ may not be output values.
+This may seem unimportant 
+//an unimportant minor point 
+at first glance, 
+but the following example shows how it can make a 
+//huge 
+difference.  
+////
+
+// MKD inserted python floor example and java floor example HERE!
+:pt_code_height: 350
+:pt_rawinput: false
+:pt_code: import%20math%0AL%3D%5B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%5D%0Ax%20%3D%201.4%0Ai%20%3D%20math.floor%28x%29%0Aprint%28L%5Bi%5D%29
+
+:jt_code_height: 480
+:jt_rawinput: false
+:jt_code: import%20java.lang.Math%3B%0Apublic%20class%20LookUp%20%7B%0A%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20String%5B%5D%20L%20%3D%20new%20String%5B%5D%20%7B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%7D%3B%0A%20%20%20%20%20%20double%20x%20%3D%201.4%3B%0A%20%20%20%20%20%20double%20y%20%3D%20java.lang.Math.floor%28x%29%3B%0A%20%20%20%20%20%20//System.out.println%28L%5By%5D%29%3B%20//Error%3A%20incompatible%20types%3A%20possible%20lossy%20conversion%20from%20double%20to%20int%0A%20%20%20%20%20%20System.out.println%28L%5B%28int%29y%5D%29%3B%0A%20%20%20%7D%0A%7D
+
+
+****
+//.Example {counter:funcex:0} - Python's floor() returns an int, Java's floor() returns a double
+.Example {counter:funcex:0} - The floor() functions in Python and Java
+
+--
+--
+
+
+// MKD 
+// Python: The float type in CPython uses a C double for storage.  Floating-point numbers are usually implemented using double in C. Since at least 2000, almost all machines use IEEE 754 binary floating-point arithmetic, and almost all platforms map Python floats to IEEE 754 binary64 “double precision” values.
+//sources: https://docs.python.org/3/faq/design.html#why-are-floating-point-calculations-so-inaccurate and https://docs.python.org/3/library/stdtypes.html and https://docs.python.org/3/tutorial/floatingpoint.html#tut-fp-issues
+// Java: The double data type is a double precision 64-bit IEEE 754 floating-point. (Note that this is the primitive type, not the Double object wrapper)
+// source: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+// also
+// Java int is 32-bit signed two's complement integer
+// source: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+// Python int is 
+// source: ??
+
+
+//You may already know that, as data types 
+//In computing, the implementations of integer data types is very different from the implementations of floating-point data types that are used to represent real numbers. 
+//In mathematics, it is common to treat the set of integers as a subset of the set of real numbers, though at a more advanced level of mathematics the integers can also be regarded as very different from the real numbers.
+
+In computing, integer data types are used to represent integers such as loop counters or indices into arrays, while floating-point data types are used to represent real numbers used in scientific or financial calculations. 
+//It is important to note that the implementation, in hardware and software, of integer data types is very different from the implementation of floating-point data types. 
+//Even though most 
+In general, numbers that can be stored using an integer type can also be stored using a floating-point type, 
+but 
+the _ways_ in which that number can be used will depend on the data type. 
+The following code examples show why it is important to keep this in mind when coding. 
+
+First, recall that the floor of _x_, written as $\lfloor x \rfloor,$ is the greatest integer less than or equal to the real number _x._ The floor() function is available in both Python and Java as an implementation of $\lfloor x \rfloor.$ In both programming languages floor() takes a double precision floating-point number as its input, but Python floor() returns a value of integer data type while Java floor() function returns a value of floating-point data type. 
+//return values are of different data types. + 
+//The following two code samples each implement a lookup: The floor of a floating-point number is computed then that result is used as an index into a list or an array.
+[small]#The gory details: 
+//Into the weeds: 
+On most hardware, both Python's `float` data type and Java's `double` data type are implementations of 
+link:https://ieeexplore.ieee.org/document/8766229[IEEE 754]  double precision 64-bit floating-point numbers. The link:https://docs.python.org/3/library/math.html#math.floor[floor() function in Python] takes a `float` as input and returns an `int` and the link:https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#floor-double-[floor() function in Java] takes a `double` as input and returns a `double.` 
+This means that the floor() functions in Python and Java have the _same_ domain and use, essentially, the _same_ rule to compute output values, but have _different_ codomains.# 
+//link:https://standards.ieee.org/ieee/754/6210/[IEEE 754] 
+//On most hardware, both Python's `float` data type and Java's `double` data type are implementations of link:https://ieeexplore.ieee.org/document/8766229[IEEE 754]  double precision 64-bit floating-point numbers. The remixer is using this to justify that the floor() functions in both Python and Java use the _same_ rule and have the _same_ domain but different codomains.# 
+//link:https://standards.ieee.org/ieee/754/6210/[IEEE 754] 
+//For our purposes, we are treating the Python int and the Java int
+
+Notice that in the Python code below, the return value from the floor() function is an _int_ which we can then use as an index into list L.
+
+To step through the code, click on the "Next" button. 
+
+include::python_tutor.adoc[]	
+
+
+Now notice that in the Java code below, that the return value from the floor() function is a _double_ which we cannot use as an index into array L without error. We must first use another function to cast the _double_ to type _int_ to get the correct data type for an array index.
+
+//Someone new to Java may be surprised by this since its easy to think that each int can be represented as a double, but the data type matters here.
+
+To step through the code, click on the "Next" button. 
+
+include::python_tutor_java.adoc[]	
+
+****
+
+
+//Notice that this informal definiton _does not specify_ whether each possible output value actually corresponds to an input value. 
+//As an example, the squaring function $f(x) = x^{2}$ that takes any real number as an input value can only have nonegative real numbers as its output values, even though this function is often plotted in the _xy_-plane as if _any_ real number output is possible. For example, the squaring function is often compared to another function (e.g., a linear function that does have negative real numbers as output values) by plotting both functions.
+
+
+////
+// MKD squaring example begins 
+As an example, the squaring function $f(x) = x^{2}$ that takes any real number as an input value can only have nonegative real numbers as its output values, even though this function is often plotted in the _xy_-plane as if _any_ real number output is possible. For example, the squaring function is often compared to another function (e.g., a linear function that does have negative real numbers as output values) by plotting both functions.
+// MKD squaring example ends 
+////
+
+
+
+// MKD old java example begin
+////
+// JAVA (needs explicit cast to (int)) https://pythontutor.com/render.html#code=import%20java.lang.Math%3B%0A%0Apublic%20class%20LookUp%20%7B%0A%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20String%5B%5D%20L%20%3D%20new%20String%5B%5D%20%7B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%7D%3B%0A%20%20%20%20%20%20double%20x%20%3D%201.4%3B%0A%20%20%20%20%20%20double%20y%20%3D%20java.lang.Math.floor%28x%29%3B%0A%20%20%20%20%20%20System.out.println%28L%5By%5D%29%3B%0A%20%20%20%20%20%20//System.out.println%28L%5B%28int%29y%5D%29%3B%0A%20%20%20%7D%0A%7D&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false 
+// MKD again? <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=import%20java.lang.Math%3B%0A%0Apublic%20class%20LookUp%20%7B%0A%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20String%5B%5D%20L%20%3D%20new%20String%5B%5D%20%7B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%7D%3B%0A%20%20%20%20%20%20double%20x%20%3D%201.4%3B%0A%20%20%20%20%20%20double%20y%20%3D%20java.lang.Math.floor%28x%29%3B%0A%20%20%20%20%20%20//System.out.println%28L%5By%5D%29%3B%20//Error%3A%20incompatible%20types%3A%20possible%20lossy%20conversion%20from%20double%20to%20int%0A%20%20%20%20%20%20System.out.println%28L%5B%28int%29y%5D%29%3B%0A%20%20%20%7D%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+// MKD Java helloworld example from https://docs.oracle.com/javase/tutorial/getStarted/cupojava/unix.html#unix-2 https://pythontutor.com/render.html#code=/**%0A%20*%20The%20HelloWorldApp%20class%20implements%20an%20application%20that%0A%20*%20simply%20prints%20%22Hello%20World!%22%20to%20standard%20output.%0A%20*/%0Apublic%20class%20HelloWorldApp%20%7B%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20%20%20System.out.println%28%22Hello%20World!%22%29%3B%20//%20Display%20the%20string.%0A%20%20%20%20%7D%0A%7D&cumulative=false&curInstr=1&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false
+
+:jt_code_height: 350
+:jt_rawinput: false
+:jt_code: /**%0A%20*%20The%20HelloWorldApp%20class%20implements%20an%20application%20that%0A%20*%20simply%20prints%20%22Hello%20World!%22%20to%20standard%20output.%0A%20*/%0Apublic%20class%20HelloWorldApp%20%7B%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20%20%20System.out.println%28%22Hello%20World!%22%29%3B%20//%20Display%20the%20string.%0A%20%20%20%20%7D%0A%7D
+//import%20java.lang.Math%3B%0A%0Apublic%20class%20LookUp%20%7B%0A%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20String%5B%5D%20L%20%3D%20new%20String%5B%5D%20%7B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%7D%3B%0A%20%20%20%20%20%20double%20x%20%3D%201.4%3B%0A%20%20%20%20%20%20double%20y%20%3D%20java.lang.Math.floor%28x%29%3B%0A%20%20%20%20%20%20System.out.println%28L%5By%5D%29%3B%20//Error%3A%20incompatible%20types%3A%20possible%20lossy%20conversion%20from%20double%20to%20int%0A%20%20%20%20%20%20//System.out.println%28L%5B%28int%29y%5D%29%3B%0A%20%20%20%7D%0A%7D
+
+****
+.Example {counter:funcex} - Java's floor function returns a double
+
+--
+--
+
+Notice in the Java code below that the return value from the `java.lang.Math.floor()` function is a `double`  - the return value _cannot_ be used as an index into array L (unless the return value is cast explicitly to an `int.`)
+
+To step through the code, click on the "Next" button. 
+
+include::python_tutor_java.adoc[]	
+****
+// MKD old java example end
+////
+
+The formal definition given in the next section will let us distinguish between two functions that use the _same_ rule and have the _same_ domain but have _different_ codomains. 
+//The formal definition given in the next section will let us distinguish between two functions that use the _same_ rule and have the _same_ set of input values but _different_ sets of output values. 
+//The following code examples illustrate show why this is important.
+
+
+
+== A Formal Definition Of Function
+
+// MKD added excessively formal definition... merci, M. N. Bourbaki! ;)
+// need citation
+////
+ACM citation style
+
+ For a multi-volume work (as a book):
+
+[1] Donald E. Knuth. 1997. The Art of Computer Programming, Vol. 1: Fundamental Algorithms (3rd. ed.). Addison Wesley Longman Publishing Co., Inc.
+
+Nicolas Bourbaki. 1970. Théorie des ensembles. Éléments de mathématique. Springer. ISBN 9783540340348.
+////
+
+
 //We now give a formal mathematical definition of function.
-A *function $f$ with domain $A$ and codomain $B$* is an ordered triple 
-$(A,\, B,\, f)$ 
-consisting of sets $A$, $B$, and a subset $f$ of the Cartesian product $A\times B$ such that each element of $A$ is associated with a unique element of $B$. That is, $f \subseteq A \times B$ and for each element $a \in A$ there is exactly one $b \in B$ such that $(a,\, b) \in f$.
+
+****
+.Definition
+// MKD: This definition is based on/adapted from the definition of «fonction» given in N. Bourbaki. 1970. Théorie des ensembles. Éléments de mathématique. Springer.
+A *function $f$ from set $A$ to set $B$* is an ordered triple $(f,\, A,\, B)$ consisting of sets $f,$ $A,$ and $B$ such that 
+
+* $f$ is a subset of the Cartesian product $A \times B$ and 
+* each element of $A$ 
+//is associated with a unique element of _B._ 
+appears as the first coordinate of exactly one pair $( a, \, b) \in f.$ 
+
+That is, $f \subseteq A \times B$ and for each element $a \in A$ there is exactly one $b \in B$ such that $(a,\, b) \in f$. The set $f$ of ordered pairs is called the *graph* of the function. 
+//; it is referred to as the *rule* of the function, also. 
+The set $A$ is called the *domain* of the function and the set $B$ is called the *codomain* of the function.
+[small]#This definition of a function as an ordered triple is based on the  Bourbaki definition in the 1970 book 
+link:https://link.springer.com/book/10.1007/978-3-540-34035-5[Théorie des ensembles.]#
+//https://link.springer.com/book/10.1007/978-3-540-34035-5
+****
 
 
-We write $f : A \rightarrow B$ to state that $f$ is a function with domain set $A$ and codomain set $B$. The *range* is the set $\{ f(a) : a \in A \}$, that is, the set of all images (that is, output values) assigned by $f$. 
-//With this notation, $a$ is allowed to vary over all elements in the set $A$.
-We write $f(a)=b$ instead $(a,\, b) \in f$, and $b$ is called the *image* of $a$ assigned by $f$. We also write $f: a \rightarrow  b$ to mean that $f(a)=b$. 
 
-We often refer to a function $f : A \rightarrow B$ by only the letter $f$, but it is important to remember that the actual definition includes the domain and codomain as well. 
+#The reason why the ordered triple is used in the definition is that we need to be able to distinguish two functions that have the same graph 
+//by specifying the codomain. 
+but different codomains.# 
+Note that if two functions have the same graph then they must have the same domain, but they could still have different codomains.
 
+
+//MKD need example from R to R here to illustrate that the graph is what you typically plot as points in the _xy_-plane.
+
+* We write $f : A \rightarrow B$ to state that $f$ is a function from set $A$ to set $B.$ 
+
+* We often refer to the ordered triple as "_f_" without explicitly mentioning the other two members of the ordered triple. That is, 
+we refer to the function as its set of ordered pairs $f$, 
+//We often refer to a function $f : A \rightarrow B$ by only the letter $f$, 
+but it is very important to remember that the actual definition includes the domain and codomain, too. 
+
+* It is important to note that the graph of $f$ is the set of ordered pairs which we often represent by plotting points, but that plot is only a _representation_ of the graph (in the same way that "five" and "cinco" are verbal _representations_ of a number but are not the number itself.)  
+
+* We write $f(a)=b$ instead of $(a,\, b) \in f$. The value $b = f(a)$ is called the *image of $a$* assigned by $f,$ and $a$ is called the *pre-image* of $b.$ 
+//We also write $f: a \rightarrow  b$ to mean that $f(a)=b$. 
+
+//MKD insert  f(C) = {f(a) | a \in C} where C is a subset of the domain A
+
+* The *range* of $f$ is the set $\{ f(a) : a \in A \}$, that is, the set of all images (output values) assigned by $f.$ The range is the set of $b \in B$ such that there is _at least one_ ordered pair $( a, \, b) \in f.$ 
+
+* Two functions are *equal* if they have the same graph, the same domain, and the same codomain. That is, the functions $(f,\, A,\, B)$ and $(g,\, S,\, T)$ are equal if they are identical as ordered triples: $f = g$ and $A = S$ and $B = T.$ 
+//Two functions are *equal* (or simply "are the same function") if the ordered triples that define the two functions are equal. That is, two functions are equal if and only if they have the same set of ordered pairs for their graphs, the same domain, and the same codomain. 
+We can also simply say that "$f$ and $g$ are the same function."
+
+* Notice that the graph $f$ in the formal definition replaces the _rule_ used in the informal definition. Given the graph, which is the set of ordered pairs, we can state a rule as "given an input $a \in A,$ the output is the one $b \in B$ such that $(a,\, b) \in f.$"  
+This is exactly how you would use a table of values to represent a function: Find the row with the input value then choose the value in the output column
+// MKD insert image of function table.  
+//without given a more precise equation, formula, or verbal description.
+
+//MKD inserted the following
+[IMPORTANT]
+.The graph (i.e., the set of ordered pairs), the domain, and the codomain determine the function, NOT the formula, words, table, plot, or code  used to describe a rule for the function.
+====
+The graph of a function determines how to assign each input to its output.
+// _NOT_ a formula, words, table, or plot used to describe how inputs are associated to outputs.   
+//It does not matter _how_ the function is defined in terms of formulae, words, tables, or plots. 
+//Two functions are the same (that is, are equal) if they have the same set of ordered pairs for their graphs, the same domain, and the same codomain. 
+For example, the functions  
+$f: \mathbb{R} \rightarrow \mathbb{R}$  and $g: \mathbb{R} \rightarrow \mathbb{R}$
+defined by the formulae $f(x) = |x|$ and $g(x) = \sqrt(x^{2})$ are _equal,_ and in fact are _one and the same function,_ because $f = g$ as _sets,_ so the "two" functions have the same graph, the same domain, and the same codomain. The "two" functions are just two ways of describing the same ordered triple. 
+====
+
+
+
+////
+// MKD old floatyMcFloatFloor example begins
+For example, the floor function, 
+$f: \mathbb{R} \rightarrow \mathbb{R}$ defined by $f(x) = \lfloor x \rfloor,$ the greatest integer less than or equal to $x,$ is treated as _a different function_ formally from the 
+floor function $g: \mathbb{R} \rightarrow \mathbb{Z}$ defined by $g(x) = \lfloor x \rfloor.$ Note that the graphs of $f$ and $g$, as defined in terms of the ordered triples, are the same set of ordered pairs, 
+and that the same expression defines both $f(x)$ and $g(x),$ 
+but for function $g$ every element in the codomain is also in the range, while that is not true for the function $f.$ For example, $\frac{1}{2}$ is in the codomain of $f$ but is not in the range of $f.$ 
+You can think of the floor function $f$ as the one whose points you plot in the _xy_-plane, and the floor function $g$ as the one implemented in Python code in the following example; notice that the `math.floor()` function takes a `float` as input but returns an `int.` 
+//instead of a `float.` 
+A user-defined function 
+that implements $f$ 
+with an explicit cast of the return value to `float` is included in the example. 
+
+// MKD create example using this link below
+//https://pythontutor.com/render.html#code=import%20math%0Ax%20%3D%203.4%0Aprint%28type%28x%29%29%0Ay%20%3D%20math.floor%28x%29%0Aprint%28type%28y%29%29&cumulative=false&curInstr=5&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+// MKD even better
+//https://pythontutor.com/render.html#code=import%20math%0Adef%20floatyMcFloatFloor%28x%29%3A%0A%20%20%20%20return%20float%28math.floor%28x%29%29%0Ax%20%3D%201.4%0Aprint%28type%28x%29%29%0Ay1%20%3D%20math.floor%28x%29%0Aprint%28type%28y1%29%29%0Ay2%20%3D%20floatyMcFloatFloor%28x%29%0Aprint%28type%28y2%29%29%0AL%3D%5B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%5D%0Aprint%28L%5By1%5D%29%0A%23print%28L%5By2%5D%29%20%23%20raises%20a%20TypeError&cumulative=false&curInstr=13&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+:pt_code_height: 500
+:pt_rawinput: false
+:pt_code: import%20math%0Adef%20floatyMcFloatFloor%28x%29%3A%0A%20%20%20%20return%20float%28math.floor%28x%29%29%0AL%3D%5B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%5D%0Ax%20%3D%201.4%0Aprint%28type%28x%29%29%0Ay1%20%3D%20math.floor%28x%29%0Aprint%28type%28y1%29%29%0Aprint%28L%5By1%5D%29%0Ay2%20%3D%20floatyMcFloatFloor%28x%29%0Aprint%28type%28y2%29%29%0A%23print%28L%5By2%5D%29%20%23%20raises%20TypeError%20since%20index%20cannot%20be%20a%20float
+
+****
+//.Example {counter:funcex:0} - Codomain is important!
+.Example {counter:funcex:0} - Codomain is important!
+
+--
+--
+
+Notice in the Python code below that the return value from the `math.floor()` function is an `int` which can be used as an index into the list L, unlike the return value from the user-defined function. 
+
+* Python's built-in `float` is a double precision floating-point type.
+* The user-defined function is more like (but not exactly the same as) Java's  `Math.floor()` which returns a `double` instead of an `int`. 
+
+To step through the code, click on the "Next" button. 
+
+include::python_tutor.adoc[]	
+****
+// MKD old floatyMcFloatFloor example ends
+////
+
+////
+// MKD unneeded example begins
 ****
 .Example {counter:funcex}
 
-Consider the function with domain $\mathbb{R}$, codomain $\mathbb{R}$, and 
-subset $f \subseteq \mathbb{R} \times \mathbb{R}$ defined by 
-$f = \{ (x,\,x^{2}) : x \in \mathbb{R} \}$ or even more formally as 
-$(\mathbb{R},\, \mathbb{R},\, \{ (x,\,x^{2}) : x \in \mathbb{R} \}).$ 
+Consider the function 
+$(\{ (x,\,x^{2}) \mid x \in \mathbb{R} \},\, \mathbb{R},\, \mathbb{R}).$ This is the formal representation of the function 
+with 
+graph $f \subseteq \mathbb{R} \times \mathbb{R}$ defined by 
+$f = \{ (x,\,x^{2}) \mid x \in \mathbb{R} \}, $
+domain $\mathbb{R}$, and codomain $\mathbb{R}.$ 
 
-This function is a formal representation of the usual squaring function defined for real number inputs by the formula $f(x)=x^{2}$. We can write $f: \mathbb{R} \rightarrow \mathbb{R}$. 
+//This function 
+$(\{ (x,\,x^{2}) \mid x \in \mathbb{R} \},\, \mathbb{R},\, \mathbb{R})$  
+is a formal representation of the usual squaring function defined for real number inputs by the formula $f(x)=x^{2}$. We can write $f: \mathbb{R} \rightarrow \mathbb{R}$. 
 // defined by the rule $f(x)=x^{2}$. 
-Notice that the codomain is $\mathbb{R}$ but the range is the non-negative real numbers $\mathbb R^{\ge 0} = \{ y \in \mathbb{R} : y \geq 0 \}$. 
+Notice that the codomain is $\mathbb{R}$ but the range is the non-negative real numbers 
+// MKD ISO 80000-2 uses subscript not superscript, and bar (\mid gives better spacing) not colon
+//$\mathbb R^{\ge 0} = \{ y \in \mathbb{R} : y \geq 0 \}$. 
+$\mathbb R_{\ge 0} = \{ y \in \mathbb{R} \mid y \geq 0 \}$. 
 
 ****
+// MKD unneeded example ends
+////
 
-Two functions are *equal* if they have the same domain, the same codomain, and are defined by the exact same ordered pairs.
 
 ****
-.Example {counter:funcex} -  A Function's Definition Includes The Domain And Codomain.
+//.Example {counter:funcex} -  A Function's Definition Includes The Domain And Codomain.
+.Example {counter:funcex} -  Three closely-related functions, no two of which are equal.
 
 
 //Let $\mathbb R^{\ge 0}$ stand for the set $\{ x \in \mathbb{R} : x \geq 0 \}$. 
 
 Consider functions $f$, $g$, and $h$ defined as follows:
 
-$f \subseteq \mathbb{R} \times \mathbb{R}$ is defined by  
-$f = \{ (x,\,x^{2}) : x \in \mathbb{R} \}.$ 
+//$f \subseteq \mathbb{R} \times \mathbb{R}$ is defined by  
+$f : \mathbb{R} \rightarrow \mathbb{R}$ is defined by  
+$f = \{ (x,\,x^{2}) \mid x \in \mathbb{R} \}.$ 
 
-$g \subseteq \mathbb{R} \times \mathbb R^{\ge 0}$ is defined by 
-$g = \{ (x,\,x^{2}) : x \in \mathbb{R} \}.$ 
+// MKD ISO 80000-2 uses subscript not superscript, and bar (\mid gives better spacing) not colon
+//$g \subseteq \mathbb{R} \times \mathbb R_{\ge 0}$ is defined by 
+$g : \mathbb{R} \rightarrow \mathbb R_{\ge 0}$ is defined by 
+$g = \{ (x,\,x^{2}) \mid x \in \mathbb{R} \}.$ 
 
-$h \subseteq \mathbb{N} \times \mathbb{N}$ is defined by 
-$g = \{ (x,\,x^{2}) : x \in \mathbb{N} \}.$ 
+//$h \subseteq \mathbb{N} \times \mathbb{N}$ is defined by 
+$h : \mathbb{N} \rightarrow \mathbb{N}$ is defined by 
+$h = \{ (x,\,x^{2}) \mid x \in \mathbb{N} \}.$ 
 
-No two of these functions are equal even though they are defined by the same rule "the output is the square of the input" because they are defined for different domains and/or codomains. In particular, $f$ and $g$ are formally considered to be not equal even though the two functions are defined by the exact same set of ordred pairs. 
-
+No two of these functions are equal even though they 
+//are defined by the same rule "the output is the square of the input" 
+can all be described by the words "the output is the square of the input" 
+and  
+//because they are 
+have 
+//nearly 
+identical formulas: 
+$f(x) = x^{2},$ $g(x) = x^{2},$ and $h(x) = x^{2}.$ 
+Each of the functions is defined for a different domain and/or codomain than the other two. In particular, $f$ and $g$ are 
+//formally considered to be 
+not equal because they have different codomains, even though the two functions 
+//are defined by the exact same set of ordred pairs. 
+have the same graph and the same domain.
 ****
 
 
@@ -233,6 +490,7 @@ injective. A horizontal line at $y=4$, meets the graph at both $x=2$, and $x=-2$
 
 
 A function $f$ is *bijective* if it is both injective and surjective.
+// MKD state that bijective is "same as"  1-1 correspondence
 
 ****
 .Example {counter:funcex} - A bijective function
@@ -328,7 +586,28 @@ Functions can, in many cases, be visualized graphically.
  For example when mapping from the real line $\mathbb{R}$
 to the real line such maps are viewed on a Cartesian plane.
 
-In Appendix 1, we present several standard functions and their graphs to illustrate
+////
+MKD needs to add the following
+	Theorem:Let f:X→Y and g:Y→Z be functions
+		• If f and g are both 1-1,then gof is 1-1
+		• If f and g are both onto,then gof is onto
+		• If f and g are 1-1 correspondences, then gof is a 1-1 correspondence
+		• If gof is 1-1,then f is 1-1
+		• If gof is onto,then g is onto
+		(MKD: Challenge - 
+			find functions g and f so that gof is 1-1 and g is 1-1 
+			find functions g and f so that gof is 1-1 and g is NOT 1-1 
+			find functions g and f so that gof is onto and f is onto 
+			find functions g and f so that gof is onto and f is NOT onto 
+	identity function on S, i.e. i(x) = x
+	inverse function, f^{-1}
+		Theorem: Let f: S →T. 
+			Then f is a bijection (1-1 correspondence)
+			if and only if f-1 exists.
+////
+
+//In Appendix 1, we present several standard functions and their graphs to illustrate
+In link:appendix_library.html[Appendix: Library of Functions], several functions and their plots are shown to illustrate
 the important concepts of functions, including domain, codomain, range, and invertibility.
 
 == The Ceiling, Floor, Maximum and  Minimum Functions
@@ -642,6 +921,30 @@ and
 $g\left(x\right)=\frac{x-5}{3}$  and ,  $g\left(11\right)=\frac{11-5}{3}=\frac{6}{3}=2$
 or $g:11\rightarrow 2$.
 ****
+
+
+== Applications of Functions
+#MKD needs to write this section!#
+////
+	pigeonhole Principle
+		If x items are placed into y bins where x > y, 
+		then there is one bin which contains at least two items.
+	Generalized Pigeonhole Principle: 
+		If x items are placed into y bins where x > y, 
+		then there is one bin which contains at least 
+		x/y (note: ceiling) items.
+	example slided 25-26
+	Cardinality: (MKD: Can move to Remix's Set Theory chapter???)
+		Finite, 
+		Infinite (countably infinite, uncountable)
+		countable (finite or countably infinite)
+		examples slides 27-30
+			Even integers is countable
+			Z is countable
+			Q>0 is countable
+			R is uncountable (Cantor's diagonalization, just interval (0,1) )
+				MKD: use binary to get at power set of N, too???
+////
 
 == Exercises
 . What can be said about the relation $f:A\rightarrow B$, if

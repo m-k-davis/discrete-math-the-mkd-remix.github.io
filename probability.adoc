@@ -1,0 +1,33 @@
+//= Discrete Probability
+= Probability - COMING SOON!
+
+
+COMING SOON!
+////
+
+DISCRETE PROBABILITY (MKD) - new chapter is needed for this
+    ACM CCECC Discrete Mathematics course 
+    	includes "Discrete Probability" under the topic "Combinatorics" 
+    	but lists no specific probability content.    
+    COMP 152 Discrete Probability and DS6.
+        Finite probability space, 
+        probability measure, 
+        events
+        Conditional probability, 
+        independence, 
+        Bayes’ theorem
+        Integer random variables, 
+        expectation
+        Law of large numbers (COMP 152, not DS6)
+	2013 changes/additions:
+		[Core-Tier1]
+			• Finite probability space, events
+			• Axioms of probability and probability measures
+			• Conditional probability, Bayes’ theorem
+			• Independence
+			• Integer random variables (Bernoulli, binomial)
+			• Expectation, including Linearity of Expectation
+		[Core-Tier2]
+			• Variance
+			• Conditional Independence
+////

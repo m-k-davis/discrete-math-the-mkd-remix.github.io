@@ -1,16 +1,29 @@
 //= Discrete Math
 //Mohamed Jamaloodeen, Kathy Pinzon, Daniel Pragel, Joshua Roberts, Sebastien Siva
+
 = Discrete Math - The MKD Remix
-#A Work In Progress# by 
-Mark Kelly Davis
+A Work In Progress by Mark Kelly Davis
+// MKD inserted doctype
+:doctype: book
+// MKD adjusted chapter numbering NOT WORKING
+:chapter-number: -1
+//:chapter-number: 0
 :toc: left
-:toclevels: 2
-:linkcss:
+// MKD set toclevels to 1 if collapsible toc is not working, 3 if it is
+:toclevels: 1
+//:toclevels: 3
+:toc-collapsable:
+// MKD added docinfo - trying to implement collapsible toc
+:docinfo: shared
+// MKD commented out linkcss
+//:linkcss:
 :pygments-style: friendly
 :icons: font
 :linkattrs:
 :sectnums:
 :nofooter:
+// MKD adjusted font-size
+//font-size 12
 
 //['manni', 'igor', 'lovelace', 'xcode', 'vim', 'autumn', 'vs', 'rrt', 'native', 'perldoc', 'borland', 'tango', 'emacs', 'friendly', 'monokai', 'paraiso-dark', 'colorful', 'murphy', 'bw', 'pastie', 'algol_nu', 'paraiso-light', 'trac', 'default', 'algol', 'fruity']
 //To force build.
@@ -21,13 +34,16 @@ Mark Kelly Davis
 // MKD may want to insert a new image here - use PD or CC BY-NC 4.0 only
 --
 
+
+// MKD: IMPORTANT - The order of the chapters is determined 
+//					by chap_adocs in multi_html.py, 
+//					not the order listed here
+
+
 :leveloffset: +1
 
 //MKD turn off sectnums
 //:sectnums!:
-
-// MKD: The order of the chapters is determined by chap_adocs in multi_html.py
-
 
 include::front_matter.adoc[]
 
@@ -36,46 +52,51 @@ include::front_matter.adoc[]
 
 include::introduction_discrete_math.adoc[]
 
-//include::python_intro.adoc[]
+include::counting_arithmetic.adoc[]
 
-//MKD swapped order of logic and set_theory
+// MKD - no separate chapter for number theory content
+//include::number_theory.adoc[]
+include::number_bases.adoc[]
+
+include::counting_binomial.adoc[]
 
 include::set_theory.adoc[]
 
 include::logic.adoc[]
 
-//MKD
 include::proofs.adoc[]
-
-include::induction.adoc[]
-
-include::functions.adoc[]
-
-include::growth_functions.adoc[]
-
-include::algorithms.adoc[]
-
-
-
-include::counting.adoc[]
-
-include::number_theory.adoc[]
-
-//include::induction_recursion.adoc[]
 
 include::recursion.adoc[]
 
-//include::induction.adoc[]
+include::functions.adoc[]
+
+include::relations.adoc[]
+
+// MKD renamed adoc file
+//include::growth_functions.adoc[]
+include::growth_of_functions.adoc[]
+
+include::algorithms.adoc[]
+
+include::induction.adoc[]
 
 include::graph_theory.adoc[]
 
-include::python_intro.adoc[]
+include::trees.adoc[]
 
-include::appendix_one.adoc[]
+// MKD the chapter on probability has not been written, 
+//	and may never be written because that content is no longer 
+//	included in ACM/IEEE-CS/AAAI MSF-Discrete: Discrete Mathematics 
+//	See https://dl.acm.org/doi/pdf/10.1145/3664191#page=187
+//include::probability.adoc[]
 
-include::appendix_two.adoc[]
+include::appendix_math.adoc[]
 
-include::appendix_three.adoc[]
+include::appendix_library.adoc[]
+
+include::appendix_pyintro.adoc[]
+
+include::appendix_pysyntax.adoc[]
 
 :leveloffset: -1
 

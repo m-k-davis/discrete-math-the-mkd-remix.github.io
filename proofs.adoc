@@ -1,7 +1,5 @@
-= Proofs
+= Proofs: Basic Techniques
 
-
-//COMING SOON!
 
 //MKD: Need to add info on Rules of Inference
 // and definition of proof, theorem (lemma, corollary), axiom (postulate), conjecture 
@@ -17,6 +15,74 @@
 //Open Problems: The 3x + 1 Conjecture ROSEN PAGE 107 (Collatz Problem)
 //
 
+////
+PROOFS: BASIC TECHNIQUES (MKD) - new chapter
+	ACTIVITY: Logic
+	ACM CCECC Other proof techniques	
+    COMP 152 Basic Logic and DS2.
+    COMP 152 Proof Techniques and DS3.
+        Modus ponens and modus tollens
+        Notions of implication, converse, inverse, contrapositive, negation, and contradiction (MKD - may already cover in Logic_)
+		direct proof
+        Direct proofs
+		proofs by counter example, contrapositive, and contradiction
+        Proof by counterexample
+        Proof by contradiction
+		Proof by contraposition
+		logical equivalence and circles of implication
+        The structure of mathematical proofs/The structure of formal proofs
+	2013 changes/additions        
+		[Core-Tier1]
+			Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction
+			The structure of mathematical proofs
+			Direct proofs
+			Disproving by counterexample
+			Proof by contradiction
+THE REST MOVE TO OTHER CHAPTERS	
+			Induction over natural numbers
+			Structural induction
+			Weak and strong induction (i.e., First and Second Principle of Induction)
+			Recursive mathematical definitions
+	[Core-Tier2]
+			Well orderings
+
+MKD examples:
+	direct	if integers a and b are divisible by c, then so is ma+nb for any integers m and n.
+	contraposition 	NEED; maybe if n^2 is even (odd) then n is even (odd)
+	contradiction	sqrt(2) is irrational (i.e., NOT of form a/b for integers a and b; requires assuming unique prime factorization which we can prove by strong induction later in the book)
+	counterexample 	NEED
+	
+AUG 2024 update on topics
+DS2013/Basic Logic	Propositional inference rules (concepts of modus ponens and modus tollens)
+DS2008/BasicLogic	Modus ponens and modus tollens
+--
+MKD: These are introduced in Logic chapter and expanded on here
+	DS2013/Proof Techniques	Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction
+	DS2008/ProofTechniques	Notions of implication, converse, inverse, contrapositive, negation, and contradiction
+--
+DS2013/Proof Techniques	The structure of mathematical proofs
+DS2008/ProofTechniques	The structure of mathematical proofs
+DS2013/Proof Techniques	Direct proofs
+DS2008/ProofTechniques	Direct proofs
+ACM_CCECC_2005/Other proof techniques	direct proof
+DS2013/Proof Techniques	Disproving by counterexample
+DS2008/ProofTechniques	Proof by counterexample
+DS2001/Proof techniques	Proof by contraposition
+DS2013/Proof Techniques	Proof by contradiction
+DS2008/ProofTechniques	Proof by contradiction
+ACM_CCECC_2005/Other proof techniques	proofs by counter example, contrapositive, and contradiction
+ACM_CCECC_2005/Other proof techniques	logical equivalence and circles of implication
+
+Also see 	Proof Templates (slides 10-12) and (Jose Ortiz sets slides 35-40)
+		these are in chapter 1 of Haggard,Schlipf, and Whitesides
+
+
+--
+
+
+
+////
+
 
 //how is formal logic related to empirical analysis
 //	formal logic is "a priori", that is, from cause to effect
@@ -29,7 +95,10 @@
 //		how most computer programs are verified!! 
 
 
-Recall from the chapter on Logic that an *argument* is a finite sequence of statements that ends with a final statement, the *conclusion*, that is based on inferences made from the earlier statements, called *premises*.
+
+//MKD needs to add intro blurb "Proof is used to validate arguments and processess"
+
+Recall from the link:./logic.html[Logic] chapter  that an *argument* is a finite sequence of statements that ends with a final statement, the *conclusion*, that is based on inferences made from the earlier statements, called *premises* or *hypotheses.*
 
 An argument is *valid* if it is of a form such that if all premises are True then the conclusion must be True, too. An argument is not valid just because it exists! Compare this situation to a proposition, which is a single statement that may be either True or False (but not both); an argument is a finite sequence of statements that may be either valid or invalid.
 
@@ -136,7 +205,7 @@ Consider the following three arguments.
 
 .A Valid Argument
 
-The following argument was used as an example in the Logic chapter. 
+The following argument was used as an example in the link:./logic.html[Logic] chapter. 
 
 [no-bullet]
 * Sarah earned a B.S. in Computer Science.
@@ -160,7 +229,7 @@ The argument is of the form
 * $\therefore$ _q_ 
 
 
-This argument form is named *_modus ponens_*, which is translated roughly from Latin as "method of affirming". 
+This argument form is named *_modus ponens_* which is translated roughly from Latin as "method of affirming". 
 _Modus ponens_ is a *valid* argument form because it corresponds to the  tautology $(p \land (p \rightarrow q)) \rightarrow q$. 
 
 [width=50%",align="center",options="header"]
@@ -195,7 +264,7 @@ the first two propositions
 are True, we do not have enough information to reach the conclusion 
 that Arya earned a B.S. in Computer Science: 
 // that Arya earned a B.S. in Computer Science: Arya 
-Arya _may_ have earned that degree, but _may_ still be working towards the degree, or _may_ have changed majors and 
+Arya _may_ have earned that degree, or _may_ still be working towards the degree, or _may_ have changed majors and 
 //graduated after earning 
 earned a degree in the new major, or perhaps there is some other possibility -  we cannot determine 
 //the truth value of 
@@ -281,6 +350,10 @@ No. The argument is invalid and is an example of the *inverse error* or *fallacy
 
 ****
 
+// MKD consider adding "extraneous solution" example here
+//	if x + 1 = \sqrt(x+7) then x^{2}+x-6 = 0 is True
+//	if x^{2}+x-6 = 0 then x + 1 = \sqrt(x+7) is False 
+
 In the following subsections we will discuss some of the more common rules of inference.
 
 === Transitivity Of The Conditional
@@ -321,7 +394,7 @@ conditionals.
 * $\neg q \rightarrow \neg p$, the contrapositive of $p \rightarrow q$
 * $\neg p \rightarrow \neg q$, the inverse of $p \rightarrow q$ 
 
-Also, recall that $(p \rightarrow q) \equiv (\neg q \rightarrow \neg p)$. That is, $(p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)$ is a tautology. This means that the conditional is logically equivalent to its contrapositive. The conditional is NOT logically equivalent to either its converse or its inverse, as was shown using truth tables in the Logic chapter.
+Also, recall that $(p \rightarrow q) \equiv (\neg q \rightarrow \neg p)$. That is, $(p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)$ is a tautology. This means that the conditional is logically equivalent to its contrapositive. The conditional is NOT logically equivalent to either its converse or its inverse, as was shown using truth tables in the link:./logic.html[Logic] chapter.
 
 From the four conditionals we get two rules of inference and two fallacies. 
 Together, these four argument forms are referred to as the 
@@ -517,7 +590,47 @@ To simplify the description of the proof techniques, we'll only consider the cas
 involves a single conditional $p \rightarrow q$. This may seem like an oversimplification, but it is not: We are simply renaming the conjunction $(p_{1} \land p_{2} \land \ldots \land p_{n})$ of the actual premises by using the single propositional variable $p$, that is we are _defining_ $p$ by the logical equivalence $p \equiv (p_{1} \land p_{2} \land \ldots \land p_{n})$
 
 
+//MKD added July 15 2024... may not need in final version
+Here we'll present examples of proofs using several different techniques:
+
+* Direct proof
+//	direct	if integers a and b are divisible by c, then so is ma+nb for any integers m and n.
+
+// also do a "proof by cases", "exhaustive proof"
+		
+* Proof by contraposition
+//	NEED; maybe if n^2 is even (odd) then n is even (odd)
+
+* Proof by counterexample
+// 	counterexample 	NEED
+        
+* Proof by contradiction
+// 	sqrt(2) is irrational (i.e., NOT of form a/b for integers a and b; requires assuming unique prime factorization which we can prove by strong induction later in the book)
+
+Another important proof technique, *mathematical induction,* will be discussed in a link:./induction.html[later chapter.] 
+// link:./induction.html[Proofs: Mathematical Induction ]
+
+// MKD also 
+//	"The structure of mathematical proofs/The structure of formal proofs"
+// MKD NEEDS TO ADD --> logical equivalence and circles of implication#
+// MKD an example of a "circle of implication" is A -> B -> C -> A
+
+////
+ ALSo 		Deductive Proof Method (see slides 20-21)
+			axiom, theorem (and lemma and corollary), conjecture
+			a theorem often has two parts 
+				Conditions (hypotheses) and a conclusion
+		Logically valid inferences
+			rule of inference
+				modus ponens, modus tollens (see slide 26)
+			argument, valid argument (see slide 28)
+////
+
+
+
 MORE TO COME!!
+
+
 
 ////
 The phrase *"without loss of generality"* is often used in a proof in order to take a shortcut. For example, suppose we want to prove a conjecture involving a positive rational number of the form $\frac{a}{b}$ where $a$ and $b$ are nonzero integers. It may be convenient to assume that the fraction has been reduced so that $a$ and $b$ have no common prime factors, but that may not be one of the premises. However, we know from experience that we have a method for finding a greatest common divisor for $a$ and $b$ that would allow us to replacing those numbers in the fraction with ones that have no common prime factors... so instead of proving that we can reduce the fraction we just state "without loss of generality, assume that $a$ and $b$ have no common prime factor".

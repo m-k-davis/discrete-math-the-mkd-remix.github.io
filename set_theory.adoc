@@ -1,4 +1,45 @@
 = Set Theory
+
+_This chapter was last updated on August 17, 2024._
+
+// MKD intro blurb needs editing
+#Set theory is the foundational topic of mathematics in our time. 
+Most of modern mathematics is built on the foundation of sets. 
+Sets serve as a logically sound basis for mathematics.#
+
+////
+SET THEORY (GGC05)
+	ACM CCECC Set/rels/funcs/congruence	and
+    COMP 152 Functions, Relations and Sets and DS1.
+			Venn diagrams, 
+			complements, 
+			power sets, 
+			operations, 
+			DeMorgan’s laws
+	       	Cartesian products, 
+ -->    Cardinality and countability (MKD: Here or in Functions?)
+ 	ACTIVITY if time - Hauk's "Getting To Know Your Classmates" Venn Diagram Activity
+	2013 changes/additions:
+		Venn diagrams
+		Union, intersection, complement
+		Cartesian product
+		Power sets
+		Cardinality of finite sets
+		
+AUG 2024 update on topics
+DS2013/Sets, Relations, and Functions	Sets: Venn diagrams
+DS2013/Sets, Relations, and Functions	Sets: Union, intersection, complement
+DS2013/Sets, Relations, and Functions	Sets: Cartesian product
+DS2013/Sets, Relations, and Functions	Sets: Power sets
+DS2013/Sets, Relations, and Functions	Sets: Cardinality of finite sets
+DS2008/FunctionsRelationsAndSets	Sets (Venn diagrams, complements, Cartesian products, power sets)
+DS2008/FunctionsRelationsAndSets	Cardinality and countability
+ACM_CCECC_2005/Sets, relations, functions, congruences	sets including Venn diagrams, complements, power sets, operations, DeMorgan’s laws
+
+////
+
+
+
 == Sets
 
 //MKD NEED 
@@ -93,7 +134,7 @@ include::python_tutor.adoc[]
 
 Another way of describing a set is the use of *set builder* notation. We write a set as \[\{x \in D : P(x)\}.\] This is the set of all elements $x$ from a domain $D$ that satisfy the predicate $P(x).$
 //MKD ADDED FOLLOWING
-We can use either the colon $:$ or the vertical bar $|$ as the separator in this notation. For example, $\{ x \in \mathbb{Q} | x^{2} \geq 2 \text{ and } x > 0 \}$ is the set of positive rational numbers that are greater than $\sqrt{2}$.
+We can use either the colon $:$ or the vertical bar $|$ as the separator in this notation. For example, $\{ x \in \mathbb{Q} \, | \, x^{2} \geq 2 \text{ and } x > 0 \}$ is the set of positive rational numbers that are greater than $\sqrt{2}$.
 
 // MKD ADDED FOLLOWING 
 Yet another way of describing a set is to use a function or an algebraic expression, as in \[\{ f(x) : x \in D \}.\]This is the set of all values $f(x)$ for $x$ in the domain $D$. For example, $\{ 2n : n \in \mathbb{N} \}$ is the set of the even natural numbers. Again, we can use either the colon $:$ or the vertical bar $|$ as the separator.
@@ -162,10 +203,12 @@ The set $\{x \in D: P(x)\}$ can be expressed in Python as {for x in D if P(x)}. 
 include::python_tutor.adoc[]
 ****
 
-=== Empty Set
-Consider the following set described using set builder notation: \[\{x \in \mathbb{Z} : x^2 = 2\}.\]This is the set of all integers whose square is equal to 2. However, no such integers exist. Therefore, using the roster method to describe it, this is the set $\{ \}.$
+// MKD empty set begins
+=== The Empty Set
+Consider the set of all integers whose square is equal to 2, described using set builder notation: \[\{x \in \mathbb{Z} : x^2 = 2\}.\] If you use the roster method to list all the elements you will get the set \[\{ \}\] because there is no integer whose square is equal to 2. 
 
-We call the set $\{ \}$ the *empty set* and denote this set by $\emptyset.$ The empty set has no elements.
+The set $\{ \}$ is called the *empty set,* or the *null set.* 
+The symbol $\emptyset$ represents the empty set, that is, \[ \emptyset = \{ \}. \] 
 
 :pt_code_height: 350
 :pt_rawinput: false
@@ -184,7 +227,6 @@ include::python_tutor.adoc[]
 
 //MKD UNUSED EXAMPLE - NOT VERY GOOD SINCE set() IS NOT HASHABLE :( //https://pythontutor.com/render.html#code=def%20describeCardinality%28A%29%3A%0A%20%20%20%20if%20A%20%3D%3D%20set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Set%22,A,%22is%20empty.%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28%22Set%22,A,%22contains%22,len%28A%29,%22elements.%22%29%0AS0%20%3D%20set%28%29%0AdescribeCardinality%28S0%29%0AS1%20%3D%20%7B%20frozenset%28S0%29%20%7D%0Aprint%28S1%29%0AdescribeCardinality%28S1%29&cumulative=false&curInstr=14&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 
-
 [NOTE]
 ====
 It is important to note that $\{\}$ and $\emptyset$ are both ways to write the empty set. However, the mathematical set $\{ \emptyset \}$ is not the empty set because it contains one element, namely the empty set. In general, the set $A$ is not the same as the set $\{ A \}.$
@@ -196,9 +238,15 @@ Python Tip: The mathematical set $\{ \emptyset \}$ [.underline]#must# be impleme
 
 //, we [.underline]#cannot# implement 
 ====
+// MKD empty set ends
 
-
+// MKD cardinality begins
 === Cardinality
+
+// MKD added Aug 17 2024 - may need to edit the tow paragraphs that follow this one
+A set $A$ is called *finite* if there is one-to-one correspondence between $A$ and 
+$\{ i \in \mathbb{N} \, | \, i < n \}$ for some natural number $n.$ 
+If no such $n$ exists, the set $A$ is called an *infinite* set.
 
 Suppose that a set $A$ contains a finite number of distinct elements. We refer to the number of elements of $A$ as the *cardinality* of $A$ and denote this by $|A|$. In this case, we also say that $A$ is a *finite set*.
 
@@ -215,7 +263,8 @@ The infinity symbol $\infty$ isn't used for the cardinality of an infinite set b
 there are [.underline]#many# different _infinite cardinal numbers_ that correspond to the sizes of different infinite sets.    
 It is beyond the scope of this textbook to discuss these infinite cardinal numbers in detail, but as just two examples (1) $|\mathbb{Q}|$ must be strictly less than $|\mathbb{R}|$, even though both $\mathbb{Q}$ and $\mathbb{R}$ are infinite sets, and (2) perhaps more surprisingly, $|\mathbb{N}|$ and $|\mathbb{Q}|$ _must be equal_ even though $\mathbb{N}$ would appear to be a much smaller set than $\mathbb{Q}$.
 ====
-
+//MKD maybe explain above how cardinalities are equal iff there is a one-to-one correspondence between the sets
+//MKD also define "countability"
 
 
 Thus, we see that $|\{0,1,2\}| = 3$, $|\emptyset| = 0$, and $|\mathbb{Z}|$ is an infinite cardinal number.
@@ -233,7 +282,9 @@ The cardinality of a finite set $A$ can be computed in Python as follows:
 len(A)
 include::python_tutor.adoc[]
 ****
+// MKD cardinality ends
 
+// MKD equality begins
 === Equality
 
 We say that two sets are *equal* if and only if they contain the same elements. 
@@ -248,8 +299,9 @@ So we can write $\{2,3,5\} = \{5,2,3\}$ for the same reason we
 can write $2 + 2 = 5 - 1$.
 
 //The order in which the elements of a set are listed does not matter. Additionally, it does not matter whether elements are repeated. Thus, the sets $\{a,b,c\}$ and $\{b,b,a,c,b,a,c,c,c\}$ are equal sets as well.
+// MKD equality ends
 
-
+// MKD subsets begins
 //MKD maybe move all the subset section up to right after the basic definition of sets?
 === Subsets
 
@@ -284,8 +336,10 @@ A.issubset(B) +
 A \<= B.
 include::python_tutor.adoc[]
 ****
+// MKD subsets begins
 
-=== Power Set
+// MKD power set begins
+=== Power Sets
 
 Given a set $A,$ we refer to the *power set* of $A$ as the set of all subsets of $A.$ The power set of $A$ is denoted by $\mathcal{P}(A).$
 
@@ -308,14 +362,118 @@ If we let $A = \{a,b,c\},$ we see that \[\mathcal{P}(A) = \{\emptyset, \{ a \}, 
 If $A$ is a finite set such that $|A| = n,$ then $\left|\mathcal{P}(A)\right| = 2^n.$
 ****
 //MKD: Maybe add short exercise here?
+// MKD power set ends
+
+
+// MKD Cartesian product begins
+=== Cartesian Products
+
+The *Cartesian product* of two sets $A$ and $B$ is the set of _ordered pairs_
+defined by,
+
+//MKD $  A\times B=\{(a,b)|a\in A\wedge b\in B)\}$,
+$  A\times B=\{(a,b) \, | \, a\in A \text{ and } b\in B)\}$,
+
+****
+.Example {counter:setex}
+
+Consider the sets, $B=\{0,1\}$, $T=\{0,1,2\}$, and, $C=\{a,\ b,\ c, d\}$.
+Determine the Cartesian products, and their cardinalities.
+
+.. $B\ \times\ C$
+.. $C\times B$
+.. $B\ \times\ T$
+.. $B\ \times\ B$
+.. $B\ \times\ B\times B$
+
+.Solution
+
+For the set, $ B\ \times C $, notice that
+this will be all ordered pairs of the form,
+$(a,b)$, with $a \in B$, and $b \in C$, giving,
+
+$B\ \times\ C=\{(0,a), (0,b), (0,c), (0,d),(1,a), (1,b), (1,c), (1,d))\}$,
+which has $2 × 4=8$, elements.
+
+For $C\ \times\ B$, switch the ordering, for $B\ \times\ C$, to obtain the set with $8$,
+elements,
+
+$C\ \times  B=\{(a,0), (b,0), (c,0),(d,0),(a,1), (b,1), (c,1), (d,1)\}$,
+
+The set $B \times T$,
+will be all ordered pairs of the form,
+$(a,b)$, with $a \in B$, and $b \in T$, giving, the set with $2 × 3=6$, elements,
+
+$B \times T=\{(0,0),(0,1),(0,2),(1,0),(1,1),(1,2)\}$,
+
+The set $B \times B$,
+will be all order pairs  of the form,
+$(a,b)$, with $a, b \in B$, giving the set with  $2 × 2=4$, elements,
+
+$B \times T=\{(0,0),(0,1),(1,0),(1,1)\}$,
+
+Finally the set $B \times B \times B$, will be the set of all
+ordered triples of the form,
+$(a,b,c)$, with $a, b, c \in B$, giving the set with  $2 × 2 × 2=8$, elements,
+
+$B \times B \times B=\{(0,0,0),(0,0,1),(0,1,0),(0,1,1),(1,0,0),(1,0,1),(1,1,0),(1,1,1)\}$,
+****
+
+//MKD REWROTE THE FOLLOWING
+[NOTE]
+====
+// Because Cartesian products are created using ordered pairs, $B \times C$, is, in general, different from $C \times   B$.
+Cartesian products are created using _ordered_ pairs, so if $A$ and $B$ are different sets, then $A \times B$ is different from $B \times A$.
+====
+
+//MKD REWROTE THE FOLLOWING
+[NOTE]
+====
+// If the cardinality of set $|A|=a$, and the cardinality of set $|B|=b$, then the cardinality of the Cartesian product is $|A × B|=ab$
+If $A$ and $B$ are finite sets, then the cardinality of the Cartesian product $A × B$ is $|A × B|=|A| \cdot |B|$.
+====
+
+[NOTE]
+====
+The Cartesian coordinate systems are natural sets that are naturally Cartesian products.
+The two-dimensional plane, and the three-dimensional space are represented by the following
+Cartesian product sets,
+
+$\mathbb{R}^2=\mathbb{R}\times \mathbb{R}=\{(x,y)|x,y\in \mathbb{R}\}$, and,
+
+$\mathbb{R}^3=\mathbb{R}\times \mathbb{R}\times \mathbb{R}=\{(x,y,z)|x,y,z\in \mathbb{R}\}$
+====
+// MKD Cartesian product ends
+
+
+== Venn Diagrams
+
+A *Venn diagram,* named after the English mathematician John Venn,  consists of one or more circles, with each circular region representing a set. An example can be seen link:https://en.wikipedia.org/wiki/Venn_diagram#/media/File:Venn_diagram_gr_la_ru.svg[here.]
+
+We write the elements of a set within the circular region that represents the set; anything written outside the circular region is not an element of the set. If an element is written in the overlap of two or more regions, then it is an element of each of the sets. 
+
+The circles are often drawn inside a larger rectangle which represents a *universal set* $U$ that we are focusing on. In the example linked above, the rectangle was omitted because every glyph was an element of at least one of the sets represented by a circular region, but if we introduced addition glyphs like ہ we would need to draw the rectangle because that glyph would need to be written outside _all_ three circular regions.
+
+// For example the set _U_ could be the set of real numbers, or the set of all possible algorithms; the idea is to limit are discussion to only the types of elements we care about in the context. and one or more circles, which represent the sets under consideration. We will then shade in the regions of the diagram that correspond to one or more set operations. 
+
+//image::imagesMKD/VennVsEulerDiagrams.png[VennVsEulerDiagrams,1536,960,float="right",align="center"]
+image::imagesMKD/VennVsEulerDiagrams.png[VennVsEulerDiagrams,480,300,float="right",align="center"]
+In this textbook, #a Venn diagram must show _all the possible overlaps_# of the sets. This is consistent with link:https://doi.org/10.1080/14786448008626877[Venn's paper from 1880.]  
+//It should not be possible to choose a point at random from the region inside one of the circles and know for sure that the point is or is not in the region inside another circle. + 
+ + 
+That is, you should NOT be able to answer the question "Is _x_ an element of set _A?_" when _x_ is written in the circular region for a different set, _B._ 
+In the image, the upper right example shows a Venn diagram because you could write _x_ in the overlap of the two regions or you could write _x_ in the the part of the region for _B_ that is outside the circular region for _A._ The lower two diagrams are not Venn diagrams: In either one of those, if _x_ is written in the region for set _B,_ it must be true that _x_ is not an element of _A_ (on the lower left) or that _x_ is an element of _A_ (the example on the lower right). Diagrams like the lower two examples will be called *Euler diagrams* in this textbook. + 
+[small]#Some sources use the term _Venn diagram_ for all four of the examples shown in the image, but you should always assume when reading this textbook that the lower two are NOT Venn diagrams. Click link:https://commons.wikimedia.org/wiki/File:RGB_combination_on_wall.png[here] to see the light!#
 
 == Set Operations
 
-We can obtain new sets by performing operations on other sets. When performing set operations, it is often helpful to consider all of our sets as subsets of a *universal set* $U.$ We can think of the universal set as the set of all of the objects under consideration.
+We can obtain new sets by performing operations on other sets. When performing set operations, it is often helpful to consider all of our sets as subsets of a *universal set* $U.$ We can think of the universal set as the set of all of the objects under consideration. 
 
-We can represent set operations visually using *Venn diagrams*, named after the English mathematician John Venn. A Venn diagram will consist of a rectangle, which represents the universal set, and one or more circles, which represent the sets under consideration. We will then shade in the regions of the diagram that correspond to one or more set operations.
+We can represent set operations visually using Venn diagrams.
 
 === Union
+
+// 	MKD: say something about "meet" and "join"?
 
 The *union* of the sets $A$ and $B$ is the set containing those elements that are in $A$ or $B$ or both, and is denoted by $A \cup B$. 
 //MKD REWROTE More formally, \[A \cup B = \{x \in U : x \in A \lor x \in B\}.\]
@@ -407,7 +565,15 @@ Suppose that our universal set is $U = \{0,1,2,3,4,5,6,7,8,9\},$ the set of all 
 Suppose that our universal set is $\mathbb{Z}.$ If we let $E$ be the set of all even integers, then $\overline{E}$ is the set of all odd integers.
 ****
 
-=== Difference
+//MKD put Difference and Symmetric Difference in a subsubsection
+//=== Difference
+=== Other Operations
+
+The three operators complement, intersection, and union are the most commonly used to define subsets of a universal set. You will see why this is so later in the chapter.
+
+However, there are some other operators you should be familiar with. 
+
+==== Difference
 
 The *difference* of the sets $A$ and $B$ is the set containing those elements that are in $A$ but not in $B$ and is denoted by $A \setminus B$. Set difference is also denoted by $A - B$. 
 //MKD REWROTE More formally, \[A \setminus B = \{x \in U: x \in A \land x \not\in B\}.\]
@@ -440,7 +606,8 @@ A - B
 include::python_tutor.adoc[]
 ****
 
-=== Symmetric Difference
+//=== Symmetric Difference
+==== Symmetric Difference
 
 //MKD NOTE ON NOTATION: Both "Rosen" and "Haggard, Schlipf, and Whitesides" use the notation $A \oplus B$ for symmetric difference, 
 
@@ -530,88 +697,12 @@ Draw Venn Diagrams for each of these combinations of the sets $A$, $B$, and $C$.
 4. $(B \cup C) \setminus A$
 ****
 
-=== The Cartesian Product
-
-The *Cartesian product* of two sets $A$ and $B$ is the set of _ordered pairs_
-defined by,
-
-//MKD $  A\times B=\{(a,b)|a\in A\wedge b\in B)\}$,
-$  A\times B=\{(a,b)|a\in A \text{ and } b\in B)\}$,
-
-****
-.Example {counter:setex}
-
-Consider the sets, $B=\{0,1\}$, $T=\{0,1,2\}$, and, $C=\{a,\ b,\ c, d\}$.
-Determine the Cartesian products, and their cardinalities.
-
-.. $B\ \times\ C$
-.. $C\times B$
-.. $B\ \times\ T$
-.. $B\ \times\ B$
-.. $B\ \times\ B\times B$
-
-.Solution
-
-For the set, $ B\ \times C $, notice that
-this will be all ordered pairs of the form,
-$(a,b)$, with $a \in B$, and $b \in C$, giving,
-
-$B\ \times\ C=\{(0,a), (0,b), (0,c), (0,d),(1,a), (1,b), (1,c), (1,d))\}$,
-which has $2 × 4=8$, elements.
-
-For $C\ \times\ B$, switch the ordering, for $B\ \times\ C$, to obtain the set with $8$,
-elements,
-
-$C\ \times  B=\{(a,0), (b,0), (c,0),(d,0),(a,1), (b,1), (c,1), (d,1)\}$,
-
-The set $B \times T$,
-will be all ordered pairs of the form,
-$(a,b)$, with $a \in B$, and $b \in T$, giving, the set with $2 × 3=6$, elements,
-
-$B \times T=\{(0,0),(0,1),(0,2),(1,0),(1,1),(1,2)\}$,
-
-The set $B \times B$,
-will be all order pairs  of the form,
-$(a,b)$, with $a, b \in B$, giving the set with  $2 × 2=4$, elements,
-
-$B \times T=\{(0,0),(0,1),(1,0),(1,1)\}$,
-
-Finally the set $B \times B \times B$, will be the set of all
-ordered triples of the form,
-$(a,b,c)$, with $a, b, c \in B$, giving the set with  $2 × 2 × 2=8$, elements,
-
-$B \times B \times B=\{(0,0,0),(0,0,1),(0,1,0),(0,1,1),(1,0,0),(1,0,1),(1,1,0),(1,1,1)\}$,
-****
-
-//MKD REWROTE THE FOLLOWING
-[NOTE]
-====
-// Because Cartesian products are created using ordered pairs, $B \times C$, is, in general, different from $C \times   B$.
-Cartesian products are created using _ordered_ pairs, so if $A$ and $B$ are different sets, then $A \times B$ is different from $B \times A$.
-====
-
-//MKD REWROTE THE FOLLOWING
-[NOTE]
-====
-// If the cardinality of set $|A|=a$, and the cardinality of set $|B|=b$, then the cardinality of the Cartesian product is $|A × B|=ab$
-If $A$ and $B$ are finite sets, then the cardinality of the Cartesian product $A × B$ is $|A × B|=|A| \cdot |B|$.
-====
-
-[NOTE]
-====
-The Cartesian coordinate systems are natural sets that are naturally Cartesian products.
-The two-dimensional plane, and the three-dimensional space are represented by the following
-Cartesian product sets,
-
-$\mathbb{R}^2=\mathbb{R}\times \mathbb{R}=\{(x,y)|x,y\in \mathbb{R}\}$, and,
-
-$\mathbb{R}^3=\mathbb{R}\times \mathbb{R}\times \mathbb{R}=\{(x,y,z)|x,y,z\in \mathbb{R}\}$
-====
-
-
 
 
 == Set Identities
+
+
+// MKD make sure all of the ones in "Boolean Algebra" by Korfhage are here, including De Morgan's laws
 
 Here is a collection of additional properties of the operations on sets. Each of these can be verified by drawing two Venn diagrams, one that represents the left-hand side of the equation and another that represents the right-hand side of the equation and showing that the resulting shadings of the Venn diagrams are the same.
 
@@ -633,6 +724,7 @@ Distributive laws:
 \[ A ∪ (B ∩ C) = (A ∪ B) ∩(A ∪ C) \]
 \[ A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) \]
 
+//MKD also misspelled as DeMorgan
 De Morgan’s laws:
 \[ \overline{A \cup B} = \overline{A} \cap \overline{B} \]
 \[ \overline{A \cap B} = \overline{A} \cup \overline{B} \]
@@ -762,9 +854,26 @@ If we want to compute the cardinality $|A \cup B \cup C|$ of the union of three 
 // derived from images/AminusBunionCminusB.png
 image::imagesMKD/ABCbitstrings.png[]
 
-We can derive the following formula in much that same way that we did above; in fact, we can just apply the formula we found for two sets to $| A \cup (B \cup C) |$ and use some of the set identities to help simplify the formula. CSC 230 Spring '24 students at SFSU can see the full derivation in the slide deck _Sets part 2 Spring '24_.
-\[ |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|. \]
+We can derive the following formula in much that same way that we did above; in fact, we can just apply the formula we found for two sets to $| (A \cup B) \cup C |$ and use some of the set identities to help simplify the formula. \[ |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|. \]
 
+////
+// MKD PIE for 3 sets begins
+\begin{equation}
+\begin{aligned}
+| A \cup B \cup C | {} & = | (A \cup B) \cup C | \\
+& = |A \cup B| + |C| - |(A \cup B) \cap C| \\ 
+& = (|A| + |B| -  |A \cap B|) + |C| - |(A \cup B) \cap C| \\ 
+& = (|A| + |B| -  |A \cap B|) + |C| - |(A \cap C) \cup (B \cap C)| \\ 
+& = (|A| + |B| -  |A \cap B|) + |C| - (|A \cap C| + |B \cap C| - |(A \cap C) \cap (B \cap C)|) \\ 
+& = (|A| + |B| -  |A \cap B|) + |C| - (|A \cap C| + |B \cap C| - |A \cap C \cap B \cap C|) \\ 
+& = (|A| + |B| -  |A \cap B|) + |C| - (|A \cap C| + |B \cap C| - |A \cap B \cap C|) \\ 
+& = (|A| + |B| -  |A \cap B|) + |C| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \\ 
+& = |A| + |B| -  |A \cap B| + |C| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \\ 
+& = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \\ 
+\end{aligned}
+\end{equation}
+// MKD PIE for 3 sets ends
+////
 
 ****
 .Example {counter:setex}
@@ -798,96 +907,10 @@ There are 44 integers in $U$ that are divisible by at least one of 2, 3, or 5, a
 ****
 
 
-
-
-// MKD - start of unneeded section?
-== Representing Sets as Lists
-
-Remixer's Note: This section was omitted from the remix since sets can be represented using the types _set_ and _frozenset_ in Python 3.
-
-////
-We can represent sets in Python using lists. The empty set $\{ \}$ is represented by the empty list []. Several different lists may represent the same set. For example, the lists [2, 0, 1] and [1, 2, 2, 0, 1, 0, 1] both represent the set $\{0,1,2\}.$
-
-It can be helpful for us to remove duplicate elements from a list. For example, this will be necesssary when computing the cardinality of a set.
-
-:pt_code_height: 450
-:pt_rawinput: false
-:pt_code: def%20RemoveDuplicates%28A%29%3A%0A%20%20%20%20B%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20B%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20B%0A%0Adef%20Cardinality%28A%29%3A%0A%20%20%20%20AA%20%3D%20RemoveDuplicates%28A%29%0A%20%20%20%20return%20len%28AA%29
-****
-.Example {counter:setex} - Remove Duplicates and Cardinality in Python
---
---
-The following code contains a function that removes duplicate elements from a set and another that computes the cardinality of a set.
-
-include::python_tutor.adoc[]
-****
-
-For the rest of the section, we will assume that none of our lists have duplicate elements. Otherwise, we can add one or more lines to each program given below to remove duplicated elements.
-
-We can test whether two sets are equal by testing whether the first is a subset of the second and whether the second is a subset of the first.
-
-:pt_code_height: 450
-:pt_rawinput: false
-:pt_code: def%20Subset%28A,B%29%3A%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Adef%20Equal%28A,B%29%3A%0A%20%20%20%20if%20Subset%28A,B%29%20and%20Subset%28B,A%29%3A%0A%20%20%20%20%20%20%20%20return%20True%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20False%0A
-****
-.Example {counter:setex} - Subset and Equal in Python
---
---
-The followwing code contains a function that checks whether one set is a subset of another and a function that checks whether two sets are equal.
-
-include::python_tutor.adoc[]
-****
-
-One benefit to using lists instead of sets is that Python does not allow the elements of a set to be sets, but the elements of a list can be lists. This allows us to represent the power set of a set as a list. For example, the power set of [1, 2] is
-
-[.text-center]
-[[], [1], [2], [1,2]].
-
-We can also represent the union, intersection, and difference of two sets.
-
-:pt_code_height: 450
-:pt_rawinput: false
-:pt_code: def%20Union%28A,B%29%3A%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20for%20x%20in%20B%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20C
-****
-.Example {counter:setex} - Union in Python
---
---
-The following code contains a function that finds the union of two sets.
-
-include::python_tutor.adoc[]
-****
-
-:pt_code_height: 450
-:pt_rawinput: false
-:pt_code: def%20Intersection%28A,B%29%3A%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20C
-****
-.Example {counter:setex} - Intersection in Python
---
---
-The following code contains a function that finds the intersection of two sets.
-
-include::python_tutor.adoc[]
-****
-
-:pt_code_height: 450
-:pt_rawinput: false
-:pt_code: def%20Difference%28A,B%29%3A%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20C%0A
-****
-.Example {counter:setex} - Difference in Python
---
---
-The following code contains a function that finds the difference of two sets.
-
-include::python_tutor.adoc[]
-****
-////
-//MKD - end of unneeded section
-
-
 == Exercises
 
 Remixer's Note: This section is taken from the original 
-https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with no changes.
+https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with only minor changes.
 
 . Consider as universal set, the set of all $26$, lowercase letters of the English alphabet,
 $U=\{a,b,c,…,v,w,x,y,z\}$, and the sets $A=\{a,b,c,d,e,f,g,h\}$, $B=\{f,g,h,i,j,k\}$, and $C=\{x,y,z\}$. For the sets given below:
@@ -1028,5 +1051,5 @@ image::images/venn_exercises.png[GGC,1000,1000]
 .. $\{3,8\}\nsubseteq \{7,4,6,2,11,3,5\}$
 .. $ \{3n+4 : n \in \mathbb{N}\} \nsubseteq \mathbb{Z}$
 .. $\mathbb{N}\subseteq \mathbb{Z}\subseteq \mathbb{Q}\subseteq \mathbb{R}$
-.. $\{x \in \mathbb{R} : |x|<3\}\subseteq \{x \in \mathbb{R}||x|<5\}$
-.. $\{x \in \mathbb{R} : |x|>3\}\subseteq \{x \in \mathbb{R}||x|>5\}$
+.. $\{x \in \mathbb{R} : |x|<3\}\subseteq \{x \in \mathbb{R} \, | \, |x|<5\}$
+.. $\{x \in \mathbb{R} : |x|>3\}\subseteq \{x \in \mathbb{R} \, | \, |x|>5\}$
