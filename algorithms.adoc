@@ -1,6 +1,8 @@
 = Algorithms and Their Analysis
 
-_This chapter was last updated on August 25, 2024._
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+
+_This chapter was last updated on August 27, 2024._
 
 //// 
 State, Explain, or Calculate complexity in the ideal and in the worst-case scenario for both implementations. [Remembering, Understanding, Applying]

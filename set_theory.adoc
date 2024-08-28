@@ -1,6 +1,8 @@
 = Set Theory
 
-_This chapter was last updated on August 17, 2024._
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+
+_This chapter was last updated on August 27, 2024._
 
 // MKD intro blurb needs editing
 #Set theory is the foundational topic of mathematics in our time. 

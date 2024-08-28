@@ -1,6 +1,7 @@
 = Introducing Discrete Mathematics
 
-_This chapter was last updated on August 25, 2024._
+_This chapter was last updated on August 28, 2024 (added water glass example and link to video about $\pi$ to section 2.1)_ 
+//discussion of continuous mathematics and structures in 2.1)._
 
 
 // MKD various sources
@@ -12,7 +13,7 @@ _This chapter was last updated on August 25, 2024._
 
 Welcome to the Remix! I hope this textbook provides you an opportunity for a stimulating and intellectually enjoyable learning experience. 
 
-// MKD musing to helg students understand our approach: 
+// MKD musing to help students understand our approach: 
 Mathematics is one of human civilization's greatest tools: It involves pattern noticing, collecting, counting, generalizing, formalizing, and abstracting. The development of mathematics is a continuing work that spans at least 5,000 years and many different peoples and cultures. This development will continue long after you and I are gone - never forget that we are living during an era that will be someone else's Ancient History!
 
 
@@ -46,14 +47,30 @@ We tend to perceive humans as individuals who can be separated from one another,
 * The set of integers, in the usual order, as represented on a number line is a discrete structure. + 
 It makes sense to ask questions like "What is the next integer after -2?" or "What are the integers that are closest to -2?" for this structure. 
 
-On the other hand, continuous mathematics involves quantities that often are densely distributed throughout a structure, for which measurement is more appropriate than counting. 
+//MKD bread or water in a glass as example of "continuous structure"
+//image::imagesMKD/water-glass-13525637587gp.jpg[Water Glass,1920,1272,float="right",align="center"]
+image::imagesMKD/water-glass-13525637587gp.jpg[Water Glass,320,212,float="right",align="center"]
+// ALT VERSION: Now consider the water in the glass shown in the image. The water is built from individual molecules but most humans do not perceive the individual molecules: The molecules are so numerous and so densely distributed throughout the water that most humans (except perhaps chemists, physicists, and some engineers) ignore the molecules' individual identities and properties and use _measurement of quantities_ using units such as fluid ounces or milliliters instead of counting the molecules. For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10^24 molecules of water" - who would try to count all those molecules? Notice that the measurement units do not correspond to individual objects that make up the structure. The water in the glass _is_ a structure, but it is not treated the same way as the wall built from stones and bricks. Notice also that the glass container is another structure in which its molecules' individual identities tend to be ignored. + 
+So what kind of structure is not discrete? Consider the water in the glass shown in the image. The water in the glass _is_ a structure, but for most of human history it has not been seen as made up of objects that are of a different nature than the structure. That is, many generations of humans have recognized the difference between a wall and the individual stones and bricks that make up the wall, but likely have perceived water as being made up of... water. This is why humans tend to use _measurement of quantities_ of water, using units such as fluid ounces or milliliters. In our time we humans understand that the water is built from molecules, but because the molecules are so tiny, so numerous, and so densely distributed throughout the structure, we humans (except perhaps chemists, physicists, and some engineers) still ignore the individual molecules and use measurement instead of counting. For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10^24^ molecules of water." Notice that the measurement units do not correspond in any natural way to the individual molecules or groupings of the molecules (unless, perhaps, you are a chemist, physicist, or engineer.) + 
+Notice also that the glass container itself is another structure in which individual molecules tend to be ignored. + 
+[small]#Image credit: link:https://www.publicdomainpictures.net/en/view-image.php?image=27533&picture=water-glass["Water Glass"] by Peter Griffin. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0].#
+
+//On the other hand, continuous mathematics involves quantities that often are densely distributed throughout a structure, for which measurement is more appropriate than counting. 
+
+Humans use *continuous mathematics* like calculus to study a structure that is built from objects that are densely distributed throughout the structure. For such a structure, measurement and approximation is more appropriate than counting. 
+//Think of measuring lengths, areas, volumes, intervals of time... all of these tend to measured using _units,_ but the units do not correspond to individual objects that make up the structure. 
 
 * The set of real numbers, in the usual order, as represented on a number line is NOT a discrete structure. + 
 It does NOT makes sense to ask about "the next real number after $\pi$ on the number line" because if we think _c_ is the _"best candidate"_ for "the next real number after $\pi$ on the number line" then the number $c_{1} = \frac{c+\pi}{2},$ which is the midpoint of the interval with endpoints _c_ and $\pi,$ is closer to $\pi$ than is _c,_ so $c_{1}$ is a _better candidate than the "best candidate"_ for "the next real number after $\pi$ on the number line"... that is, the concept "the next real number after $\pi$ on the number line" does not make sense for this structure as such a number cannot exist! Likewise, "the real numbers that are closest to $\pi$" do not exist. + 
  + 
 Instead, "the real numbers that differ from $\pi$ by less than $\epsilon$" makes sense for any positive number $\epsilon$ (The symbol $\epsilon$ is  the Greek letter "epsilon".) By choosing $\epsilon$ as small as we like, we can describe the real numbers that are as close to $\pi$ as needed to use as approximations to $\pi.$ This is why (and how) limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line. + 
 [small]#Note 1: The set of real numbers is called *the continuum* in advanced mathematics courses. + 
-Note 2: The technique used to justify that "the next real number after $\pi$ on the number line" does not exist is called *proof by contradiction* and will be discussed along with other techniques in the link:./proofs.html[Proofs: Basic Techniques] chapter of this textbook.#
+Note 2: The technique used to justify that "the next real number after $\pi$ on the number line" does not exist is called *proof by contradiction* and will be discussed along with other techniques in the link:./proofs.html[Proofs: Basic Techniques] chapter of this textbook. + 
+Note 3: Is $\pi$ really on the number line? Click link:https://www.youtube.com/watch?v=PFf9d7U2tVA&t=282s[here] to view an artist's explanation about where $\pi$ lies on the number line. Be warned that some of what this artist says (about history, about $\pi$ being equal to 3.14) is not correct, but the visualization still may be helpful to you.#
+
+//
+//https://www.youtube.com/watch?v=PFf9d7U2tVA&t=282s
+//https://www.youtube.com/shorts/NyTj71QJ9Q0
 
 
 //For example, the set of integers is discrete but the set of real numbers on the number line is not. 
@@ -157,7 +174,7 @@ a _new_ set \[ C = \{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red
 that contains four elements by appending "white" to the list used to define the old set _P._ 
 ** NOTE 2: 
 //*** In the previous note, $C$ is called the the *union* of the two sets $P = \{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}$ and $S = \{ \text{"yellow"},\,\text{"cyan"},\,\text{"magenta"} \}.$ The union of two sets is formed by _joining_ the sets. +  
-*** One way of creating a new set from two other sets is to form the *union* of the two sets. The union of two sets is formed by "joining" the sets. + 
+*** One way of creating a new set from two other sets is to form the *union* of the two sets. The union of two sets is formed by _joining_ the sets. + 
 For example, If $P = \{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}$ and $T = \{ \text{"yellow"},\,\text{"red"},\,\text{"blue"} \}$, then the union of the two sets is $\{  \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"}, \, \text{"yellow"},\,\text{"red"},\,\text{"blue"} \},$ the set that contains the colors that are in at least one of the sets $P$ and $T.$ +  
 *** Another way of creating a new set from two other sets is to form the *intersection* of the two sets. The intersection is the _meeting_ of the two sets. + 
 For example, If $P = \{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}$ and $T = \{ \text{"yellow"},\,\text{"red"},\,\text{"blue"} \}$, then the intersection of the two sets is $\{ \text{"red"},\,\text{"blue"} \},$ the set that contains the colors that are in both of the sets $P$ and $T.$ + 
@@ -215,7 +232,7 @@ image::imagesMKD/MKDPlaceholder.png[align="center"]
 
 
 // MKD bitstring begins
-* A *bitstring* is a finite sequence of _bits,_ that is, the binary digits 1 and 0. Bitstrings can be used to represent a sequence of answers to "Yes-No" or "True-False" questions. Bitstrings can also be used to represent numbers in binary notation,_ which will be discussed in the link:./number_bases.html[Number Bases] chapter. 
+* A *bitstring* is a finite sequence of _bits,_ that is, the binary digits 1 and 0. Bitstrings can be used to represent a sequence of answers to "Yes-No" or "True-False" questions. Bitstrings can also be used to represent numbers in _binary notation,_ which will be discussed in the link:./number_bases.html[Number Bases] chapter. 
 //as in the example "There are 10 kinds of people in this world — those who understand binary and those who don’t."
 //MKD maybe say a bit more about binary notation vs. decimal notation? No, put in Number Bases chapter.
 // MKD bitstring ends

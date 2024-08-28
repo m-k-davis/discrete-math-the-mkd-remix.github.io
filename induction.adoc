@@ -1,5 +1,8 @@
 = Proofs: Mathematical Induction
 
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+
+_This chapter was last updated on August 27, 2024._
 
 ////
 PROOFS: MATHEMATICAL INDUCTION (MKD) 

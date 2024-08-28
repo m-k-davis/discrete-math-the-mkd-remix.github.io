@@ -1,7 +1,8 @@
 = Number Bases
 
-_This chapter was last updated on August 25, 2024._
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
+_This chapter was last updated on August 28, 2024._
 
 // MKD example code, not sure where to use it yet
 //https://pythontutor.com/render.html#code=x%20%3D%204%0Aprint%28x%29%0Ax%20%3D%200b0101%0Aprint%28x%29%0Ax%20%3D%200O6%0Aprint%28x%29%0Ax%20%3D%200x07%0Aprint%28x%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
@@ -81,6 +82,11 @@ In semiotics, which is the study of signs, symbols, and signification, the numbe
 Further discussion is beyond the scope of this textbook, and beyond the remixer's expertise!
 --
 
+[click.Art.break:.This.is.NOT.a.pipe.and.I.am.NOT.a.cat!]
+--
+Read link:https://en.wikipedia.org/wiki/The_Treachery_of_Images[this Wikipedia article] and pay attention to the quote from the artist, René Magritte. Also visit this link:https://link.springer.com/article/10.1007/s11606-010-1581-9[webpage] to see how very different fields of work can influence each other! + 
+And you may already be familiar with link:https://en.wikipedia.org/wiki/Zoom_Cat_Lawyer[this one.]
+--
 
 In the same way that we can use multiple words to represent a single number, so can we use a place-value numeral system with a positive integer base _b_ that is different than ten 
 // other than base-ten 
@@ -123,8 +129,19 @@ other bases
 
 
 
-//MKD moved from intro "There are 10 kinds of people in this world — those who understand binary and those who don’t."
 
+
+//MKD https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2012.00009/full "Pie” in Spanish is a foot.
+
+Privilege
+The use of subscript is not necessary if the context is clear. For example, \[ chmod 755 hello.txt \] 
+is a Unix/Linux command that changes file permission bits (read, write, execute) for a file's owner, the file's group, and any other user. In this example, the string "755" is #octal# not decimal. Notice that no subscript or prefix like "o" is used - it is _natural_ to use octal in this context. The reason we use base-ten numerals as subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used. BUT WE DON'T HAVE TO IF THE CONTEXT IS CLEAR... of if we want to tell jokes like 
+
+* "There are 10 kinds of people in this world — those who understand binary and those who don’t." 
+
+* (the alien base 4 joke) https://old.reddit.com/r/mathmemes/comments/jy745a/all_bases_are_base_10/ and https://math.stackexchange.com/questions/166869/is-10-a-magical-number-or-i-am-missing-something
+
+* "Every base is base 10."
 
 ////
 // MKD end topics list

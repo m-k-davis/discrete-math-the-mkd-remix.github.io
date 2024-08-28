@@ -1,7 +1,8 @@
 = Counting: Permutations and Combinations
 
-_This chapter was last updated on August 25, 2024._
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
+_This chapter was last updated on August 27, 2024._
 
 ////
 AUG 2024 update on topics (basic counting)

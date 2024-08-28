@@ -1,5 +1,10 @@
 = Logic
 
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+
+_This chapter was last updated on August 27, 2024._
+
+
 //COMING SOON!
 
 // MKD consider making the following substitutions throughout

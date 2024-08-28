@@ -697,7 +697,7 @@ introduced into each of the new chapters.</p>
 <h2 id="_introducing_discrete_mathematics">2. Introducing Discrete Mathematics</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This chapter was last updated on August 25, 2024.</em></p>
+<p><em>This chapter was last updated on August 28, 2024 (added water glass example and link to video about \(\pi\) to section 2.1)</em></p>
 </div>
 <div class="paragraph">
 <p>Welcome to the Remix! I hope this textbook provides you an opportunity for a stimulating and intellectually enjoyable learning experience.</p>
@@ -737,8 +737,18 @@ It makes sense to ask questions like "What is the next integer after -2?" or "Wh
 </li>
 </ul>
 </div>
+<div class="imageblock right text-center">
+<div class="content">
+<img src="imagesMKD/water-glass-13525637587gp.jpg" alt="Water Glass" width="320" height="212">
+</div>
+</div>
 <div class="paragraph">
-<p>On the other hand, continuous mathematics involves quantities that often are densely distributed throughout a structure, for which measurement is more appropriate than counting.</p>
+<p>So what kind of structure is not discrete? Consider the water in the glass shown in the image. The water in the glass <em>is</em> a structure, but for most of human history it has not been seen as made up of objects that are of a different nature than the structure. That is, many generations of humans have recognized the difference between a wall and the individual stones and bricks that make up the wall, but likely have perceived water as being made up of&#8230;&#8203; water. This is why humans tend to use <em>measurement of quantities</em> of water, using units such as fluid ounces or milliliters. In our time we humans understand that the water is built from molecules, but because the molecules are so tiny, so numerous, and so densely distributed throughout the structure, we humans (except perhaps chemists, physicists, and some engineers) still ignore the individual molecules and use measurement instead of counting. For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10<sup>24</sup> molecules of water." Notice that the measurement units do not correspond in any natural way to the individual molecules or groupings of the molecules (unless, perhaps, you are a chemist, physicist, or engineer.)<br>
+Notice also that the glass container itself is another structure in which individual molecules tend to be ignored.<br>
+<span class="small">Image credit: <a href=https://www.publicdomainpictures.net/en/view-image.php?image=27533&amp;picture=water-glass>"Water Glass"</a> by Peter Griffin. The image is dedicated to the public domain under <a href=http://creativecommons.org/publicdomain/zero/1.0/>CC0</a>.</span></p>
+</div>
+<div class="paragraph">
+<p>Humans use <strong>continuous mathematics</strong> like calculus to study a structure that is built from objects that are densely distributed throughout the structure. For such a structure, measurement and approximation is more appropriate than counting.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -748,7 +758,8 @@ It does NOT makes sense to ask about "the next real number after \(\pi\) on the 
 <br>
 Instead, "the real numbers that differ from \(\pi\) by less than \(\epsilon\)" makes sense for any positive number \(\epsilon\) (The symbol \(\epsilon\) is  the Greek letter "epsilon".) By choosing \(\epsilon\) as small as we like, we can describe the real numbers that are as close to \(\pi\) as needed to use as approximations to \(\pi.\) This is why (and how) limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line.<br>
 <span class="small">Note 1: The set of real numbers is called <strong>the continuum</strong> in advanced mathematics courses.<br>
-Note 2: The technique used to justify that "the next real number after \(\pi\) on the number line" does not exist is called <strong>proof by contradiction</strong> and will be discussed along with other techniques in the <a href=./proofs.html>Proofs: Basic Techniques</a> chapter of this textbook.</span></p>
+Note 2: The technique used to justify that "the next real number after \(\pi\) on the number line" does not exist is called <strong>proof by contradiction</strong> and will be discussed along with other techniques in the <a href=./proofs.html>Proofs: Basic Techniques</a> chapter of this textbook.<br>
+Note 3: Is \(\pi\) really on the number line? Click <a href=https://www.youtube.com/watch?v=PFf9d7U2tVA&amp;t=282s>here</a> to view an artist&#8217;s explanation about where \(\pi\) lies on the number line. Be warned that some of what this artist says (about history, about \(\pi\) being equal to 3.14) is not correct, but the visualization still may be helpful to you.</span></p>
 </li>
 </ul>
 </div>
@@ -2008,7 +2019,7 @@ wins \(2\) out of \(10\) districts, but in scenario \(B\) it wins \(7\)  out of 
 <h2 id="_counting_arithmetic_techniques">3. Counting: Arithmetic Techniques</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This chapter was last updated on August 25, 2024.</em></p>
+<p><em>This chapter was last updated on August 27, 2024</em></p>
 </div>
 <div class="paragraph">
 <p>Many of us learned how to count when we were young children. We may have counted up to 10 on our fingers, or up to 20 on our fingers and toes, but we probably never counted up to much more than 100. However, many problems in computer science or mathematics require that we count the number of elements of sets that contain millions or billions of elements, or even more.</p>
@@ -2245,7 +2256,10 @@ Then there are \(\frac{n}{d}\) ways to do the task.</p>
 <h2 id="_number_bases">4. Number Bases</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This chapter was last updated on August 25, 2024.</em></p>
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 28, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s likely that you learned, when you were young, how to represent positive integers using <strong>decimal notation</strong> and the <strong>base-ten place-value system.</strong> This system uses ten symbols, called the <strong>Hindu-Arabic numerals</strong>, which are 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9, to represent <em>any</em> natural number (zero or positive) by placing the numerals into a string, read from left-to-right, to indicate multiples of descending powers of the base ten. For example, the string 205 (or, more code-like, "205") represents the number described by the phrase "2 hundreds plus 0 tens, plus 5 ones," where 1 hundred is the same as ten tens. Each digit represents a multiple of ten, depending on that digits position. In particular, the number ten, which is the base of the place-value system, is represented by the string "10" and is described by the phrase "1 ten plus 0 ones".</p>
@@ -2316,6 +2330,15 @@ In the same way,</p>
 <div class='click_oblique'>
 In semiotics, which is the study of signs, symbols, and signification, the number is referred to as the <strong>signified</strong> mental concept and the numeral is a <strong>signifier.</strong>
 Further discussion is beyond the scope of this textbook, and beyond the remixer&#8217;s expertise!
+</div>
+</div>
+</div>
+<div class="openblock click">
+<div class="title">Art break: this is not a pipe and i am not a cat!</div>
+<div class="content">
+<div class='click_oblique'>
+Read <a href=https://en.wikipedia.org/wiki/The_Treachery_of_Images>this Wikipedia article</a> and pay attention to the quote from the artist, René Magritte. Also visit this <a href=https://link.springer.com/article/10.1007/s11606-010-1581-9>webpage</a> to see how very different fields of work can influence each other!<br>
+And you may already be familiar with <a href=https://en.wikipedia.org/wiki/Zoom_Cat_Lawyer>this one.</a>
 </div>
 </div>
 </div>
@@ -2714,7 +2737,10 @@ Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 
 <h2 id="_counting_permutations_and_combinations">5. Counting: Permutations and Combinations</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This chapter was last updated on August 25, 2024.</em></p>
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p>COMING SOON!!</p>
@@ -2725,7 +2751,10 @@ Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 
 <h2 id="_set_theory">6. Set Theory</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This chapter was last updated on August 17, 2024.</em></p>
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p><mark>Set theory is the foundational topic of mathematics in our time.
@@ -4204,6 +4233,12 @@ and
 <div class="sect1">
 <h2 id="_logic">7. Logic</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
+</div>
 <div class="paragraph">
 <p><strong>Logic</strong> is the study of reasoning. Logic is used to create, analyze, and validate <strong>arguments</strong>, where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument.</p>
 </div>
@@ -7080,6 +7115,12 @@ Determine the true value of the  following, an explain your reasoning.</p>
 <h2 id="_proofs_basic_techniques">8. Proofs: Basic Techniques</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
+</div>
+<div class="paragraph">
 <p>Recall from the <a href=./logic.html>Logic</a> chapter  that an <strong>argument</strong> is a finite sequence of statements that ends with a final statement, the <strong>conclusion</strong>, that is based on inferences made from the earlier statements, called <strong>premises</strong> or <strong>hypotheses.</strong></p>
 </div>
 <div class="paragraph">
@@ -7806,6 +7847,12 @@ involves a single conditional \(p \rightarrow q\). This may seem like an oversim
 <h2 id="_sequences_and_recursion">9. Sequences and Recursion</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
+</div>
+<div class="paragraph">
 <p><strong>Sequences</strong> are functions with domain the natural numbers, or a subset of the natural numbers. That is, sequences are lists of objects indexed by some or all of the  natural numbers. The indexed objects are called the <strong>terms</strong> of the sequence and may be numbers, but could be any other kind of object like a set, a function, strings, etc.</p>
 </div>
 <div class="sect2">
@@ -8146,6 +8193,12 @@ We can construct a new rooted tree by first adding a new vertex <em>r</em> that 
 <div class="sect1">
 <h2 id="_functions">10. Functions</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
+</div>
 <div class="paragraph">
 <p>Informally,
 a function \(f\) from set <em>D</em> to set <em>C</em> is a rule that assigns to each input element in <em>D</em> exactly one output element from <em>C.</em> The set <em>D</em> is called the domain of the function, and the set <em>C</em> is called the codomain of the function. This informal definition was introduced in the <a href=introduction_discrete_math.html#informal_function_definition> Introducing Discrete Mathematics</a> chapter.</p>
@@ -9206,6 +9259,12 @@ increasing</strong> if whenever \$x&lt;y\$, then \$f(x)&lt;f(y)\$.</p>
 <h2 id="_relations">11. Relations</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
+</div>
+<div class="paragraph">
 <p>Informally, a relation on two or more sets is an association between elements of those sets.</p>
 </div>
 <div class="paragraph">
@@ -9347,7 +9406,10 @@ since \(f \subseteq A \times B\) (Recall from <a href=./functions.html>Functions
 <h2 id="_rates_of_growth_of_functions">12. Rates of Growth of Functions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This chapter was last updated on August 17, 2024.</em></p>
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p>You have seen that some tasks can be completed by more than one algorithm. Two questions to ask are "How do you choose which algorithm to use? Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions.</p>
@@ -10120,7 +10182,10 @@ words what it means that \( f(x)\) is <span class="underline">not</span> \( O(g(
 <h2 id="_algorithms_and_their_analysis">13. Algorithms and Their Analysis</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This chapter was last updated on August 25, 2024.</em></p>
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p>An <strong>algorithm</strong> is a step-by-step process, defined by a set of
@@ -10649,6 +10714,12 @@ In the second part of Merge Sort, \(n\) elements are merged which is \(O(n)\). S
 <h2 id="_proofs_mathematical_induction">14. Proofs: Mathematical Induction</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
+</div>
+<div class="paragraph">
 <p><em>Mathematical induction</em> is a proof technique that is used to prove
 infinitely many propositions using only two steps, where each of the
 steps is of finite length (in terms of time, symbols, words, phonemes, etc.).
@@ -10996,6 +11067,12 @@ and the induction step justifies that if we have built a tower that has height \
 <h2 id="_graphs">15. Graphs</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
+</div>
+<div class="paragraph">
 <p>Graphs are discrete mathematical structures that have many applications in a diversity of fields including chemistry, network analysis, algorithms, and social sciences.</p>
 </div>
 <div class="sect2">
@@ -11268,7 +11345,10 @@ A <strong>directed edge</strong> \(e\in\ E\) is an ordered pair of the form \(e=
 <h2 id="_trees">16. Trees</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This chapter was last updated on August 22, 2024.</em></p>
+<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on August 27, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p>A <strong>tree</strong> is a connected graph that contains no simple circuits.
