@@ -5,7 +5,7 @@
 _This chapter was last updated on August 28, 2024._
 
 // MKD intro blurb needs editing
-Set theory, along with logic, is [underline]#the# foundation of mathematics in our time. In earlier eras, people tried to use arithmetic (e.g., counting and arithmetic with whole numbers) or geometry (e.g., measurement of lengths, areas, and volumes along with geometric constructions) but new understandings of these subfields developed over the 200 years. These new understandings led mathematicians to seek a firmer basis for all of mathematics, and for now, that basis is set theory: The study of collections of objects and how those collections can be combined, associated, and themselves be added to other collections. 
+Set theory, along with logic, is [underline]#the# foundation of mathematics in our time. In earlier eras, people tried to use arithmetic (e.g., counting and whole numbers) and geometry (e.g., measurement of lengths, areas, and volumes along with geometric constructions) as the foundations of all mathematics. However, new understandings of mathematics developed over the last 3 centuries which led mathematicians to seek a firmer foundation. For now, that firmer foundation uses set theory: The study of collections of objects and how those collections can be combined, associated, and themselves added to other collections. 
 //Most of modern mathematics is built on the foundation of set theory. 
 //Sets serve as a logically sound basis for mathematics.
 
