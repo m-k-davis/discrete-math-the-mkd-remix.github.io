@@ -601,18 +601,8 @@ $(document).on('page:load', ready2);
     <div class="sectionbody">
      <div class="paragraph">
       <p>
-       <mark>
-        <strong>
-         CAUTION
-        </strong>
-        - CHAPTER UNDER CONSTRUCTION!
-       </mark>
-      </p>
-     </div>
-     <div class="paragraph">
-      <p>
        <em>
-        This chapter was last updated on August 28, 2024
+        This chapter was last updated on September 3, 2024
        </em>
       </p>
      </div>
@@ -721,11 +711,11 @@ one list, the sum rules says that there are \(3 + 7 + 4 = 14\) projects to choos
          <strong>
           subtraction rule
          </strong>
-         is a special case of the
-         <strong>
-          inclusion-exclusion principle
-         </strong>
-         applied to two sets. The subtdescribes the number of possible choices of one element from a union of two sets that do share one or more common elements.
+         describes the number of possible choices of one element from a union of two sets that
+         <em>
+          do
+         </em>
+         share one or more common elements.
         </p>
        </div>
        <div class="sidebarblock">
@@ -795,7 +785,11 @@ one list, the sum rules says that there are \(3 + 7 + 4 = 14\) projects to choos
            once as a student enrolled in discrete mathematics and then again as a student enrolled in probability. We can repair the count by subtracting 6 from the sum of 17 and 13; this will count each of the students exactly once. That is, the number of students in the group is \(17+13-6=24.\)
            <br/>
            <span class="small">
-            As an alternative, we could subtract 6 from each of 17 and 13 to get three disjoint sets of students: The \(17-6=11\) who are are enrolled in discrete mathematics but not probability, the \(13-6=7\) who are enrolled in both discrete mathematics and probability, and the 6 who are enrolled in both discrete mathematics and probability. Notice that we can now add \((17-6)+(13-6)+6 = 24\), which is the correct count. Also note that $(17-6)(13-6)+6 = 17(-6)13(-6)+6 = 17 + 13 -6,
+            Alternative solution
+            <br/>
+            First form three sets that have no students in common: Subtract 6 from each of 17 and 13 to find that there are \(17-6=11\) students in the set of students who are are enrolled in discrete mathematics but not probability, \(13-6=7\) students in the set of students who are enrolled in probability but not discrete mathematics, and 6 students in the set of students who are enrolled in both discrete mathematics and probability. Notice that the Sum Rule can be used because no student can be in two (or more) of the sets: There are \((17-6)+(13-6)+6 = 24\) students, which is the correct count.
+            <br/>
+            Also note that \((17-6)+(13-6)+6 = 17+(-6)+13+(-6)+6 = 17 + 13 -6 =24,\) which is the computation used in first solution.
            </span>
           </p>
          </div>
@@ -819,37 +813,6 @@ one list, the sum rules says that there are \(3 + 7 + 4 = 14\) projects to choos
           </div>
           <p>
            By the subtraction rule, there are \(150 + 43 - 25 = 168\) applicants that majored in computer science or business (or both). The number of applicants who did not major in either computer science or business is \(200 - 168 = 32.\)
-          </p>
-         </div>
-        </div>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="paragraph">
-          <div class="title">
-           Example 4
-          </div>
-          <p>
-           How many bit strings of length four start with 1 or end with 00?
-          </p>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           Solution
-          </div>
-          <p>
-           A bit string of length four that starts with 1 will be of the form \(1~*~*~*\). For each \(*\) there are two choices, 0 or 1, so by the product rule, there are \(2^3\) bit strings of this form. A bit string of length four that ends with 00 will be of the form \(*~*~0~0\), so there are \(2^2\) bit strings of this form.
-Finally,
-a bit string of length four that starts with 1 and ends with 00 will be of the form \(1~*~0~0\), so there are 2 bit strings of this form. By the subtraction rule
-there are \(2^3 + 2^2 - 2 = 8+4-2=10\) possibilities.
-          </p>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           You Try
-          </div>
-          <p>
-           If a card is drawn from a standard 52-card deck, how many ways can the card be black or a face card?
           </p>
          </div>
         </div>
@@ -907,32 +870,9 @@ there are \(2^3 + 2^2 - 2 = 8+4-2=10\) possibilities.
        </div>
        <div class="sidebarblock">
         <div class="content">
-         <div class="openblock">
-          <div class="title">
-           Example 5 - The Multiplication Principle in Python
-          </div>
-          <div class="content">
-          </div>
-         </div>
-         <div class="paragraph">
-          <p>
-           What will be the value 'counter' when the following code is run?
-          </p>
-         </div>
-         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20counter%28n1,%20n2,%20n3,%20n4,%20n5%29%3A%0A%20%20%20%20k%20%3D%200%0A%20%20%20%20for%20i1%20in%20range%281,%20n1%2B1%29%3A%0A%20%20%20%20%20%20%20%20for%20i2%20in%20range%281,%20n2%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20i3%20in%20range%281,%20n3%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20i4%20in%20range%281,%20n4%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20i5%20in%20range%281,%20n5%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20return%20k&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
-         </iframe>
-         <div style="text-align: right;">
-          <a href="http://www.pythontutor.com/visualize.html#code=def%20counter%28n1,%20n2,%20n3,%20n4,%20n5%29%3A%0A%20%20%20%20k%20%3D%200%0A%20%20%20%20for%20i1%20in%20range%281,%20n1%2B1%29%3A%0A%20%20%20%20%20%20%20%20for%20i2%20in%20range%281,%20n2%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20i3%20in%20range%281,%20n3%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20i4%20in%20range%281,%20n4%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20i5%20in%20range%281,%20n5%2B1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20return%20k&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
-           Edit in PythonTutor
-          </a>
-         </div>
-        </div>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 6
+           Example 4
           </div>
           <p>
            Suppose there are 27 computers in a computer center and each computer has 15 ports. How many different ways are there to choose a specific port?
@@ -973,13 +913,49 @@ Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett Colle
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 7
+           Example 5
           </div>
           <div class="content">
           </div>
          </div>
          <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_nv3yif36&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_uy3482xl" title="Kaltura Player" webkitallowfullscreen="" width="700">
          </iframe>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 6
+          </div>
+          <p>
+           You can use more than one of the rules to solve a problem.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           How many bit strings of length four start with 1 or end with 00?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           A bit string of length four that starts with 1 will be of the form \(1~*~*~*\). For each \(*\) there are two choices, 0 or 1, so by the product rule, there are \(2^3\) bit strings of this form. A bit string of length four that ends with 00 will be of the form \(*~*~0~0\), so there are \(2^2\) bit strings of this form.
+Finally,
+a bit string of length four that starts with 1 and ends with 00 will be of the form \(1~*~0~0\), so there are 2 bit strings of this form. By the subtraction rule
+there are \(2^3 + 2^2 - 2 = 8+4-2=10\) possibilities.
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           If a card is drawn from a standard 52-card deck, how many ways can the card be black or a face card (that is, a Jack, Queen, or King)?
+          </p>
+         </div>
         </div>
        </div>
       </div>
@@ -989,9 +965,7 @@ Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett Colle
        </h4>
        <div class="paragraph">
         <p>
-         Remark: The division rule comes in handy when it appears that a task can be done in n different ways, but it turns out that for each way of doing
-the task, there are d equivalent ways of doing it. Under these circumstances, we can conclude that there are n∕d inequivalent ways of doing
-the task.
+         This rule is used when there are \(n\) ways to complete a procedure, but for each of those ways is equivalent to \(d\) ways (including the way itself.)
         </p>
        </div>
        <div class="sidebarblock">
@@ -1001,8 +975,51 @@ the task.
          </div>
          <div class="paragraph">
           <p>
-           Suppose a task can be done using a procedure that can be carried out in \(n\) ways, and for every way w, exactly \(d\) of the \(n\) ways correspond to way w.
-Then there are \(\frac{n}{d}\) ways to do the task.
+           Suppose that we have a procedure that can be completed in
+           <em>
+            n
+           </em>
+           possible ways, but that for each way of completing the procedure there are
+           <em>
+            d
+           </em>
+           possible ways with the same outcome. Then there are \(\frac{n}{d}\) ways to complete the procedure.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         The next example uses both the product and division rules.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="imageblock right text-center">
+          <div class="content">
+           <img alt="DivisionRuleCircularTableImage" height="154" src="imagesMKD/DivisionRuleCircularTableImage.png" width="152"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Example 7
+          </div>
+          <p>
+           Four students will sit around a circular table, but two seatings are  considered "not different" whenever each student has the same left neighbor and right neighbor. How many different seatings are there?
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           First use the product rule to find that there are (4)(3)(2)(1) = 24 possible ways for the 4 students to sit. Next, notice that if all the students shifted one chair to the left once, twice, or thrice, they would all have the same neighbors that they originally had. This means that for
+           <em>
+            each
+           </em>
+           of the 24 ways the students can sit, 4 of those ways are not considered different.
+           <br/>
+           Therefore, there are \(\frac{24}{4}\) or 6 different seatings.
           </p>
          </div>
         </div>
@@ -1026,6 +1043,18 @@ Then there are \(\frac{n}{d}\) ways to do the task.
         <div class="paragraph">
          <p>
           If \(k+1\) pigeons are roosting in \(k\) pigeonholes then at least one pigeonhole contains more than one pigeon.
+          <br/>
+          <br/>
+          <span class="small">
+           NOTE: The Pigeonhole Principle is often attributed to Peter Gustav Lejeune Dirichlet, who called it the
+           <em>
+            Schubfachprinzip.
+           </em>
+           The remixer is willing to speculate that this principle has been known for at least as long as humans have
+           <a href="https://en.wikipedia.org/wiki/Pigeon_keeping">
+            kept birds such as pigeons.
+           </a>
+          </span>
          </p>
         </div>
        </div>
@@ -1062,6 +1091,163 @@ Then there are \(\frac{n}{d}\) ways to do the task.
          </p>
         </div>
        </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_exercises">
+       3.3. Exercises
+      </h3>
+      <div class="olist arabic">
+       <ol class="arabic">
+        <li>
+         <p>
+          There are 67 mathematics majors and 124 computer science majors at a college. There is no student who is both a mathematics major and a computer science major.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             In how many ways can two representatives be picked so that one is a mathematics major and one is a computer science major?
+            </p>
+           </li>
+           <li>
+            <p>
+             In how many ways can one representative be picked who is either a mathematics major or a computer science major?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          A multiple-choice test contains 20 questions, and each question has four choices.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             In how many ways can a student answer all of the questions on the test if each question must be answered?
+            </p>
+           </li>
+           <li>
+            <p>
+             In how many ways can a student answer all of the questions if the student is allowed to not answer one or more questions?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          How many different three-letter initials, using uppercase English letters, are there?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many different three-letter initials, using uppercase English letters, end with "R"?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many bit strings are there of length five?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many bit strings are there of length five that begin and end with 1?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many bit strings are there of length less than \(n\), where \(n\) is a positive integer, that start and end with 1?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many license plates can be made using three digits followed by four uppercase English letters if:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Digits and letters can be repeated?
+            </p>
+           </li>
+           <li>
+            <p>
+             Digits and letters cannot be repeated?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Each student in a Discrete Mathematics class is a mathematics major, a computer science major, or a double major in both mathematics and computer science. If the class has 5 mathematics majors (including double majors), 23 computer science majors (including double majors), and 7 double majors, how many students are in the class?
+         </p>
+        </li>
+        <li>
+         <p>
+          Suppose a computer system requires a password of length no less than 7 and no more than 10 characters, and each character must be an English lowercase
+letter, an English uppercase letter, a digit, or one of six special characters (*, &gt;, &lt;, !, +, =).
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             How many different passwords are available?
+            </p>
+           </li>
+           <li>
+            <p>
+             Suppose a hacker can check a potential password once every nanosecond (1 nanosecond is \(1 \times 10^{-9}\) seconds). How long will it take the hacker
+to check every potential password?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Suppose that there are 29 students in a class, all of whose last names use only English letters. Explain why at least 2 students in the class have last names that begin with the same letter.
+         </p>
+        </li>
+        <li>
+         <p>
+          Show that in any set of 5 integers, there are at least two of them that have the same remainder when divided by 4.
+         </p>
+        </li>
+        <li>
+         <p>
+          A bag contains 8 red balls and 7 blue balls.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             How many balls must be chosen to be sure of choosing 3 of the same color?
+            </p>
+           </li>
+           <li>
+            <p>
+             How many must be chosen to be sure of choosing 3 red balls?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Someone cleaning out their attic finds a box containing 12 rock CDs and 12 country CDs. What is the minimum number of CDs they can take out to guarantee at least
+one of each type?
+         </p>
+        </li>
+        <li>
+         <p>
+          Give an argument that there are at least two people in California  with the same number of hairs on their head.
+         </p>
+        </li>
+       </ol>
       </div>
      </div>
     </div>

@@ -601,40 +601,48 @@ $(document).on('page:load', ready2);
     <div class="sectionbody">
      <div class="paragraph">
       <p>
-       <mark>
-        <strong>
-         CAUTION
-        </strong>
-        - CHAPTER UNDER CONSTRUCTION!
-       </mark>
-      </p>
-     </div>
-     <div class="paragraph">
-      <p>
        <em>
-        This chapter was last updated on August 28, 2024.
+        This chapter was last updated on September 4, 2024.
        </em>
       </p>
      </div>
      <div class="paragraph">
       <p>
-       It’s likely that you learned, when you were young, how to represent positive integers using
+       It’s likely that you learned how to represent positive integers using
+the
        <strong>
-        decimal notation
+        base-ten place-value system
        </strong>
-       and the
-       <strong>
-        base-ten place-value system.
-       </strong>
-       This system uses ten symbols, called the
+       when you were young.
+This system uses ten symbols, the
        <strong>
         Hindu-Arabic numerals
        </strong>
-       , which are 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9, to represent
+       ‘0’,
+‘1’,
+‘2’,
+‘3’,
+‘4’,
+‘5’,
+‘6’,
+‘7’,
+‘8’, and
+‘9’,
+to represent
        <em>
         any
        </em>
-       natural number (zero or positive) by placing the numerals into a string, read from left-to-right, to indicate multiples of descending powers of the base ten. For example, the string 205 (or, more code-like, "205") represents the number described by the phrase "2 hundreds plus 0 tens, plus 5 ones," where 1 hundred is the same as ten tens. Each digit represents a multiple of ten, depending on that digits position. In particular, the number ten, which is the base of the place-value system, is represented by the string "10" and is described by the phrase "1 ten plus 0 ones".
+       natural number.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       You may know that computers use base-two (binary) instead of base-ten (decimal), but what exactly does that mean? Computers store and manipulate data using sequences of bits (‘0’ and ‘1’), so it often is much more natural to express numbers in base-two instead of base-ten.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       In this chapter, you will learn how to represent natural numbers using place-value systems with bases other than ten.
       </p>
      </div>
      <div class="sect2">
@@ -643,7 +651,7 @@ $(document).on('page:load', ready2);
       </h3>
       <div class="paragraph">
        <p>
-        In everyday life, it is common to treat numbers and numerals as if they are the same. However, it is important in the rest of this chapter to distinguish these concepts.
+        In everyday life, it is common to treat numbers and numerals as if they are the same. However, it is important in this chapter to distinguish these concepts.
        </p>
       </div>
       <div class="ulist">
@@ -654,7 +662,7 @@ $(document).on('page:load', ready2);
           <strong>
            number
           </strong>
-          is an abstract idea or mental concept of a count, a measure, a rank in an ordering, a quantity, etc..
+          is an abstract idea or mental concept of a count, a measure, a rank in an ordering, etc..
          </p>
         </li>
         <li>
@@ -673,124 +681,143 @@ $(document).on('page:load', ready2);
            digit
           </strong>
           is a single symbol that represents a number. A digit is a numeral, but multiple digits can be combined to create other numerals. For example, each of the ten Hindu-Arabic numerals is a digit that represents a natural number that is less than ten, and multiple Hindu-Arabic numerals can be combined to create numerals that represent numbers that are greater than or equal to ten.
+          <br/>
+          <span class="small">
+           NOTE: The word "digit" comes from the Latin word
+           <em>
+            digitus
+           </em>
+           which means "finger" or "toe."
+          </span>
          </p>
         </li>
        </ul>
       </div>
-      <div class="paragraph">
-       <p>
-        As an example, consider the following words:
-       </p>
-      </div>
-      <div class="ulist">
-       <ul>
-        <li>
-         <p>
-          "five",
-         </p>
-        </li>
-        <li>
-         <p>
-          "cinco",
-         </p>
-        </li>
-        <li>
-         <p>
-          "خمسة" ("khamsa"),
-         </p>
-        </li>
-        <li>
-         <p>
-          "पाँच" ("paanch"),
-         </p>
-        </li>
-        <li>
-         <p>
-          "五" ("wǔ").
-         </p>
-        </li>
-       </ul>
-      </div>
-      <div class="paragraph">
-       <p>
-        These words, taken from different languages, are examples of
-        <em>
-         numerals,
-        </em>
-        words that represent a
-        <em>
-         number.
-        </em>
-        In fact, all those numerals represent the same number, but no one of the numerals
-        <em>
-         is
-        </em>
-        the number itself, which is an abstract idea.
-In the same way,
-       </p>
-      </div>
-      <div class="ulist">
-       <ul>
-        <li>
-         <p>
-          the Arabic numerals "5" and "٥",
-         </p>
-        </li>
-        <li>
-         <p>
-          the Roman numeral "Ⅴ,"
-         </p>
-        </li>
-        <li>
-         <p>
-          Braille "⠑"
-         </p>
-        </li>
-       </ul>
-      </div>
-      <div class="paragraph">
-       <p>
-        are other ways of representing the same number that the word "five" represents.
-       </p>
-      </div>
-      <div class="openblock click">
-       <div class="title">
-        Semiotics
-       </div>
+      <div class="sidebarblock">
        <div class="content">
-        <div class="click_oblique">
-         In semiotics, which is the study of signs, symbols, and signification, the number is referred to as the
-         <strong>
-          signified
-         </strong>
-         mental concept and the numeral is a
-         <strong>
-          signifier.
-         </strong>
-         Further discussion is beyond the scope of this textbook, and beyond the remixer’s expertise!
+        <div class="openblock">
+         <div class="title">
+          Example 1 -  Numerals, Numbers, and Digits
+         </div>
+         <div class="content">
+         </div>
         </div>
-       </div>
-      </div>
-      <div class="openblock click">
-       <div class="title">
-        Art break: this is not a pipe and i am not a cat!
-       </div>
-       <div class="content">
-        <div class="click_oblique">
-         Read
-         <a href="https://en.wikipedia.org/wiki/The_Treachery_of_Images">
-          this Wikipedia article
-         </a>
-         and pay attention to the quote from the artist, René Magritte. Also visit this
-         <a href="https://link.springer.com/article/10.1007/s11606-010-1581-9">
-          webpage
-         </a>
-         to see how very different fields of work can influence each other!
-         <br/>
-         And you may already be familiar with
-         <a href="https://en.wikipedia.org/wiki/Zoom_Cat_Lawyer">
-          this one.
-         </a>
+        <div class="paragraph">
+         <p>
+          Consider the following words:
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            "five",
+           </p>
+          </li>
+          <li>
+           <p>
+            "cinco",
+           </p>
+          </li>
+          <li>
+           <p>
+            "خمسة" ("khamsa"),
+           </p>
+          </li>
+          <li>
+           <p>
+            "पाँच" ("paanch"),
+           </p>
+          </li>
+          <li>
+           <p>
+            "五" ("wǔ").
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          These words, taken from different languages, are examples of
+          <em>
+           numerals,
+          </em>
+          words that represent a
+          <em>
+           number.
+          </em>
+          In fact, all those numerals represent the same number, but no one of the numerals
+          <em>
+           is
+          </em>
+          the number itself, which is an abstract idea.
+In the same way,
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            the Arabic numerals "5" and "٥",
+           </p>
+          </li>
+          <li>
+           <p>
+            the Roman numeral "Ⅴ,"
+           </p>
+          </li>
+          <li>
+           <p>
+            Braille "⠑"
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          are other ways of representing the same number that the word "five" represents.
+         </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Semiotics
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           In semiotics, the study of signs, symbols, and signification, the number is a
+           <strong>
+            sign,
+           </strong>
+           made up of the
+           <strong>
+            signified
+           </strong>
+           mental concept and the
+           <strong>
+            signifier
+           </strong>
+           (the numeral.)
+Further discussion is beyond the scope of this textbook, and beyond the remixer’s expertise! Here is a
+           <a href="http://visual-memory.co.uk/daniel//Documents/S4B/semiotic.html">
+            link
+           </a>
+           if you want to learn more about semiotics.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          This is not a pipe!
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Read
+           <a href="https://en.wikipedia.org/wiki/The_Treachery_of_Images">
+            this Wikipedia article
+           </a>
+           and pay attention to the quote from the artist, René Magritte.
+          </div>
+         </div>
         </div>
        </div>
       </div>
@@ -828,85 +855,881 @@ It is often useful to represent natural numbers using a different
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_integer_representations">
-       4.2. Integer Representations
+      <h3 id="_review_of_the_base_ten_place_value_system">
+       4.2. Review Of The Base-Ten Place Value System
       </h3>
       <div class="paragraph">
        <p>
-        In everyday life, we use the base-ten place value system. For example, we write the string "205" to stand for the number
-that is the sum \(200 + 5\)
-or more formally as
-\(2 \cdot 10^{2} + 0 \cdot 10^{1} + 5 \cdot 10^{0}\) (This is sometimes referred to as
-        <strong>
-         expanded form
-        </strong>
-        in school-level mathematics.)
+        <mark>
+         <strong>
+          It’s likely that everything you are about to read in this section is knowledge you’ve had for many years. The purpose of stating everything so explicitly is to provide an example you can compare with place-value systems that use other bases.
+         </strong>
+        </mark>
+        <br/>
        </p>
       </div>
       <div class="paragraph">
        <p>
-        There is nothing special about the number 10 here, though. We can use any positive integer as the
-        <strong>
-         base
-        </strong>
-        of a place value system.
+        A base-ten numeral is a string formed from one or more digits (i.e.,  Hindu-Arabic numerals.)
        </p>
       </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="title">
-         Theorem
-        </div>
-        <div class="paragraph">
+      <div class="ulist">
+       <ul>
+        <li>
          <p>
-          Let \(b\) be an integer greater than 1. Any positive integer \(n\) can be expressed uniquely in the form \[n = a_kb^k + a_{k - 1}b^{k-1} + \cdots + a_1b^1 + a_0b^0,\]where \(k\) is a nonnegative integer, \(a_0,a_1,\dots,a_k\) are nonnegative integers less than \(b,\) and \(a_k \neq 0.\)
+          The string is read from left-to-right.
          </p>
+        </li>
+        <li>
+         <p>
+          Each digit in the string represents a multiple of a power of the base, ten, depending on the its position in the string.
+         </p>
+        </li>
+        <li>
+         <p>
+          The rightmost
+          <strong>
+           place
+          </strong>
+          represents a multiple of 1 (which is ten raised to the power zero) and each of the other places represents a multiple of a power of ten that is one greater than the power of ten represented by the place to its right.
+         </p>
+        </li>
+        <li>
+         <p>
+          Notice that the base itself, the number ten, is represented by the string "10" in this place-value system. The string "10" represents the number described by the phrase "1 ten plus 0 ones".
+         </p>
+        </li>
+        <li>
+         <p>
+          As an example, the string "101" represents the number described by the phrase "1 hundred plus 0 tens, plus 1 ones," where 1 hundred is the same as ten tens. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \] The expression on the right-hand side of the previous equation is referred to as
+          <strong>
+           expanded form
+          </strong>
+          in school-level mathematics.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        <span class="small">
+         NOTE: The Hindu-Arabic numerals evolved from earlier Brahmi versions. You can look at the image at this
+         <a href="https://www.britannica.com/topic/Hindu-Arabic-numerals/images-videos">
+          web page
+         </a>
+         which shows a few steps in this evolution. Also, you can learn more about the history of the Hindu-Arabic numerals from the links in the "Notes" and "References" sections of this
+         <a href="https://en.wikipedia.org/wiki/History_of_the_Hindu%E2%80%93Arabic_numeral_system">
+          Wikipedia page.
+         </a>
+        </span>
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_an_algorithm_that_computes_the_digits_of_a_base_ten_numeral">
+        4.2.1. An Algorithm That Computes The Digits Of A Base-Ten Numeral
+       </h4>
+       <div class="paragraph">
+        <p>
+         In this subsection, an algorithm is presented for computing the digits in the expanded form of a base-ten numeral of the natural number \(n.\) This may seem to be a complicated way to do something very simple since we could just
+         <em>
+          read off
+         </em>
+         the digits, but
+         <mark>
+          the important thing to notice about this algorithm is that the role that ten plays can be played by
+          <em>
+           any
+          </em>
+          other positive integer constant greater than one!
+         </mark>
+         This means that this algorithm can be adapted to find the "digits" in the expanded form of a base-\(b\) numeral for the number \(n\) for
+         <em>
+          any
+         </em>
+         base \(b\) we choose.
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Task: Given the natural number
+           <em>
+            n,
+           </em>
+           compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)]  so that each of \(r_{0}, r_{1}, \ldots , r_{k}\) is represented by a single digit in base-10, and \[ n = r_{k} \cdot 10^{k} + \ldots + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0} \] where \(k\) is the greatest natural number such that \(10^{k} &lt; n.\)
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              Input: The natural number \(n\)
+             </p>
+            </li>
+            <li>
+             <p>
+              Steps:
+             </p>
+             <div class="olist arabic">
+              <ol class="arabic">
+               <li>
+                <p>
+                 Set \(a\) equal to \(n\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Divide \(a\) by 10 to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot 10 + r\) and \(0 \leq r &lt; 10.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Append \(r\) to the end of array \(s.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 If \(q \neq 0\)
+                </p>
+                <div class="olist loweralpha">
+                 <ol class="loweralpha" type="a">
+                  <li>
+                   <p>
+                    set \(a\) equal to \(q\)
+                   </p>
+                  </li>
+                  <li>
+                   <p>
+                    go to step 3
+                   </p>
+                  </li>
+                 </ol>
+                </div>
+               </li>
+               <li>
+                <p>
+                 Return the sequence \(s.\)
+                </p>
+               </li>
+              </ol>
+             </div>
+            </li>
+            <li>
+             <p>
+              Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a single digit, and \[ n = r_{k} \cdot 10^{k} + \ldots + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0}.\]
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         That is, we rewrite \(n\) as \(r_{0} + 10 \cdot (r_{1} + 10 \cdot (r_{2} + \ldots r_{k-1} + (10 \cdot (r_{k})) \ldots ))\)
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 2 - Finding The Digits Of A Base-Ten Numeral
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The following equations summarize how the preceding algorithm determines the digits in the base-ten expanded form numeral for the number 432.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \begin{equation}
+\begin{aligned}
+432 {} &amp; = 43 \cdot 10 + 2 &amp; q {} &amp; = 43  &amp; r {} &amp; = 2 &amp; s &amp; = [2] \\
+43 {} &amp; = 4 \cdot 10 + 3   &amp; q {} &amp; = 4   &amp; r {} &amp; = 3 &amp; s &amp; = [2, 3] \\
+4 {} &amp; = 0 \cdot 10 + 4    &amp; q {} &amp; = 0   &amp; r {} &amp; = 4 &amp; s &amp; = [2, 3, 4] \\
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that the items in \(s = [ r_{0}, \, r_{1}, \, r_{2} \)] are the numbers corresponding to the digits of the numeral \(“432”\) in reverse order, so \begin{equation}
+\begin{aligned}
+432 &amp; =  r_{2} \cdot 10^{2} + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0} \\
+&amp; =  4 \cdot 10^{2} + 3 \cdot 10^{1} + 2 \cdot 10^{0}
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that the algorithm is essentially rewriting \(432\) as \(2 + 10 \cdot 43 = 2 + 10 \cdot (3 + 10 \cdot 4)).\)
+          </p>
+         </div>
         </div>
        </div>
       </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_base_two_place_value_system_binary_notation">
+       4.3. The Base-Two Place Value System (Binary Notation)
+      </h3>
       <div class="paragraph">
        <p>
-        Let \(b\) be an integer greater than 1 and let \(n\) be a positive integer. The representation of \(n\) in the above theorem is referred to as the
-        <strong>
-         base \(b\) expansion of \(n\)
-        </strong>
-        . We refer to \(a_k,a_{k-1},\dots,a_0,a_1\) as
-        <strong>
-         digits
-        </strong>
-        . We represent the base \(b\) expansion of \(n\) using the following notation: \[(a_ka_{k-1}\dots a_1a_0)_b.\]
+        Next, let’s describe the base-two (binary) place value system. You will see that much of what is done here can be achieved by simply replacing "ten" by "two" in what was described in the previous section.
+        <br/>
        </p>
       </div>
       <div class="paragraph">
        <p>
-        The base 10 expansion of a positive integer is referred to as the
+        A base-two numeral is a string formed from one or more digits (i.e., the
+        <strong>
+         binary digits
+        </strong>
+        or
+        <strong>
+         bits
+        </strong>
+        ‘0’ and ‘1’.)
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          The string is read from left-to-right.
+         </p>
+        </li>
+        <li>
+         <p>
+          Each digit in the string represents a multiple of a power of the base, two, depending on the its position in the string.
+         </p>
+        </li>
+        <li>
+         <p>
+          The rightmost place represents a multiple of 1 (which is two raised to the power zero) and each of the other places represents a multiple of a power of two that is one greater than the power of two represented by the place to its right.
+         </p>
+        </li>
+        <li>
+         <p>
+          <mark>
+           Notice that the base itself, the number two, is represented by the string "10" in this place-value system.
+          </mark>
+          The string "10" represents the number described by the phrase "1 two plus 0 ones".
+         </p>
+        </li>
+        <li>
+         <p>
+          As an example, the string "101" represents the number described by the phrase "1 four plus 0 twos, plus 1 ones," where 1 four is the same as two twos. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Wait…​ WHAT?!?) }\]
+Yes, this equation is correct
+          <em>
+           in the base-two place value system!
+          </em>
+          "10" is how the number two is represented in base-two notation!
+          <br/>
+          <span class="small">
+           As an analogy, the string "pie" signifies very different things in English (a baked dessert) and Spanish (a foot.) We must take care to know which language we are working with!
+          </span>
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="admonitionblock important">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-important" title="Important">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            To avoid confusion,
+it is traditional to use notation to indicate that the strings "10" and "101"
+            <span class="underline">
+             <em>
+              are not
+             </em>
+            </span>
+            base-ten numerals. In this textbook, we will write base-two numerals between a pair of parentheses followed by a subscript indicating the base. The subscript is written as a
+            <em>
+             base-ten numeral.
+            </em>
+            For example, we could rewrite the previous equation as \[(101)_{2} = (1)_2 \cdot (10)_2 \cdot (10)_2 + (0)_2 \cdot (10)_2 + (1)_2 \cdot (1)_2 \]
+which translates into base-ten as \(5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.\) We can also write \(5 = (101)_2\) which is a way of saying that the base-ten numeral and the base-two numeral signify the same number.
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="paragraph">
+       <p>
+        The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used…​ and we don’t need to use the parentheses or subscripts if we are already working in base-ten.
+       </p>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            Also, the use of notation like the parentheses and subscript is not necessary if it is clear from the context that a numeral is not a base-ten numeral. For example, \[ \text{chmod 755 hello.txt} \]
+is a Unix/Linux command that changes the file permission bits (read, write, execute) of the file "hello.txt" for the file’s owner, the file’s group, and any other user. In this example, the string "755" is not a base-10 numeral, but is in
+            <strong>
+             octal (base-eight).
+            </strong>
+            Octal will be discussed later in the chapter. No subscript is used in the Unix/Linux command because it is
+            <em>
+             natural
+            </em>
+            to an experienced user of that operating system to use octal in the context.
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            Also, we can omit the parentheses and subscripts if we want to tell a couple of "jokes:"
+           </p>
+          </div>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              <a href="https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf">
+               "There are 10 types of people in the world… those that understand binary and those that don’t.”
+              </a>
+             </p>
+            </li>
+            <li>
+             <p>
+              <a href="https://math.stackexchange.com/questions/166869/is-10-a-magical-number-or-i-am-missing-something">
+               "Every base is base 10."
+              </a>
+             </p>
+            </li>
+           </ul>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="paragraph">
+       <p>
+        You are ready to convert base-ten numerals to base-two now.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_an_algorithm_that_computes_the_digits_of_a_base_two_numeral">
+        4.3.1. An Algorithm That Computes The Digits Of A Base-Two Numeral
+       </h4>
+       <div class="paragraph">
+        <p>
+         In this subsection, an algorithm is presented for computing the digits in the expanded form of a base-two numeral of the natural number \(n.\) This algorithm has been adapted from the one stated for base-ten in the previous section.
+         <mark>
+          Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.
+         </mark>
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Task: Given the natural number
+           <em>
+            n,
+           </em>
+           compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)]  so that each of \(r_{0}, r_{1}, \ldots , r_{k}\) is represented by a single digit in base-2, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \] where \(k\) is the greatest natural number such that \(2^{k} &lt; n.\)
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              Input: The natural number \(n\)
+             </p>
+            </li>
+            <li>
+             <p>
+              Steps:
+             </p>
+             <div class="olist arabic">
+              <ol class="arabic">
+               <li>
+                <p>
+                 Set \(a\) equal to \(n\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Divide \(a\) by 2 to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot 2 + r\) and \(0 \leq r &lt; 2.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Append \(r\) to the end of array \(s.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 If \(q \neq 0\)
+                </p>
+                <div class="olist loweralpha">
+                 <ol class="loweralpha" type="a">
+                  <li>
+                   <p>
+                    set \(a\) equal to \(q\)
+                   </p>
+                  </li>
+                  <li>
+                   <p>
+                    go to step 3
+                   </p>
+                  </li>
+                 </ol>
+                </div>
+               </li>
+               <li>
+                <p>
+                 Return the sequence \(s.\)
+                </p>
+               </li>
+              </ol>
+             </div>
+            </li>
+            <li>
+             <p>
+              Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a single digit, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0}.\]
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         That is, we rewrite \(n\) as \(r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))\)
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 3 - Finding The Digits Of A Base-Two Numeral (Binary Notation)
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The following equations summarize how the preceding algorithm determines the digits in the base-two expanded form numeral for the number 13.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \begin{equation}
+\begin{aligned}
+13 {} &amp; = 6 \cdot 2 + 1 &amp; q {} &amp; = 6  &amp; r {} &amp; = 1 &amp; s &amp; = [1] \\
+6 {} &amp; = 3 \cdot 2 + 0   &amp; q {} &amp; = 3   &amp; r {} &amp; = 0 &amp; s &amp; = [1, 0] \\
+3 {} &amp; = 1 \cdot 2 + 1   &amp; q {} &amp; = 1   &amp; r {} &amp; = 1 &amp; s &amp; = [1, 0, 1] \\
+1 {} &amp; = 0 \cdot 2 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [1, 0, 1, 1] \\
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that the items in \(s = [ r_{0}, \, r_{1}, \, r_{2} , \, r_{3} \)] are the numbers (in base-ten notation) corresponding to the digits of the numeral \(“(1101)_2”\) in reverse order, so \begin{equation}
+\begin{aligned}
+13 &amp; =  r_{3} \cdot 2^{3} +  r_{2} \cdot 2^{2} + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \\
+&amp; =  1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 2 \cdot 2^{0}
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           The algorithm lets us rewrite \(13\) as \(1 + 2 \cdot 6 = 1 + 2 \cdot (0 + 2 \cdot 3) = 1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).\)
+           <br/>
+           You can also write \(13 = (1101)_2\) to indicate that the base-ten numeral and the base-two numeral represent the same number, thirteen.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Here is a
+         <a href="https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf">
+          link
+         </a>
+         to an alternate method of finding the base-two numeral for a number.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         If you made it to this sentence without skipping any of the discussion above, congratulations! If you did skip some of the discussion, go back and try your best to understand what the algorithm in the previous example is computing: The array \(s\) holds the digits, in reverse order of the binary notation for the number \(n.\) Compare what is done in this algorithm to the one for base-ten in the previous section…​ they are computing the digits for a numeral, but in different bases. If you can understand this algorithm, you will likely understand the rest of the chapter.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_base_b_place_value_system">
+       4.4. The Base-\(b\) Place Value System
+      </h3>
+      <div class="paragraph">
+       <p>
+        We can now describe the base-\(b\) place value system for any natural number \(b&gt;1.\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A base-\(b\) numeral is a string formed from one or more digits out of a set that contains \(b\) digits.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          The string is read from left-to-right.
+         </p>
+        </li>
+        <li>
+         <p>
+          Each digit in the string represents a multiple of a power of the base, \(b,\) depending on the its position in the string.
+         </p>
+        </li>
+        <li>
+         <p>
+          The rightmost place represents a multiple of 1 (which is \(b\) raised to the power zero) and each of the other places represents a multiple of a power of \(b\) that is one greater than the power of \(b\) represented by the place to its right.
+         </p>
+        </li>
+        <li>
+         <p>
+          <mark>
+           Notice that the base itself, the number \(b,\) is represented by the string "10" in the base-\(b\) place value system.
+          </mark>
+          The string "10" represents the number described by the phrase "1 \(b\) plus 0 ones".
+         </p>
+        </li>
+        <li>
+         <p>
+          As an example, the string "101" represents the number described by the phrase "1
+          <em>
+           b-_squared plus 0 _b
+          </em>
+          , plus 1 ones." That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Again?!?) }\]
+Yes, this equation is correct, too,
+          <em>
+           in the base-b place value system!
+          </em>
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can use a pair of parentheses followed by the subscript \(b\) to indicate the base, where \(b\) is written as a
+        <em>
+         base-ten numeral.
+        </em>
+        For example, we could rewrite the previous equation as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \]
+which translates into base-ten as \(b^2 + 1 = 1 \cdot b \cdot b + 0 \cdot b + 1 \cdot 1.\)
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_an_algorithm_that_computes_the_digits_of_a_base_b_numeral">
+        4.4.1. An Algorithm That Computes The Digits Of A Base-\(b\) Numeral
+       </h4>
+       <div class="paragraph">
+        <p>
+         This is an adaptation of the algorithm presented earlier for base-two.
+         <mark>
+          Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.
+         </mark>
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Task: Given the natural number
+           <em>
+            n,
+           </em>
+           and positive integer constant \(b &gt; 1\)
+compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] so that each of \(r_{0}, r_{1}, \ldots , r_{k}\) is represented by a single digit in base-\(b\), and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0} \] where \(k\) is the greatest natural number such that \(b^{k} &lt; n.\)
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              Input: The natural number \(n\)
+             </p>
+            </li>
+            <li>
+             <p>
+              Steps:
+             </p>
+             <div class="olist arabic">
+              <ol class="arabic">
+               <li>
+                <p>
+                 Set \(a\) equal to \(n\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Divide \(a\) by \(b\) to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot b + r\) and \(0 \leq r &lt; b.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Append \(r\) to the end of array \(s.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 If \(q \neq 0\)
+                </p>
+                <div class="olist loweralpha">
+                 <ol class="loweralpha" type="a">
+                  <li>
+                   <p>
+                    set \(a\) equal to \(q\)
+                   </p>
+                  </li>
+                  <li>
+                   <p>
+                    go to step 3
+                   </p>
+                  </li>
+                 </ol>
+                </div>
+               </li>
+               <li>
+                <p>
+                 Return the sequence \(s.\)
+                </p>
+               </li>
+              </ol>
+             </div>
+            </li>
+            <li>
+             <p>
+              Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a single digit, and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0}.\]
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         That is, we rewrite \(n\) as \(r_{0} + b \cdot (r_{1} + b \cdot (r_{2} + \ldots r_{k-1} + (b \cdot (r_{k})) \ldots )).\) The result is the digits that allows us to write \(n\) as \((r_{k}\ldots r_{1}r_{0})_b\) in base-\(b\) notation.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_octal_notation_base_8">
+        4.4.2. Octal Notation (Base-8)
+       </h4>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 4 - Finding The Digits Of A Base-8 Numeral (Octal Notation)
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The following equations summarize how to determine the digits in the base-8 expanded form numeral for the number 100.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Note that for base-8 we use the eight digits
+‘0’,
+‘1’,
+‘2’,
+‘3’,
+‘4’,
+‘5’,
+‘6’, and
+‘7’.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \begin{equation}
+\begin{aligned}
+100 {} &amp; = 12 \cdot 8 + 4 &amp; q {} &amp; = 12  &amp; r {} &amp; = 4 &amp; s &amp; = [4] \\
+12 {} &amp; = 1 \cdot 8 + 4   &amp; q {} &amp; = 1   &amp; r {} &amp; = 4 &amp; s &amp; = [4, 4] \\
+1 {} &amp; = 0 \cdot 8 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [4, 4, 1] \\
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that \(s = [ 4, \, 4, \, 1 \)] are the numbers (in base-ten notation) corresponding to the base-8 digits of the numeral \(“(144)_8”\) in reverse order. You can verify that \(100 = 1 \cdot 8^{2} + 4 \cdot 8^{1} + 4  \cdot 8^{0}.\) This means that \(100 = (144)_8.\)
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_hexadecimal_notation_base_16">
+        4.4.3. Hexadecimal Notation (Base-16)
+       </h4>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 5 - Finding The Digits Of A Base-16 Numeral (Hexadecimal Notation)
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The following equations summarize how to determine the digits in the base-16 expanded form numeral for the number 500.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Note that for base-16, we need sixteen digits! It is traditional to use the ten Hindu-Arabic numerals followed by the first six uppercase English letters as the digits:
+‘0’,
+‘1’,
+‘2’,
+‘3’,
+‘4’,
+‘5’,
+‘6’,
+‘7’,
+‘8’,
+‘9’,
+‘A’,
+‘B’,
+‘C’,
+‘D’,
+‘E’, and
+‘F’.
+So
+\(10 = (A)_{16},\)
+\(11 = (B)_{16},\)
+\(12 = (C)_{16},\)
+\(13 = (D)_{16},\)
+\(14 = (E)_{16},\) and
+\(15 = (F)_{16}.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           We will store the remainders in the array \(s\) using base-ten notation, and then change to hexadecimal digits when write the base-16 numeral for 500.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \begin{equation}
+\begin{aligned}
+500 {} &amp; = 31 \cdot 16 + 4 &amp; q {} &amp; = 31  &amp; r {} &amp; = 4 &amp; s &amp; = [4] \\
+31 {} &amp; = 1 \cdot 16 + 15   &amp; q {} &amp; = 1   &amp; r {} &amp; = 15 &amp; s &amp; = [4, 15] \\
+1 {} &amp; = 0 \cdot 16 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [4, 15, 1] \\
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           As before, we have \(500 = 1 \cdot 16^{2} + 15 \cdot 16^{1} + 4 \cdot 16^{0},\) which you can verify is true.
+To write the base-16 numeral for 500, you need to replace "15" in base-ten  by \((F)_{16}.\) So \(500 = (1F4)_{16}.\)
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_a_theorem_to_be_proven_later">
+        4.4.4. A Theorem (To Be Proven Later)
+       </h4>
+       <div class="paragraph">
+        <p>
+         We can summarize what the algorithm does as a
+         <strong>
+          mathematical theorem,
+         </strong>
+         though technically at this point, it’s only a
+         <strong>
+          conjecture,
+         </strong>
+         an educated guess based on a few cases that seem to indicate that the algorithm will always work. You will learn a technique that will prove the theorem by validating the algorithm for all choices of natural numbers \(n\) and \(b&gt;1\) in the
+         <a href="./induction.html">
+          Proofs: Mathematical Induction
+         </a>
+         chapter.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           Let \(b\) be an integer greater than 1. Any positive integer \(n\) can be expressed uniquely in the form \[n = r_kb^k + r_{k - 1}b^{k-1} + \cdots + r_1b^1 + r_0b^0,\]where \(k\) is a nonnegative integer, \(r_0,r_1,\dots,r_k\) are nonnegative integers less than \(b,\) and \(r_k \neq 0.\)
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_converting_from_base_b_to_base_ten">
+       4.5. Converting From Base-\(b\) to Base-Ten
+      </h3>
+      <div class="paragraph">
+       <p>
+        In this section we show how to rewrite a base-\(b\) numeral in base-ten.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The base-ten numeral of a positive integer is referred to as the
         <strong>
          decimal  expansion
         </strong>
-        . When expressing the decimal expansion of a positive integer, we typically omit the subscript 10.
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        Notice that the subscript
-        <em>
-         b
-        </em>
-        in this notation is written using the
-        <em>
-         base-ten
-        </em>
-        decimal expansion for
-        <em>
-         b.
-        </em>
+        .
        </p>
       </div>
       <div class="sidebarblock">
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 1
+          Example 6
          </div>
          <p>
           What is the decimal expansion of the positive integer with base 7 expansion \((1063)_7\)?
@@ -963,7 +1786,7 @@ or more formally as
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 2 - Hexadecimal expansion
+          Example 7 - Hexadecimal expansion
          </div>
          <p>
           Find the decimal expansion of the positive integer whose hexadecimal expansion is \((5\mathrm{B}\mathrm{F})_{16}.\)
@@ -997,60 +1820,19 @@ or more formally as
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_base_conversion">
-       4.3. Base Conversion
+      <h3 id="_base_conversion_among_binary_octal_and_hexadecimal">
+       4.6. Base Conversion Among Binary, Octal, and Hexadecimal
       </h3>
       <div class="paragraph">
        <p>
-        Let \(b\) be an integer greater than \(1\) and let \(n\) be a positive integer. In order to find the base \(b\) expansion of \(n,\) we can use the following algorithm. First, we use the division algorithm to find integers \(q_0\) and \(a_0,\) with \(0 \leq a_0 &lt; b,\) such that \[n = bq_0 + a_0.\]Then, if \(q_0 \neq 0,\) we again use the division algorithm to find integers \(q_1\) and \(a_1,\) with \(0 \leq a_1 &lt; b,\) such that \[q_0 = bq_1 + a_1.\] Then, if \(q_1 \neq 0,\) we again use the division algorithm to find integers \(q_2\) and \(a_2,\) with \(0 \leq a_2 &lt; b,\) such that \[q_1 = bq_2 + a_2.\]We continue this process until we obtain a quotient of \(0\); that is, until, for some positive integer \(k,\) we have \(q_k = 0.\) Then, we have \[n = (a_ka_{k-1}\dots a_1a_0)_b.\]
+        One of the ways that octal (base-eight) and hexadecimal (base-sixteen) are used in computer science is to abbreviate long bitstrings. The following examples will show how this is done.
        </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 3 - Base Conversion Algorithm
-         </div>
-         <p>
-          Find the base \(6\) expansion for \(2235\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <div class="title">
-          Solution
-         </div>
-         <p>
-          We have
-         </p>
-        </div>
-        <div class="openblock equationalign">
-         <div class="content">
-          <table class="equation_table_style">
-           <tr class="equation_row_style">
-            <td ;="" class="equation_content_style">
-             \[\begin{split}
-2235 &amp;= 6\cdot 372 + 3,\\
-372 &amp;= 6 \cdot 62 + 0,\\
-62 &amp;= 6 \cdot 10 + 2,\\
-10 &amp;= 6\cdot 1 + 4,\\
-1 &amp;= 6 \cdot 0 + 1.
-\end{split}\]
-            </td>
-           </tr>
-          </table>
-         </div>
-        </div>
-        <div class="paragraph">
-         <p>
-          Since we have reached a quotient of \(0\), we are finished. Thus, we see that \[2235 = (14203)_6.\]
-         </p>
-        </div>
-       </div>
       </div>
       <div class="paragraph">
        <p>
-        Suppose we want to convert the positive integer \(n\) from hexadecimal to binary. One method would be to first convert from
-\(n\) from hexadecimal to decimal, and the convert the result from decimal to binary. However, we can also take advantage of the fact
+        Suppose we want to convert the positive integer \(n\) from hexadecimal to binary. One method would be to first convert
+\(n\) from hexadecimal to decimal, and then
+convert the result from decimal to binary. However, we can also take advantage of the fact
 that \(2^4 = 16.\) This implies that we can express each hexadecimal digit of \((n)_{16}\) uniquely as a block of 4 bits as
 follows:
        </p>
@@ -1074,7 +1856,7 @@ follows:
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 4 - Hexadecimal to Binary Conversion
+          Example 8 - Hexadecimal to Binary Conversion
          </div>
          <p>
           Find the binary expansion of \((4\mathrm{C}\mathrm{A}7)_{16}.\)
@@ -1113,7 +1895,7 @@ zeros if necessary.
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 5 - Binary to Hexadecimal Conversion
+          Example 9 - Binary to Hexadecimal Conversion
          </div>
          <p>
           Find the hexadecimal expansion of \((110 1011 1111)_2.\)
@@ -1132,7 +1914,28 @@ Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 
       </div>
       <div class="paragraph">
        <p>
-        The following table can be used to covert quickly between decimal, hexadecimal, octal binary in a similar way.
+        A similar method can be used to convert between octal and binary.
+We can take advantage of the fact
+that \(2^3 = 8.\) This implies that we can express each octal digit of \((n)_{8}\) uniquely as a block of 3 bits as
+follows:
+       </p>
+      </div>
+      <div class="stemblock">
+       <div class="content">
+        \[\begin{array}{llll}
+(0)_{8} = (000)_2 &amp; (1)_{8} = (001)_{2}&amp; (2)_{8} = (010)_2 &amp; (3)_{8} = (011)_2 \\
+(4)_{8} = (100)_2&amp; (5)_{8} = (101)_2&amp; (6)_{8} = (110)_2 &amp; (7)_{8} = (111)_2.
+\end{array}\]
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        We then concatenate  blocks, removing any leading zeros if necessary.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Also, the following table can be used to covert quickly between decimal, hexadecimal, octal, and binary in a similar way.
        </p>
       </div>
       <div class="paragraph">
@@ -1523,8 +2326,8 @@ Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 
       </table>
      </div>
      <div class="sect2">
-      <h3 id="_exercises">
-       4.4. Exercises
+      <h3 id="_exercises_2">
+       4.7. Exercises
       </h3>
       <div class="olist arabic">
        <ol class="arabic">
@@ -1617,7 +2420,7 @@ Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 
         </li>
         <li>
          <p>
-          Convert the following  hexadecimal numbers to binary
+          Convert the following hexadecimal numerals to binary numerals
          </p>
          <div class="olist loweralpha">
           <ol class="loweralpha" type="a">
@@ -1641,7 +2444,7 @@ Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 
         </li>
         <li>
          <p>
-          Convert the following binary numbers to hexadecimal
+          Convert the following binary numerals to hexadecimal numerals
          </p>
          <div class="olist loweralpha">
           <ol class="loweralpha" type="a">
