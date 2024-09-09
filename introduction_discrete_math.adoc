@@ -1,8 +1,8 @@
 = Introducing Discrete Mathematics
 
-_This chapter was last updated on August 28, 2024 (added water glass example and link to video about $\pi$ to section 2.1)_ 
+_This chapter was last updated on August 28, 2024 (added water glass example and link to video about $\pi$ to section 2.1)_ + 
 //discussion of continuous mathematics and structures in 2.1)._
-
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 // MKD various sources
 //	https://cacm.acm.org/opinion/lets-not-dumb-down-the-history-of-computer-science/ 
@@ -675,7 +675,10 @@ Two statements are *equivalent* if the first must be true when the second one is
 ////
 // MKD statement end
 
+
+
 // MKD predicate begin
+[[informal_predicate_definition]]
 // MKD not likely known already - should this be here?
 * A *predicate* is an incomplete proposition that contains one or more variables that need to be filled in to complete the proposition. 
 One example of a predicate is "My major is $\rule{12mm}{.5pt}$." Notice that this becomes a proposition once the blank, which represents the variable in this case, has been filled in. + 

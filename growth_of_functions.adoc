@@ -4,7 +4,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on August 27, 2024._
+_This chapter was last updated on September 4, 2024._
 
 // MKD see https://en.wikipedia.org/wiki/Big_O_notation#Matters_of_notation
 
@@ -387,7 +387,8 @@ Likewise we want to say that if $c$ is a constant that $c \cdot f(x)$, and $f(x)
 
 Motivated by these we formally define the _Big O_ notation.
 
-\\ MKD inserted the double quotation marks below
+// MKD inserted the double quotation marks below 
+
 ._Big_ $O$ notation
 ****
 Suppose $f$ and $g$ are real valued functions from $f(x):\mathbb{R}→\mathbb{R}$,

@@ -18,7 +18,8 @@ https://chrisbracco.com › curly-quotes
 
 //#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 4, 2024._
+_This chapter was last updated on September 4, 2024._ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 // MKD example code, not sure where to use it yet
 //https://pythontutor.com/render.html#code=x%20%3D%204%0Aprint%28x%29%0Ax%20%3D%200b0101%0Aprint%28x%29%0Ax%20%3D%200O6%0Aprint%28x%29%0Ax%20%3D%200x07%0Aprint%28x%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false

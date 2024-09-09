@@ -612,14 +612,682 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on August 27, 2024.
+        This chapter was last updated on September 9, 2024.
        </em>
       </p>
      </div>
      <div class="paragraph">
       <p>
-       COMING SOON!!
+       Many problems can be solved by counting the number of possible outcomes when choosing \(r\) elements from a set that contains \(n\) elements, with no repetition allowed (that is, each element can only be counted once). To be clear, this assumes that \(r\) and \(n\) are natural numbers and \(r \leq n.\)
+       <br/>
       </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Some of these problems involve choosing an
+       <em>
+        ordered sequence
+       </em>
+       of \(r\) elements while other problems involve choosing a
+       <em>
+        subset
+       </em>
+       of \(r\) elements.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       This chapter presents techniques for doing this type of counting. These techniques are built on the ones you studied in the
+       <a href="./counting_arithmetic.html">
+        Counting: Arithmetic Techniques
+       </a>
+       chapter.
+      </p>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_factorial_of_a_number">
+       5.1. The Factorial Of A Number
+      </h3>
+      <div class="paragraph">
+       <p>
+        The factorial is a function defined for all natural numbers as described below.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Definition - The Factorial
+         </div>
+         <p>
+          Given a natural number \(n,\) the function \(n!\) is defined recursively as \[0! = 1\] \[ n! = n \cdot (n-1)! \]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          That is, \[n! = n(n-1)(n-2) \cdots (2)(1)(1).\] This function is called the
+          <strong>
+           factorial of \(n\)
+          </strong>
+          and also
+          <strong>
+           "\(n-\)factorial."
+          </strong>
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_permutations">
+       5.2. Permutations
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         permutation
+        </strong>
+        of a set of elements is an ordered arrangement of the elements without repetition of elements. A permutation may involve every element of the set, or only some of the elements of the set. That is, a permutation is a sequence of elements from the set, where no element can appear more than once in the sequence.
+        <br/>
+        <span class="small">
+         Note: If you studied outside the USA, you may have learned that a permutation must involve
+         <em>
+          every element
+         </em>
+         of the set, and that the term
+         <strong>
+          variation
+         </strong>
+         is used when the arrangment involves only some (but not all) of the elements of the set. In this textbook, all of these are called
+         <strong>
+          permutations.
+         </strong>
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Consider the last four uppercase English letters \(W, X, Y, Z\).
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          \(WXYZ, XWYZ, WXZY\) are permutations of the letters taken four at a time
+         </p>
+        </li>
+        <li>
+         <p>
+          \(XZW, WXY, WXZ\) are permutations of the letters taken three at a time
+         </p>
+        </li>
+        <li>
+         <p>
+          \(WX, WY, ZX\) are permutations of the letters taken two at a time
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        <span class="small">
+         Note: To be more formal, the sequences above could be written as
+         <em>
+          tuples
+         </em>
+         of the form \((W, X, Y, Z),\) \((X, W, Y, Z),\) \((W, X, Z, Y),\) and so on, but the notation used is simpler without the extra symbolic clutter of parentheses and commas.
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that no letter is repeated in a permutation.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        How can you count all the possible permutations of a set? For small sets like the set of the last four uppercase English letters, you could list all the possible permutations of \(W, X, Y, Z\) to determine that there are 24 permutations of the letters taken four at a time,
+24 permutations of the letters taken three at a time,
+and 6 permutations of the letters taken three at a time.
+But what if you wanted to find all the possible permutations of all twenty six uppercase English letters \(A, B, \ldots , W, X, Y, Z\)? It would be very time consuming to write out all possible permutations of, say, the twenty six uppercase English letters taken twenty one at a time, let alone all the other possible permutations. We will develop a technique for doing this kind of counting now.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Definition
+         </div>
+         <p>
+          Given a set of \(n\) elements, an
+          <em>
+           ordered arrangment
+          </em>
+          of \(r \le n\) of
+the elements is called an
+          <strong>
+           \(r\)-permutation
+          </strong>
+          or a
+          <strong>
+           permutation of \(n\) elements taken \(r\) at a time.
+          </strong>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The notation \(P(n,r)\) represents the number of permutations of \(n\) elements taken \(r\) at a time. Note that \(_nP_r\) is another commonly-used notation for this count.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Suppose you have a set that contains \(n\) elements and want to construct a \(2\)-permutation of the elements. There are \(n\) possible choices for the first element, and once that element is chosen, there are \(n-1\) possible choices for the second element. The product rule lets you conclude that there are \(n(n-1)\) ways to choose the two elements, taking into account that the order of the choices matters.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Now we can generalize this argument, informally: Suppose you have a set that contains \(n\) elements and want to construct an \(r\)-permutation, where \(r \le n.\) There are \(n\) possible choices for the first element, \(n-1\) possible choices for the second element, and so on, until we have \(n-(r-1)\) possible choices for the \(r\text{th}\) element. Apply the product rule repeatedly to conclude that there are \( n(n-1)\cdots (n-r+1)\) \(r\)-permutations of the \(n\) elements.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The process in the previous paragraph can also be viewed recursively. Suppose you have a set that contains \(n\) elements and want to construct an \(r\)-permutation, where \(r \le n.\) There are \(n\) possible choices for the first element, and the product rule let’s us conclude that the number of \(r\)-permutations of the \(n\) elements, \(P(n,r),\) is the product of \(n\) and \(P(n-1,r-1).\)
+Noticing that \(P(n-r,0) = 1\) lets us draw the same conclusion as in the previous paragraph:
+There are \(P(n,r) =  n \cdot \left((n-1)\cdots (n-r+1) \right)\) permutations of \(n\) elements taken \(r\) at a time.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          For natural numbers \(r\) and \(n\) with \(r \leq n,\) \[P(n,r) = n(n-1)(n-2) \cdots (n-r+1).\]
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 8 - Permutations of 5 elements taken 3 at a time
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          How many lines of output will be printed by the following code?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          You could trace through the code using the
+          <em>
+           Next
+          </em>
+          button to answer the question, but it would be tedious…​ try using the formula for \(r\)-permutations instead…​ and remember to count the final print statement after the loop, too.
+         </p>
+        </div>
+        <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23Listing%20Permutations%20of%203%20elements%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20!%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20!%3D%20i%20and%20k%20!%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0Aprint%28Counter%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%23Listing%20Permutations%20of%203%20elements%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20!%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20!%3D%20i%20and%20k%20!%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0Aprint%28Counter%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        <strong>
+         Video Example
+        </strong>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following video example features
+Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
+       </p>
+      </div>
+      <div class="videoblock">
+       <div class="content">
+        <iframe allowfullscreen="" frameborder="0" height="500" src="https://www.youtube.com/embed/tTvaodWc6ic?rel=0" width="700">
+        </iframe>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 9 - Counting Permutations
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The code below calculates the number of permutations given \(n\) and \(r\).  Try to predict the variable names, values, and data types at different steps in the execution. Use the
+          <em>
+           Next
+          </em>
+          button to check your answers.
+         </p>
+        </div>
+        <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23Counting%20Permutations%0A%0Adef%20ProdCount%28n,r%29%3A%0A%20%20%20%20product%20%3D%20n%0A%20%20%20%20k%20%3D%20n-r%0A%20%20%20%20for%20i%20in%20range%28n-r%2B1,%20n%29%3A%0A%20%20%20%20%20%20%20%20product%20%3D%20product*i%0A%20%20%20%20return%20product%0A%20%20%20%20%0Aprint%28ProdCount%285,2%29%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%23Counting%20Permutations%0A%0Adef%20ProdCount%28n,r%29%3A%0A%20%20%20%20product%20%3D%20n%0A%20%20%20%20k%20%3D%20n-r%0A%20%20%20%20for%20i%20in%20range%28n-r%2B1,%20n%29%3A%0A%20%20%20%20%20%20%20%20product%20%3D%20product*i%0A%20%20%20%20return%20product%0A%20%20%20%20%0Aprint%28ProdCount%285,2%29%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="openblock Question">
+         <div class="title">
+          Question
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           How many permutations are there of the twenty six uppercase English letters taken twenty one at a time?
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Edit the code so that it will compute ProdCount(26,21), a relatively "small" natural number…​ "small" meaning that it’s decimal expansion has only 25 digts! 😎
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Here is another way to think about counting the number of permutations of \(n\) elements taken \(r\) at a time: Imagine writing down all possible permutations of \(n\) elements taken \(n\) at a time, that is all possible ordered arrangements of all \(n\) elements. Notice that if we only care about the first \(r\) elements in the list, then there are \(n-r\) elements at the end of the list that we can rearrange in any of \((n-r)!\) ways without changing the order of the the first \(r\) elements. Now apply the division rule from the
+        <a href="./counting_arithmetic.html">
+         Counting: Arithmetic Techniques
+        </a>
+        chapter:
+We have a procedure, ordering all \(n\) elements, that can be completed in \(n!\) possible ways, but for each way of completing this procedure there are \((n-r)!\) possible ways with the same outcome for ordering the first \(r\) elements. The division rule lets you conclude that there are \(\frac{n!}{(n-r)!}\) ways to order the first \(r\) elements.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          For natural numbers \(r\) and \(n\) with \(r \leq n,\) \[P(n,r) = \displaystyle \frac{n!}{(n-r)!}\]
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        <strong>
+         Video Example
+        </strong>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following video example features
+Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
+       </p>
+      </div>
+      <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_julbjvm6&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_s0uli5zb" title="Kaltura Player" webkitallowfullscreen="" width="700">
+      </iframe>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 10
+         </div>
+         <p>
+          If there are 10 runners in a race, how many different ways can the gold, silver, and bronze medals be awarded?
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          There are 10 elements (the runners) and we are choosing 3 to win medals. So the number of ways they can be awarded is
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(P(10,3) = \displaystyle \frac{10!}{(10-3)!} = \frac{10!}{7!} = 10 \times 9 \times 8 = 720\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Alternatively, we could have used the product rule and noticed that there are 10 ways to award the gold, then there are 9 ways to award the silver,
+then 8 ways to award the brozne.
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          You Try
+         </div>
+         <p>
+          From a group of 100 workers in a union, how many ways can there be a union President, Vice President, and Treasurer?
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 11
+         </div>
+         <p>
+          How many permutations of the digits 0123456789 are there that contain the string 456?
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          We can regard this as a permutation of 8 elements: the string "456" and the other 7 individual digits. These 8 elements can occur in any order, so the number of permutations is
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(P(8,8) = 8! = 40320.\)
+         </p>
+        </div>
+        <div class="openblock challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           How many different six-letter words (including nonsense words), can be formed using the letters in "HEROIC" where the vowels must appear together and no letters are repeated?
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           You can regard this a permutation of the 3 consonants and a string of 3 consecutive vowels…​ but notice that the order of the vowels matters.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 12 - Python functions for Factorial and Counting Permutations
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          This code sample illustrates how to use functions in Python’s
+          <code>
+           math
+          </code>
+          module to compute \(n!\) and \(_nP_r.\)
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0An%20%3D%205%0Ar%20%3D%203%0Aprint%28math.factorial%28n%29//math.factorial%28n-r%29%29%0A%23print%28math.perm%28n,r%29%29%20%23Python%203.8%20or%20later&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=import%20math%0An%20%3D%205%0Ar%20%3D%203%0Aprint%28math.factorial%28n%29//math.factorial%28n-r%29%29%0A%23print%28math.perm%28n,r%29%29%20%23Python%203.8%20or%20later&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_combinations">
+       5.3. Combinations
+      </h3>
+      <div class="paragraph">
+       <p>
+        A selection
+of elements from a set of \(n\) elements
+where order
+of selection
+does not matter is called a
+        <strong>
+         combination
+        </strong>
+        .
+Notice that each combination corresponds to a subset of the set of \(n\) elements.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Consider the letters \(W, X, Y, Z\) and choose three at a time where the order does not matter.
+In this case we are selecting a
+        <em>
+         subset
+        </em>
+        of size three instead of a sequence of length three. The sets \(\{ W, X, Y \}\) and \(\{ X, Y, W \}\) are just two ways of describing the same set since the order in which elements of a set are listed does not matter.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          There are four possible ways to choose three letters without regard to order:
+\(\{ W, X, Y \}\),
+\(\{ W, X, Z \}\),
+\(\{ W, Y, Z \}\), and
+\(\{ X, Y, Z \}\).
+         </p>
+        </li>
+        <li>
+         <p>
+          There are six possible ways to choose three letters without regard to order:
+\(\{ W, X \}\),
+\(\{ W, Y \}\),
+\(\{ W, Z \}\),
+\(\{ X, Y \}\),
+\(\{ X, Z \}\), and
+\(\{ Y, Z \}\).
+         </p>
+        </li>
+        <li>
+         <p>
+          There are four possible ways to choose one letter (without regard to order):
+\(\{ Z \}\),
+\(\{ Y \}\),
+\(\{ X \}\), and
+\(\{ W \}\). (Keep reading to find out why this "reversed" ordering of the subsets was used.)
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        This shows that there are
+4 combinations of 4 elements taken 3 at a time,
+6 combinations of 4 elements taken 2 at a time, and
+4 combinations of 4 elements taken 1 at a time.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Definition
+         </div>
+         <p>
+          Given a set of \(n\) elements, an
+          <em>
+           unordered selection
+          </em>
+          of \(r \le n\) of
+the elements is called an
+          <strong>
+           \(r\)-combination
+          </strong>
+          or a
+          <strong>
+           combination of \(n\) elements taken \(r\) at a time.
+          </strong>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The notation \(C(n,r)\) represents the number of combinations of \(n\) elements taken \(r\) at a time. Note that \(_nC_r\) is another commonly-used notation for this count. Either of these notations can read as "\(n\) choose \(r.\)"
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Next, notice that every \(r\)-combination corresponds to \(P(r, r) = r!\) different \(r\)-permutations. That is, to select a \(r\)-permutation we could instead first select a \(r\)-combination without regard to order and then order the \(r\) elements.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        As an example, suppose we have \(n\) elements and want to construct a \(3\)-permutation. We could instead first choose a \(3\)-combination of the elements. There are \(C(n,3)\) possible \(3\)-combinations. Once we have chosen a specific \(3\)-combination, we can reorder the 3 elements
+in \(P(3,3) = 3!\) ways.
+This argument shows that
+\(P(n,3) = C(n,3) \cdot P(3,3) =  C(n,3) \cdot 3!\), so
+\(C(n,3) = \displaystyle \frac{P(n,3)}{3!}\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can generalize this argument for each natural number \(r \leq n\) to arrive at the next theoren.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          \(C(n,r) = \displaystyle \frac{P(n,r)}{r!} = \frac{n!}{r!(n-r)!}\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 13 - Combinations of 5 elements taken 3 at a time
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The code below calculates the number of and lists combinations given \(n\) and \(r\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          How many lines of output will be printed by the following code? Remember to count the final print statement after the loop, too.
+         </p>
+        </div>
+        <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%235%20choose%203%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20%3E%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0Aprint%28Counter%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%235%20choose%203%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20%3E%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0Aprint%28Counter%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          You try
+         </div>
+         <p>
+          Edit the code to list and count combinations of 5 choose 4.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        <strong>
+         Video Example
+        </strong>
+       </p>
+      </div>
+      <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_q7vdemao&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_kbgw9kgq" title="Kaltura Player" webkitallowfullscreen="" width="700">
+      </iframe>
+      <div class="paragraph">
+       <p>
+        <strong>
+         Video Example
+        </strong>
+       </p>
+      </div>
+      <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_mwu49tz8&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_azbrfaq2" title="Kaltura Player" webkitallowfullscreen="" width="700">
+      </iframe>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 14
+         </div>
+         <p>
+          How many ways can five cards be dealt from a standard 52-card deck?
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          We are choosing 5 cards from 52 cards and the order does not matter, so \(C(52,5)=\displaystyle \frac{52!}{5!47!}\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 15
+         </div>
+         <p>
+          How many bit strings of length \(n\) contain exactly \(r\) 0s?
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          Choosing the positions of the \(r\) 0s corresponds to the \(r\)-combinations of the set \(\{1, 2, 3, \dots, n\}\). Thus there are exactly
+\(C(n,r)\) such bit strings.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        MORE TO COME!!!
+       </p>
+      </div>
      </div>
     </div>
    </div>

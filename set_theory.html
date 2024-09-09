@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on August 28, 2024.
+        This chapter was last updated on September 9, 2024.
        </em>
       </p>
      </div>
@@ -622,7 +622,7 @@ $(document).on('page:load', ready2);
        <span class="underline">
         the
        </span>
-       foundation of mathematics in our time. In earlier eras, people tried to use arithmetic (e.g., counting and whole numbers) and geometry (e.g., measurement of lengths, areas, and volumes along with geometric constructions) as the foundations of all mathematics. However, new understandings of mathematics developed over the last 3 centuries which led mathematicians to seek a firmer foundation. For now, that firmer foundation uses set theory: The study of collections of objects and how those collections can be combined, associated, and themselves added to other collections.
+       foundation of mathematics in our time. In earlier eras, people tried to use arithmetic (e.g., counting and whole numbers) and geometry (e.g., measurement of lengths, areas, and volumes along with geometric constructions) as the foundations of all mathematics. However, over the last 3 centuries, mathematicians gained new understandings of issues with these traditional foundations which led them to seek a new, firmer foundation. For now, that firmer foundation uses set theory: The study of collections of objects and how those collections can be combined, associated, and themselves added to other collections.
       </p>
      </div>
      <div class="sect2">
@@ -647,334 +647,515 @@ $(document).on('page:load', ready2);
         <strong>
          contain
         </strong>
-        its elements. If \(x\) is an element of the set \(S,\) then we write \(x \in S\). If \(x\) is not an element of the set \(S\), then we write \(x \not\in S\).
+        its elements.
        </p>
       </div>
       <div class="paragraph">
        <p>
-        For example, if \(S\) is the set of states in the United States, then New York is an element of \(S\) and Ontario is not an element of \(S.\) If \(E\) is the set of even integers, then \(2 \in E\) and \(3 \not\in E.\)
+        If \(x\) is an element of the set \(S,\) then we write \(x \in S\). If \(x\) is not an element of the set \(S\), then we write \(x \not\in S\). For example, if \(S\) is the set of names of states in the United States of America, then “New York” is an element of \(S\) and “Ontario” is not an element of \(S,\) that is \[ \text{“New York”} \in S \text{ and } \text{“Ontario”} \not\in S. \] As another example, if \(E\) is the set of even integers, then \(2 \in E\) and \(3 \not\in E.\)
        </p>
       </div>
-      <div class="paragraph">
-       <p>
-        There are several different ways to describe a set. One way of describing a set is known as the
-        <strong>
-         roster method
-        </strong>
-        . This is where we list all the elements of a set between curly braces.
-For example, \(A = \{1,-2,0,1,-3\}\) is the set whose elements are \(-3\), \(-2\), \(0\), and \(1\). Set \(A\) contains \(4\) members, even though the element \(1\) appears twice in the list. Also, the order of the elements in the list does not matter.
-       </p>
-      </div>
-      <div class="admonitionblock warning">
-       <table>
-        <tr>
-         <td class="icon">
-          <i class="fa icon-warning" title="Warning">
-          </i>
-         </td>
-         <td class="content">
-          <strong>
-           A WARNING ABOUT THE PYTHON EXAMPLES INVOLVING SETS
-          </strong>
-          : The mathematical set \(A = \{1,-2,0,1,-3\}\) is a constant - you cannot change the set by removing elements or inserting new elements. BUT…​ In Python, objects of type
-          <em>
-           set
-          </em>
-          are mutable so it is possible to remove elements or insert new elements, as shown in the following code example .
-          <mark>
-           The correct implementation of mathematical sets in Python uses objects of type
-           <em>
-            frozenset
-           </em>
-          </mark>
-          because objects of type
-          <em>
-           frozenset
-          </em>
-          are immutable, just like mathematical sets. But there are advantages to using type
-          <em>
-           set
-          </em>
-          instead: The roster method notation that is used to define a mathematical set can be used to initialize or print a Python
-          <em>
-           set
-          </em>
-          , but cannot be used with a Python
-          <em>
-           frozenset
-          </em>
-          . In particular, we must call the
-          <em>
-           frozenset
-          </em>
-          constructor to create and initialize a
-          <em>
-           frozenset
-          </em>
-          .
-The authors of the original
-          <a href="https://ggc-discrete-math.github.io/index.html">
-           “Discrete Math”
+      <div class="sect3">
+       <h4 id="_describing_a_set_the_roster_method">
+        6.1.1. Describing A Set: The Roster Method
+       </h4>
+       <div class="paragraph">
+        <p>
+         One way of describing a set is the
+         <strong>
+          roster method:
+         </strong>
+         List all the elements of the set between curly braces.
+For example, \[A = \{1,-2,0,1,-3\} \] is the set whose elements are \(-3,\) \(-2,\) \(0,\) and \(1.\)
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Notice that the set \(A\) contains exactly \(4\) elements, even though the element \(1\) appears twice in the roster - duplicate entries do not matter.
+          </p>
+         </li>
+         <li>
+          <p>
+           Also, the order of the elements in the list does not matter. That is, \(\{-3,-2,0,1 \}\) and \(\{0, 1,-2,-3\}\) are two more ways of describing the same set \(A.\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 1 - Checking Set Membership in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below checks to see if \(5\) and \(0\) are elements of the set \(A = \{1,-2,0,1,-3\}.\) Since \(5 \not\in A\) and \(0 \in A,\) the code prints False followed by True.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Aprint%285%20in%20A%29%0Aprint%280%20in%20A%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Aprint%285%20in%20A%29%0Aprint%280%20in%20A%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
           </a>
-          chose to use Python
-          <em>
-           sets
-          </em>
-          instead of
-          <em>
-           frozensets
-          </em>
-          in the code examples; the author of this remix made the same choice.
-         </td>
-        </tr>
-       </table>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 2 - Listing the Elements of a Set in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below lists all of the elements of the set \(A = \{1,-2,0,1,-3\}.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that 1 appears in the set once even though it appears in the roster twice.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Afor%20x%20in%20A%3A%0A%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Afor%20x%20in%20A%3A%0A%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="admonitionblock warning">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-warning" title="Warning">
+           </i>
+          </td>
+          <td class="content">
+           <div class="paragraph">
+            <p>
+             <strong>
+              A WARNING ABOUT THE PYTHON EXAMPLES INVOLVING SETS
+             </strong>
+             : The mathematical set \(A = \{1,-2,0,1,-3\}\) is a constant - you cannot change the set by removing elements or inserting new elements. However, Python objects of type
+             <em>
+              set
+             </em>
+             are mutable so it is possible to remove elements or insert new elements, as shown in the following code example.
+             <mark>
+              The mathematically correct implementation of sets in Python uses objects of type
+              <em>
+               frozenset
+              </em>
+             </mark>
+             because objects of type
+             <em>
+              frozenset
+             </em>
+             are immutable, just like mathematical sets. But there are advantages to using type
+             <em>
+              set
+             </em>
+             instead of
+             <em>
+              frozenset
+             </em>
+             : The roster method notation can be used to initialize or print a Python
+             <em>
+              set
+             </em>
+             , but cannot be used with a Python
+             <em>
+              frozenset
+             </em>
+             : You must call the
+             <em>
+              frozenset
+             </em>
+             constructor to create and initialize a
+             <em>
+              frozenset
+             </em>
+             . The authors of the original
+             <a href="https://ggc-discrete-math.github.io/index.html">
+              “Discrete Math”
+             </a>
+             chose to use Python
+             <em>
+              sets
+             </em>
+             instead of
+             <em>
+              frozensets
+             </em>
+             in the code examples; the author of this remix made the same choice.
+            </p>
+           </div>
+           <div class="sidebarblock">
+            <div class="content">
+             <div class="openblock">
+              <div class="title">
+               WARNING: Python Sets Are Mutable, Mathematical Sets Are "Frozen"
+              </div>
+              <div class="content">
+              </div>
+             </div>
+             <div class="paragraph">
+              <p>
+               The
+               <span class="underline">
+                mathematical
+               </span>
+               set \(A\) does not allow removals or insertions, but the
+               <span class="underline">
+                Python
+               </span>
+               set \(A\) does. The frozenset \(F\) is a more faithful implementation of the mathematical set \(A\), but notice that the symbolism for Python sets more closely matches the symbolism used for mathematical sets.
+              </p>
+             </div>
+             <iframe frameborder="5" height="400" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%20%23%20A%20is%20mutable%0AF%20%3D%20frozenset%28A%29%20%23%20F%20is%20immutable%0Aprint%28'A%20%3D',A%29%0AA.add%288%29%20%20%20%20%20%20%20%20%20%0AA.remove%281%29%20%20%20%20%20%20%0Aprint%28'A%20%3D',A%29%20%20%20%23%20A%20has%20been%20changed%0A%23%20F.add%288%29%20%20%20%20%20%20%20%23%20raises%20an%20AttributeError%0A%23%20F.remove%281%29%20%20%20%20%23%20raises%20an%20AttributeError%0Aprint%28'F%20%3D',F%29%20%20%20%23%20F%20cannot%20be%20changed&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=400" width="100%">
+             </iframe>
+             <div style="text-align: right;">
+              <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%20%23%20A%20is%20mutable%0AF%20%3D%20frozenset%28A%29%20%23%20F%20is%20immutable%0Aprint%28'A%20%3D',A%29%0AA.add%288%29%20%20%20%20%20%20%20%20%20%0AA.remove%281%29%20%20%20%20%20%20%0Aprint%28'A%20%3D',A%29%20%20%20%23%20A%20has%20been%20changed%0A%23%20F.add%288%29%20%20%20%20%20%20%20%23%20raises%20an%20AttributeError%0A%23%20F.remove%281%29%20%20%20%20%23%20raises%20an%20AttributeError%0Aprint%28'F%20%3D',F%29%20%20%20%23%20F%20cannot%20be%20changed&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+               Edit in PythonTutor
+              </a>
+             </div>
+            </div>
+           </div>
+          </td>
+         </tr>
+        </table>
+       </div>
       </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="openblock">
-         <div class="title">
-          WARNING: Python Sets Are Mutable
-         </div>
-         <div class="content">
-         </div>
-        </div>
-        <div class="paragraph">
-         <p>
-          The
-          <span class="underline">
-           mathematical
-          </span>
-          set \(A\) does not allow removals or insertions, but the
-          <span class="underline">
-           Python
-          </span>
-          set \(A\) does. The frozenset \(F\) is a more faithful implementation of the mathematical set \(A\), but notice that the symbolism for Python sets more closely matches the symbolism used for mathematical sets.
-         </p>
-        </div>
-        <iframe frameborder="5" height="400" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%20%23%20A%20is%20mutable%0AF%20%3D%20frozenset%28A%29%20%23%20F%20is%20immutable%0Aprint%28'A%20%3D',A%29%0AA.add%288%29%20%20%20%20%20%20%20%20%20%0AA.remove%281%29%20%20%20%20%20%20%0Aprint%28'A%20%3D',A%29%20%20%20%23%20A%20has%20been%20changed%0A%23%20F.add%288%29%20%20%20%20%20%20%20%23%20raises%20an%20AttributeError%0A%23%20F.remove%281%29%20%20%20%20%23%20raises%20an%20AttributeError%0Aprint%28'F%20%3D',F%29%20%20%20%23%20F%20cannot%20be%20changed&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=400" width="100%">
-        </iframe>
-        <div style="text-align: right;">
-         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%20%23%20A%20is%20mutable%0AF%20%3D%20frozenset%28A%29%20%23%20F%20is%20immutable%0Aprint%28'A%20%3D',A%29%0AA.add%288%29%20%20%20%20%20%20%20%20%20%0AA.remove%281%29%20%20%20%20%20%20%0Aprint%28'A%20%3D',A%29%20%20%20%23%20A%20has%20been%20changed%0A%23%20F.add%288%29%20%20%20%20%20%20%20%23%20raises%20an%20AttributeError%0A%23%20F.remove%281%29%20%20%20%20%23%20raises%20an%20AttributeError%0Aprint%28'F%20%3D',F%29%20%20%20%23%20F%20cannot%20be%20changed&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
-          Edit in PythonTutor
+      <div class="sect3">
+       <h4 id="_describing_a_set_set_builder_notation">
+        6.1.2. Describing A Set: Set Builder Notation
+       </h4>
+       <div class="paragraph">
+        <p>
+         Another way of describing a set is the use of
+         <strong>
+          set builder
+         </strong>
+         notation. We write a set as \[\{x \in D : P(x)\}.\] This is the set of all elements \(x\) from a domain \(D\) that satisfy the
+         <a href="./introduction_discrete_math.html#informal_predicate_definition">
+          predicate
          </a>
+         \(P(x).\)
+We can use either the colon \(:\) or the vertical bar \(|\) as the separator in this notation. For example, \(\{ x \in \mathbb{N} \, | \, x^{2} \leq 50 \}\) is the set of natural numbers that are less than \(\sqrt{50}.\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Yet another way of describing a set is to use a function or an algebraic expression, as in \[\{ f(x) : x \in D \}.\]This is the set of all values \(f(x)\) for \(x\) in the domain \(D\). For example, \(\{ 2n : n \in \mathbb{N} \}\) is the set of the even natural numbers. Again, we can use either the colon \(:\) or the vertical bar \(|\) as the separator.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 3 - Set Builder Notation in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The set \(\{x \in D: P(x)\}\) can be expressed in Python as {for x in D if P(x)}. For example, the code below defines the set \(B\) as the set of positive elements of the set \(A = \{1,-2,0,1,-3\}.\)
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0AB%20%3D%20%7Bx%20for%20x%20in%20A%20if%20x%20%3E%200%7D%0Aprint%28B%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0AB%20%3D%20%7Bx%20for%20x%20in%20A%20if%20x%20%3E%200%7D%0Aprint%28B%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
         </div>
        </div>
       </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="openblock">
+      <div class="sect3">
+       <h4 id="_describing_a_set_special_sets_of_numbers">
+        6.1.3. Describing A Set: Special Sets Of Numbers
+       </h4>
+       <div class="paragraph">
+        <p>
+         You may already be familiar with the following sets of numbers, which are listed here for reference.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
          <div class="title">
-          Example 1 - Checking Set Membership in Python
+          Special sets of numbers
          </div>
-         <div class="content">
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             \(\mathbb{N} = \{0, 1, 2, 3,...\}\), the set of natural numbers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{Z} = \{...,-2, -1, 0, 1, 2,...\}\) , the set of integers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{Z}^+ = \{1, 2, 3,...\}\), the set of positive integers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{Q} = \left\{\left.\frac{a}{b}\right|a\in \mathbb{Z},b\in \mathbb{Z},b\neq 0\right\}\), the set of rational numbers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{Q}^+\), the set of positive rational numbers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{R}\), the set of real numbers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{R}^+\), the set of positive real numbers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{C} = \{a+bi : a\in \mathbb{R},b\in \mathbb{R},b\neq 0,i^{2}=-1\}\), the set of complex numbers.
+             <br/>
+            </p>
+           </li>
+          </ul>
          </div>
-        </div>
-        <div class="paragraph">
-         <p>
-          The code below checks to see if \(5\) and \(0\) are elements of the set \(A = \{1,-2,0,1,-3\}.\) Since \(5 \not\in A\) and \(0 \in A,\) the code prints False followed by True.
-         </p>
-        </div>
-        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Aprint%285%20in%20A%29%0Aprint%280%20in%20A%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
-        </iframe>
-        <div style="text-align: right;">
-         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Aprint%285%20in%20A%29%0Aprint%280%20in%20A%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
-          Edit in PythonTutor
-         </a>
         </div>
        </div>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="openblock">
-         <div class="title">
-          Example 2 - Listing the Elements of a Set in Python
-         </div>
-         <div class="content">
-         </div>
-        </div>
-        <div class="paragraph">
-         <p>
-          The code below lists all of the elements of the set \(A = \{1,-2,0,1,-3\}.\)
-         </p>
-        </div>
-        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Afor%20x%20in%20A%3A%0A%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
-        </iframe>
-        <div style="text-align: right;">
-         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Afor%20x%20in%20A%3A%0A%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
-          Edit in PythonTutor
-         </a>
-        </div>
+       <div class="paragraph">
+        <p>
+         Other special sets will be defined as needed.
+        </p>
        </div>
       </div>
+      <div class="sect3">
+       <h4 id="_describing_a_set_switching_between_representations">
+        6.1.4. Describing A Set: Switching Between Representations
+       </h4>
+       <div class="paragraph">
+        <p>
+         A set can usually be described in more than one way, as shown in the following example.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 4 - Switching between representations
+          </div>
+          <p>
+           Consider the following set: \[\{x \in \mathbb{Z} : -2 \leq x &lt; 4\}.\] This is the set of all integers \(x\) such that \(-2\) is less than or equal \(x\) and \(x\) is less than 4. Using the roster method, this set can be written as \[\{-2,-1,0,1,2,3\}.\]
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           Match each set described using set builder notation in parts (a) through (f) with the same set described using the roster method in parts (A) through (F).
+          </p>
+         </div>
+         <div class="olist loweralpha">
+          <ol class="loweralpha">
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : x^2 = 1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : x^3 = 1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : |x| \leq 2\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : x^2 &lt; 4\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : x &lt; |x|\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : (x + 1)^2 = x^2 + 2x + 1\}\)
+            </p>
+           </li>
+          </ol>
+         </div>
+         <div class="olist upperalpha">
+          <ol class="upperalpha">
+           <li>
+            <p>
+             \(\{-1,0,1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{\dots, -3,-2,-1,0,1,2,3,\dots\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{\dots, -3,-2,-1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{-1,1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{-2,-1,0,1,2\}\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </div>
+       </div>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           <div class="paragraph">
+            <p>
+             When there are too many elements in a set for us to be able to list each one, we often use ellipses (\(\dots\)) when the pattern is obvious. For example, we have \[\mathbb{Z} = \{\dots,-3,-2,-1,0,1,2,3,\dots\}.\]
+            </p>
+           </div>
+          </td>
+         </tr>
+        </table>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_equality_of_sets">
+       6.2. Equality Of Sets
+      </h3>
       <div class="paragraph">
        <p>
-        Another way of describing a set is the use of
+        We say that two sets are
         <strong>
-         set builder
+         equal
         </strong>
-        notation. We write a set as \[\{x \in D : P(x)\}.\] This is the set of all elements \(x\) from a domain \(D\) that satisfy the predicate \(P(x).\)
-We can use either the colon \(:\) or the vertical bar \(|\) as the separator in this notation. For example, \(\{ x \in \mathbb{Q} \, | \, x^{2} \geq 2 \text{ and } x &gt; 0 \}\) is the set of positive rational numbers that are greater than \(\sqrt{2}\).
+        if and only if they contain the same elements.
+When \(A\) and \(B\) are equal sets, we write \(A = B\). When \(A\) and \(B\) are not equal sets, we write \(A \neq B\).
        </p>
       </div>
       <div class="paragraph">
        <p>
-        Yet another way of describing a set is to use a function or an algebraic expression, as in \[\{ f(x) : x \in D \}.\]This is the set of all values \(f(x)\) for \(x\) in the domain \(D\). For example, \(\{ 2n : n \in \mathbb{N} \}\) is the set of the even natural numbers. Again, we can use either the colon \(:\) or the vertical bar \(|\) as the separator.
+        The three sets \(\{2,3,5,7\},\) \(\{5,2,7,3\},\) and \(\{x \in \mathbb{N} : x \text{ is prime and } x &lt; 10 \}\) are equal sets because they contain the same elements. In fact, \(\{2,3,5,7\},\) \(\{5,2,7,3\},\) and \(\{x \in \mathbb{N} : x \text{ is prime and } x &lt; 10 \}\) are really just
+        <em>
+         three different descriptions of the same set,
+        </em>
+        in the same way that
+\(1 + 3,\) \(5 - 1,\) and \(2^{2}\) are three different descriptions of the same number, 4.
+The extended equality \[\{2,3,5,7\} = \{5,2,7,3\} = \{x \in \mathbb{N} : x \text{ is prime and } x &lt; 10 \}\] is a true statement for the same reason the extended equality \(1 + 3 = 5 - 1 = 2^{2}\) is a true statement.
+        <br/>
+        <span class="small">
+         Note: You may be used to using the equal sign "=" as if it means "simplifies to" in your previous math experience, but "=" actually means "represents the same thing as."
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_empty_set">
+       6.3. The Empty Set
+      </h3>
+      <div class="paragraph">
+       <p>
+        Consider the set of all natural numbers whose square is equal to 2, described using set builder notation: \(\{x \in \mathbb{N} : x^2 = 2\}.\) If you use the roster method to list all the elements you will get the set \(\{ \}\) because there are no natural numbers whose square is equal to 2!
        </p>
       </div>
       <div class="paragraph">
        <p>
-        We make frequent use of special sets and these are denoted with special symbols.
+        The set \(\{ \}\) is called the
+        <strong>
+         empty set,
+        </strong>
+        or the
+        <strong>
+         null set.
+        </strong>
+        The symbol \(\emptyset\) is used to represent the empty set, too, that is, \[ \emptyset = \{ \}. \]
        </p>
       </div>
       <div class="sidebarblock">
        <div class="content">
-        <div class="title">
-         Special sets of numbers
-        </div>
-        <div class="ulist">
-         <ul>
-          <li>
-           <p>
-            \(\mathbb{N} = \{0, 1, 2, 3,...\}\), the set of natural numbers
-            <br/>
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\mathbb{Z} = \{...,-2, -1, 0, 1, 2,...\}\) , the set of integers
-            <br/>
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\mathbb{Z}^+ = \{1, 2, 3,...\}\), the set of positive integers
-            <br/>
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\mathbb{Q} = \left\{\left.\frac{a}{b}\right|a\in \mathbb{Z},b\in \mathbb{Z},b\neq 0\right\}\), the set of rational numbers
-            <br/>
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\mathbb{Q}^+\), the set of positive rational numbers
-            <br/>
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\mathbb{R}\), the set of real numbers
-            <br/>
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\mathbb{R}^+\), the set of positive real numbers
-            <br/>
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\mathbb{C} = \{a+bi : a\in \mathbb{R},b\in \mathbb{R},b\neq 0,i^{2}=-1\}\), the set of complex numbers.
-            <br/>
-           </p>
-          </li>
-         </ul>
-        </div>
-       </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        Other special sets will be defined as needed.
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
+        <div class="openblock">
          <div class="title">
-          Example 3 - Switching between representations
+          Example 5 - Listing the Elements of a Nonempty Set
          </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
          <p>
-          Consider the following set: \[\{x \in \mathbb{Z} : -2 \leq x &lt; 4\}.\] This is the set of all integers \(x\) such that \(-2\) is less than or equal \(x\) and \(x\) is less than 4. Using the roster method, this set can be written as \[\{-2,-1,0,1,2,3\}.\]
+          To define the empty set in Python, we must call the constructor set().
+Python interprets the empty curly braces {} as an empty object of type
+          <em>
+           dict
+          </em>
+          , called a dictionary, that is used to represent mappings of key:value pairs.
          </p>
         </div>
         <div class="paragraph">
-         <div class="title">
-          You Try
-         </div>
          <p>
-          Match each set described using set builder notation in parts (a) through (f) with the same set described using the roster method in parts (A) through (F).
+          The function in the code below checks to see if a set is empty. If the set is nonempty, its elements are listed.
          </p>
         </div>
-        <div class="olist loweralpha">
-         <ol class="loweralpha">
-          <li>
-           <p>
-            \(\{x \in \mathbb{Z} : x^2 = 1\}\)
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\{x \in \mathbb{Z} : x^3 = 1\}\)
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\{x \in \mathbb{Z} : |x| \leq 2\}\)
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\{x \in \mathbb{Z} : x^2 &lt; 4\}\)
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\{x \in \mathbb{Z} : x &lt; |x|\}\)
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\{x \in \mathbb{Z} : (x + 1)^2 = x^2 + 2x + 1\}\)
-           </p>
-          </li>
-         </ol>
-        </div>
-        <div class="olist upperalpha">
-         <ol class="upperalpha">
-          <li>
-           <p>
-            \(\{-1,0,1\}\)
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\{\dots, -3,-2,-1,0,1,2,3,\dots\}\)
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\{1\}\)
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\{\dots, -3,-2,-1\}\)
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\{-1,1\}\)
-           </p>
-          </li>
-          <li>
-           <p>
-            \(\{-2,-1,0,1,2\}\)
-           </p>
-          </li>
-         </ol>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20Elements%28A%29%3A%0A%20%20%20%20if%20A%20%3D%3D%20set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22the%20set%20is%20empty%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20Elements%28A%29%3A%0A%20%20%20%20if%20A%20%3D%3D%20set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22the%20set%20is%20empty%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
         </div>
        </div>
       </div>
@@ -988,190 +1169,421 @@ We can use either the colon \(:\) or the vertical bar \(|\) as the separator in 
          <td class="content">
           <div class="paragraph">
            <p>
-            When there are too many elements in a set for us to be able to list each one, we often use ellipses (\(\dots\)) when the pattern is obvious. For example, we have \[\mathbb{Z} = \{\dots,-3,-2,-1,0,1,2,3,\dots\}.\]
+            It is important to note that \(\{\}\) and \(\emptyset\) are both ways to write the empty set. However, the mathematical set \(\{ \emptyset \}\) is not the empty set because it contains one element, namely the empty set. In general, the set \(A\) is not the same as the set \(\{ A \}.\)
            </p>
           </div>
          </td>
         </tr>
        </table>
       </div>
+      <div class="admonitionblock tip">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-tip" title="Tip">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            Python Tip: The mathematical set \(\{ \emptyset \}\)
+            <span class="underline">
+             must
+            </span>
+            be implemented as \(\{ \text{frozenset()} \}\), which is the Python
+            <em>
+             set
+            </em>
+            that contains the empty
+            <em>
+             frozenset
+            </em>
+            . In general, anytime we want to implement a mathematical set \(B\) as an element of another mathematical set \(A\) in Python, we need to implement \(B\) as a
+            <em>
+             frozenset
+            </em>
+            in order to be used as an element of the Python set \(A\). This is due to the fact that elements of Python
+            <em>
+             sets
+            </em>
+            must be
+            <em>
+             hashable
+            </em>
+            ; further explanation is beyond the scope of this textbook.
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_subsets_of_a_set">
+       6.4. Subsets of a Set
+      </h3>
+      <div class="paragraph">
+       <p>
+        Suppose \(A\) and \(B\) are two sets, and that every element \(x\) of the set \(A\) is also an element of set \(B.\)  We say that \(A\) is a
+        <strong>
+         subset
+        </strong>
+        of a set \(B,\) and write \(A \subseteq B\). If a set \(C\) is not a subset of \(B,\) we write \(C \not\subseteq B\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        If \(A \subseteq B\) but \(B\) contains at least one element that is not in A, then \(A\) is called a
+        <strong>
+         proper subset
+        </strong>
+        of \(B\), denoted \(A \subset B\). That is, \(A\) is a proper subset of \(B\) if it is a subset of \(B\) but is not equal to \(B.\)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 6
+         </div>
+         <p>
+          Suppose that we have three sets \(R = \{1,5\},\) \(S = \{1,3,5\},\) and \(T = \{1,4,7\}.\)
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            \(R \subseteq S,\) since each element \(x\) of \(R\) also is an element of \(S.\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(R \subset S\) since \(3\) is an element of \(S\) but is not an element of \(R.\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(S \not\subseteq T\) since \(3\) is an element of \(S\) but is not an element of \(T.\) Likewise, \(T \not\subseteq S\) since \(4\) is an element of \(t\) but is not an element of \(S.\)
+           </p>
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          For any set \(A\) \[\emptyset \subseteq A\] \[A \subseteq A\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For any sets \(A\) and \(B\) \[ A = B \text{ if and only if both } A \subseteq B \text{ and } B \subseteq A\]
+         </p>
+        </div>
+       </div>
+      </div>
       <div class="sidebarblock">
        <div class="content">
         <div class="openblock">
          <div class="title">
-          Example 4 - Set Builder Notation in Python
+          Example 7 - Subsets in Python
          </div>
          <div class="content">
          </div>
         </div>
         <div class="paragraph">
          <p>
-          The set \(\{x \in D: P(x)\}\) can be expressed in Python as {for x in D if P(x)}. For example, the code below defines the set \(B\) as the set of positive elements of the set \(A = \{1,-2,0,1,-3\}.\)
+          In Python, we can check whether a set \(A\) is a subset of a set \(B\) in one of the following ways:
          </p>
         </div>
-        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0AB%20%3D%20%7Bx%20for%20x%20in%20A%20if%20x%20%3E%200%7D%0Aprint%28B%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        <div class="paragraph">
+         <p>
+          A.issubset(B)
+          <br/>
+          A &lt;= B.
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B2,4,6,8,10,12%7D%0AB%20%3D%20%7B4,8,12%7D%0Aprint%28A.issubset%28B%29%29%0Aprint%28B%20%3C%3D%20A%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
         </iframe>
         <div style="text-align: right;">
-         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0AB%20%3D%20%7Bx%20for%20x%20in%20A%20if%20x%20%3E%200%7D%0Aprint%28B%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B2,4,6,8,10,12%7D%0AB%20%3D%20%7B4,8,12%7D%0Aprint%28A.issubset%28B%29%29%0Aprint%28B%20%3C%3D%20A%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
           Edit in PythonTutor
          </a>
         </div>
        </div>
       </div>
-      <div class="sect3">
-       <h4 id="_the_empty_set">
-        6.1.1. The Empty Set
-       </h4>
-       <div class="paragraph">
-        <p>
-         Consider the set of all integers whose square is equal to 2, described using set builder notation: \[\{x \in \mathbb{Z} : x^2 = 2\}.\] If you use the roster method to list all the elements you will get the set \[\{ \}\] because there is no integer whose square is equal to 2.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         The set \(\{ \}\) is called the
-         <strong>
-          empty set,
-         </strong>
-         or the
-         <strong>
-          null set.
-         </strong>
-         The symbol \(\emptyset\) represents the empty set, that is, \[ \emptyset = \{ \}. \]
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="openblock">
-          <div class="title">
-           Example 5 - Listing the Elements of a Nonempty Set
-          </div>
-          <div class="content">
-          </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_power_set_of_a_set">
+       6.5. The Power Set of a Set
+      </h3>
+      <div class="paragraph">
+       <p>
+        Given a set \(A,\) we can define a new set by collecting together all subsets of \(A\). This new set is called the
+        <strong>
+         power set
+        </strong>
+        of \(A.\) The power set of \(A\) is denoted by \(\mathcal{P}(A).\) That is, \[ \mathcal{P}(A) = \{ B \, | \, B \subseteq A \}. \]
+Notice that \(\mathcal{P}(A)\) is a set whose elements are themselves sets.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 8 -  The Power Set Of A Set
          </div>
-         <div class="paragraph">
-          <p>
-           To define the empty set in Python, we must call the constructor set().
-Python interprets the empty curly braces {} as an empty object of type
-           <em>
-            dict
-           </em>
-           , called a dictionary, that is used to represent mappings of key:value pairs.
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           The function in the code below checks to see if a set is empty. If the set is nonempty, its elements are listed.
-          </p>
-         </div>
-         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20Elements%28A%29%3A%0A%20%20%20%20if%20A%20%3D%3D%20set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22the%20set%20is%20empty%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
-         </iframe>
-         <div style="text-align: right;">
-          <a href="http://www.pythontutor.com/visualize.html#code=def%20Elements%28A%29%3A%0A%20%20%20%20if%20A%20%3D%3D%20set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22the%20set%20is%20empty%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
-           Edit in PythonTutor
-          </a>
-         </div>
+         <p>
+          Suppose that \(A = \{0,1,2\},\) then \[\mathcal{P}(A) = \{\emptyset, \{ 0 \}, \{ 1 \}, \{ 2 \}, \{0,1\}, \{0,2\}, \{1,2\}, \{0,1,2\}\}.\] Notice that the empty set is an element of \(\mathcal{P}(A)\) along with all the other subsets of \(A.\)
+         </p>
         </div>
        </div>
-       <div class="admonitionblock note">
-        <table>
-         <tr>
-          <td class="icon">
-           <i class="fa icon-note" title="Note">
-           </i>
-          </td>
-          <td class="content">
-           <div class="paragraph">
-            <p>
-             It is important to note that \(\{\}\) and \(\emptyset\) are both ways to write the empty set. However, the mathematical set \(\{ \emptyset \}\) is not the empty set because it contains one element, namely the empty set. In general, the set \(A\) is not the same as the set \(\{ A \}.\)
-            </p>
-           </div>
-          </td>
-         </tr>
-        </table>
-       </div>
-       <div class="admonitionblock tip">
-        <table>
-         <tr>
-          <td class="icon">
-           <i class="fa icon-tip" title="Tip">
-           </i>
-          </td>
-          <td class="content">
-           <div class="paragraph">
-            <p>
-             Python Tip: The mathematical set \(\{ \emptyset \}\)
-             <span class="underline">
-              must
-             </span>
-             be implemented as \(\{ \text{frozenset()} \}\), which is the Python
-             <em>
-              set
-             </em>
-             that contains the empty
-             <em>
-              frozenset
-             </em>
-             . In general, anytime we want to implement a mathematical set \(B\) as an element of another mathematical set \(A\) in Python, we need to implement \(B\) as a
-             <em>
-              frozenset
-             </em>
-             in order to be used as an element of the Python set \(A\). This is due to the fact that elements of Python
-             <em>
-              sets
-             </em>
-             must be
-             <em>
-              hashable
-             </em>
-             ; further explanation is beyond the scope of this textbook.
-            </p>
-           </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The empty set has only one subset, namely itself. Thus, we see that \[\mathcal{P}(\emptyset) = \{\emptyset\}.\]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can also find the power set of a power set. For example, we have the following:
+       </p>
+      </div>
+      <div class="openblock equationalign">
+       <div class="content">
+        <table class="equation_table_style">
+         <tr class="equation_row_style">
+          <td ;="" class="equation_content_style">
+           \[\begin{split}
+\mathcal{P}(\{ 3 \}) &amp;= \{\emptyset, \{ 3 \}\},\\
+\\
+\mathcal{P}(\mathcal{P}(\{ 3 \}) &amp;= \mathcal{P}(\{\emptyset, \{ 3 \})\\
+&amp;= \{\emptyset, \{\emptyset\}, \{ \{ 3 \} \}, \{\emptyset, \{ 3 \}\}\}.
+\end{split}\]
           </td>
          </tr>
         </table>
        </div>
       </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_cartesian_products">
+       6.6. Cartesian Products
+      </h3>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         Cartesian product
+        </strong>
+        of two sets \(A\) and \(B\) is the set of
+        <em>
+         ordered pairs
+        </em>
+        defined by,
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(  A\times B=\{(a,b) \, | \, a\in A \text{ and } b\in B)\}\),
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 9
+         </div>
+         <p>
+          Consider the sets, \(B=\{0,1\}\), \(T=\{0,1,2\}\), and, \(C=\{a,\ b,\ c, d\}\).
+Determine the Cartesian products, and their cardinalities.
+         </p>
+        </div>
+        <div class="olist loweralpha">
+         <ol class="loweralpha" type="a">
+          <li>
+           <p>
+            \(B\ \times\ C\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(C\times B\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(B\ \times\ T\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(B\ \times\ B\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(B\ \times\ B\times B\)
+           </p>
+          </li>
+         </ol>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          For the set, \( B\ \times C \), notice that
+this will be all ordered pairs of the form,
+\((a,b)\), with \(a \in B\), and \(b \in C\), giving,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(B\ \times\ C=\{(0,a), (0,b), (0,c), (0,d),(1,a), (1,b), (1,c), (1,d))\}\),
+which has \(2 × 4=8\), elements.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For \(C\ \times\ B\), switch the ordering, for \(B\ \times\ C\), to obtain the set with \(8\),
+elements,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(C\ \times  B=\{(a,0), (b,0), (c,0),(d,0),(a,1), (b,1), (c,1), (d,1)\}\),
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The set \(B \times T\),
+will be all ordered pairs of the form,
+\((a,b)\), with \(a \in B\), and \(b \in T\), giving, the set with \(2 × 3=6\), elements,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(B \times T=\{(0,0),(0,1),(0,2),(1,0),(1,1),(1,2)\}\),
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The set \(B \times B\),
+will be all order pairs  of the form,
+\((a,b)\), with \(a, b \in B\), giving the set with  \(2 × 2=4\), elements,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(B \times T=\{(0,0),(0,1),(1,0),(1,1)\}\),
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Finally the set \(B \times B \times B\), will be the set of all
+ordered triples of the form,
+\((a,b,c)\), with \(a, b, c \in B\), giving the set with  \(2 × 2 × 2=8\), elements,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(B \times B \times B=\{(0,0,0),(0,0,1),(0,1,0),(0,1,1),(1,0,0),(1,0,1),(1,1,0),(1,1,1)\}\),
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            Cartesian products are created using
+            <em>
+             ordered
+            </em>
+            pairs, so if \(A\) and \(B\) are different sets, then \(A \times B\) is different from \(B \times A\).
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            The Cartesian coordinate systems
+are Cartesian products.
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            The two-dimensional \(xy\)-plane is represented by \(\mathbb{R}^2=\mathbb{R}\times \mathbb{R}=\{(x,y)|x,y\in \mathbb{R}\}\), and, the three-dimensional \(xyz\)-space are represented by \(\mathbb{R}^3=\mathbb{R}\times \mathbb{R}\times \mathbb{R}=\{(x,y,z)|x,y,z\in \mathbb{R}\}\)
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_cardinality_of_sets">
+       6.7. Cardinality Of Sets
+      </h3>
+      <div class="paragraph">
+       <p>
+        Cardinality is the formalization of the idea of the count of the number of elements in a set.
+        <br/>
+        <span class="small">
+         In this section, we will prefer counting from 1 instead of 0. You will see below why this makes no difference.
+        </span>
+       </p>
+      </div>
       <div class="sect3">
-       <h4 id="_cardinality">
-        6.1.2. Cardinality
+       <h4 id="_finite_sets">
+        6.7.1. Finite Sets
        </h4>
        <div class="paragraph">
         <p>
-         A set \(A\) is called
-         <strong>
-          finite
-         </strong>
-         if there is one-to-one correspondence between \(A\) and
-\(\{ i \in \mathbb{N} \, | \, i &lt; n \}\) for some natural number \(n.\)
-If no such \(n\) exists, the set \(A\) is called an
-         <strong>
-          infinite
-         </strong>
-         set.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         Suppose that a set \(A\) contains a finite number of distinct elements. We refer to the number of elements of \(A\) as the
-         <strong>
-          cardinality
-         </strong>
-         of \(A\) and denote this by \(|A|\). In this case, we also say that \(A\) is a
+         A set \(A\) is called a
          <strong>
           finite set
          </strong>
-         .
+         if either
         </p>
        </div>
-       <div class="paragraph">
-        <p>
-         If \(A\) contains an infinite number of distinct elements, we say that \(A\) has infinite cardinality and that \(A\) is an
-         <strong>
-          infinite set
-         </strong>
-         .
-        </p>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           \(A\) is the empty set or
+          </p>
+         </li>
+         <li>
+          <p>
+           there is a one-to-one correspondence between \(A\) and the set
+\(\{ i \in \mathbb{N} \, | \, 0 &lt; i \leq n \} = \{1, 2, \ldots , n \}\) for some positive integer \(n.\)
+          </p>
+         </li>
+        </ul>
        </div>
        <div class="admonitionblock note">
         <table>
@@ -1181,39 +1593,63 @@ If no such \(n\) exists, the set \(A\) is called an
            </i>
           </td>
           <td class="content">
+           <div class="imageblock right text-center">
+            <div class="content">
+             <img alt="FingersToNumerals" height="109" src="imagesMKD/FingersToNumerals.png" width="375"/>
+            </div>
+           </div>
            <div class="paragraph">
             <p>
-             The infinity symbol \(\infty\) isn’t used for the cardinality of an infinite set because
-there are
-             <span class="underline">
-              many
-             </span>
-             different
-             <em>
-              infinite cardinal numbers
-             </em>
-             that correspond to the sizes of different infinite sets.
-It is beyond the scope of this textbook to discuss these infinite cardinal numbers in detail, but as just two examples (1) \(|\mathbb{Q}|\) must be strictly less than \(|\mathbb{R}|\), even though both \(\mathbb{Q}\) and \(\mathbb{R}\) are infinite sets, and (2) perhaps more surprisingly, \(|\mathbb{N}|\) and \(|\mathbb{Q}|\)
-             <em>
-              must be equal
-             </em>
-             even though \(\mathbb{N}\) would appear to be a much smaller set than \(\mathbb{Q}\).
+             This definition of "finite set" may seem confusing, but it’s just a formal description of what is likely the way you learned to count when you were young: You matched objects with number names (that is, numerals) as shown in the image.
             </p>
            </div>
           </td>
          </tr>
         </table>
        </div>
+       <div class="imageblock right text-center">
+        <div class="content">
+         <img alt="04to15" height="91" src="imagesMKD/04to15.png" width="123"/>
+        </div>
+       </div>
        <div class="paragraph">
         <p>
-         Thus, we see that \(|\{0,1,2\}| = 3\), \(|\emptyset| = 0\), and \(|\mathbb{Z}|\) is an infinite cardinal number.
+         The
+         <strong>
+          cardinality
+         </strong>
+         of a finite set \(A,\) denoted by \(|A|,\) is
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           0 if \(A = \emptyset\) or
+          </p>
+         </li>
+         <li>
+          <p>
+           the value of \(n\) for which there is a one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         For
+         <em>
+          finite sets,
+         </em>
+         "cardinality" is just the number of elements in the set.
+The image shows that \(|\{0,1,2,3,4\}| = 5.\)
         </p>
        </div>
        <div class="sidebarblock">
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 6 - Cardinality in Python
+           Example 10 - Cardinality of Finite Sets in Python
           </div>
           <div class="content">
           </div>
@@ -1237,382 +1673,320 @@ It is beyond the scope of this textbook to discuss these infinite cardinal numbe
          </div>
         </div>
        </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_equality">
-        6.1.3. Equality
-       </h4>
-       <div class="paragraph">
-        <p>
-         We say that two sets are
-         <strong>
-          equal
-         </strong>
-         if and only if they contain the same elements.
-When \(A\) and \(B\) are equal sets, we write \(A = B\). When \(A\) and \(B\) are not equal sets, we write \(A \neq B\).
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         The sets \(\{2,3,5\}\) and \(\{5,2,3\}\) are equal sets, since they contain the same elements.
-In fact, \(\{2,3,5\}\) and \(\{5,2,3\}\) are really just two different descriptions of the
-         <em>
-          same
-         </em>
-         set, in the same way that
-\(2 + 2\) and \(5 - 1\) are two different descriptions of the
-         <em>
-          same
-         </em>
-         number.
-So we can write \(\{2,3,5\} = \{5,2,3\}\) for the same reason we
-can write \(2 + 2 = 5 - 1\).
-        </p>
-       </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_subsets">
-        6.1.4. Subsets
-       </h4>
-       <div class="paragraph">
-        <p>
-         We say that a set \(A\) is a
-         <strong>
-          subset
-         </strong>
-         of a set \(B\) if and only if every element of \(A\) is an element of \(B.\)
-When \(A\) is a subset of \(B,\) we write \(A \subseteq B\). When \(A\) is not a subset of \(B,\) we write \(A \not\subseteq B\).
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         In order to show that \(A\) is a subset of \(B,\) we must show that, whenever \(x \in A,\) it is also the case that \(x \in B.\) In order to show that \(A\) is not a subset of \(B,\) we must find a single \(x\) such that \(x \in A\) but \(x \not \in B.\)
-        </p>
-       </div>
        <div class="sidebarblock">
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 7
+           Example 11
           </div>
           <p>
-           If we let \(S = \{1,5\}\) and \(T = \{1,3,5\},\) then \(S \subseteq T,\) since each element of \(S\) is an element of \(T,\) but \(T \not\subseteq S,\) since \(3\) is an element of \(T\) that is not an element of \(S.\)
+           Suppose that \(A\) and \(B\) are finite sets.
           </p>
          </div>
-         <div class="paragraph">
-          <p>
-           If we let \(A\) be the set of professional athletes and let \(F\) be the set of professional football players, we have \(F \subseteq A,\) since every professional football player is a professional athlete, but \(A \not\subseteq F,\) since not every professional athlete is a professional football player.
-          </p>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             The cardinality of the Cartesian product \(A × B\) is \(|A × B|=|A| \cdot |B|\).
+            </p>
+           </li>
+           <li>
+            <p>
+             The cardinality of the power set of \(A\) is \(\left|\mathcal{P}(A)\right| = 2^{|A|}.\)
+            </p>
+           </li>
+          </ul>
+         </div>
+         <div class="openblock Challenge">
+          <div class="title">
+           Challenge
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Give informal arguments to justify each of the two bulleted statements.
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Your arguments can use some of the rules introduced in
+            <a href="./counting_arithmetic.html">
+             Counting: Arithmetic Techniques
+            </a>
+            chapter
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Answer
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            For the Cartesian product, the elements of \(A × B\) are ordered pairs of the form \((x,y)\) where \(x\in A\) and \(y\in B.\) There are \(|A|\) choices for the first coordinate, and for each of those choices there are \(|B|\) choices for the second coordinate. Use the product rule to conclude that there are \(|A| \cdot |B|\) different ways to choose an ordered pair, so that \(|A × B|=|A| \cdot |B|.\)
+            <br/>
+            <br/>
+            For the power set of \(A,\) to choose a subset of \(A\) you must decide for each of the \(|A|\) elements in \(A\) whether to include that element in the subset. There are 2 choices for each element, so using the product rule repeatedly you can conclude that there are \((2)(2)\cdots(2)\) ways to choose a subset, where the number of factors of \(2\) is \(|A|\). So \(\left|\mathcal{P}(A)\right| = 2^{|A|}.\) You can also think of this as counting all possible bitstrings of length \(n,\) where a 1 bit means "include the corresponding element" and a 0 bit means "omit the corresponding element."
+           </div>
+          </div>
          </div>
         </div>
        </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_infinite_sets">
+        6.7.2. Infinite Sets
+       </h4>
        <div class="paragraph">
         <p>
-         Note that, for any set \(A,\) it is always the case that \(\emptyset \subseteq A\) and \(A \subseteq A.\) For any sets \(A\) and \(B,\) if \(A \subseteq B\) and \(B \subseteq A,\) then \(A = B.\)
+         A set \(A\) is called an
+         <strong>
+          infinite set
+         </strong>
+         if it not a finite set. That is, \(A\) is not the empty set, and for every positive integer \(n\) there is no one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)
         </p>
        </div>
        <div class="paragraph">
         <p>
-         If \(A \subseteq B\) and \(B\) contains at least one element that is not in A, then we say \(A\) is a
-         <strong>
-          proper subset
-         </strong>
-         of \(B\), denoted \(A \subset B\).
+         Intuitively an infinite set \(A\) is at least as big as the set of positive integers. You may think that \(A\)
+         <em>
+          must
+         </em>
+         have the same size as the set of  positive integers, but cardinality is a much more …​ "interesting" concept for infinite sets, as you will see.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         First, we will say that two infinite sets \(A\) and \(B\) have the same cardinality if and only if there is a one-to-one correspondence between the two sets. As an example, the set of positive integers and the set of negative integers have the same cardinality since each nonzero integer \(n\) can be paired with its additive inverse, \(-n.\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         For finite sets, if \(A\) is a proper subset of \(B\) then it must be true that
+the cardinality of \(A\) is not the same as the cardinality of \(B.\) This fails spectacularly for infinite sets as the next few examples show.
         </p>
        </div>
        <div class="sidebarblock">
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 8 - Subsets in Python
+           Example 12 - The Natural Numbers and The Positive Integers
           </div>
           <div class="content">
           </div>
          </div>
-         <div class="paragraph">
-          <p>
-           In Python, we can check whether a set \(A\) is a subset of a set \(B\) in one of the following ways:
-          </p>
+         <div class="imageblock text-center">
+          <div class="content">
+           <img alt="NtoNstar" height="98" src="imagesMKD/NtoNstar.png" width="291"/>
+          </div>
          </div>
          <div class="paragraph">
           <p>
-           A.issubset(B)
-           <br/>
-           A &lt;= B.
+           The image shows that there is a one-to-one correspondence between the natural numbers and the positive integers, so these two sets have the same cardinality. But this isn’t so bad, we only have one more number in the set of natural numbers, which is why we can just shift every thing over by 1 in the image.
           </p>
          </div>
-         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B2,4,6,8,10,12%7D%0AB%20%3D%20%7B4,8,12%7D%0Aprint%28A.issubset%28B%29%29%0Aprint%28B%20%3C%3D%20A%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
-         </iframe>
-         <div style="text-align: right;">
-          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B2,4,6,8,10,12%7D%0AB%20%3D%20%7B4,8,12%7D%0Aprint%28A.issubset%28B%29%29%0Aprint%28B%20%3C%3D%20A%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
-           Edit in PythonTutor
-          </a>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_power_sets">
-        6.1.5. Power Sets
-       </h4>
-       <div class="paragraph">
-        <p>
-         Given a set \(A,\) we refer to the
-         <strong>
-          power set
-         </strong>
-         of \(A\) as the set of all subsets of \(A.\) The power set of \(A\) is denoted by \(\mathcal{P}(A).\)
-        </p>
-       </div>
-       <div class="admonitionblock note">
-        <table>
-         <tr>
-          <td class="icon">
-           <i class="fa icon-note" title="Note">
-           </i>
-          </td>
-          <td class="content">
-           <div class="paragraph">
-            <p>
-             \(\mathcal{P}(A)\) is a set whose elements are all sets.
-            </p>
+         <div class="openblock Challenge">
+          <div class="title">
+           Challenge
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Write a formula for the function that represents the one-to-one correspondence between the natural numbers and the positive integers.
            </div>
-          </td>
-         </tr>
-        </table>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            The function is a linear function. If you don’t remember how to find the equation of a linear function, see
+            <a href="./appendix_math.html">
+             this appendix.
+            </a>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 13 - The Natural Numbers and The Integers
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="imageblock text-center">
+          <div class="content">
+           <img alt="ZtoN" height="93" src="imagesMKD/ZtoN.png" width="309"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The image shows that there is a one-to-one correspondence between the set of all integers and the natural numbers.
+          </p>
+         </div>
+         <div class="imageblock text-center">
+          <div class="content">
+           <img alt="NtoZ" height="98" src="imagesMKD/NtoZ.png" width="331"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The image shows the inverse of the one-to-one correspondence above, which is a one-to-one correspondence between the set of natural numbers and the set of integers. These two sets have the same cardinality, which may surprise you since it would seem there should be "about twice as many" integers as natural numbers…​ but these two one-to-one correspondences are valid! This shows that you can double (roughly) the size of an infinite set and get a new set that has the same cardinality.
+          </p>
+         </div>
+         <div class="openblock Challenge">
+          <div class="title">
+           Challenge
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Write a formula for a function that represents one of the two one-to-one correspondences involving the natural numbers and the integers.
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Either function will be defined by two linear expressions. The definition will be of the form \[ f(n) = \begin{cases}
+\text{some linear expression}, &amp; \text{ if } n \geq 0 \\
+\text{some linear expression}, &amp; \text{ if } n &lt; 0 \\
+\end{cases} \]
+or \[ g(n) = \begin{cases}
+\text{some linear expression}, &amp; \text{ if } n \text{ is even} \\
+\text{some linear expression}, &amp; \text{ if } n \text{ is odd} \\
+\end{cases}  \]
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 14 - The Natural Numbers and Ordered Pairs of Natural Numbers
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="imageblock text-center">
+          <div class="content">
+           <img alt="Cantor’s_Pairing_Function" height="324" src="imagesMKD/Cantor's_Pairing_Function.svg" width="324"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Oh, it gets even worse! This image shows a one to one correspondence between the set of natural numbers \(\mathbb{N}\) and the set of ordered pairs of natural numbers, \(\mathbb{N} × \mathbb{N}.\) For each fixed value of the second coordinate \(y \in \mathbb{N},\) the horizontal row of red points of the form \(\{ (x, y) : x \in \mathbb{N} \} = \{ (0, y), (1, y), (2, y), (3, y), \ldots \}\) has as many elements as \(\mathbb{N}\) and the number of such rows is \(|\mathbb{N}|.\) That is, we have essentially "infinitely many" copies of \(\mathbb{N},\) which are the rows, that are joined together to form the Cartesian product \(\mathbb{N} × \mathbb{N}\) but this set still has the same cardinality as \(\mathbb{N}.\)
+           <br/>
+           <span class="small">
+            Image credit:
+            <a href="https://commons.wikimedia.org/wiki/File:Cantor%27s_Pairing_Function.svg">
+             "Cantor’s Pairing Function"
+            </a>
+            by crh23. The image is dedicated to the public domain under
+            <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">
+             CC0
+            </a>
+            .
+           </span>
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           We will prove in a later chapter that the association of natural numbers and ordered pairs of natural numbers described by the image is in fact a valid one-to-one correspondence.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Note that this is actually an important example: It shows that
+           <em>
+            pairs of natural numbers
+           </em>
+           can be encoded to
+           <em>
+            single natural numbers…​
+           </em>
+           in fact, this can be generalized to show that the set of
+           <em>
+            all finite length sequences of natural numbers
+           </em>
+           can be encoded to the set of natural numbers (and the set of all possible finite-length strings of Unicode code points can be encoded to the set of natural numbers).
+          </p>
+         </div>
+        </div>
        </div>
        <div class="paragraph">
         <p>
-         If we let \(A = \{a,b,c\},\) we see that \[\mathcal{P}(A) = \{\emptyset, \{ a \}, \{ b \}, \{ c \}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}.\] The empty set only has the empty set as a subset. Thus, we see that \[\mathcal{P}(\emptyset) = \{\emptyset\}.\]We can also take the power set of a power set. For example, we have the following:
+         So maybe
+         <em>
+          all
+         </em>
+         infinite sets have the same cardinality as \(\mathbb{N}?\)  Nope!
+The next theorem shows that \(\mathcal{P}(\mathbb{N})\) cannot have the same cardinality as \(\mathbb{N}\) so there must be at least two "infinities."
         </p>
-       </div>
-       <div class="openblock equationalign">
-        <div class="content">
-         <table class="equation_table_style">
-          <tr class="equation_row_style">
-           <td ;="" class="equation_content_style">
-            \[\begin{split}
-\mathcal{P}(\{ 1 \}) &amp;= \{\emptyset, \{ 1 \}\},\\
-\mathcal{P}(\mathcal{P}(\{ 1 \}) &amp;= \mathcal{P}(\{\emptyset, \{ 1 \})\\
-&amp;= \{\emptyset, \{\emptyset\}, \{ \{ 1 \} \}, \{\emptyset, \{ 1 \}\}\}.
-\end{split}\]
-           </td>
-          </tr>
-         </table>
-        </div>
        </div>
        <div class="sidebarblock">
         <div class="content">
          <div class="title">
-          Cardinality of Power Set
+          Theorem
          </div>
          <div class="paragraph">
           <p>
-           If \(A\) is a finite set such that \(|A| = n,\) then \(\left|\mathcal{P}(A)\right| = 2^n.\)
+           There is no one-to-one correspondence between \(\mathbb{N}\) and \(\mathcal{P}(\mathbb{N}).\)
           </p>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Proof
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            This proof is known as "Cantor’s diagonalization argument" and uses the proof by contradiction technique that will be discussed later in the
+            <a href="./proofs.html">
+             Proofs: Basic Techniques
+            </a>
+            chapter.
+            <br/>
+            <br/>
+            Suppose that we had such a one-to-one correspondence.
+We could represent that one-to-one correspondence by a sequence \(S_0 , S_1 , S_2 , \ldots\) of subsets that are elements of \(\mathcal{P}(\mathbb{N})\) such that every element of \(\mathcal{P}(\mathbb{N})\) appears in the sequence (that is, every subset has been paired with a natural number, and every natural number has been paired with a subset).
+Define subset \(M \subseteq \mathbb{N}\) by the rule for each natural number \(n,\) we put \(n\) into \(M\) if and only if \(n \not\in S_n.\)
+That is, we put 0 in \(M\) if 0 is not in \(S_0\) and leave 0 out of \(M\) if \(0 \in S_0.\) Then we do the same for 1, 2, and each of the other natural numbers \(n.\) So \[M = \{ n \in \mathbb{N} : n \not\in S_n \}\] Now we can show that \(M\) must be missing from the sequence \(S_0 , S_1 , S_2 , \ldots\) that we claimed contained
+            <em>
+             every
+            </em>
+            possible subset: \(M\) cannot be \(S_0\) since one of those sets contains 0 and the other one does not, and \(M\) cannot be \(S_1\) since one of those sets contains 1 and the other one does not, and \(M\) cannot be \(S_2\) since one of those sets contains 2 and the other one does not, and so on. That is, we can show that each natural number \(n\) is an element of exactly one of \(S_n\) and \(M\) which means \(M \neq S_n.\) But this is true for
+            <em>
+             every
+            </em>
+            \(n\) so \(M\) cannot be any of the sets in the sequence…​ it is missing! This is a contradicdtion, which means we assumed something false earlier in the proof, but the oly possible false statement was that we had a one-to-one correspondence. Therefore, no such one-to-one correspondence can exist.
+           </div>
+          </div>
          </div>
         </div>
        </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_cartesian_products">
-        6.1.6. Cartesian Products
-       </h4>
        <div class="paragraph">
         <p>
-         The
-         <strong>
-          Cartesian product
-         </strong>
-         of two sets \(A\) and \(B\) is the set of
-         <em>
-          ordered pairs
-         </em>
-         defined by,
+         In advanced mathematics, the concept of "infinite cardinal number" is developed, and mathematicians use these numbers to make sense of cardinalities like \(|\mathbb{N}|\) and \(|\mathcal{P}(\mathbb{N})|.\) It can be proven that \[|\mathbb{Q}| = |\mathbb{N}|\] \[|\mathbb{N}| &lt; |\mathcal{P}(\mathbb{N})|\] \[|\mathcal{P}(\mathbb{N})| = |\mathbb{R}|\] and that \[\text{for any infinite set } A, |A| &lt; |\mathcal{P}(A)|\] which shows that there must be infinitely-many infinite cardinal numbers.
         </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         \(  A\times B=\{(a,b) \, | \, a\in A \text{ and } b\in B)\}\),
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="paragraph">
-          <div class="title">
-           Example 9
-          </div>
-          <p>
-           Consider the sets, \(B=\{0,1\}\), \(T=\{0,1,2\}\), and, \(C=\{a,\ b,\ c, d\}\).
-Determine the Cartesian products, and their cardinalities.
-          </p>
-         </div>
-         <div class="olist loweralpha">
-          <ol class="loweralpha" type="a">
-           <li>
-            <p>
-             \(B\ \times\ C\)
-            </p>
-           </li>
-           <li>
-            <p>
-             \(C\times B\)
-            </p>
-           </li>
-           <li>
-            <p>
-             \(B\ \times\ T\)
-            </p>
-           </li>
-           <li>
-            <p>
-             \(B\ \times\ B\)
-            </p>
-           </li>
-           <li>
-            <p>
-             \(B\ \times\ B\times B\)
-            </p>
-           </li>
-          </ol>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           Solution
-          </div>
-          <p>
-           For the set, \( B\ \times C \), notice that
-this will be all ordered pairs of the form,
-\((a,b)\), with \(a \in B\), and \(b \in C\), giving,
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(B\ \times\ C=\{(0,a), (0,b), (0,c), (0,d),(1,a), (1,b), (1,c), (1,d))\}\),
-which has \(2 × 4=8\), elements.
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           For \(C\ \times\ B\), switch the ordering, for \(B\ \times\ C\), to obtain the set with \(8\),
-elements,
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(C\ \times  B=\{(a,0), (b,0), (c,0),(d,0),(a,1), (b,1), (c,1), (d,1)\}\),
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           The set \(B \times T\),
-will be all ordered pairs of the form,
-\((a,b)\), with \(a \in B\), and \(b \in T\), giving, the set with \(2 × 3=6\), elements,
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(B \times T=\{(0,0),(0,1),(0,2),(1,0),(1,1),(1,2)\}\),
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           The set \(B \times B\),
-will be all order pairs  of the form,
-\((a,b)\), with \(a, b \in B\), giving the set with  \(2 × 2=4\), elements,
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(B \times T=\{(0,0),(0,1),(1,0),(1,1)\}\),
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           Finally the set \(B \times B \times B\), will be the set of all
-ordered triples of the form,
-\((a,b,c)\), with \(a, b, c \in B\), giving the set with  \(2 × 2 × 2=8\), elements,
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(B \times B \times B=\{(0,0,0),(0,0,1),(0,1,0),(0,1,1),(1,0,0),(1,0,1),(1,1,0),(1,1,1)\}\),
-          </p>
-         </div>
-        </div>
-       </div>
-       <div class="admonitionblock note">
-        <table>
-         <tr>
-          <td class="icon">
-           <i class="fa icon-note" title="Note">
-           </i>
-          </td>
-          <td class="content">
-           <div class="paragraph">
-            <p>
-             Cartesian products are created using
-             <em>
-              ordered
-             </em>
-             pairs, so if \(A\) and \(B\) are different sets, then \(A \times B\) is different from \(B \times A\).
-            </p>
-           </div>
-          </td>
-         </tr>
-        </table>
-       </div>
-       <div class="admonitionblock note">
-        <table>
-         <tr>
-          <td class="icon">
-           <i class="fa icon-note" title="Note">
-           </i>
-          </td>
-          <td class="content">
-           <div class="paragraph">
-            <p>
-             If \(A\) and \(B\) are finite sets, then the cardinality of the Cartesian product \(A × B\) is \(|A × B|=|A| \cdot |B|\).
-            </p>
-           </div>
-          </td>
-         </tr>
-        </table>
-       </div>
-       <div class="admonitionblock note">
-        <table>
-         <tr>
-          <td class="icon">
-           <i class="fa icon-note" title="Note">
-           </i>
-          </td>
-          <td class="content">
-           <div class="paragraph">
-            <p>
-             The Cartesian coordinate systems are natural sets that are naturally Cartesian products.
-The two-dimensional plane, and the three-dimensional space are represented by the following
-Cartesian product sets,
-            </p>
-           </div>
-           <div class="paragraph">
-            <p>
-             \(\mathbb{R}^2=\mathbb{R}\times \mathbb{R}=\{(x,y)|x,y\in \mathbb{R}\}\), and,
-            </p>
-           </div>
-           <div class="paragraph">
-            <p>
-             \(\mathbb{R}^3=\mathbb{R}\times \mathbb{R}\times \mathbb{R}=\{(x,y,z)|x,y,z\in \mathbb{R}\}\)
-            </p>
-           </div>
-          </td>
-         </tr>
-        </table>
        </div>
       </div>
      </div>
      <div class="sect2">
       <h3 id="_venn_diagrams">
-       6.2. Venn Diagrams
+       6.8. Venn Diagrams
       </h3>
       <div class="paragraph">
        <p>
@@ -1741,7 +2115,7 @@ Cartesian product sets,
      </div>
      <div class="sect2">
       <h3 id="_set_operations">
-       6.3. Set Operations
+       6.9. Set Operations
       </h3>
       <div class="paragraph">
        <p>
@@ -1759,7 +2133,7 @@ Cartesian product sets,
       </div>
       <div class="sect3">
        <h4 id="_union">
-        6.3.1. Union
+        6.9.1. Union
        </h4>
        <div class="paragraph">
         <p>
@@ -1791,7 +2165,7 @@ We have the following Venn Diagram for \(A \cup B\):
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 10
+           Example 15
           </div>
           <p>
            If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \cup B = \{1,2,3,4,5,6,7,9\}.\]
@@ -1803,7 +2177,7 @@ We have the following Venn Diagram for \(A \cup B\):
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 11 - Union in Python
+           Example 16 - Union in Python
           </div>
           <div class="content">
           </div>
@@ -1832,7 +2206,7 @@ We have the following Venn Diagram for \(A \cup B\):
       </div>
       <div class="sect3">
        <h4 id="_intersection">
-        6.3.2. Intersection
+        6.9.2. Intersection
        </h4>
        <div class="paragraph">
         <p>
@@ -1867,7 +2241,7 @@ More formally, \[A \cap B = \{x \in U : x \in A \text{ and } x \in B\}.\]
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 12
+           Example 17
           </div>
           <p>
            If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \cap B = \{1,3,5\}.\]
@@ -1879,7 +2253,7 @@ More formally, \[A \cap B = \{x \in U : x \in A \text{ and } x \in B\}.\]
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 13 - Intersection in Python
+           Example 18 - Intersection in Python
           </div>
           <div class="content">
           </div>
@@ -1908,7 +2282,7 @@ More formally, \[A \cap B = \{x \in U : x \in A \text{ and } x \in B\}.\]
       </div>
       <div class="sect3">
        <h4 id="_complement">
-        6.3.3. Complement
+        6.9.3. Complement
        </h4>
        <div class="paragraph">
         <p>
@@ -1945,7 +2319,7 @@ Note that other textbooks and internet sources may use different notation for th
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 14
+           Example 19
           </div>
           <p>
            Suppose that our universal set is \(U = \{0,1,2,3,4,5,6,7,8,9\},\) the set of all decimal digits. If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[\overline{A} = \{0,7,8,9\}\] and \[\overline{B} = \{0,2,4,6,8\}.\]
@@ -1953,7 +2327,7 @@ Note that other textbooks and internet sources may use different notation for th
          </div>
          <div class="paragraph">
           <div class="title">
-           Example 15
+           Example 20
           </div>
           <p>
            Suppose that our universal set is \(\mathbb{Z}.\) If we let \(E\) be the set of all even integers, then \(\overline{E}\) is the set of all odd integers.
@@ -1964,7 +2338,7 @@ Note that other textbooks and internet sources may use different notation for th
       </div>
       <div class="sect3">
        <h4 id="_other_operations">
-        6.3.4. Other Operations
+        6.9.4. Other Operations
        </h4>
        <div class="paragraph">
         <p>
@@ -2010,7 +2384,7 @@ However, if \(A = B,\) then \(A\setminus B = B \setminus A = \emptyset\).
          <div class="content">
           <div class="paragraph">
            <div class="title">
-            Example 16
+            Example 21
            </div>
            <p>
             If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \setminus B = \{2,4,6\}\] and \[B \setminus A = \{7,9\}.\]
@@ -2022,7 +2396,7 @@ However, if \(A = B,\) then \(A\setminus B = B \setminus A = \emptyset\).
          <div class="content">
           <div class="openblock">
            <div class="title">
-            Example 17 - Difference in Python
+            Example 22 - Difference in Python
            </div>
            <div class="content">
            </div>
@@ -2083,7 +2457,7 @@ More formally, \[A \oplus B = \{x \in U: (x \in A \text{ and } x \not\in B) \tex
          <div class="content">
           <div class="paragraph">
            <div class="title">
-            Example 18
+            Example 23
            </div>
            <p>
             If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \oplus B = \{2,4,6,7,9\}.\]
@@ -2095,7 +2469,7 @@ More formally, \[A \oplus B = \{x \in U: (x \in A \text{ and } x \not\in B) \tex
          <div class="content">
           <div class="openblock">
            <div class="title">
-            Example 19 - Symmetric Difference in Python
+            Example 24 - Symmetric Difference in Python
            </div>
            <div class="content">
            </div>
@@ -2125,7 +2499,7 @@ More formally, \[A \oplus B = \{x \in U: (x \in A \text{ and } x \not\in B) \tex
       </div>
       <div class="sect3">
        <h4 id="_multiple_set_operations">
-        6.3.5. Multiple Set Operations
+        6.9.5. Multiple Set Operations
        </h4>
        <div class="paragraph">
         <p>
@@ -2218,7 +2592,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
      </div>
      <div class="sect2">
       <h3 id="_set_identities">
-       6.4. Set Identities
+       6.10. Set Identities
       </h3>
       <div class="paragraph">
        <p>
@@ -2261,7 +2635,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
       </div>
       <div class="sect3">
        <h4 id="_operator_precedence_order_of_operations">
-        6.4.1. Operator Precedence (Order Of Operations)
+        6.10.1. Operator Precedence (Order Of Operations)
        </h4>
        <div class="paragraph">
         <p>
@@ -2295,7 +2669,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
      </div>
      <div class="sect2">
       <h3 id="_venn_diagrams_partitions_and_bitstrings">
-       6.5. Venn Diagrams, Partitions, and Bitstrings
+       6.11. Venn Diagrams, Partitions, and Bitstrings
       </h3>
       <div class="paragraph">
        <p>
@@ -2361,7 +2735,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
       </div>
       <div class="sect3">
        <h4 id="_disjunctive_normal_form_set_version">
-        6.5.1. Disjunctive Normal Form (Set Version)
+        6.11.1. Disjunctive Normal Form (Set Version)
        </h4>
        <div class="paragraph">
         <p>
@@ -2388,7 +2762,7 @@ written as a union of intersections of three sets, with one set chosen from each
      </div>
      <div class="sect2">
       <h3 id="_the_principle_of_inclusion_exclusion_pie">
-       6.6. The Principle Of Inclusion-Exclusion (PIE)
+       6.12. The Principle Of Inclusion-Exclusion (PIE)
       </h3>
       <div class="paragraph">
        <p>
@@ -2434,7 +2808,7 @@ written as a union of intersections of three sets, with one set chosen from each
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 20
+          Example 25
          </div>
          <p>
           Consider the set \(U = \{ n \in \mathbb{N} : 1 \leq n \leq 60 \}\). How many elements of \(U\) are divisible by either 2 or 3 or both? How many elements of \(U\) are divisible by neither 2 nor 3?
@@ -2487,7 +2861,7 @@ so there are \(60 - 40 = 20\) integers in \(U\) that are divisible by neither 2 
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 21
+          Example 26
          </div>
          <p>
           Consider the set \(U = \{ n \in \mathbb{N} : 1 \leq n \leq 60 \}\) as in the previous example. How many elements of \(U\) are divisible by at lest one of 2, 3, or 5?? How many elements of \(U\) are divisible by none of 2, 3, or 5?
@@ -2539,7 +2913,7 @@ and
      </div>
      <div class="sect2">
       <h3 id="_exercises_3">
-       6.7. Exercises
+       6.13. Exercises
       </h3>
       <div class="paragraph">
        <p>

@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on August 27, 2024._
+_This chapter was last updated on September 9, 2024._
 
 ////
 AUG 2024 update on topics (basic counting)
@@ -74,88 +74,121 @@ Exercises (proofs by induction)
 
 //MKD content starts here
 
+//In this chapter you will learn about counting techniques that are more advanced that the ones you studied in the link:./counting_arithmetic.html[Counting: Arithmetic Techniques ] chapter.
 
-COMING SOON!!
-////
-== Permutations and Combinations
+// MKD can use https://www.britannica.com/science/Pascals-triangle
+
+//== Permutations and Combinations
 
 
 //MKD added subsection header and text
 
-Many counting problems involve choosing, from a set of $n$ objects, either an ordered sequence of $r$ objects or a subset of $r$ objects, with no repetition allowed. We will describe ways to do this type of counting in this section.
+Many problems can be solved by counting the number of possible outcomes when choosing $r$ elements from a set that contains $n$ elements, with no repetition allowed (that is, each element can only be counted once). To be clear, this assumes that $r$ and $n$ are natural numbers and $r \leq n.$ + 
+//[small]#We are assuming that $r$ and $n$ are natural numbers and $r \leq n.$#
 
-=== Permutations
+//MKD maybe give an example of repetition and nonrepetition here?
 
-// MKD rewrote this paragraph
-//Consider the first four letters of the alphabet, $A, B, C, D$. A //*permutation* of these letters would be an arrangement of them in //different orders.
+Some of these problems involve choosing an _ordered sequence_ of $r$ elements while other problems involve choosing a _subset_ of $r$ elements. 
 
-A *permutation* of a set of elements is an ordered arrangement of the elements 
-//MKD added
-without repetition of elements 
-. 
-// MKD added
-A permutation may involve every element of the set, or only some of the elements of the set.
+This chapter presents techniques for doing this type of counting. These techniques are built on the ones you studied in the link:./counting_arithmetic.html[Counting: Arithmetic Techniques] chapter.
+
+
+// MKD new section Sept 8 2024
+== The Factorial Of A Number
+
+The factorial is a function defined for all natural numbers as described below. 
+
+****
+.Definition - The Factorial 
+Given a natural number $n,$ the function $n!$ is defined recursively as \[0! = 1\] \[ n! = n \cdot (n-1)! \]
+
+That is, \[n! = n(n-1)(n-2) \cdots (2)(1)(1).\] This function is called the *factorial of $n$* and also *"$n-$factorial."*
+****
+
+
+//=== Permutations
+== Permutations
+
+A *permutation* of a set of elements is an ordered arrangement of the elements without repetition of elements. A permutation may involve every element of the set, or only some of the elements of the set. That is, a permutation is a sequence of elements from the set, where no element can appear more than once in the sequence. + 
+//[small]#If you studied outside the USA, you may have seen _phermutation_ used only in the case where every element of the set is involved, and _variation_ used if only some of the elements are involved. In this textbook, all of these will be called *permutations.*#
+[small]#Note: If you studied outside the USA, you may have learned that a permutation must involve _every element_ of the set, and that the term *variation* is used when the arrangment involves only some (but not all) of the elements of the set. In this textbook, all of these are called *permutations.*#
 
 //MKD Aug 20 2024
 // rewrote to avoid capital C since this clashed with C(n,r) later
-Consider the last four letters of the English alphabet, $W, X, Y, Z$.
+Consider the last four uppercase English letters $W, X, Y, Z$.
 
 * $WXYZ, XWYZ, WXZY$ are permutations of the letters taken four at a time
 * $XZW, WXY, WXZ$ are permutations of the letters taken three at a time
 * $WX, WY, ZX$ are permutations of the letters taken two at a time
 
+[small]#Note: To be more formal, the sequences above could be written as _tuples_ of the form $(W, X, Y, Z),$ $(X, W, Y, Z),$ $(W, X, Z, Y),$ and so on, but the notation used is simpler without the extra symbolic clutter of parentheses and commas.#
+
 Notice that no letter is repeated in a permutation.
 
 // MKD added the following paragraph
-By listing all possible permutations of $W, X, Y, Z$, we can determine that 
-there are 24 permutations of the letters taken four at a time, 
+How can you count all the possible permutations of a set? For small sets like the set of the last four uppercase English letters, you could list all the possible permutations of $W, X, Y, Z$ to determine that there are 24 permutations of the letters taken four at a time, 
 24 permutations of the letters taken three at a time, 
 and 6 permutations of the letters taken three at a time. 
-But what if we wanted to find all the possible permutations of the twenty six letters $A, B, \ldots , W, X, Y, Z$? It is very time consuming to write out all possible permutations of the twenty six letters taken, say, twenty one at a time, so we will develop a method and formula for doing this.
+But what if you wanted to find all the possible permutations of all twenty six uppercase English letters $A, B, \ldots , W, X, Y, Z$? It would be very time consuming to write out all possible permutations of, say, the twenty six uppercase English letters taken twenty one at a time, let alone all the other possible permutations. We will develop a technique for doing this kind of counting now. 
 
 //MKD considered changing $r$-permutation to _r-_permutation but it does not look as good
-In general, given a set of $n$ objects, an _ordered arrangment_ of $r \le n$ of 
-//them 
-the objects is called an *$r$-permutation*  or a *permutation of $n$ objects taken $r$ at a time*. We 
-//will denote this by 
-use the notation 
-$P(n,r)$ to represent the number of permutations of $n$ objects taken $r$ at a time. Note that $_nP_r$ is 
-//a 
-another commonly used notation, especially on calculators.
+
+//====
+****
+.Definition 
+Given a set of $n$ elements, an _ordered arrangment_ of $r \le n$ of 
+the elements is called an *$r$-permutation* or a *permutation of $n$ elements taken $r$ at a time.* 
+
+The notation $P(n,r)$ represents the number of permutations of $n$ elements taken $r$ at a time. Note that $_nP_r$ is another commonly-used notation for this count.
+****
+//====
 
 //MKD added the following two paragraphs
-Suppose we have $n$ objects and want to construct a $2$-permutation of the objects. There are $n$ possible choices for the first object, and once that object is chosen, there are $n-1$ possible choices for the second object. 
-We now use the product rule to conclude that there are $n(n-1)$ ways to choose the two objects; note that the order of the choices matters here.
+Suppose you have a set that contains $n$ elements and want to construct a $2$-permutation of the elements. There are $n$ possible choices for the first element, and once that element is chosen, there are $n-1$ possible choices for the second element. The product rule lets you conclude that there are $n(n-1)$ ways to choose the two elements, taking into account that the order of the choices matters.
 
-We can generalize this argument, informally, as follows: Suppose we have $n$ objects and want to construct an $r$-permutation, where $r \le n.$ There are $n$ possible choices for the first object, $n-1$ possible choices for the second object, and so on, until we have $n-(r-1)$ possible choices for the $r\text{th}$ object. Apply the product rule repeatedly to find that there are $ n(n-1)\cdots (n-r+1)$ $r$-permutations of the $n$ objects. 
+Now we can generalize this argument, informally: Suppose you have a set that contains $n$ elements and want to construct an $r$-permutation, where $r \le n.$ There are $n$ possible choices for the first element, $n-1$ possible choices for the second element, and so on, until we have $n-(r-1)$ possible choices for the $r\text{th}$ element. Apply the product rule repeatedly to conclude that there are $ n(n-1)\cdots (n-r+1)$ $r$-permutations of the $n$ elements. 
+
+The process in the previous paragraph can also be viewed recursively. Suppose you have a set that contains $n$ elements and want to construct an $r$-permutation, where $r \le n.$ There are $n$ possible choices for the first element, and the product rule let's us conclude that the number of $r$-permutations of the $n$ elements, $P(n,r),$ is the product of $n$ and $P(n-1,r-1).$ 
+Noticing that $P(n-r,0) = 1$ lets us draw the same conclusion as in the previous paragraph: 
+There are $P(n,r) =  n \cdot \left((n-1)\cdots (n-r+1) \right)$ permutations of $n$ elements taken $r$ at a time. 
 
 .Theorem
 ****
-$P(n,r) = n(n-1)(n-2) \cdots (n-r+1)$
-// = \displaystyle \frac{n!}{(n-r)!}$.
+For natural numbers $r$ and $n$ with $r \leq n,$ \[P(n,r) = n(n-1)(n-2) \cdots (n-r+1).\] 
+//[small]#Note: A more formal proof that uses the  link:./induction.html[mathematical induction] proof technique will be given later in this textbook.#
 ****
-
+// = \displaystyle \frac{n!}{(n-r)!}$.
+//[small]#For now, this is only a conjecture as we have not validated it for all possible natural numbers $r$ and $n$ with $r \leq n.$ A formal proof can be done using the link:./induction.html[mathematical induction] proof technique.#
 // MKD - added text - maybe add an exercise for the induction, too?
-Note that a formal proof can be done by using mathematical induction.
+//Note that a formal proof can be done by using mathematical induction.
 // on $r$, treating $n$ as a constant.
 
 
-video::tTvaodWc6ic[youtube, 700, 500]
-
 :pt_code_height: 500
 :pt_rawinput: false
-:pt_code: %23Listing%20Permutations%20of%203%20objects%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20!%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20!%3D%20i%20and%20k%20!%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0Aprint%28Counter%29
+:pt_code: %23Listing%20Permutations%20of%203%20elements%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20!%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20!%3D%20i%20and%20k%20!%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0Aprint%28Counter%29
 ****
-.Example {counter:countexample} - Permutations of 5 objects taken 3 at a time
+.Example {counter:countexample} - Permutations of 5 elements taken 3 at a time
 --
 --
-Try to predict what happens with the code and verify.
+//Try to predict what happens with the code and verify.
+How many lines of output will be printed by the following code? 
+
+You could trace through the code using the _Next_ button to answer the question, but it would be tedious... try using the formula for $r$-permutations instead... and remember to count the final print statement after the loop, too.
 
 include::python_tutor.adoc[]
 
-.You try
-Try using link:http://pythontutor.com/live.html#mode=edit[Pythontutor] to list permutations of 5 objects taken 4 at a time.
 ****
+//.You try
+//Try using link:http://pythontutor.com/live.html#mode=edit[Pythontutor] to list permutations of 5 elements taken 4 at a time.
+
+
+*Video Example*
+
+The following video example features 
+Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
+
+video::tTvaodWc6ic[youtube, 700, 500]
 
 
 :pt_code_height: 500
@@ -168,21 +201,43 @@ Try using link:http://pythontutor.com/live.html#mode=edit[Pythontutor] to list p
 The code below calculates the number of permutations given $n$ and $r$.  Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
 include::python_tutor.adoc[]
 
-.You Try
-Try using link:http://pythontutor.com/live.html#mode=edit[Pythontutor] to count permutations using a factorial formula.
+[env.Question]
+--
+How many permutations are there of the twenty six uppercase English letters taken twenty one at a time?
+--
+
+[click.hint]
+--
+Edit the code so that it will compute ProdCount(26,21), a relatively "small" natural number... "small" meaning that it's decimal expansion has only 25 digts! 😎 
+--
+//3 360 762 176 055 046 963 200 000
+
+//.You Try
+//Try using link:http://pythontutor.com/live.html#mode=edit[Pythontutor] to count permutations using a factorial formula.
+
 ****
 
 // MKD - added text - maybe add an exercise for the induction, too?
-The previous code example gives evidence for the following theorem. 
-Again, a formal proof can be done by using mathematical induction. 
+//The previous code example gives evidence for the following theorem. 
+//Again, a formal proof can be done by using mathematical induction. 
+
+Here is another way to think about counting the number of permutations of $n$ elements taken $r$ at a time: Imagine writing down all possible permutations of $n$ elements taken $n$ at a time, that is all possible ordered arrangements of all $n$ elements. Notice that if we only care about the first $r$ elements in the list, then there are $n-r$ elements at the end of the list that we can rearrange in any of $(n-r)!$ ways without changing the order of the the first $r$ elements. Now apply the division rule from the link:./counting_arithmetic.html[Counting: Arithmetic Techniques] chapter:  
+We have a procedure, ordering all $n$ elements, that can be completed in $n!$ possible ways, but for each way of completing this procedure there are $(n-r)!$ possible ways with the same outcome for ordering the first $r$ elements. The division rule lets you conclude that there are $\frac{n!}{(n-r)!}$ ways to order the first $r$ elements.
 
 .Theorem
 ****
-$P(n,r) = \displaystyle \frac{n!}{(n-r)!}$
+For natural numbers $r$ and $n$ with $r \leq n,$ \[P(n,r) = \displaystyle \frac{n!}{(n-r)!}\] 
+//[small]#A more formal proof that uses  link:./induction.html[mathematical induction] will be given later in the textbook, too.#
 ****
 
 
 *Video Example*
+
+// MKD this uses n!/(n-r)!
+
+The following video example features 
+Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
+
 
 ++++
 <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&playerId=kaltura_player&entry_id=0_julbjvm6&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_s0uli5zb" width="700" height="500" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
@@ -190,48 +245,71 @@ $P(n,r) = \displaystyle \frac{n!}{(n-r)!}$
 
 // video::f14jQTpb2EM[youtube, 700, 500]
 
+
 ****
 .Example {counter:countexample}
 
 If there are 10 runners in a race, how many different ways can the gold, silver, and bronze medals be awarded?
 
 .Solution
-There are 10 objects (the runners) and we are choosing 3 to win medals. So the number of ways they can be awarded is
+There are 10 elements (the runners) and we are choosing 3 to win medals. So the number of ways they can be awarded is
 
 
 $P(10,3) = \displaystyle \frac{10!}{(10-3)!} = \frac{10!}{7!} = 10 \times 9 \times 8 = 720$
 
 Alternatively, we could have used the product rule and noticed that there are 10 ways to award the gold, then there are 9 ways to award the silver,
 then 8 ways to award the brozne.
+
+.You Try
+From a group of 100 workers in a union, how many ways can there be a union President, Vice President, and Treasurer?
 ****
+
 
 ****
 .Example {counter:countexample}
 How many permutations of the digits 0123456789 are there that contain the string 456?
 
 .Solution
-We can regard this as a permutation of 8 objects: the string 456 and the other 7 digits. Since they can occur in any order, the number of permutations is
+We can regard this as a permutation of 8 elements: the string "456" and the other 7 individual digits. These 8 elements can occur in any order, so the number of permutations is
 
 $P(8,8) = 8! = 40320.$
 
-.You Try
-From a group of 100 workers, how many ways can there be a union President, Vice President, and Treasurer?
+[env.challenge]
+--
+How many different six-letter words (including nonsense words), can be formed using the letters in "HEROIC" where the vowels must appear together and no letters are repeated?
+--
 
-.You Try
-How many different words (including nonsense words), can be formed using the letters in 'HEROIC' where the vowels must appear together?
+[click.hint]
+--
+You can regard this a permutation of the 3 consonants and a string of 3 consecutive vowels... but notice that the order of the vowels matters.
+--
+
 ****
 
+:pt_code_height: 350
+:pt_rawinput: false
+:pt_code: import%20math%0An%20%3D%205%0Ar%20%3D%203%0Aprint%28math.factorial%28n%29//math.factorial%28n-r%29%29%0A%23print%28math.perm%28n,r%29%29%20%23Python%203.8%20or%20later
+****
+.Example {counter:countexample} - Python functions for Factorial and Counting Permutations
+--
+--
+This code sample illustrates how to use functions in Python's `math` module to compute $n!$ and $_nP_r.$
+
+include::python_tutor.adoc[]
+
+****
 
 //MKD added subsection header 
 
-=== Combinations
+//=== Combinations
+== Combinations
 
 A selection 
-of objects from a set of $n$ objects 
+of elements from a set of $n$ elements 
 where order 
 of selection 
 does not matter is called a *combination*. 
-Notice that each combination corresponds to a subset of the set of $n$ objects.
+Notice that each combination corresponds to a subset of the set of $n$ elements.
 //, that is, each combination is the unordered list that describes a subset.
 
 Consider the letters $W, X, Y, Z$ and choose three at a time where the order does not matter. 
@@ -259,28 +337,41 @@ $\{ W \}$. (Keep reading to find out why this "reversed" ordering of the subsets
 
 
 This shows that there are 
-4 combinations of 4 objects taken 3 at a time,  
-6 combinations of 4 objects taken 2 at a time, and 
-4 combinations of 4 objects taken 1 at a time.  
+4 combinations of 4 elements taken 3 at a time,  
+6 combinations of 4 elements taken 2 at a time, and 
+4 combinations of 4 elements taken 1 at a time.  
 
 
-In general, given a set of $n$ objects, 
+****
+.Definition 
+Given a set of $n$ elements, an _unordered selection_ of $r \le n$ of 
+the elements is called an *$r$-combination* or a *combination of $n$ elements taken $r$ at a time.* 
+
+The notation $C(n,r)$ represents the number of combinations of $n$ elements taken $r$ at a time. Note that $_nC_r$ is another commonly-used notation for this count. Either of these notations can read as "$n$ choose $r.$"
+****
+
+// MKD original - ${n}\choose{r}$ was omitted to integrate the Binomial activity
+////
+In general, given a set of $n$ elements, 
 an 
 _unordered selection_ of $r\le n$ of them is 
 called 
-an *$r$-combination* or a *combination of $n$ objects taken $r$ at a time*. We will denote this by $C(n,r)$, read as 
+an *$r$-combination* or a *combination of $n$ elements taken $r$ at a time*. We will denote this by $C(n,r)$, read as 
 "$n$ choose $r$." 
 Note that $_nC_r$ is commonly used by calculators. 
 Another common notation is ${n}\choose{r}$. 
+////
 
 
+// MKD combination symmetry begins 
+////
 Using this notation, we can write $C(4,3) = 4$, $C(4,2) = 6$, and $C(4,1) = 4$.
 
 
-Notice that $C(4,3) = C(4,1)$; it may appear that this "just happens to be true", but in fact is an example of the next theorem. In this case, a combination of 4 objects taken 3 at a time corresponds to a combination of 4 objects taken 1 at a time - we can choose 3 of the 4 elements by "throwing out" the 1 element we don't want to keep. That is, we choose the 3-element subset we care about indirectly by instead choosing the 1-element complement of the subset.
+Notice that $C(4,3) = C(4,1)$; it may appear that this "just happens to be true", but in fact is an example of the next theorem. In this case, a combination of 4 elements taken 3 at a time corresponds to a combination of 4 elements taken 1 at a time - we can choose 3 of the 4 elements by "throwing out" the 1 element we don't want to keep. That is, we choose the 3-element subset we care about indirectly by instead choosing the 1-element complement of the subset.
 
 In general, there is always a one-to-one correspondence between 
-the combinations of $n$ objects taken $r$ at a time and the combinations of $n$ objects taken $n-r$ at a time: Choosing $r$ elements for a subset corresponds to choosing the $n-r$ elements for the complement of the subset. 
+the combinations of $n$ elements taken $r$ at a time and the combinations of $n$ elements taken $n-r$ at a time: Choosing $r$ elements for a subset corresponds to choosing the $n-r$ elements for the complement of the subset. 
 
 // MKD - need to add this to set theory chapter after May 24, 2024:
 // The one-to-one correspondence on power set that maps A to its complement.
@@ -291,12 +382,13 @@ $C(n,r) = C(n,n-r)$
 ****
 
 A formal proof of the theorem can be written by proving that, for any set $S$, the function with domain and codomain $\mathcal{P}(S)$ and that maps each subset of $S$ to its complement is both injective and surjective.
-
+////
+// MKD combination symmetry ends
 
 //MKD added the following two paragraphs
 Next, notice that every $r$-combination corresponds to $P(r, r) = r!$ different $r$-permutations. That is, to select a $r$-permutation we could instead first select a $r$-combination without regard to order and then order the $r$ elements. 
 
-As an example, suppose we have $n$ objects and want to construct a $3$-permutation. We could instead first choose a $3$-combination of the objects. There are $C(n,3)$ possible $3$-combinations. Once we have chosen a specific $3$-combination, we can reorder the 3 elements 
+As an example, suppose we have $n$ elements and want to construct a $3$-permutation. We could instead first choose a $3$-combination of the elements. There are $C(n,3)$ possible $3$-combinations. Once we have chosen a specific $3$-combination, we can reorder the 3 elements 
 //in the subset of 3 elements 
 in $P(3,3) = 3!$ ways. 
 This argument shows that 
@@ -311,7 +403,7 @@ $C(n,r) = \displaystyle \frac{P(n,r)}{r!} = \frac{n!}{r!(n-r)!}$
 ****
 
 // MKD - added text - maybe add an exercise for the induction, too?
-A formal proof of the theorem can be done by using mathematical induction.
+//A formal proof of the theorem can be done by using mathematical induction.
 // on $r$, treating $n$ as a constant.
 
 
@@ -319,18 +411,24 @@ A formal proof of the theorem can be done by using mathematical induction.
 :pt_rawinput: false
 :pt_code: %235%20choose%203%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20%3E%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0Aprint%28Counter%29
 ****
-.Example {counter:countexample} - Combinations of 5 objects 3 at at time
+//.Example {counter:countexample} - Combinations of 5 elements 3 at at time
+.Example {counter:countexample} - Combinations of 5 elements taken 3 at a time
 --
 --
-The code below calculates the number of and lists combinations given $n$ and $r$.  Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
+The code below calculates the number of and lists combinations given $n$ and $r$.  
+
+How many lines of output will be printed by the following code? Remember to count the final print statement after the loop, too.
+
 include::python_tutor.adoc[]
 
 .You try
-Try using link:http://pythontutor.com/live.html#mode=edit[Pythontutor] to list and count combinations of 5 choose 4.
+Edit the code to list and count combinations of 5 choose 4.
+****
 
+////
 .You try
 Now try using link:http://pythontutor.com/live.html#mode=edit[Pythontutor] to calculate combinations using factorials.
-****
+////
 
 
 *Video Example*
@@ -368,6 +466,9 @@ $C(n,r)$ such bit strings.
 ****
 
 
+MORE TO COME!!!
+
+////
 //MKD added this new section 
 == Pascal’s Identity
 
@@ -448,112 +549,7 @@ Multiply by another factor of $(a+b)$:
 
 
 == Exercises
-COMING SOON!
 
-. There are 67 math majors and 124 ITEC majors at a college.
-	.. In how many ways can two representatives be picked so that one is a math major and one is an ITEC major?
-	.. In how many ways can one representative be picked who is either a math major or an ITEC major?
-
-
-. A multiple-choice test contains 20 questions, and each question has four choices.
-	.. In how many ways can a student answer all of the questions on the test?
-	.. In how many ways can a student answer all of the questions if she is allowed to leave some blank?
-
-. How many different three-letter initials can a person have?
-
-. How many different three-letter initials end with "R"?
-
-. How many bit strings are there of length five?
-
-. How many bit strings are there of length five that begin and end with 1?
-
-. How many bit strings are there of length less than $n$, where $n$ is a positive integer, that start and end with 1?
-
-. How many license plates can be made using three digits followed by four uppercase English letters if:
-	.. Digits and letters can be repeated?
-	.. Digits and letters cannot be repeated?
-
-
-. If each student in Discrete Mathematics is a mathematics major, an ITEC major, or a double major, and a class has 5 math majors (including double majors), 23 ITEC
-majors (including double majors), and 7 double majors, how many students are in the class?
-
-. Suppose a computer system requires a password of length no less than 7 and no more than 10 characters, and each character must be an English lowercase
-letter, an English uppercase letter, a digit, or one of six special characters (*, >, <, !, +, =).
-	.. How many different passwords are available?
-	.. Suppose a hacker can check a potential password once every nanosecond (1 nanosecond is $1 \times 10^{-9}$ seconds). How long will it take the hacker
-	to check every potential password?
-
-.	Show that if there are 29 students in a class at least two have last names that begin with the same letter.
-
-	. How many students need to be in a class in order for at least two students to receive the same grade on an exam that is graded on a scale 0 to 100 points?
-
-	. Show that in any set of 5 integers, there are at least two of them that have the same remainder when divided by 4.
-
-	. A bag contains 8 red balls and 7 blue balls.
-		.. How many balls must be chosen to be sure of choosing 3 of the same color?
-		.. How many must be chosen to be sure of choosing 3 red balls?
-	. Someone cleaning out their attic finds a box containing 12 rock CDs and 12 country CDs. What is the minimum number of CDs they can take out to guarantee at least
-	one of each type?
-
-	. Give an argument that there are at least two people in Atlanta with the same number of hairs on their head.
-
-. There are 67 math majors and 124 ITEC majors at a college.
-	.. In how many ways can two representatives be picked so that one is a math major and one is an ITEC major?
-	.. In how many ways can one representative be picked who is either a math major or an ITEC major?
-
-
-
-. A multiple-choice test contains 20 questions, and each question has four choices.
-	.. In how many ways can a student answer all of the questions on the test?
-	.. In how many ways can a student answer all of the questions if she is allowed to leave some blank?
-
-. How many different three-letter initials can a person have?
-
-. How many different three-letter initials end with "R"?
-
-. How many bit strings are there of length five?
-
-. How many bit strings are there of length seven that begin and end with 0?
-
-. How many bit strings are there of length less than $n$, where $n$ is a positive integer, that start and end with 1?
-
-. How many license plates can be made using four digits followed by three uppercase English letters if:
-	.. Digits and letters can be repeated?
-	.. Digits and letters cannot be repeated?
-
-
-
-. If each student in Discrete Mathematics is a mathematics major, an ITEC major, or a double major, and a class has
-18 math majors (including double majors), 25 ITEC
-majors (including double majors), and 8 double majors, how many students are in the class?
-
-
-. Suppose a computer system requires a password of length no less than 8 and no
-more than 11 characters, and each character must be an English lowercase
-letter, an English uppercase letter, a digit, or one of six special characters (*, >, <, !, +, =).
-	.. How many different passwords are available?
-	.. Suppose a hacker can check a potential password once every nanosecond (1 nanosecond is $1 \times 10^{-9}$ seconds). How long will it take the hacker
-	to check every potential password?
-
-
-
-. Show that if there are 29 students in a class at least two have last names that begin with the same letter.
-
-. How many students need to be in a class in order for at least two students
-to receive the same grade on an exam that is graded on a scale 0 to 50 points?
-
-
-. Show that in any set of 8 integers, there are at least two of them that have the same
-remainder when divided by 7.
-
-. A bag contains 12 red balls and 7 blue balls.
-	.. How many balls must be chosen to be sure of choosing 4 of the same color?
-	.. How many must be chosen to be sure of choosing 4 red balls?
-
-. Someone cleaning out their attic finds a box containing 12 rock CDs, 12 hip hop CDs, and 12 country CDs. What is the minimum number of CDs they can take out to guarantee at least
-one of each type?
-
-. Give an argument that there are at least two people in Atlanta with the same number of hairs on their head.
 . List all the permutations of $\{1, 2, 3\}$.
 
 . How many permutations are there of the set $\{1, a, 2, b, 3, c, 5\}$?

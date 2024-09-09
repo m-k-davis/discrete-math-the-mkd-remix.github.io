@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on August 27, 2024._
+_This chapter was last updated on September 4, 2024._
 
 // MKD start of topics
 ////
@@ -797,7 +797,7 @@ $h:A\rightarrow C$, denoted as follows,
 $h\left(x\right)=\left(f\circ g\right)\left(x\right)=f\left(g\left(x\right)\right)$
 provided $x\ \in\ A$ and $g\left(x\right)\in B$.
 
-
+// MKD Sept 4 2024 changed second function h to k
 ****
 .Example {counter:funcex}
 
@@ -805,7 +805,7 @@ Consider $f\left(x\right)=\frac{1}{x}$ and $g\left(x\right)=2x-3$,
 defined on $f,g:R\rightarrow R$. Notice that $g\left(x\right)$
 is defined for all real $x$ and $f\left(x\right)$ is defined for all real $x\ \neq0$. Form the compositions,
 $h\left(x\right)=\left(f \circ g\right)\left(x\right)$, and
-$h\left(x\right)=\left(g \circ f\right)\left(x\right)$. Also determine their respective domains.
+$k\left(x\right)=\left(g \circ f\right)\left(x\right)$. Also determine their respective domains.
 
 .Solution
 
@@ -814,7 +814,7 @@ Here $x$ needs to be in the domain of $g\left(x\right)$,  or all real $x$,
 and $g\left(x\right)$ needs to be in the domain of $f\left(x\right)$.
 In particular $g\left(x\right)\neq 0$, or $2x-3\ \neq 0$,   or $x\ \neq\frac{3}{2}$.
 
-By contrast,  $h\left(x\right)=\left(g\circ f\right)\left(x\right)=g\left(f\left(x\right)\right)=g\left(\frac{1}{x}\right)=2\left(\frac{1}{x}\right)-3=\frac{2}{x}-3$.
+By contrast,  $k\left(x\right)=\left(g\circ f\right)\left(x\right)=g\left(f\left(x\right)\right)=g\left(\frac{1}{x}\right)=2\left(\frac{1}{x}\right)-3=\frac{2}{x}-3$.
 Here $x$ needs to be in the domain of $f\left(x\right)$, or $x\ \neq 0$, and $f\left(x\right)$
 needs to be in the domain of $g\left(x\right)$, or $f\left(x\right)$ can be any real number.
 

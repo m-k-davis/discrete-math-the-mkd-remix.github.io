@@ -2,7 +2,9 @@
 
 //#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 3, 2024_  
+
+_This chapter was last updated on September 3, 2024_ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 ////
 AUG 2024 update on topics (basic counting)
