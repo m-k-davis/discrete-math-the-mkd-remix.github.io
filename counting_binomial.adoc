@@ -1,8 +1,9 @@
 = Counting: Permutations and Combinations
 
-#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 9, 2024._
+_This chapter was last updated on September 12, 2024._ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 ////
 AUG 2024 update on topics (basic counting)
@@ -347,7 +348,7 @@ This shows that there are
 Given a set of $n$ elements, an _unordered selection_ of $r \le n$ of 
 the elements is called an *$r$-combination* or a *combination of $n$ elements taken $r$ at a time.* 
 
-The notation $C(n,r)$ represents the number of combinations of $n$ elements taken $r$ at a time. Note that $_nC_r$ is another commonly-used notation for this count. Either of these notations can read as "$n$ choose $r.$"
+The notation $C(n,r)$ represents the number of combinations of $n$ elements taken $r$ at a time. Note that $_nC_r$ is another commonly-used notation for this count, as is the *binomial coefficient* $n\choose r$. Any of these notations can read as "$n$ choose $r.$"
 ****
 
 // MKD original - ${n}\choose{r}$ was omitted to integrate the Binomial activity
@@ -466,11 +467,16 @@ $C(n,r)$ such bit strings.
 ****
 
 
-MORE TO COME!!!
+=== Properties Of Combinations
 
-////
-//MKD added this new section 
-== Pascal’s Identity
+#*RECOMMENDATION:* The link:https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/["Binomial" activity] can replace this subsection.#
+
+In this subsection you will learn about some properties of $C(n, r)$ and a famous "number triangle;" you will see that the values listed in the triangle coincide with the values of $C(n,r).$
+
+
+// MKD Pascal begins 
+//MKD added this new subsubsection 
+==== Pascal’s Triangle
 
 // MKD add historical note and also the link to the triangle
 // also known as Pascal's formula, Pascal's rule
@@ -479,12 +485,63 @@ MORE TO COME!!!
 //https://cudl.lib.cam.ac.uk/view/PR-CCB-00013-00024/5
 //https://aperiodical.com/2021/12/pascals-triangle-and-its-secrets-introduction/
 
-#*RECOMMENDATION:* The link:https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/["Binomial" activity] can replace this section.#
+//https://wikimedia.org/api/rest_v1/media/math/render/svg/3a8beb14cd64d7451f9f9e4f965713d3e7e62cbb
+//https://wikimedia.org/api/rest_v1/media/math/render/svg/3a8beb14cd64d7451f9f9e4f965713d3e7e62cbb
+
+Consider the following number triangle. \[{\displaystyle {\begin{array}{c}1\\1\quad 1\\1\quad 2\quad 1\\1\quad 3\quad 3\quad 1\\1\quad 4\quad 6\quad 4\quad 1\\1\quad 5\quad 10\quad 10\quad 5\quad 1\\1\quad 6\quad 15\quad 20\quad 15\quad 6\quad 1\\1\quad 7\quad 21\quad 35\quad 35\quad 21\quad 7\quad 1\end{array}}}\] 
+// MKD latex code is from https://en.wikipedia.org/wiki/Pascal's_triangle
+
+We refer to the top row of this triangle as "row 0," and the left side of the triangle as "column 0" (so the columns are actually drawn diagonally.)  Notice that in each number that is in row 2 of lower, and is not on one of the sides of the triangle, is the sum of the two numbers directly above it in the triangle. For example, in row 5, column 2 row, the number 10 is the sum of the numbers in row 4, column 1 (the number 4) and row 4, column 2 (the number 6.)
+
+This number triangle is often called "Pascal's Triangle" after the French mathematician Blaise Pascal who link:https://cudl.lib.cam.ac.uk/view/PR-CCB-00013-00024/5[wrote] about the triangle in the mid-1600's A.D.. However, the number triangle was  link:https://aperiodical.com/2021/12/pascals-triangle-and-its-secrets-introduction/[known for centuries] before Pascal lived. You may also want to see this  link:https://en.wikipedia.org/wiki/Pascal%27s_triangle#History[wikipedia page]for additional information.
+
+==== The Numbers in the Triangle Are The Values Of $C(n,r)$
+
+Notice that $C(0,0),$ $C(1,0),$ and $C(1,1)$ are all equal to 1. These numbers match the values in row 0 and row 1 of the triangle. 
+
+Now, consider an alternative way we can compute $C(n+1,r).$ Imagine we have a set containing $n+1$ elements, where one of the elements is "special" - in how many ways can we choose $r$ of the elements? There are two cases: We can choose the "special" element and then choose $r-1$ other elements from the remaining $n$ elements, or we can ignore the "special" element and choose $r$ elements from the remaining $n$ elements. 
+
+As a specific example, suppose we want to choose 2 elements form the set of letters $\{ J, K, L, M, N\}$. We could treat J as a special element. In the first case, we would always choose J and then choose 1 of the 4 remaining letters; there are $C(4,1)$ ways to do this. In the second case, we never choose J, and must choose two other letters; there are $C(4,2)$ ways to do this. In all, there are $C(5,2)$ ways to choose 2 letters from the set, and  the sum rule from the link./counting_arithmetic.html[Counting: Arithmetic Techniques] chapter can be applied to show that $C(5,2)$ must be equal to $C(4,1) + C(4,2).$ 
+
+In the general case of combinations of $n+1$ elements taken $r$ at a time, we have the following theorem.
+
+.Theorem - Pascal's identity
+****
+For natural numbers $n$ and $r$ such that $r \leq n,$ \[C(n+1,r) = C(n, r-1) + C(n,r)\]
+****
+
+This theorem shows that the numbers in each row of the triangle are the same numbers we can compute as $C(n,r).$ That is, since row 0 and row 1 contain the values for $C(0,0),$ $C(1,0),$ and $C(1,1),$ row 2 must contain the values for $C(2,0),$ $C(2,1),$ and $C(2,2),$ and row 3 must contain the values for $C(3,0),$ $C(3,1),$ $C(3,2),$ and $C(3,3).$ We can continue this pattern for _all_ rows of the triangle. This is an informal proof that the number triangle is made up of the values of $C(n,r)$ for all natural numbers $r$ and $n$ with $r \leq n.$  
+
+// MKD Pascal ends 
+
+==== $C(n,r) = C(n,n-r)$
+
+// MKD combination NEW symmetry begins 
+You may recall from an earlier example that there are $C(4,3) = 4$ possible ways to choose three letters from the set $\{ W, X, Y, Z \}$ and that there are $C(4,1) = 4$ possible ways to choose one letter from the set $\{ W, X, Y, Z \}.$  The equation $C(4,3) = C(4,1)$ does not "just happen to be true" but in fact [underline]#must be true:# Each combination of 4 elements taken 3 at a time corresponds to a combination of 4 elements taken 1 at a time, and vice versa - we can choose 3 of the 4 elements by "throwing out" the 1 element we don't want to keep. That is, we choose the 3-element subset we care about indirectly by instead choosing the 1-element we do not care about. 
+// complement of the subset. 
+//In fact, choosing three letters automatically leaves one letter out, or choosing one letter leaves three letters out - 
+There is a one-to-one correspondence between the subsets that contain 3 letters and the subsets that contain 1 letter: \[\{ W, X, Y \} \text{ corresponds to } \{ Z \}\] \[\{ W, X, Z \} \text{ corresponds to } \{ Y \}\] \[\{ W, Y, Z \} \text{ corresponds to } \{ X \}\] \[\{ X, Y, Z \} \text{ corresponds to } \{ W \}\]
+
+In general, there is always a one-to-one correspondence between 
+the combinations of $n$ elements taken $r$ at a time and the combinations of $n$ elements taken $n-r$ at a time: Choosing $r$ elements for a subset corresponds to choosing the $n-r$ elements 
+//for the complement of the subset. 
+to leave out of the subset. 
+This is an informal proof of the following theorem. 
+
+.Theorem
+****
+For natural numbers $n$ and $r$ such that $r \leq n,$ \[C(n,r) = C(n,n-r)\]
+****
+
+Alternatively, this theorem can be proven algebraically using the formula $C(n,r) = \frac{n!}{r!(n-r)!}.$
+
+//A formal proof of the theorem can be written by proving that, for any set $S$, the function with domain and codomain $\mathcal{P}(S)$ and that maps each subset of $S$ to its complement is both injective and surjective.
+// MKD combination NEW symmetry ends
 
 
 == The Binomial Theorem
 
-An algebraic expression of that is the product of a number and power of zero or more variables is called a *term.* Two terms are called *like terms* if the two terms have the exact same variables and those variables appear with the exact same exponents. For example, $a,$ $ab,$ $5a,$ and $3a^{2}$ are terms, and $a$ and $5a$ are like terms. Like terms can be added to make a new term, for example, $a + 5a$ is $6a$ where we've used the distributive property of multiplication over addition to write \[ a + 5a = 1a + 5a = (1+5)a = 6a \] 
+An algebraic expression that is the product of a number and power of zero or more variables is called a *term.* Two terms are called *like terms* if the two terms have the exact same variables and those variables appear with the exact same exponents. For example, $a,$ $ab,$ $5a,$ and $3a^{2}$ are terms, and $a$ and $5a$ are like terms. Like terms can be added to make a new term, for example, $a + 5a$ is $6a$ where we've used the distributive property of multiplication over addition to write \[ a + 5a = 1a + 5a = (1+5)a = 6a \] 
 
 Now consider the product of two algebraic expressions $a+b$ and $x+y$ where the variables represent real numbers. We can rewrite $(a+b)(x+y)$ in an expanded form by using the distributive property of multiplication over addition: \[ (a+b)(x+y) = a(x+y) + b(x+y) = ax + ay + bx + by. \]
 
@@ -495,15 +552,19 @@ In case both factors are $(a+b)$, we get \[ (a+b)(a+b) = a(a+b) + b(a+b) = aa + 
 
 Notice that the coefficients can be thought of as the number of ways to choose $b$ for each term during the multiplication: \[  a^{2} + 2ab + b^{2} = C(2,0)a^{2} + C(2,1)ab + C(2,2)b^{2} = {2\choose0}a^{2} + {2\choose1}ab + {2\choose2}b^{2}. \]
 
-Note that this can be written as \[ \left( C(1,0)a + C(1,1)b \right)^{2} = C(2,0)a^{2} + C(2,1)ab + C(2,2)b^{2} \] or \[ \left( {1\choose0}a + {1\choose1}b \right)^{2} = {2\choose0}a^{2} + {2\choose1}ab + {2\choose2}b^{2}. \]
+//Note that this can be written as \[ \left( C(1,0)a + C(1,1)b \right)^{2} = C(2,0)a^{2} + C(2,1)ab + C(2,2)b^{2} \] or \[ \left( {1\choose0}a + {1\choose1}b \right)^{2} = {2\choose0}a^{2} + {2\choose1}ab + {2\choose2}b^{2}. \]
 
-This gives us \[ C(1,0)^{2} a^{2} + C(1,0)C(1,1) ab +C(1,1)C(1,0) ab + C(1,1)^{2} b^{2} = C(2,0) a^{2} + C(2,1) ab + C(2,2) b^{2} \] or \[ {1\choose0}^{2} a^{2} + {1\choose0} {1\choose1} ab +{1\choose1} {1\choose0} ab + {1\choose1}^{2 }b^{2} = {2\choose0}a^{2} + {2\choose1}ab + {2\choose2}b^{2}. \]
+//This gives us \[ C(1,0)^{2} a^{2} + C(1,0)C(1,1) ab +C(1,1)C(1,0) ab + C(1,1)^{2} b^{2} = C(2,0) a^{2} + C(2,1) ab + C(2,2) b^{2} \] or \[ {1\choose0}^{2} a^{2} + {1\choose0} {1\choose1} ab +{1\choose1} {1\choose0} ab + {1\choose1}^{2 }b^{2} = {2\choose0}a^{2} + {2\choose1}ab + {2\choose2}b^{2}. \]
 
-Look at the next highest power: \[ (a+b)(a^{2} + 2ab + b^{2}) = a(a^{2} + 2ab + b^{2}) + b(a^{2} + 2ab + b^{2}) = a^{3} + 2a^{2} b + ab^{2} + a^{2} b + 2ab^{2} + b^{3} = (1)a^{3} + (2+1) a^{2} b + (1+2)ab^{2}) +(1)b^{3} \]
+//Look at the next highest power: \[ (a+b)(a^{2} + 2ab + b^{2}) = a(a^{2} + 2ab + b^{2}) + b(a^{2} + 2ab + b^{2}) = a^{3} + 2a^{2} b + ab^{2} + a^{2} b + 2ab^{2} + b^{3} = (1)a^{3} + (2+1) a^{2} b + (1+2)ab^{2}) +(1)b^{3} \]
 
-Note that \[ (a+b)^{n} = \sum\limits_{i=0}^{n} {n\choose i} a^{n-i} b^{i} \]  
+Look at the next highest powers: 
 
 
+//Note that \[ (a+b)^{n} = \sum\limits_{i=0}^{n} {n\choose i} a^{n-i} b^{i} \]  
+
+
+////
 \begin{equation}
 \begin{aligned}
 (a+b)(a+b) {} & = a (a+b) + b (a+b))  \\ 
@@ -512,6 +573,8 @@ Note that \[ (a+b)^{n} = \sum\limits_{i=0}^{n} {n\choose i} a^{n-i} b^{i} \]
 & = a^{2} + 2 a b + b^{2}
 \end{aligned}
 \end{equation}
+////
+
 
 
 \begin{equation}
@@ -523,7 +586,6 @@ Note that \[ (a+b)^{n} = \sum\limits_{i=0}^{n} {n\choose i} a^{n-i} b^{i} \]
 \end{aligned}
 \end{equation}
 
-
 \begin{equation}
 \begin{aligned}
 (a+b) \left( a^{3} + 3 a^{2} b + 3 ab^{2} + b^{3} \right) {} & = a \left( a^{3} + 3 a^{2} b + 3 ab^{2} + b^{3} \right) + b \left( a^{3} + 3 a^{2} b + 3 ab^{2} + b^{3} \right)  \\ 
@@ -534,6 +596,14 @@ Note that \[ (a+b)^{n} = \sum\limits_{i=0}^{n} {n\choose i} a^{n-i} b^{i} \]
 \end{equation}
 
 
+We will prove later in the link:./induction.html[Proofs: Mathematical Induction] chapter that \[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i}  a^{n-i} b^{i} \] for every natural number $n.$
+
+//\[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i} a^{n-i}b^{i} \] 
+
+//where the *binomial coefficient* $n\choose i$ is equal to $C$(n,i).$
+
+
+////
 Now assume that for natural number exponent _k_ \[ (a+b)^{k} = \sum\limits_{i=0}^{k} {k\choose i} a^{k-i} b^{i} \]  
 
 Multiply by another factor of $(a+b)$:
@@ -545,8 +615,7 @@ Multiply by another factor of $(a+b)$:
 & = {k\choose 0} a^{k+1-0} b^{0} + \left( \sum\limits_{i=1}^{k} {k\choose i} a^{k-i} b^{i} \right) + \left( \sum\limits_{i=0}^{k-1} {k\choose i} a^{k-i} b^{i+1} \right) + {k\choose k} a^{k-k} b^{k+1} \\
 \end{aligned}
 \end{equation}
-
-
+////
 
 == Exercises
 
@@ -603,5 +672,3 @@ Multiply by another factor of $(a+b)$:
 &&&& C(3,0) && C(3,1) && C(3,2) && C(3,3) &&&\\
 &&& C(4,0) && C(4,1) && C(4,2) && C(4,3) && C(4,4) &&\\
 \end{array}
-
-////

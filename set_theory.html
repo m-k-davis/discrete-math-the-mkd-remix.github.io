@@ -601,19 +601,13 @@ $(document).on('page:load', ready2);
     <div class="sectionbody">
      <div class="paragraph">
       <p>
-       <mark>
-        <strong>
-         CAUTION
-        </strong>
-        - CHAPTER UNDER CONSTRUCTION!
-       </mark>
-      </p>
-     </div>
-     <div class="paragraph">
-      <p>
        <em>
-        This chapter was last updated on September 9, 2024.
+        This chapter was last updated on September 12, 2024.
        </em>
+       <br/>
+       <span class="small">
+        Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.
+       </span>
       </p>
      </div>
      <div class="paragraph">
@@ -1402,7 +1396,7 @@ Notice that \(\mathcal{P}(A)\) is a set whose elements are themselves sets.
          </div>
          <p>
           Consider the sets, \(B=\{0,1\}\), \(T=\{0,1,2\}\), and, \(C=\{a,\ b,\ c, d\}\).
-Determine the Cartesian products, and their cardinalities.
+Determine how many elements are in each set using the product rule, and verify by writing out each set using the roster method.
          </p>
         </div>
         <div class="olist loweralpha">
@@ -1429,7 +1423,7 @@ Determine the Cartesian products, and their cardinalities.
           </li>
           <li>
            <p>
-            \(B\ \times\ B\times B\)
+            \(B\ \times\ B\ \times B\)
            </p>
           </li>
          </ol>
@@ -1563,7 +1557,7 @@ are Cartesian products.
        </h4>
        <div class="paragraph">
         <p>
-         A set \(A\) is called a
+         Set \(A\) is called a
          <strong>
           finite set
          </strong>
@@ -1600,7 +1594,7 @@ are Cartesian products.
            </div>
            <div class="paragraph">
             <p>
-             This definition of "finite set" may seem confusing, but it’s just a formal description of what is likely the way you learned to count when you were young: You matched objects with number names (that is, numerals) as shown in the image.
+             This definition of "finite set" may seem abstract, but it’s just a formal description of what is likely the way you learned to count when you were young: You matched objects with number names (that is, numerals) as shown in the image.
             </p>
            </div>
           </td>
@@ -1637,11 +1631,11 @@ are Cartesian products.
        </div>
        <div class="paragraph">
         <p>
-         For
+         For a
          <em>
-          finite sets,
+          finite set
          </em>
-         "cardinality" is just the number of elements in the set.
+         \(A\) the cardinality \(|A|\) is just the number of elements in the set.
 The image shows that \(|\{0,1,2,3,4\}| = 5.\)
         </p>
        </div>
@@ -1743,11 +1737,12 @@ The image shows that \(|\{0,1,2,3,4\}| = 5.\)
        </h4>
        <div class="paragraph">
         <p>
-         A set \(A\) is called an
+         Set \(A\) is called an
          <strong>
           infinite set
          </strong>
-         if it not a finite set. That is, \(A\) is not the empty set, and for every positive integer \(n\) there is no one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)
+         if it not a finite set.
+That is, \(A\) is not the empty set, and for every positive integer \(n\) there is no one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)
         </p>
        </div>
        <div class="paragraph">
@@ -1787,6 +1782,11 @@ the cardinality of \(A\) is not the same as the cardinality of \(B.\) This fails
          <div class="paragraph">
           <p>
            The image shows that there is a one-to-one correspondence between the natural numbers and the positive integers, so these two sets have the same cardinality. But this isn’t so bad, we only have one more number in the set of natural numbers, which is why we can just shift every thing over by 1 in the image.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that this example also suggests why it really does not matter whether we start counting from 1 or 0…​ we can always "reindex" the counting if necessary.
           </p>
          </div>
          <div class="openblock Challenge">
@@ -1840,7 +1840,12 @@ the cardinality of \(A\) is not the same as the cardinality of \(B.\) This fails
          </div>
          <div class="paragraph">
           <p>
-           The image shows the inverse of the one-to-one correspondence above, which is a one-to-one correspondence between the set of natural numbers and the set of integers. These two sets have the same cardinality, which may surprise you since it would seem there should be "about twice as many" integers as natural numbers…​ but these two one-to-one correspondences are valid! This shows that you can double (roughly) the size of an infinite set and get a new set that has the same cardinality.
+           The image shows the inverse of the one-to-one correspondence above, which is a one-to-one correspondence between the set of natural numbers and the set of integers.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           These two sets have the same cardinality, which may surprise you since "intuitively" it would seem there should be about twice as many integers as natural numbers. However, this example shows that you can double (roughly) the size of an infinite set and get a new set that has the same cardinality.
           </p>
          </div>
          <div class="openblock Challenge">
@@ -1888,7 +1893,7 @@ or \[ g(n) = \begin{cases}
          </div>
          <div class="paragraph">
           <p>
-           Oh, it gets even worse! This image shows a one to one correspondence between the set of natural numbers \(\mathbb{N}\) and the set of ordered pairs of natural numbers, \(\mathbb{N} × \mathbb{N}.\) For each fixed value of the second coordinate \(y \in \mathbb{N},\) the horizontal row of red points of the form \(\{ (x, y) : x \in \mathbb{N} \} = \{ (0, y), (1, y), (2, y), (3, y), \ldots \}\) has as many elements as \(\mathbb{N}\) and the number of such rows is \(|\mathbb{N}|.\) That is, we have essentially "infinitely many" copies of \(\mathbb{N},\) which are the rows, that are joined together to form the Cartesian product \(\mathbb{N} × \mathbb{N}\) but this set still has the same cardinality as \(\mathbb{N}.\)
+           This first image, which shows red points plotted in the \(xy\)-plane that have been labeled with natural numbers, suggests a way to define a one-to-one correspondence between the set of ordered pairs of natural numbers, \(\mathbb{N} × \mathbb{N},\) and the set of natural numbers \(\mathbb{N}.\)
            <br/>
            <span class="small">
             Image credit:
@@ -1905,36 +1910,88 @@ or \[ g(n) = \begin{cases}
          </div>
          <div class="paragraph">
           <p>
-           We will prove in a later chapter that the association of natural numbers and ordered pairs of natural numbers described by the image is in fact a valid one-to-one correspondence.
+           <span class="image right">
+            <img alt="PairsToSingles" height="75" src="imagesMKD/PairsToSingles.png" width="480"/>
+           </span>
+           This second image displays the same one-to-one correspondence in tabular form.
           </p>
          </div>
          <div class="paragraph">
           <p>
-           Note that this is actually an important example: It shows that
-           <em>
-            pairs of natural numbers
-           </em>
-           can be encoded to
-           <em>
-            single natural numbers…​
-           </em>
-           in fact, this can be generalized to show that the set of
-           <em>
-            all finite length sequences of natural numbers
-           </em>
-           can be encoded to the set of natural numbers (and the set of all possible finite-length strings of Unicode code points can be encoded to the set of natural numbers).
+           In the first image, notice that for each fixed value of the second coordinate \(y \in \mathbb{N},\) the horizontal row of red points of the form \(\{ (x, y) : x \in \mathbb{N} \} = \{ (0, y), (1, y), (2, y), (3, y), \ldots \}\) has the same cardinality as \(\mathbb{N}\) and
+that there is one such row for every natural number \(y \in \mathbb{N}.\) That is, the set of rows has the same cardinality as the set \(\mathbb{N},\) and each of the rows has the same cardinality as \(\mathbb{N}.\)
+There are, in essence, as many copies of \(\mathbb{N}\) (the rows of red points) as there are elements in \(\mathbb{N},\) and these copies are joined together to form the Cartesian product \(\mathbb{N} × \mathbb{N}\)…​ but this set still has the same cardinality as \(\mathbb{N}.\)
+           <br/>
           </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice something else about this example: It shows that each
+           <em>
+            pair of natural numbers
+           </em>
+           can be encoded as a
+           <em>
+            single natural number.
+           </em>
+           In fact, this example can be generalized to show that any element in the set of
+           <em>
+            all finite-length sequences of natural numbers
+           </em>
+           can be encoded uniquely to a natural number (so, for example, the set of all possible finite-length strings of Unicode characters/code points can be encoded to the set of natural numbers, which may or may not be surprising to you.)
+          </p>
+         </div>
+         <div class="openblock Mega-challenge!">
+          <div class="title">
+           Mega-challenge!
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Try to find an algebraic formula for the function \(n = f(x,y)\) that describes the one-to-one correspondence described by the images, then show that the function must map two different inputs (ordered pairs of natural numbers) to two different outputs (natural numbers) and also that
+            <em>
+             every
+            </em>
+            natural number is an output from the function for some input ordered pair of natural numbers.
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            It’s possible to write \(f(x,y)\) as a quadratic polynomial in the two variables \(x\) and \(y.\)
+            <br/>
+            <br/>
+            You may want to read about
+            <a href="https://en.wikipedia.org/wiki/Triangular_number">
+             triangular numbers
+            </a>
+            to get an idea of how the mapping of ordered pairs to numbers is being done. In the first image, the red points form a "triangle of infinite height" with a vertex at \((0,0)\) and sides lying along the \(x-\) and \(y-\)axes. "Row 0" of the triangle is the single point \((0,0),\) and "row \(n\)" of the triangle is made up of the red points with natural number coordinates \((x,y)\) that add up to \(n\) (that is, \(x+y = n\).)
+            <br/>
+            <br/>
+            A proof that this mapping of ordered pairs of natural numbers to individual natural numbers is in fact a one-to-one correspondence will be presented later in the textbook.
+           </div>
+          </div>
          </div>
         </div>
        </div>
        <div class="paragraph">
         <p>
-         So maybe
+         So far, every infinite set presented has the same cardinality as \(\mathbb{N}.\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Maybe
          <em>
           all
          </em>
-         infinite sets have the same cardinality as \(\mathbb{N}?\)  Nope!
-The next theorem shows that \(\mathcal{P}(\mathbb{N})\) cannot have the same cardinality as \(\mathbb{N}\) so there must be at least two "infinities."
+         infinite sets have the same cardinality as \(\mathbb{N}?\) Nope!
+         <br/>
+         <br/>
+         The next theorem shows that \(\mathcal{P}(\mathbb{N})\) cannot have the same cardinality as \(\mathbb{N}\) so there must be at least two "infinities."
         </p>
        </div>
        <div class="sidebarblock">
@@ -1953,34 +2010,145 @@ The next theorem shows that \(\mathcal{P}(\mathbb{N})\) cannot have the same car
           </div>
           <div class="content">
            <div class="click_oblique">
-            This proof is known as "Cantor’s diagonalization argument" and uses the proof by contradiction technique that will be discussed later in the
+            This proof uses a technique called
+            <a href="https://en.wikipedia.org/wiki/Georg_Cantor">
+             "Cantor’s diagonal argument"
+            </a>
+            and is an example of the proof by contradiction technique that will be discussed later in the
             <a href="./proofs.html">
              Proofs: Basic Techniques
             </a>
             chapter.
             <br/>
             <br/>
-            Suppose that we had such a one-to-one correspondence.
-We could represent that one-to-one correspondence by a sequence \(S_0 , S_1 , S_2 , \ldots\) of subsets that are elements of \(\mathcal{P}(\mathbb{N})\) such that every element of \(\mathcal{P}(\mathbb{N})\) appears in the sequence (that is, every subset has been paired with a natural number, and every natural number has been paired with a subset).
-Define subset \(M \subseteq \mathbb{N}\) by the rule for each natural number \(n,\) we put \(n\) into \(M\) if and only if \(n \not\in S_n.\)
-That is, we put 0 in \(M\) if 0 is not in \(S_0\) and leave 0 out of \(M\) if \(0 \in S_0.\) Then we do the same for 1, 2, and each of the other natural numbers \(n.\) So \[M = \{ n \in \mathbb{N} : n \not\in S_n \}\] Now we can show that \(M\) must be missing from the sequence \(S_0 , S_1 , S_2 , \ldots\) that we claimed contained
+            <span class="image right">
+             <img alt="SeqOfSets" height="164" src="imagesMKD/SeqOfSets.png" width="445"/>
+            </span>
+            Let’s suppose that we had such a one-to-one correspondence.
+As shown in the image, we could represent the one-to-one correspondence by a sequence \(S_0 , S_1 , S_2 , \ldots\) of subsets of \(\mathbb{N},\) which is what the elements of \(\mathcal{P}(\mathbb{N})\) are. In the one-to-one correspondence,
             <em>
-             every
+             every subset
             </em>
-            possible subset: \(M\) cannot be \(S_0\) since one of those sets contains 0 and the other one does not, and \(M\) cannot be \(S_1\) since one of those sets contains 1 and the other one does not, and \(M\) cannot be \(S_2\) since one of those sets contains 2 and the other one does not, and so on. That is, we can show that each natural number \(n\) is an element of exactly one of \(S_n\) and \(M\) which means \(M \neq S_n.\) But this is true for
+            of \(\mathbb{N}\) (that is,
             <em>
-             every
+             every element
             </em>
-            \(n\) so \(M\) cannot be any of the sets in the sequence…​ it is missing! This is a contradicdtion, which means we assumed something false earlier in the proof, but the oly possible false statement was that we had a one-to-one correspondence. Therefore, no such one-to-one correspondence can exist.
+            of \(\mathcal{P}(\mathbb{N})\)) appears as one of the \(S_{n}\) in the sequence: Every subset has been paired with a natural number and every natural number has been paired with a subset.
+            <br/>
+            <br/>
+            Next, define a subset \(M \subseteq \mathbb{N}\) as \[M = \{ n \in \mathbb{N} : n \not\in S_n \}\]
+
+That is, \(M\) is defined by the rule that for each natural number \(n,\) we have \(n \in M\) if and only if \(n \not\in S_{n}.\) So, for example, 0 is an element of \(M\) if 0 is not an element of \(S_0,\) but is not an element of \(M\) if 0 is an element of \(S_0.\) Likewise, 1 is an element of \(M\) if 1 is not an element of \(S_1,\) but is not an element of \(M\) if 1 is an element of \(S_1.\) The same is true for each of the natural numbers 2, 3, and so on: The natural number \(n\) is an element of exactly one of the sets \(S_n\) and \(M.\)
+            <br/>
+            <br/>
+            Now we show that \(M\) must be
+            <span class="underline">
+             missing
+            </span>
+            from the sequence \(S_0 , S_1 , S_2 , \ldots\)
+            <br/>
+            \(M\) cannot be \(S_0\) since one of those sets contains 0 and the other one does not. \(M\) cannot be \(S_1\) since one of those sets contains 1 and the other one does not. The same must be true for each of the natural numbers 2, 3, and so on. So, for
+            <em>
+             every natural number
+            </em>
+            \(n,\) \(n\) is an element of exactly one of the two sets \(S_n\) and \(M,\) which means \(M \neq S_n\) is true for
+            <em>
+             every natural number
+            </em>
+            \(n.\) This means that \(M\) cannot be any of the sets in the sequence…​ it is missing!
+            <br/>
+            <br/>
+            We assumed that every subset is listed in the sequence, but just showed that there is some subset that is not listed in the sequence.
+Notice that, even if we tried to use a new sequence (for example, insert \(M\) at position 0 and shift all the other subsets over by adding 1 to their subscripts) the diagonal argument could be used to define another subset that is missing from the new sequence. So,
+            <em>
+             every possible sequence of subsets must be missing at least one subset.
+            </em>
+            <br/>
+            <br/>
+            Therefore, such a one-to-one correspondence cannot exist.
            </div>
           </div>
          </div>
         </div>
        </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_countable_and_uncountable_sets">
+        6.7.3. Countable and Uncountable Sets
+       </h4>
        <div class="paragraph">
         <p>
-         In advanced mathematics, the concept of "infinite cardinal number" is developed, and mathematicians use these numbers to make sense of cardinalities like \(|\mathbb{N}|\) and \(|\mathcal{P}(\mathbb{N})|.\) It can be proven that \[|\mathbb{Q}| = |\mathbb{N}|\] \[|\mathbb{N}| &lt; |\mathcal{P}(\mathbb{N})|\] \[|\mathcal{P}(\mathbb{N})| = |\mathbb{R}|\] and that \[\text{for any infinite set } A, |A| &lt; |\mathcal{P}(A)|\] which shows that there must be infinitely-many infinite cardinal numbers.
+         Set \(A\) is called
+         <strong>
+          countable
+         </strong>
+         if
         </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           \(A\) is a finite set or
+          </p>
+         </li>
+         <li>
+          <p>
+           there is a one-to-one correspondence between \(A\) and \(\mathbb{N}.\) In this case, \(A\) is also called
+           <strong>
+            countably infinite.
+           </strong>
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         Set \(A\) is called
+         <strong>
+          uncountable
+         </strong>
+         if it is not a countable set. That is, \(A\) is infinite and there is no one-to-one correspondence between \(A\) and \(\mathbb{N}.\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Several examples of countably infinite sets were given in the examples in the preceding subsection:
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           The set of positive integers \(\{ i \in \mathbb{N} \, | \, i &gt; 0 \},\)
+          </p>
+         </li>
+         <li>
+          <p>
+           the set of integers \(\mathbb{Z},\) and
+          </p>
+         </li>
+         <li>
+          <p>
+           the set of ordered pairs of natural numbers, \(\mathbb{N} × \mathbb{N}.\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         On the other hand, the theorem in the preceding subsection shows that \(\mathcal{P}(\mathbb{N})\) is an uncountable set.
+        </p>
+       </div>
+       <div class="sect4">
+        <h5 id="_infinite_cardinal_numbers">
+         Infinite Cardinal Numbers
+        </h5>
+        <div class="paragraph">
+         <p>
+          In advanced mathematics, the concept of "infinite cardinal number" is developed and used to represent the sizes of infinite sets. Mathematicians use these infinite cardinal numbers to make sense of cardinalities like \(|\mathbb{N}|\) and \(|\mathcal{P}(\mathbb{N})|.\) It can be proven that \[|\mathbb{Q}| = |\mathbb{N}|\] \[|\mathbb{N}| &lt; |\mathcal{P}(\mathbb{N})|\] \[|\mathcal{P}(\mathbb{N})| = |\mathbb{R}|\] and that \[\text{for any infinite set } A, |A| &lt; |\mathcal{P}(A)|\] which shows that there must be infinitely-many infinite cardinal numbers.
+         </p>
+        </div>
        </div>
       </div>
      </div>
@@ -2306,13 +2474,7 @@ Note that other textbooks and internet sources may use different notation for th
        </div>
        <div class="paragraph">
         <p>
-         For any set \(A,\)
-
-\[ \overline{\overline{A}} = A \]
-
-\[ \overline{A} \cup A = U \]
-+
-\[ \overline{A} \cap A = \emptyset. \]
+         For any set \(A,\) \[ \overline{\overline{A}} = A \] \[ \overline{A} \cup A = U \] \[ \overline{A} \cap A = \emptyset. \]
         </p>
        </div>
        <div class="sidebarblock">
@@ -2677,17 +2839,22 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
         <strong>
          partition
         </strong>
-        of a set \(U\) is a set of subsets of \(U\) such that each element \(x \in U\) is a member of exactly one of the subsets in the partition. You already know at least one example of such a partition -  the partitoning of the integers \(\mathbb{Z}\) by its 2 subsets in \(\Pi = \{ \text{the set of even integers}, \text{the set of odd integers} \}\); every integer belongs to exactly one of the two elements of the set \(\Pi\).
+        of a set \(U\) is a set of subsets of \(U\) such that each element \(x \in U\) is a member of exactly one of the subsets in the partition.
        </p>
       </div>
       <div class="paragraph">
        <p>
-        In fact, for any chosen subset \(A \subseteq U\) we have a partition of \(U\) into the 2 sets that are elements of \(\{ A,\,\overline{A} \}\). Note that each element of \(U\) must be in exactly one of the subsets \(A\) and \(\overline{A}\).
+        As an example you already know, one partition of the set of integers \(\mathbb{Z}\) is the set of subsets \[\{ \text{the set of even integers}, \text{the set of odd integers} \}\] Notice that every integer \(n\) belongs to exactly one of the two elements of this set.
        </p>
       </div>
       <div class="paragraph">
        <p>
-        For two subsets \(A\) and \(B\) of a universal set \(U\), consider the Venn diagram of \(A\) and \(B\). By considering all possible intersections of these two sets and their complements, \(U\) is partitioned into 4 subsets, namely, the 4 elements of \(\{ \overline{A} \cap \overline{B},\, \overline{A} \cap B,\,A \cap \overline{B},\,A \cap B \}\). We can refer to each of these 4 subsets by using bitstrings of length 2 as follows:
+        As another example, for any subset \(A \subseteq U\) you have a partition of \(U\) into the 2 sets that are elements of \[\{ A,\,\overline{A} \}\] Note that each element of \(U\) must be in exactly one of the subsets \(A\) and \(\overline{A}\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        For two subsets \(A\) and \(B\) of a universal set \(U\), consider the Venn diagram of \(A\) and \(B\). Notice that, by considering all possible intersections of these two sets and their complements, \(U\) is partitioned into 4 subsets, namely, the 4 elements of \[\{ \overline{A} \cap \overline{B},\, \overline{A} \cap B,\,A \cap \overline{B},\,A \cap B \}\] We can refer to each of these 4 subsets by using bitstrings of length 2 as follows:
        </p>
       </div>
       <div class="ulist">
@@ -2706,7 +2873,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
       </div>
       <div class="paragraph">
        <p>
-        For example, in the following Venn diagram, the subset \(A \setminus B\) is labeled with the bitstring \(10\) because an element of \(A \setminus B\) is an element of \(A\) and not an element of \(B\).
+        For example, in the following Venn diagram, the subset \(A \cap \overline{B}\) is labeled with the bitstring \(10\) because an element of \(A \cap \overline{B}\) is an element of \(A\) and not an element of \(B\).
        </p>
       </div>
       <div class="imageblock">
@@ -2716,7 +2883,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
       </div>
       <div class="paragraph">
        <p>
-        If we had instead three sets \(A\), \(B\), and \(C\), we could partition the universe \(U\) into 8 subsets. In detail, if we have an element \(x \in U\), either \(x \in A\) or \(x \not\in A\), and for each of those possibilities, either \(x \in B\) or \(x \not\in B\), and for each of those possibilities, either \(x \in C\) or \(x \not\in C\). We can apply (twice) the
+        If you had instead three subsets \(A\), \(B\), and \(C\) of the universal set \(U,\) you could partition the universe \(U\) into 8 subsets. In detail, if you have an element \(x \in U\), either \(x \in A\) or \(x \not\in A\), and for each of those possibilities, either \(x \in B\) or \(x \not\in B\), and for each of those possibilities, either \(x \in C\) or \(x \not\in C\). We can apply (twice) the
         <em>
          multiplication principle
         </em>
@@ -2739,9 +2906,8 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
        </h4>
        <div class="paragraph">
         <p>
-         Suppose we have three sets \(A\), \(B\), and \(C\), and have partitioned the universe \(U\) into the 8 subsets as discussed above. Then a set that corresponds to any shading of the Venn diagram can be
-written as a union of intersections of three sets, with one set chosen from each of the pairs \(\{ A,\,\overline{A} \}\), \(\{ B,\,\overline{B} \}\), and \(\{ C,\,\overline{C} \}\). For example, the set shown in the figure below is equal to
-\((\overline{A} \cap \overline{B} \cap \overline{C}) \cup (A \cap \overline{B} \cap \overline{C}) \cup (\overline{A} \cap B \cap \overline{C}) \cup (\overline{A} \cap B \cap C)\).
+         Suppose you have three sets \(A\), \(B\), and \(C\), and have partitioned the universe \(U\) into the 8 subsets as discussed above. A subset of \(U\) that corresponds to any shading of the Venn diagram can be
+written as a union of intersections of three sets, with one set chosen from each of the pairs \(\{ A,\,\overline{A} \}\), \(\{ B,\,\overline{B} \}\), and \(\{ C,\,\overline{C} \}\).
         </p>
        </div>
        <div class="imageblock">
@@ -2751,11 +2917,57 @@ written as a union of intersections of three sets, with one set chosen from each
        </div>
        <div class="paragraph">
         <p>
+         As an example, consider the set shown in the image, which has 4 of the 8 regions of the Venn diagram shaded:
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           \(\overline{A} \cap \overline{B} \cap \overline{C}\) which is the region outside of all three sets,
+          </p>
+         </li>
+         <li>
+          <p>
+           \(A \cap \overline{B} \cap \overline{C},\) the region in set \(A\) but in neither \(B\) nor \(C,\)
+          </p>
+         </li>
+         <li>
+          <p>
+           \(\overline{A} \cap B \cap \overline{C},\) the region in set \(B\) but in neither \(A\) nor \(C,\)
+          </p>
+         </li>
+         <li>
+          <p>
+           \(\overline{A} \cap B \cap C,\) the region in both \(B\) and \(C\) but not in \(A.\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         Write the union of these 4 subsets to create an expression that describes the entire shaded region. \[(\overline{A} \cap \overline{B} \cap \overline{C}) \cup (A \cap \overline{B} \cap \overline{C}) \cup (\overline{A} \cap B \cap \overline{C}) \cup (\overline{A} \cap B \cap C)\]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
          This type of expression is called a
          <strong>
           disjunctive normal form
          </strong>
          (or DNF) for the set that it represents. We will see an analog of these in a different context in the chapter on Logic.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The advantage of using the DNF is that you can write out an expression for the shaded subset using a simple algorithmic.
+The DNF may be neither the shortest possible expression nor the most easily understood expression for the shaded part of the Venn diagram, but the DNF is a
+         <span class="underline">
+          <em>
+           correct
+          </em>
+         </span>
+         expression for the shaded subset.
         </p>
        </div>
       </div>
@@ -2857,6 +3069,29 @@ so there are \(60 - 40 = 20\) integers in \(U\) that are divisible by neither 2 
         We can derive the following formula in much that same way that we did above; in fact, we can just apply the formula we found for two sets to \(| (A \cup B) \cup C |\) and use some of the set identities to help simplify the formula. \[ |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|. \]
        </p>
       </div>
+      <div class="openblock click">
+       <div class="title">
+        Show me all the steps!
+       </div>
+       <div class="content">
+        <div class="click_oblique">
+         \begin{equation}
+\begin{aligned}
+| A \cup B \cup C | {} &amp; = | (A \cup B) \cup C | \\
+&amp; = |A \cup B| + |C| - |(A \cup B) \cap C| \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - |(A \cup B) \cap C| \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - |(A \cap C) \cup (B \cap C)| \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - (|A \cap C| + |B \cap C| - |(A \cap C) \cap (B \cap C)|) \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - (|A \cap C| + |B \cap C| - |A \cap C \cap B \cap C|) \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - (|A \cap C| + |B \cap C| - |A \cap B \cap C|) \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \\
+&amp; = |A| + |B| -  |A \cap B| + |C| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \\
+&amp; = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \\
+\end{aligned}
+\end{equation}
+        </div>
+       </div>
+      </div>
       <div class="sidebarblock">
        <div class="content">
         <div class="paragraph">
@@ -2864,7 +3099,7 @@ so there are \(60 - 40 = 20\) integers in \(U\) that are divisible by neither 2 
           Example 26
          </div>
          <p>
-          Consider the set \(U = \{ n \in \mathbb{N} : 1 \leq n \leq 60 \}\) as in the previous example. How many elements of \(U\) are divisible by at lest one of 2, 3, or 5?? How many elements of \(U\) are divisible by none of 2, 3, or 5?
+          Consider the set \(U = \{ n \in \mathbb{N} : 1 \leq n \leq 60 \}\) as in the previous example. How many elements of \(U\) are divisible by at least one of 2, 3, or 5?? How many elements of \(U\) are divisible by none of 2, 3, or 5?
          </p>
         </div>
         <div class="paragraph">
@@ -2912,7 +3147,7 @@ and
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_exercises_3">
+      <h3 id="_exercises_4">
        6.13. Exercises
       </h3>
       <div class="paragraph">
