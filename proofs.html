@@ -1989,6 +1989,7 @@ write down and give names to. Instead, we’ll just list a few tautologies.
       <div class="paragraph">
        <p>
         In this section we will give several examples of formal mathematical proofs to illustrate different techniques.
+Many of the techniques correspond to certain rules of inference that were discussed earlier in this chapter.
        </p>
       </div>
       <div class="paragraph">
@@ -2016,36 +2017,13 @@ involves a single conditional \(p \rightarrow q\). This may seem like an oversim
       </div>
       <div class="paragraph">
        <p>
-        Here we’ll present examples of proofs using several different techniques:
+        Here we’ll present examples of proofs using several different techniques.
+Most of these proofs establish an arithmetic fact that you probably have always known (or assumed) is True; instead, you can focus on the
+        <em>
+         form
+        </em>
+        of the proof: Note the steps that are used, and how the argument flows.
        </p>
-      </div>
-      <div class="ulist">
-       <ul>
-        <li>
-         <p>
-          Direct proof
-         </p>
-        </li>
-       </ul>
-      </div>
-      <div class="ulist">
-       <ul>
-        <li>
-         <p>
-          Proof by contraposition
-         </p>
-        </li>
-        <li>
-         <p>
-          Proof by counterexample
-         </p>
-        </li>
-        <li>
-         <p>
-          Proof by contradiction
-         </p>
-        </li>
-       </ul>
       </div>
       <div class="paragraph">
        <p>
@@ -2059,10 +2037,303 @@ involves a single conditional \(p \rightarrow q\). This may seem like an oversim
         </a>
        </p>
       </div>
-      <div class="paragraph">
-       <p>
-        MORE TO COME!!
-       </p>
+      <div class="sect3">
+       <h4 id="_direct_proof">
+        8.2.1. Direct Proof
+       </h4>
+       <div class="paragraph">
+        <p>
+         In a direct proof, we make an argument that a conditional statement \(p \rightarrow q\) must be True. This means that we can assume that the premise \(p\) is True and apply
+         <em>
+          modus ponens
+         </em>
+         to prove that \(q\) must be True, too.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           If \(a,\) \(b,\) and \(c\) are integers such that both \(a\) and \(b\) are divisible by \(c,\) then for any integers \(m\) and \(n\) the integer \(ma+nb\) must be  divisible by \(c.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Proof
+          </div>
+          <p>
+           Suppose that \(a,\) \(b,\) and \(c\) are integers such that both \(a\) and \(b\) are divisible by \(c.\) This means that there are integers \(q\) and \(t\) such that \[ a=qc \text{ and } b=tc \]
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           For any integers \(m\) and \(n\), we can rewrite the expression \(ma+nb\) as \[ ma+nb = m(qc)+n(tc) = (mq)c + (nt)c = (mq+nt)c \]
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           The last part of the extended equality shows that \(ma+nb\) is a multiple of \(c,\) that is, \(ma+nb\) is divisible by \(c.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           This shows that the statement of the theorem is a True proposition.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Q.E.D.
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           Write a proof of the following statement: If \(a,\) \(b,\) and \(c\) are integers such that \(a\) is divisible by \(b\) and \(b\) is divisible by \(c,\) then \(a\) must be divisible by \(c.\)
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_proof_by_contraposition">
+        8.2.2. Proof By Contraposition
+       </h4>
+       <div class="paragraph">
+        <p>
+         In a proof by contraposition, we make an argument that \(\neg q \rightarrow \neg p\) must be True. Since  \(p \rightarrow q\) is logically equivalent to \(\neg q \rightarrow \neg p,\) we can assume that the premise \(p\) is True and apply
+         <em>
+          modus ponens
+         </em>
+         to prove that \(q\) must be True, too.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           Let \(n\) represent an integer.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           If \(n^{2}\) is even, then the integer \(n\) is even.
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Proof
+          </div>
+          <p>
+           Suppose that it’s not the case that the integer \(n\) is even.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           This means that \(n\) must be odd, so there is an integer \(q\) such that \[ n = 2q + 1\]
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           This in turn means that \[ n^{2} = (2q + 1)^{2} = 4q^{2} + 4q + 1 = 2(2q^{2} + 2q) + 1\]
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           The last part of the extended equality shows that \(n^{2}\) is odd: When \(n^{2}\) is divided by 2, the remainder is 1. That is, \(n^2\) is not even.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           This shows that the contrapositive of the statement of the theorem, "if the integer \(n\) is not even, then \(n^{2}\) is not even" is a True proposition. Since every conditional and its contrapositive are logically equivalent, this argument proves that "If \(n^{2}\) is even, then the integer \(n\) is even" is a True proposition.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Q.E.D.
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You try
+          </div>
+          <p>
+           Prove the following statement: If \(n^{2}\) is odd, then the integer \(n\) is odd.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_proof_by_counterexample">
+        8.2.3. Proof By Counterexample
+       </h4>
+       <div class="paragraph">
+        <p>
+         In a proof by counterexample, we
+         <strong>
+          disprove
+         </strong>
+         a proposition of the form \((\forall x \in D) P(x)\) by arguing that there is at least one value \(c \in D\) such that \(\neg P(c)\) is True.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Conjecture
+         </div>
+         <div class="paragraph">
+          <p>
+           For every natural number \(n,\) there are natural numbers \(a,\) \(b,\) and \(c\) such that \(n = a^{2} + b^{2} + c^{2}.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Disproof of Conjecture
+          </div>
+          <p>
+           In this case, we can simply compute values of the expression \(a^{2} + b^{2} + c^{2}\) until we find a "gap." \[ 0^{2} + 0^{2} + 0^{2} = 0 \] \[ 1^{2} + 0^{2} + 0^{2} = 1 \] \[ 1^{2} + 1^{2} + 0^{2} = 2 \] \[ 1^{2} + 1^{2} + 1^{2} = 3 \] \[ 2^{2} + 0^{2} + 0^{2} = 4 \] \[ 2^{2} + 1^{2} + 0^{2} = 5 \] \[ 2^{2} + 1^{2} + 1^{2} = 6 \]  \[ 2^{2} + 2^{2} + 0^{2} = 8 \]  \[ 2^{2} + 2^{2} + 1^{2} = 9 \] \[ 3^{2} + 0^{2} + 0^{2} = 9 \] Notice that you cannot write 7 as a sum of three squares of natural numbers (There may be other numbers that cannot be written in this form, too, but 7 is the least such number and we only need to find
+           <em>
+            one
+           </em>
+           counterexample.)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           This proves the negation of the Claim, namely
+          </p>
+         </div>
+         <div class="exampleblock">
+          <div class="content">
+           <div class="paragraph">
+            <div class="title">
+             Theorem
+            </div>
+            <p>
+             There exists at least one natural number \(n,\) such that for all natural numbers \(a,\) \(b,\) and \(c,\) \(n \neq a^{2} + b^{2} + c^{2}.\)
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           <span class="small">
+            This may seem like a strange conjecture to consider until you find out that
+            <a href="https://en.wikipedia.org/wiki/Lagrange%27s_four-square_theorem">
+             every natural number \(n\) can be written as \(n = a^{2} + b^{2} + c^{2} + d^{2}\) for some natural numbers \(a,\) \(b,\) \(c,\) and \(d,\)
+            </a>
+            and that this may have been known
+            <a href="https://en.wikipedia.org/wiki/Arithmetica">
+             about 1,800 years ago.
+            </a>
+           </span>
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_proof_by_contradiction">
+        8.2.4. Proof by Contradiction
+       </h4>
+       <div class="paragraph">
+        <p>
+         In a proof by contradiction, we disprove the proposition \(\neg p\) by making an argument that the conditional \(\neg p \rightarrow (q \land \neg q)\) must be True for some proposition \(q\) and apply the Contradiction Rule to conclude that \(p\) must be True.
+         <br/>
+         <span class="small">
+          Note: Often, we argue instead that the proposition \(((\neg p \rightarrow q) \land (\neg p \rightarrow \neg q))\) must be True, and use the fact that this proposition is logically equivalent to \(\neg p \rightarrow (q \land \neg q)\) and apply the Contradiction Rule.
+         </span>
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           There are no positive integers \(a\) and \(b\) such that \(\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Proof
+          </div>
+          <p>
+           We must negate the proposition that we want to prove. It may be helpful to write the proposition out in symbols: \[ \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a &gt; 0 \land b&gt;0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \]
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           To prove this proposition by contradiction, we ASSUME that its negation is True, that is we use the premise \[ \text{ Premise: } \neg \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a &gt; 0 \land b&gt;0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \]
+In words, we assume the premise: There are integers \(a\) and \(b\) such that \(a &gt; 0,\) \(b &gt; 0,\) and \(\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           We know that we can reduce the fraction so that \(a\) and \(b\) have no common prime factors (You know how to do this - just divide both numerator and denominator by their greatest common divisor. In fact, we will
+           <em>
+            prove
+           </em>
+           that this can be done in the mathematical induction chapter later in the textbook, but for now just treat it like a "known fact".)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           To eliminate the fraction we can rewrite the equation as \[  a^{2} = 2 b^{2} \]
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           From this new equation, \(a^{2}\) must be divisible by 2.
+Use the theorem we proved earlier in this section to conclude that \(a\) must be divisible by 2, too. This means that there is an integer \(q\) such that \(a = 2q.\) Substitute the last expression for \(a\) in the equation to get  \[  (2q)^{2} = 2 b^{2} \] which we can rewrite as \[  4 q^{2} = 2 b^{2} \] or  \[  2 q^{2} = b^{2} \] From this equation, \(b^{2}\) is divisible by 2, and we can conclude that \(b\) is divisible by 2, too.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           So…​ we have positive integers \(a\) and \(b\) that have no common prime factors, and we have proven that \(a\) and \(b\) have a common prime factor, namely 2. We have arrived at a contradiction.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Apply the Contradiction Rule to infer that the premise must be False.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           We have proven the following theorem.
+          </p>
+         </div>
+         <div class="exampleblock">
+          <div class="content">
+           <div class="paragraph">
+            <div class="title">
+             Theorem
+            </div>
+            <p>
+             There are no positive integers \(a\) and \(b\) such that \(\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.\)
+             <br/>
+             <br/>
+             That is, the square root of 2 is an irrational number.
+            </p>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         MORE TO COME!!
+        </p>
+       </div>
       </div>
      </div>
     </div>

@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 4, 2024._
+_This chapter was last updated on September 12, 2024._
 
 // MKD start of topics
 ////
@@ -412,7 +412,7 @@ have the same graph and the same domain.
 //COMING SOON!
 // MKD little or no changes have been made below.
 
-== Injective Surjective, Bijective and Inverse Functions
+== Injective, Surjective, Bijective, and Inverse Functions
 A function $f$ is *injective*, or *one to one*, if every element in the range $B$ is
 associated with a unique element from the domain $A$, that is, different elements of $A$ have nonequal images in $B$. This means that if $f(m)=b$
 and $f(n)=b$, then necessarily $m=n$.

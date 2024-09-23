@@ -3784,7 +3784,7 @@ This argument shows that
 <p>Now, consider an alternative way we can compute \(C(n+1,r).\) Imagine we have a set containing \(n+1\) elements, where one of the elements is "special" - in how many ways can we choose \(r\) of the elements? There are two cases: We can choose the "special" element and then choose \(r-1\) other elements from the remaining \(n\) elements, or we can ignore the "special" element and choose \(r\) elements from the remaining \(n\) elements.</p>
 </div>
 <div class="paragraph">
-<p>As a specific example, suppose we want to choose 2 elements form the set of letters \(\{ J, K, L, M, N\}\). We could treat J as a special element. In the first case, we would always choose J and then choose 1 of the 4 remaining letters; there are \(C(4,1)\) ways to do this. In the second case, we never choose J, and must choose two other letters; there are \(C(4,2)\) ways to do this. In all, there are \(C(5,2)\) ways to choose 2 letters from the set, and  the sum rule from the <a href=./counting_arithmetic.html>Counting: Arithmetic Techniques</a> chapter can be applied to show that \(C(5,2)\) must be equal to \(C(4,1) + C(4,2).\)</p>
+<p>As a specific example, suppose we want to choose 2 elements form the set of letters \(\{ J, K, L, M, N\}\). We could treat \(J\) as a special element. In the first case, we would always choose \(J\) and then choose 1 of the 4 remaining letters; there are \(C(4,1)\) ways to do this. In the second case, we never choose \(J\), and must choose two other letters; there are \(C(4,2)\) ways to do this. In all, there are \(C(5,2)\) ways to choose 2 letters from the set, and  the sum rule from the <a href=./counting_arithmetic.html>Counting: Arithmetic Techniques</a> chapter can be applied to show that \(C(5,2)\) must be equal to \(C(4,1) + C(4,2).\)</p>
 </div>
 <div class="paragraph">
 <p>In the general case of combinations of \(n+1\) elements taken \(r\) at a time, we have the following theorem.</p>
@@ -5874,10 +5874,10 @@ and
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on August 27, 2024.</em></p>
+<p><em>This chapter was last updated on September 22, 2024.</em></p>
 </div>
 <div class="paragraph">
-<p><strong>Logic</strong> is the study of reasoning. Logic is used to create, analyze, and validate <strong>arguments</strong>, where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument.</p>
+<p><strong>Logic</strong> is the study of reasoning. Logic is used to create, analyze, and validate <strong>arguments,</strong> where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument.</p>
 </div>
 <div class="paragraph">
 <p>Among the applications of logic to computer science are design of electronic circuits and validation of algorithms and programs.</p>
@@ -5929,19 +5929,16 @@ and
 <p><strong>Propositional logic</strong> consists of a set of formal rules for combining propositions in order to derive new propositions.</p>
 </div>
 <div class="paragraph">
-<p>A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based <em>solely</em> on the propositions' <strong>truth values</strong> (True and False), ignoring the actual content of the propositions. Choosing to ignore the actual content of the propositions may seem strange at first, but compare this to doing algebra: We can write \(2 (x + 3 y) = 2x + 6y\) because we know that it is correct and valid to distribute multiplication over addition - we can do the algebra and ignore the actual real-world meaning of the "numerical content" that \(x\) and \(y\) stand for.</p>
+<p>A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based <em>solely</em> on the propositions' <strong>truth values</strong> (True and False), ignoring the actual content of the propositions. Choosing to ignore the actual content of the propositions may seem strange at first, but compare this to doing algebra:
+You can write \(2 (x + 3 y) = 2x + 6y\) because it is correct and valid to distribute multiplication over addition - you can do the algebra and ignore the actual meaning/content (that is, the specific numerical values) that \(x\) and \(y\) stand for.</p>
 </div>
 <div class="paragraph">
-<p>In propositional logic, it is traditional to use <strong>propositional variables</strong> such as <em>p</em>, <em>q</em>, and <em>r</em> to represent the possible assignments of truth values to propositions; often, we refer to the variables themselves as the propositions. Again, compare this to the algebraic example where we can treat \(x\) and \(y\) as numbers even though they are actually variables that stand for numbers.</p>
+<p>In propositional logic, it is traditional to use <strong>propositional variables</strong> such as <em>p</em>, <em>q</em>, and <em>r</em> to represent the possible assignments of truth values to propositions;
+often, the variables themselves are referred to as the propositions. Again, compare this to the algebraic example where you can treat \(x\) and \(y\) as numbers even though they are actually variables that stand for numbers.</p>
 </div>
 <div class="paragraph">
-<p><strong>Logical Translations</strong></p>
-</div>
-<div class="paragraph">
-<p>A long time ago philosophers discovered we could put our thoughts into symbols and more easily follow lines of reasoning. This was an important step in the eventual development of our modern technological society and our use of digital computers. Before computers can work, we have to put our thoughts into them.</p>
-</div>
-<div class="paragraph">
-<p>BUT, the English language is difficult and we use many different phrases to represent the same logical statements.  Translating statements from English sentences to symbols and back is a skill that needs lots of practice.</p>
+<p>What is the advantage of using symbols?
+A long time ago philosophers discovered that is easier to follow lines of reasoning by putting our thoughts into symbols. This was an important step in the eventual development of our modern technological society and our use of digital computers. Before computers can work, we have to put our thoughts into them! However, the English language is difficult and many different phrases can represent the same logical statements; translating statements from English sentences to symbols and back is a skill that needs lots of practice.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -6005,7 +6002,13 @@ validity of the argument.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>We can build <strong>compound propositions</strong> (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if <em>p</em> then <em>q</em>" as a new proposition built from the propositional variables <em>p</em> and <em>q</em>.</p>
+<p>You can build <strong>compound propositions</strong> (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if <em>p</em> then <em>q</em>" as a new proposition built from the propositional variables <em>p</em> and <em>q</em>. In the next section, you will see how we represent compound propositions using symbols.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logical_operations_and_truth_tables">7.2. Logical Operations and Truth Tables</h3>
+<div class="paragraph">
+<p>In this section, compound propostions will be represented by using propositional variables and <strong>logical operator</strong> symbols (also called logical operations.) Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -6027,12 +6030,15 @@ Each compound proposition can implemented using the \(\texttt{Boolean}\) operati
 </table>
 </div>
 <div class="paragraph">
-<p>A <strong>truth table</strong> can be used to show the truth values of compound propositions
-that are built from other propositional variables.
-A truth table typically is created with rows representing all possible <strong>interpretations</strong> of the propositional variables (that is, all possible assignments of truth values to the propositional variables), and columns representing the propositional variables and compound propositions built up from the variables.</p>
+<p>A <strong>truth table</strong> can be used to display the truth values of a compound proposition that is built from propositional variables and logical operators.
+A truth table
+is created with rows representing all possible <strong>interpretations</strong> of the propositional variables, that is, all possible assignments of truth values to the propositional variables. Each column of a truth table displays the truth values for either one of the propositional variables or a compound proposition built up from propositional variables and/or simpler compound propositions. As an analogy, think of how a table can be used to display the numerical input and output values of a function represented by an algebraic expression.</p>
+</div>
+<div class="paragraph">
+<p>The most commonly-used logical operators are described in the rest of this section.</p>
 </div>
 <div class="sect3">
-<h4 id="_negation">7.1.1. Negation</h4>
+<h4 id="_negation">7.2.1. Negation</h4>
 <div class="paragraph">
 <p>"I am <strong>not</strong> an astronaut."</p>
 </div>
@@ -6040,11 +6046,8 @@ A truth table typically is created with rows representing all possible <strong>i
 <p>The negation of a proposition \(p\), denoted in mathematics by \(\neg p\) and
 read as "not \(p\)", is the proposition
 "It is <em>not the case</em> that \(p\)".
-Note that \(\neg p\) can also be denoted by \(\overline{p}\) or \(\sim \! p.\)</p>
-</div>
-<div class="paragraph">
-<p>For example, the negation of the proposition "Today is Friday." would be
-"It is not the case that, today is Friday." or more succinctly "Today is not Friday."</p>
+The proposition \(\neg p\) has the opposite truth value to \(p.\)<br>
+<span class="small">Other textbooks and sources may use \(\overline{p}\) or \(\sim \! p\) to represent \(\neg p.\)</span></p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -6069,12 +6072,12 @@ Note that \(\neg p\) can also be denoted by \(\overline{p}\) or \(\sim \! p.\)</
 </tbody>
 </table>
 <div class="paragraph">
-<p>From the truth table it can be seen that
-exactly one of the two propositions \(p\) and \(\neg p\) is True and
-exactly one is False.</p>
+<p>For example, the negation of the proposition "Today is Friday." would be
+"It is not the case that today is Friday." or more succinctly "Today is not Friday."<br>
+<span class="small">For a proposition \(p,\) exactly one of \(p\) and \(\neg p\) is True and exactly one is False. Two propositions can be contrary (that is, they could not both be True) without being negations of each other: As an example, both of the propositions "Today is Friday." and "Today is Saturday." could be False, so "Today is Saturday." is not the negation of "Today is Friday."</span></p>
 </div>
 <div class="paragraph">
-<p>It can also be seen that the two propositions \(p\) and \(\neg (\neg p)\) always have the <em>same</em> truth value.</p>
+<p>Also, notice that the two propositions \(p\) and \(\neg (\neg p)\) must always have the <em>same</em> truth value.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -6115,7 +6118,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_conjunction">7.1.2. Conjunction</h4>
+<h4 id="_conjunction">7.2.2. Conjunction</h4>
 <div class="paragraph">
 <p>"I am a rock <strong>and</strong> I am an island."</p>
 </div>
@@ -6181,7 +6184,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_disjunction">7.1.3. Disjunction</h4>
+<h4 id="_disjunction">7.2.3. Disjunction</h4>
 <div class="paragraph">
 <p>"They studied hard <strong>or</strong> they are extremely bright."</p>
 </div>
@@ -6247,94 +6250,13 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_exclusive_disjunction">7.1.4. Exclusive Disjunction</h4>
-<div class="paragraph">
-<p>"Take <strong>either</strong> 2 Advil <strong>or</strong> 2 Tylenol."</p>
-</div>
-<div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions.  The exclusive disjunction of \(p\) and \(q\) (also known as <em>xor</em>), denoted in mathematics by \(p \oplus q\), is True when exactly one of \(p\) and \(q\) are True and False otherwise.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 50%;">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">\(p\)</th>
-<th class="tableblock halign-left valign-top">\(q\)</th>
-<th class="tableblock halign-left valign-top">\(p \oplus q\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Notice that the two propositions \(p \oplus q\) and \(q \oplus p\) always have the same truth value.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Exclusive disjunction can be thought of as one or the other, but not both.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="openblock">
-<div class="title">Example 5 - Exclusive Disjunction in Python</div>
-<div class="content">
-
-</div>
-</div>
-<div class="paragraph">
-<p>The code below prints the truth table for exclusive disjunction.  Try to predict the variable names, values, and data types at different steps in the execution. Use the <em>Forward</em> button to check your answers.</p>
-</div>
-<iframe width="100%" frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20p%20%E2%8A%95%20q%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20exclusive_disjunction%28p,%20q%29%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=350"> </iframe>
-
-<div style="text-align: right;">
-<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20p%20%E2%8A%95%20q%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20exclusive_disjunction%28p,%20q%29%29&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_conditional">7.1.5. Conditional</h4>
+<h4 id="_conditional">7.2.4. Conditional</h4>
 <div class="paragraph">
 <p>"<strong>If</strong> you get a 100 on the final exam, <strong>then</strong> you earn an A in the class."</p>
 </div>
 <div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions. The <strong>conditional statement</strong> \(p \rightarrow q\), read as "if <em>p</em> then <em>q</em>", "<em>p</em> implies <em>q</em>", or, more formally, "the conditional with hypothesis <em>p</em> and conclusion <em>q</em>", is the proposition that is False when <em>p</em> is True and <em>q</em> is False, and True otherwise. The conditional statement \(p \rightarrow q\) is also called "the implication  \(p \rightarrow q\)".
-Note that \(p \rightarrow q\) can also be denoted by \(p \Rightarrow q\) or \(p \implies q.\)
-In addition, there are <span class="underline">many</span> other ways to express the conditional \(p \rightarrow q\) in English, two of which are "<em>p</em> only if <em>q</em>" and "<em>q</em> if <em>p</em>".</p>
+<p>Let \(p\) and \(q\) be propositions. The <strong>conditional statement</strong> \(p \rightarrow q\), read as "if <em>p</em> then <em>q</em>", "<em>p</em> implies <em>q</em>", or, more formally, "the conditional with hypothesis <em>p</em> and conclusion <em>q</em>", is the proposition that is False when <em>p</em> is True and <em>q</em> is False, and True otherwise. The conditional statement \(p \rightarrow q\) is also called "the implication  \(p \rightarrow q\)".<br>
+<span class="small">The conditional \(p \rightarrow q\) can also be denoted by \(p \Rightarrow q\) or \(p \implies q.\) In addition, there are many other ways to express the conditional \(p \rightarrow q\) in English, two of which are "<em>p</em> only if <em>q</em>" and "<em>q</em> if <em>p</em>".</span></p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -6418,7 +6340,7 @@ In addition, there are <span class="underline">many</span> other ways to express
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 6 - You Try: Conditional in Python</div>
+<div class="title">Example 5 - You Try: Conditional in Python</div>
 <div class="content">
 
 </div>
@@ -6433,9 +6355,8 @@ In addition, there are <span class="underline">many</span> other ways to express
 </div>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_the_converse_contrapositive_and_inverse_of_a_conditional_statement">7.1.6. The Converse, Contrapositive and Inverse of a Conditional Statement</h4>
+<div class="sect4">
+<h5 id="_the_converse_contrapositive_and_inverse_of_a_conditional_statement">The Converse, Contrapositive and Inverse of a Conditional Statement</h5>
 <div class="paragraph">
 <p>Given propositions <em>p</em> and <em>q</em>, we can form three additional compound propositions that are related to the conditional \(p \rightarrow q\):</p>
 </div>
@@ -6546,7 +6467,7 @@ on <a href=#_logically_equivalent_propositions> logically equivalent proposition
 <div class="sidebarblock">
 <div class="content">
 <div class="olist loweralpha">
-<div class="title">Example 7 - Conditional, Converse, Contrapositive and Inverse.</div>
+<div class="title">Example 6 - Conditional, Converse, Contrapositive and Inverse.</div>
 <ol class="loweralpha" type="a">
 <li>
 <p>Translate the statement "If the number of students in class is divisible by 4, then the number of students in class is divisible by 2" using a conditional.</p>
@@ -6591,8 +6512,9 @@ on <a href=#_logically_equivalent_propositions> logically equivalent proposition
 </div>
 </div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="_biconditional">7.1.7. Biconditional</h4>
+<h4 id="_biconditional">7.2.5. Biconditional</h4>
 <div class="paragraph">
 <p>"It is raining outside <strong>if and only if</strong> it is a cloudy day."</p>
 </div>
@@ -6656,7 +6578,7 @@ Note that \(p \leftrightarrow q\) can also be denoted by \(p \Leftrightarrow q\)
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 8 - You Try: Biconditional in Python</div>
+<div class="title">Example 7 - You Try: Biconditional in Python</div>
 <div class="content">
 
 </div>
@@ -6680,7 +6602,163 @@ The conditional represents a one-way contract: You earn an A in the class <em>if
 </div>
 </div>
 <div class="sect3">
-<h4 id="wff_recursion">7.1.8. Well-Formed Formulae and Operator Precedence (Order Of Operations)</h4>
+<h4 id="_other_compound_propositions">7.2.6. Other Compound Propositions</h4>
+<div class="paragraph">
+<p>The negation, disjunction, conjunction, conditional, and biconditional are the most commonly-used logical operators for forming compound propostions and will be the ones used throughout the rest of this chapter. However, there are at least three others you should know about.</p>
+</div>
+<div class="sect4">
+<h5 id="_exclusive_disjunction">Exclusive Disjunction</h5>
+<div class="paragraph">
+<p>"I took <strong>either</strong> 2 Advil <strong>or</strong> 2 Tylenol."</p>
+</div>
+<div class="paragraph">
+<p>Let \(p\) and \(q\) be propositions.  The exclusive disjunction of \(p\) and \(q\) (also known as <em>xor</em>), denoted in mathematics by \(p \oplus q\), is True when exactly one of \(p\) and \(q\) are True and False otherwise.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">\(p\)</th>
+<th class="tableblock halign-left valign-top">\(q\)</th>
+<th class="tableblock halign-left valign-top">\(p \oplus q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Notice that the two propositions \(p \oplus q\) and \(q \oplus p\) always have the same truth value.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_the_nand_and_nor_operators">The NAND and NOR Operators</h5>
+<div class="paragraph">
+<p>The NAND and NOR operators correspond to two important digital logic gates used in electronic devices.</p>
+</div>
+<div class="sect5">
+<h6 id="_nand">NAND</h6>
+<div class="paragraph">
+<p>"A chimpanzee is <strong>not both</strong> an ape and a monkey."</p>
+</div>
+<div class="paragraph">
+<p>Let \(p\) and \(q\) be propositions. In this textbook, the NAND of \(p\) and \(q\) is denoted by \(p \uparrow q\) and is False when both \(p\) and \(q\) are True and is True otherwise. That is, the NAND is the negation of \(p \land q.\)</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">\(p\)</th>
+<th class="tableblock halign-left valign-top">\(q\)</th>
+<th class="tableblock halign-left valign-top">\(p \uparrow q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Notice that the two propositions \(p \uparrow q\) and \(q \uparrow p\) always have the same truth value.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_nor">NOR</h6>
+<div class="paragraph">
+<p>"This pen is <strong>neither</strong> black <strong>nor</strong> blue."</p>
+</div>
+<div class="paragraph">
+<p>Let \(p\) and \(q\) be propositions. In this textbook, the NOR of \(p\) and \(q\) is denoted by \(p \downarrow q\) and is True when both of \(p\) and \(q\) are False and is False otherwise. The NOR is also referred to as "joint denial" since it is True exactly when neither \(p\) nor \(q\) is True. That is, the NOR is the negation of \(p \lor q.\)</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">\(p\)</th>
+<th class="tableblock halign-left valign-top">\(q\)</th>
+<th class="tableblock halign-left valign-top">\(p \downarrow q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Notice that the two propositions \(p \downarrow q\) and \(q \downarrow p\) always have the same truth value.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="wff_recursion">7.2.7. Well-Formed Formulae and Operator Precedence (Order Of Operations)</h4>
 <div class="paragraph">
 <p>A <strong>well-formed formula</strong> (or <strong>wff</strong> for short) is a string of symbols that represents a compound propsition.</p>
 </div>
@@ -6720,7 +6798,7 @@ The conditional represents a one-way contract: You earn an A in the class <em>if
 <p>The definition of wff allows you to analyze any string of symbols to determine whether it is a wff. For example, \((p \land q \lor r)\) isn&#8217;t a wff but both \((p \land (q \lor r))\) and \(((p \land q) \lor r)\) are wffs. You could write code to implement an algorithm to validate a string as a wff.</p>
 </div>
 <div class="paragraph">
-<p>It can be seen that there is a one-to-one correspondence between the set of well-formed formulae and the set of compound propositions.
+<p>It can be shown that every compound proposition can be represented by at least one wff.
 However, a wff may be difficult to read quickly if it contains many parentheses. As an example, it is not easy to read \(((p \rightarrow q) \lor ((\neg r) \land (s \leftrightarrow t))\). For this reason, we can introduce  <em>operator precedence</em> rules that allow us to eliminate some of the parentheses.</p>
 </div>
 <div class="paragraph">
@@ -6749,7 +6827,7 @@ However, a wff may be difficult to read quickly if it contains many parentheses.
 </ul>
 </div>
 <div class="paragraph">
-<p>This allows us to drop some parentheses from the wff that represents a compound proposition.</p>
+<p>This allows us to drop some parentheses from a wff that represents a compound proposition.</p>
 </div>
 <div class="paragraph">
 <p>For example, the compound proposition \(\neg p \lor q \land r \rightarrow s\) represents the same proposition as
@@ -6757,28 +6835,16 @@ the wff
 \(((\neg p) \lor (q \land r)) \rightarrow s\).
 At least some of the parentheses must be used if you want to represent a different proposition such as \((\neg p \lor q) \land (r \rightarrow s)\).</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The exclusive-disjunction \(\oplus\) was left out of the discussion - this is because different sources assign it different precedences, usually just above or just below the disjunction \(\lor\). For this reason, it’s best to use parentheses whenever \(\oplus\) is present in a compound proposition. Also note that \(p \oplus q\) and \((\neg p) \leftrightarrow q\) have identical truth tables, so any compound expression involving \(\oplus\) can be rewritten as one involving \(\leftrightarrow\) instead.
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect3">
-<h4 id="_compound_propositions">7.1.9. Compound Propositions</h4>
+<h4 id="_truth_tables_of_compound_propositions">7.2.8. Truth Tables of Compound Propositions</h4>
 <div class="paragraph">
-<p>To find truth values of compound propositions, it is useful to break them up into smaller parts.</p>
+<p>To compute the truth values of a longer compound proposition or wff by hand, it can be useful to break up the proposition or wff into the smaller  propositions or wffs that it was built from.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 9</div>
+<div class="title">Example 8</div>
 <div class="content">
 
 </div>
@@ -6810,12 +6876,12 @@ The exclusive-disjunction \(\oplus\) was left out of the discussion - this is be
 </div>
 </div>
 <div class="paragraph">
-<p>When creating your own truth table it is crucial to be systematic about ensuring you have all possible truth values for each of the simple propositions.  Each simple proposition has two possible truth values, so the number of rows in the table should be \(2^n\) where \(n\) is the number of propositions. You should also consider breaking complex propositions into smaller pieces.</p>
+<p>When creating your own truth table it is crucial to be systematic about ensuring you have all possible truth values for each of the simple propositions.  Each simple proposition has two possible truth values, so the number of rows in the table should be \(2^n\) where \(n\) is the number of propositions (Do you recall why the number of rows must be \(2^n\)?) You should also consider breaking complex propositions into smaller pieces.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 10</div>
+<div class="title">Example 9</div>
 <div class="content">
 
 </div>
@@ -6921,7 +6987,7 @@ The exclusive-disjunction \(\oplus\) was left out of the discussion - this is be
 </div>
 </div>
 <div class="sect2">
-<h3 id="_logically_equivalent_propositions">7.2. Logically Equivalent Propositions</h3>
+<h3 id="_logically_equivalent_propositions">7.3. Logically Equivalent Propositions</h3>
 <div class="paragraph">
 <p>Recall that an <strong>interpretation</strong> of a proposition is an assignment of truth values to the propositional variables.</p>
 </div>
@@ -6932,7 +6998,7 @@ for every possible interpretation. It is often easiest to see this by constructi
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 11</div>
+<div class="title">Example 10</div>
 <p>Consider the propositions \(\neg p \lor q\) versus \(p\rightarrow q\).</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
@@ -7014,7 +7080,7 @@ Saying that two propositions <em>p</em> and <em>q</em> are logically equivalent 
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 12</div>
+<div class="title">Example 11</div>
 <div class="content">
 
 </div>
@@ -7049,7 +7115,7 @@ Saying that two propositions <em>p</em> and <em>q</em> are logically equivalent 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tautologies_contradictions_and_contingencies">7.2.1. Tautologies, Contradictions and Contingencies</h4>
+<h4 id="_tautologies_contradictions_and_contingencies">7.3.1. Tautologies, Contradictions and Contingencies</h4>
 <div class="paragraph">
 <p>A proposition is a <strong>tautology</strong> if its truth value is <em>always</em> True.
 That is, a tautology is True for every possible interpretation of its propositional variables.</p>
@@ -7071,7 +7137,7 @@ be a <strong>contingency</strong> since its truth value can be either True or Fa
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 13 - Tautology and Contradiction</div>
+<div class="title">Example 12 - Tautology and Contradiction</div>
 <p>\(p \lor \neg p\) is an example of a tautology.</p>
 </div>
 <div class="paragraph">
@@ -7131,7 +7197,7 @@ be a <strong>contingency</strong> since its truth value can be either True or Fa
 </div>
 </div>
 <div class="sect3">
-<h4 id="_de_morgans_laws">7.2.2. De Morgan&#8217;s Laws</h4>
+<h4 id="_de_morgans_laws">7.3.2. De Morgan&#8217;s Laws</h4>
 <div class="paragraph">
 <p>Two important logical equivalences are De Morgan&#8217;s Law.  These describe how we "distribute" the \(\neg\) operator across the \(\land\) and \(\lor\) operators.</p>
 </div>
@@ -7154,15 +7220,13 @@ these propositions are True for every interpretation of \(p\) and \(q\).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_some_other_logical_equivalencies">7.2.3. Some Other Logical Equivalencies</h4>
+<h4 id="_some_other_logical_equivalencies">7.3.3. Some Other Logical Equivalencies</h4>
 <div class="paragraph">
 <p>Here is a collection of additional equivalencies of compound propositions. Each of these can be verified by constructing a truth table to show that
 the biconditional of the left-hand side and the right-hand side of the logical equivalence is true for all interpretations of the propositional variables.</p>
 </div>
 <div class="paragraph">
-<p>Double Negation:
-+
-\[ p \equiv \neg (\neg p) \]</p>
+<p>Double Negation: \[ p \equiv \neg (\neg p) \]</p>
 </div>
 <div class="paragraph">
 <p>Commutative laws:
@@ -7187,7 +7251,7 @@ the biconditional of the left-hand side and the right-hand side of the logical e
 </div>
 </div>
 <div class="sect3">
-<h4 id="_disjunctive_normal_form_dnf">7.2.4. Disjunctive Normal Form (DNF)</h4>
+<h4 id="_disjunctive_normal_form_dnf">7.3.4. Disjunctive Normal Form (DNF)</h4>
 <div class="paragraph">
 <p>It is traditional to focus on negation \(\neg\), conjunction \(\land\), and disjunction \(\lor\) as the three primary logical operations. This is because <em>any</em> compound proposition can be rewritten in terms of these three operations and the propositional variables present in the original compound proposition.</p>
 </div>
@@ -7197,7 +7261,7 @@ the biconditional of the left-hand side and the right-hand side of the logical e
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 14 - Finding A Logically Equivalent Proposition (DNF) From A Truth Table</div>
+<div class="title">Example 13 - Finding A Logically Equivalent Proposition (DNF) From A Truth Table</div>
 <div class="content">
 
 </div>
@@ -7370,14 +7434,14 @@ the biconditional of the left-hand side and the right-hand side of the logical e
 </div>
 </div>
 <div class="sect3">
-<h4 id="_conjunctive_normal_form_cnf">7.2.5. Conjunctive Normal Form (CNF)</h4>
+<h4 id="_conjunctive_normal_form_cnf">7.3.5. Conjunctive Normal Form (CNF)</h4>
 <div class="paragraph">
 <p>In some applications of propositional logic, it is more useful to find a logically equivalent expression for a given proposition that is written as a conjunction of several disjunctions. This <strong>conjunctive normal form</strong> (CNF) can be constructed as shown in the following example.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 15 - Finding A Logically Equivalent Proposition (CNF) From A Truth Table</div>
+<div class="title">Example 14 - Finding A Logically Equivalent Proposition (CNF) From A Truth Table</div>
 <div class="content">
 
 </div>
@@ -7557,18 +7621,74 @@ the biconditional of the left-hand side and the right-hand side of the logical e
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_functional_completeness">7.3.6. Functional Completeness</h4>
+<div class="paragraph">
+<p>A set \(S\) of logical operators is called <strong>functionally complete</strong> if every compound proposition is logically equivalent to a compound proposition involving only operators that are members of \(S.\)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>The set \(\{ \neg , \land , \lor \}\) is functionally complete.</p>
+</div>
+<div class="openblock click">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+An informal justification can use the method show in the previous examples for finding a DNF or CNF.
+
+A formal proof requires the <a href=./induction.html>mathematical induction proof technique</a> and the recursive defintion of well-formed formulae given earlier in this chapter.
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The importance of the NAND and NOR in electronic circuits arises from the following theorem.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The set \(\{ \uparrow \}\) is functionally complete. That is, any compound proposition is logically equivalent to a compound proposition involving the same variables and only the \(\uparrow\) operator.</p>
+</li>
+<li>
+<p>The set \(\{ \downarrow \}\) is functionally complete. That is, any compound proposition is logically equivalent to a compound proposition involving the same variables and only the \(\downarrow\) operator.</p>
+</li>
+</ol>
+</div>
+<div class="openblock click">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+These proofs are exercises for you. See the Challenge Exercises at the end of this chapter.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_predicates_and_quantifiers">7.3. Predicates and Quantifiers</h3>
+<h3 id="_predicates_and_quantifiers">7.4. Predicates and Quantifiers</h3>
+<div class="paragraph">
+<p>Up to this point, most of our propositions have been of the form "Sarah earned a B.S. in Computer Science" - the proposition describes a single individual "constant" (in this case, "Sarah.")</p>
+</div>
+<div class="paragraph">
+<p>However, we often need to discuss an entire category of individuals at once, which is equivalent to replacing "Sarah" by a variable. We will discuss this idea in this section.</p>
+</div>
 <div class="sect3">
-<h4 id="_predicates">7.3.1. Predicates</h4>
+<h4 id="_predicates">7.4.1. Predicates</h4>
 <div class="paragraph">
 <p>A <strong>predicate</strong> is a statement that includes one or more variables such that when values are assigned to the variables the predicate becomes a proposition.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
-<div class="title">Example 16 - Predicates</div>
+<div class="title">Example 15 - Predicates</div>
 <ul>
 <li>
 <p>\(x \leq 3\)</p>
@@ -7591,7 +7711,7 @@ That is, we "evaluate" a predicate by substituting inputs into the variables and
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 17</div>
+<div class="title">Example 16</div>
 <div class="content">
 
 </div>
@@ -7612,7 +7732,7 @@ That is, we "evaluate" a predicate by substituting inputs into the variables and
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 18</div>
+<div class="title">Example 17</div>
 <div class="content">
 
 </div>
@@ -7634,7 +7754,7 @@ Notice that code correctly outputs the two propositions as strings (of type <em>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 19</div>
+<div class="title">Example 18</div>
 <div class="content">
 
 </div>
@@ -7654,7 +7774,7 @@ Notice that code correctly outputs the two propositions as strings (of type <em>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_quantifiers">7.3.2. Quantifiers</h4>
+<h4 id="_quantifiers">7.4.2. Quantifiers</h4>
 <div class="paragraph">
 <p>Consider the statements</p>
 </div>
@@ -7669,8 +7789,8 @@ Notice that code correctly outputs the two propositions as strings (of type <em>
 </ul>
 </div>
 <div class="paragraph">
-<p>Each of these statements considers a proposition over an entire population or set, called the <strong>domain,</strong> and quantifies how many elements (or people) in the set satisfy the proposition.  To represent this idea, we use two main quantifiers, the <strong>universal quantifier</strong> and the <strong>existential quantifier</strong>.
-[small]#The domain is also called the <strong>domain of discourse</strong> or the <strong>universe of discourse.</strong></p>
+<p>Each of these statements considers a proposition over an entire population or set, called the <strong>domain,</strong> and quantifies how many elements (or people) in the set satisfy the proposition.  To represent this idea, we use two main quantifiers, the <strong>universal quantifier</strong> and the <strong>existential quantifier</strong>.<br>
+<span class="small">The domain is also called the <strong>domain of discourse</strong> or the <strong>universe of discourse.</strong></span></p>
 </div>
 <div class="paragraph">
 <p>The <strong>Universal Quantifier</strong>, \(\forall\), represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true <em>for all values</em> in the domain.</p>
@@ -7678,7 +7798,7 @@ Notice that code correctly outputs the two propositions as strings (of type <em>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 20</div>
+<div class="title">Example 19</div>
 <p>Universal Quantifier \(\forall x, x + 1 \gt x\)</p>
 </div>
 <div class="openblock">
@@ -7711,7 +7831,7 @@ We use the example domain [-2, -1, 0, 1, 2] because code can not check all integ
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 21</div>
+<div class="title">Example 20</div>
 <p>Universal Quantifier \(\forall x, x + x \gt x\)</p>
 </div>
 <div class="openblock">
@@ -7735,7 +7855,7 @@ We use the example domain [-2, -1, 0, 1, 2] because code can not check all integ
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 22</div>
+<div class="title">Example 21</div>
 <p>Existential Quantifier \(\exists x, x^2 = 4\)</p>
 </div>
 <div class="openblock">
@@ -7756,7 +7876,7 @@ We use the example domain [-2, -1, 0, 1, 2] because code can not check all integ
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 23</div>
+<div class="title">Example 22</div>
 <p>Existential Quantifier \(\exists x, x^3 = 4\)</p>
 </div>
 <div class="openblock">
@@ -7811,7 +7931,7 @@ Again, we use the example domain [-2, -1, 0, 1, 2] because code can not check al
 </div>
 </div>
 <div class="sect3">
-<h4 id="_negation_of_quantifiers">7.3.3. Negation of Quantifiers</h4>
+<h4 id="_negation_of_quantifiers">7.4.3. Negation of Quantifiers</h4>
 <div class="paragraph">
 <p>It is important to consider the negation of a quantified expression.</p>
 </div>
@@ -7855,7 +7975,7 @@ Again, we use the example domain [-2, -1, 0, 1, 2] because code can not check al
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
-<div class="title">Example 24</div>
+<div class="title">Example 23</div>
 <ul>
 <li>
 <p>Someone in the class can speak Latin.</p>
@@ -7907,7 +8027,7 @@ Its negation would be \(\forall x \neg L(x)\).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_nested_quantifiers">7.3.4. Nested Quantifiers</h4>
+<h4 id="_nested_quantifiers">7.4.4. Nested Quantifiers</h4>
 <div class="paragraph">
 <p>There are times it will take more than one quantifier to express a statement.</p>
 </div>
@@ -7941,7 +8061,7 @@ While the second statement, there exists an integer \(x\), such that for all int
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 25</div>
+<div class="title">Example 24</div>
 <p>Let \(Q(x,y)\) be the statement \(xy=0\).  If the domain for both variables consists of all integers, what are the truth values of the following statements?</p>
 </div>
 <div class="ulist">
@@ -7985,7 +8105,7 @@ While the second statement, there exists an integer \(x\), such that for all int
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 26 - Negation of quantified statements</div>
+<div class="title">Example 25 - Negation of quantified statements</div>
 <p>Find the negation of the statment "For all integers \(x\), there exists an integer \(y\) such that \(x=-y\)."</p>
 </div>
 <div class="paragraph">
@@ -8012,17 +8132,17 @@ Its negation would be \(\exists x \forall y \neg N(x,y)\).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_applications_of_logic">7.4. Applications of Logic</h3>
+<h3 id="_applications_of_logic">7.5. Applications of Logic</h3>
 <div class="paragraph">
 <p>Remixer&#8217;s Note: This section is taken from the original
-<a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> book with no changes.</p>
+<a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> book with minor edits to include base-two notation.</p>
 </div>
 <div class="paragraph">
 <p>In this section we consider two applications of logic to information technology and
 computer science. The first involves bitwise operations, and the second designing and analyzing logic circuits.</p>
 </div>
 <div class="sect3">
-<h4 id="_bitwise_operations">7.4.1. Bitwise operations</h4>
+<h4 id="_bitwise_operations">7.5.1. Bitwise operations</h4>
 <div class="paragraph">
 <p>A <strong>bitwise operation</strong> is a <em>Boolean operation</em> that operates on the individual bits (\(0s\), or \(1s\)) of the operand(s) and are summarized</p>
 </div>
@@ -8115,7 +8235,7 @@ corresponding bits of each operand.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 27 - Bitwise Operations</div>
+<div class="title">Example 26 - Bitwise Operations</div>
 <p>Find  the bitwise \(AND, OR, XOR\) for the following binary numbers,</p>
 </div>
 <div class="paragraph">
@@ -8168,13 +8288,18 @@ corresponding bits of each operand.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_logic_circuits">7.4.2. Logic Circuits</h4>
+<h4 id="_logic_circuits">7.5.2. Logic Circuits</h4>
 <div class="paragraph">
-<p>Logic circuits are important in designing the arithmetic and logic units of a computer processor.
-Consider the problem of adding two \(8\)-bit numbers in binary. In binary \(0+0=0\), and \(1+0=0+1=1\), but,
-as in decimal addition, in binary \(1+1=2\), which in binary will be a sum of \(0\) and a carry of \(1\) to the next
-significant column on the left.  Thinking then of adding a specific column of two binary digits, say \(A\) and
-\(B\), involves as input the digits \(A, B\) and the carry in from the previous column say \(C_{in}\). The output
+<p>Logic circuits are important in designing the arithmetic and logic units of a computer processor.</p>
+</div>
+<div class="paragraph">
+<p>Consider the problem of adding two \(8\)-bit numbers in binary.
+In binary, \((0)_2 + (0)_2 = (0)_2\) and \((0)_2 + (1)_2 = (1)_2 + (0)_2 = (1)_2\), but as in decimal addition, \((1)_2 + (1)_2 = (10)_2\) requires a carry, that is, the "sum bit" is \(0\) with a "carry bit" of \(1\) to the next significant column on the left.
+Thinking then of adding a specific column of two binary digits, say \(A\) and
+\(B\), involves as input the
+bits \(A, B\) and the carry in
+from the previous column say \(C_{in}\).
+The output
 will be the sum \(S\) and the carry out to the next column, say \(C_{out}\). These are the basic components of what is called
 a binary adder.</p>
 </div>
@@ -8299,7 +8424,7 @@ terms of their input variables, and then, constructing logic circuits based on l
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 28 - Output of a logic circuit in terms Input</div>
+<div class="title">Example 27 - Output of a logic circuit in terms Input</div>
 <p>Determine the output of the following logic circuit in terms of the input variables, \(p, q\), and \(r\).</p>
 </div>
 <div class="imageblock">
@@ -8328,7 +8453,7 @@ is to work backward using order of operations from the right to the left.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 29 - Design a Logic Circuit</div>
+<div class="title">Example 28 - Design a Logic Circuit</div>
 <p>Design a logic circuit for \((p\vee\lnot\ q)\land\lnot\ p\).</p>
 </div>
 <div class="paragraph">
@@ -8362,7 +8487,7 @@ of an <strong>INVERTER</strong>, \(\underline{\lnot} q\).</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 30 - Design a Logic Circuit</div>
+<div class="title">Example 29 - Design a Logic Circuit</div>
 <p>Design a logic circuit for \(r\land (p\lor (r\land \neg q))\).</p>
 </div>
 <div class="paragraph">
@@ -8400,7 +8525,7 @@ are \(p\) and \((r\land \neg q)\), which is an <strong>AND</strong> gate.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercises_5">7.5. Exercises</h3>
+<h3 id="_exercises_5">7.6. Exercises</h3>
 <div class="paragraph">
 <p>Remixer&#8217;s Note: This section is taken from the original
 <a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> book with no changes.</p>
@@ -8742,6 +8867,39 @@ Determine the true value of the  following, an explain your reasoning.</p>
 </li>
 <li>
 <p>Design a logic circuit for \(r\land (p\lor (r\land \neg q))\).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_challenge_exercises">7.7. Challenge Exercises</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Complete parts (a) and (b) to show that every compound proposition is logically equivalent to one that uses the same propositional variables but only the NAND operator \(\uparrow.\)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>For each of the three propositions \(\neg p\), \(p \land q,\) and \(p \lor q,\) write a logically equivalent proposition that uses only \(p,\) \(q,\) and \(\uparrow.\)</p>
+</li>
+<li>
+<p>Use the theorem that every compound proposition is equivalent to a compound proposition in disjunctive normal form.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Complete parts (a) and (b) to show that every compound proposition is logically equivalent to one that uses the same propositional variables but only the NOR operator \(\downarrow.\)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>For each of the three propositions \(\neg p\), \(p \land q,\) and \(p \lor q,\) write a logically equivalent proposition that uses only \(p,\) \(q,\) and \(\downarrow.\)</p>
+</li>
+<li>
+<p>Use the theorem that every compound proposition is equivalent to a compound proposition in disjunctive normal form.</p>
+</li>
+</ol>
+</div>
 </li>
 </ol>
 </div>
@@ -9439,7 +9597,8 @@ write down and give names to. Instead, we&#8217;ll just list a few tautologies.<
 <div class="sect2">
 <h3 id="_proof_techniques_section_in_progress">8.2. Proof Techniques - SECTION IN PROGRESS</h3>
 <div class="paragraph">
-<p>In this section we will give several examples of formal mathematical proofs to illustrate different techniques.</p>
+<p>In this section we will give several examples of formal mathematical proofs to illustrate different techniques.
+Many of the techniques correspond to certain rules of inference that were discussed earlier in this chapter.</p>
 </div>
 <div class="paragraph">
 <p>Each proof starts with us stating a <strong>conjecture</strong>, which is a proposition with undetermined truth value. The goal of each proof is to determine the truth value of the relevant conjecture.</p>
@@ -9449,33 +9608,172 @@ write down and give names to. Instead, we&#8217;ll just list a few tautologies.<
 involves a single conditional \(p \rightarrow q\). This may seem like an oversimplification, but it is not: We are simply renaming the conjunction \((p_{1} \land p_{2} \land \ldots \land p_{n})\) of the actual premises by using the single propositional variable \(p\), that is we are <em>defining</em> \(p\) by the logical equivalence \(p \equiv (p_{1} \land p_{2} \land \ldots \land p_{n})\)</p>
 </div>
 <div class="paragraph">
-<p>Here we&#8217;ll present examples of proofs using several different techniques:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Direct proof</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Proof by contraposition</p>
-</li>
-<li>
-<p>Proof by counterexample</p>
-</li>
-<li>
-<p>Proof by contradiction</p>
-</li>
-</ul>
+<p>Here we&#8217;ll present examples of proofs using several different techniques.
+Most of these proofs establish an arithmetic fact that you probably have always known (or assumed) is True; instead, you can focus on the <em>form</em> of the proof: Note the steps that are used, and how the argument flows.</p>
 </div>
 <div class="paragraph">
 <p>Another important proof technique, <strong>mathematical induction,</strong> will be discussed in a <a href=./induction.html>later chapter.</a></p>
 </div>
+<div class="sect3">
+<h4 id="_direct_proof">8.2.1. Direct Proof</h4>
+<div class="paragraph">
+<p>In a direct proof, we make an argument that a conditional statement \(p \rightarrow q\) must be True. This means that we can assume that the premise \(p\) is True and apply <em>modus ponens</em> to prove that \(q\) must be True, too.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>If \(a,\) \(b,\) and \(c\) are integers such that both \(a\) and \(b\) are divisible by \(c,\) then for any integers \(m\) and \(n\) the integer \(ma+nb\) must be  divisible by \(c.\)</p>
+</div>
+<div class="paragraph">
+<div class="title">Proof</div>
+<p>Suppose that \(a,\) \(b,\) and \(c\) are integers such that both \(a\) and \(b\) are divisible by \(c.\) This means that there are integers \(q\) and \(t\) such that \[ a=qc \text{ and } b=tc \]</p>
+</div>
+<div class="paragraph">
+<p>For any integers \(m\) and \(n\), we can rewrite the expression \(ma+nb\) as \[ ma+nb = m(qc)+n(tc) = (mq)c + (nt)c = (mq+nt)c \]</p>
+</div>
+<div class="paragraph">
+<p>The last part of the extended equality shows that \(ma+nb\) is a multiple of \(c,\) that is, \(ma+nb\) is divisible by \(c.\)</p>
+</div>
+<div class="paragraph">
+<p>This shows that the statement of the theorem is a True proposition.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+<div class="paragraph">
+<div class="title">You Try</div>
+<p>Write a proof of the following statement: If \(a,\) \(b,\) and \(c\) are integers such that \(a\) is divisible by \(b\) and \(b\) is divisible by \(c,\) then \(a\) must be divisible by \(c.\)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_proof_by_contraposition">8.2.2. Proof By Contraposition</h4>
+<div class="paragraph">
+<p>In a proof by contraposition, we make an argument that \(\neg q \rightarrow \neg p\) must be True. Since  \(p \rightarrow q\) is logically equivalent to \(\neg q \rightarrow \neg p,\) we can assume that the premise \(p\) is True and apply <em>modus ponens</em> to prove that \(q\) must be True, too.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>Let \(n\) represent an integer.</p>
+</div>
+<div class="paragraph">
+<p>If \(n^{2}\) is even, then the integer \(n\) is even.</p>
+</div>
+<div class="paragraph">
+<div class="title">Proof</div>
+<p>Suppose that it&#8217;s not the case that the integer \(n\) is even.</p>
+</div>
+<div class="paragraph">
+<p>This means that \(n\) must be odd, so there is an integer \(q\) such that \[ n = 2q + 1\]</p>
+</div>
+<div class="paragraph">
+<p>This in turn means that \[ n^{2} = (2q + 1)^{2} = 4q^{2} + 4q + 1 = 2(2q^{2} + 2q) + 1\]</p>
+</div>
+<div class="paragraph">
+<p>The last part of the extended equality shows that \(n^{2}\) is odd: When \(n^{2}\) is divided by 2, the remainder is 1. That is, \(n^2\) is not even.</p>
+</div>
+<div class="paragraph">
+<p>This shows that the contrapositive of the statement of the theorem, "if the integer \(n\) is not even, then \(n^{2}\) is not even" is a True proposition. Since every conditional and its contrapositive are logically equivalent, this argument proves that "If \(n^{2}\) is even, then the integer \(n\) is even" is a True proposition.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+<div class="paragraph">
+<div class="title">You try</div>
+<p>Prove the following statement: If \(n^{2}\) is odd, then the integer \(n\) is odd.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_proof_by_counterexample">8.2.3. Proof By Counterexample</h4>
+<div class="paragraph">
+<p>In a proof by counterexample, we <strong>disprove</strong> a proposition of the form \((\forall x \in D) P(x)\) by arguing that there is at least one value \(c \in D\) such that \(\neg P(c)\) is True.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Conjecture</div>
+<div class="paragraph">
+<p>For every natural number \(n,\) there are natural numbers \(a,\) \(b,\) and \(c\) such that \(n = a^{2} + b^{2} + c^{2}.\)</p>
+</div>
+<div class="paragraph">
+<div class="title">Disproof of Conjecture</div>
+<p>In this case, we can simply compute values of the expression \(a^{2} + b^{2} + c^{2}\) until we find a "gap." \[ 0^{2} + 0^{2} + 0^{2} = 0 \] \[ 1^{2} + 0^{2} + 0^{2} = 1 \] \[ 1^{2} + 1^{2} + 0^{2} = 2 \] \[ 1^{2} + 1^{2} + 1^{2} = 3 \] \[ 2^{2} + 0^{2} + 0^{2} = 4 \] \[ 2^{2} + 1^{2} + 0^{2} = 5 \] \[ 2^{2} + 1^{2} + 1^{2} = 6 \]  \[ 2^{2} + 2^{2} + 0^{2} = 8 \]  \[ 2^{2} + 2^{2} + 1^{2} = 9 \] \[ 3^{2} + 0^{2} + 0^{2} = 9 \] Notice that you cannot write 7 as a sum of three squares of natural numbers (There may be other numbers that cannot be written in this form, too, but 7 is the least such number and we only need to find <em>one</em> counterexample.)</p>
+</div>
+<div class="paragraph">
+<p>This proves the negation of the Claim, namely</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Theorem</div>
+<p>There exists at least one natural number \(n,\) such that for all natural numbers \(a,\) \(b,\) and \(c,\) \(n \neq a^{2} + b^{2} + c^{2}.\)</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="small">This may seem like a strange conjecture to consider until you find out that <a href=https://en.wikipedia.org/wiki/Lagrange%27s_four-square_theorem>every natural number \(n\) can be written as \(n = a^{2} + b^{2} + c^{2} + d^{2}\) for some natural numbers \(a,\) \(b,\) \(c,\) and \(d,\)</a> and that this may have been known <a href=https://en.wikipedia.org/wiki/Arithmetica>about 1,800 years ago.</a></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_proof_by_contradiction">8.2.4. Proof by Contradiction</h4>
+<div class="paragraph">
+<p>In a proof by contradiction, we disprove the proposition \(\neg p\) by making an argument that the conditional \(\neg p \rightarrow (q \land \neg q)\) must be True for some proposition \(q\) and apply the Contradiction Rule to conclude that \(p\) must be True.<br>
+<span class="small">Note: Often, we argue instead that the proposition \(((\neg p \rightarrow q) \land (\neg p \rightarrow \neg q))\) must be True, and use the fact that this proposition is logically equivalent to \(\neg p \rightarrow (q \land \neg q)\) and apply the Contradiction Rule.</span></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>There are no positive integers \(a\) and \(b\) such that \(\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.\)</p>
+</div>
+<div class="paragraph">
+<div class="title">Proof</div>
+<p>We must negate the proposition that we want to prove. It may be helpful to write the proposition out in symbols: \[ \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a &gt; 0 \land b&gt;0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \]</p>
+</div>
+<div class="paragraph">
+<p>To prove this proposition by contradiction, we ASSUME that its negation is True, that is we use the premise \[ \text{ Premise: } \neg \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a &gt; 0 \land b&gt;0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \]
+In words, we assume the premise: There are integers \(a\) and \(b\) such that \(a > 0,\) \(b > 0,\) and \(\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.\)</p>
+</div>
+<div class="paragraph">
+<p>We know that we can reduce the fraction so that \(a\) and \(b\) have no common prime factors (You know how to do this - just divide both numerator and denominator by their greatest common divisor. In fact, we will <em>prove</em> that this can be done in the mathematical induction chapter later in the textbook, but for now just treat it like a "known fact".)</p>
+</div>
+<div class="paragraph">
+<p>To eliminate the fraction we can rewrite the equation as \[  a^{2} = 2 b^{2} \]</p>
+</div>
+<div class="paragraph">
+<p>From this new equation, \(a^{2}\) must be divisible by 2.
+Use the theorem we proved earlier in this section to conclude that \(a\) must be divisible by 2, too. This means that there is an integer \(q\) such that \(a = 2q.\) Substitute the last expression for \(a\) in the equation to get  \[  (2q)^{2} = 2 b^{2} \] which we can rewrite as \[  4 q^{2} = 2 b^{2} \] or  \[  2 q^{2} = b^{2} \] From this equation, \(b^{2}\) is divisible by 2, and we can conclude that \(b\) is divisible by 2, too.</p>
+</div>
+<div class="paragraph">
+<p>So&#8230;&#8203; we have positive integers \(a\) and \(b\) that have no common prime factors, and we have proven that \(a\) and \(b\) have a common prime factor, namely 2. We have arrived at a contradiction.</p>
+</div>
+<div class="paragraph">
+<p>Apply the Contradiction Rule to infer that the premise must be False.</p>
+</div>
+<div class="paragraph">
+<p>We have proven the following theorem.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Theorem</div>
+<p>There are no positive integers \(a\) and \(b\) such that \(\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.\)<br>
+<br>
+That is, the square root of 2 is an irrational number.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>MORE TO COME!!</p>
+</div>
 </div>
 </div>
 </div>
@@ -9834,7 +10132,7 @@ We can construct a new rooted tree by first adding a new vertex <em>r</em> that 
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on September 4, 2024.</em></p>
+<p><em>This chapter was last updated on September 12, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p>Informally,
@@ -10010,7 +10308,7 @@ have the same graph and the same domain.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_injective_surjective_bijective_and_inverse_functions">10.2. Injective Surjective, Bijective and Inverse Functions</h3>
+<h3 id="_injective_surjective_bijective_and_inverse_functions">10.2. Injective, Surjective, Bijective, and Inverse Functions</h3>
 <div class="paragraph">
 <p>A function \(f\) is <strong>injective</strong>, or <strong>one to one</strong>, if every element in the range \(B\) is
 associated with a unique element from the domain \(A\), that is, different elements of \(A\) have nonequal images in \(B\). This means that if \(f(m)=b\)

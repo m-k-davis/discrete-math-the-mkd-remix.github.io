@@ -2,7 +2,8 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on August 27, 2024._
+_This chapter was last updated on September 23, 2024._
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 
 //COMING SOON!
@@ -15,7 +16,7 @@ _This chapter was last updated on August 27, 2024._
 // \leftrightarrow for \iff (made this change - Both Rosen and Haggard, Schlipf, and Whitesides use \leftrightarrow; Liben-Nowell uses \iff)
 
 // MKD added the following introductory text about how logic is used in computer science: circuit design, validation of algorithms, etc.
-*Logic* is the study of reasoning. Logic is used to create, analyze, and validate *arguments*, where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument. 
+*Logic* is the study of reasoning. Logic is used to create, analyze, and validate *arguments,* where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument. 
 //Two applications of logic to computer science are correct and efficient design of electronic circuits and validation of algorithms and programs.
 
 Among the applications of logic to computer science are design of electronic circuits and validation of algorithms and programs.
@@ -109,8 +110,9 @@ A *proposition* is a statement that declares a fact that is either True or False
 * Please sit down.
 * Wow!
 //* It's a beautiful day!
-* This sentence is false.
+* This sentence is false. 
 * $x + 1 = y$
+//* The set $R = \{ x ∣  x \not\in x \}$ is an element of itself.
 
 ****
 
@@ -118,17 +120,19 @@ A *proposition* is a statement that declares a fact that is either True or False
 
 //MKD added the following 2 paragraphs
 //An *argument* is a finite sequence of propositions that ends with a conclusion based on inferences made from earlier propositions in the argument. 
-A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based _solely_ on the propositions' *truth values* (True and False), ignoring the actual content of the propositions. Choosing to ignore the actual content of the propositions may seem strange at first, but compare this to doing algebra: We can write $2 (x + 3 y) = 2x + 6y$ because we know that it is correct and valid to distribute multiplication over addition - we can do the algebra and ignore the actual real-world meaning of the "numerical content" that $x$ and $y$ stand for. 
+A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based _solely_ on the propositions' *truth values* (True and False), ignoring the actual content of the propositions. Choosing to ignore the actual content of the propositions may seem strange at first, but compare this to doing algebra: 
+//We can write $2 (x + 3 y) = 2x + 6y$ because we know that it is correct and valid to distribute multiplication over addition - we can do the algebra and ignore the actual real-world meaning of the "numerical content" that $x$ and $y$ stand for. 
+You can write $2 (x + 3 y) = 2x + 6y$ because it is correct and valid to distribute multiplication over addition - you can do the algebra and ignore the actual meaning/content (that is, the specific numerical values) that $x$ and $y$ stand for. 
 
-
-In propositional logic, it is traditional to use *propositional variables* such as _p_, _q_, and _r_ to represent the possible assignments of truth values to propositions; often, we refer to the variables themselves as the propositions. Again, compare this to the algebraic example where we can treat $x$ and $y$ as numbers even though they are actually variables that stand for numbers.
-
+In propositional logic, it is traditional to use *propositional variables* such as _p_, _q_, and _r_ to represent the possible assignments of truth values to propositions; 
+//often, we refer to the variables themselves as the propositions. Again, compare this to the algebraic example where we can treat $x$ and $y$ as numbers even though they are actually variables that stand for numbers.
+often, the variables themselves are referred to as the propositions. Again, compare this to the algebraic example where you can treat $x$ and $y$ as numbers even though they are actually variables that stand for numbers.
 //MKD moved this section of original book to appear earlier
-*Logical Translations*
 
-A long time ago philosophers discovered we could put our thoughts into symbols and more easily follow lines of reasoning. This was an important step in the eventual development of our modern technological society and our use of digital computers. Before computers can work, we have to put our thoughts into them.
-
-BUT, the English language is difficult and we use many different phrases to represent the same logical statements.  Translating statements from English sentences to symbols and back is a skill that needs lots of practice.
+//MKD mashed up some of the original text 9/22/2024
+//*Logical Translations*
+What is the advantage of using symbols? 
+A long time ago philosophers discovered that is easier to follow lines of reasoning by putting our thoughts into symbols. This was an important step in the eventual development of our modern technological society and our use of digital computers. Before computers can work, we have to put our thoughts into them! However, the English language is difficult and many different phrases can represent the same logical statements; translating statements from English sentences to symbols and back is a skill that needs lots of practice.
 
 ****
 .Example {counter:logicexample} - Generalizing and abstracting an argument
@@ -170,7 +174,14 @@ Now we can make this argument completely abstract using propositional variables.
 
 
 //MKD added on 2/13/24
-We can build *compound propositions* (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if _p_ then _q_" as a new proposition built from the propositional variables _p_ and _q_.
+//We can build *compound propositions* (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if _p_ then _q_" as a new proposition built from the propositional variables _p_ and _q_.
+// MKD edit 9/22/2024
+You can build *compound propositions* (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if _p_ then _q_" as a new proposition built from the propositional variables _p_ and _q_. In the next section, you will see how we represent compound propositions using symbols.
+
+// MKD new section re-added here on 9/22/2024
+== Logical Operations and Truth Tables 
+
+In this section, compound propostions will be represented by using propositional variables and *logical operator* symbols (also called logical operations.) Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.
 
 
 //MKD: Reword - Python is not necessary here, but is useful as a tool 
@@ -191,17 +202,27 @@ _Operators and Expressions_ in the chapter "Appendix: An Introduction to Python"
 //how do I know where sections begin and can I reference them?
 ====
 
+
+// MKD new section added then omitted 9/22/2024
+//== Compound Propostions and Truth Tables 
+//== Logical Operations and Truth Tables 
+
 //MKD: truth tables provide a method??? 
 //A *truth table* is a method of showing truth values of compound propositions using the truth values of its components.  It is typically created with rows representing possible truth values and columns representing the propositions.
 
-A *truth table* can be used to show the truth values of compound propositions 
-that are built from other propositional variables.
+A *truth table* can be used to display the truth values of a compound proposition that is built from propositional variables and logical operators. 
+A truth table 
+//typically 
+is created with rows representing all possible *interpretations* of the propositional variables, that is, all possible assignments of truth values to the propositional variables. Each column of a truth table displays the truth values for either one of the propositional variables or a compound proposition built up from propositional variables and/or simpler compound propositions. As an analogy, think of how a table can be used to display the numerical input and output values of a function represented by an algebraic expression. 
+
 //, using the truth values of its components. 
-A truth table typically is created with rows representing all possible *interpretations* of the propositional variables (that is, all possible assignments of truth values to the propositional variables), and columns representing the propositional variables and compound propositions built up from the variables.
 // (This description will make more sense as we begin to use truth tables below).
 
 // MKD Truth tables (for each of the 6 above and more generally, 
 //			Also see "Boolean Algebra" by Korfhage)
+
+The most commonly-used logical operators are described in the rest of this section.
+
 
 === Negation
 //MKD: Mention other common notations for negation
@@ -213,10 +234,10 @@ The negation of a proposition $p$, denoted in mathematics by $\neg p$ and
 read as "not $p$", is the proposition 
 "It is __not the case__ that $p$". 
 //Note that other books and sources may use different notation such as $\overline{p}$ or $\sim \! p$ for the negation of $p$.
-Note that $\neg p$ can also be denoted by $\overline{p}$ or $\sim \! p.$
+The proposition $\neg p$ has the opposite truth value to $p.$ + 
+[small]#Other textbooks and sources may use $\overline{p}$ or $\sim \! p$ to represent $\neg p.$# 
 
-For example, the negation of the proposition "Today is Friday." would be 
-"It is not the case that, today is Friday." or more succinctly "Today is not Friday."
+
 
 [width=50%",align="center",options="header"]
 |====
@@ -225,11 +246,18 @@ For example, the negation of the proposition "Today is Friday." would be
 | False | True
 |====
 
+For example, the negation of the proposition "Today is Friday." would be 
+"It is not the case that today is Friday." or more succinctly "Today is not Friday." + 
+[small]#For a proposition $p,$ exactly one of $p$ and $\neg p$ is True and exactly one is False. Two propositions can be contrary (that is, they could not both be True) without being negations of each other: As an example, both of the propositions "Today is Friday." and "Today is Saturday." could be False, so "Today is Saturday." is not the negation of "Today is Friday."#
+
+////
 From the truth table it can be seen that 
 exactly one of the two propositions $p$ and $\neg p$ is True and 
 exactly one is False.
+Notice that, in each row of the truth table, exactly one of the two propositions $p$ and $\neg p$ is True and exactly one is False.
+////
 
-It can also be seen that the two propositions $p$ and $\neg (\neg p)$ always have the _same_ truth value.
+Also, notice that the two propositions $p$ and $\neg (\neg p)$ must always have the _same_ truth value.
 
 
 NOTE: In the first few truth tables in this chapter, "True" and "False" 
@@ -322,46 +350,7 @@ The code below prints the truth table for disjunction.  Try to predict the varia
 include::python_tutor.adoc[]
 ****
 
-//MKD consider moving XOR to a subsection "Other Operations" and including NAND and NOR there
-=== Exclusive Disjunction
-//MKD: Mention other common notations for negation
-// also, can we use xor in the code instead of the (p and not q) or (q and not p)
-"Take *either* 2 Advil *or* 2 Tylenol."
-
-Let $p$ and $q$ be propositions.  The exclusive disjunction of $p$ and $q$ (also known as _xor_), denoted in mathematics by $p \oplus q$, is True when exactly one of $p$ and $q$ are True and False otherwise.
-
-[width=50%",align="center",options="header"]
-|====
-| $p$ | $q$ | $p \oplus q$
-| True | True | False
-| True | False | True
-| False | True | True
-| False | False | False
-|====
-
-//From the truth table it can be seen 
-Notice that the two propositions $p \oplus q$ and $q \oplus p$ always have the same truth value.
-
-[NOTE]
-====
-Exclusive disjunction can be thought of as one or the other, but not both.
-====
-
-//MKD 
-// def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20exclusive_disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
-
-
-:pt_code_height: 350
-:pt_rawinput: false
-:pt_code: def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20p%20%E2%8A%95%20q%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20exclusive_disjunction%28p,%20q%29%29
-
-****
-.Example {counter:logicexample} - Exclusive Disjunction in Python
---
---
-The code below prints the truth table for exclusive disjunction.  Try to predict the variable names, values, and data types at different steps in the execution. Use the _Forward_ button to check your answers.
-include::python_tutor.adoc[]
-****
+//MKD moved XOR to a subsection "Other Operations" and planning to include NAND and NOR there
 
 === Conditional
 //=== Implication
@@ -374,10 +363,11 @@ include::python_tutor.adoc[]
 //MKD rewrote the following paragraph
 //Let $p$ and $q$ be propositions. The *implication* of $p$ and $q$, denoted in mathematics by $p \implies q$, is short hand for the statement "if p then q".  As such, implication requires $q$ to be True whenever $p$ is True.  If $p$ is not True, then $q$ can be any value. In other words, implication fails (is False) when $p$ is True and $q$ is False. Note, this is different from "p if and only if q".
 
-Let $p$ and $q$ be propositions. The *conditional statement* $p \rightarrow q$, read as "if _p_ then _q_", "_p_ implies _q_", or, more formally, "the conditional with hypothesis _p_ and conclusion _q_", is the proposition that is False when _p_ is True and _q_ is False, and True otherwise. The conditional statement $p \rightarrow q$ is also called "the implication  $p \rightarrow q$". 
+Let $p$ and $q$ be propositions. The *conditional statement* $p \rightarrow q$, read as "if _p_ then _q_", "_p_ implies _q_", or, more formally, "the conditional with hypothesis _p_ and conclusion _q_", is the proposition that is False when _p_ is True and _q_ is False, and True otherwise. The conditional statement $p \rightarrow q$ is also called "the implication  $p \rightarrow q$". + 
 //Other books and sources may use $p \Rightarrow q$ or $p \implies q$ for the conditional statement. 
-Note that $p \rightarrow q$ can also be denoted by $p \Rightarrow q$ or $p \implies q.$
-In addition, there are [.underline]#many# other ways to express the conditional $p \rightarrow q$ in English, two of which are "_p_ only if _q_" and "_q_ if _p_".
+[small]#The conditional $p \rightarrow q$ can also be denoted by $p \Rightarrow q$ or $p \implies q.$ In addition, there are many other ways to express the conditional $p \rightarrow q$ in English, two of which are "_p_ only if _q_" and "_q_ if _p_".#
+
+//[.underline]#many# 
 
 [width=50%",align="center",options="header"]
 |====
@@ -421,8 +411,9 @@ Complete the code below by clicking one of the "edit" links then replacing $#FIX
 include::python_tutor.adoc[]
 ****
 
-=== The Converse, Contrapositive and Inverse of a Conditional Statement
-//MKD: Mention other common notations for negation
+//MKD changed level 9/22/2024
+//=== The Converse, Contrapositive and Inverse of a Conditional Statement
+==== The Converse, Contrapositive and Inverse of a Conditional Statement
 
 //MKD: REWORD - these are related to p->q but not from It
 Given propositions _p_ and _q_, we can form three additional compound propositions that are related to the conditional $p \rightarrow q$:
@@ -549,6 +540,105 @@ The conditional represents a one-way contract: You earn an A in the class _if_ y
 
 As a biconditional the example would say "You get a 100 on the final exam if and only if you earn an A in the class."  This becomes a two-way contract: You earn an A in the class if you get a 100 on the final, _but_ you do not earn an A in the class if you do not get a 100 on the final.
 
+=== Other Compound Propositions
+
+The negation, disjunction, conjunction, conditional, and biconditional are the most commonly-used logical operators for forming compound propostions and will be the ones used throughout the rest of this chapter. However, there are at least three others you should know about. 
+
+==== Exclusive Disjunction
+//MKD: Mention other common notations for negation
+// also, can we use xor in the code instead of the (p and not q) or (q and not p)
+//"Take *either* 2 Advil *or* 2 Tylenol."
+"I took *either* 2 Advil *or* 2 Tylenol."
+
+Let $p$ and $q$ be propositions.  The exclusive disjunction of $p$ and $q$ (also known as _xor_), denoted in mathematics by $p \oplus q$, is True when exactly one of $p$ and $q$ are True and False otherwise.
+
+[width=50%",align="center",options="header"]
+|====
+| $p$ | $q$ | $p \oplus q$
+| True | True | False
+| True | False | True
+| False | True | True
+| False | False | False
+|====
+
+//From the truth table it can be seen 
+Notice that the two propositions $p \oplus q$ and $q \oplus p$ always have the same truth value.
+
+
+////
+//MKD commented this out 9/22/2024
+[NOTE]
+====
+Exclusive disjunction can be thought of as one or the other, but not both.
+====
+
+//MKD 
+// def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20exclusive_disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
+
+
+:pt_code_height: 350
+:pt_rawinput: false
+:pt_code: def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20p%20%E2%8A%95%20q%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20exclusive_disjunction%28p,%20q%29%29
+
+****
+.Example {counter:logicexample} - Exclusive Disjunction in Python
+--
+--
+The code below prints the truth table for exclusive disjunction.  Try to predict the variable names, values, and data types at different steps in the execution. Use the _Forward_ button to check your answers.
+include::python_tutor.adoc[]
+****
+//MKD commented this out 9/22/2024
+////
+
+==== The NAND and NOR Operators
+
+The NAND and NOR operators correspond to two important digital logic gates used in electronic devices. 
+//to build circuits in electronic components. 
+//Each one of NAND and NOR is *functionally complete:* Any compound proposition is logically equivalent to a compound proposition involving only that one operator (See the Challenge Exercises at the end of this chapter.)
+
+===== NAND 
+
+//"I have *not both* a pencil and a pen."
+"A chimpanzee is *not both* an ape and a monkey."
+
+//Let $p$ and $q$ be propositions. The NAND of $p$ and $q$ is commonly denoted by $p \mid q$ and is False when both $p$ and $q$ are True and True otherwise. That is, the NAND is the negation of $p \land q.$ + 
+//[small]#In this context, the symbol $\mid$ is called the "Sheffer stroke." Other notations for NAND include $p{\overline {\land }}q$ and $p \uparrow q.$#
+// MKD changed notation 9/22/2024 to avoid clashing with bitwise OR notation used in section from original book
+Let $p$ and $q$ be propositions. In this textbook, the NAND of $p$ and $q$ is denoted by $p \uparrow q$ and is False when both $p$ and $q$ are True and is True otherwise. That is, the NAND is the negation of $p \land q.$ 
+
+//| $p$ | $q$ | $p \mid q$
+
+[width=50%",align="center",options="header"]
+|====
+| $p$ | $q$ | $p \uparrow q$
+| True | True | False
+| True | False | True
+| False | True | True
+| False | False | True
+|====
+
+//Notice that the two propositions $p \mid q$ and $q \mid p$ always have the same truth value.
+Notice that the two propositions $p \uparrow q$ and $q \uparrow p$ always have the same truth value.
+
+===== NOR 
+
+"This pen is *neither* black *nor* blue."
+
+//Let $p$ and $q$ be propositions. The NOR of $p$ and $q$ is commonly denoted by $p \downarrow q$ and is True when both of $p$ and $q$ are False and False otherwise. The NOR is also referred to as "joint denial" since it is True exactly when neither $p$ nor $q$ is True. That is, the NOR is the negation of $p \lor q.$ + 
+//[small]#In this context, the symbol $\downarrow$ is called the "Peirce arrow." Another common notation for NOR is $p{\overline {\lor }}q.$#
+Let $p$ and $q$ be propositions. In this textbook, the NOR of $p$ and $q$ is denoted by $p \downarrow q$ and is True when both of $p$ and $q$ are False and is False otherwise. The NOR is also referred to as "joint denial" since it is True exactly when neither $p$ nor $q$ is True. That is, the NOR is the negation of $p \lor q.$
+[width=50%",align="center",options="header"]
+|====
+| $p$ | $q$ | $p \downarrow q$
+| True | True | False
+| True | False | False
+| False | True | False
+| False | False | True
+|====
+
+Notice that the two propositions $p \downarrow q$ and $q \downarrow p$ always have the same truth value.
+
+
 
 
 //MKD added on August 11 2024, then combined with Operator Precedence
@@ -575,12 +665,16 @@ Here is a recursive definition of wff:
 The definition of wff allows you to analyze any string of symbols to determine whether it is a wff. For example, $(p \land q \lor r)$ isn't a wff but both $(p \land (q \lor r))$ and $((p \land q) \lor r)$ are wffs. You could write code to implement an algorithm to validate a string as a wff. 
 // MKD expression trees needed here
 
-It can be seen that there is a one-to-one correspondence between the set of well-formed formulae and the set of compound propositions. 
+//It can be seen that there is a one-to-one correspondence between the set of well-formed formulae and the set of compound propositions. 
+It can be shown that every compound proposition can be represented by at least one wff. 
 However, a wff may be difficult to read quickly if it contains many parentheses. As an example, it is not easy to read $((p \rightarrow q) \lor ((\neg r) \land (s \leftrightarrow t))$. For this reason, we can introduce  _operator precedence_ rules that allow us to eliminate some of the parentheses. 
 
 
 //MKD added operator precedence
 //=== Operator Precedence (Order Of Operations)
+
+//FROM https://www.cs.rochester.edu/u/nelson/courses/csc_173/proplogic/expressions.html Precedence is (from highest to lowest): NOT, NAND, NOR, AND, OR, ->, ==.
+
 
 //To ensure that we can properly interpret a compound proposition involving multiple logical operations, we can either use 
 //parentheses or rely on _operator precedence_.
@@ -595,7 +689,7 @@ To evaluate a compound proposition, we start by evaluating
 * all conditionals from left to right, and finally 
 * all biconditionals from left to right. 
 
-This allows us to drop some parentheses from the wff that represents a compound proposition. 
+This allows us to drop some parentheses from a wff that represents a compound proposition. 
 
 For example, the compound proposition $\neg p \lor q \land r \rightarrow s$ represents the same proposition as 
 the wff 
@@ -603,12 +697,15 @@ $((\neg p) \lor (q \land r)) \rightarrow s$.
 At least some of the parentheses must be used if you want to represent a different proposition such as $(\neg p \lor q) \land (r \rightarrow s)$.
 
 //Note that 
-NOTE: The exclusive-disjunction $\oplus$ was left out of the discussion - this is because different sources assign it different precedences, usually just above or just below the disjunction $\lor$. For this reason, it’s best to use parentheses whenever $\oplus$ is present in a compound proposition. Also note that $p \oplus q$ and $(\neg p) \leftrightarrow q$ have identical truth tables, so any compound expression involving $\oplus$ can be rewritten as one involving $\leftrightarrow$ instead.
+//NOTE: The exclusive-disjunction $\oplus$ was left out of the discussion - this is because different sources assign it different precedences, usually just above or just below the disjunction $\lor$. For this reason, it’s best to use parentheses whenever $\oplus$ is present in a compound proposition. Also note that $p \oplus q$ and $(\neg p) \leftrightarrow q$ have identical truth tables, so any compound expression involving $\oplus$ can be rewritten as one involving $\leftrightarrow$ instead.
 
 // MKD may need to define logical equivalence here or earlier
 
-=== Compound Propositions
-To find truth values of compound propositions, it is useful to break them up into smaller parts.
+// MKD retitled 9/22/2024
+//=== Compound Propositions
+=== Truth Tables of Compound Propositions
+
+To compute the truth values of a longer compound proposition or wff by hand, it can be useful to break up the proposition or wff into the smaller  propositions or wffs that it was built from.
 
 //MKD
 //def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Adef%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28conjunction%28p,%20q%29,%20not%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29
@@ -639,7 +736,7 @@ $(p \lor \neg q) \land \neg p$
 *Hint:* You only need to change line 10.
 ****
 
-When creating your own truth table it is crucial to be systematic about ensuring you have all possible truth values for each of the simple propositions.  Each simple proposition has two possible truth values, so the number of rows in the table should be $2^n$ where $n$ is the number of propositions. You should also consider breaking complex propositions into smaller pieces.
+When creating your own truth table it is crucial to be systematic about ensuring you have all possible truth values for each of the simple propositions.  Each simple proposition has two possible truth values, so the number of rows in the table should be $2^n$ where $n$ is the number of propositions (Do you recall why the number of rows must be $2^n$?) You should also consider breaking complex propositions into smaller pieces.
 ****
 .Example {counter:logicexample}
 --
@@ -816,9 +913,8 @@ these propositions are True for every interpretation of $p$ and $q$.
 Here is a collection of additional equivalencies of compound propositions. Each of these can be verified by constructing a truth table to show that 
 the biconditional of the left-hand side and the right-hand side of the logical equivalence is true for all interpretations of the propositional variables.
 
-Double Negation: 
 //\[ p \leftrightarrow \neg (\neg p) \]
-\[ p \equiv \neg (\neg p) \]
+Double Negation: \[ p \equiv \neg (\neg p) \]
 
 Commutative laws:
 //\[ p \lor q \leftrightarrow q \lor p \]
@@ -962,9 +1058,59 @@ The last expression is logically equivalent to the unknown proposition.
 //MKD Moved "Tautologies, Contradictions and Contingencies" from here to before De Morgan's laws
 
 
+// MKD functional completeness begins
+//===== Functional Completeness 
+=== Functional Completeness 
+
+A set $S$ of logical operators is called *functionally complete* if every compound proposition is logically equivalent to a compound proposition involving only operators that are members of $S.$ 
+
+
+.Theorem
+****
+
+The set $\{ \neg , \land , \lor \}$ is functionally complete.
+
+[click.Proof]
+--
+An informal justification can use the method show in the previous examples for finding a DNF or CNF. 
+
+A formal proof requires the link:./induction.html[mathematical induction proof technique] and the recursive defintion of well-formed formulae given earlier in this chapter.
+--
+
+****
+
+
+The importance of the NAND and NOR in electronic circuits arises from the following theorem.
+
+//.Theorem (Functional Completeness of NAND and NOR)
+.Theorem
+****
+
+//. Functional Completeness of NAND and NOR
+
+//.
+. The set $\{ \uparrow \}$ is functionally complete. That is, any compound proposition is logically equivalent to a compound proposition involving the same variables and only the $\uparrow$ operator.  
+//.
+. The set $\{ \downarrow \}$ is functionally complete. That is, any compound proposition is logically equivalent to a compound proposition involving the same variables and only the $\downarrow$ operator.  
+
+[click.Proof]
+--
+These proofs are exercises for you. See the Challenge Exercises at the end of this chapter.
+--
+
+****
+// MKD functional completeness ends
+
+
 //MKD The section on Predicates and Quantifiers still needs changes
 
 == Predicates and Quantifiers
+
+Up to this point, most of our propositions have been of the form "Sarah earned a B.S. in Computer Science" - the proposition describes a single individual constant (in this case, "Sarah.") 
+
+However, we often need to discuss an entire category of individuals at once, which is equivalent to replacing the constant "Sarah" by a variable. We will discuss this idea in this section. 
+//Instead of a single proposition, we have a function that takes names as inputs and gives proposition as out[ut]  to replace the individual with a variable it is often to tre
+
 === Predicates
 //A *predicate* is a statement involving one or more variables. When values are assigned to the variables, the value of the predicate is a proposition. 
 
@@ -1079,8 +1225,8 @@ Consider the statements
 *  For all integers $x$, $x^2\geq 0$.
 *  Some student in the class has a birthday in July.
 
-Each of these statements considers a proposition over an entire population or set, called the *domain,* and quantifies how many elements (or people) in the set satisfy the proposition.  To represent this idea, we use two main quantifiers, the *universal quantifier* and the *existential quantifier*.
-[small]#The domain is also called the *domain of discourse* or the *universe of discourse.*
+Each of these statements considers a proposition over an entire population or set, called the *domain,* and quantifies how many elements (or people) in the set satisfy the proposition.  To represent this idea, we use two main quantifiers, the *universal quantifier* and the *existential quantifier*. + 
+[small]#The domain is also called the *domain of discourse* or the *universe of discourse.*#
 
 The *Universal Quantifier*, $\forall$, represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true _for all values_ in the domain.
 
@@ -1275,7 +1421,7 @@ Hint:  Let $x$ be a student in the class, $y$ be a practice problem, and $P(x,y)
 == Applications of Logic
 
 Remixer's Note: This section is taken from the original 
-https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with no changes.
+https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with minor edits to include base-two notation.
 
 In this section we consider two applications of logic to information technology and
 computer science. The first involves bitwise operations, and the second designing and analyzing logic circuits.
@@ -1334,11 +1480,17 @@ Using the truth tables for Boolean operators, where the results are noted in the
 ****
 === Logic Circuits
 //MKD: Ugh - clean this up: 1+1 is NOT 2 in binary because 2 is not a binary digit. It's important to point out that the bits 0and 1 are NOT the decimal numbers 0 and 1 - they just use the same symbols.
-Logic circuits are important in designing the arithmetic and logic units of a computer processor.
-Consider the problem of adding two $8$-bit numbers in binary. In binary $0+0=0$, and $1+0=0+1=1$, but,
-as in decimal addition, in binary $1+1=2$, which in binary will be a sum of $0$ and a carry of $1$ to the next
-significant column on the left.  Thinking then of adding a specific column of two binary digits, say $A$ and
-$B$, involves as input the digits $A, B$ and the carry in from the previous column say $C_{in}$. The output
+Logic circuits are important in designing the arithmetic and logic units of a computer processor. 
+
+Consider the problem of adding two $8$-bit numbers in binary. 
+//In binary $0+0=0$, and $1+0=0+1=1$, but, as in decimal addition, in binary $1+1=2$, which in binary will be a sum of $0$ and a carry of $1$ to the next significant column on the left.  
+In binary, $(0)_2 + (0)_2 = (0)_2$ and $(0)_2 + (1)_2 = (1)_2 + (0)_2 = (1)_2$, but as in decimal addition, $(1)_2 + (1)_2 = (10)_2$ requires a carry, that is, the "sum bit" is $0$ with a "carry bit" of $1$ to the next significant column on the left.  
+Thinking then of adding a specific column of two binary digits, say $A$ and
+$B$, involves as input the 
+//digits 
+bits $A, B$ and the carry in 
+from the previous column say $C_{in}$. 
+The output
 will be the sum $S$ and the carry out to the next column, say $C_{out}$. These are the basic components of what is called
 a binary adder.
 
@@ -1595,6 +1747,22 @@ image::images/logic_gate_1.png[]
 image::images/logic_gate_2.png[]
 
 . Design a logic circuit for $r\land (p\lor (r\land \neg q))$.
+
+
+== Challenge Exercises
+
+//. Show that each of the propositions $\neg p$, $p \land q,$ and $p \lor q$ is logically equivalent to a compound proposition that uses only the variables $p,$ $q,$ and the NAND operator $\uparrow.$ Conclude that _every_ compound proposition can be written 
+
+. Complete parts (a) and (b) to show that every compound proposition is logically equivalent to one that uses the same propositional variables but only the NAND operator $\uparrow.$ 
+.. For each of the three propositions $\neg p$, $p \land q,$ and $p \lor q,$ write a logically equivalent proposition that uses only $p,$ $q,$ and $\uparrow.$ 
+.. Use the theorem that every compound proposition is equivalent to a compound proposition in disjunctive normal form. 
+
+. Complete parts (a) and (b) to show that every compound proposition is logically equivalent to one that uses the same propositional variables but only the NOR operator $\downarrow.$ 
+.. For each of the three propositions $\neg p$, $p \land q,$ and $p \lor q,$ write a logically equivalent proposition that uses only $p,$ $q,$ and $\downarrow.$ 
+.. Use the theorem that every compound proposition is equivalent to a compound proposition in disjunctive normal form. 
+
+
+
 
 ////
 ////

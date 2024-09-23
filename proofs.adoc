@@ -584,7 +584,9 @@ What is the speed of light?
 
 == Proof Techniques - SECTION IN PROGRESS
 
-In this section we will give several examples of formal mathematical proofs to illustrate different techniques.
+In this section we will give several examples of formal mathematical proofs to illustrate different techniques. 
+// MKD added Sept 13, 2024 
+Many of the techniques correspond to certain rules of inference that were discussed earlier in this chapter. 
 
 Each proof starts with us stating a *conjecture*, which is a proposition with undetermined truth value. The goal of each proof is to determine the truth value of the relevant conjecture.
 
@@ -594,24 +596,189 @@ involves a single conditional $p \rightarrow q$. This may seem like an oversimpl
 
 
 //MKD added July 15 2024... may not need in final version
-Here we'll present examples of proofs using several different techniques:
-
-* Direct proof
-//	direct	if integers a and b are divisible by c, then so is ma+nb for any integers m and n.
-
-// also do a "proof by cases", "exhaustive proof"
-		
-* Proof by contraposition
-//	NEED; maybe if n^2 is even (odd) then n is even (odd)
-
-* Proof by counterexample
-// 	counterexample 	NEED
-        
-* Proof by contradiction
-// 	sqrt(2) is irrational (i.e., NOT of form a/b for integers a and b; requires assuming unique prime factorization which we can prove by strong induction later in the book)
+Here we'll present examples of proofs using several different techniques. 
+// MKD Sept 12 2024
+Most of these proofs establish an arithmetic fact that you probably have always known (or assumed) is True; instead, you can focus on the _form_ of the proof: Note the steps that are used, and how the argument flows. 
 
 Another important proof technique, *mathematical induction,* will be discussed in a link:./induction.html[later chapter.] 
 // link:./induction.html[Proofs: Mathematical Induction ]
+
+
+=== Direct Proof
+
+//In a direct proof, we make an argument that $p \rightarrow q$ must be True. This means that we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
+In a direct proof, we make an argument that a conditional statement $p \rightarrow q$ must be True. This means that we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
+
+//	direct	if integers a and b are divisible by c, then so is ma+nb for any integers m and n. 
+.Theorem
+****
+If $a,$ $b,$ and $c$ are integers such that both $a$ and $b$ are divisible by $c,$ then for any integers $m$ and $n$ the integer $ma+nb$ must be  divisible by $c.$
+
+.Proof 
+
+Suppose that $a,$ $b,$ and $c$ are integers such that both $a$ and $b$ are divisible by $c.$ This means that there are integers $q$ and $t$ such that \[ a=qc \text{ and } b=tc \]
+
+For any integers $m$ and $n$, we can rewrite the expression $ma+nb$ as \[ ma+nb = m(qc)+n(tc) = (mq)c + (nt)c = (mq+nt)c \] 
+
+The last part of the extended equality shows that $ma+nb$ is a multiple of $c,$ that is, $ma+nb$ is divisible by $c.$ 
+
+//This shows that the statement of the theorem is a valid conclusion.
+This shows that the statement of the theorem is a True proposition.
+
+Q.E.D.
+
+.You Try
+
+Write a proof of the following statement: If $a,$ $b,$ and $c$ are integers such that $a$ is divisible by $b$ and $b$ is divisible by $c,$ then $a$ must be divisible by $c.$
+ 
+****
+
+// also do a "proof by cases", "exhaustive proof"
+// MKD maybe do proof of 1-1 corr between N and Z here?
+		
+=== Proof By Contraposition
+
+// In a proof by contraposition, we make an argument that $\neg q \rightarrow \neg p$ must be True. This means that the logically equivalent conditional $p \rightarrow q$ must be True, so we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
+//In a proof by contraposition, we make an argument that $\neg q \rightarrow \neg p$ must be True. We can assume that the premise $\neg q$ is True and apply _modus tollens_ to prove that $\neg p$ must be True, too. 
+In a proof by contraposition, we make an argument that $\neg q \rightarrow \neg p$ must be True. Since  $p \rightarrow q$ is logically equivalent to $\neg q \rightarrow \neg p,$ we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
+
+//	NEED; maybe if n^2 is even (odd) then n is even (odd)
+.Theorem
+****
+
+Let $n$ represent an integer. 
+
+//(1) If $n^{2}$ is even, then the integer $n$ is even. 
+
+//(2) If $n^{2}$ is odd, then the integer $n$ is odd. 
+
+If $n^{2}$ is even, then the integer $n$ is even. 
+
+.Proof 
+
+//We'll only prove statement (1), by first proving its contrapositive, which is a logically equivalent statement. The proof of statement (2) is left as a "you try" exercise.
+
+Suppose that it's not the case that the integer $n$ is even. 
+
+This means that $n$ must be odd, so there is an integer $q$ such that \[ n = 2q + 1\] 
+
+// \[ n = q \cdot 2 + 1\] 
+
+This in turn means that \[ n^{2} = (2q + 1)^{2} = 4q^{2} + 4q + 1 = 2(2q^{2} + 2q) + 1\] 
+
+// \[ n^{2} = (2q \cdot 2 + 1)^{2} = 4q^{2} + 4q + 1 = (2q^{2} + 2q) \cdot 2 + 1\] 
+
+The last part of the extended equality shows that $n^{2}$ is odd: When $n^{2}$ is divided by 2, the remainder is 1. That is, $n^2$ is not even. 
+
+//This shows that the contrapositive of the statement of the theorem is a valid conclusion, that is "if the integer $n$ is not even, then $n^{2}$ is not even." Since the statement and its contrapositive are logically equivalent, the statement of the theorem is a valid conclusion as well. 
+This shows that the contrapositive of the statement of the theorem, "if the integer $n$ is not even, then $n^{2}$ is not even" is a True proposition. Since every conditional and its contrapositive are logically equivalent, this argument proves that "If $n^{2}$ is even, then the integer $n$ is even" is a True proposition.
+
+
+Q.E.D.
+
+.You try
+
+//Prove statment (2) - the form of the proof is the same as for statement (1), you'll only need to interchange "even" and "odd" throughout.
+
+Prove the following statement: If $n^{2}$ is odd, then the integer $n$ is odd.
+
+****
+
+//(1) If $n$ is an integer and $n^{2}$ is even, then the integer $n$ is even. 
+
+//(2) If $n$ is an integer and $n^{2}$ is even, then the integer $n$ is even. 
+
+
+=== Proof By Counterexample
+
+//In a proof by counterexample, we make an argument that ...
+In a proof by counterexample, we *disprove* a proposition of the form $(\forall x \in D) P(x)$ by arguing that there is at least one value $c \in D$ such that $\neg P(c)$ is True.
+
+// 	counterexample 	NEED
+
+.Conjecture
+****
+
+For every natural number $n,$ there are natural numbers $a,$ $b,$ and $c$ such that $n = a^{2} + b^{2} + c^{2}.$ 
+
+.Disproof of Conjecture
+
+In this case, we can simply compute values of the expression $a^{2} + b^{2} + c^{2}$ until we find a "gap." \[ 0^{2} + 0^{2} + 0^{2} = 0 \] \[ 1^{2} + 0^{2} + 0^{2} = 1 \] \[ 1^{2} + 1^{2} + 0^{2} = 2 \] \[ 1^{2} + 1^{2} + 1^{2} = 3 \] \[ 2^{2} + 0^{2} + 0^{2} = 4 \] \[ 2^{2} + 1^{2} + 0^{2} = 5 \] \[ 2^{2} + 1^{2} + 1^{2} = 6 \]  \[ 2^{2} + 2^{2} + 0^{2} = 8 \]  \[ 2^{2} + 2^{2} + 1^{2} = 9 \] \[ 3^{2} + 0^{2} + 0^{2} = 9 \] Notice that you cannot write 7 as a sum of three squares of natural numbers (There may be other numbers that cannot be written in this form, too, but 7 is the least such number and we only need to find _one_ counterexample.) 
+
+This proves the negation of the Claim, namely 
+
+====
+.Theorem  
+There exists at least one natural number $n,$ such that for all natural numbers $a,$ $b,$ and $c,$ $n \neq a^{2} + b^{2} + c^{2}.$ 
+====
+
+[small]#This may seem like a strange conjecture to consider until you find out that link:https://en.wikipedia.org/wiki/Lagrange%27s_four-square_theorem[every natural number $n$ can be written as $n = a^{2} + b^{2} + c^{2} + d^{2}$ for some natural numbers $a,$ $b,$ $c,$ and $d,$] and that this may have been known link:https://en.wikipedia.org/wiki/Arithmetica[about 1,800 years ago.]# 
+
+//Lagrange's four-square theorem
+
+****
+        
+=== Proof by Contradiction
+
+// MKD this needs a rewrite
+//In a proof by contradiction, we assume $p,$ a proposition we know to be True, and also $\neg q$ and make an argument that $(p \land \neg q) \rightarrow q$ must be True. This means that we assume both premises $p$ and $\neg q$ and apply _modus ponens_ to prove that $q$ must be True, too, but then we have proven the proposition $(p \land \neg q) \rightarrow (q \land \neg q).$ Since $(q \land \neg q)$ MUST be False, this means that the premise $(p \land \neg q)$ must be False as well, but we know $p$ is True, so $\neg q$ must be False.
+//In a proof by contradiction, we prove proposition $p$ by making an argument that $\neg p \rightarrow (q \land \neg q)$ must be True for some proposition $q$ and apply the Contradiction Rule to conclude that $p$ must be True. 
+In a proof by contradiction, we disprove the proposition $\neg p$ by making an argument that the conditional $\neg p \rightarrow (q \land \neg q)$ must be True for some proposition $q$ and apply the Contradiction Rule to conclude that $p$ must be True. + 
+//[small]#Note: Often, we argue that the conditional $((\neg p \rightarrow q) \land (\neg p \rightarrow \neg q)) \rightarrow p$ must be True, and use the fact that this conditional is logically equivalent to $\neg p \rightarrow (q \land \neg q).$# 
+[small]#Note: Often, we argue instead that the proposition $((\neg p \rightarrow q) \land (\neg p \rightarrow \neg q))$ must be True, and use the fact that this proposition is logically equivalent to $\neg p \rightarrow (q \land \neg q)$ and apply the Contradiction Rule.#
+
+// MKD have students verify that $(\neg p \land \neg q) \rightarrow q$ and $\neg \rightarrow (q \land \neg q)$ are logically equivalent
+
+// 	sqrt(2) is irrational (i.e., NOT of form a/b for integers a and b; requires assuming unique prime factorization which we can prove by strong induction later in the book) 
+//.Theorem ($\sqrt(2)$ is an irrational number)
+.Theorem 
+****
+There are no positive integers $a$ and $b$ such that $\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.$ 
+
+.Proof 
+
+We must negate the proposition that we want to prove. It may be helpful to write the proposition out in symbols: \[ \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a > 0 \land b>0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \] 
+// \left( \left( \frac{a}{b} \right)^{2} } = \right) \]
+
+To prove this proposition by contradiction, we ASSUME that its negation is True, that is we use the premise \[ \text{ Premise: } \neg \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a > 0 \land b>0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \] 
+// \left( \left( \frac{a}{b} \right)^{2} } = \right) \]
+In words, we assume the premise: There are integers $a$ and $b$ such that $a > 0,$ $b > 0,$ and $\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.$
+// \[ \left( \frac{a}{b} \right)^{2} = 2. \] 
+
+//We will also assume that we have already reduced the fraction so that $a$ and $b$ have no common prime factors (You probably know how to do this - just divide both numerator and denominator by their greatest common divisor. We will _prove_ that this can be done in the mathematical induction chapter later in the textbook.) 
+We know that we can reduce the fraction so that $a$ and $b$ have no common prime factors (You know how to do this - just divide both numerator and denominator by their greatest common divisor. In fact, we will _prove_ that this can be done in the mathematical induction chapter later in the textbook, but for now just treat it like a "known fact".)
+
+//We can rewrite the equation as \[  a^{2} = 2 b^{2} \] 
+To eliminate the fraction we can rewrite the equation as \[  a^{2} = 2 b^{2} \]
+
+From this new equation, $a^{2}$ must be divisible by 2. 
+//We can now use 
+Use the theorem we proved earlier in this section to conclude that $a$ must be divisible by 2, too. This means that there is an integer $q$ such that $a = 2q.$ Substitute the last expression for $a$ in the equation to get  \[  (2q)^{2} = 2 b^{2} \] which we can rewrite as \[  4 q^{2} = 2 b^{2} \] or  \[  2 q^{2} = b^{2} \] From this equation, $b^{2}$ is divisible by 2, and we can conclude that $b$ is divisible by 2, too. 
+
+//But... we now have that both $a$ and $b$ are divisible by 2, even though we assumed that we had already reduced the fraction so that $a$ and $b$ have no common prime factors. We have arrived at a contradiction. 
+
+So... we have positive integers $a$ and $b$ that have no common prime factors, and we have proven that $a$ and $b$ have a common prime factor, namely 2. We have arrived at a contradiction.
+
+//We know (well, we will prove later) that we CAN always reduce the fraction, so it must be a False proposition that \[ \left( \frac{a}{b} \right^{2} = 2. \] 
+
+Apply the Contradiction Rule to infer that the premise must be False. 
+//This proves that it is False that there are no positive integers $a$ and $b$ such that \[ \left( \frac{a}{b} \right)^{2} = 2 \] so $\sqrt(2)$ is not a rational number. 
+
+We have proven the following theorem. 
+
+====
+.Theorem  
+There are no positive integers $a$ and $b$ such that $\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.$ + 
+ + 
+That is, the square root of 2 is an irrational number.
+==== 
+
+****
+//There are no positive integers $a$ and $b$ such that $\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.$
+//There do not exist positive integers $a$ and $b$ such that $\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.$
+
+
+
 
 // MKD also 
 //	"The structure of mathematical proofs/The structure of formal proofs"
