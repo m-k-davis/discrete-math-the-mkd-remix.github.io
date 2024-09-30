@@ -9686,7 +9686,7 @@ and the premise \(c \in U,\) where \(c\) is an arbitrarily-chosen element, you c
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proof_techniques_section_in_progress">8.3. Proof Techniques - SECTION IN PROGRESS</h3>
+<h3 id="_proof_techniques">8.3. Proof Techniques</h3>
 <div class="paragraph">
 <p>In this section several examples of formal mathematical proofs are given to illustrate different proof techniques.
 Many of the techniques correspond to certain rules of inference that were discussed earlier in this chapter.</p>
@@ -9719,7 +9719,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 </div>
 <div class="paragraph">
 <div class="title">Proof</div>
-<p>Before starting the formal proof, let&#8217;s look at a specific example. The integers 10, 6, and 2 are such that both 10 and 6 are divisible by 2. Suppose we have a pair of integers that we will use as multipliers, say 11 and 7, to form a new number \((11)(10)+(7)(6).\) Is the new number also divisible by 2? The answer is obviously "Yes" since we can just simplify the sum and divide by 2, but how can we <em>justify</em> this for every choice of the pair of multipliers? Notice that we can factor 2 out of 10 and 6 in the sum that defines our new number: \[ (11)(10)(7)(6) = (11)(5)(2)(7)(3)(2) = [(11)(5)+(7)(3)](2) \] We can find the common factor of 2 and "factor it out" as if it were a variable. This appears to work no matter what values are chosen for the first three integers and the pair of multipliers, so should be generalizable to a formal proof.</p>
+<p>Before starting the formal proof, let&#8217;s look at a specific example. The integers 10, 6, and 2 are such that both 10 and 6 are divisible by 2. Suppose we have a pair of integers that we will use as multipliers, say 11 and 7, to form a new number \((11)(10)+(7)(6).\) Is the new number also divisible by 2? The answer is obviously "Yes" since we can just simplify the sum and divide by 2, but how can we <em>justify</em> this for every choice of the pair of multipliers? Notice that we can factor 2 out of 10 and 6 in the sum that defines our new number: \[ (11)(10) + (7)(6) = (11)(5)(2) + (7)(3)(2) = [(11)(5)+(7)(3)](2) \] We can find the common factor of 2 and "factor it out" as if it were a variable. This appears to work no matter what values are chosen for the first three integers and the pair of multipliers, so should be generalizable to a formal proof.</p>
 </div>
 <div class="paragraph">
 <p>For the formal proof, start by supposing that \(a,\) \(b,\) and \(c\) are integers such that both \(a\) and \(b\) are divisible by \(c.\) This means that there are integers \(q\) and \(t\) such that \[ a=qc \text{ and } b=tc \]</p>
@@ -9819,7 +9819,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 <h4 id="_proof_by_contradiction">8.3.4. Proof by Contradiction</h4>
 <div class="paragraph">
 <p>In a proof by contradiction, we disprove the proposition \(\neg p\) by making an argument that the conditional \(\neg p \rightarrow (q \land \neg q)\) must be True for some proposition \(q\) and apply the Contradiction Rule to conclude that \(p\) must be True.<br>
-<span class="small">Note: Often, we argue instead that the proposition \(((\neg p \rightarrow q) \land (\neg p \rightarrow \neg q))\) must be True, and use the fact that this proposition is logically equivalent to \(\neg p \rightarrow (q \land \neg q)\) and apply the Contradiction Rule.</span></p>
+<span class="small">Note: Sometimes, we argue instead that the proposition \(((\neg p \rightarrow q) \land (\neg p \rightarrow \neg q))\) must be True, and use the fact that this proposition is logically equivalent to \(\neg p \rightarrow (q \land \neg q)\) and apply the Contradiction Rule.</span></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -9884,7 +9884,7 @@ That is, the square root of 2 is not a rational number.</p>
 <p>First, recall that \(\lceil x \rceil\) is the ceiling function whose output is the least integer that is greater than or equal to \(x\) (that is, \(\lceil x \rceil\) rounds a real number \(x\) up to the next greatest integer.) The graph of the function is shown in section 3 of <a href=./appendix_library.html>this appendix.</a></p>
 </div>
 <div class="paragraph">
-<p>Next, before starting a formal proof, let&#8217;s look at a specific example to understand what we need to prove. Suppose we want to assign 13 people to the 3 categories "high school student," "post-secondary student," and "other". It&#8217;s not hard to see that when we assign people to the categories, the sum of the numbers in the categories has to be 13, so at least one of the categories has at least \(5 = \displaystyle{\left\lceil \frac{13}{3} \right\rceil}\) people. That is, if each category had at most \(4 = \displaystyle{\left\lceil \frac{13}{3} \right\rceil - 1}\) people, then the sum of those numbers would be less than or equal to \((3)(4) = 12,\) not 13 as it should be. You can formalize this argument to use \(n\) and \(k\) instead of the specific values 13 and 3, which will provide a formal proof using the "proof by contradiction" technique.</p>
+<p>Next, before starting a formal proof, let&#8217;s look at a specific example to understand what we need to prove. Suppose we want to assign 13 people to the 3 categories "high school student," "post-secondary student," and "other". It&#8217;s not hard to see that when we assign people to the categories, the sum of the numbers in the categories has to be 13, so at least one of the categories has at least \(5 = \displaystyle{\left\lceil \frac{13}{3} \right\rceil}\) people. That is, if each category had at most \(4 = \displaystyle{\left\lceil \frac{13}{3} \right\rceil - 1}\) people, then the sum of those numbers would be at most \((3)(4) = 12,\) but we know that the sum should be equal to 13 - this is a contradiction. You can formalize this argument to use \(n\) and \(k\) instead of the specific values 13 and 3, which will provide a formal proof using the "proof by contradiction" technique.</p>
 </div>
 <div class="paragraph">
 <p>Now, to prove this proposition by contradiction, suppose that the conditional is False. That is, we assume that</p>
