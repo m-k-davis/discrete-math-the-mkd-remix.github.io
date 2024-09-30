@@ -601,19 +601,13 @@ $(document).on('page:load', ready2);
     <div class="sectionbody">
      <div class="paragraph">
       <p>
-       <mark>
-        <strong>
-         CAUTION
-        </strong>
-        - CHAPTER UNDER CONSTRUCTION!
-       </mark>
-      </p>
-     </div>
-     <div class="paragraph">
-      <p>
        <em>
-        This chapter was last updated on August 27, 2024.
+        This chapter was last updated on September 30, 2024.
        </em>
+       <br/>
+       <span class="small">
+        Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.
+       </span>
       </p>
      </div>
      <div class="paragraph">
@@ -622,15 +616,15 @@ $(document).on('page:load', ready2);
        <a href="./logic.html">
         Logic
        </a>
-       chapter  that an
+       chapter that an
        <strong>
         argument
        </strong>
        is a finite sequence of statements that ends with a final statement, the
        <strong>
-        conclusion
+        conclusion,
        </strong>
-       , that is based on inferences made from the earlier statements, called
+       that is based on inferences made from the earlier statements, called
        <strong>
         premises
        </strong>
@@ -661,13 +655,13 @@ $(document).on('page:load', ready2);
        </strong>
        or
        <strong>
-        postulates
+        postulates,
        </strong>
-       , which are propositions that we simply ASSUME to be True. Other premises used in a proof may be previously-proven propositions called
+       which are propositions that we simply ASSUME to be True. Other premises used in a proof may be previously-proven propositions called
        <strong>
-        theorems
+        theorems.
        </strong>
-       . There are many other terms used for theorems depending on the context, such as
+       There are many other terms used for theorems depending on the context, such as
        <strong>
         lemma
        </strong>
@@ -680,8 +674,8 @@ but each of these specialized terms describes a theorem.
       </p>
      </div>
      <div class="sect2">
-      <h3 id="_rules_of_inference">
-       8.1. Rules Of Inference
+      <h3 id="_rules_of_inference_for_propositions">
+       8.1. Rules of Inference for Propositions
       </h3>
       <div class="paragraph">
        <p>
@@ -1650,8 +1644,14 @@ Together, these four argument forms are referred to as the
          </div>
          <div class="paragraph">
           <p>
-           This rule of inference corresponds to replacing the conditional
-\(p \rightarrow q\) by its logically equivalent contrapositive \(\neg q \rightarrow \neg p\).
+           <span class="small">
+            This rule of inference corresponds to replacing the conditional
+\(p \rightarrow q\) by its logically equivalent contrapositive \(\neg q \rightarrow \neg p\) in the tautology, which gives \(((\neg q \rightarrow \neg p) \land \neg q) \rightarrow \neg p,\) then applying
+            <em>
+             modus ponens
+            </em>
+            to this new tautology.
+           </span>
           </p>
          </div>
         </div>
@@ -1843,6 +1843,38 @@ This means that there are at least as many possible tautologies as there are nat
        <div class="sidebarblock">
         <div class="content">
          <div class="title">
+          Elimination (Disjunctive Syllogism)
+         </div>
+         <div class="ulist no-bullet">
+          <ul class="no-bullet">
+           <li>
+            <p>
+             \(p \lor q\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\neg q\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\therefore p\)
+            </p>
+           </li>
+          </ul>
+         </div>
+         <div class="paragraph">
+          <p>
+           This rule of inference corresponds to the tautology
+\(((p \lor q) \land \neg q) \rightarrow p\).
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
           Resolution
          </div>
          <div class="ulist no-bullet">
@@ -1870,36 +1902,30 @@ This means that there are at least as many possible tautologies as there are nat
 \(((p \rightarrow q) \land (\neg p \rightarrow r)) \rightarrow (q \lor r)\).
           </p>
          </div>
-        </div>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          Elimination
-         </div>
-         <div class="ulist no-bullet">
-          <ul class="no-bullet">
-           <li>
-            <p>
-             \(p \lor q\)
-            </p>
-           </li>
-           <li>
-            <p>
-             \(\neg q\)
-            </p>
-           </li>
-           <li>
-            <p>
-             \(\therefore p\)
-            </p>
-           </li>
-          </ul>
-         </div>
          <div class="paragraph">
           <p>
-           This rule of inference corresponds to the tautology
-\(((p \lor q) \land \neg q) \rightarrow p\).
+           <span class="small">
+            Notice that this rule of inference can also be written as
+           </span>
+           <br/>
+           <span class="small">
+            \(\neg p \lor q\)
+           </span>
+           <br/>
+           <span class="small">
+            \(p \lor r\)
+           </span>
+           <br/>
+           <span class="small">
+            \(\therefore q \lor r\)
+           </span>
+           <br/>
+           <span class="small">
+            This form of resolution is important to
+            <a href="https://dl.acm.org/doi/10.1145/321250.321253">
+             automated theorem-proving.
+            </a>
+           </span>
           </p>
          </div>
         </div>
@@ -1983,22 +2009,160 @@ write down and give names to. Instead, we’ll just list a few tautologies.
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_proof_techniques_section_in_progress">
-       8.2. Proof Techniques - SECTION IN PROGRESS
+      <h3 id="_rules_of_inference_for_quantified_statements">
+       8.2. Rules Of Inference for Quantified Statements
       </h3>
       <div class="paragraph">
        <p>
-        In this section we will give several examples of formal mathematical proofs to illustrate different techniques.
+        In this section, four rules of inference that apply to quantified predicates  are presented. In all of these rules of inference, the values of the variable(s) are assumed to be restricted to a universal set \(U.\)
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_rules_of_inference_for_universally_quantified_predicates">
+        8.2.1. Rules of Inference for Universally-Quantified Predicates
+       </h4>
+       <div class="paragraph">
+        <p>
+         Universal instantiation states that, from the premise \(\forall x P(x)\)
+and the premise \(c \in U,\) where \(c\) is an arbitrarily-chosen element, you can conclude that \(P(c)\) must also be true.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Universal Instantiation (Universal Specification)
+         </div>
+         <div class="ulist no-bullet">
+          <ul class="no-bullet">
+           <li>
+            <p>
+             \(\forall x P(x)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\therefore P(c) \text{ for any } c \in U\)
+            </p>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Universal generalization states that, from the premise \(P(x)\) is true for every arbitrarily-chosen value of \(x\) that is an element of the universal set \(U,\) you can conclude \(\forall x P(x)\) must also be true.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Universal Generalization
+         </div>
+         <div class="ulist no-bullet">
+          <ul class="no-bullet">
+           <li>
+            <p>
+             \(P(c) \text{ for every } c \in U\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\therefore \forall x P(x)\)
+            </p>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         You will see later in the textbook that universal generalization is applied in
+         <em>
+          every
+         </em>
+         proof that uses the
+         <a href="./induction.html">
+          mathematical induction
+         </a>
+         proof technique.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_rules_of_inference_for_existentially_quantified_predicates">
+        8.2.2. Rules of Inference for Existentially-Quantified Predicates
+       </h4>
+       <div class="paragraph">
+        <p>
+         Existential instantiation states that, from the premise \(\exists x P(x),\) you can conclude that there must be at least one \(c \in U\) such that \(P(c)\) is true. This allows you to pick a "constant" \(c\) instead of needing to refer repeatedly to the existential quantifier.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Existential Instantiation (Existential Elimination)
+         </div>
+         <div class="ulist no-bullet">
+          <ul class="no-bullet">
+           <li>
+            <p>
+             \(\exists x P(x)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\therefore P(c) \text{ for some element } c \in U\)
+            </p>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Existential generalization states that, from the premise that \(P(c)\) is true for at least one \(c \in U,\) you can conclude that \(\exists x P(x)\) must also be true.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Existential Generalization
+         </div>
+         <div class="ulist no-bullet">
+          <ul class="no-bullet">
+           <li>
+            <p>
+             \(P(c) \text{ for some element } c \in U\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\therefore \exists x P(x)\)
+            </p>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_proof_techniques_section_in_progress">
+       8.3. Proof Techniques - SECTION IN PROGRESS
+      </h3>
+      <div class="paragraph">
+       <p>
+        In this section several examples of formal mathematical proofs are given to illustrate different proof techniques.
 Many of the techniques correspond to certain rules of inference that were discussed earlier in this chapter.
        </p>
       </div>
       <div class="paragraph">
        <p>
-        Each proof starts with us stating a
+        Each proof starts by stating a
         <strong>
-         conjecture
+         conjecture,
         </strong>
-        , which is a proposition with undetermined truth value. The goal of each proof is to determine the truth value of the relevant conjecture.
+        which is a proposition with undetermined truth value. The goal of each proof is to determine the truth value of the relevant conjecture.
        </p>
       </div>
       <div class="paragraph">
@@ -2008,7 +2172,7 @@ Many of the techniques correspond to certain rules of inference that were discus
          single premise
         </em>
         \(p\), that is, we’ll always assume that our proof
-involves a single conditional \(p \rightarrow q\). This may seem like an oversimplification, but it is not: We are simply renaming the conjunction \((p_{1} \land p_{2} \land \ldots \land p_{n})\) of the actual premises by using the single propositional variable \(p\), that is we are
+involves a single conditional \(p \rightarrow q\). This may seem like an oversimplification, but it is not: We are simply renaming the conjunction \((p_{1} \land p_{2} \land \ldots \land p_{n})\) of all of the actual premises by using the single propositional variable \(p\), that is we are
         <em>
          defining
         </em>
@@ -2039,7 +2203,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
       </div>
       <div class="sect3">
        <h4 id="_direct_proof">
-        8.2.1. Direct Proof
+        8.3.1. Direct Proof
        </h4>
        <div class="paragraph">
         <p>
@@ -2058,6 +2222,10 @@ Most of these proofs establish an arithmetic fact that you probably have always 
          <div class="paragraph">
           <p>
            If \(a,\) \(b,\) and \(c\) are integers such that both \(a\) and \(b\) are divisible by \(c,\) then for any integers \(m\) and \(n\) the integer \(ma+nb\) must be  divisible by \(c.\)
+           <br/>
+           <span class="small">
+            This statement can be rephrased as "If the integers \(a\) and \(b\) are multiples of the integer \(c\), then any sum of integer multiples of \(a\) and \(b\) must also be a multiple of \(c."\)
+           </span>
           </p>
          </div>
          <div class="paragraph">
@@ -2065,7 +2233,16 @@ Most of these proofs establish an arithmetic fact that you probably have always 
            Proof
           </div>
           <p>
-           Suppose that \(a,\) \(b,\) and \(c\) are integers such that both \(a\) and \(b\) are divisible by \(c.\) This means that there are integers \(q\) and \(t\) such that \[ a=qc \text{ and } b=tc \]
+           Before starting the formal proof, let’s look at a specific example. The integers 10, 6, and 2 are such that both 10 and 6 are divisible by 2. Suppose we have a pair of integers that we will use as multipliers, say 11 and 7, to form a new number \((11)(10)+(7)(6).\) Is the new number also divisible by 2? The answer is obviously "Yes" since we can just simplify the sum and divide by 2, but how can we
+           <em>
+            justify
+           </em>
+           this for every choice of the pair of multipliers? Notice that we can factor 2 out of 10 and 6 in the sum that defines our new number: \[ (11)(10)(7)(6) = (11)(5)(2)(7)(3)(2) = [(11)(5)+(7)(3)](2) \] We can find the common factor of 2 and "factor it out" as if it were a variable. This appears to work no matter what values are chosen for the first three integers and the pair of multipliers, so should be generalizable to a formal proof.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           For the formal proof, start by supposing that \(a,\) \(b,\) and \(c\) are integers such that both \(a\) and \(b\) are divisible by \(c.\) This means that there are integers \(q\) and \(t\) such that \[ a=qc \text{ and } b=tc \]
           </p>
          </div>
          <div class="paragraph">
@@ -2101,15 +2278,15 @@ Most of these proofs establish an arithmetic fact that you probably have always 
       </div>
       <div class="sect3">
        <h4 id="_proof_by_contraposition">
-        8.2.2. Proof By Contraposition
+        8.3.2. Proof By Contraposition
        </h4>
        <div class="paragraph">
         <p>
-         In a proof by contraposition, we make an argument that \(\neg q \rightarrow \neg p\) must be True. Since  \(p \rightarrow q\) is logically equivalent to \(\neg q \rightarrow \neg p,\) we can assume that the premise \(p\) is True and apply
+         In a proof by contraposition, we make an argument that \(p \rightarrow q\) is True by instead first arguing that its contrapositive \(\neg q \rightarrow \neg p\) is True and secondly applying the logical equivalence of the conditional and its contrapositive. Start by assuming that the premise \(\neg q\) is True and apply
          <em>
           modus ponens
          </em>
-         to prove that \(q\) must be True, too.
+         to prove that \(\neq p\) must be True, too, then apply logical equivalence.
         </p>
        </div>
        <div class="sidebarblock">
@@ -2132,7 +2309,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
            Proof
           </div>
           <p>
-           Suppose that it’s not the case that the integer \(n\) is even.
+           It is easier to prove "if it’s not the case that the integer \(n\) is even, then it’s not the case that \(n^{2}\) is even," so start by supposing that it’s not the case that the integer \(n\) is even.
           </p>
          </div>
          <div class="paragraph">
@@ -2173,7 +2350,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
       </div>
       <div class="sect3">
        <h4 id="_proof_by_counterexample">
-        8.2.3. Proof By Counterexample
+        8.3.3. Proof By Counterexample
        </h4>
        <div class="paragraph">
         <p>
@@ -2242,7 +2419,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
       </div>
       <div class="sect3">
        <h4 id="_proof_by_contradiction">
-        8.2.4. Proof by Contradiction
+        8.3.4. Proof by Contradiction
        </h4>
        <div class="paragraph">
         <p>
@@ -2268,13 +2445,14 @@ Most of these proofs establish an arithmetic fact that you probably have always 
            Proof
           </div>
           <p>
-           We must negate the proposition that we want to prove. It may be helpful to write the proposition out in symbols: \[ \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a &gt; 0 \land b&gt;0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \]
+           It may be helpful to write the proposition out in symbols: \[ \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a &gt; 0 \land b&gt;0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \]
           </p>
          </div>
          <div class="paragraph">
           <p>
            To prove this proposition by contradiction, we ASSUME that its negation is True, that is we use the premise \[ \text{ Premise: } \neg \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a &gt; 0 \land b&gt;0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \]
-In words, we assume the premise: There are integers \(a\) and \(b\) such that \(a &gt; 0,\) \(b &gt; 0,\) and \(\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.\)
+In words, we assume:
+There are integers \(a\) and \(b\) such that \(a &gt; 0,\) \(b &gt; 0,\) and \(\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.\)
           </p>
          </div>
          <div class="paragraph">
@@ -2322,7 +2500,7 @@ Use the theorem we proved earlier in this section to conclude that \(a\) must be
              There are no positive integers \(a\) and \(b\) such that \(\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.\)
              <br/>
              <br/>
-             That is, the square root of 2 is an irrational number.
+             That is, the square root of 2 is not a rational number.
             </p>
            </div>
           </div>
@@ -2331,8 +2509,120 @@ Use the theorem we proved earlier in this section to conclude that \(a\) must be
        </div>
        <div class="paragraph">
         <p>
-         MORE TO COME!!
+         Here is another example of proof by contradiction.
         </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem - Generalized Pigeonhole Principle
+         </div>
+         <div class="paragraph">
+          <p>
+           Suppose that \(n\) and \(k\) are positive integers.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           If each of \(n\) objects is assigned to one of \(k\) categories, then at least one category contains at least \(\displaystyle{\left\lceil \frac{n}{k} \right\rceil}\) objects.
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Proof
+          </div>
+          <p>
+           First, recall that \(\lceil x \rceil\) is the ceiling function whose output is the least integer that is greater than or equal to \(x\) (that is, \(\lceil x \rceil\) rounds a real number \(x\) up to the next greatest integer.) The graph of the function is shown in section 3 of
+           <a href="./appendix_library.html">
+            this appendix.
+           </a>
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Next, before starting a formal proof, let’s look at a specific example to understand what we need to prove. Suppose we want to assign 13 people to the 3 categories "high school student," "post-secondary student," and "other". It’s not hard to see that when we assign people to the categories, the sum of the numbers in the categories has to be 13, so at least one of the categories has at least \(5 = \displaystyle{\left\lceil \frac{13}{3} \right\rceil}\) people. That is, if each category had at most \(4 = \displaystyle{\left\lceil \frac{13}{3} \right\rceil - 1}\) people, then the sum of those numbers would be less than or equal to \((3)(4) = 12,\) not 13 as it should be. You can formalize this argument to use \(n\) and \(k\) instead of the specific values 13 and 3, which will provide a formal proof using the "proof by contradiction" technique.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Now, to prove this proposition by contradiction, suppose that the conditional is False. That is, we assume that
+          </p>
+         </div>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             It is True that \(n\) and \(k\) are positive integers.
+            </p>
+           </li>
+           <li>
+            <p>
+             It is true that each of \(n\) objects has been assigned to one of \(k\) categories.
+            </p>
+           </li>
+           <li>
+            <p>
+             It is False that "At least one category contains at least \(\displaystyle{\left\lceil \frac{n}{k} \right\rceil}\) objects."
+            </p>
+           </li>
+          </ul>
+         </div>
+         <div class="paragraph">
+          <p>
+           So we are assuming that the negation of the last bulleted statement must be True, that is "Every category contains fewer than \(\displaystyle{\left\lceil \frac{n}{k} \right\rceil}\) objects" is True.
+           <span class="small">
+            You should verify that this is the correct negation by using  De Morgan’s laws for quantifiers.
+           </span>
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Label the categories with the integers \(1, 2, \ldots k\) and let the integers \(c_1, c_2, \ldots, c_k\) be the counts of objects in each of the categories, that is, assume that the number of objects assigned to category \(i\) is \(c_i.\) From the assumption, every \(c_i\) is less than or equal to \(\displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1.\) The total number of objects assigned to categories is therefore \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1 \right) \]
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           For any real number \(x,\) it is true by definition of the ceiling function that \(\displaystyle{x \leq \left\lceil x \right\rceil &lt; x+1}\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           This means that  \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1 \right) &lt; k \left( \displaystyle{\left( \frac{n}{k} + 1 \right)} - 1 \right) \] and the expression on the right simplifies to \(n.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           So the number of objects assigned to the categories must be strictly less than \(n,\) but we also have as a premise that all \(n\) objects were assigned. This is a contradiction.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Apply the Contradiction Rule to infer that it is False that the last bulleted statement is False, that is, conclude that the conditional statement of the theorem must be True.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           We have proven the theorem.
+          </p>
+         </div>
+         <div class="exampleblock">
+          <div class="content">
+           <div class="paragraph">
+            <div class="title">
+             Theorem
+            </div>
+            <p>
+             Suppose that \(n\) and \(k\) are positive integers.
+            </p>
+           </div>
+           <div class="paragraph">
+            <p>
+             If each of \(n\) objects is assigned to one of \(k\) categories, then at least one category contains at least \(\displaystyle{\left\lceil \frac{n}{k} \right\rceil}\) objects.
+            </p>
+           </div>
+          </div>
+         </div>
+        </div>
        </div>
       </div>
      </div>

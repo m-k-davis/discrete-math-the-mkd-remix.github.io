@@ -1,8 +1,10 @@
 = Proofs: Basic Techniques
 
-#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on August 27, 2024._
+_This chapter was last updated on September 30, 2024._ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+
 
 //MKD: Need to add info on Rules of Inference
 // and definition of proof, theorem (lemma, corollary), axiom (postulate), conjecture 
@@ -101,11 +103,11 @@ Also see 	Proof Templates (slides 10-12) and (Jose Ortiz sets slides 35-40)
 
 //MKD needs to add intro blurb "Proof is used to validate arguments and processess"
 
-Recall from the link:./logic.html[Logic] chapter  that an *argument* is a finite sequence of statements that ends with a final statement, the *conclusion*, that is based on inferences made from the earlier statements, called *premises* or *hypotheses.*
+Recall from the link:./logic.html[Logic] chapter that an *argument* is a finite sequence of statements that ends with a final statement, the *conclusion,* that is based on inferences made from the earlier statements, called *premises* or *hypotheses.*
 
 An argument is *valid* if it is of a form such that if all premises are True then the conclusion must be True, too. An argument is not valid just because it exists! Compare this situation to a proposition, which is a single statement that may be either True or False (but not both); an argument is a finite sequence of statements that may be either valid or invalid.
 
-A *proof* is a valid argument made up of propositions. In a proof, some premises may be *axioms* or *postulates*, which are propositions that we simply ASSUME to be True. Other premises used in a proof may be previously-proven propositions called *theorems*. There are many other terms used for theorems depending on the context, such as *lemma* (a minor theorem needed to prove a more important major theorem) and *corollary* (a theorem that is a conclusion based on a premise that is a more important theorem), 
+A *proof* is a valid argument made up of propositions. In a proof, some premises may be *axioms* or *postulates,* which are propositions that we simply ASSUME to be True. Other premises used in a proof may be previously-proven propositions called *theorems.* There are many other terms used for theorems depending on the context, such as *lemma* (a minor theorem needed to prove a more important major theorem) and *corollary* (a theorem that is a conclusion based on a premise that is a more important theorem), 
 //etc., 
 but each of these specialized terms describes a theorem.
 
@@ -129,7 +131,9 @@ include::python_tutor.adoc[]
 //MKD use non-looping example here
 ////
 
-== Rules Of Inference
+// MKD combine this and "Rules Of Inference for Quantified Statements" after Dec. 20, 2024
+//== Rules Of Inference
+== Rules of Inference for Propositions
 
 //MKD need to define an argument somewhere (or already in Logic chapter?)
 //MKD - can recycle the Sarah and Daniel example from Logic chapter, but write in the form 
@@ -429,8 +433,9 @@ $((p \rightarrow q) \land p) \rightarrow q$.
 This rule of inference corresponds to the tautology 
 $((p \rightarrow q) \land \neg q) \rightarrow \neg p$. 
 
-This rule of inference corresponds to replacing the conditional 
-$p \rightarrow q$ by its logically equivalent contrapositive $\neg q \rightarrow \neg p$.
+[small]#This rule of inference corresponds to replacing the conditional 
+$p \rightarrow q$ by its logically equivalent contrapositive $\neg q \rightarrow \neg p$ in the tautology, which gives $((\neg q \rightarrow \neg p) \land \neg q) \rightarrow \neg p,$ then applying _modus ponens_ to this new tautology.#
+
 ****
 
 Next, here are the two fallacies. They are included because they are very common errors to be aware of and to avoid. 
@@ -507,6 +512,18 @@ This rule of inference corresponds to the tautology
 $((p \rightarrow q) \land (q \rightarrow r) \land (p \lor q)) \rightarrow r$.
 ****
 
+.Elimination (Disjunctive Syllogism)
+****
+[no-bullet]
+* $p \lor q$
+* $\neg q$
+* $\therefore p$ 
+
+This rule of inference corresponds to the tautology 
+$((p \lor q) \land \neg q) \rightarrow p$.
+****
+
+
 
 .Resolution
 ****
@@ -516,19 +533,14 @@ $((p \rightarrow q) \land (q \rightarrow r) \land (p \lor q)) \rightarrow r$.
 * $\therefore q \lor r$ 
 
 This rule of inference corresponds to the tautology 
-$((p \rightarrow q) \land (\neg p \rightarrow r)) \rightarrow (q \lor r)$.
-****
+$((p \rightarrow q) \land (\neg p \rightarrow r)) \rightarrow (q \lor r)$. 
 
+[small]#Notice that this rule of inference can also be written as# + 
+[small]#$\neg p \lor q$# + 
+[small]#$p \lor r$# + 
+[small]#$\therefore q \lor r$# + 
+[small]#This form of resolution is important to  link:https://dl.acm.org/doi/10.1145/321250.321253[automated theorem-proving.]# 
 
-.Elimination
-****
-[no-bullet]
-* $p \lor q$
-* $\neg q$
-* $\therefore p$ 
-
-This rule of inference corresponds to the tautology 
-$((p \lor q) \land \neg q) \rightarrow p$.
 ****
 
 .Contradiction Rule
@@ -582,17 +594,84 @@ What is the speed of light?
 --
 ////
 
+
+
+// MKD combine this and "Rules of Inference for Propositions" after Dec. 20, 2024
+== Rules Of Inference for Quantified Statements
+
+//In this section, four rules of inference that apply to predicates that have been quantified are discussed. We assume that the values of the variable(s) are restricted to a universal set $U.$ 
+In this section, four rules of inference that apply to quantified predicates  are presented. In all of these rules of inference, the values of the variable(s) are assumed to be restricted to a universal set $U.$
+
+=== Rules of Inference for Universally-Quantified Predicates
+
+Universal instantiation states that, from the premise $\forall x P(x)$
+and the premise $c \in U,$ where $c$ is an arbitrarily-chosen element, you can conclude that $P(c)$ must also be true. 
+
+.Universal Instantiation (Universal Specification)
+****
+[no-bullet]
+* $\forall x P(x)$
+* $\therefore P(c) \text{ for any } c \in U$ 
+
+//This rule of inference corresponds to the tautology 
+//$(((\forall x \in U) P(x)) \land (c \in U)) \rightarrow (P(c)).$
+****
+
+
+Universal generalization states that, from the premise $P(x)$ is true for every arbitrarily-chosen value of $x$ that is an element of the universal set $U,$ you can conclude $\forall x P(x)$ must also be true. 
+
+.Universal Generalization
+****
+[no-bullet]
+* $P(c) \text{ for every } c \in U$
+* $\therefore \forall x P(x)$ 
+
+//This rule of inference corresponds to the tautology 
+//$(P(c) \text{ for every } c \in U) \rightarrow (\forall x \in U) P(x).$ 
+****
+
+You will see later in the textbook that universal generalization is applied in _every_ proof that uses the link:./induction.html[mathematical induction] proof technique.
+
+=== Rules of Inference for Existentially-Quantified Predicates
+
+Existential instantiation states that, from the premise $\exists x P(x),$ you can conclude that there must be at least one $c \in U$ such that $P(c)$ is true. This allows you to pick a "constant" $c$ instead of needing to refer repeatedly to the existential quantifier.
+
+.Existential Instantiation (Existential Elimination)
+****
+[no-bullet]
+* $\exists x P(x)$
+* $\therefore P(c) \text{ for some element } c \in U$ 
+
+//This rule of inference corresponds to the tautology 
+//$((\exists x \in U) P(x)) \rightarrow (P(c)).$
+****
+
+
+Existential generalization states that, from the premise that $P(c)$ is true for at least one $c \in U,$ you can conclude that $\exists x P(x)$ must also be true. 
+
+.Existential Generalization
+****
+[no-bullet]
+* $P(c) \text{ for some element } c \in U$
+* $\therefore \exists x P(x)$ 
+
+//This rule of inference corresponds to the tautology 
+//$(P(c) \text{ for every } c \in U) \rightarrow (\forall x \in U) P(x).$ 
+****
+
+
+
 == Proof Techniques - SECTION IN PROGRESS
 
-In this section we will give several examples of formal mathematical proofs to illustrate different techniques. 
+In this section several examples of formal mathematical proofs are given to illustrate different proof techniques. 
 // MKD added Sept 13, 2024 
 Many of the techniques correspond to certain rules of inference that were discussed earlier in this chapter. 
 
-Each proof starts with us stating a *conjecture*, which is a proposition with undetermined truth value. The goal of each proof is to determine the truth value of the relevant conjecture.
+Each proof starts by stating a *conjecture,* which is a proposition with undetermined truth value. The goal of each proof is to determine the truth value of the relevant conjecture.
 
 To simplify the description of the proof techniques, we'll only consider the case where the proof has a _single premise_ $p$, that is, we'll always assume that our proof  
 //is of the _modus ponens_ form $(p \land (p \rightarrow q)) \rightarrow q$. 
-involves a single conditional $p \rightarrow q$. This may seem like an oversimplification, but it is not: We are simply renaming the conjunction $(p_{1} \land p_{2} \land \ldots \land p_{n})$ of the actual premises by using the single propositional variable $p$, that is we are _defining_ $p$ by the logical equivalence $p \equiv (p_{1} \land p_{2} \land \ldots \land p_{n})$
+involves a single conditional $p \rightarrow q$. This may seem like an oversimplification, but it is not: We are simply renaming the conjunction $(p_{1} \land p_{2} \land \ldots \land p_{n})$ of all of the actual premises by using the single propositional variable $p$, that is we are _defining_ $p$ by the logical equivalence $p \equiv (p_{1} \land p_{2} \land \ldots \land p_{n})$
 
 
 //MKD added July 15 2024... may not need in final version
@@ -612,11 +691,14 @@ In a direct proof, we make an argument that a conditional statement $p \rightarr
 //	direct	if integers a and b are divisible by c, then so is ma+nb for any integers m and n. 
 .Theorem
 ****
-If $a,$ $b,$ and $c$ are integers such that both $a$ and $b$ are divisible by $c,$ then for any integers $m$ and $n$ the integer $ma+nb$ must be  divisible by $c.$
+If $a,$ $b,$ and $c$ are integers such that both $a$ and $b$ are divisible by $c,$ then for any integers $m$ and $n$ the integer $ma+nb$ must be  divisible by $c.$ + 
+[small]#This statement can be rephrased as "If the integers $a$ and $b$ are multiples of the integer $c$, then any sum of integer multiples of $a$ and $b$ must also be a multiple of $c."$#
 
 .Proof 
 
-Suppose that $a,$ $b,$ and $c$ are integers such that both $a$ and $b$ are divisible by $c.$ This means that there are integers $q$ and $t$ such that \[ a=qc \text{ and } b=tc \]
+Before starting the formal proof, let's look at a specific example. The integers 10, 6, and 2 are such that both 10 and 6 are divisible by 2. Suppose we have a pair of integers that we will use as multipliers, say 11 and 7, to form a new number $(11)(10)+(7)(6).$ Is the new number also divisible by 2? The answer is obviously "Yes" since we can just simplify the sum and divide by 2, but how can we _justify_ this for every choice of the pair of multipliers? Notice that we can factor 2 out of 10 and 6 in the sum that defines our new number: \[ (11)(10)+(7)(6) = (11)(5)(2)+(7)(3)(2) = [(11)(5)+(7)(3)](2) \] We can find the common factor of 2 and "factor it out" as if it were a variable. This appears to work no matter what values are chosen for the first three integers and the pair of multipliers, so should be generalizable to a formal proof.
+
+For the formal proof, start by supposing that $a,$ $b,$ and $c$ are integers such that both $a$ and $b$ are divisible by $c.$ This means that there are integers $q$ and $t$ such that \[ a=qc \text{ and } b=tc \]
 
 For any integers $m$ and $n$, we can rewrite the expression $ma+nb$ as \[ ma+nb = m(qc)+n(tc) = (mq)c + (nt)c = (mq+nt)c \] 
 
@@ -640,7 +722,8 @@ Write a proof of the following statement: If $a,$ $b,$ and $c$ are integers such
 
 // In a proof by contraposition, we make an argument that $\neg q \rightarrow \neg p$ must be True. This means that the logically equivalent conditional $p \rightarrow q$ must be True, so we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
 //In a proof by contraposition, we make an argument that $\neg q \rightarrow \neg p$ must be True. We can assume that the premise $\neg q$ is True and apply _modus tollens_ to prove that $\neg p$ must be True, too. 
-In a proof by contraposition, we make an argument that $\neg q \rightarrow \neg p$ must be True. Since  $p \rightarrow q$ is logically equivalent to $\neg q \rightarrow \neg p,$ we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
+//In a proof by contraposition, we make an argument that $\neg q \rightarrow \neg p$ must be True. Since  $p \rightarrow q$ is logically equivalent to $\neg q \rightarrow \neg p,$ we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
+In a proof by contraposition, we make an argument that $p \rightarrow q$ is True by instead first arguing that its contrapositive $\neg q \rightarrow \neg p$ is True and secondly applying the logical equivalence of the conditional and its contrapositive. Start by assuming that the premise $\neg q$ is True and apply _modus ponens_ to prove that $\neq p$ must be True, too, then apply logical equivalence.
 
 //	NEED; maybe if n^2 is even (odd) then n is even (odd)
 .Theorem
@@ -658,7 +741,7 @@ If $n^{2}$ is even, then the integer $n$ is even.
 
 //We'll only prove statement (1), by first proving its contrapositive, which is a logically equivalent statement. The proof of statement (2) is left as a "you try" exercise.
 
-Suppose that it's not the case that the integer $n$ is even. 
+It is easier to prove "if it's not the case that the integer $n$ is even, then it's not the case that $n^{2}$ is even," so start by supposing that it's not the case that the integer $n$ is even. 
 
 This means that $n$ must be odd, so there is an integer $q$ such that \[ n = 2q + 1\] 
 
@@ -737,12 +820,15 @@ There are no positive integers $a$ and $b$ such that $\displaystyle{ \left( \fra
 
 .Proof 
 
-We must negate the proposition that we want to prove. It may be helpful to write the proposition out in symbols: \[ \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a > 0 \land b>0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \] 
+It may be helpful to write the proposition out in symbols: \[ \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a > 0 \land b>0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \] 
 // \left( \left( \frac{a}{b} \right)^{2} } = \right) \]
 
+//We must negate the proposition that we want to prove. 
 To prove this proposition by contradiction, we ASSUME that its negation is True, that is we use the premise \[ \text{ Premise: } \neg \neg (\exists a \in \mathbb{Z}) (\exists b \in \mathbb{Z})  \left( a > 0 \land b>0 \land  \left( \frac{a}{b} \right)^{2} = 2 \right) \] 
 // \left( \left( \frac{a}{b} \right)^{2} } = \right) \]
-In words, we assume the premise: There are integers $a$ and $b$ such that $a > 0,$ $b > 0,$ and $\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.$
+In words, we assume: 
+// the premise: 
+There are integers $a$ and $b$ such that $a > 0,$ $b > 0,$ and $\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.$
 // \[ \left( \frac{a}{b} \right)^{2} = 2. \] 
 
 //We will also assume that we have already reduced the fraction so that $a$ and $b$ have no common prime factors (You probably know how to do this - just divide both numerator and denominator by their greatest common divisor. We will _prove_ that this can be done in the mathematical induction chapter later in the textbook.) 
@@ -770,7 +856,7 @@ We have proven the following theorem.
 .Theorem  
 There are no positive integers $a$ and $b$ such that $\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.$ + 
  + 
-That is, the square root of 2 is an irrational number.
+That is, the square root of 2 is not a rational number.
 ==== 
 
 ****
@@ -778,6 +864,63 @@ That is, the square root of 2 is an irrational number.
 //There do not exist positive integers $a$ and $b$ such that $\displaystyle{ \left( \frac{a}{b} \right)^{2} } = 2.$
 
 
+Here is another example of proof by contradiction.
+
+.Theorem - Generalized Pigeonhole Principle
+****
+Suppose that $n$ and $k$ are positive integers. 
+ 
+If each of $n$ objects is assigned to one of $k$ categories, then at least one category contains at least $\displaystyle{\left\lceil \frac{n}{k} \right\rceil}$ objects.
+
+.Proof 
+
+First, recall that $\lceil x \rceil$ is the ceiling function whose output is the least integer that is greater than or equal to $x$ (that is, $\lceil x \rceil$ rounds a real number $x$ up to the next greatest integer.) The graph of the function is shown in section 3 of link:./appendix_library.html[this appendix.]
+
+Next, before starting a formal proof, let's look at a specific example to understand what we need to prove. Suppose we want to assign 13 people to the 3 categories "high school student," "post-secondary student," and "other". It's not hard to see that when we assign people to the categories, the sum of the numbers in the categories has to be 13, so at least one of the categories has at least $5 = \displaystyle{\left\lceil \frac{13}{3} \right\rceil}$ people. That is, if each category had at most $4 = \displaystyle{\left\lceil \frac{13}{3} \right\rceil - 1}$ people, then the sum of those numbers would be less than or equal to $(3)(4) = 12,$ not 13 as it should be. You can formalize this argument to use $n$ and $k$ instead of the specific values 13 and 3, which will provide a formal proof using the "proof by contradiction" technique.
+
+
+Now, to prove this proposition by contradiction, suppose that the conditional is False. That is, we assume that 
+
+* It is True that $n$ and $k$ are positive integers. 
+* It is true that each of $n$ objects has been assigned to one of $k$ categories. 
+* It is False that "At least one category contains at least $\displaystyle{\left\lceil \frac{n}{k} \right\rceil}$ objects." 
+
+So we are assuming that the negation of the last bulleted statement must be True, that is "Every category contains fewer than $\displaystyle{\left\lceil \frac{n}{k} \right\rceil}$ objects" is True. [small]#You should verify that this is the correct negation by using  De Morgan's laws for quantifiers.#
+
+Label the categories with the integers $1, 2, \ldots k$ and let the integers $c_1, c_2, \ldots, c_k$ be the counts of objects in each of the categories, that is, assume that the number of objects assigned to category $i$ is $c_i.$ From the assumption, every $c_i$ is less than or equal to $\displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1.$ The total number of objects assigned to categories is therefore \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1 \right) \]
+
+//Now, using the division algorithm you can write $n = q \cdot k + r$ where $q$ and $r$ are natural numbers and $0 \leq r < k.$ In particular, \[ \displaystyle{\frac{n}{k}} \leq \displaystyle{\frac{n}{k}}\]
+
+//If $r = 0$ then $\displaystyle{\frac{n}{k}} = q,$ and if $q <r < k$ then $\displaystyle{\frac{n}{k}} = q + 1.$ But in either case,  so $\displaystyle{\left\lceil \frac{n}{k} \right\rceil} = q,$ too. 
+
+For any real number $x,$ it is true by definition of the ceiling function that $\displaystyle{x \leq \left\lceil x \right\rceil < x+1}$
+
+// $\displaystyle{\frac{n}{k}} \leq \displaystyle{\frac{n}{k}}\]
+
+This means that  \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1 \right) < k \left( \displaystyle{\left( \frac{n}{k} + 1 \right)} - 1 \right) \] and the expression on the right simplifies to $n.$ 
+
+So the number of objects assigned to the categories must be strictly less than $n,$ but we also have as a premise that all $n$ objects were assigned. This is a contradiction.
+
+Apply the Contradiction Rule to infer that it is False that the last bulleted statement is False, that is, conclude that the conditional statement of the theorem must be True. 
+
+We have proven the theorem. 
+
+====
+.Theorem  
+Suppose that $n$ and $k$ are positive integers. 
+ 
+If each of $n$ objects is assigned to one of $k$ categories, then at least one category contains at least $\displaystyle{\left\lceil \frac{n}{k} \right\rceil}$ objects.
+==== 
+
+****
+
+// \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{ \frac{n}{k} } - 1 \right) \leq  \] 
+
+//which means that $\displaystyle{\frac{n}{k}} = q + \displaystyle{\frac{r}{k}} < q + 1.$ Since $q+1$ is an integer, \[ \displaystyle{\left\lceil \frac{n}{k} \right\rceil} \leq q+1 \]
+
+//Combining the inequalities gives \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1 \right) \leq k ( (q + 1) - 1) \leq kq \]
+
+//This proves that it is False that there are no positive integers $a$ and $b$ such that \[ \left( \frac{a}{b} \right)^{2} = 2 \] so $\sqrt(2)$ is not a rational number. 
 
 
 // MKD also 
@@ -797,8 +940,8 @@ That is, the square root of 2 is an irrational number.
 ////
 
 
-
-MORE TO COME!!
+// MKD add more after Dec. 20 2024
+//MORE TO COME!!
 
 
 

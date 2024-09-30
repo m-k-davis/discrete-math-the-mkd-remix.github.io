@@ -1,9 +1,9 @@
 = Logic
 
-#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 23, 2024._
-//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+_This chapter was last updated on September 30, 2024._ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 
 //COMING SOON!
@@ -667,7 +667,7 @@ The definition of wff allows you to analyze any string of symbols to determine w
 
 //It can be seen that there is a one-to-one correspondence between the set of well-formed formulae and the set of compound propositions. 
 It can be shown that every compound proposition can be represented by at least one wff. 
-However, a wff may be difficult to read quickly if it contains many parentheses. As an example, it is not easy to read $((p \rightarrow q) \lor ((\neg r) \land (s \leftrightarrow t))$. For this reason, we can introduce  _operator precedence_ rules that allow us to eliminate some of the parentheses. 
+However, a wff may be difficult to read quickly if it contains many parentheses. As an example, it is not easy to read $( (p \rightarrow q) \lor ( (\neg r) \land (s \leftrightarrow t) ) )$. For this reason, we can introduce  _operator precedence_ rules that allow us to eliminate some of the parentheses. 
 
 
 //MKD added operator precedence
@@ -693,7 +693,7 @@ This allows us to drop some parentheses from a wff that represents a compound pr
 
 For example, the compound proposition $\neg p \lor q \land r \rightarrow s$ represents the same proposition as 
 the wff 
-$((\neg p) \lor (q \land r)) \rightarrow s$. 
+$(((\neg p) \lor (q \land r)) \rightarrow s)$. 
 At least some of the parentheses must be used if you want to represent a different proposition such as $(\neg p \lor q) \land (r \rightarrow s)$.
 
 //Note that 
@@ -1755,12 +1755,11 @@ image::images/logic_gate_2.png[]
 
 . Complete parts (a) and (b) to show that every compound proposition is logically equivalent to one that uses the same propositional variables but only the NAND operator $\uparrow.$ 
 .. For each of the three propositions $\neg p$, $p \land q,$ and $p \lor q,$ write a logically equivalent proposition that uses only $p,$ $q,$ and $\uparrow.$ 
-.. Use the theorem that every compound proposition is equivalent to a compound proposition in disjunctive normal form. 
+.. Use the theorem that every compound proposition is equivalent to a compound proposition in disjunctive normal form to justify that the compound proposition is also equivalent to one that uses only the NAND operator $\uparrow.$ 
 
 . Complete parts (a) and (b) to show that every compound proposition is logically equivalent to one that uses the same propositional variables but only the NOR operator $\downarrow.$ 
 .. For each of the three propositions $\neg p$, $p \land q,$ and $p \lor q,$ write a logically equivalent proposition that uses only $p,$ $q,$ and $\downarrow.$ 
-.. Use the theorem that every compound proposition is equivalent to a compound proposition in disjunctive normal form. 
-
+.. Use the theorem that every compound proposition is equivalent to a compound proposition in disjunctive normal form to justify that the compound proposition is also equivalent to one that uses only the NOR  operator $\downarrow.$ 
 
 
 
