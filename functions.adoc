@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 12, 2024._
+_This chapter was last updated on October 7, 2024._
 
 // MKD start of topics
 ////
@@ -613,6 +613,11 @@ MKD needs to add the following
 In link:appendix_library.html[Appendix: Library of Functions], several functions and their plots are shown to illustrate
 the important concepts of functions, including domain, codomain, range, and invertibility.
 
+
+MORE TO COME!!
+
+////
+//MKD examples and compostion, etc begins
 == The Ceiling, Floor, Maximum and  Minimum Functions
 
 There are two important rounding functions, the ceiling function and the floor function. In discrete
@@ -749,8 +754,7 @@ image::images/min.png[geometricsequence,1000,1000]
 == The Algebra of Functions
 
 If two functions $f\left(x\right)$ and $g\left(x\right)$
-have the same domain $A$, then we can combine these functions using the common
-algebraic operations of addition, subtraction, multiplication, and division.
+have the same domain $A$ and same codomain $\mathbb{R},$ then you can combine these functions using the operations addition, subtraction, multiplication, and division.
 
 .The Algebra of Functions
 ****
@@ -764,13 +768,12 @@ algebraic operations of addition, subtraction, multiplication, and division.
 ****
 .Example {counter:funcex}
 
-Consider $f\left(x\right)=x^2+1$ and $g\left(x\right)=\sqrt x$ defined on $f,\ g:R\rightarrow R$.Form
-$\left(f+g\right)$, $\left(f-g\right)$, $\left(f\cdot\ g\right)$,  and $\left(\frac{f}{g}\right)$, and determine their
-respective domains.
+Consider $f\left(x\right)=x^2+1$ and $g\left(x\right)=\sqrt x$ defined on $f,\ g: \mathbb{R}_{\geq0} \rightarrow \mathbb{R}$. 
+Find the rules for the functions $\left(f+g\right)$, $\left(f-g\right)$, $\left(f\cdot\ g\right)$,  and $\left(\frac{f}{g}\right)?$
 
 .Solution
 
-The common domain is $\ x\ \geq0$, since the square root is real valued only for $\ x\ \geq0$.
+The common domain is $\mathbb{R}_{\geq0}$, since the square root is real valued only for $\ x\ \geq0$.
 
 $\left(f+g\right)\left(x\right)=f\left(x\right)+g\left(x\right)=x^2+1+\sqrt x$ , for $ x  ≥  0$
 
@@ -924,10 +927,14 @@ and
 $g\left(x\right)=\frac{x-5}{3}$  and ,  $g\left(11\right)=\frac{11-5}{3}=\frac{6}{3}=2$
 or $g:11\rightarrow 2$.
 ****
+////
+//MKD examples and compostion, etc ends
 
 
-== Applications of Functions
-#MKD needs to write this section!#
+//== Applications of Functions
+//#MKD needs to write this section!#
+
+
 ////
 	pigeonhole Principle
 		If x items are placed into y bins where x > y, 
@@ -949,6 +956,8 @@ or $g:11\rightarrow 2$.
 				MKD: use binary to get at power set of N, too???
 ////
 
+
+////
 == Exercises
 . What can be said about the relation $f:A\rightarrow B$, if
 .. $\exists z\in B\forall x\in A,f\left(x\right)\neq z$
@@ -1035,3 +1044,4 @@ increasing* if whenever asciimath:[x<y], then asciimath:[f(x)<f(y)].
 .. State this using logical quantifiers.
 .. State a similar definition for a *strictly decreasing* function, and then translate using logical quantifiers.
 
+////

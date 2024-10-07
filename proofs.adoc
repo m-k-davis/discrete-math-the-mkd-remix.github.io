@@ -2,7 +2,7 @@
 
 //#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 30, 2024._ + 
+_This chapter was last updated on October 6, 2024 (fixed subscript typo in proof of Generalized Pigeonhole Principle)_ + 
 [small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 
@@ -888,7 +888,7 @@ Now, to prove this proposition by contradiction, suppose that the conditional is
 
 So we are assuming that the negation of the last bulleted statement must be True, that is "Every category contains fewer than $\displaystyle{\left\lceil \frac{n}{k} \right\rceil}$ objects" is True. [small]#You should verify that this is the correct negation by using  De Morgan's laws for quantifiers.#
 
-Label the categories with the integers $1, 2, \ldots k$ and let the integers $c_1, c_2, \ldots, c_k$ be the counts of objects in each of the categories, that is, assume that the number of objects assigned to category $i$ is $c_i.$ From the assumption, every $c_i$ is less than or equal to $\displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1.$ The total number of objects assigned to categories is therefore \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1 \right) \]
+Label the categories with the integers $1, 2, \ldots k$ and let the integers $c_1, c_2, \ldots, c_k$ be the counts of objects in each of the categories, that is, assume that the number of objects assigned to category $i$ is $c_i.$ From the assumption, every $c_i$ is less than or equal to $\displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1.$ The total number of objects assigned to categories is therefore \[ c_1 + c_2 + \cdots + c_k \leq k \left( \displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1 \right) \]
 
 //Now, using the division algorithm you can write $n = q \cdot k + r$ where $q$ and $r$ are natural numbers and $0 \leq r < k.$ In particular, \[ \displaystyle{\frac{n}{k}} \leq \displaystyle{\frac{n}{k}}\]
 
@@ -898,7 +898,7 @@ For any real number $x,$ it is true by definition of the ceiling function that $
 
 // $\displaystyle{\frac{n}{k}} \leq \displaystyle{\frac{n}{k}}\]
 
-This means that  \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1 \right) < k \left( \displaystyle{\left( \frac{n}{k} + 1 \right)} - 1 \right) \] and the expression on the right simplifies to $n.$ 
+This means that  \[ c_1 + c_2 + \cdots + c_k \leq k \left( \displaystyle{\left\lceil \frac{n}{k} \right\rceil} - 1 \right) < k \left( \displaystyle{\left( \frac{n}{k} + 1 \right)} - 1 \right) \] and the expression on the right simplifies to $n.$ 
 
 So the number of objects assigned to the categories must be strictly less than $n,$ but we also have as a premise that all $n$ objects were assigned. This is a contradiction.
 
