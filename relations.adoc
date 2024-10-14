@@ -2,7 +2,9 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on August 27, 2024._
+_This chapter was last updated on October 14, 2024._
+
+COMING SOON!
 
 ////
 RELATIONS (MKD) - new chapter is needed for this
@@ -98,7 +100,6 @@ and R contains the student records as defined before ?
 Solution: The resulting relation is:
 {(1978, Ackermann, 231455, CS, 3.88), (1972, Adams, 888323, Physics, 3.45), (1917, Chou, 102147, CS, 3.79), (1984, Goodfriend, 453876, Math, 3.45), (1982, Rao, 678543, Math, 3.90), (1970, Stevens, 786576, Psych, 2.99)}
 Since Y has two fields and R has four, the relation J1(Y, R) has 2 + 4 – 1 = 5 fields.
-////
 
 
 
@@ -216,5 +217,4 @@ Partition <-> Equivalence Relaction
 
 
 COMING SOON!
-////
 ////

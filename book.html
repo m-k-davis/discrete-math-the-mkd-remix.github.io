@@ -10107,28 +10107,6 @@ called a <strong>closed form,</strong> for the terms of the sequence.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Determine whether the sequence \({a_n}\) where \(a_n=2^n\) for every nonnegative integer \(n\) is a solution of the recurrence
-relation \(a_n=2a_{n-1}-a_{n-2}\) for \(n=2, 3, 4, \ldots\).</p>
-</div>
-<div class="paragraph">
-<div class="title">Solution:</div>
-<p>Using the equation \(a_0=2^0=1\), \(a_1=2^1=2\), and \(a_2=2^2=4\).  Because \(a_2=a_1-a_0=2*2-1=3\) and this is not the value of \(a_2\), we say that \({a_n}\)
-where \(a_n=2^n\) is not a solution (or closed formula) for the recurrence relation.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>We can solve a recurrence relation using <strong>iteration</strong>.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="openblock">
-<div class="title">Example 5</div>
-<div class="content">
-
-</div>
-</div>
-<div class="paragraph">
 <p>Solve the recurrence relation \(a_n=a_{n-1}+3\) when \(a_1=2\).</p>
 </div>
 <div class="paragraph">
@@ -10142,6 +10120,10 @@ a_4&amp;=a_3+3=(2+2\cdot 3)+3=2+3\cdot 3\\
 a_n&amp;=a_{n-1}+3=(2+3(n-2))+3=2+3(n-1)\\
 \end{align*}
 So our closed formula is \(a_n=2+3(n-1)\).</p>
+</div>
+<div class="paragraph">
+<div class="title">You Try</div>
+<p>Solve the recurrence relation \(b_n=3b_{n-1}\) when \(a_1=5\).</p>
 </div>
 </div>
 </div>
@@ -10183,7 +10165,7 @@ Recursion
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 6 - Well-Formed Formulae</div>
+<div class="title">Example 5 - Well-Formed Formulae</div>
 <p>The set of well-formed formulas is defined recursively as follows:</p>
 </div>
 <div class="hdlist">
@@ -10233,7 +10215,7 @@ Recursion
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 7 - Rooted Trees</div>
+<div class="title">Example 6 - Rooted Trees</div>
 <p>A <strong>rooted tree</strong> is a type of graph. Graphs are described informally in the <a href=./introduction_discrete_math.html#vertex-edge-graphs>Introducing Discrete Mathematics</a> chapter, and will be defined formally in the <a href=./graphs.html>Graphs</a> chapter.</p>
 </div>
 <div class="paragraph">
@@ -10296,7 +10278,7 @@ uses of the recursion step; note that infinitely-many rooted trees are construct
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 8</div>
+<div class="title">Example 7</div>
 <div class="content">
 
 </div>
@@ -10792,143 +10774,10 @@ the important concepts of functions, including domain, codomain, range, and inve
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on August 27, 2024.</em></p>
+<p><em>This chapter was last updated on October 14, 2024.</em></p>
 </div>
-<div class="paragraph">
-<p>Informally, a relation on two or more sets is an association between elements of those sets.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>the comparisons we make between two numbers: Is the first number less than, equal to, or greater than the second number?</p>
-</li>
-<li>
-<p>the association of a student&#8217;s name, the student&#8217;s ID number, and classes in which the student is enrolled. Here there are three sets: The set of names of all students, the set of all student ID numbers, and the set of all classes offered. Notice that the same name and ID number are likely to be associated with multiple classes.</p>
-</li>
-<li>
-<p>the association of siblinghood (e.g., two people are brothers or sisters).</p>
-</li>
-<li>
-<p>the association of each integer with its square. This relation is a function. In fact, every function is a relation since it associates an input with exactly one output.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_definition_of_n_ary_relation">11.1. Definition of <em>n</em>-ary Relation</h3>
-<div class="paragraph">
-<p>Given sets \(A_{1}, \, A_{2}, \, \ldots \, A_{n}\) where \(n \geq 2,\)
-an <strong><em>n</em>-ary relation</strong> on \(A_{1}, \, A_{2}, \, \ldots \, A_{n}\)
-is a subset \(R\) of the Cartesian product
-\(A_{1} \times A_{2} \times \cdots \times A_{n},\) that is,
-\(R \subseteq A_{1} \times A_{2} \times \cdots \times A_{n}.\)</p>
-</div>
-<div class="paragraph">
-<p>The sets \(A_{1}, \, A_{2}, \, \ldots \, A_{n}\) are called the <strong>domains</strong> of the relation \(R,\) and \(n\) is called the <strong>degree</strong> of the relation \(R.\)</p>
-</div>
-<div class="paragraph">
-<p>Example: Let
-\(A\) be the set of names of students currently enrolled at a college,
-\(B\) be the set of all possible student ID numbers, and
-\(C\) be the set of all classes currently offered at the college.
-The set \[ R = \{ (x, y, z) \mid \text{Student } x \text{ has ID number } y \text{ and is enrolled in class } z \} \] is a 3-ary relation, also called a <strong>ternary relation</strong> on \(A \times B \times C.\)</p>
-</div>
-<div class="paragraph">
-<p>Example: Let
-\(A\) be the set of names of students currently enrolled at a college.
-The set \[ R = \{ (x, y) \mid \text{Student } x \text{ is enrolled in a class section in which student } y  \text{ also is enrolled} \} \] is a 2-ary relation, usually called a <strong>binary relation</strong> on \(A \times A.\) Most of the focus of this chapter will be on binary relations.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_binary_relations">11.2. Binary Relations</h3>
-<div class="paragraph">
-<p>A <strong>binary relation</strong> on sets \(A\) and \(B\) is any subset \(R\) of the cartesian product c, that is, \(R \subseteq A \times B.\)</p>
-</div>
-<div class="paragraph">
-<p>Example NEEDED where A and B are NOT same set, but not a Functions</p>
-</div>
-<div class="paragraph">
-<p>Example: Any function f from A to B is a relation
-since \(f \subseteq A \times B\) (Recall from <a href=./functions.html>Functions</a> that the definition of function means that <em>f</em> is defined to be subset of
-\(A \times B.\))</p>
-</div>
-<div class="paragraph">
-<p>In many cases, the two sets are the same set, and the relation involves a comparison of elements of the set <em>A.</em></p>
-</div>
-<div class="paragraph">
-<p>A <strong>binary relation</strong> on set \(A\) is any subset \(R\) of the cartesian product
-\(A \times A\), that is, \(R \subseteq A \times A.\)</p>
-</div>
-<div class="sect3">
-<h4 id="_examples_of_binary_relations_on_a_set">11.2.1. Examples of Binary Relations on a Set</h4>
-<div class="paragraph">
-<p>students enrolled in the same class (out of all students at a college)</p>
-</div>
-<div class="paragraph">
-<p>ordering on numbers</p>
-</div>
-<div class="paragraph">
-<p>subset lattice</p>
-</div>
-<div class="paragraph">
-<p>Divisibility</p>
-</div>
-<div class="paragraph">
-<p>congruence of integers modulo m</p>
-</div>
-<div class="paragraph">
-<p>the identity relation \(id_{A}\)</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_properties_of_binary_relations">11.2.2. Properties of Binary Relations</h4>
-<div class="paragraph">
-<p>reflexive</p>
-</div>
-<div class="paragraph">
-<p>symmetric</p>
-</div>
-<div class="paragraph">
-<p>transitivity</p>
-</div>
-<div class="paragraph">
-<p>irreflexive</p>
-</div>
-<div class="paragraph">
-<p>antisymmemtric</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_equivalence_relations">11.3. Equivalence Relations</h3>
-<div class="paragraph">
-<p>Definition</p>
-</div>
-<div class="paragraph">
-<p>Equivalence Classes (along with odd/even example)</p>
-</div>
-<div class="paragraph">
-<p>Partition &lt;&#8594; Equivalence Relaction</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_modular_arithmetic">11.4. Modular Arithmetic</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_partial_orderings">11.5. Partial Orderings</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_total_orderings">11.6. Total Orderings</h3>
-<div class="sect3">
-<h4 id="_well_ordering">11.6.1. Well-Ordering</h4>
 <div class="paragraph">
 <p>COMING SOON!</p>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -10939,10 +10788,10 @@ since \(f \subseteq A \times B\) (Recall from <a href=./functions.html>Functions
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on September 4, 2024.</em></p>
+<p><em>This chapter was last updated on October 14, 2024.</em></p>
 </div>
 <div class="paragraph">
-<p>You have seen that some tasks can be completed by more than one algorithm. Two questions to ask are "How do you choose which algorithm to use? Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions.</p>
+<p>Some tasks can be completed by more than one algorithm. In such a case, two questions to ask are "How do you choose which algorithm to use?" and "Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions.</p>
 </div>
 <div class="paragraph">
 <p>In particular, ways of comparing the <em>rates of growth</em> of functions will allow us to compare how two algorithms perform as the size of the inputs to the algorithms increase with no upper bound (theoretically, since it&#8217;s very likely that there are only a finite amount of computing resources available in the universe.)</p>
@@ -11030,30 +10879,17 @@ Notice that we could prove, more rigorously, that the inequality is true, by usi
 <div class="content">
 <div class="title">Theorem</div>
 <div class="paragraph">
-<p>The binary relation "has the exact same order as" is an equivalence relation.</p>
+<p>The following statements are true for the "has the exact same order as" relationship.</p>
 </div>
-<div class="openblock click">
-<div class="title">Proof</div>
-<div class="content">
-<div class='click_oblique'>
-This is an exercise for you, dear reader!<br>
-Show that <br>
-
-(1) "\(f\) has the exact same order as \(f\)"<br>
-
-(2) If "\(f\) has the exact same order as \(g\)" then "\(g\) has the exact same order as \(f\)."<br>
-Hint: Break up the extended equality with \(|f(x)|\) in the middle into two shorter inequalities, rewrite those two inequalties then combine them into one extended inequality with \(|g(x)|\) in the middle.<br>
-
-(3) If "\(f\) has the exact same order as \(g\)" and "\(g\) has the exact same order as \(h\)," then "\(f\) has the exact same order as \(h\)."
-
-</div>
-</div>
+<div class="paragraph">
+<p>(1) \(f\) has the exact same order as \(f\)<br>
+(2) If \(f\) has the exact same order as \(g,\) then \(g\) has the exact same order as \(f\).<br>
+(3) If \(f\) has the exact same order as \(g,\) and \(g\) has the exact same order as \(h,\) then \(f\) has the exact same order as \(h.\)</p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Recall from the <a href=./relations.html>Relations</a> chapter that an equivalence relation on a set \(S\) corresponds to a partitioning of the set \(S\) into one or more disjoint subsets called equivalence classes. This means that "has the exact same order as" partitions the set \(\{ f \, | \, f \text{ is a function with domain and codomain } \mathbb{R} \}\) into equivalence classes.
-Let \(\Theta(g)\) be the equivalence class of <em>g</em> for the "has the exact same order as" relation. That is, \[ \Theta(g) = \{ f \, | \, f \text{ has the exact same order as } g \} \]</p>
+<p>These three properties let you conclude that the "has the exact same order as" relationship partitions the set \(\{ f \, | \, f \text{ is a function with domain and codomain } \mathbb{R} \}\) into disjoint sets. That is, if we define \(\Theta(g)\) as the set \[ \Theta(g) = \{ f \, | \, f \text{ has the exact same order as } g \} \] then every function with domain and codomain \(\mathbb{R}\) is an element of at least one of the \(\Theta(g)\) (since \(g\) is an element of \(\Theta(g)\)), and for any two functions \(g\) and \(h,\) the sets \(\Theta(g)\) and \(\Theta(h)\) must either be equal or have empty intersection.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -11077,7 +10913,7 @@ I believe that both mathematicians and computer scientists agree that <span clas
 <div class="sect2">
 <h3 id="_big_o_notation">12.3. Big <em>O</em> notation</h3>
 <div class="paragraph">
-<p>Traditionally, computer scientists are much more interested the idea that "<em>f</em> grows at most at the rate of <em>g</em>". This corresponds to the second part of the inequality used to define big Theta in the previous section.</p>
+<p>Traditionally, computer scientists are much more interested in the idea that "<em>f</em> grows at most at the rate of <em>g</em>". This corresponds to the second part of the inequality used to define big Theta in the previous section.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -11712,31 +11548,14 @@ words what it means that \( f(x)\) is <span class="underline">not</span> \( O(g(
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on August 27, 2024.</em></p>
+<p><em>This chapter was last updated on October 14, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p>An <strong>algorithm</strong> is a step-by-step process, defined by a set of
-instructions to be executed sequentially to achieve a specified task producing
-a determined output.</p>
-</div>
-<div class="paragraph">
-<p>Examples of common discrete mathematics algorithms include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Arithmetic algorithms such as the integer division or computation of the greatest common divisor of two integers presented earlier in the textbook.</p>
-</li>
-<li>
-<p>Sorting algorithms to place items of a list in a specific order.</p>
-</li>
-<li>
-<p>Searching algorithms to find an item in a data set or data structure like a tree.</p>
-</li>
-<li>
-<p>Insertion and deletion algorithms to insert or delete an item in a data structure such as a tree or list.</p>
-</li>
-</ul>
+instructions to be executed sequentially, that is used to compute a value or solve a problem. Algorithms are used in discrete mathematics to perform numerical computations, to sort lists, to do searches, insertions, and deletions of items in data structures, to solve optimization problems, and more.<br>
+<span class="small">The word <em>algorithm</em> is derived from the name of <a href=https://www.britannica.com/biography/al-Khwarizmi>Abū ‘Abd Allāh Muḥammad ibn Mūsā al-Khwārizmī.</a> Western Europeans learned how to do arithmetic with Hindu-Arabic numerals and the base-ten place-value system from a 12th-century AD Latin translation of one of al-Khwārizmī&#8217;s books
+(The Latin translation was done about 300 years after al-Khwārizmī wrote the original book in Arabic; the original is now lost.)
+By the way, the word <em>algebra</em> is derived from the title of another one of Al-Khwārizmī&#8217;s books.</span></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -11745,48 +11564,110 @@ a determined output.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Most of the Python examples in the Remix use non-optimal code. As mentioned in the <a href=./index.html>About this text</a> chapter, this was a deliberate choice because the code examples are designed for <em>teaching the mathematical concepts</em> but not for illustrating the <a href=https://docs.python.org/3/glossary.html#term-Pythonic>"Pythonic"</a> way of coding. However, a few code examples in this chapter <em>do</em> show how you can complete the same task by using some of Python&#8217;s built-in methods.
+In this chapter, several algorithms are implemented in Python using non-optimal code to illustrate all steps needed.
+As mentioned in the <a href=./index.html>About this text</a> chapter, this was a deliberate choice because the code examples are designed for <em>teaching the mathematical concepts</em> but not for illustrating the <a href=https://docs.python.org/3/glossary.html#term-Pythonic>"Pythonic"</a> way of coding. However, a few code examples in this chapter <em>do</em> show how you can complete the same task by using some of Python&#8217;s built-in methods.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_of_algorithms">13.1. Examples of Algorithms</h3>
+<h3 id="_what_is_an_algorithm_what_is_not_an_algorithm">13.1. What <em>Is</em> An Algorithm? What Is <em>Not</em> An Algorithm?</h3>
 <div class="paragraph">
-<p>We now proceed to develop some algorithms beginning with algorithms for common mathematical
-operations.  Much of mathematical notation can be considered pseudocode.</p>
+<p>There are several <a href=https://opened.cuny.edu/courseware/lesson/46/student/?section=2>problem-solving strategies</a> that humans use, but not all of these strategies are algorithms.</p>
+</div>
+<div class="paragraph">
+<p>An algorithm should have the following properties, based on Donald E. Knuth&#8217;s description in his famous  <a href=https://learning.oreilly.com/library/view/art-of-computer/9780321635754><em>Art of Computer Programming, The: Volume 1: Fundamental Algorithms, 3rd Edition</em></a>:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Definiteness
+</td>
+<td class="hdlist2">
+<p>Each step must be precisely defined. The actions taken at each step must be unambiguously specified.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Effectiveness
+</td>
+<td class="hdlist2">
+<p>Each step must be so basic that it can be done exactly and in a finite length of time.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Finiteness
+</td>
+<td class="hdlist2">
+<p>The process must terminate after a finite number of steps (although the number of steps may be a very large natural number.)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Input
+</td>
+<td class="hdlist2">
+<p>Zero or more input quantities are taken from a specified set. Inputs can be introduced before the initial step of the algorithm or dynamically before any later step of the algorithm.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Output
+</td>
+<td class="hdlist2">
+<p>The algorithm produces one or more outputs that have a specified relation to the inputs. Furthermore, the algorithm should produce the <em>correct</em> outputs for each set of inputs.</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
-<h4 id="_find_minimum_in_a_list_of_integers">13.1.1. Find Minimum in a List of Integers</h4>
+<h4 id="_an_example_finding_the_minimum_in_a_list_of_integers">13.1.1. An Example: Finding the Minimum in a List of Integers</h4>
 <div class="paragraph">
-<p>Consider an algorithm to determine the minimum element in a finite sequence or
-list of integers.</p>
-</div>
-<div class="paragraph">
-<p>The algorithm would be constructed as follows:</p>
+<p>Consider the following algorithm for finding the minimum element in a finite sequence of integers.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>We define a variable \(min\) and assign it to the first indexed element in the list.</p>
+<p>Task: Given a finite list of integers, find then minimum value in the list.</p>
 </li>
 <li>
-<p>Traverse along  the list to the next indexed element and compare that
-indexed element in the list with the currently assigned value of the variable \(min\).
-If the inspected element is smaller than the currently assigned value of \(min\),
-then update the value of \(min\).</p>
+<p>Input: A finite list of integers <em>L.</em></p>
 </li>
 <li>
-<p>Repeat the previous step if there are more elements in the list to inspect and compare.</p>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Define a variable \(min\) and set its value to the initial value in the list.</p>
 </li>
 <li>
-<p>Stop when the entire list has been traversed and all elements in the list
-have been inspected and compared against the variable \(min\).</p>
+<p>While there are values in the list that have not been examined,</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Increase the index by 1</p>
+</li>
+<li>
+<p>If the value of the element at the current index is less than the value of \(min,\) set the value of \(min\) to the value of the element at the current index.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Output: The value of \(min.\)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>A Python implementation of finding the minimum in a set of \(n\) integers is given below.</p>
+<p>Does this satisfy all the requirements for an algorithm? Each step is precisely defined and can be done exactly and in a finite length of time. The process terminates after a finite number of steps (when \(min\) has been compared to the element at the highest index of the list.) The imput and output are specified. This process satisfies the requirements for an algorithm.</p>
+</div>
+<div class="paragraph">
+<p>A Python implementation of this algorithm is given below.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -11797,19 +11678,124 @@ have been inspected and compared against the variable \(min\).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The Python code below uses a <strong>for</strong> loop to implement an algorithm to find the minimum in a set of \(n\) integers.</p>
+<p>The Python code below uses a <strong>while</strong> loop to implement an algorithm that finds the minimum in a list of integers.</p>
 </div>
-<iframe width="100%" frameborder="5" height="380" src="https://pythontutor.com/iframe-embed.html#code=def%20minimum%28a%29%3A%0A%20%20%20%20min%20%3D%20a%5B0%5D%0A%20%20%20%20for%20i%20in%20range%280,%20len%28a%29%29%3A%0A%20%20%20%20%20%20%20%20if%20a%5Bi%5D%20%3C%20min%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20min%20%3D%20a%5Bi%5D%0A%20%20%20%20return%20min%0A%0Am%20%3D%20minimum%28%5B3,%202,%201,%205,%20-4,%206%5D%29%0Aprint%28%22The%20minimum%20is%22,%20m%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=380"> </iframe>
+<iframe width="100%" frameborder="5" height="600" src="https://pythontutor.com/iframe-embed.html#code=def%20minimum%28a%29%3A%0A%20%20%20%20n%20%3D%20len%28a%29%0A%20%20%20%20if%20%28n%3D%3D0%29%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20min%20%3D%20a%5B0%5D%0A%20%20%20%20i%20%3D%201%0A%20%20%20%20while%20%28i%20%3C%20n%29%3A%20%0A%20%20%20%20%20%20%20%20if%20%28a%5Bi%5D%20%3C%20min%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20min%20%3D%20a%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20return%20min%0A%0AL%20%3D%20%5B3,%202,%201,%205,%20-4,%206%5D%0Am%20%3D%20minimum%28L%29%0Aprint%28%22The%20minimum%20value%20in%22,L,%22is%22,str%28m%29%2B'.'%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=600"> </iframe>
 
 <div style="text-align: right;">
-<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=def%20minimum%28a%29%3A%0A%20%20%20%20min%20%3D%20a%5B0%5D%0A%20%20%20%20for%20i%20in%20range%280,%20len%28a%29%29%3A%0A%20%20%20%20%20%20%20%20if%20a%5Bi%5D%20%3C%20min%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20min%20%3D%20a%5Bi%5D%0A%20%20%20%20return%20min%0A%0Am%20%3D%20minimum%28%5B3,%202,%201,%205,%20-4,%206%5D%29%0Aprint%28%22The%20minimum%20is%22,%20m%29&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
+<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=def%20minimum%28a%29%3A%0A%20%20%20%20n%20%3D%20len%28a%29%0A%20%20%20%20if%20%28n%3D%3D0%29%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20min%20%3D%20a%5B0%5D%0A%20%20%20%20i%20%3D%201%0A%20%20%20%20while%20%28i%20%3C%20n%29%3A%20%0A%20%20%20%20%20%20%20%20if%20%28a%5Bi%5D%20%3C%20min%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20min%20%3D%20a%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20return%20min%0A%0AL%20%3D%20%5B3,%202,%201,%205,%20-4,%206%5D%0Am%20%3D%20minimum%28L%29%0Aprint%28%22The%20minimum%20value%20in%22,L,%22is%22,str%28m%29%2B'.'%29&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Note that Python provides a built-in function to find the minimum of a list: The minimum value of the list <code>L</code> can be computed using <code>min(L)</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_search_algorithms">13.2. Search Algorithms</h3>
+<h3 id="_arithmetic_algorithms">13.2. Arithmetic Algorithms</h3>
+<div class="paragraph">
+<p>Historically, algorithms first arose as <a href=https://en.wikipedia.org/wiki/Algorithm#History>ways to solve arithmetic problems.</a> In this section, algorithms for such operations are presented.</p>
+</div>
+<div class="sect3">
+<h4 id="_division_by_repeated_division">13.2.1. Division By Repeated Division</h4>
+<div class="paragraph">
+<p>A simple division algorithm is presented in this subsection.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 2 - Division of Integers by Repeated Subtraction</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>The code below implements integer division of the positive integer <em>a</em> by the positive integer <em>b.</em> This algorithm is very ancient, dating back to at least <a href=https://en.wikipedia.org/wiki/Euclidean_division#History>Euclid&#8217;s <em>Elements.</em></a></p>
+</div>
+<div class="paragraph">
+<p>Click on the "Next" button to step through the code.</p>
+</div>
+<iframe width="100%" frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%20not%20%28%20b%3Er%20and%20r%3E%3D0%20%29%3A%0A%20%20%20%20q%20%3D%20q%20%2B%201%0A%20%20%20%20r%20%3D%20r%20-%20b%0A%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=500"> </iframe>
+
+<div style="text-align: right;">
+<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%20not%20%28%20b%3Er%20and%20r%3E%3D0%20%29%3A%0A%20%20%20%20q%20%3D%20q%20%2B%201%0A%20%20%20%20r%20%3D%20r%20-%20b%0A%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_big_o_analysis_of_division_by_repeated_subtraction">Big-O Analysis Of Division By Repeated Subtraction</h5>
+<div class="paragraph">
+<p>Notice that the "division by repeated subtraction" has a worst-case scenario when the divisor <em>b</em> equals 1. If <em>n</em> is the number <em>a,</em> then it should be clear that "division by repeated subtraction" is \(O(n)\).</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_long_division_of_natural_numbers">13.2.2. Long Division Of Natural Numbers</h4>
+<div class="paragraph">
+<p>You can revise the previous algorithm to work faster by using place-value thinking.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 3 - Long Division</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>The code below implements integer division of the integer <em>a</em> by the <em>positive integer</em> <em>b.</em></p>
+</div>
+<div class="paragraph">
+<p>Click on the "Next" button to step through the code.</p>
+</div>
+<iframe width="100%" frameborder="5" height="600" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=600"> </iframe>
+
+<div style="text-align: right;">
+<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_big_o_analysis_of_long_division">Big-O Analysis Of Long Division</h5>
+<div class="paragraph">
+<p>This long division algorithm uses powers of two (instead of ten,) but otherwise is like the algorithm you may have learned in school. The worst-case scenario is when the divisor <em>b</em> equals 1, which requires use to shift as many times as there are <em>binary</em> digits in \(a,\) and \(a\) is bounded above by 2 to the power the number of binary digits. This means that if <em>n</em> is the number <em>a,</em> then this long division algorithm is \(O(\log (n)).\)</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_greatest_common_divisors_the_euclidean_algorithm">13.2.3. Greatest Common Divisors: The Euclidean Algorithm</h4>
+<div class="paragraph">
+<p>It is often needed to find a common divisor of two integers. This next algorithm goes back to <a href=http://aleph0.clarku.edu/~djoyce/elements/bookVII/propVII1.html>Euclid.</a></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 4 - The Euclidean Algorithm</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>The code below implements integer division for <em>positive</em> integers <em>a</em> and <em>b.</em></p>
+</div>
+<div class="paragraph">
+<p>Click on the "Next" button to step through the code.</p>
+</div>
+<iframe width="100%" frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23%20m%20and%20n%20are%20positive%20integers%0Am%20%3D%20360%0An%20%3D%20210%0A%23%20remainder%20when%20m%20is%20divided%20by%20r%0A%23r%20%3D%20m%25n%20%0Aq,r%20%3D%20divmod%28m,n%29%0Aprint%28m,'%3D',q,'*',n,'%2B',r%29%0Awhile%20%28r%20!%3D%200%29%3A%0A%20%20%20%20m%20%3D%20n%0A%20%20%20%20n%20%3D%20r%0A%20%20%20%20%23r%20%3D%20m%25n%0A%20%20%20%20q,r%20%3D%20divmod%28m,n%29%0A%20%20%20%20print%28m,'%3D',q,'*',n,'%2B',r%29%0Aprint%28n%29%0A&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=500"> </iframe>
+
+<div style="text-align: right;">
+<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=%23%20m%20and%20n%20are%20positive%20integers%0Am%20%3D%20360%0An%20%3D%20210%0A%23%20remainder%20when%20m%20is%20divided%20by%20r%0A%23r%20%3D%20m%25n%20%0Aq,r%20%3D%20divmod%28m,n%29%0Aprint%28m,'%3D',q,'*',n,'%2B',r%29%0Awhile%20%28r%20!%3D%200%29%3A%0A%20%20%20%20m%20%3D%20n%0A%20%20%20%20n%20%3D%20r%0A%20%20%20%20%23r%20%3D%20m%25n%0A%20%20%20%20q,r%20%3D%20divmod%28m,n%29%0A%20%20%20%20print%28m,'%3D',q,'*',n,'%2B',r%29%0Aprint%28n%29%0A&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that Python provides built-in operators to find the quotient and remainder for variables <code>a</code> and <code>b</code> of type <code>int</code>: <code>a//b</code> is the quotient and <code>a%b</code> is the remainder. There is also a less effiecient operator <code>divmod(a,b)</code> that returns an ordered pair (of data type <code>tuple</code>) containing the quotient and the remainder.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_search_algorithms">13.3. Search Algorithms</h3>
 <div class="paragraph">
 <p>In the first two subsections you will see two algorithms for searching for a target integer within a list of integers. In the third subsection, Python&#8217;s built-in search methods are discussed.</p>
 </div>
@@ -11817,7 +11803,7 @@ have been inspected and compared against the variable \(min\).</p>
 <p><mark><strong>RECOMMENDATION:</strong> The <a href=https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/>"Algorithms" activity</a> can replace one or both of the first two subsections.</mark></p>
 </div>
 <div class="sect3">
-<h4 id="_the_linear_search_algorithm">13.2.1. The Linear Search Algorithm</h4>
+<h4 id="_the_linear_search_algorithm">13.3.1. The Linear Search Algorithm</h4>
 <div class="paragraph">
 <p>Linear search compares a target integer, <em>t,</em> to each element in a list of distinct integers, starting at index 0, and returns either the index <em>i</em> at which the target integer was found or a value indicating that the target integer was not found in the list.</p>
 </div>
@@ -11827,7 +11813,7 @@ have been inspected and compared against the variable \(min\).</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 2 - Linear Search Algorithm in Python</div>
+<div class="title">Example 5 - Linear Search Algorithm in Python</div>
 <div class="content">
 
 </div>
@@ -11873,14 +11859,14 @@ runs in \(O(n)\) time in the worst case.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_the_binary_search_algorithm">13.2.2. The Binary Search Algorithm</h4>
+<h4 id="_the_binary_search_algorithm">13.3.2. The Binary Search Algorithm</h4>
 <div class="paragraph">
 <p>The binary search algorithm searches a <em>sorted</em> list <em>L</em> of integers for a target value <em>t.</em>  The algorithm starts looking for <em>t</em> in the middle of the sorted list. If <em>t</em> is greater than the value in the middle, the algorithm continues the binary search in the upper half of the list, otherwise the algorithm continues the binary search in the lower half of the list. The algorithm continues in this way until we reach a list of length 1 that either does or does not have <em>t</em> as its only element.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 3 - Binary Search Algorithm in Python</div>
+<div class="title">Example 6 - Binary Search Algorithm in Python</div>
 <div class="content">
 
 </div>
@@ -11927,14 +11913,14 @@ found by solving the exponential equation,</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_searching_within_a_list_using_python">13.2.3. Searching Within a List using Python</h4>
+<h4 id="_searching_within_a_list_using_python">13.3.3. Searching Within a List using Python</h4>
 <div class="paragraph">
 <p>In this subsection you will see how to use Python to efficiently search lists.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 4 - Searching a List in Python</div>
+<div class="title">Example 7 - Searching a List in Python</div>
 <div class="content">
 
 </div>
@@ -11968,7 +11954,7 @@ found by solving the exponential equation,</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_sorting_algorithms">13.3. Sorting Algorithms</h3>
+<h3 id="_sorting_algorithms">13.4. Sorting Algorithms</h3>
 <div class="paragraph">
 <p>In this section you will see three
 algorithms for
@@ -12007,7 +11993,7 @@ the elements of a list L can be sorted into increasing order by calling the <a h
 </div>
 </div>
 <div class="sect3">
-<h4 id="_bubble_sort">13.3.1. Bubble Sort</h4>
+<h4 id="_bubble_sort">13.4.1. Bubble Sort</h4>
 <div class="imageblock right text-center">
 <div class="content">
 <img src="imagesMKD/ArrayWithSixIntegerValues.png" alt="ArrayWithSixIntegerValues" width="190" height="309">
@@ -12136,7 +12122,7 @@ both the elements in positions 1 and 2 are both in their correct positions.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_insertion_sort">13.3.2. Insertion Sort</h4>
+<h4 id="_insertion_sort">13.4.2. Insertion Sort</h4>
 <div class="paragraph">
 <p>The insertion sort works through a list and classifies two sections as sorted and unsorted.</p>
 </div>
@@ -12168,7 +12154,7 @@ larger elements to the right, using a variable, say \(j\).</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 5 - Insertion Sort in Python</div>
+<div class="title">Example 8 - Insertion Sort in Python</div>
 <div class="content">
 
 </div>
@@ -12191,7 +12177,7 @@ larger elements to the right, using a variable, say \(j\).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_merge_sort">13.3.3. Merge Sort</h4>
+<h4 id="_merge_sort">13.4.3. Merge Sort</h4>
 <div class="paragraph">
 <p>Merge Sort is a recursive sorting algorithm. The general idea is to divide a list of length \(n\) into \(n\) sublists of length \(1\), where a list of length one is considered already sorted. Subsequently, the algorithm repeatedly merges the sublists to make sorted lists until only a single list of length \(n\) is remaining. This will be the a sorted list consisting of the elements of the original list.</p>
 </div>
@@ -12211,7 +12197,7 @@ larger elements to the right, using a variable, say \(j\).</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 6 - The Merge Sort Algorithm in Python</div>
+<div class="title">Example 9 - The Merge Sort Algorithm in Python</div>
 <div class="content">
 
 </div>

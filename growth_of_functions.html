@@ -612,13 +612,13 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on September 4, 2024.
+        This chapter was last updated on October 14, 2024.
        </em>
       </p>
      </div>
      <div class="paragraph">
       <p>
-       You have seen that some tasks can be completed by more than one algorithm. Two questions to ask are "How do you choose which algorithm to use? Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions.
+       Some tasks can be completed by more than one algorithm. In such a case, two questions to ask are "How do you choose which algorithm to use?" and "Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions.
       </p>
      </div>
      <div class="paragraph">
@@ -833,43 +833,23 @@ That is, the image suggests that
         </div>
         <div class="paragraph">
          <p>
-          The binary relation "has the exact same order as" is an equivalence relation.
+          The following statements are true for the "has the exact same order as" relationship.
          </p>
         </div>
-        <div class="openblock click">
-         <div class="title">
-          Proof
-         </div>
-         <div class="content">
-          <div class="click_oblique">
-           This is an exercise for you, dear reader!
-           <br/>
-           Show that
-           <br/>
-           (1) "\(f\) has the exact same order as \(f\)"
-           <br/>
-           (2) If "\(f\) has the exact same order as \(g\)" then "\(g\) has the exact same order as \(f\)."
-           <br/>
-           Hint: Break up the extended equality with \(|f(x)|\) in the middle into two shorter inequalities, rewrite those two inequalties then combine them into one extended inequality with \(|g(x)|\) in the middle.
-           <br/>
-           (3) If "\(f\) has the exact same order as \(g\)" and "\(g\) has the exact same order as \(h\)," then "\(f\) has the exact same order as \(h\)."
-          </div>
-         </div>
+        <div class="paragraph">
+         <p>
+          (1) \(f\) has the exact same order as \(f\)
+          <br/>
+          (2) If \(f\) has the exact same order as \(g,\) then \(g\) has the exact same order as \(f\).
+          <br/>
+          (3) If \(f\) has the exact same order as \(g,\) and \(g\) has the exact same order as \(h,\) then \(f\) has the exact same order as \(h.\)
+         </p>
         </div>
        </div>
       </div>
       <div class="paragraph">
        <p>
-        Recall from the
-        <a href="./relations.html">
-         Relations
-        </a>
-        chapter that an equivalence relation on a set \(S\) corresponds to a partitioning of the set \(S\) into one or more disjoint subsets called equivalence classes. This means that "has the exact same order as" partitions the set \(\{ f \, | \, f \text{ is a function with domain and codomain } \mathbb{R} \}\) into equivalence classes.
-Let \(\Theta(g)\) be the equivalence class of
-        <em>
-         g
-        </em>
-        for the "has the exact same order as" relation. That is, \[ \Theta(g) = \{ f \, | \, f \text{ has the exact same order as } g \} \]
+        These three properties let you conclude that the "has the exact same order as" relationship partitions the set \(\{ f \, | \, f \text{ is a function with domain and codomain } \mathbb{R} \}\) into disjoint sets. That is, if we define \(\Theta(g)\) as the set \[ \Theta(g) = \{ f \, | \, f \text{ has the exact same order as } g \} \] then every function with domain and codomain \(\mathbb{R}\) is an element of at least one of the \(\Theta(g)\) (since \(g\) is an element of \(\Theta(g)\)), and for any two functions \(g\) and \(h,\) the sets \(\Theta(g)\) and \(\Theta(h)\) must either be equal or have empty intersection.
        </p>
       </div>
       <div class="admonitionblock caution">
@@ -957,7 +937,7 @@ Let \(\Theta(g)\) be the equivalence class of
       </h3>
       <div class="paragraph">
        <p>
-        Traditionally, computer scientists are much more interested the idea that "
+        Traditionally, computer scientists are much more interested in the idea that "
         <em>
          f
         </em>

@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on August 27, 2024.
+        This chapter was last updated on October 14, 2024.
        </em>
       </p>
      </div>
@@ -623,38 +623,26 @@ $(document).on('page:load', ready2);
         algorithm
        </strong>
        is a step-by-step process, defined by a set of
-instructions to be executed sequentially to achieve a specified task producing
-a determined output.
+instructions to be executed sequentially, that is used to compute a value or solve a problem. Algorithms are used in discrete mathematics to perform numerical computations, to sort lists, to do searches, insertions, and deletions of items in data structures, to solve optimization problems, and more.
+       <br/>
+       <span class="small">
+        The word
+        <em>
+         algorithm
+        </em>
+        is derived from the name of
+        <a href="https://www.britannica.com/biography/al-Khwarizmi">
+         Abū ‘Abd Allāh Muḥammad ibn Mūsā al-Khwārizmī.
+        </a>
+        Western Europeans learned how to do arithmetic with Hindu-Arabic numerals and the base-ten place-value system from a 12th-century AD Latin translation of one of al-Khwārizmī’s books
+(The Latin translation was done about 300 years after al-Khwārizmī wrote the original book in Arabic; the original is now lost.)
+By the way, the word
+        <em>
+         algebra
+        </em>
+        is derived from the title of another one of Al-Khwārizmī’s books.
+       </span>
       </p>
-     </div>
-     <div class="paragraph">
-      <p>
-       Examples of common discrete mathematics algorithms include:
-      </p>
-     </div>
-     <div class="ulist">
-      <ul>
-       <li>
-        <p>
-         Arithmetic algorithms such as the integer division or computation of the greatest common divisor of two integers presented earlier in the textbook.
-        </p>
-       </li>
-       <li>
-        <p>
-         Sorting algorithms to place items of a list in a specific order.
-        </p>
-       </li>
-       <li>
-        <p>
-         Searching algorithms to find an item in a data set or data structure like a tree.
-        </p>
-       </li>
-       <li>
-        <p>
-         Insertion and deletion algorithms to insert or delete an item in a data structure such as a tree or list.
-        </p>
-       </li>
-      </ul>
      </div>
      <div class="admonitionblock note">
       <table>
@@ -664,7 +652,8 @@ a determined output.
          </i>
         </td>
         <td class="content">
-         Most of the Python examples in the Remix use non-optimal code. As mentioned in the
+         In this chapter, several algorithms are implemented in Python using non-optimal code to illustrate all steps needed.
+As mentioned in the
          <a href="./index.html">
           About this text
          </a>
@@ -686,61 +675,167 @@ a determined output.
       </table>
      </div>
      <div class="sect2">
-      <h3 id="_examples_of_algorithms">
-       13.1. Examples of Algorithms
+      <h3 id="_what_is_an_algorithm_what_is_not_an_algorithm">
+       13.1. What
+       <em>
+        Is
+       </em>
+       An Algorithm? What Is
+       <em>
+        Not
+       </em>
+       An Algorithm?
       </h3>
       <div class="paragraph">
        <p>
-        We now proceed to develop some algorithms beginning with algorithms for common mathematical
-operations.  Much of mathematical notation can be considered pseudocode.
+        There are several
+        <a href="https://opened.cuny.edu/courseware/lesson/46/student/?section=2">
+         problem-solving strategies
+        </a>
+        that humans use, but not all of these strategies are algorithms.
        </p>
       </div>
+      <div class="paragraph">
+       <p>
+        An algorithm should have the following properties, based on Donald E. Knuth’s description in his famous
+        <a href="https://learning.oreilly.com/library/view/art-of-computer/9780321635754">
+         <em>
+          Art of Computer Programming, The: Volume 1: Fundamental Algorithms, 3rd Edition
+         </em>
+        </a>
+        :
+       </p>
+      </div>
+      <div class="hdlist">
+       <table>
+        <tr>
+         <td class="hdlist1">
+          Definiteness
+         </td>
+         <td class="hdlist2">
+          <p>
+           Each step must be precisely defined. The actions taken at each step must be unambiguously specified.
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Effectiveness
+         </td>
+         <td class="hdlist2">
+          <p>
+           Each step must be so basic that it can be done exactly and in a finite length of time.
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Finiteness
+         </td>
+         <td class="hdlist2">
+          <p>
+           The process must terminate after a finite number of steps (although the number of steps may be a very large natural number.)
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Input
+         </td>
+         <td class="hdlist2">
+          <p>
+           Zero or more input quantities are taken from a specified set. Inputs can be introduced before the initial step of the algorithm or dynamically before any later step of the algorithm.
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Output
+         </td>
+         <td class="hdlist2">
+          <p>
+           The algorithm produces one or more outputs that have a specified relation to the inputs. Furthermore, the algorithm should produce the
+           <em>
+            correct
+           </em>
+           outputs for each set of inputs.
+          </p>
+         </td>
+        </tr>
+       </table>
+      </div>
       <div class="sect3">
-       <h4 id="_find_minimum_in_a_list_of_integers">
-        13.1.1. Find Minimum in a List of Integers
+       <h4 id="_an_example_finding_the_minimum_in_a_list_of_integers">
+        13.1.1. An Example: Finding the Minimum in a List of Integers
        </h4>
        <div class="paragraph">
         <p>
-         Consider an algorithm to determine the minimum element in a finite sequence or
-list of integers.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         The algorithm would be constructed as follows:
+         Consider the following algorithm for finding the minimum element in a finite sequence of integers.
         </p>
        </div>
        <div class="ulist">
         <ul>
          <li>
           <p>
-           We define a variable \(min\) and assign it to the first indexed element in the list.
+           Task: Given a finite list of integers, find then minimum value in the list.
           </p>
          </li>
          <li>
           <p>
-           Traverse along  the list to the next indexed element and compare that
-indexed element in the list with the currently assigned value of the variable \(min\).
-If the inspected element is smaller than the currently assigned value of \(min\),
-then update the value of \(min\).
+           Input: A finite list of integers
+           <em>
+            L.
+           </em>
           </p>
          </li>
          <li>
           <p>
-           Repeat the previous step if there are more elements in the list to inspect and compare.
+           Steps:
           </p>
+          <div class="olist arabic">
+           <ol class="arabic">
+            <li>
+             <p>
+              Define a variable \(min\) and set its value to the initial value in the list.
+             </p>
+            </li>
+            <li>
+             <p>
+              While there are values in the list that have not been examined,
+             </p>
+             <div class="olist lowerroman">
+              <ol class="lowerroman" type="i">
+               <li>
+                <p>
+                 Increase the index by 1
+                </p>
+               </li>
+               <li>
+                <p>
+                 If the value of the element at the current index is less than the value of \(min,\) set the value of \(min\) to the value of the element at the current index.
+                </p>
+               </li>
+              </ol>
+             </div>
+            </li>
+           </ol>
+          </div>
          </li>
          <li>
           <p>
-           Stop when the entire list has been traversed and all elements in the list
-have been inspected and compared against the variable \(min\).
+           Output: The value of \(min.\)
           </p>
          </li>
         </ul>
        </div>
        <div class="paragraph">
         <p>
-         A Python implementation of finding the minimum in a set of \(n\) integers is given below.
+         Does this satisfy all the requirements for an algorithm? Each step is precisely defined and can be done exactly and in a finite length of time. The process terminates after a finite number of steps (when \(min\) has been compared to the element at the highest index of the list.) The imput and output are specified. This process satisfies the requirements for an algorithm.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         A Python implementation of this algorithm is given below.
         </p>
        </div>
        <div class="sidebarblock">
@@ -756,25 +851,285 @@ have been inspected and compared against the variable \(min\).
           <p>
            The Python code below uses a
            <strong>
-            for
+            while
            </strong>
-           loop to implement an algorithm to find the minimum in a set of \(n\) integers.
+           loop to implement an algorithm that finds the minimum in a list of integers.
           </p>
          </div>
-         <iframe frameborder="5" height="380" src="https://pythontutor.com/iframe-embed.html#code=def%20minimum%28a%29%3A%0A%20%20%20%20min%20%3D%20a%5B0%5D%0A%20%20%20%20for%20i%20in%20range%280,%20len%28a%29%29%3A%0A%20%20%20%20%20%20%20%20if%20a%5Bi%5D%20%3C%20min%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20min%20%3D%20a%5Bi%5D%0A%20%20%20%20return%20min%0A%0Am%20%3D%20minimum%28%5B3,%202,%201,%205,%20-4,%206%5D%29%0Aprint%28%22The%20minimum%20is%22,%20m%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=380" width="100%">
+         <iframe frameborder="5" height="600" src="https://pythontutor.com/iframe-embed.html#code=def%20minimum%28a%29%3A%0A%20%20%20%20n%20%3D%20len%28a%29%0A%20%20%20%20if%20%28n%3D%3D0%29%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20min%20%3D%20a%5B0%5D%0A%20%20%20%20i%20%3D%201%0A%20%20%20%20while%20%28i%20%3C%20n%29%3A%20%0A%20%20%20%20%20%20%20%20if%20%28a%5Bi%5D%20%3C%20min%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20min%20%3D%20a%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20return%20min%0A%0AL%20%3D%20%5B3,%202,%201,%205,%20-4,%206%5D%0Am%20%3D%20minimum%28L%29%0Aprint%28%22The%20minimum%20value%20in%22,L,%22is%22,str%28m%29%2B'.'%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=600" width="100%">
          </iframe>
          <div style="text-align: right;">
-          <a href="http://www.pythontutor.com/visualize.html#code=def%20minimum%28a%29%3A%0A%20%20%20%20min%20%3D%20a%5B0%5D%0A%20%20%20%20for%20i%20in%20range%280,%20len%28a%29%29%3A%0A%20%20%20%20%20%20%20%20if%20a%5Bi%5D%20%3C%20min%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20min%20%3D%20a%5Bi%5D%0A%20%20%20%20return%20min%0A%0Am%20%3D%20minimum%28%5B3,%202,%201,%205,%20-4,%206%5D%29%0Aprint%28%22The%20minimum%20is%22,%20m%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20minimum%28a%29%3A%0A%20%20%20%20n%20%3D%20len%28a%29%0A%20%20%20%20if%20%28n%3D%3D0%29%3A%0A%20%20%20%20%20%20%20%20return%20None%0A%20%20%20%20min%20%3D%20a%5B0%5D%0A%20%20%20%20i%20%3D%201%0A%20%20%20%20while%20%28i%20%3C%20n%29%3A%20%0A%20%20%20%20%20%20%20%20if%20%28a%5Bi%5D%20%3C%20min%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20min%20%3D%20a%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20return%20min%0A%0AL%20%3D%20%5B3,%202,%201,%205,%20-4,%206%5D%0Am%20%3D%20minimum%28L%29%0Aprint%28%22The%20minimum%20value%20in%22,L,%22is%22,str%28m%29%2B'.'%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
            Edit in PythonTutor
           </a>
          </div>
         </div>
        </div>
+       <div class="paragraph">
+        <p>
+         Note that Python provides a built-in function to find the minimum of a list: The minimum value of the list
+         <code>
+          L
+         </code>
+         can be computed using
+         <code>
+          min(L)
+         </code>
+         .
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_arithmetic_algorithms">
+       13.2. Arithmetic Algorithms
+      </h3>
+      <div class="paragraph">
+       <p>
+        Historically, algorithms first arose as
+        <a href="https://en.wikipedia.org/wiki/Algorithm#History">
+         ways to solve arithmetic problems.
+        </a>
+        In this section, algorithms for such operations are presented.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_division_by_repeated_division">
+        13.2.1. Division By Repeated Division
+       </h4>
+       <div class="paragraph">
+        <p>
+         A simple division algorithm is presented in this subsection.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 2 - Division of Integers by Repeated Subtraction
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below implements integer division of the positive integer
+           <em>
+            a
+           </em>
+           by the positive integer
+           <em>
+            b.
+           </em>
+           This algorithm is very ancient, dating back to at least
+           <a href="https://en.wikipedia.org/wiki/Euclidean_division#History">
+            Euclid’s
+            <em>
+             Elements.
+            </em>
+           </a>
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Click on the "Next" button to step through the code.
+          </p>
+         </div>
+         <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%20not%20%28%20b%3Er%20and%20r%3E%3D0%20%29%3A%0A%20%20%20%20q%20%3D%20q%20%2B%201%0A%20%20%20%20r%20%3D%20r%20-%20b%0A%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%20not%20%28%20b%3Er%20and%20r%3E%3D0%20%29%3A%0A%20%20%20%20q%20%3D%20q%20%2B%201%0A%20%20%20%20r%20%3D%20r%20-%20b%0A%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="sect4">
+        <h5 id="_big_o_analysis_of_division_by_repeated_subtraction">
+         Big-O Analysis Of Division By Repeated Subtraction
+        </h5>
+        <div class="paragraph">
+         <p>
+          Notice that the "division by repeated subtraction" has a worst-case scenario when the divisor
+          <em>
+           b
+          </em>
+          equals 1. If
+          <em>
+           n
+          </em>
+          is the number
+          <em>
+           a,
+          </em>
+          then it should be clear that "division by repeated subtraction" is \(O(n)\).
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_long_division_of_natural_numbers">
+        13.2.2. Long Division Of Natural Numbers
+       </h4>
+       <div class="paragraph">
+        <p>
+         You can revise the previous algorithm to work faster by using place-value thinking.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 3 - Long Division
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below implements integer division of the integer
+           <em>
+            a
+           </em>
+           by the
+           <em>
+            positive integer
+           </em>
+           <em>
+            b.
+           </em>
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Click on the "Next" button to step through the code.
+          </p>
+         </div>
+         <iframe frameborder="5" height="600" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=600" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="sect4">
+        <h5 id="_big_o_analysis_of_long_division">
+         Big-O Analysis Of Long Division
+        </h5>
+        <div class="paragraph">
+         <p>
+          This long division algorithm uses powers of two (instead of ten,) but otherwise is like the algorithm you may have learned in school. The worst-case scenario is when the divisor
+          <em>
+           b
+          </em>
+          equals 1, which requires use to shift as many times as there are
+          <em>
+           binary
+          </em>
+          digits in \(a,\) and \(a\) is bounded above by 2 to the power the number of binary digits. This means that if
+          <em>
+           n
+          </em>
+          is the number
+          <em>
+           a,
+          </em>
+          then this long division algorithm is \(O(\log (n)).\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_greatest_common_divisors_the_euclidean_algorithm">
+        13.2.3. Greatest Common Divisors: The Euclidean Algorithm
+       </h4>
+       <div class="paragraph">
+        <p>
+         It is often needed to find a common divisor of two integers. This next algorithm goes back to
+         <a href="http://aleph0.clarku.edu/~djoyce/elements/bookVII/propVII1.html">
+          Euclid.
+         </a>
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 4 - The Euclidean Algorithm
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below implements integer division for
+           <em>
+            positive
+           </em>
+           integers
+           <em>
+            a
+           </em>
+           and
+           <em>
+            b.
+           </em>
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Click on the "Next" button to step through the code.
+          </p>
+         </div>
+         <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23%20m%20and%20n%20are%20positive%20integers%0Am%20%3D%20360%0An%20%3D%20210%0A%23%20remainder%20when%20m%20is%20divided%20by%20r%0A%23r%20%3D%20m%25n%20%0Aq,r%20%3D%20divmod%28m,n%29%0Aprint%28m,'%3D',q,'*',n,'%2B',r%29%0Awhile%20%28r%20!%3D%200%29%3A%0A%20%20%20%20m%20%3D%20n%0A%20%20%20%20n%20%3D%20r%0A%20%20%20%20%23r%20%3D%20m%25n%0A%20%20%20%20q,r%20%3D%20divmod%28m,n%29%0A%20%20%20%20print%28m,'%3D',q,'*',n,'%2B',r%29%0Aprint%28n%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=%23%20m%20and%20n%20are%20positive%20integers%0Am%20%3D%20360%0An%20%3D%20210%0A%23%20remainder%20when%20m%20is%20divided%20by%20r%0A%23r%20%3D%20m%25n%20%0Aq,r%20%3D%20divmod%28m,n%29%0Aprint%28m,'%3D',q,'*',n,'%2B',r%29%0Awhile%20%28r%20!%3D%200%29%3A%0A%20%20%20%20m%20%3D%20n%0A%20%20%20%20n%20%3D%20r%0A%20%20%20%20%23r%20%3D%20m%25n%0A%20%20%20%20q,r%20%3D%20divmod%28m,n%29%0A%20%20%20%20print%28m,'%3D',q,'*',n,'%2B',r%29%0Aprint%28n%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that Python provides built-in operators to find the quotient and remainder for variables
+         <code>
+          a
+         </code>
+         and
+         <code>
+          b
+         </code>
+         of type
+         <code>
+          int
+         </code>
+         :
+         <code>
+          a//b
+         </code>
+         is the quotient and
+         <code>
+          a%b
+         </code>
+         is the remainder. There is also a less effiecient operator
+         <code>
+          divmod(a,b)
+         </code>
+         that returns an ordered pair (of data type
+         <code>
+          tuple
+         </code>
+         ) containing the quotient and the remainder.
+        </p>
+       </div>
       </div>
      </div>
      <div class="sect2">
       <h3 id="_search_algorithms">
-       13.2. Search Algorithms
+       13.3. Search Algorithms
       </h3>
       <div class="paragraph">
        <p>
@@ -797,7 +1152,7 @@ have been inspected and compared against the variable \(min\).
       </div>
       <div class="sect3">
        <h4 id="_the_linear_search_algorithm">
-        13.2.1. The Linear Search Algorithm
+        13.3.1. The Linear Search Algorithm
        </h4>
        <div class="paragraph">
         <p>
@@ -821,7 +1176,7 @@ have been inspected and compared against the variable \(min\).
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 2 - Linear Search Algorithm in Python
+           Example 5 - Linear Search Algorithm in Python
           </div>
           <div class="content">
           </div>
@@ -904,7 +1259,7 @@ runs in \(O(n)\) time in the worst case.
       </div>
       <div class="sect3">
        <h4 id="_the_binary_search_algorithm">
-        13.2.2. The Binary Search Algorithm
+        13.3.2. The Binary Search Algorithm
        </h4>
        <div class="paragraph">
         <p>
@@ -939,7 +1294,7 @@ runs in \(O(n)\) time in the worst case.
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 3 - Binary Search Algorithm in Python
+           Example 6 - Binary Search Algorithm in Python
           </div>
           <div class="content">
           </div>
@@ -1007,7 +1362,7 @@ found by solving the exponential equation,
       </div>
       <div class="sect3">
        <h4 id="_searching_within_a_list_using_python">
-        13.2.3. Searching Within a List using Python
+        13.3.3. Searching Within a List using Python
        </h4>
        <div class="paragraph">
         <p>
@@ -1018,7 +1373,7 @@ found by solving the exponential equation,
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 4 - Searching a List in Python
+           Example 7 - Searching a List in Python
           </div>
           <div class="content">
           </div>
@@ -1096,7 +1451,7 @@ found by solving the exponential equation,
      </div>
      <div class="sect2">
       <h3 id="_sorting_algorithms">
-       13.3. Sorting Algorithms
+       13.4. Sorting Algorithms
       </h3>
       <div class="paragraph">
        <p>
@@ -1149,7 +1504,7 @@ the elements of a list L can be sorted into increasing order by calling the
       </div>
       <div class="sect3">
        <h4 id="_bubble_sort">
-        13.3.1. Bubble Sort
+        13.4.1. Bubble Sort
        </h4>
        <div class="imageblock right text-center">
         <div class="content">
@@ -1342,7 +1697,7 @@ both the elements in positions 1 and 2 are both in their correct positions.
       </div>
       <div class="sect3">
        <h4 id="_insertion_sort">
-        13.3.2. Insertion Sort
+        13.4.2. Insertion Sort
        </h4>
        <div class="paragraph">
         <p>
@@ -1390,7 +1745,7 @@ larger elements to the right, using a variable, say \(j\).
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 5 - Insertion Sort in Python
+           Example 8 - Insertion Sort in Python
           </div>
           <div class="content">
           </div>
@@ -1422,7 +1777,7 @@ larger elements to the right, using a variable, say \(j\).
       </div>
       <div class="sect3">
        <h4 id="_merge_sort">
-        13.3.3. Merge Sort
+        13.4.3. Merge Sort
        </h4>
        <div class="paragraph">
         <p>
@@ -1450,7 +1805,7 @@ larger elements to the right, using a variable, say \(j\).
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 6 - The Merge Sort Algorithm in Python
+           Example 9 - The Merge Sort Algorithm in Python
           </div>
           <div class="content">
           </div>

@@ -4,7 +4,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 4, 2024._
+_This chapter was last updated on October 14, 2024._
 
 // MKD see https://en.wikipedia.org/wiki/Big_O_notation#Matters_of_notation
 
@@ -102,7 +102,9 @@ The expression "F asymptotically dominates G" is usually not written out in full
 
 //MKD new introductory section
 
-You have seen that some tasks can be completed by more than one algorithm. Two questions to ask are "How do you choose which algorithm to use? Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions. 
+Some tasks can be completed by more than one algorithm. In such a case, two questions to ask are "How do you choose which algorithm to use?" and "Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions. 
+// MKD uncomment and replace above after Dec 20 2024
+//You have seen that some tasks can be completed by more than one algorithm. Two questions to ask are "How do you choose which algorithm to use? Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions. 
 
 //In this chapter, tools for comparing algorithms that perform the same task are discussed. 
 In particular, ways of comparing the _rates of growth_ of functions will allow us to compare how two algorithms perform as the size of the inputs to the algorithms increase with no upper bound (theoretically, since it's very likely that there are only a finite amount of computing resources available in the universe.)
@@ -178,6 +180,23 @@ We have the following theorem about this relation.
 
 .Theorem
 ****
+The following statements are true for the "has the exact same order as" relationship.
+
+(1) $f$ has the exact same order as $f$ + 
+(2) If $f$ has the exact same order as $g,$ then $g$ has the exact same order as $f$. + 
+(3) If $f$ has the exact same order as $g,$ and $g$ has the exact same order as $h,$ then $f$ has the exact same order as $h.$  
+
+****
+
+
+These three properties let you conclude that the "has the exact same order as" relationship partitions the set $\{ f \, | \, f \text{ is a function with domain and codomain } \mathbb{R} \}$ into disjoint sets. That is, if we define $\Theta(g)$ as the set \[ \Theta(g) = \{ f \, | \, f \text{ has the exact same order as } g \} \] then every function with domain and codomain $\mathbb{R}$ is an element of at least one of the $\Theta(g)$ (since $g$ is an element of $\Theta(g)$), and for any two functions $g$ and $h,$ the sets $\Theta(g)$ and $\Theta(h)$ must either be equal or have empty intersection.
+
+
+////
+// MKD uncomment and replace above after Dec 20 2024
+
+.Theorem
+****
 The binary relation "has the exact same order as" is an equivalence relation.
 
 [click.Proof]
@@ -198,6 +217,8 @@ Hint: Break up the extended equality with $|f(x)|$ in the middle into two shorte
 Recall from the link:./relations.html[Relations] chapter that an equivalence relation on a set $S$ corresponds to a partitioning of the set $S$ into one or more disjoint subsets called equivalence classes. This means that "has the exact same order as" partitions the set $\{ f \, | \, f \text{ is a function with domain and codomain } \mathbb{R} \}$ into equivalence classes. 
 //Based on Knuth's 1976 letter mentioned earlier in this chapter, we will use the notation 
 Let $\Theta(g)$ be the equivalence class of _g_ for the "has the exact same order as" relation. That is, \[ \Theta(g) = \{ f \, | \, f \text{ has the exact same order as } g \} \]  
+////
+
 
 CAUTION: Mathematicians and computer scientists are very different beasts...  well, they are all _human_ but they have developed different _cultures_ so they often use the same symbols in different ways. + 
  + 
@@ -241,7 +262,7 @@ As an exercise, prove, \[ f(x) \in \Theta(g(x)) \rightarrow g(x) \in \Theta(f(x)
 
 == Big _O_ notation
 
-Traditionally, computer scientists are much more interested the idea that "_f_ grows at most at the rate of _g_". This corresponds to the second part of the inequality used to define big Theta in the previous section.
+Traditionally, computer scientists are much more interested in the idea that "_f_ grows at most at the rate of _g_". This corresponds to the second part of the inequality used to define big Theta in the previous section.
 
 ****
 .Definition
