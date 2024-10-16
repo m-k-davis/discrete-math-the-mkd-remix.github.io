@@ -4,7 +4,9 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on October 14, 2024._
+_This chapter was last updated on October 16, 2024._ + 
+[small]#Revised the section on using limits to determine Big-$O$ and  Big-$\Theta$ relationships.#
+
 
 // MKD see https://en.wikipedia.org/wiki/Big_O_notation#Matters_of_notation
 
@@ -610,7 +612,9 @@ on the interval $(0,\, \infty)$,
 and 
 //Suppose that functions $f$ and $g$ are such functions and that 
 satisfy 
-$\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) = \infty$.
+$\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) = \infty$. 
+// MKD added Oct 16 2024
+To avoid needing to use the absolute value, we can assume that $0 < f(x)$ and $0 < g(x)$ for all $x \geq 0$ (This assumption is safe to make since both functions go to infinity as $x$ increases without bound, which means that both functions are positive for all $x$ values greater than or equal to some number $x_{0}$... we are just assuming that $x_{0}=0$ which is the equivalent of shifting the plots of $f$ and $g$ to the left by $x_0$ units.)
 
 
 If $f(x)$ and $g(x)$ are such functions and  
@@ -618,7 +622,11 @@ If $f(x)$ and $g(x)$ are such functions and
 $\lim_{x \to \infty} \frac{f(x)}{g(x)} = L$, 
 // where $L$ is a nonnegative number (that is, $L$ is not infinity), 
 where $0 \leq L < \infty$, 
-then $f(x)$ is $O(g(x))$. 
+then $f(x)$ is $O(g(x)),$ 
+// MKD added Oct 16 2024
+and if $0 < L < \infty$ then $f(x)$ is $\Theta(g(x)).$
+
+
 To see this, recall that $\lim_{x \to \infty} \frac{f(x)}{g(x)} = L$ 
 means that we can make the value of $\frac{f(x)}{g(x)}$ be as close 
 to $L$ as we want by choosing $x$ values that are sufficiently large. 
@@ -628,13 +636,17 @@ we can make $L-\frac{L}{2} < \frac{f(x)}{g(x)} < L+\frac{L}{2}$ be true for all 
 Now we can use the earlier stated assumption that $0 \leq g(x)$ to rewrite the inequality as  
 $(L-\frac{L}{2}) \cdot g(x) < f(x) < (L+\frac{L}{2}) \cdot g(x)$, which is true for all $x >x_{0}$. 
 //In this case, we can take as our witnesses $A$ equal to the ceiling of $L + \epsilon$ and $n$ equal to the ceiling of $A_{\epsilon}$ so that 
-We can choose for our witnesses $A = \lceil (L + \frac{L}{2}) \rceil$, the 
-least integer that is greater than or equal to $L + \frac{L}{2}$, and 
-$n = \lceil x_{0} \rceil$, the 
-least integer that is greater than or equal to $r$. 
-This means that $f(x) < A \cdot g(x)$ whenever $x > n$, which 
-shows that $f(x)$ is $O(g(x))$. Note that using this method does not 
-focus on determining the actual numerical values of $A$ and $n$ but just guarantees that the witnesses exist, which is all that is needed to show that $f(x)$ is $O(g(x))$.
+//We can choose for our witnesses $A = \lceil (L + \frac{L}{2}) \rceil$, the  least integer that is greater than or equal to $L + \frac{L}{2}$, and  $n = \lceil x_{0} \rceil$, the  least integer that is greater than or equal to $r$. 
+We can choose for our witnesses $B = L + \frac{L}{2}$ and $x_{0}.$ 
+This means that $f(x) < B \cdot g(x)$ whenever $x > x_{0},$ which 
+shows that $f(x)$ is $O(g(x))$. 
+// MKD added Oct 16 2024
+Furthermore, if $L>0$ we can choose $A =  L - \frac{L}{2}$ as a witness for the lower bound, too, which means that $ A \cdot g(x) < f(x) < B \cdot g(x)$ whenever $x > x_{0},$ so $f(x)$ is $\Theta(g(x))$. 
+
+
+Note that using this method does not 
+focus on determining the actual numerical values of $A$ and $n$ but just guarantees that the witnesses exist, which is all that is needed to show that $f(x)$ is $O(g(x))$. 
+//Furthermore, if the limit $L$ is a positive number, then $f(x)$ is $\Theta(g(x)).$
 
 //In such a case, we get an _indeterminate form_ for the limit $\lim_{x \to \infty} \frac{f(x)}{g(x)} = \frac{\infty}{\infty}$. We can often correctly evaluate such an indeterminate form using _L'Hôpital's rule_, which states that $\lim_{x \to \infty} \frac{f(x)}{g(x)} = \frac{f'(x)}{g'(x)}$. 
 
@@ -666,7 +678,8 @@ $\lim_{x \to \infty} \frac{100,000 x + x \cdot log(x)}{x \cdot log (x)}$.
 Direct computation gives the indeterminate form $\frac{\infty}{\infty}$, so we can use L'Hôpital's rule to write 
 $\lim_{x \to \infty} \frac{100,000 x + x \cdot log(x)}{x \cdot log(x)} = \lim_{x \to \infty} \frac{100,000 + (1 \cdot log (x) + x \cdot \frac{1}{x})}{1 \cdot log(x) + x \cdot \frac{1}{x}} = \lim_{x \to \infty} \frac{100,000 + log (x) + 1}{log(x) + 1}$. This limit still gives us an indeterminate form if we try to directly find the limits of the numerator and denominator separately without some simplification, but we can divide both numerator and denominator by $log (x)$ to rewrite the last limit as the equivalent limit 
 $\lim_{x \to \infty} \frac{\frac{100,001}{log (x)} + 1}{1 + \frac{1}{log(x)}} = \frac{0+1}{1+0} = 1$. Since the limit is a positive finite number, $100,000 x + x \cdot log (x)$ is  
-$O(x \cdot log (x))$. As mentioned above, we do not need to find the actual values of the witnesses when using this method.
+$\Theta(x \cdot log (x))$ which means that is also $O(x \cdot log (x)).$  
+As mentioned above, we do not need to find the actual values of the witnesses when using this limit method.
 
 
 

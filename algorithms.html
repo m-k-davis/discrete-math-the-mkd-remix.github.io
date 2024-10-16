@@ -612,8 +612,12 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on October 14, 2024.
+        This chapter was last updated on October 16, 2024.
        </em>
+       <br/>
+       <span class="small">
+        Fixed typos, updated Big-O discussion for the two division algorithms, added Big-O discussion for the Euclidean algorithm, revised  Big-O discussion of Merge Sort.
+       </span>
       </p>
      </div>
      <div class="paragraph">
@@ -950,19 +954,12 @@ As mentioned in the
         </h5>
         <div class="paragraph">
          <p>
-          Notice that the "division by repeated subtraction" has a worst-case scenario when the divisor
+          Notice that the "division by repeated subtraction" algorithm has a worst-case scenario when the divisor
           <em>
            b
           </em>
-          equals 1. If
-          <em>
-           n
-          </em>
-          is the number
-          <em>
-           a,
-          </em>
-          then it should be clear that "division by repeated subtraction" is \(O(n)\).
+          equals 1.
+It should be clear that "division by repeated subtraction" is \(O(a),\) that is, of order less than the value of the dividend \(a,\) since in the worst-case scenario you must subtract the divisor \(b=1\) exactly \(a\) times to exit the loop.
          </p>
         </div>
        </div>
@@ -1020,24 +1017,66 @@ As mentioned in the
         </h5>
         <div class="paragraph">
          <p>
-          This long division algorithm uses powers of two (instead of ten,) but otherwise is like the algorithm you may have learned in school. The worst-case scenario is when the divisor
-          <em>
-           b
-          </em>
-          equals 1, which requires use to shift as many times as there are
+          This long division algorithm uses powers of two (instead of ten) but otherwise is like the algorithm you may have learned in school. The worst-case scenario corresponds to the divisor \(b=1,\) which requires you to shift as many times as there are
           <em>
            binary
           </em>
-          digits in \(a,\) and \(a\) is bounded above by 2 to the power the number of binary digits. This means that if
-          <em>
-           n
-          </em>
-          is the number
-          <em>
-           a,
-          </em>
-          then this long division algorithm is \(O(\log (n)).\)
+          digits in \(a.\) Notice that \(a\) is bounded above by 2 raised to the number of binary digits; this means that
+the long division algorithm is \(O(\log (a)).\)
          </p>
+        </div>
+        <div class="admonitionblock note">
+         <table>
+          <tr>
+           <td class="icon">
+            <i class="fa icon-note" title="Note">
+            </i>
+           </td>
+           <td class="content">
+            Python provides built-in operators to find the quotient and remainder for variables
+            <code>
+             a
+            </code>
+            and
+            <code>
+             b
+            </code>
+            of type
+            <code>
+             int
+            </code>
+            :
+            <code>
+             a//b
+            </code>
+            is the quotient and
+            <code>
+             a%b
+            </code>
+            is the remainder. There is also the operator
+            <code>
+             divmod(a,b)
+            </code>
+            that returns an ordered pair (of data type
+            <code>
+             tuple
+            </code>
+            ) containing both the quotient and the remainder, but
+            <code>
+             divmod
+            </code>
+            is less efficient than
+            <code>
+             //
+            </code>
+            and
+            <code>
+             %
+            </code>
+            and should only be used when you need to find both the quotient and the remainder.
+           </td>
+          </tr>
+         </table>
         </div>
        </div>
       </div>
@@ -1092,38 +1131,44 @@ As mentioned in the
          </div>
         </div>
        </div>
-       <div class="paragraph">
-        <p>
-         Note that Python provides built-in operators to find the quotient and remainder for variables
-         <code>
-          a
-         </code>
-         and
-         <code>
-          b
-         </code>
-         of type
-         <code>
-          int
-         </code>
-         :
-         <code>
-          a//b
-         </code>
-         is the quotient and
-         <code>
-          a%b
-         </code>
-         is the remainder. There is also a less effiecient operator
-         <code>
-          divmod(a,b)
-         </code>
-         that returns an ordered pair (of data type
-         <code>
-          tuple
-         </code>
-         ) containing the quotient and the remainder.
-        </p>
+       <div class="sect4">
+        <h5 id="_big_o_analysis_of_the_euclidean_algorithm">
+         Big-O Analysis Of The Euclidean Algorithm
+        </h5>
+        <div class="paragraph">
+         <p>
+          The Euclidean Algorithm takes two positive integer inputs \(a\) and \(b\) with \(a &gt; b.\) It can be proven using
+          <a href="./induction.html">
+           mathematical induction
+          </a>
+          that the worst-case scenario for this algorithm is
+          <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case">
+           \(O(\log (b)).\)
+          </a>
+          The proof uses the closed-form for the Fibonacci numbers.
+         </p>
+        </div>
+        <div class="admonitionblock note">
+         <table>
+          <tr>
+           <td class="icon">
+            <i class="fa icon-note" title="Note">
+            </i>
+           </td>
+           <td class="content">
+            Python’s
+            <code>
+             math
+            </code>
+            module includes a function
+            <code>
+             gcd
+            </code>
+            that will compute the greatest common divisor of two or more integers.
+           </td>
+          </tr>
+         </table>
+        </div>
        </div>
       </div>
      </div>
@@ -1144,7 +1189,7 @@ As mentioned in the
          </strong>
          The
          <a href="https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/">
-          "Algorithms" activity
+          "Algorithms and Recursive Functions" activity
          </a>
          can replace one or both of the first two subsections.
         </mark>
@@ -1787,6 +1832,14 @@ larger elements to the right, using a variable, say \(j\).
        <div class="paragraph">
         <p>
          The picture below illustrates this with a list of length seven.
+         <br/>
+         <span class="small">
+          Image credit:
+          <a href="https://commons.wikimedia.org/wiki/File:Merge_sort_algorithm_diagram.svg">
+           "Merge Sort Algorithm Diagram"
+          </a>
+          by VineetKumar. This work has been released into the public domain by its author, VineetKumar at English Wikipedia. This applies worldwide.
+         </span>
         </p>
        </div>
        <div class="openblock float-group">
@@ -1794,9 +1847,6 @@ larger elements to the right, using a variable, say \(j\).
          <div class="imageblock text-center left text-center">
           <div class="content">
            <img alt="GGC" height="600" src="images/mergesort.png" width="600"/>
-          </div>
-          <div class="title">
-           Figure 10. Illustration of Merge Sort courtesy of Wikipedia
           </div>
          </div>
         </div>
@@ -1826,7 +1876,8 @@ larger elements to the right, using a variable, say \(j\).
         <div class="paragraph">
          <p>
           In the first part of Merge Sort, similar to Binary Search which is \(O(\log{n})\), the list of size \(n\) is recursively split into sublists.
-In the second part of Merge Sort, \(n\) elements are merged which is \(O(n)\). Since the algorithm performs the first and the second parts, we can multiply to find that the complexity of Merge Sort is \(O(n \log{n})\).
+In the second part of Merge Sort, \(n\) elements are merged which is \(O(n)\). Since the algorithm performs the first and the second parts, we can
+multiply to find that the complexity of Merge Sort is \(O(n \log{n})\).
          </p>
         </div>
         <div class="paragraph">

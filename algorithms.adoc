@@ -2,7 +2,8 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on October 14, 2024._
+_This chapter was last updated on October 16, 2024._ + 
+[small]#Fixed typos, updated Big-O discussion for the two division algorithms, added Big-O discussion for the Euclidean algorithm, revised  Big-O discussion of Merge Sort.#
 
 //// 
 State, Explain, or Calculate complexity in the ideal and in the worst-case scenario for both implementations. [Remembering, Understanding, Applying]
@@ -182,7 +183,9 @@ include::python_tutor.adoc[]
 
 ==== Big-O Analysis Of Division By Repeated Subtraction
 
-Notice that the "division by repeated subtraction" has a worst-case scenario when the divisor _b_ equals 1. If _n_ is the number _a,_ then it should be clear that "division by repeated subtraction" is $O(n)$.
+Notice that the "division by repeated subtraction" algorithm has a worst-case scenario when the divisor _b_ equals 1. 
+//If _n_ is the number _a,_ then 
+It should be clear that "division by repeated subtraction" is $O(a),$ that is, of order less than the value of the dividend $a,$ since in the worst-case scenario you must subtract the divisor $b=1$ exactly $a$ times to exit the loop.
 
 
 === Long Division Of Natural Numbers
@@ -214,8 +217,13 @@ include::python_tutor.adoc[]
 
 ==== Big-O Analysis Of Long Division
 
-This long division algorithm uses powers of two (instead of ten,) but otherwise is like the algorithm you may have learned in school. The worst-case scenario is when the divisor _b_ equals 1, which requires use to shift as many times as there are _binary_ digits in $a,$ and $a$ is bounded above by 2 to the power the number of binary digits. This means that if _n_ is the number _a,_ then this long division algorithm is $O(\log (n)).$
+This long division algorithm uses powers of two (instead of ten) but otherwise is like the algorithm you may have learned in school. The worst-case scenario corresponds to the divisor $b=1,$ which requires you to shift as many times as there are _binary_ digits in $a.$ Notice that $a$ is bounded above by 2 raised to the number of binary digits; this means that 
+//if _n_ is the number _a,_ this 
+the long division algorithm is $O(\log (a)).$
 
+
+
+NOTE: Python provides built-in operators to find the quotient and remainder for variables `a` and `b` of type `int`: `a//b` is the quotient and `a%b` is the remainder. There is also the operator `divmod(a,b)` that returns an ordered pair (of data type `tuple`) containing both the quotient and the remainder, but `divmod` is less efficient than `//` and `%` and should only be used when you need to find both the quotient and the remainder.
 
 
 // MKD insert "Pythonic" example 
@@ -242,10 +250,11 @@ include::python_tutor.adoc[]
 
 ****
 
+==== Big-O Analysis Of The Euclidean Algorithm
 
+The Euclidean Algorithm takes two positive integer inputs $a$ and $b$ with $a > b.$ It can be proven using link:./induction.html[mathematical induction] that the worst-case scenario for this algorithm is link:https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case[$O(\log (b)).$] The proof uses the closed-form for the Fibonacci numbers.
 
-Note that Python provides built-in operators to find the quotient and remainder for variables `a` and `b` of type `int`: `a//b` is the quotient and `a%b` is the remainder. There is also a less effiecient operator `divmod(a,b)` that returns an ordered pair (of data type `tuple`) containing the quotient and the remainder.
-
+NOTE: Python's `math` module includes a function `gcd` that will compute the greatest common divisor of two or more integers.
 
 
 == Search Algorithms
@@ -253,7 +262,7 @@ Note that Python provides built-in operators to find the quotient and remainder 
 //MKD inserted paragraph
 In the first two subsections you will see two algorithms for searching for a target integer within a list of integers. In the third subsection, Python's built-in search methods are discussed.  
 
-#*RECOMMENDATION:* The link:https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/["Algorithms" activity] can replace one or both of the first two subsections.#
+#*RECOMMENDATION:* The link:https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/["Algorithms and Recursive Functions" activity] can replace one or both of the first two subsections.#
 
 === The Linear Search Algorithm
 
@@ -630,12 +639,14 @@ It is left as an exercise to verify that the insertion sort algorithm is $O(n^2)
 
 Merge Sort is a recursive sorting algorithm. The general idea is to divide a list of length $n$ into $n$ sublists of length $1$, where a list of length one is considered already sorted. Subsequently, the algorithm repeatedly merges the sublists to make sorted lists until only a single list of length $n$ is remaining. This will be the a sorted list consisting of the elements of the original list.
 
-The picture below illustrates this with a list of length seven.
+The picture below illustrates this with a list of length seven. + 
+[small]#Image credit: link:https://commons.wikimedia.org/wiki/File:Merge_sort_algorithm_diagram.svg["Merge Sort Algorithm Diagram"] by VineetKumar. This work has been released into the public domain by its author, VineetKumar at English Wikipedia. This applies worldwide.# 
 [.float-group]
 --
-.Illustration of Merge Sort courtesy of Wikipedia
+//.Illustration of Merge Sort courtesy of Wikipedia
 [.left.text-center]
-image::images/mergesort.png[GGC,600,600, align="center"]
+image::images/mergesort.png[GGC,600,600, align="center"] 
+
 --
 
 //MKD https://commons.wikimedia.org/wiki/File:Merge_sort_algorithm_diagram.svg
@@ -656,7 +667,8 @@ include::python_tutor.adoc[]
 
 //Notice that Merge Sort has complexity $n \log{n}$. 
 In the first part of Merge Sort, similar to Binary Search which is $O(\log{n})$, the list of size $n$ is recursively split into sublists. 
-In the second part of Merge Sort, $n$ elements are merged which is $O(n)$. Since the algorithm performs the first and the second parts, we can multiply to find that the complexity of Merge Sort is $O(n \log{n})$.
+In the second part of Merge Sort, $n$ elements are merged which is $O(n)$. Since the algorithm performs the first and the second parts, we can 
+multiply to find that the complexity of Merge Sort is $O(n \log{n})$.
 //MKD merge sort ends 
 
 

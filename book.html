@@ -10788,7 +10788,8 @@ the important concepts of functions, including domain, codomain, range, and inve
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on October 14, 2024.</em></p>
+<p><em>This chapter was last updated on October 16, 2024.</em><br>
+<span class="small">Revised the section on using limits to determine Big-\(O\) and  Big-\(\Theta\) relationships.</span></p>
 </div>
 <div class="paragraph">
 <p>Some tasks can be completed by more than one algorithm. In such a case, two questions to ask are "How do you choose which algorithm to use?" and "Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions.</p>
@@ -11338,26 +11339,31 @@ facts that \(2^x\) grows faster than \(x^4\), and \(x^x\) grows faster than \(x!
 on the interval \((0,\, \infty)\),
 and
 satisfy
-\(\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) = \infty\).</p>
+\(\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) = \infty\).
+To avoid needing to use the absolute value, we can assume that \(0 < f(x)\) and \(0 < g(x)\) for all \(x \geq 0\) (This assumption is safe to make since both functions go to infinity as \(x\) increases without bound, which means that both functions are positive for all \(x\) values greater than or equal to some number \(x_{0}\)&#8230;&#8203; we are just assuming that \(x_{0}=0\) which is the equivalent of shifting the plots of \(f\) and \(g\) to the left by \(x_0\) units.)</p>
 </div>
 <div class="paragraph">
 <p>If \(f(x)\) and \(g(x)\) are such functions and
 \(\lim_{x \to \infty} \frac{f(x)}{g(x)} = L\),
 where \(0 \leq L < \infty\),
-then \(f(x)\) is \(O(g(x))\).
-To see this, recall that \(\lim_{x \to \infty} \frac{f(x)}{g(x)} = L\)
+then \(f(x)\) is \(O(g(x)),\)
+and if \(0 < L < \infty\) then \(f(x)\) is \(\Theta(g(x)).\)</p>
+</div>
+<div class="paragraph">
+<p>To see this, recall that \(\lim_{x \to \infty} \frac{f(x)}{g(x)} = L\)
 means that we can make the value of \(\frac{f(x)}{g(x)}\) be as close
 to \(L\) as we want by choosing \(x\) values that are sufficiently large.
 In particular,
 we can make \(L-\frac{L}{2} < \frac{f(x)}{g(x)} < L+\frac{L}{2}\) be true for all \(x\) greater than some real number \(x_{0}\).
 Now we can use the earlier stated assumption that \(0 \leq g(x)\) to rewrite the inequality as
 \((L-\frac{L}{2}) \cdot g(x) < f(x) < (L+\frac{L}{2}) \cdot g(x)\), which is true for all \(x >x_{0}\).
-We can choose for our witnesses \(A = \lceil (L + \frac{L}{2}) \rceil\), the
-least integer that is greater than or equal to \(L + \frac{L}{2}\), and
-\(n = \lceil x_{0} \rceil\), the
-least integer that is greater than or equal to \(r\).
-This means that \(f(x) < A \cdot g(x)\) whenever \(x > n\), which
-shows that \(f(x)\) is \(O(g(x))\). Note that using this method does not
+We can choose for our witnesses \(B = L + \frac{L}{2}\) and \(x_{0}.\)
+This means that \(f(x) < B \cdot g(x)\) whenever \(x > x_{0},\) which
+shows that \(f(x)\) is \(O(g(x))\).
+Furthermore, if \(L>0\) we can choose \(A =  L - \frac{L}{2}\) as a witness for the lower bound, too, which means that \( A \cdot g(x) < f(x) < B \cdot g(x)\) whenever \(x > x_{0},\) so \(f(x)\) is \(\Theta(g(x))\).</p>
+</div>
+<div class="paragraph">
+<p>Note that using this method does not
 focus on determining the actual numerical values of \(A\) and \(n\) but just guarantees that the witnesses exist, which is all that is needed to show that \(f(x)\) is \(O(g(x))\).</p>
 </div>
 <div class="sidebarblock">
@@ -11387,7 +11393,8 @@ Also, we will assume that \(log (x)\) is the natural logarithm; as mentioned ear
 Direct computation gives the indeterminate form \(\frac{\infty}{\infty}\), so we can use L&#8217;Hôpital&#8217;s rule to write
 \(\lim_{x \to \infty} \frac{100,000 x + x \cdot log(x)}{x \cdot log(x)} = \lim_{x \to \infty} \frac{100,000 + (1 \cdot log (x) + x \cdot \frac{1}{x})}{1 \cdot log(x) + x \cdot \frac{1}{x}} = \lim_{x \to \infty} \frac{100,000 + log (x) + 1}{log(x) + 1}\). This limit still gives us an indeterminate form if we try to directly find the limits of the numerator and denominator separately without some simplification, but we can divide both numerator and denominator by \(log (x)\) to rewrite the last limit as the equivalent limit
 \(\lim_{x \to \infty} \frac{\frac{100,001}{log (x)} + 1}{1 + \frac{1}{log(x)}} = \frac{0+1}{1+0} = 1\). Since the limit is a positive finite number, \(100,000 x + x \cdot log (x)\) is
-\(O(x \cdot log (x))\). As mentioned above, we do not need to find the actual values of the witnesses when using this method.</p>
+\(\Theta(x \cdot log (x))\) which means that is also \(O(x \cdot log (x)).\)
+As mentioned above, we do not need to find the actual values of the witnesses when using this limit method.</p>
 </div>
 </div>
 </div>
@@ -11548,7 +11555,8 @@ words what it means that \( f(x)\) is <span class="underline">not</span> \( O(g(
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on October 14, 2024.</em></p>
+<p><em>This chapter was last updated on October 16, 2024.</em><br>
+<span class="small">Fixed typos, updated Big-O discussion for the two division algorithms, added Big-O discussion for the Euclidean algorithm, revised  Big-O discussion of Merge Sort.</span></p>
 </div>
 <div class="paragraph">
 <p>An <strong>algorithm</strong> is a step-by-step process, defined by a set of
@@ -11726,7 +11734,8 @@ Output
 <div class="sect4">
 <h5 id="_big_o_analysis_of_division_by_repeated_subtraction">Big-O Analysis Of Division By Repeated Subtraction</h5>
 <div class="paragraph">
-<p>Notice that the "division by repeated subtraction" has a worst-case scenario when the divisor <em>b</em> equals 1. If <em>n</em> is the number <em>a,</em> then it should be clear that "division by repeated subtraction" is \(O(n)\).</p>
+<p>Notice that the "division by repeated subtraction" algorithm has a worst-case scenario when the divisor <em>b</em> equals 1.
+It should be clear that "division by repeated subtraction" is \(O(a),\) that is, of order less than the value of the dividend \(a,\) since in the worst-case scenario you must subtract the divisor \(b=1\) exactly \(a\) times to exit the loop.</p>
 </div>
 </div>
 </div>
@@ -11759,7 +11768,20 @@ Output
 <div class="sect4">
 <h5 id="_big_o_analysis_of_long_division">Big-O Analysis Of Long Division</h5>
 <div class="paragraph">
-<p>This long division algorithm uses powers of two (instead of ten,) but otherwise is like the algorithm you may have learned in school. The worst-case scenario is when the divisor <em>b</em> equals 1, which requires use to shift as many times as there are <em>binary</em> digits in \(a,\) and \(a\) is bounded above by 2 to the power the number of binary digits. This means that if <em>n</em> is the number <em>a,</em> then this long division algorithm is \(O(\log (n)).\)</p>
+<p>This long division algorithm uses powers of two (instead of ten) but otherwise is like the algorithm you may have learned in school. The worst-case scenario corresponds to the divisor \(b=1,\) which requires you to shift as many times as there are <em>binary</em> digits in \(a.\) Notice that \(a\) is bounded above by 2 raised to the number of binary digits; this means that
+the long division algorithm is \(O(\log (a)).\)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Python provides built-in operators to find the quotient and remainder for variables <code>a</code> and <code>b</code> of type <code>int</code>: <code>a//b</code> is the quotient and <code>a%b</code> is the remainder. There is also the operator <code>divmod(a,b)</code> that returns an ordered pair (of data type <code>tuple</code>) containing both the quotient and the remainder, but <code>divmod</code> is less efficient than <code>//</code> and <code>%</code> and should only be used when you need to find both the quotient and the remainder.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -11789,8 +11811,23 @@ Output
 </div>
 </div>
 </div>
+<div class="sect4">
+<h5 id="_big_o_analysis_of_the_euclidean_algorithm">Big-O Analysis Of The Euclidean Algorithm</h5>
 <div class="paragraph">
-<p>Note that Python provides built-in operators to find the quotient and remainder for variables <code>a</code> and <code>b</code> of type <code>int</code>: <code>a//b</code> is the quotient and <code>a%b</code> is the remainder. There is also a less effiecient operator <code>divmod(a,b)</code> that returns an ordered pair (of data type <code>tuple</code>) containing the quotient and the remainder.</p>
+<p>The Euclidean Algorithm takes two positive integer inputs \(a\) and \(b\) with \(a > b.\) It can be proven using <a href=./induction.html>mathematical induction</a> that the worst-case scenario for this algorithm is <a href=https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case>\(O(\log (b)).\)</a> The proof uses the closed-form for the Fibonacci numbers.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Python&#8217;s <code>math</code> module includes a function <code>gcd</code> that will compute the greatest common divisor of two or more integers.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -11800,7 +11837,7 @@ Output
 <p>In the first two subsections you will see two algorithms for searching for a target integer within a list of integers. In the third subsection, Python&#8217;s built-in search methods are discussed.</p>
 </div>
 <div class="paragraph">
-<p><mark><strong>RECOMMENDATION:</strong> The <a href=https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/>"Algorithms" activity</a> can replace one or both of the first two subsections.</mark></p>
+<p><mark><strong>RECOMMENDATION:</strong> The <a href=https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/>"Algorithms and Recursive Functions" activity</a> can replace one or both of the first two subsections.</mark></p>
 </div>
 <div class="sect3">
 <h4 id="_the_linear_search_algorithm">13.3.1. The Linear Search Algorithm</h4>
@@ -12182,7 +12219,8 @@ larger elements to the right, using a variable, say \(j\).</p>
 <p>Merge Sort is a recursive sorting algorithm. The general idea is to divide a list of length \(n\) into \(n\) sublists of length \(1\), where a list of length one is considered already sorted. Subsequently, the algorithm repeatedly merges the sublists to make sorted lists until only a single list of length \(n\) is remaining. This will be the a sorted list consisting of the elements of the original list.</p>
 </div>
 <div class="paragraph">
-<p>The picture below illustrates this with a list of length seven.</p>
+<p>The picture below illustrates this with a list of length seven.<br>
+<span class="small">Image credit: <a href=https://commons.wikimedia.org/wiki/File:Merge_sort_algorithm_diagram.svg>"Merge Sort Algorithm Diagram"</a> by VineetKumar. This work has been released into the public domain by its author, VineetKumar at English Wikipedia. This applies worldwide.</span></p>
 </div>
 <div class="openblock float-group">
 <div class="content">
@@ -12190,7 +12228,6 @@ larger elements to the right, using a variable, say \(j\).</p>
 <div class="content">
 <img src="images/mergesort.png" alt="GGC" width="600" height="600">
 </div>
-<div class="title">Figure 10. Illustration of Merge Sort courtesy of Wikipedia</div>
 </div>
 </div>
 </div>
@@ -12213,7 +12250,8 @@ larger elements to the right, using a variable, say \(j\).</p>
 <h5 id="_big_o_analysis_of_merge_sort">Big-O Analysis of Merge Sort</h5>
 <div class="paragraph">
 <p>In the first part of Merge Sort, similar to Binary Search which is \(O(\log{n})\), the list of size \(n\) is recursively split into sublists.
-In the second part of Merge Sort, \(n\) elements are merged which is \(O(n)\). Since the algorithm performs the first and the second parts, we can multiply to find that the complexity of Merge Sort is \(O(n \log{n})\).</p>
+In the second part of Merge Sort, \(n\) elements are merged which is \(O(n)\). Since the algorithm performs the first and the second parts, we can
+multiply to find that the complexity of Merge Sort is \(O(n \log{n})\).</p>
 </div>
 <div class="paragraph">
 <p>MORE TO COME!</p>

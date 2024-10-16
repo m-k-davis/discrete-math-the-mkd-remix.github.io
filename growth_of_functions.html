@@ -612,8 +612,12 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on October 14, 2024.
+        This chapter was last updated on October 16, 2024.
        </em>
+       <br/>
+       <span class="small">
+        Revised the section on using limits to determine Big-\(O\) and  Big-\(\Theta\) relationships.
+       </span>
       </p>
      </div>
      <div class="paragraph">
@@ -1603,6 +1607,7 @@ on the interval \((0,\, \infty)\),
 and
 satisfy
 \(\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) = \infty\).
+To avoid needing to use the absolute value, we can assume that \(0 &lt; f(x)\) and \(0 &lt; g(x)\) for all \(x \geq 0\) (This assumption is safe to make since both functions go to infinity as \(x\) increases without bound, which means that both functions are positive for all \(x\) values greater than or equal to some number \(x_{0}\)…​ we are just assuming that \(x_{0}=0\) which is the equivalent of shifting the plots of \(f\) and \(g\) to the left by \(x_0\) units.)
        </p>
       </div>
       <div class="paragraph">
@@ -1610,20 +1615,28 @@ satisfy
         If \(f(x)\) and \(g(x)\) are such functions and
 \(\lim_{x \to \infty} \frac{f(x)}{g(x)} = L\),
 where \(0 \leq L &lt; \infty\),
-then \(f(x)\) is \(O(g(x))\).
-To see this, recall that \(\lim_{x \to \infty} \frac{f(x)}{g(x)} = L\)
+then \(f(x)\) is \(O(g(x)),\)
+and if \(0 &lt; L &lt; \infty\) then \(f(x)\) is \(\Theta(g(x)).\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        To see this, recall that \(\lim_{x \to \infty} \frac{f(x)}{g(x)} = L\)
 means that we can make the value of \(\frac{f(x)}{g(x)}\) be as close
 to \(L\) as we want by choosing \(x\) values that are sufficiently large.
 In particular,
 we can make \(L-\frac{L}{2} &lt; \frac{f(x)}{g(x)} &lt; L+\frac{L}{2}\) be true for all \(x\) greater than some real number \(x_{0}\).
 Now we can use the earlier stated assumption that \(0 \leq g(x)\) to rewrite the inequality as
 \((L-\frac{L}{2}) \cdot g(x) &lt; f(x) &lt; (L+\frac{L}{2}) \cdot g(x)\), which is true for all \(x &gt;x_{0}\).
-We can choose for our witnesses \(A = \lceil (L + \frac{L}{2}) \rceil\), the
-least integer that is greater than or equal to \(L + \frac{L}{2}\), and
-\(n = \lceil x_{0} \rceil\), the
-least integer that is greater than or equal to \(r\).
-This means that \(f(x) &lt; A \cdot g(x)\) whenever \(x &gt; n\), which
-shows that \(f(x)\) is \(O(g(x))\). Note that using this method does not
+We can choose for our witnesses \(B = L + \frac{L}{2}\) and \(x_{0}.\)
+This means that \(f(x) &lt; B \cdot g(x)\) whenever \(x &gt; x_{0},\) which
+shows that \(f(x)\) is \(O(g(x))\).
+Furthermore, if \(L&gt;0\) we can choose \(A =  L - \frac{L}{2}\) as a witness for the lower bound, too, which means that \( A \cdot g(x) &lt; f(x) &lt; B \cdot g(x)\) whenever \(x &gt; x_{0},\) so \(f(x)\) is \(\Theta(g(x))\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Note that using this method does not
 focus on determining the actual numerical values of \(A\) and \(n\) but just guarantees that the witnesses exist, which is all that is needed to show that \(f(x)\) is \(O(g(x))\).
        </p>
       </div>
@@ -1665,7 +1678,8 @@ Also, we will assume that \(log (x)\) is the natural logarithm; as mentioned ear
 Direct computation gives the indeterminate form \(\frac{\infty}{\infty}\), so we can use L’Hôpital’s rule to write
 \(\lim_{x \to \infty} \frac{100,000 x + x \cdot log(x)}{x \cdot log(x)} = \lim_{x \to \infty} \frac{100,000 + (1 \cdot log (x) + x \cdot \frac{1}{x})}{1 \cdot log(x) + x \cdot \frac{1}{x}} = \lim_{x \to \infty} \frac{100,000 + log (x) + 1}{log(x) + 1}\). This limit still gives us an indeterminate form if we try to directly find the limits of the numerator and denominator separately without some simplification, but we can divide both numerator and denominator by \(log (x)\) to rewrite the last limit as the equivalent limit
 \(\lim_{x \to \infty} \frac{\frac{100,001}{log (x)} + 1}{1 + \frac{1}{log(x)}} = \frac{0+1}{1+0} = 1\). Since the limit is a positive finite number, \(100,000 x + x \cdot log (x)\) is
-\(O(x \cdot log (x))\). As mentioned above, we do not need to find the actual values of the witnesses when using this method.
+\(\Theta(x \cdot log (x))\) which means that is also \(O(x \cdot log (x)).\)
+As mentioned above, we do not need to find the actual values of the witnesses when using this limit method.
          </p>
         </div>
        </div>
