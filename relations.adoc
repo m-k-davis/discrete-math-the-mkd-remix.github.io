@@ -2,9 +2,9 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on October 14, 2024._
+_This chapter was last updated on October 21, 2024._
 
-COMING SOON!
+//COMING SOON!
 
 ////
 RELATIONS (MKD) - new chapter is needed for this
@@ -26,7 +26,6 @@ RELATIONS (MKD) - new chapter is needed for this
 		Equivalence relations, partial orders
 	[Core-Tier2]
 			Well orderings
-
 
 // MKD may also introduce "Well orderings" here
 //	should be spelled "well-ordering"
@@ -70,7 +69,6 @@ Definition: Relations on Multiple Sets Given two sets S and T, a binary relation
 T is a subset of S x T. Given n sets S1, S2, ...Sn, n > 2, an n-ary relation on
 S1 xS2 x...xSn isasubset of S1 xS2 x...xSn.
 
-
 Intro. to Relational Databases Let us take a look at a type of database representation that is based on relations, namely the relational data model.
 A database consists of n-tuples called records, which are made up of fields. These fields are the entries of the n-tuples.
 The relational data model represents a database as an n-ary relation, that is, a set of records
@@ -100,7 +98,7 @@ and R contains the student records as defined before ?
 Solution: The resulting relation is:
 {(1978, Ackermann, 231455, CS, 3.88), (1972, Adams, 888323, Physics, 3.45), (1917, Chou, 102147, CS, 3.79), (1984, Goodfriend, 453876, Math, 3.45), (1982, Rao, 678543, Math, 3.90), (1970, Stevens, 786576, Psych, 2.99)}
 Since Y has two fields and R has four, the relation J1(Y, R) has 2 + 4 – 1 = 5 fields.
-
+////
 
 
 
@@ -108,97 +106,341 @@ Since Y has two fields and R has four, the relation J1(Y, R) has 2 + 4 – 1 = 5
 
 //== the basic idea, informally
 
-Informally, a relation on two or more sets is an association between elements of those sets.
+Relations are used to describe an association of data. 
+
+For example, imagine a university database of students. The database needs to have a record for each student, and the student's record needs to include fields for the student's name(s), the unique student ID number for the student, the student's current status, a list of courses that the student has enrolled in or has completed (along with the grade earned in each completed course,) and possibly other data associated with the student. One way to visualize the database is as a two-dimensional table, similar to a spreadsheet worksheet, where each row corresponds to a record and each column corresponds to a field; each row can be treated as an ordered $n$-tuple, where $n$ is the number of fields. 
+
+In this chapter, you will learn about the formal definition of relation, operations and properties of relations. You will also learn about some special types of relations, namely partial orderings and equivalence relations. As a special case of equivalence relations, you will learn aobut congruence relations of integers as well as modular arithmetic.
+
+//Examples: 
+
+//* the comparisons we make between two numbers: Is the first number less than, equal to, or greater than the second number? 
+
+//* the association of a student's name, the student's ID number, and classes in which the student is enrolled. Here there are three sets: The set of names of all students, the set of all student ID numbers, and the set of all classes offered. Notice that the same name and ID number are likely to be associated with multiple classes.
+
+//* the association of siblinghood (e.g., two people are brothers or sisters).
+
+//* the association of each integer with its square. This relation is a function. In fact, every function is a relation since it associates an input with exactly one output.
+
+
+//== Definition of _n_-ary Relation
+== Definition of Relation
+
+Informally, a relation on two or more sets is an association between elements of those sets. 
 //_A_ and _B_ is an association between elements from set _A_ and set _B._ 
+Formally, a relation is a subset of a Cartesian product of two or more sets. + 
+[small]#For simplicity, it is assumed in this textbook that the number of sets used to form the Cartesian product is finite. It _is_ possible to define relations as subsets of a Cartesian product of infinitely many sets, in which case the elements of the relation are infinite sequences.# 
 
-Examples: 
+//, but this case is not necessary for this this textbook, we will restrict ourselves to the case of finite sequences.
 
-* the comparisons we make between two numbers: Is the first number less than, equal to, or greater than the second number? 
+****
+.Definition
 
-* the association of a student's name, the student's ID number, and classes in which the student is enrolled. Here there are three sets: The set of names of all students, the set of all student ID numbers, and the set of all classes offered. Notice that the same name and ID number are likely to be associated with multiple classes.
+//Given sets $A_{1}, \, A_{2}, \, \ldots \, A_{n}$ where $n \geq 2,$ an *_n_-ary relation* on $A_{1}, \, A_{2}, \, \ldots \, A_{n}$ is a subset $R$ of the Cartesian product $A_{1} \times A_{2} \times \cdots \times A_{n},$ that is, $R \subseteq A_{1} \times A_{2} \times \cdots \times A_{n}.$
 
-* the association of siblinghood (e.g., two people are brothers or sisters).
+An *_n_-ary relation* on the sets $A_{1}, \, A_{2}, \, \ldots \, A_{n},$ where $n \geq 2$ is a natural number, is a subset $R$ of the Cartesian product $A_{1} \times A_{2} \times \cdots \times A_{n}.$ That is, _any_ subset 
+//$R$ such that 
+$R \subseteq A_{1} \times A_{2} \times \cdots \times A_{n}$ is a _n_-ary relation on the sets $A_{1}, \, A_{2}, \, \ldots \, A_{n}.$
 
-* the association of each integer with its square. This relation is a function. In fact, every function is a relation since it associates an input with exactly one output.
+The sets $A_{1}, \, A_{2}, \, \ldots \, A_{n}$ are called the *domains* of the relation $R.$ 
 
+The number of sets $n$ is called the *degree* of the relation $R.$
+****
 
+Here are several examples of relations.
 
-== Definition of _n_-ary Relation
+****
+//.Examples {counter:mkdrelex:0} - Relations
+.Example {counter:mkdrelex} - Relations
+--
+--
 
-Given sets $A_{1}, \, A_{2}, \, \ldots \, A_{n}$ where $n \geq 2,$ 
-an *_n_-ary relation* on $A_{1}, \, A_{2}, \, \ldots \, A_{n}$ 
-is a subset $R$ of the Cartesian product 
-$A_{1} \times A_{2} \times \cdots \times A_{n},$ that is, 
-$R \subseteq A_{1} \times A_{2} \times \cdots \times A_{n}.$
-
-The sets $A_{1}, \, A_{2}, \, \ldots \, A_{n}$ are called the *domains* of the relation $R,$ and $n$ is called the *degree* of the relation $R.$
-
-
-Example: Let 
+* Let 
 $A$ be the set of names of students currently enrolled at a college, 
 $B$ be the set of all possible student ID numbers, and 
 $C$ be the set of all classes currently offered at the college. 
 //The set $R = \{ (x, y, z) : \text{Student _x_ has ID number _y_ and has declared major z} \}$ is a 3-ary relation, also called a *ternary relation* on $R \subseteq A \times B \times C.$ 
-The set \[ R = \{ (x, y, z) \mid \text{Student } x \text{ has ID number } y \text{ and is enrolled in class } z \} \] is a 3-ary relation, also called a *ternary relation* on $A \times B \times C.$ 
+The set \[ R = \{ (x, y, z) \mid \text{Student } x \text{ has ID number } y \text{ and is enrolled in class } z \} \] is a 3-ary relation, also called a *ternary relation,* on $A,$ $B,$ and $C.$
+//$A \times B \times C.$ 
 
-Example: Let 
-$A$ be the set of names of students currently enrolled at a college. 
-The set \[ R = \{ (x, y) \mid \text{Student } x \text{ is enrolled in a class section in which student } y  \text{ also is enrolled} \} \] is a 2-ary relation, usually called a *binary relation* on $A \times A.$ Most of the focus of this chapter will be on binary relations. 
+* Let 
+$S$ be the set of names of students currently enrolled at a college. 
+The set \[ R = \{ (x, y) \mid \text{Student } x \text{ is enrolled in a class section in which student } y  \text{ also is enrolled} \} \] is a 2-ary relation, usually called a *binary relation* on $A$ (since the two sets in $A \times A$ are the same set.) 
+Most of the focus of this chapter will be on binary relations. 
 
+//* Let $R = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} | a \text{ is a divisor of } b \}$. $R$ is a binary relation on $\mathbb{Z}.$
 
-== Binary Relations
+//* Let $R = \{ (x, y) \in \mathbb{R} \times \mathbb{R} | x \leq y \}$. $R$ is a binary relation on $\mathbb{R}.$
 
-A *binary relation* on sets $A$ and $B$ is any subset $R$ of the cartesian product c, that is, $R \subseteq A \times B.$ 
+* Let 
+$f : A \rightarrow B$ be any function, as defined formally in the link:./functions.html[Functions] chapter. Recall that part of the formal definition states that $f$ is a subset of $A \times B,$ so the set $f$ is a binary relation on the domains $A$ and $B.$ 
+//$f$ be a function with domain $D$ and codomain $C$ as defined formally in the link:./functions.html[Functions] chapter. Recall that, in the formal definition, $f \subseteq D \times C,$ so the set $f$ is a binary relation on the domains $D$ and $C.$ 
 
+****
 
-Example NEEDED where A and B are NOT same set, but not a Functions
+Notice that for any sets $A_{1}, \, A_{2}, \, \ldots \, A_{n},$ where $n \geq 2$ is a natural number, we always have the following two relations:
 
-Example: Any function f from A to B is a relation 
-since $f \subseteq A \times B$ (Recall from link:./functions.html[Functions] that the definition of function means that _f_ is defined to be subset of 
-$A \times B.$)
-
-
-In many cases, the two sets are the same set, and the relation involves a comparison of elements of the set _A._
-
-A *binary relation* on set $A$ is any subset $R$ of the cartesian product 
-$A \times A$, that is, $R \subseteq A \times A.$  
-
+* $\emptyset,$ called the *empty relation.* This relation is also called the *void relation* and *trivial relation* in other sources. 
+* $A_{1} \times A_{2} \times \cdots \times A_{n},$ called the *universal relation.*
 
 
-=== Examples of Binary Relations on a Set
-
-students enrolled in the same class (out of all students at a college)
-
-ordering on numbers
-
-subset lattice
-
-Divisibility
-
-congruence of integers modulo m
-
-the identity relation $id_{A}$
+//== Binary Relations 
+//A *binary relation* on sets $A$ and $B$ is any subset $R$ of the cartesian product c, that is, $R \subseteq A \times B.$ 
+//Example NEEDED where A and B are NOT same set, but not a Functions
+//Example: Any function f from A to B is a relation since $f \subseteq A \times B$ (Recall from link:./functions.html[Functions] that the definition of function means that _f_ is defined to be subset of $A \times B.$)
 
 
-=== Properties of Binary Relations
+//=== Examples of Binary Relations on a Set 
+== Binary Relations on a Single Set
 
-reflexive
+In many cases, the two domains of a binary relation are the [underline]#same# set; for example, the relation may involve comparing two elements of a set _S_ in some way. In this case, the domain $S$ is mentioned only once: A *binary relation on set _S_* is any subset $R$ of the cartesian product $S \times S$, that is, $R \subseteq S \times S.$ 
 
-symmetric
+In the case of a binary relation on $S,$ we often write $aRb$ to mean the same thing as $(a,b) \in R.$ This notation may make more sense after reading the following example.
 
-transitivity
+****
+.Example {counter:mkdrelex} - Binary Relations on a Set
+--
+--
 
-irreflexive
+Here are some examples of binary relations on one set.
 
-antisymmemtric
+* $R = \{ (x, y) \in \mathbb{R} \times \mathbb{R} \, | \,  x \leq y \}$. $R$ is a binary relation on $\mathbb{R}.$ We write $x \leq y$ instead of $(x,y) \in R$ (Notice that in this case, we are writing $xRy$ but replacing the $R$ by the symbol $\leq.$)
+
+* $D = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} \, | \,  a \text{ is a divisor of } b \}$. $D$ is a binary relation on $\mathbb{Z}.$ In this case, we often write $a | b$ instead of $(a,b) \in D.$ You may not be surprised to learn that this relation is called the *divisibility relation* on the integers.
+
+* $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} \, | \,  2 \text{ is a divisor of } (a-b) \}$. $M$ is a binary relation on $\mathbb{Z},$ called *congruence modulo 2.* This textbook uses the common but nonstandard notation $a \equiv_{2} b$ instead of $(a,b) \in M.$ + 
+//[small]#Note that the ISO standard notation for this relation is $a \equiv b \mod{2}$ and that other sources use $a \equiv b \pmod{2}.$#
+[small]#Note that the ISO standard notation for this relation is $a \equiv b \ \text{mod } 2$ and that other sources use $a \equiv b \ (\text{mod } 2).$#
+
+//$\mathcal{P}(A).$
+* For a set $S,$ recall that $\mathcal{P}(S)$ is the power set of $S,$ that is, the set whose elements are all possible subsets of $S.$ Let $R = \{ (A, B) \in \mathcal{P}(S) \times \mathcal{P}(S) \, | \,  A \subseteq B \}.$ $R$ is a binary relation on $\mathcal{P}(S),$ and we write $A \subseteq B$ instead of $(A,B) \in R.$
+
+* For a set $S,$ we can also define a different relation $R = \{ (A, B) \in \mathcal{P}(S) \times \mathcal{P}(S) \, | \,  A \subset B \},$ that is, $A$ is a proper subset of $B.$ This relation is also a binary relation on $\mathcal{P}(S),$ and we write $A \subset B$ instead of $(A,B) \in R.$
+
+* Let $S$ be _any_ nonempty set. The set $\mathbf{id}_S = \{ (x, x) \in \mathbb{R} \times \mathbb{R} \, | \,  x \in S \}$ is a binary relation on $S$ which we refer to as the *identity relation* on $S$ (Other sources call this *the diagonal* of $S,$ or simply the *equality relation* on $S.$) We write $a=b$ instead of $(a,b) \in \mathbf{id}_S.$
+
+* $B = \{ \text{("rock", "scissors"), ("paper", "rock"), ("scissors", "paper")} \}$ is a binary relation on the set $\{ \text{"rock", "paper", "scissors"} \}.$ We write $xBy$ (that is, "$x$ beats $y$") instead of $(x,y) \in B.$
+
+****
+
+
+
+//students enrolled in the same class (out of all students at a college)
+
+//ordering on numbers
+
+//subset lattice
+
+//Divisibility
+
+//congruence of integers modulo m
+
+//the identity relation $id_{A}$
+
+
+
+=== Operations on Binary Relations on a Set
+
+Given binary relations $Q$ and $R$ on a set $S,$ we can define several other relations in terms of $Q$ and $R.$ These operations are likely familiar to you as operations on _functions_ but they also work for binary relations on a single set.
+
+* The *inverse* of $R$ is the relation $R^{-1} = \{ (b,a) \, | \, (a,b) \in R \}.$ 
+//This can also be described by the biconditional $aRb \leftrightarrow bR^{-1}a.$
+
+* The *composition of _Q_ and _R_* is $R \circ Q = \{ (a,c) \, | \, (a,b) \in Q \land (b,c) \in R \}.$ 
+
+* The *_n_* *th power* of $R$ is defined recursively for all $n \in \mathbb{N}$ as follows.
+** $R^{0} = \mathbf{id}_S$
+** $R^{k+1} = R \circ R^{k}$ for natural numbers $k > 0.$ + 
+[small]#The recursion step uses $k$ instead of $n$ in preparation for the type of arguments used in the chapter on  link:./induction.html[proof by mathematical induction.]#
+
+Building on the $n$th powers of $R,$ we can define two relations.
+
+* $R^{+}$ is the relation $\{ (a,b) \in S \times S \, | \, (a,b) \in R^{k} \text{ for some positive integer } k \}.$ That is, $R^{+}$ is the union of all the positive $n$th powers of $R.$
+
+* $R^{*}$ is the relation $\{ (a,b) \in S \times S \, | \, (a,b) \in R^{k} \text{ for some natural number } k \}.$ That is, $R^{*}$ is the union of all the natural number $n$th powers of $R.$
+
+Notice that $R^{*} = \mathbf{id}_S \cup R^{+}.$
+
+// NEED EXAMPLES OR EXERCISE HERE.
+
+
+
+
+
+//=== Properties of Binary Relations
+=== Properties of Binary Relations on a Set
+
+In this subsection we define five properties that a relation may satisfy.
+
+****
+.Definitions
+
+Let $R$ be a binary relation on the set $S.$
+
+* $R$ is *reflexive* if and only if for all $a \in S,$ $(a, a) \in R.$
+
+* $R$ is *irreflexive* if and only if for all $a \in S,$ $(a, a) \not\in R.$
+
+* $R$ is *symmetric* if and only if for all $a \in S$ and $b \in S,$ $(a, b) \in R \rightarrow (b,a) \in R.$
+
+//* $R$ is *antisymmetric* if and only if for all $a \in S$ and $b \in S,$ $(a, b) \in R \rightarrow (b,a) \not\in R.$ 
+* $R$ is *antisymmetric* if and only if for all $a \in S$ and $b \in S,$ $(a, b) \in R \land (b, a) \in R \rightarrow a = b.$ + 
+[small]#Equivalently, $R$ is *antisymmetric* if and only if for all $a \in S$ and $b \in S,$ $(a, b) \in R \land a \neq b \rightarrow (b,a) \not\in R.$#
+
+* $R$ is *transitive* if and only if for all $a \in S,$ $b \in S,$ and $c \in S,$ $(a, b) \in R \land (b, c) \in R \rightarrow (a,c) \in R.$
+
+
+****
+
+// NEED EXAMPLES OR EXERCISE HERE.
+
+The following theorem can make it easier to determine when a relationship has each of the five properties. The proof of the theorem is an exercise. 
+
+.Theorem 
+****
+Let $R$ be a binary relation on the set $S.$
+
+* $R$ is reflexive if and only if $\mathbf{id}_S \subseteq R.$
+
+* $R$ is irreflexive if and only if $\mathbf{id}_S \cap R = \emptyset.$
+
+* $R$ is symmetric if and only if $R^{-1} = R.$
+
+* $R$ is antisymmemtric if and only if $R^{-1} \cap R \subseteq \mathbf{id}_S.$
+
+* $R$ is transitive if and only if $R^{2} \subseteq R.$ + 
+[small]#Recall that $R^{2}$ is defined to be the composition $R \circ R.$#
+
+****
+
+
+=== Closures of Binary Relations with Respect to a Property
+
+For each of the properties reflexivity, symmetry, and transitivity, we define the *closure with respect to the property* of a relation $R$ as follows: The closure is the smallest relation that has the property and includes all the elements of $R.$ That is, you start with $R$ and try to insert in just enough ordered pairs, if any are needed, to make sure that the new relation has the desired property.
+// (unless $R$ already has the property, in which case it is its own closure with respect to the property.)
+
+The following theorem justifies that the reflexive closure, symmetric closure, and transitive closure exist for any relation $R.$ The proof of the theorem is an exercise. 
+
+.Theorem 
+****
+Let $R$ be a binary relation on the set $S.$
+
+* The *reflexive closure* of $R$ is the relation $R \cup \mathbf{id}_S.$
+
+* The *symmetric closure* of $R$ is the relation $R \cup R^{-1}.$
+
+* The *transitive closure* of $R$ is the relation $R^{+}.$
+
+****
+
+Notice that we can also define the *reflexive and transitive closure* of a relation $R$ as the relation $R^{*},$ which is the reflexive closure of the transitive closure of $R.$
+
+However, for some properties, the closure of a relation $R$ with respect to the property may not exist! 
+
+****
+.Informal Exercise
+
+The irreflexive closure and antisymmetric closure only exist if $R$ satisfies certain conditions.  
+
+//[env.questions]
+//--
+. Find a description of the relations $R$ that _do_ have an irreflexive closure. + 
+. Find a description of the relations $R$ that _do_ have an antisymmetric closure.
+//--
+
+[click.hint]
+--
+Use the theorem from the previous subsection that describes irreflexive relations and antisymmetric relations in terms of intersections of sets.
+--
+
+****
+
 
 == Equivalence Relations
 
-Definition
+A binary relation $R$ on a set $S$ is called an *equivalence relation* on $S$ if $R$ is reflexive, symmetric, and transitive.
 
-Equivalence Classes (along with odd/even example)
+A first example of an equivalence relation is the diagonal, that is, the equality relation.  Another example is given below. 
 
-Partition <-> Equivalence Relaction
+****
+.Example {counter:mkdrelex} - The Parity Relation on the Integers
+--
+--
+
+Consider the set $R = \{ (a,b) \in \mathbb{Z} \times \mathbb{Z} \, | \, \text{Both } a \text{ and } b \text{ are odd, or both }  a \text{ and } b \text{are even.} \}.$
+
+Let's show that $R$ is an equivalence relation. 
+
+** $R$ is reflexive, since $aRa$ for every $a \in \mathbb{Z}.$ That is, both $a$ is odd and $a$ is odd, or both $a$ is even and $a$ is even (since $p \land p \leftrightarrow p$ is a tautology for any propositional variable $p.$)
+
+** $R$ is symmetric, since $aRb$ implies $bRa$ for every pair $a, b \in \mathbb{Z}.$ That is, both $a$ and $b$ are odd whenever both $b$ and $a$ are odd, and both $a$ and $b$ are even whenever both $b$ and $a$ are even (since $p \land q \leftrightarrow q \land p$ is a tautology for any propositional variables $p$ and $q.$)
+
+** $R$ is transitive, since $aRb$ and $bRc$ implies $aRc$ for every triple $a, b, c \in \mathbb{Z}.$ That is, if both $a$ and $b$ are odd and both $b$ and $c$ are odd, then both $a$ and $c$ are odd, and if both $a$ and $b$ are even and both $b$ and $c$ are even, then both $a$ and $c$ are even (since $(p \land q) \land (q \land r) \rightarrow (p \land r)$ is a tautology for any propositional variables $p,$ $q,$ and $r.$)
+
+It is not difficult to see that this relation can also be defined as $R = \{ (a,b) \in \mathbb{Z} \times \mathbb{Z} \, | \, 2 \text{ is a divisor of } (a-b) \}.$ So this relation is the same as the $\equiv_{2}$ relation discussed in an earlier example.
+
+
+****
+
+
+
+Given an equivalence relation $R$ on the set $S$ and an element $x \in S,$ we define the *equivalence class* of $x$ to be $[ x \]_{R} = \{ y \in S \, | \, (x,y) \in R \}.$
+
+.Theorem 
+****
+Let $R$ be a binary relation on the set $S.$
+
+If $R$ is an equivalence relation then the set of all equivalence classes $\{ [ x \]_{R} \, | \, x \in S \}$ is a partition of S. + 
+ + 
+Conversely, if $\Pi$ is a partition of $S$, then the relation defined by $R = \{ (x, y) \, | \, x \text{ and } y \text{ are elements of the same subset in } \Pi \}$ is an equivalence relation. + 
+
+****
+
+//[small]#Recall that a partition of a set $S$ is a collection of nonempty subsets of $S$ such that every element of $S$ is an element of exactly one subset of the partition. It may help to review how Venn diagrams for 2 or 3 subsets create a partition containing 4 or 8 subsets of the universal set; see the link:./set_theory[Set Theory] chapter.) And $\Pi$ is just the Greek capital letter "Pi" which is traditionally used for partitions. #
+
+== Order Relations on a Set
+
+
+
+=== Partial Orderings
+
+// MKD: https://en.wikipedia.org/wiki/Join_and_meet#Examples
+//  point out that \subseteq of P(S) forms a lattice (i.e., every subset of P(S) has a join and a meet)
+
+A binary relation $R$ on a set $S$ is called a *partial order* on $S$ if $R$ is reflexive, antisymmetric, and transitive.
+
+****
+.Example {counter:mkdrelex} - Parital Orders
+--
+--
+
+//* For the set of real numbers $\mathbb{R}$ the usual order relations $<,$ $\leq,$ $>,$ and $\geq$ are partial orders.
+
+* For any set $S,$ the relations $\subseteq$ and $\subset$ are partial orders.
+
+****
+
+=== Total Orderings
+
+A *total ordering* of a set $S$ is a relation $R$ on $S$ that has the property $(\forall x \in S)(\forall y \in S)(xRy \lor yRx).$ 
+
+//The usual orderings "less than" and "greater than" of the rational numbers $\mathbb{Q}$ and the real numbers $\mathbb{R}$ are examples of total orderings.
+
+
+===	Well-Ordering
+
+A *well-ordering* of a set $S$ is a total ordering that has the additional property that every nonempty subset of $S$ contains a least element with respect to the order relation.
+
+
+.Axiom 
+****
+The set $\mathbb{N}$ of natural numbers is a well-ordered set.
+****
+
+Note that the above statement is not a theorem... it is an axiom that we assume to be true about the natural numbers!
+
+
+
 
 == Modular Arithmetic
 
@@ -206,15 +448,14 @@ Partition <-> Equivalence Relaction
 //		Find all n such that n^2 \cong 1 mod 7 (Hint: you can make a table of values of the squaring function)
 //		Find all n such that n^2 \cong -1 mod 10 (Hint: What positive numbers are congruent to -1 modulo 10)
 
-== Partial Orderings
+For any positive integer $m,$ you can define *congruence modulo $m$* as the relation $\equiv_{m} = \{ (a, b) \, | \, m \text{ divides } (a-b) \}.$ 
 
-// MKD: https://en.wikipedia.org/wiki/Join_and_meet#Examples
-//  point out that \subseteq of P(S) forms a lattice (i.e., every subset of P(S) has a join and a meet)
+For each positive integer $m,$ $\equiv_{m}$ is an equivalence relation. For any integer $a,$ you can use the division algorithm to find the quotient and remainder such that $a = q \cdot m + r$, where $q$ and $r$ are integers and $0 \leq r < m.$  So every integer is congruent modulo $m$ to one of the integers in the set $\{ 0, 1, \ldots, m-1 \}.$ 
 
-== Total Orderings
-
-===	Well-Ordering
+You likely learned how to do arithmetic with the remainders when $m = 2$ when you were quite young, but not in the formal way presented in this textbook. Instead of referring to the equivalence classes as 0 and 1, you likely used the words "even" and "odd" but could describe certain properties of arithmetic using those words. For example, "odd times even equals even" is a simpler way of stating that if $a \in [1\]_{\equiv_{2}}$ and $b \in [0\]_{\equiv_{2}}$ then $(a \cdot b) \in [0\]_{\equiv_{2}}.$
 
 
-COMING SOON!
-////
+
+
+
+MORE TO COME!
