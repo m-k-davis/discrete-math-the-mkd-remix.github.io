@@ -455,7 +455,9 @@ For each positive integer $m,$ $\equiv_{m}$ is an equivalence relation. For any 
 You likely learned how to do arithmetic with the remainders when $m = 2$ when you were quite young, but not in the formal way presented in this textbook. Instead of referring to the equivalence classes as 0 and 1, you likely used the words "even" and "odd" but could describe certain properties of arithmetic using those words. For example, "odd times even equals even" is a simpler way of stating that if $a \in [1\]_{\equiv_{2}}$ and $b \in [0\]_{\equiv_{2}}$ then $(a \cdot b) \in [0\]_{\equiv_{2}}.$
 
 
-
+// 1000294000873 = 1000003 times 1000291
+// 1000276000819 = 1000003 times 1000273
+// 1000276000819 and 1000294000873
 
 
 MORE TO COME!

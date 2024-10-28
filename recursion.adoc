@@ -332,6 +332,7 @@ Solve the recurrence relation $b_n=3b_{n-1}$ when $a_1=5$.
 
 //=== Recursive Definitions
 
+[[definition_of_recursive_definition]]
 A *recursive definition* of a class of objects consists of two steps.
 
 [horizontal]

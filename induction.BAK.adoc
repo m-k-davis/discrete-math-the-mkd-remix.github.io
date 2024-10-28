@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on October 28, 2024._
+_This chapter was last updated on October 27, 2024._
 
 ////
 PROOFS: MATHEMATICAL INDUCTION (MKD) 
@@ -59,7 +59,6 @@ Emphasize that
 	Induction is about VALIDATION and proof
 ////
 
-
 //MKD - note that everything ater the "lego block" example may need to be rewritten.
 
 //MKD add discussion of Well-Ordering Principle axion (after the example?)
@@ -84,25 +83,65 @@ Emphasize that
 // That is, a FINITE ladder of any possible height can be built, but not an infinite ladder. 
 // MKD thinks that a better analogy is code that uses a loop. The loop can be executed any FINITE number of times, but cannot truly be an "infinite loop" that never breaks.
 
+Recall that a proof is a valid argument and consists of a finite sequence of propositions, where each proposition has finite length. 
+
+But what if you have infinitely many propositions all of which seem to be true? Is there a way to write a proof of finite length that validates infinitely many propositions? 
+In this chapter, you will learn how the proof technique called *mathematical induction* can be used, in certain cases, to prove 
+_infinitely many_ propositions using only two steps, with each step having finite length. 
 
 
-// **** MKD start of actual content ****
+//In some cases, you can find infinitely many statements that seem to be related, but for which it may not be easy to find a single finite proof. 
+//*Mathematical induction* is a proof technique that is used to prove _infinitely many_ propositions using only two steps, where each of the steps is of finite length. 
+// (in terms of time, symbols, words, phonemes, etc.)  
 
-In this chapter, you will learn how to use the *mathematical induction* proof technique to create a single proof of _infinitely many_ different but related propositions. 
-// using a three-step process, where each of the steps has finite length. 
-This proof technique will also be used to validate algorithms. 
 
 == Why Is Mathematical Induction Needed?
 
-We often encounter an infinite sequence of related propositions, all of which appear to be True. To prove all of the propositions, we might try to write a proof for each individual proposition and then combine all those proofs together as a single infinitely long "proof"... but recall from the chapter on link:./proofs.html[Proofs: Basic Techniques] that a proof 
-//is a valid argument that 
-consists of a _finite_ sequence of propositions of _finite_ length. 
-As an analogy, imagine you had an "algorithm" that required infinitely many steps to complete its task... such an algorithm would not be useful in the real world since it could never complete the task!
+//You can often come across a connection between two different patterns that may not seem to be connected at first, but for which there is a 
 
-The next example introduces the ideas we will use to prove an infinite sequence of related propositions.
+You may encounter an infinite sequence of propositions that appear to be  related, all of which appear to be True, but the truth of the entire sequence seems to require an infinitely long proof (As an analogy, imagine you had an algorithm that requires infinitely many steps to complete a task... such an algorithm would not be useful.) 
+
+////
+//MKD motivating example begins
+
+//MKD code for motivating example
+//https://pythontutor.com/render.html#code=n%20%3D%20int%28input%28%22Type%20a%20positive%20integer%20into%20the%20box%3A%22%29%29%0A%23%20code%20throws%20ValueError%20if%20input%20is%20not%20an%20integer%0A%23%20initialize%20variables%0As%20%3D%200%0Ai%20%3D%201%0A%23%20loop%20n%20times%0Awhile%20i%20%3C%3D%20n%3A%0A%20%20%20%20s%20%3D%20s%20%2B%20%282*i-1%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28s%29&cumulative=false&curInstr=17&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%224%22%5D&textReferences=false
+
+//https://pythontutor.com/render.html#code=numOdds%20%3D%204%0Asum%20%3D%200%0Ai%20%3D%201%0A%23%20loop%20n%20times%0Awhile%20i%20%3C%3D%20numOdds%3A%0A%20%20%20%20sum%20%3D%20sum%20%2B%20%282*i-1%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28sum%29&cumulative=false&curInstr=17&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+:pt_code_height: 350
+:pt_rawinput: false
+:pt_code:  sum%20%3D%200%0Ai%20%3D%201%0A%23%20loop%20n%20times%0An%20%3D%204%0Awhile%20i%20%3C%3D%20n%3A%0A%20%20%20%20sum%20%3D%20sum%20%2B%20%282*i-1%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28sum%29
+
+****
+.Example {counter:MKDinductionexample}
+--
+--
+The code below prints the sum of the first $n$ odd positive numbers for the assigned value of $n$. 
+//What does 
+//How do we know that the code does what it claims to do?
+How can we verify that the code computes this correctly for _every_ possible value of $n$?
+
+
+Try to predict the variable names, values, and data types at different steps in the execution. Use the _Next_ button to check your answers.
+include::python_tutor.adoc[]
+****
+
+//The next example illustrates why mathematical induction is needed.
+In the preceding example, we could imagine running the code for each positive integer value of $n$, but this would require an infinite number of runs and/or using a loop that must execute an infinite number of times. 
+If we could find a pattern linking the computed result for one integer to the result computed for the next largest integer, we could try to use that to justify that the code will always work without needing to run it for every value of $n$.  The following example illustrates how we can do this. 
+
+//MKD motivating example ends
+////
+
 
 
 // MKD start of square example
+
+// unused code removed from next example
+// def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0An%20%3D%204%0Aprint%28P%28n%29%29%0A
+
+
 // MKD Remember to add in Python loop code as an analogy for induction
 //	initialization is the basis step
 //	the loop represents multiple applications of the induction step
@@ -112,11 +151,13 @@ The next example introduces the ideas we will use to prove an infinite sequence 
 //.Example {counter:MKDinductionexample} - Why Use Mathematical Induction?
 .Example {counter:MKDinductionexample} - Why Use Mathematical Induction?
 
-Let's examine a conjecture about a certain type of link:https://en.wikipedia.org/wiki/Figurate_number[polygonal number,] namely, square numbers.  
+As a first example, let's examine a conjecture about a certain link:https://en.wikipedia.org/wiki/Figurate_number["polygonal number."]  
+
 
 //image::imagesMKD/16_as_sum_of_gnomons_v3.png[Square as sum of gnomons,373,332,float="right",align="center"]
+//image::imagesMKD/16_as_sum_of_gnomons_v3.png[Square as sum of gnomons,186,166,float="right",align="center"] 
 image::imagesMKD/16_as_sum_of_gnomons_v3.png[Square as sum of gnomons,124,111,float="right",align="center"] 
-Consider the image that shows 16 colored disks arranged as a square. 
+Consider the following image, which shows $16$ colored disks arranged as a square. 
 By starting at the lower left corner of the square and grouping disks of the same color, we can count the total number of disks in the figure as follows. 
 \begin{equation}
 \begin{aligned}
@@ -127,9 +168,16 @@ By starting at the lower left corner of the square and grouping disks of the sam
 \end{aligned}
 \end{equation}
 
-Notice that the sum of the odd integers on the left-hand side of each equation is equal to the square of the _number_ of odd integers on the left-hand side of the equation. This means that the predicate \[P(n)\text{: "The sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] is a True statement for the natural numbers $n \in \{ 1, 2, 3, 4 \},$ that is, each of the following four propositions is True:
+//1 + 3 {} & = 4 {} & = 2^{2} \\ 
+//1 + 3 + 5 {} & = 9 {} & = 3^{2} \\ 
+//1 + 3 + 5 + 7 {} & = 16 {} & = 4^{2} \\ 
+//1 + 3 + 5 {} & = 3^{2} \\ 
+//1 + 3 + 5 + 7 {} & = 4^{2} \\ 
 
-* $P(1)$: "The sum of the first $1$ positive odd integers is equal to $1^{2}$." (I know this is not proper English, but please bear with me!)
+//Notice that the integer on the right-hand side of each equation is the square of the count of summands on the left-hand side of the equation.  
+Notice that the sum on the left-hand side of each equation is equal to the square of the number of summands on the left-hand side of the equation.  This means that the predicate \[P(n)\text{: "The sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] is a True statement for the natural numbers $n \in \{ 1, 2, 3, 4 \}.$ That is, each of the following four propositions is True.
+
+* $P(1)$: "The sum of the first $1$ positive odd integers is equal to $1^{2}$." (I know, this is not proper US English, but please bear with me!)
 
 * $P(2)$: "The sum of the first $2$ positive odd integers is equal to $2^{2}$."
 
@@ -145,7 +193,7 @@ Notice that the sum of the odd integers on the left-hand side of each equation i
  
 
 In the following code snippet, function $P$ implements the predicate used in this example. 
-Recall that the predicate's output is a _proposition_ - the output is just a string of symbols and does not indicate whether the proposition is True of False.
+Recall that the predicate's output is a _proposition_ - the output does not indicate whether that proposition is True of False.
 
 include::python_tutor.adoc[]
  
@@ -153,42 +201,18 @@ include::python_tutor.adoc[]
 
 //image::imagesMKD/25_as_sum_of_gnomons_v3.png[Square as sum of gnomons,497,454,float="right",align="center"] 
 image::imagesMKD/25_as_sum_of_gnomons_v3.png[Square as sum of gnomons,166,151,float="right",align="center"] 
-Next, consider this second image, which shows how you could change the first image to one that can be used to prove that $P(5)$ is True. + 
-//, based on the assumptiion that $P(4)$ is True. + 
-[small]#It's easy to show that the proposition $P(5)$ is True because you can just write out and verify that $1 + 3 + 5 + 7 + 9 = 25 = 5^{2}.$ The goal here is to relate the proposition $P(5)$ to the "preceding" proposition $P(4),$ in a way similar to what was done for sequences of numbers in a link:./recursion.html[recurrence relation.]#
+Next, consider this new image, which shows how you could change the previous image to one that can be used to prove that $P(5)$ is True, based on the assumptiion that $P(4)$ is True. + 
+[small]#You already know that $P(5)$ is True because you can write out $1 + 3 + 5 + 7 + 9 = 25 = 5^{2},$ but the goal here is to relate the statement $P(5)$ to the "preceding" statement $P(4)$ in a way that is similar to what was done for numbers in a link:./recursion.html[recurrence relation,] but now for propositions.#
 
-//MKD new October 28 2024
-Notice that the second image shows that, given the square arrangement of disks that has 4 disks along each side, we can construct a square arrangement that has 5 disks along each side by inserting 4 new disks above the top row, 4 new disks in a column to the right of the rightmost column, and 1 new disk in the upper right corner to completes the square arrangement. 
-
-In fact, there is nothing special about the number 4 in the previous paragraph: If $k$ is _any positive natural number_ and we have a $k \times k$ square arrangement of disks, we can enlarge it to a $(k+1) \times (k+1)$ square arrangement of disks by inserting $k$ disks above, $k$ disks to the right, and $1$ disk in the upper right corner of the $k \times k$ square to complete the $(k+1) \times (k+1)$ square. Algebraically, we can account for the total number of disks in the $(k+1) \times (k+1)$ square by writing \[ k^{2} + k + k + 1 = (k+1)^{2} \] which is True for any natural number $k$ (Just simplify the left-hand side and expand the right-hand side of the equation to see that the equation must be True.) 
-
-Based on this second image, we can make a conjecture that $P(n)$ must be True for every positive natural number $n.$ We now need to [underline]#prove# this conjecture. + 
-//[small]#Another way to look at this is to define $s(n)$ to be the number of disks in a $n \times n$ square arrangement of disks. The preceding argument shows that $s(k+1) = s(k) + 2k + 1$ for every positive natural number value of $k.$#
-
-Notice that if we combine the propositions  
-
-. $P(1)$ and $P(2)$ and $P(3)$ and $P(4)$
-//. $P(n)$ is True for some small value of $n$ (In our case, $n = 1.$)
-
-. For all $k \in \mathbb{N},$ $P(k)$ implies $P(k+1).$
-
-then we can 
-//justify that we can 
-build a proof for all the integers up to and including any value of $n \in \mathbb{N}$ that we want. 
-
-For example, to prove $P(1,\!000,\!000),$ we could start by asserting that $P(1)$ is True, then apply the conditional $P(k) \rightarrow P(k+1)$ along with the rule of inference _modus ponens_ $999,\!999$ times to prove that $P(1,\!000,\!000)$ is True. This proof _is_ finite - I never claimed that the proof would be short! + 
-[small]#You can make an analogy of repeatedly applying _modus ponens_ to the conditional as using a loop in code. We are just repeating the same argument $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$ over and over again as the value of the variable $k$ is incremented by 1 at the end of each iteration until we reach the value of $k+1$ that we want to stop at.#
-
-Since we can now, in principle, build a proof of $P(n)$ for any value of $n \in \mathbb{N}$ that we could choose, we apply the rule of inference _universal generalization_ to conclude that $(\forall \in \mathbb{N})P(n).$ That is, we have proven the proposition \[ \text{"For every positive natural number } n \text{, the sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] [small]#Another way to look at this is to define $s(n)$ to be the number of disks in a $n \times n$ square arrangement of disks. We have shown that $s(1) = 1$ and that $s(k+1) = s(k) + 2k + 1$ for every positive natural number value of $k,$ and have concluded that $s(n) = n^{2}$ for every positive natural number $n.$#
+//How would you need 
+Is there a way to change the image to prove that $P(n)$ is true for _every_ possible choice for the positive integer $n?$ Notice that simply stating a _conjecture_ such as "It seems like it must be true for any positive integer $n$" is *not* a valid mathematical proof!
 
 
+To prove that $P(n)$ is true for _every_ positive integer $n$ using images, 
+we need either an infinite number of images (one image for each positive 
+integer $n$) or one image of an infinitely large "square". 
+Notice that neither of these options gives a proof of finite length.
 
-//Is there a way to change the image to prove that $P(n)$ is true for _every_ possible choice for the positive integer $n?$ Notice that simply stating a _conjecture_ such as "It seems like it must be true for any positive integer $n$" is *not* a valid mathematical proof!
-
-//To prove that $P(n)$ is true for _every_ positive integer $n$ using images, it seems we would need either an infinite number of images (one image for each positive integer $n$) or a single image of an infinitely large "square". Neither of these options corresponds to a proof of finite length.
-
-////
-// MKD code for squares begins
 Notice that the following code could be used to prove $P(n)$ for many more values of $n:$ The code computes the sum of the first $n$ positive odd integers and prints a message if the the sum is equal to $n^2.$ If you tried to execute this code for every natural number $n,$ you would run into constraints based on time and computing resources.
 
 // MKD: FIX THIS PYTHONTUTOR CODE - IT IS PULLING IN AN EARLIER EXAMPLE
@@ -207,16 +231,19 @@ you would need one output from the function for each positive integer $n$, that 
 you would need an infinitely long proof. This is impossible!
 //However, we would require an infinite number of images or an infinite number of outputs from the 
 //function to prove that $P(n)$ is true for _every_ positive integer $n$.
-// MKD code for squares ends
-////
+
+It is also impossible to use the drawing of small disks to prove that $P(n)$ is True for _every_ positive integer $n.$  For example, if you needed to convince someone that the proposition 
+$P(1,\!000,\!000)$ must be True by drawing the complete image for that 
+value of $n$, you would draw a square with $1,\!000,\!000$ rows 
+each containing $1,\!000,\!000$ balls, for a total of 
+$1,\!000,\!000,\!000,\!000$ disks. Next, compute how many disks you would need to draw to prove that $P(1,\!000,\!000,\!000,\!000$)$ is True... it is even larger! Even the code would likely 
+fail to prove this unless you have a lot of time and computing resources 
+available.
 
 
-//It is also impossible to use the drawing of small disks to prove that $P(n)$ is True for _every_ positive integer $n.$  For example, if you needed to convince someone that the proposition $P(1,\!000,\!000)$ must be True by drawing the complete image for that value of $n$, you would draw a square with $1,\!000,\!000$ rows each containing $1,\!000,\!000$ balls, for a total of $1,\!000,\!000,\!000,\!000$ disks. Next, compute how many disks you would need to draw to prove that $P(1,\!000,\!000,\!000,\!000$)$ is True... it is even larger! Even the code would likely fail to prove this unless you have a lot of time and computing resources available.
-
-
-////
-// MKD odds square formal proof begins
-This is why mathematical induction is used: The induction step justifies that we can (in principle) complete as large a finite number of these proofs as we need to by assuming we already have drawn the $k \times k$ square of balls to prove that $P(k)$ is true then we can use the pattern suggested in the image to enlarge the square to a $(k+1) \times (k+1)$ square of balls that proves $P(k+1)$ must be true. Or, in terms of the Python code, we already can prove that the output for input int $k$ is a square, and can show that this implies that the output for input int $k+1$ is _also_ a square.
+This is why mathematical induction is used: The induction step justifies that we can (in principle) complete as large a finite number of these proofs as 
+we need to by assuming we already have drawn the $k \times k$ square of balls to prove that $P(k)$ is true 
+then we can use the pattern suggested in the image to enlarge the square to a $(k+1) \times (k+1)$ square of balls that proves $P(k+1)$ must be true. Or, in terms of the Python code, we already can prove that the output for input int $k$ is a square, and can show that this implies that the output for input int $k+1$ is _also_ a square.
  
 That is, we _could_ write down as large a finite number of proofs as we need to prove $P(n)$ for a specifically chosen value of $n$... but since there is no bound on this chosen value of $n$, we in fact have proven the predicate $P(n)$ for *all* positive values of $n$.
 
@@ -275,43 +302,35 @@ Conclusion of the proof:
 We have proven both the basis step and the induction step, therefore, 
 // by the principle of mathematical induction, 
 $1+3+...+(2n-1) = \sum\limits_{i=1}^{n}(2i-1) = n^{2}$ for all positive integers $n$.
-// MKD odds square formal proof ends
-////
-
-
 ****
-
-//MKD added October 28 2024
-We will rewrite the above example more formally (with full algebraic detail) later in the chapter.
-
 //MKD end of square example
 
 
-//== The Form Of A Proof By Mathematical Induction
-== The Principle of Mathematical Induction
+== The Form Of A Proof By Mathematical Induction
 
-A *proof by mathematical induction* of a predicate $P(n)$ defined for natural numbers $n \in \mathbb{N}$ consists of three steps.
+A *proof by mathematical induction* of a predicate $P(n)$ defined for natural numbers $n \in \mathbb{N}$ consists of two steps.
 
 [horizontal]
-Basis Step:: Prove the predicate $P(n)$ is True for some small value of $n;$ in most but not all cases, you prove either $P(0)$ or $P(1)$ (You can also prove $P(n)$ for other values if it helps you get a feel for what needs to be proven, as was done in "the sum of the first $n$ consecutive odd natural numbers is the perfect square $n^{2}$" in the previous section.)
+//Basis Step:: Prove the predicate $P(n)$ is True for some small value of $n$ (in most but not all cases, the small value is either 0 or 1.)
+//Induction Step:: ASSUME that the *induction hypothesis* $P(k)$ is True, where $k$ represents an arbitrary natural number, then prove that the conditional statement $P(k) \rightarrow P(k+1)$ is True. Using _modus ponens_ allows you to infer that $P(k+1)$ must also be True based on the assumption that $P(k)$ is True.
+Basis Step:: Prove the predicate $P(n)$ is True for some small value of $n$ (in most but not all cases, you prove either $P(0)$ or $P(1).$)
 Induction Step:: Prove that the conditional statement $P(k) \rightarrow P(k+1)$ is True for any integer $k.$ + 
 In this context, the predicate $P(k)$ is called the *induction hypothesis* and is [underline]#assumed to be True,# where $k$ represents an arbitrary natural number. Using _modus ponens_ allows you to infer that $P(k+1)$ must also be True based on the assumption that $P(k)$ is True.
-Conclusion Step:: Conclude that $P(n)$ is True for all natural numbers $n$ that are greater than or equal to the small(est) value used in the Basis Step. This conclusion uses _universal generalization_ as the rule of inference. 
 
-The three steps above are referred to as *"The Principle of Mathematical Induction"* which is often abbreviated as *PMI.* + 
-[small]#Some textbooks and sources do not include the Conclusion Step as part of PMI, but the remixer wanted to stress that this step is needed to complete the proof.#
-
-You can compare the first two steps of PMI to the two steps used in a recursive definition as in the link:./recursion.html#definition_of_recursive_definition[Sequences and Recursion] chapter. Note that a recursive defintion is used to _describe and define_ a process for constructing objects or a set of objects or a structure, but a proof by mathematical induction is used to _justify and validate_ such a process.
+You can compare these two steps to the steps in a recursive definition in the link:./recursion.html#definition_of_recursive_definition[Sequences and Recursion] chapter. The major difference between these is that a recursive defintion is used to _describe and define_ a process for constructing a set of objects or a structure, but a proof by mathematical induction is used to _justify and validate_ such a process.
 
 
-Note that each of the three steps will be a proof of finite length, but will allow us to conclude 
-//(by using the Well-Ordering Principle) 
-that $P(n)$ is true for *every* natural number $n$ greater than or equal to some some small natural number $n_{0} \geq 0$. That is, we can conclude that $(\forall n \geq n_{0}) P(n)$ is a True propostion.
+//We can now formalize what we did in the example above. 
+//Suppose that we have a predicate $P(n)$ that is defined for all $n \in \mathbb{N}$, that is, $P$ is a function that maps each natural number to a corresponding proposition, and that we need to prove that each of the infinitely many propositions $P(0),\ P(1),\ P(2),\ldots$ is true. Since there are infinitely many values of $n$, this would appear to require infinitely many proofs, which is not feasible. BUT... let's suppose that we can prove the following two things about the predicate $P(n)$:
+//
+//* ``The proposition $P(0)$ is true.'' This is called the *basis step*.
+//
+//* ``The implication $P(k) \implies P(k+1)$ is true for every possible choice for the natural number $k$.'' This is called the *induction step*.
 
-//NOTE: In some cases, that basis step will involve a positive integer $c$ instead of $0$. As long as both the basis step and induction step have been proven, we can conclude that that $P(n)$ is true for *every* natural number $n \geq c$.
+The proofs of each of the two bulleted statements will be of finite length, but will allow us to conclude (by using the Well-Ordering Principle) that $P(n)$ is true for *every* natural number $n \geq 0$. That is, we can conclude that $\forall n P(n)$ is a true propostion.
 
-////
-// MKD toy block image begins
+NOTE: In some cases, that basis step will involve a positive integer $c$ instead of $0$. As long as both the basis step and induction step have been proven, we can conclude that that $P(n)$ is true for *every* natural number $n \geq c$.
+
 [.float-group]
 --
 // MKD needs to make attribution visible in html
@@ -323,19 +342,11 @@ image::imagesMKD/CLIP-IS-A-BRICK_2x3.svg[GGC,250,250]
 //	License: Public domain 
 //	https://web.archive.org/web/20150923003735/https://openclipart.org/detail/224273/clip-is-a-brick-2x3
 //	By: Vanja (https://web.archive.org/web/20150923003735/https://openclipart.org/user-detail/Vanja)
-[small]#Image credit: link:https://openclipart.org/detail/224273/clip-is-a-brick-2x3["Clip is a Brick - 2x3"] by Vanja. License: Public Domain.#
-//[small]#Image credit: link:https://publicdomainvectors.org/en/free-clipart/2x3-kids-brick-element-red-vector-image/31414.html["2x3 kid's brick element red vector image"]. License: Public Domain.#
 --
-//https://publicdomainvectors.org/en/free-clipart/2x3-kids-brick-element-red-vector-image/31414.html
-//Famous plastic brick, size 2x3, vector from 3D"
-// MKD toy block image ends
-////
-
 As an analogy, imagine we are building a tower using interlocking toy blocks. How tall can the tower be? 
 // The basis step involves placing a foundational block on the ground, 
 The basis step involves placing a foundation on the ground (either a flat surface for $n = 0$, or a first block for $n = 1$), 
-and the induction step justifies that if we have built a tower that has height $k$ then we can build a tower of height $k+1$ by placing one more block on the tower. The conclusion step states that we can build a tower that is of any finite height $n$ (as long as we have $n$ or more blocks and ignore issues arising from real-world physics!) Note that we never build an infinitely tall tower. + 
-[small]#Note: Some textbooks and sources use an "infinite ladder" analogy for mathematical induction, but this is not quite correct. A better analogy is a ladder that can be extended to any finite height you need, but that is always of finite height.#
+and the induction step justifies that if we have built a tower that has height $k$ then we can build a tower of height $k+1$ by placing one more block on the tower. Note that we never build an infinitely tall tower, but we show that we can build a tower that is of any finite height $n$ (as long as we have $n$ or more blocks and ignore issues arising from real-world physics!).
 
 
 
@@ -902,151 +913,19 @@ Therefore, the inductive step has been verified.
 // unreviewed original content 2
 
 
-// MKD October 27 and 28 2024
-//=== Further Examples
-== Example Proofs Using Mathematical Induction
+=== Further Examples
 
-As a first example, here is the formal proof that corresponds to the first example of this chapter
+Factorial function
 
-****
-.Example {counter:MKDinductionexample} - An Algebraic Expression for Positive Odd Integers
+Tower of Hanoi recurrence
 
-Let $P(n)$ be the predicate \[P(n)\text{: "The } n\text{th positive odd integer is equal to } 2n-1 \text{."}\] We will prove that $(\forall n \in \mathbb{N}_{>0})P(n),$ that is, for all positive integers $n.$ + 
-[small]#Notice that you can find evidence for the conjecture that $k\text{th}$ positive odd integer is $2k - 1$ by making a table and finding an algebraic formula that matches the table. See link:./appendix_math.html[this appendix] if you don't remember how to do this.# 
+Euclidean Algorithm
 
-*Basis Step:* $P(1)$ is the proposition "The $1$th positive odd integer is equal to $2(1)-1.$" This is True since $2(1)-1 = 1$, in spite of the poor English, which should use "$1$st" instead of "$1$th." 
+11^n-6 is divisible by 5
 
-*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$. That is, we assume that "The $k$th positive odd integer is equal to $2k-1$" is True for some positive natural number $k.$
-
-Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
-
-If the $k$th positive odd integer is equal to $2k-1,$ then the $(k+1)$th positive odd integer is obtained by adding $2$ to $2k-1,$  that is the $(k+1)$th positive odd integer is equal to $(2k-1) + 2,$ which can be rewritten using algebra as 
-\begin{equation}
-\begin{aligned}
-(2k-1) + 2 {} & = 2k - 1 + 2 \\ 
-& = 2k + 2  - 1 \\
-& = 2(k+1) - 1 
-\end{aligned}
-\end{equation}
-
-We have proven that if $k$th positive odd integer is equal to $2k-1$ then the $(k+1)$th positive odd integer is equal to $2(k+1)-1.$ That is, we have proven $P(k) \rightarrow P(k+1)$.
-
-*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can use _universal generalization_ to conclude that 
-for all positive integers $n,$ the $n$th positive odd integer is equal to $2n-1.$ 
-
-Q.E.D.
-
-****
-
-The next example proof is the formal proof that corresponds to the first example of this chapter.
-
-****
-.Example {counter:MKDinductionexample} - Square Numbers
-
-Let $P(n)$ be the predicate \[P(n)\text{: "The sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] We will prove that $(\forall n \in \mathbb{N}_{>0})P(n).$
-
-//Notice that the value $n = 0$ gives a True but somewhat meaningless proposition $P(0)$ since "the sum of the first zero positive odd integers" is $0 = 0^{2}.$ 
-*Basis Step:* $P(1)$ is the proposition "The sum of the first $1$ positive odd integers is equal to $1^{2}.$" If we allow a sum to have only one addend, then $P(1)$ is True since $1 = 1^{2}$, so $P(1)$ can be used as the basis of our induction proof. 
-If we want to be sure that there are least two addends in the sum, we can use $P(2)$ as an additional basis. $P(2)$ is the proposition "The sum of the first $2$ positive odd integers is equal to $2^{2}$" which is True because $1 + 3 = 2^{2}.$ 
-
-*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$. 
-
-Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
-
-Based on the formula for the $k\text{th}$ positive odd integer, we can rewrite the sum of the first $k$ positive odd integers $1+3+...+(2k-1)$ using summation notation as $\sum\limits_{i=1}^{k}(2i-1)$ and rewrite the predicate $P(k)$ in algebraic form as \[ P(k): \sum\limits_{i=1}^{k}(2i-1) = k^{2}.\] Note that $P(k)$ is still a proposition - it is stating that a certain equation holds. + 
-[small]#A common error is to treat $P(k),$ when written algebraically, as a function that gives numerical outputs, but this is incorrect. $P(k)$ is still a predicate that gives propositions as outputs.#
-
-We can now prove that the conditional $P(k) \rightarrow P(k+1)$ must be True using algebra.
-//\[\sum\limits_{i=1}^{k+1}(2i-1) = \left(\sum\limits_{i=1}^{k}(2i-1)\right) + (2(k+1)-1) =  k^{2} +  (2(k+1)-1)\] 
-\begin{equation}
-\begin{aligned}
-\sum\limits_{i=1}^{k+1}(2i-1) {} & = \left(\sum\limits_{i=1}^{k}(2i-1)\right) + (2(k+1)-1) \\ 
-& = k^{2} +  (2(k+1)-1)
-\end{aligned}
-\end{equation}
-where we have substituted $k^{2}$
-for the sum $\sum\limits_{i=1}^{k}(2i-1)$ based on the induction hypothesis.
-
-Now we simplify this using algebra and show that it is the same as the right hand side.
-\begin{equation}
-\begin{aligned}
-\sum\limits_{i=1}^{k+1}(2i-1) {} & = k^{2} + (2(k+1)-1) \\ 
-& = k^{2} + 2k + 2 - 1 \\
-& = k^{2} + 2k + 1 \\
-& = (k + 1)^{2}\\
-\end{aligned}
-\end{equation}
-
-We have proven that the equation $1+3+...+(2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}$ implies the equation 
-$1+3+...+(2k-1) + (2k+1) = \sum\limits_{i=1}^{k+1}(2i-1) = (k+1)^{2}$, that is, $P(k) \rightarrow P(k+1)$.
-
-*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can use _universal generalization_ to conclude that 
-// by the principle of mathematical induction, 
-$1+3+...+(2n-1) = \sum\limits_{i=1}^{n}(2i-1) = n^{2}$ for all positive integers $n$.
-
-Q.E.D. 
-
-****
-
-****
-.Example {counter:MKDinductionexample} - An Inequality
-
-Let $P(n)$ be the predicate \[P(n): 2^{n} < n!\] We will prove that $(\forall n \in \mathbb{N}_{\geq 4})P(n).$
-
-*Basis Step:* First notice that the propositions $P(0),$ $P(1),$ $P(2),$ and $P(3)$ are all False! This is why we must use $P(4)$ as the basis. $P(4)$ is the proposition $2^{4} < 4!$ which is a True statement since $16 < 24.$
-
-*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$. #In this context we can assume $k \geq 4.$#
-
-Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
-
-Assume that $P(k)$ is True with $k \geq 4,$ that is, $2^{k} < k!.$  If we multiply both sides of the inequality by $2$ we get
-\begin{equation}
-\begin{aligned}
-2^{k+1} {} & = 2 \cdot 2^{k} \\ 
-& < (k+1) \cdot 2^{k} \text{ (since $k \geq 4,$ we must have $k+1 > 5 >2$)}\\
-& < (k+1) \cdot k! \text{ by the induction hypothesis}
-\end{aligned}
-\end{equation}
-
-Notice that the expression on the last line is equal to $(k+1)!,$ so we have shown that $(2^{k} < k!) \rightarrow (2^{k+1} < (k+1)!)$ as long as $k \geq 4.$ That is, we've proven that $P(k) \rightarrow P(k+1)$.
-
-*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can use _universal generalization_ to conclude that 
-// by the principle of mathematical induction, 
-for all positive integers $n \geq 4$, $2^{n} < n!$
-
-Q.E.D. 
-
-****
-
-////
-****
-.Example {counter:MKDinductionexample} - A Divisibility Result
-
-For integers $n > 1,$  $11^{n} – 6$ is divisible by 5. 
-
-****
-
-****
-.Example {counter:MKDinductionexample} - The Towers Of Hanoi Recurrence Relations
-
-The minimal number of moves needed to solve the towers Of Hanoi with $n$ discs is $2^{n}-1.$
-
-****
-
-****
-.Example {counter:MKDinductionexample} - Validation of The Euclidean Algorithm (for Greatest Common Divisors)
-
-
-****
-////
-
-//Factorial function
-
-
-MORE PROOFS TO COME!
 
 // MKD - strong induction section needs cleanup/rewrite
-== Strong Induction (SECTION IN PROGRESS)
+== Strong Induction
 Recall the idea behind mathematical induction, prove that a proposition //$P\left(m\right)$  
 $P_n$ is true for a base step, say $P_1$. Then prove the inductive step. This involves proving that $P_k$ implies $P_{k+1}$.
 *Strong induction* is a generalized version of induction where in the inductive step we assume $P_1, P_2,\ldots, P_m$ is true and show all these together imply $P_{m+1}$ is true.
