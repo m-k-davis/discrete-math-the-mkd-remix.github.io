@@ -229,6 +229,7 @@ NOTE: Python provides built-in operators to find the quotient and remainder for 
 // MKD insert "Pythonic" example 
 
 
+[[algorithms_euclidean_algorithm]]
 === Greatest Common Divisors: The Euclidean Algorithm 
 
 It is often needed to find a common divisor of two integers. This next algorithm goes back to link:http://aleph0.clarku.edu/~djoyce/elements/bookVII/propVII1.html[Euclid.]

@@ -160,6 +160,10 @@ graph coloring;
 ////
 // MKD end topics lists
 
+
+
+// ****  MKD content starts here  ****
+
 Graphs are discrete mathematical structures that have many applications in a diversity of fields including chemistry, network analysis, algorithms, and social sciences.
 
 
@@ -242,6 +246,7 @@ In this section, we will assume that graphs must have undirected edges, but coul
 // MKD move handshake here
 
 
+// MKD Nove 4 2024: Need to reinstate "Representing graphs." sections
 
 
 == Simple Graphs

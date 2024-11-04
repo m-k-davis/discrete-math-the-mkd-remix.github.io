@@ -10050,7 +10050,7 @@ That is, the square root of 2 is not a rational number.</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
+<div id="definition_of_fibonacci_numbers" class="paragraph">
 <p>The next sequence is the very famous <strong>Fibonacci numbers,</strong> named for the Italian mathematician Fibonacci who was also known as Leonardo of Pisa. However, this sequence and its properties were known and discussed by Indian poets and mathematicians such as
 <a href=https://en.wikipedia.org/wiki/Fibonacci_sequence#History>Acharya Pingala,</a> <a href=https://www.sciencedirect.com/science/article/pii/0315086085900217>Acharya Virahanka,</a>
 and
@@ -12216,7 +12216,7 @@ Python provides built-in operators to find the quotient and remainder for variab
 </div>
 </div>
 <div class="sect3">
-<h4 id="_greatest_common_divisors_the_euclidean_algorithm">13.2.3. Greatest Common Divisors: The Euclidean Algorithm</h4>
+<h4 id="algorithms_euclidean_algorithm">13.2.3. Greatest Common Divisors: The Euclidean Algorithm</h4>
 <div class="paragraph">
 <p>It is often needed to find a common divisor of two integers. This next algorithm goes back to <a href=http://aleph0.clarku.edu/~djoyce/elements/bookVII/propVII1.html>Euclid.</a></p>
 </div>
@@ -12698,7 +12698,7 @@ multiply to find that the complexity of Merge Sort is \(O(n \log{n})\).</p>
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on October 28, 2024.</em></p>
+<p><em>This chapter was last updated on November 3, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p>In this chapter, you will learn how to use the <strong>mathematical induction</strong> proof technique to create a single proof of <em>infinitely many</em> different but related propositions.
@@ -13008,99 +13008,441 @@ for all positive integers \(n \geq 4\), \(2^{n} < n!\)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_strong_induction_section_in_progress">14.4. Strong Induction (SECTION IN PROGRESS)</h3>
+<h3 id="_strong_induction">14.4. Strong Induction</h3>
 <div class="paragraph">
-<p>Recall the idea behind mathematical induction, prove that a proposition //\(P\left(m\right)\)
-\(P_n\) is true for a base step, say \(P_1\). Then prove the inductive step. This involves proving that \(P_k\) implies \(P_{k+1}\).
-<strong>Strong induction</strong> is a generalized version of induction where in the inductive step we assume \(P_1, P_2,\ldots, P_m\) is true and show all these together imply \(P_{m+1}\) is true.</p>
+<p>Strong induction is used when it is easier to use the assumption that <em>all the propositions \(P(0), P(1), \ldots , P(n-1)\) are True</em> in order to prove that \(P(n)\) is True.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Basis Step
+</td>
+<td class="hdlist2">
+<p>Prove the predicate \(P(n)\) is True for <em>one or more consecutive small values</em> of \(n;\) in most but not all cases, you prove both \(P(0)\) and \(P(1).\) You can also prove \(P(n)\) for other values as well if it helps you get a feel for what needs to be proven.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Induction Step
+</td>
+<td class="hdlist2">
+<p>Prove that the conditional statement \(( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)\) is True for any natural number \(k.\)<br>
+Using <em>modus ponens</em> allows you to infer that \(P(k+1)\) must also be True based on the assumption that all of the propositions \(P(0), P(1), \ldots , P(k)\) are True.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Conclusion Step
+</td>
+<td class="hdlist2">
+<p>Conclude that \(P(n)\) is True for all natural numbers \(n\) that are greater than or equal to the small(est) value used in the Basis Step. This conclusion uses <em>universal generalization</em> as the rule of inference.</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Strong version of Mathematical Induction:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Base Case: Prove the first statement \(P_1\). (Or the first several \(P_r\), if needed.)</p>
-</li>
-<li>
-<p>Inductive Step: Given any integer \(m \geq 1\), prove  \(P_1\land {P_2\land {\ P_3\land {\ldots\land {P_m,\ }}}}\) implies  \(P_{m+1}\)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Algorithmically:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Base Case: Prove that \(P_{1,\ }P_2\ ,\ldots,\ P_r\), are all true.</p>
-</li>
-<li>
-<p>Inductive Hypotheses: Assume, \(P_{1,\ }P_2\ ,\ldots,\ P_m\)are all true for some \(m  ≥ 1\),</p>
-</li>
-<li>
-<p>Inductive step: Assuming, \(P_{1,\ }P_2\ ,\ldots,\ P_m\) are all true for some  \( m  ≥ 1\),  prove that \(P_{m+1}\) is true.</p>
-</li>
-</ul>
+<p><span class="small">In spite of the name, strong induction and "weak" induction are equivalently powerful techniques in the sense that any proposition that you can prove using strong induction can also be proven by "weak" induction, and any proposition that you can prove using "weak" induction can also be proven by strong induction. The choice of which of the two proof techniques to use is based on convenience only, not power.</span></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 5 - Recurrence Relations</div>
-<p>Consider the sequence \(\left\{a_n\right\}\) defined as a a recurrence relation,</p>
+<div class="title">Example 5 - An Upper Bound for the Fibonacci numbers</div>
+<p>Recall that the <a href=./recursion.html#definition_of_fibonacci_numbers>Fibonacci numbers</a> are defined by the following recurrence relation: \[f_{0}=0, \, f_{1}=1, \text{ and } f_{n} = f_{n-1} + f_{n-2} \text{ for } n \geq 2.\]</p>
 </div>
 <div class="paragraph">
-<p>\(a_1=5\), \(a_2=13\), and \(a_{n+2}=5a_{n+1}-6a_n\), for all \(n \geq 1\).</p>
+<p>We will prove that the predicate \[P(n): f_{n} &lt; \displaystyle \left( \frac{1+\sqrt{5}}{2} \right)^{n}\] is True for all natural numbers \(n.\) The proof will use strong induction because, for each \(n \geq 2,\) the value of \(f_{n}\) is defined in terms of both \(f_{n-1}\) and \(f_{n-2}.\)<br>
+<span class="small">The number on the right-hand side of the inequality is a famous constant called <a href=https://en.wikipedia.org/wiki/Golden_ratio>the golden ratio</a> which is usually denoted by the lowercase Greek letter \(\phi\) ("phi"): \[ \phi = \frac{1+\sqrt{5}}{2} \] \(\phi\) is an irrational number whose first few digits are \(1.618 \ldots .\) Also, \(\phi\) is the positive solution of the equation \(x^{2} = x + 1,\) which is a fact that we will use in the proof. The other solution of \(x^{2} = x + 1\) is \(1 - \phi,\) a fact you can use when you attempt the Challenge question at the end of this example. \[ 1 - \phi = \frac{1-\sqrt{5}}{2} \] Notice that you can verify that \(\phi\) and \(1-\phi\) are the two roots of \(x^{2} - x - 1 = 0\) by using the quadratic formula.</span></p>
 </div>
 <div class="paragraph">
-<p>Prove that \(a_n=2^{n} +3^{n}\).</p>
+<p><strong>Basis Step:</strong> In this case, we need to prove that the conjunction \(P(0) \land P(1)\) is True as our basis for strong induction.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(P(0)\) is the proposition \(f_{0} < \phi^{0}\) which is True since \(0 < 1.\)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(P(1)\) is the proposition \(f_{1} < \phi^{1}\) which is True since \(1 < \phi.\)</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<div class="title">Solution</div>
-<p>Base case: Consider the case \(n=1\), \(a_1=5=2^{1} +3^{1}\), and \(a_2=13=2^2 +3^2=4+9\).</p>
+<p>Since \(P(0)\) and \(P(1)\) are True, you can use the tautology \(q \rightarrow ( r \rightarrow (q \land r) )\) to conclude that \(P(0) \land P(1)\) is True, too.</p>
 </div>
 <div class="paragraph">
-<p>Induction hypothesis: Assume \(a_1,\ a_2,..a_m\) are all given by \(a_m=2^m + 3^m\).</p>
+<p><strong>Induction Step:</strong> First, we assume as the induction hypothesis that \[P(i) \text { is True for all positive natural numbers } i \leq k \] where we can assume that the integer \(k\) is greater than or equal to \(2\) (since the cases where \(k < 2\) were already dealt with in the Basis Step.) That is, we assume that the single proposition \(P(0) \land P(1) \land \cdots \land P(k)\) is True, where \(k\) is some integer greater than or equal to 2.</p>
 </div>
 <div class="paragraph">
-<p>We want to show that \(a_{m+1}=2^{m+1} +3^{m+1}\).</p>
+<p>Secondly, we will prove that the conditional \(( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)\) must be True, which means we can use <em>modus ponens</em>
+to show that \(P(k+1)\) is also True.</p>
 </div>
 <div class="paragraph">
-<p>Well, \( a_{m+1}=5a_m-6a_{m-1}\), using the definition of the recurrence relation.</p>
+<p>If the inequality \(f_{i} < \phi^{i}\) is True for each \(i \leq k,\) then
+\begin{equation}
+\begin{aligned}
+f_{k+1} {} &amp; = f_{k} + f_{k-1} \\
+&amp; &lt; \phi^{k} + \phi^{k-1} \text{ by the induction hypothesis} \\
+&amp; \leq \phi^{k-1} \cdot (\phi + 1) \text{ by algebra} \\
+&amp; \leq \phi^{k-1} \cdot \phi^{2} \text{ since } \phi^{2} = \phi + 1 \\
+&amp; \leq \phi^{(k-1)+2} \text{ using one of the laws of exponents} \\
+&amp; \leq \phi^{k+1}
+\end{aligned}
+\end{equation}</p>
 </div>
 <div class="paragraph">
-<p>By the inductive hypothesis, \(a_m=2^m+3^m\) and \(a_{m-1}=2^{m-1} +3^{m-1}\).</p>
+<p>We have proven that if \(f_{i} < \phi^{i}\) is True for each natural number \(i \leq k,\) then \(f_{k+1} < \phi^{k+1}\) must also be True. That is, we have proven \(( ( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)\).</p>
 </div>
 <div class="paragraph">
-<p>\( a_{m+1}=5\left(2^m +3^m \right)-6\left(2^{m-1} +3^{m-1}\right)\).</p>
+<p><strong>Conclusion Step:</strong> We have proven both the Basis Step and the Induction Step. Therefore, we can use <em>universal generalization</em> to conclude that
+for all natural numbers \(n,\) \(f_{n} < \phi^{n}.\)</p>
 </div>
 <div class="paragraph">
-<p>Consider then,</p>
+<p>Q.E.D.</p>
 </div>
-<div class="openblock equationalign">
+<div class="openblock challenge">
+<div class="title">Challenge</div>
 <div class="content">
-<table class="equation_table_style" ><tr class="equation_row_style">
-<td class="equation_content_style";>
-\[\begin{split}
-5\left(2^m+ 3^m \right)-6\left(2^{m-1} +3^{m-1}\right) &amp;=5\times 2^m +5\times 3^m -6\times 2^{m-1} -6\times 3^{m-1}\\
-&amp;=5\times 2^m+5\times 3^m-3\times 2\times 2^{m-1}-2\times 3\times 3^{m-1}\\
-&amp;=5\times\ 2^m+5\times 3^m-3{\times 2}^m-2\times 3^m\\
-&amp;=\left( 5\times 2^m-3\times 2^m \right) + \left( 5 \times 3^m -2\times 3^m \right)\\
-&amp;=\left(5-3\right) \times 2^m + \left(5-2\right) \times 3^m\\
-&amp;=2\times\ 2^m+3\times 3^m\\
-&amp;=2^{m+1} + 3^{m+1}
-\end{split}\]
+<div class='click_oblique'>
+Use strong induction to prove that the closed form of the Fibonacci numbers is  \[ f_{n} = \displaystyle \frac{\phi^{n} - (1-\phi)^{n}}{\sqrt{5}} \text{ for all natural numbers }n. \]
+</div>
+</div>
+</div>
+<div class="openblock click">
+<div class="title">Hint</div>
+<div class="content">
+<div class='click_oblique'>
+For the Induction Step, use the fact that both \(\phi^{2} = \phi + 1\) and \((1-\phi)^{2} = (1-\phi) + 1\) are True and use steps similar to the ones in the Induction Step in the proof above but working with equations instead of inequalities. Using the two equations in the previous sentence will help you avoid working directly with expressions like \[f_{n} = \displaystyle \frac{ \left( \displaystyle \frac{1 + \sqrt{5}}{2} \right)^{n} - \left( \displaystyle \frac{1 - \sqrt{5}}{2} \right)^{n}}{\sqrt{5}}\] or \[ f_{n} = \displaystyle \frac{ \left( 1 + \sqrt{5} \right)^{n} - \left( 1 - \sqrt{5} \right)^{n} }{ 2^{n} \sqrt{5} } \] which would be unnecessarily difficult and time-consuming.
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, we&#8217;ll prove the following theorem.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">The Fundamental Theorem of Arithmetic</div>
+<div class="paragraph">
+<p>Every positive integer \(n\) that is greater than or equal to \(2\) is either a prime number or can be written as a product of two or more prime numbers.</p>
+</div>
+<div class="openblock proof">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Let \(P(n)\) be the predicate \[P(n) \text{: "} n \text{ is either prime or the product of two or more primes."}\] We will prove that \((\forall n \in \mathbb{N}_{\geq 2})P(n),\) that is, each positive integer \(n \geq 2\) is either a prime or a product two or more prime numbers.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Basis Step:</strong> \(P(2)\) is True since \(2\) is a prime number. In this case, we could use only \(P(2)\) as the basis, but it is easy to prove \(P(3)\) and \(P(4)\) are True since \(3\) is prime and \(4 = 2 \cdot 2\) is a product of two primes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Induction Step:</strong> First, we assume as the induction hypothesis that \[P(i) \text { is True for all positive natural numbers } i \text{ such that } 2 \leq i \leq k \] where we can assume that the integer \(k\) is greater than or equal to \(4\) (since the cases where \(k \in \{ 2, 3, 4 \}\) were already dealt with in the Basis Step.) That is, we assume that the single proposition \(P(2) \land P(3) \land \cdots \land P(k)\) is True, where \(k\) is some integer greater than or equal to 4.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, we will prove that the conditional \(( P(2) \land P(3) \land \cdots \land P(k) ) \rightarrow P(k+1)\) must be True, which means we can use <em>modus ponens</em> to show that \(P(k+1)\) is also True.</p>
+</div>
+<div class="paragraph">
+<p>There are two cases: Either \(k+1\) is prime or it is not prime (that is, it is composite.)</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If \(k+1\) is prime, then \(P(k+1)\)  is True in the case when \(k+1\) is a prime number.</p>
+</li>
+<li>
+<p>If \(k+1\) is not prime, then there are two integers \(a\) and \(b\) that are both greater than \(1\) such that \(k+1 = ab.\) Notice that both \(a\) and \(b\) must be less than \(k+1\) because if either one were greater than or equal to \(k+1\) then the product \(ab\) would be greater than or equal \(2(k+1).\) Assuming the induction hypothesis, both \(P(a)\) and \(P(b)\) are True, so each of \(a\) and \(b\) is either a prime or a product of two or more primes, which means that the product \(ab\) is a product of at least two primes (if both \(a\) and \(b\) are primes, they are the only two factors of \(k+1,\) otherwise, there will be more than two prime factors of \(k+1.\)) Since \(k+1 = ab\), this proves that \(P(k+1)\) is True in the case when \(k+1\) is a composite number.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In either case, we have shown that \(P(k+1)\) must be True. We have proven that if \(P(i)\) is True for each natural number \(i\) with \(2 \leq i \leq k,\) then \(P(k+1)\) must also be True. That is, we have proven \(( ( P(2) \land P(3) \land \cdots \land P(k) ) \rightarrow P(k+1)\).</p>
+</div>
+<div class="paragraph">
+<p><strong>Conclusion Step:</strong> We have proven both the Basis Step and the Induction Step. Therefore, we can use <em>universal generalization</em> to conclude that
+for all natural numbers \(n > 2,\) \(n\) is either a prime number or a product of two or more prime numbers.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validating_an_algorithm_using_induction">14.5. Validating An Algorithm Using Induction</h3>
+<div class="paragraph">
+<p>One of the uses of mathematical induction in computer science is the validation of algorithms. In this section, we&#8217;ll prove that the <a href=./algorithms.html#algorithms_euclidean_algorithm>Euclidean Algorithm</a> correctly computes the greatest common divisor (g.c.d.) of two integers.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 6 - The Euclidean Algorithm</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>The code below implements integer division for <em>positive</em> integers <em>a</em> and <em>b.</em></p>
+</div>
+<div class="paragraph">
+<p>Click on the "Next" button to step through the code.</p>
+</div>
+<iframe width="100%" frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=500"> </iframe>
+
+<div style="text-align: right;">
+<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=%23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>First, we will prove a lemma (that is, a minor theorem) that we&#8217;ll use in the induction step of the main proof.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Lemma</div>
+<p>If \(a\) and \(b\) are integers such that \(a > b > 0\) and the integers \(q\) and \(r\) satisfy \[ a = q \cdot b + r \text{ and } 0 \leq r &lt; b \]
+then the set of positive integers that divide both \(a\) and \(b\) is the same as the set of positive integers that divide both \(b\) and \(r.\)</p>
+</div>
+<div class="openblock proof">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that \(q\) is the quotient and \(r\) is the remainder that result when doing a long division of \(a\) by \(b.\)</p>
+</div>
+<div class="paragraph">
+<p>Also notice that we can rewrite the equation \(a = q \cdot b + r\) in the equivalent form \(r = a - q \cdot b.\)</p>
+</div>
+<div class="paragraph">
+<p>We can now prove the lemma.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the integer \(c\) divides both \(a\) and \(b\) then there are integers \(a'\) and \(b'\) so that \(a = c \cdot a'\) and \(b = c \cdot b'.\) Substitute these two new expressions in the equation \(r = a - q \cdot b\) to get
+\begin{equation}
+\begin{aligned}
+r {} &amp; = a - q \cdot b  \\
+&amp; = (c \cdot a') - q \cdot (c \cdot b')  \\
+&amp; = c \cdot a' - c \cdot (q \cdot b')  \\
+&amp; = c \cdot (a' -  q \cdot b')
+\end{aligned}
+\end{equation}
+which shows that \(c\) is also a divisor of \(r.\) Since we already assumed that \(c\) divides \(b,\) this means that \(c\) is a divisor of both \(b\) and \(r.\) Therefore, the set of positive integers that divide both \(a\) and \(b\) is a subset of the set of positive integers that divide both \(b\) and \(r.\)</p>
+</li>
+<li>
+<p>If the integer \(k\) divides both \(b\) and \(r\) then there are integers \(b''\) and \(r''\) so that \(b = k \cdot b''\) and \(r = k \cdot r''.\) Substitute these two new expressions in the equation \(a = q \cdot b + r\) to get
+\begin{equation}
+\begin{aligned}
+a {} &amp; =  q \cdot b + r  \\
+&amp; = q \cdot (k \cdot b'') + (k \cdot r'')  \\
+&amp; = k \cdot (q \cdot b'') + k \cdot r''  \\
+&amp; = k \cdot (q \cdot b'' + r'')
+\end{aligned}
+\end{equation}
+which shows that \(k\) is also a divisor of \(a.\) Since we already assumed that \(k\) divides \(b,\) this means that \(k\) is a divisor of both \(a\) and \(b.\) Therefore, the set of positive integers that divide both \(b\) and \(r\) is a subset of the set of positive integers that divide both \(a\) and \(b.\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So we have two subsets, each of which is a subset of the other, which means that the two sets must be equal. That is, the set of positive integers that divide both \(a\) and \(b\) is equal to the set of positive integers that divide both \(b\) and \(r;\) more plainly, the two set descriptions define the <em>same</em> set.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>From the lemma we can conclude that the greatest common divisor of \(a\) and \(b\) is equal to the greatest common divisor of \(b\) and \(r.\)</p>
+</div>
+<div class="paragraph">
+<p>We are now ready to prove the main result by induction.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>The Euclidean Algorithm correctly computes the greatest common divisor (g.c.d.) of the two positive integers \(a\) and \(b.\)</p>
+</div>
+<div class="openblock proof">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>We use mathematical induction on the number of times \(n\) we must compute a new remainder (that is, the number \(n\) of iterations of the code block inside the loop), and prove that the algorithm computes the correct g.c.d. no matter what the value of \(n\) is.</p>
+</div>
+<div class="paragraph">
+<p>Let \(P(n)\) be the predicate "If the loop executes \(n\) times, then the last nonzero remainder is the g.c.d. of the two initial inputs." We will prove that \((\forall n \in \mathbb{N})P(n)\) is True.</p>
+</div>
+<div class="paragraph">
+<p><strong>Basis Step:</strong> Notice that the number of iterations of the loop is \(n=0\) if and only if the value of \(r = a\%b\) is equal to \(0\), which is True if and only if \(b\) divides \(a.\) This means that the "last nonzero remainder" is \(b,\) and \(b\) is the greatest common divisor of \(a\) and \(b,\) which means that \(P(0)\) is True.</p>
+</div>
+<div class="paragraph">
+<p>We can also prove that \(P(1)\) is True in case the proof of \(P(0)\) is unsatisfying. In the case when \(n=1,\) the loop executes \(1\) time, which means that \(a = q \cdot b + r\) and \(r\) is a nonzero divisor of \(b,\) so \(r\) is the g.c.d. of \(b\) and \(r,\) and we can use the lemma to conclude that \(r\) is also the g.c.d. of \(a\) and \(b.\) This proves that \(P(1)\) is True.</p>
+</div>
+<div class="paragraph">
+<p><strong>Induction Step:</strong> First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).</p>
+</div>
+<div class="paragraph">
+<p>Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use <em>modus ponens</em> (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.</p>
+</div>
+<div class="paragraph">
+<p>Assume that \(P(k)\) is True for the positive integer \(k,\) that is, if the loop executes \(k\) times, then the last nonzero remainder is the g.c.d. of the two numbers we started with.
+We can assume \(k \geq 1\) since the cases when \(k \in \{ 0, 1 \}\) were proved in the Basis Step. Suppose that we have numbers \(a\) and \(b\) such that the loop executes \(k+1\) times in order to reach the last nonzero remainder: We need to prove that this last nonzero remainder is actually the g.c.d. of \(a\) and \(b.\) Now, notice that if we find the first remainder so that \(r = a - q \cdot b\) and \(0 < r < b,\) then the Euclidean Algorithm requires \(k\) loop iterations to find the last nonzero remainder for the pair of inputs \(b\) and \(r.\) That is , we know from the induction hypothesis that the last nonzero remainder for the initial values \(b\) and \(r\) is the g.c.d. of \(b\) and \(r.\) Now apply the lemma to conclude that the g.c.d. of \(a\) and \(b,\) computed after \(k+1\) loop iterations, is equal to the g.c.d. of \(b\) and \(r,\) computed after \(k\) loop iterations. Therefore, \(P(k+1)\) is True, too. This proves that \(P(k) \rightarrow P(k+1)\).</p>
+</div>
+<div class="paragraph">
+<p><strong>Conclusion Step:</strong> We have proven both the Basis Step and the Induction Step. Therefore, we can use <em>universal generalization</em> to conclude that
+for all natural numbers \(n,\) if the loop executes \(n\) times then the last nonzero remainder is the g.c.d. of \(a\) and \(b.\) That is, the Euclidean Algorithm correctly computes the g.c.d. of \(a\) and \(b\) no matter how many loop iterations are required to compute the last nonzero remainder.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
 </td>
-</tr></table>
+<td class="content">
+The French mathematician Gabriel Lamé proved in 1844 that if the Euclidean Algorithm requires \(n\) steps then \(f_{n+2} \leq a\) and \(f_{n+1} \leq b.\) A proof by induction is given at this <a href=https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case>Wikipedia page.</a> Notice that the worst-case complexity for the Euclidean Algorithm is described there as well: The Euclidean Algorithm is \(O(log_{\phi}(b)).\)
+</td>
+</tr>
+</table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_exercises_7">14.6. Exercises</h3>
 <div class="paragraph">
-<p>So \(a_{m+1}=2^{m+1} + 3^{m+1}\) and therefore, \(a_n=2^n +3^n\) for all \(n \geq 1\).</p>
+<p>Remixer&#8217;s Note: This section is taken from the original <a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> book, with only a few minor revisions.</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prove by induction:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>For  all \(n ≥ 1, \) \(1+2+3+\ldots+n=\displaystyle\sum_{i=1}^{n}i=\displaystyle \frac{n\left(n+1\right)}{2}\)</p>
+</li>
+<li>
+<p>For  all \(n ≥ 1, \) \(1^2+2^2+3^2+\ldots+n^2=\displaystyle\sum_{i=1}^{n}i^2=\frac{1}{6} n (n+1) (2 n+1)\)</p>
+</li>
+<li>
+<p>For  all \(n ≥ 1, \) \(1^3+2^3+3^3+\ldots+n^3=\displaystyle\sum_{k=1}^{n}k^3=\frac{1}{4} n^2 (n+1)^2\)</p>
+</li>
+<li>
+<p>For all \(n ≥ 1, \) \({23}^n-1\)  is  divisible  by 11.</p>
+</li>
+</ol>
 </div>
+</li>
+<li>
+<p>Prove by induction that \(n^2+n = n(n+1)\) is even for all integers \(n  ≥ 1\).</p>
+</li>
+<li>
+<p>Find an appropriate \(N \in \mathbb{Z}\), and prove by induction that \(n^3 +3n^2\) is even for all \(n  ≥ N\).</p>
+</li>
+<li>
+<p>Find an appropriate \(N \in \mathbb{Z}\), and prove by induction that \(n^3 +2n\) is divisible by 3 for all \(n  ≥ N\).
+<strong>(Hint: You may use the result \(n(n+1)\), is even for \(n\), an integer.)</strong></p>
+</li>
+<li>
+<p>Prove by induction that \(7\) divides \(2^{4n+2} + 3^{2n+1}\) for all nonnegative integers \(n\).</p>
+</li>
+<li>
+<p>Prove that for any \(n  ≥ 1\) and \(x  ≥ 0\) that \(\left(1+x\right)^n\geq1+nx\).</p>
+</li>
+<li>
+<p>For all \(n ≥ 5\), prove that \(n^2 < 2^n\)</p>
+</li>
+<li>
+<p>Graph \(n!\) and \(2^n\), and then prove by induction that \( 2^n < n!\) for \(n>3\).</p>
+</li>
+<li>
+<p>Graph \(n^3\) and \(5n+12\), and then use your graph to find an appropriate \(N \in \mathbb{Z}\) to prove by induction that
+\(5n+12 < n^3\) whenever \(n>N\).</p>
+</li>
+<li>
+<p>Prove by induction that a set  \(A\) with cardinality \(|A|=n\) has \(2^n\) subsets.</p>
+</li>
+<li>
+<p>Prove by induction that there are \(3^n\) numbers in base 3 (using the digits 0 ,1, 2) made up of \(n\) digits.</p>
+</li>
+<li>
+<p>Prove by induction that there are \(4^n\) numbers in base 4 (using the digits 0 ,1, 2, 3,) made up of \(n\) digits.</p>
+</li>
+<li>
+<p>State the principle of mathematical induction using a conditional logical statement.</p>
+</li>
+<li>
+<p>Consider the sequence defined recursively as \(a_1=1,a_2=5,\) and \(a_n=5a_{n-1}-6a_{n-2}.\)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Calculate the first eight terms of the recursive sequence.</p>
+</li>
+<li>
+<p>Prove by induction that the recursive sequence is given by the formula \(a_n=3^n-2^n.\) (Hint: You may be able to use the fact that \(2\) and \(3\) are the two solutions of the quadratic equation \(x^{2} = 5x - 6.\))</p>
+</li>
+</ol>
 </div>
-<div class="paragraph">
-<p>MORE TO COME!</p>
+</li>
+<li>
+<p>Consider the sequence defined recursively as \(a_1=1\) and \(a_n=2a_{n-1}+n\).</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Calculate the first eight terms of the recursive sequence</p>
+</li>
+<li>
+<p>Prove by induction that the recursive sequence is given by the formula \(a_n={4\cdot2}^{n-1}-n-1\).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Recall that the <a href=./recursion.html#definition_of_fibonacci_numbers>Fibonacci numbers</a> are defined by the following recurrence relation: \[f_{0}=0, \, f_{1}=1, \text{ and } f_{n} = f_{n-1} + f_{n-2} \text{ for } n \geq 2.\]</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prove by induction that the sum of the first \((n+1)\) Fibonacci numbers is 1 less than the \((n+2)\)th Fibonacci number, that is,
+
+\[
+f_0+f_1+f_2+\ldots+f_n=\sum_{i=0}^{n}{f_i=f_{n+2}-1}.
+\]
+
+</p>
+</li>
+<li>
+<p>Prove by induction that the sum of the squares of the first \((n+1)\) Fibonacci numbers is
+
+\[
+f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 = \sum_{i=0}^{n} f_i^2=f_n \cdot\ f_{n+1}.
+\]
+
+</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -14458,7 +14800,7 @@ The first index specifies the starting point of the slice while the second index
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercises_7">19.12. Exercises</h3>
+<h3 id="_exercises_8">19.12. Exercises</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>

@@ -198,7 +198,7 @@ Notice that a geometric sequence is determined by an initial term and a common r
 //--
 ****
 
-
+[[definition_of_fibonacci_numbers]]
 The next sequence is the very famous *Fibonacci numbers,* named for the Italian mathematician Fibonacci who was also known as Leonardo of Pisa. However, this sequence and its properties were known and discussed by Indian poets and mathematicians such as  
 link:https://en.wikipedia.org/wiki/Fibonacci_sequence#History[Acharya Pingala,] link:https://www.sciencedirect.com/science/article/pii/0315086085900217[Acharya Virahanka,] 
 and 
