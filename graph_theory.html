@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on August 27, 2024.
+        This chapter was last updated on November 13, 2024.
        </em>
       </p>
      </div>
@@ -793,6 +793,14 @@ but it is more useful to
          parallel edges
         </strong>
         (that is, multiple edges with the same endpoints.)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <mark>
+         NOTICE: No updates will be made to the "Undirected Graphs" section before Dec. 20, 2024.
+        </mark>
+        Please skip to the next section, "Simple Graphs."
        </p>
       </div>
      </div>
@@ -1047,43 +1055,593 @@ A
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_examples_of_graphs">
-       15.4. Examples of Graphs
-      </h3>
-     </div>
-     <div class="sect2">
-      <h3 id="_weighted_graphs">
-       15.5. Weighted Graphs
+      <h3 id="_examples_of_simple_graphs">
+       15.4. Examples of Simple Graphs
       </h3>
       <div class="paragraph">
        <p>
-        In some applications, each edge has a
+        In this section presents several classes of graphs.
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="KompletGraphOn4Vertices" height="80" src="imagesMKD/KompletGraphOn4Vertices.png" width="80"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The
         <strong>
-         weight
+         complete graph
         </strong>
-        . The weight could represent the distance between the endpoints, or could represent the cost to travel or transmit data between the endpoints.
+        \(K_n\) is the simple graph with \(n\) vertices such that any two vertices are adjacent, that is, every pair of vertices are the endpoints of an edge.
+The image shows \(K_{4},\) the complete graph on 4 vertices. Click
+        <a href="https://en.wikipedia.org/wiki/Complete_graph#Examples">
+         here
+        </a>
+        to see images of \(K_{n}\) for the positive integers that are less than or equal to \(12.\)
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="nCubesv1" height="165" src="imagesMKD/nCubesv1.png" width="300"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         n-cube
+        </strong>
+        \(Q_{n}\) can be described as the graph that has vertex set consisting of the \(2^{n}\) bitstrings of length \(n,\) and edges such that two vertices are adjacent if and only if the bitstrings differ in exactly one bit position. The image shows the three graphs \(Q_{1},\) \(Q_{2},\) and \(Q_{3};\) these graphs can be used as a way to represent the power sets of sets that have \(1,\) \(2,\) and \(3\) elements, respectively. Notice that \(Q_{2}\) can be drawn as a square and that \(Q_{3}\) can be represented as a cube in \(3\)-dimensional space (or by a drawing of a cube in a \(2\)-dimensional plane.)
        </p>
       </div>
       <div class="paragraph">
        <p>
-        Additional topics will be added to this chapter soon!
+        A
+        <strong>
+         bipartite graph
+        </strong>
+        is a simple graph whose set of vertices can be partitioned into two disjoint nonempty sets
+such that every vertex is in exactly one of the two sets
+and every edge has one endpoint in each of the two sets.
+One way to think of a bipartite graph is that each vertex can be assigned one of two colors so that every edge must connect vertices of different colors.  Notice that \(Q_{1},\) \(Q_{2},\) and \(Q_{3}\) are all examples of bipartite graphs (Question: Is \(Q_{n}\) a bipartite graph for
+        <em>
+         every
+        </em>
+        natural number \(n?\) Why or why not?)
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="3cubev2" height="100" src="imagesMKD/K32v2.png" width="157"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        This image shows the graph \(K_{2,3}\) and is another example of a bipartite graph.
+Notice that \(K_{2,3}\) has an additional property:
+        <em>
+         Every
+        </em>
+        pair of vertices \(\{a, b \}\) with \(a\) in the set of \(2\) "upper" vertices and \(b\) in the set of \(3\) "lower" vertices are the endpoints of an edge. A bipartite graph that has this additional property is called a
+        <strong>
+         complete bipartite graph.
+        </strong>
+        In general, the symbol \(K_{m,n}\) represents the complete bipartite graph that has two disjoint sets of vertices, one of cardinality \(|m|\) and the other of cardinality \(|n|,\) such that every pair of vertices that come from the different sets are joined by an edge. Notice that \(Q_{1} = K_{1,1}\) and \(Q_{2} = K_{2,2}\) are complete bipartite graphs, but that \(Q_{3}\) is not a complete bipartite graph because, for example, there is no edge joining \(000\) and \(111.\)
+        <br/>
+        <span class="small">
+         NOTE: The phrase
+         <em>
+          "complete bipartite"
+         </em>
+         needs to be read as a single term used to indicate that a bipartite graph has all the edges it can possibly have. For example, \(K_{2,3}\) is a bipartite graph such that if you tried to enlarge it by inserting an additional edge into the graph, that edge would join either the \(2\) "upper" vertices, \(2\) of the "lower" vertices, or \(2\) vertices that are already joined; in this sense, \(K_{2,3}\) is "complete" as a bipartite graph. \(K_{2,3}\) is not a "complete graph" in the sense of the earlier example in this section. In fact, since a "complete graph" must contain an edge for every pair of distinct vertices, the only graph that can be both a "complete graph" and a "complete bipartite graph" is \(Q_{1} = K_{2} = K_{1,1}.\) Mathematicians recycle and reuse a lot of words…​ .
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_representing_simple_graphs">
+       15.5. Representing Simple Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        In addition to the vertex-edge drawing, a simple graph can be represented in other ways that are more useful for computing.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        First, recall that if \(u\) is a vertex of a simple graph, then vertex \(v\) is said to be
+        <strong>
+         adjacent to \(u\)
+        </strong>
+        if and only if \(\{u, v \}\) are the endpoints of an edge of the graph.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        One way to represent a simple graph is by using an
+        <strong>
+         adjacency list.
+        </strong>
+        This list can be written as a table, where each row has two columns. In each row, the entry in the first column is a single vertex \(v\) and the entry in the second column is a list of all vertices of the graph that are adjacent to \(v.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Another way to represent a simple graph is by using an
+        <strong>
+         adjacency matrix.
+        </strong>
+        The adjacency matrix of a simple graph
+represents the graph in table form, and contains an entry for each pair of vertices.
+For each vertex of the graph, there is a row and also a column.
+If vertices \(u\) and \(v\) are adjacent (that is, connected by some edge), then the adjacency matrix will contain a \(1\) in the position that corresponds to the row for \(u\) and the column for \(v,\) otherwise the matrix contains a \(0\) at that postion. The next example may help make this more clear.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 5 - Representing A Simple Graph
+         </div>
+         <p>
+          The graph with vertex set
+\(\left\{A,\ B,\ C,\ D,\ E,\ F\right\}\) and edge set
+\(\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}\) can be represented by
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          the drawing
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph1" src="images/graph1.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          or the adjacency list
+         </p>
+        </div>
+        <table class="tableblock frame-all grid-all" style="width: 25%;">
+         <colgroup>
+          <col style="width: 20%;"/>
+          <col style="width: 80%;"/>
+         </colgroup>
+         <thead>
+          <tr>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Vertex
+            </strong>
+           </th>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Adjacent Vertices
+            </strong>
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              A
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              C, D
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              B
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              D, F
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              C
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              A, F
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              D
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              A, B, F
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              E
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              F
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              F
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              B, C, D, E
+             </em>
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <div class="paragraph">
+         <p>
+          or the adjacency matrix
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\mathbf{M}=\left(\begin{matrix}0&amp;0&amp;1&amp;1&amp;0&amp;0\\0&amp;0&amp;0&amp;1&amp;0&amp;1\\1&amp;0&amp;0&amp;0&amp;0&amp;1\\1&amp;1&amp;0&amp;0&amp;0&amp;1\\0&amp;0&amp;0&amp;0&amp;0&amp;1\\0&amp;1&amp;1&amp;1&amp;1&amp;0\\\end{matrix}\right)\)
+          <br/>
+          <span class="small">
+           For example, in matrix \(\mathbf{M}\) the rows, from top to bottom correspond to the vertices \(A,\ B,\ C,\ D,\ E,\ F\) and the columns, from left to right, corespond to vertices \(A,\ B,\ C,\ D,\ E,\ F.\) The values in row 3, which corresponds to vertex \(C\), indicate whether the  vertex for that column is adjacent to \(C.\) If we use the symbol \(M_{r,c}\) to stand for the value in row \(r\) and column \(c,\) then \(M_{3,5} = 0\) because there is no edge in the graph with endpoints \(C\) and \(E,\) and \(M_{3,6} = 1\) because there is an edge in the graph with endpoints \(C\) and \(F\).
+          </span>
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_weighted_graphs">
+       15.6. Weighted Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        In some applications, each edge of a graph has a
+        <strong>
+         weight,
+        </strong>
+        which is some nonnegative number. The weight could represent the physical distance between the two endpoint nodes, or could represent the cost to travel or transmit data between the endpoint nodes.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        You can use an adjacency matrix to describe a weighted graph, but instead of using a \(1\) to represent that there is an edge between two vertices
+you place the the weight of the edge in the correct position of the adjacency matrix, as shown in the following example.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 6 - Weighted Graph
+         </div>
+         <p>
+          Consider the following weighted simple graph
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph5" src="images/graph5.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The adjacency matrix of this weighted graph is
+\(
+\left(\begin{matrix}0&amp;2&amp;5&amp;0\\2&amp;0&amp;3&amp;0\\5&amp;3&amp;0&amp;1\\0&amp;0&amp;1&amp;0\\\end{matrix}\right).
+\)
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_connectivity_eulerian_graphs_and_hamiltonian_graphs">
+       15.7. Connectivity, Eulerian Graphs, and Hamiltonian Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         walk
+        </strong>
+        on a graph \(G=\left(V,E\right)\) is a finite, non-empty, alternating sequence of vertices and edges of the form, \(v_0e_1v_1e_2\ldots e_nv_n\), with vertices \(v_i\in V\) and edges \(e_i\in E\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We will focus on simple graphs. For simple graphs, there is at most one edge joining adjacent vertices, so we can omit the edges from the sequence and instead write \(v_0v_1\ldots v_n.\)
        </p>
       </div>
       <div class="ulist">
        <ul>
         <li>
          <p>
-          Paths and Circuits
+          A
+          <strong>
+           trail
+          </strong>
+          is a walk that does not repeat an edge. That is, all edges in a trail are distinct.
          </p>
         </li>
         <li>
          <p>
-          Eulerian paths and circuits
+          A
+          <strong>
+           path
+          </strong>
+          is a trail that does not repeat a vertex.
          </p>
         </li>
         <li>
          <p>
-          Hamiltonian paths and circuits
+          The
+          <strong>
+           distance
+          </strong>
+          between two vertices, \(u\) and \(v\), denoted \(d(u,v)\), is the number of edges in a shortest path connecting them.
+         </p>
+        </li>
+        <li>
+         <p>
+          A
+          <strong>
+           cycle
+          </strong>
+          is a non-empty trail in which the only repeating vertices are the beginning and ending vertices, \(v_0=v_n\).
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 7 - Trails, Paths, and Cycles
+         </div>
+         <p>
+          In the graphs below the first shows a trail \(CFDBFE\).
+It is not a path since the vertex \(F\) is repeated.
+The second shows a path \(CADFB\), and the third a cycle \(CADFC\). Also note the following
+distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph9" src="images/graph9.png"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        A graph is
+        <strong>
+         connected
+        </strong>
+        if there is a path from each vertex to every other vertex.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 8 - A graph that is not connected
+         </div>
+         <p>
+          The graph \(G\) below is not connected since, as just one example, there is no path from vertex \(a\) to vertex \(e.\)
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph10" src="images/graph10.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(G\) has adjacency matrix
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(
+\left(\begin{matrix}0&amp;1&amp;1&amp;0&amp;0\\1&amp;0&amp;1&amp;0&amp;0\\1&amp;1&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;1\\0&amp;0&amp;0&amp;1&amp;0\\\end{matrix}\right).
+\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_eulerian_graphs">
+        15.7.1. Eulerian Graphs
+       </h4>
+       <div class="paragraph">
+        <p>
+         An
+         <strong>
+          Euler path
+         </strong>
+         on a graph is a path that uses each edge of the graph exactly once.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         An
+         <strong>
+          Euler circuit
+         </strong>
+         (also called an
+         <strong>
+          Eulerian trail
+         </strong>
+         ) is a closed trail containing each edge of the graph \(G\) exactly once and returning to the start vertex. A graph with an Euler circuit is considered
+         <strong>
+          Eulerian
+         </strong>
+         or is said to be an
+         <strong>
+          Eulerian graph
+         </strong>
+         .
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In the following, the first graph is Eulerian. The sequence of edges \(e_1 e_2 e_3 e_4 e_5 e_6 e_7\) describes an Euler circuit.
+The second graph is not an Eulerian graph. Convince yourself of this fact by  looking at all necessary trails or closed trails.
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="graph11 MKD" src="imagesMKD/graph11_MKD.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         The following are useful
+characterizations of graphs with Euler circuits and Euler paths and are due to Leonhard Euler
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem on Euler Circuits and Euler Paths
+         </div>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             A finite connected graph has an Euler circuit if and only if each vertex has even degree.
+            </p>
+           </li>
+           <li>
+            <p>
+             A finite connected graph has an Euler path if and only if it has at most two vertices with odd degree.
+            </p>
+           </li>
+          </ol>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_hamiltonian_graphs">
+        15.7.2. Hamiltonian Graphs
+       </h4>
+       <div class="paragraph">
+        <p>
+         A cycle in a graph \(G\), is said to be a
+         <strong>
+          Hamiltonian cycle
+         </strong>
+         if every vertex,
+except for the starting and ending vertex, is visited exactly once.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         A graph is
+         <strong>
+          Hamiltonian
+         </strong>
+         , or said to be a
+         <strong>
+          Hamiltonian graph
+         </strong>
+         , if it contains a Hamiltonian cycle.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The following graph is Hamiltonian and shows a Hamiltonian cycle \(ABCDA\), highlighted, while
+the second graph is not Hamiltonian.
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="graph12" src="images/graph12.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         While we have the Euler Theorem to tell us which graphs are Eulerian or not, there are no comparable simple criteria to determine if graphs are Hamiltonian or not. We do have the following sufficient
+criterion due to Paul Dirac.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem (Dirac) on Hamiltonian graphs
+         </div>
+         <div class="paragraph">
+          <p>
+           A simple graph, with \(n≥3\) vertices, is Hamiltonian if every vertex \(v\) has degree \(d(v)\geq \frac{n}{2}\).
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_additional_topics_will_be_added_to_this_chapter_soon">
+       15.8. Additional topics will be added to this chapter soon!
+      </h3>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Graph Isomorphism
          </p>
         </li>
         <li>
@@ -1093,22 +1651,7 @@ A
         </li>
         <li>
          <p>
-          Graph Coloring
-         </p>
-        </li>
-        <li>
-         <p>
-          Graph Isomorphism
-         </p>
-        </li>
-        <li>
-         <p>
           Algorithms for Graphs
-         </p>
-        </li>
-        <li>
-         <p>
-          Representations of graphs (adjacency list, adjacency matrix)
          </p>
         </li>
         <li>

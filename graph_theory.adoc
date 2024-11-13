@@ -3,7 +3,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on August 27, 2024._
+_This chapter was last updated on November 13, 2024._
 
 
 // MKD start topics lists
@@ -243,10 +243,12 @@ but it is more useful to _represent_ a graph using either a drawing as in the pr
 
 In this section, we will assume that graphs must have undirected edges, but could have loops and/or *parallel edges* (that is, multiple edges with the same endpoints.)
 
+#NOTICE: No updates will be made to the "Undirected Graphs" section before Dec. 20, 2024.# Please skip to the next section, "Simple Graphs."
+
 // MKD move handshake here
 
 
-// MKD Nove 4 2024: Need to reinstate "Representing graphs." sections
+// MKD Nov 4 2024: Need to reinstate "Representing graphs." sections
 
 
 == Simple Graphs
@@ -366,7 +368,7 @@ A *directed edge* $e\in\ E$ is an ordered pair of the form $e=\left(x,y\right)$,
 // sum of in-degrees = sum of out-degrees = number of directed edges
 
 
-== Examples of Graphs
+== Examples of Simple Graphs
 
 // MKD - 
 //		Complete Graph on $n$ Vertices
@@ -374,84 +376,183 @@ A *directed edge* $e\in\ E$ is an ordered pair of the form $e=\left(x,y\right)$,
 //		Bipartite Graphs and Complete Bipartite Graphs
 //			mention coloring here
 
+In this section presents several classes of graphs.
 
-== Weighted Graphs
+//image::imagesMKD/KompletGraphOn4Vertices.png[KompletGraphOn4Vertices,406,403,float="right",align="center"]
+image::imagesMKD/KompletGraphOn4Vertices.png[KompletGraphOn4Vertices,80,80,float="right",align="center"]
+The *complete graph* $K_n$ is the simple graph with $n$ vertices such that any two vertices are adjacent, that is, every pair of vertices are the endpoints of an edge. 
+//Click link:https://commons.wikimedia.org/wiki/File:Complete_graph_K7.svg[here] to see an image of $K_7,$ the complete graph on $7$ vertices. 
+The image shows $K_{4},$ the complete graph on 4 vertices. Click link:https://en.wikipedia.org/wiki/Complete_graph#Examples[here] to see images of $K_{n}$ for the positive integers that are less than or equal to $12.$
 
-In some applications, each edge has a *weight*. The weight could represent the distance between the endpoints, or could represent the cost to travel or transmit data between the endpoints. 
+
+//image::imagesMKD/3cubev2.png[3cubev2,489,629,float="right",align="center"]
+//image::imagesMKD/3cubev2.png[3cubev2,147,189,float="right",align="center"]
+//image::imagesMKD/nCubesv1.png[nCubesv1,1200,660,float="right",align="center"]
+//image::imagesMKD/nCubesv1.png[nCubesv1,240,132,float="right",align="center"]
+image::imagesMKD/nCubesv1.png[nCubesv1,300,165,float="right",align="center"]
+The *n-cube* $Q_{n}$ can be described as the graph that has vertex set consisting of the $2^{n}$ bitstrings of length $n,$ and edges such that two vertices are adjacent if and only if the bitstrings differ in exactly one bit position. The image shows the three graphs $Q_{1},$ $Q_{2},$ and $Q_{3};$ these graphs can be used as a way to represent the power sets of sets that have $1,$ $2,$ and $3$ elements, respectively. Notice that $Q_{2}$ can be drawn as a square and that $Q_{3}$ can be represented as a cube in $3$-dimensional space (or by a drawing of a cube in a $2$-dimensional plane.)
+//The *n-cube* $Q_{n}$ can be described as the graph that has $2^{n}$ vertices labeled by the bitstrings of length $n$ such that two vertices are adjacent if and only if the bitstrings differ in exactly one bit position. The image shows the three graphs $Q_{1},$ $Q_{2},$ and $Q_{3};$ these graphs can be used as a way to represent the power sets of sets that have $1,$ $2,$ and $3$ elements, respectively.
+
+A *bipartite graph* is a simple graph whose set of vertices can be partitioned into two disjoint nonempty sets 
+//$V_{1}$ and $V_{2}$ 
+such that every vertex is in exactly one of the two sets 
+//$V_{1}$ and $V_{2},$ 
+and every edge has one endpoint in each of the two sets. 
+//$V_{1}$ and the other endpoint in $V_{2}.$ 
+One way to think of a bipartite graph is that each vertex can be assigned one of two colors so that every edge must connect vertices of different colors.  Notice that $Q_{1},$ $Q_{2},$ and $Q_{3}$ are all examples of bipartite graphs (Question: Is $Q_{n}$ a bipartite graph for _every_ natural number $n?$ Why or why not?)
 
 
-Additional topics will be added to this chapter soon!
+//image::imagesMKD/K32v2.png[3cubev2,314,200,float="right",align="center"]
+//image::imagesMKD/K32v2.png[3cubev2,128,80,float="right",align="center"]
+image::imagesMKD/K32v2.png[3cubev2,157,100,float="right",align="center"]
+This image shows the graph $K_{2,3}$ and is another example of a bipartite graph. 
+//There are $2$ "upper" vertices and $3$ "lower" vertices, and every edge connects one of the "upper" vertices and one of the "lower" vertices. 
+Notice that $K_{2,3}$ has an additional property: _Every_ pair of vertices $\{a, b \}$ with $a$ in the set of $2$ "upper" vertices and $b$ in the set of $3$ "lower" vertices are the endpoints of an edge. A bipartite graph that has this additional property is called a *complete bipartite graph.* In general, the symbol $K_{m,n}$ represents the complete bipartite graph that has two disjoint sets of vertices, one of cardinality $|m|$ and the other of cardinality $|n|,$ such that every pair of vertices that come from the different sets are joined by an edge. Notice that $Q_{1} = K_{1,1}$ and $Q_{2} = K_{2,2}$ are complete bipartite graphs, but that $Q_{3}$ is not a complete bipartite graph because, for example, there is no edge joining $000$ and $111.$ + 
+[small]#NOTE: The phrase _"complete bipartite"_ needs to be read as a single term used to indicate that a bipartite graph has all the edges it can possibly have. For example, $K_{2,3}$ is a bipartite graph such that if you tried to enlarge it by inserting an additional edge into the graph, that edge would join either the $2$ "upper" vertices, $2$ of the "lower" vertices, or $2$ vertices that are already joined; in this sense, $K_{2,3}$ is "complete" as a bipartite graph. $K_{2,3}$ is not a "complete graph" in the sense of the earlier example in this section. In fact, since a "complete graph" must contain an edge for every pair of distinct vertices, the only graph that can be both a "complete graph" and a "complete bipartite graph" is $Q_{1} = K_{2} = K_{1,1}.$ Mathematicians recycle and reuse a lot of words... .#
+
+//with a set of $5$ vertices partitioned into two sets of cardinalities $2$ and $3$
+
+== Representing Simple Graphs
 
 
-* Paths and Circuits 
+In addition to the vertex-edge drawing, a simple graph can be represented in other ways that are more useful for computing.
 
-* Eulerian paths and circuits
+First, recall that if $u$ is a vertex of a simple graph, then vertex $v$ is said to be *adjacent to $u$* if and only if $\{u, v \}$ are the endpoints of an edge of the graph.  
 
-* Hamiltonian paths and circuits
+One way to represent a simple graph is by using an *adjacency list.* This list can be written as a table, where each row has two columns. In each row, the entry in the first column is a single vertex $v$ and the entry in the second column is a list of all vertices of the graph that are adjacent to $v.$
 
-* Traveling Salesperson Problem (TSP)
+//=== The Adjacency Matrix
+Another way to represent a simple graph is by using an *adjacency matrix.* The adjacency matrix of a simple graph 
+//$\mathbf{M}$ 
+represents the graph in table form, and contains an entry for each pair of vertices. 
+// row and column for each vertex. 
+// $v_i$. If the vertices $v_i$ and $v_j$ are 
+For each vertex of the graph, there is a row and also a column. 
+If vertices $u$ and $v$ are adjacent (that is, connected by some edge), then the adjacency matrix will contain a $1$ in the position that corresponds to the row for $u$ and the column for $v,$ otherwise the matrix contains a $0$ at that postion. The next example may help make this more clear.
 
-* Graph Coloring
+//$i-th$ row and $j-th$ column and $0$ otherwise. Denoting by $m_{i,\ j}$ the component of the adjacency matrix in the $i-th$ row and $j-th$ column, we define the adjacency matrix for the graph $G=\left(V,E\right)$ as
 
-* Graph Isomorphism
+//latexmath:[ m_{i,j}=\left\{
+//\begin{array}{cc}
+// 1 & \text{if}\text{  }\left\{v_i,v_j\right\} \text{is}\text{ }\text{in}\text{  }E\text{  } \\
+// 0 & \text{otherwise}
+//\end{array}
+//\right.
+//]
 
-* Algorithms for Graphs
 
-* Representations of graphs (adjacency list, adjacency matrix)
-* Shortest-path algorithms (Dijkstra’s and Floyd’s algorithms)
-* Transitive closure (Floyd’s algorithm)
-* Topological sort
+****
+//.Example {counter:graphex} - adjacency matrix of a graph
+//.Example {counter:graphex} - Adjacency Matrix and Adjacency List
+.Example {counter:graphex} - Representing A Simple Graph
 
-MORE TO COME!
+The graph with vertex set 
+//$V=$
+$\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and edge set 
+//$E=$ 
+$\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}$ can be represented by 
+
+the drawing
+
+image::images/graph1.png[]
+
+
+or the adjacency list
+
+[cols="<1e,<4e",width=25%",align="center",options="header"]
+|===
+^| *Vertex*     ^| *Adjacent Vertices* 
+^| A | C, D 
+^| B | D, F 
+^| C | A, F 
+^| D | A, B, F 
+^| E | F 
+^| F | B, C, D, E  
+|===
+
+
+or the adjacency matrix
+
+$\mathbf{M}=\left(\begin{matrix}0&0&1&1&0&0\\0&0&0&1&0&1\\1&0&0&0&0&1\\1&1&0&0&0&1\\0&0&0&0&0&1\\0&1&1&1&1&0\\\end{matrix}\right)$ + 
+[small]#For example, in matrix $\mathbf{M}$ the rows, from top to bottom correspond to the vertices $A,\ B,\ C,\ D,\ E,\ F$ and the columns, from left to right, corespond to vertices $A,\ B,\ C,\ D,\ E,\ F.$ The values in row 3, which corresponds to vertex $C$, indicate whether the  vertex for that column is adjacent to $C.$ If we use the symbol $M_{r,c}$ to stand for the value in row $r$ and column $c,$ then $M_{3,5} = 0$ because there is no edge in the graph with endpoints $C$ and $E,$ and $M_{3,6} = 1$ because there is an edge in the graph with endpoints $C$ and $F$.#
+
+****
+
+////
+//latexmath:[ \left(\begin{matrix}0&0&1&1&0&0\\0&0&0&1&1&0\\1&0&0&0&0&1\\1&1&0&0&0&1\\0&0&0&0&0&1\\0&1&1&1&1&0\\\end{matrix}\right) ]
+
+// MKD old oddly-ordered matrix
+//\begin{matrix}A&0&1&1&0&0&0\\C&1&0&0&0&1&0\\D&1&0&0&1&1&0\\B&0&0&1&0&1&0\\F&0&1&1&1&0&1\\E&0&0&0&0&1&0\\\ &A&C&D&B&F&E\\\end{matrix}
+
+latexmath:[ 
+\begin{table}[]
+\centering
+\begin{tabular}{ll}
+Vertex & Adjacent Vertices
+\hline
+A &  C, D  \\
+B &  D, F  \\
+C &  A, F  \\
+D &  A, B, F  \\
+E &  F  \\
+F &  B, C, E  \\
+\end{tabular}
+\end{table}
+]
+
+latexmath:[ 
+\begin{center}
+\begin{tabular}{l|l}
+Vertex & Adjacent Vertices
+\hline
+A &  C, D  \\
+B &  D, F  \\
+C &  A, F  \\
+D &  A, B, F  \\
+E &  F  \\
+F &  B, C, E  \\
+\end{tabular}
+\end{center}
+]
+
+
+[small]#For example, in this adjacency matrix, row 3 corresponds to vertex _C_ and column 6 corresponds to vertex _F_ so there is a 1 at position $M_{3,6}$ of the matrix.#
+
+\begin{equation}
+\begin{aligned}
+(a+b) \left( a^{2} + 2ab + b^{2} \right) {} & = a \left( a^{2} + 2ab + b^{2} \right) + b \left( a^{2} + 2ab + b^{2} \right)  \\ 
+& = a^{3} + 2a^{2} b + ab^{2} + a^{2} b + 2ab^{2} + b^{3}  \\
+& = (1)a^{3} + (2+1) a^{2} b + (1+2) ab^{2} +(1) b^{3} \\ 
+& = a^{3} + 3 a^{2} b + 3 ab^{2} + b^{3}
+\end{aligned}
+\end{equation}
 ////
 
 
-== Representing graphs.
 
-In addition to the vertex-edge representation of graphs there are alternative ways to represent a
-graph, especially useful for computing.
-
-=== The Adjacency Matrix
-One way is the use of an adjacency matrix. The adjacency matrix $M$ represents a graph in a
-table form, containing a row and column for each vertex $v_i$. If the vertices
-$v_i$ and $v_j$ are connected by an edge
-$e$, the adjacency matrix will contain a $1$ in the $i-th$ row and $j-th$ column and $0$ otherwise.
-Denoting by $m_{i,\ j}$ the component of the adjacency matrix in the $i-th$ row and $j-th$ column,
-we define the adjacency matrix for the graph $G=\left(V,E\right)$ as
-
-latexmath:[
-m_{i,j}=\left\{
-\begin{array}{cc}
- 1 & \text{if}\text{  }\left\{v_i,v_j\right\} \text{is}\text{  }\text{in}\text{  }E\text{  } \\
- 0 & \text{otherwise}
-\end{array}
-\right.
-]
-
+////
+// MKD old matrix to graph example begins  
 ****
-.Example {counter:graphex} - adjacency matrix of a graph
+//.Example {counter:graphex} - obtaining the graph from the adjacency matrix
+.Example {counter:graphex} - Creating the drawing from the adjacency matrix
 
-The graph with  vertex set $V=\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and edge
-set
-$E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,E\}\}$ has adjacency matrix
+Consider the simple graph with adjacency matrix
 
-\begin{matrix}A&0&1&1&0&0&0\\C&1&0&0&0&1&0\\D&1&0&0&1&1&0\\B&0&0&1&0&1&0\\F&0&1&1&1&0&1\\E&0&0&0&0&1&0\\\ &A&C&D&B&F&E\\\end{matrix}
+//\begin{matrix}a&0&1&1&1\\c&1&0&1&1\\d&1&1&0&1\\b&1&1&1&0\\\ &a&c&d&b\\\end{matrix}
 
-****
+\begin{matrix}a&0&1&1&1\\b&1&0&1&1\\c&1&1&0&1\\d&1&1&1&0\\\ &a&b&c&d\\\end{matrix}
 
-****
-.Example {counter:graphex} - obtaining the graph from the adjacency matrix
-
-The graph with adjacency matrix
-
-\begin{matrix}a&0&1&1&1\\c&1&0&1&1\\d&1&1&0&1\\b&1&1&1&0\\\ &a&c&d&b\\\end{matrix}
-
-is the graph shown below.
+The entries in the matrix indicate that each vertex is adjacent to every other vertex. This means that you could represent the graph as shown below.
 
 image::images/graph3.png[]
 
 ****
+// MKD old matrix to graph example ends  
+////
 
+
+////
+// MKD adjacency for digraphs begins 
 === The Adjacency Matrix for Directed Graphs
 
 Undirected graphs are represented using symmetric adjacency matrices while digraphs are represented by adjacency matrices that are not symmetric.
@@ -477,27 +578,37 @@ latexmath:[
 ]
 
 ****
+// MKD adjacency for digraphs ends 
+////
+
+
 
 == Weighted Graphs
 
-A *weighted graph* is one in which each edge $e$ is assigned a nonnegative number $w(e)$,
-called the weight of that edge. Weights are typically associated with costs, or capacities of
-some type like distance or speed.  The adjacency matrices for weighted graphs are very
-similar to those for graphs that are not necessarily weighted. Instead of using a $1$ to
-represent an edge between two vertices, say $v_i$, and $v_j$, we place the the weight of the edge
-$w(e)$ in position $m_{i,j}$ of the adjacency matrix as shown in the following two examples.
+In some applications, each edge of a graph has a *weight,* which is some nonnegative number. The weight could represent the physical distance between the two endpoint nodes, or could represent the cost to travel or transmit data between the endpoint nodes. 
+
+//A *weighted graph* is one in which each edge $e$ is assigned a nonnegative number $w(e)$, called the weight of that edge. Weights are typically associated with costs, or capacities of some type like distance or speed.  
+
+You can use an adjacency matrix to describe a weighted graph, but instead of using a $1$ to represent that there is an edge between two vertices 
+//, say $v_i$, and $v_j$, we 
+you place the the weight of the edge in the correct position of the adjacency matrix, as shown in the following example.
 
 ****
-.Example {counter:graphex}
-Consider first the following weighted undirected graph
+//.Example {counter:graphex} 
+.Example {counter:graphex} - Weighted Graph
+
+//Consider first the following weighted undirected graph
+
+Consider the following weighted simple graph
 
 image::images/graph5.png[]
 
-Its adjacency matrix is
+The adjacency matrix of this weighted graph is
 latexmath:[
 \left(\begin{matrix}0&2&5&0\\2&0&3&0\\5&3&0&1\\0&0&1&0\\\end{matrix}\right).
 ]
 
+////
 By contrast, the directed weighted graph below
 
 image::images/graph6.png[]
@@ -506,7 +617,169 @@ has adjacency matrix
 latexmath:[
 \left(\begin{matrix}0&2&0&0\\0&0&3&0\\5&0&0&1\\0&0&0&0\\\end{matrix}\right).
 ]
+////
+
 ****
+
+
+
+
+== Connectivity, Eulerian Graphs, and Hamiltonian Graphs
+//== Paths and Circuits 
+
+
+////
+A *path* of length $n$ from $u$ to $v,$ where $n$ is a positive integer, in 
+//an undirected graph 
+a simple graph 
+is a sequence of edges $e_{1}, e_{2}, \ldots , e_{n}$ of the graph such that e1 = (x0, x1), e2 = (x1, x2), ..., en = (xn-1, xn), wherex0 =uandxn =v.Wecanalsodenotethispathbyits vertex sequence x0, x1, ..., xn
+////
+
+//In this section you will study the ways you can move from node to node along the edges of a graph. 
+
+A *walk* on a graph $G=\left(V,E\right)$ is a finite, non-empty, alternating sequence of vertices and edges of the form, $v_0e_1v_1e_2\ldots e_nv_n$, with vertices $v_i\in V$ and edges $e_i\in E$. 
+
+We will focus on simple graphs. For simple graphs, there is at most one edge joining adjacent vertices, so we can omit the edges from the sequence and instead write $v_0v_1\ldots v_n.$
+
+* A *trail* is a walk that does not repeat an edge. That is, all edges in a trail are distinct.
+
+* A *path* is a trail that does not repeat a vertex.
+
+* The *distance* between two vertices, $u$ and $v$, denoted $d(u,v)$, is the number of edges in a shortest path connecting them.
+
+* A *cycle* is a non-empty trail in which the only repeating vertices are the beginning and ending vertices, $v_0=v_n$.
+
+****
+.Example {counter:graphex} - Trails, Paths, and Cycles
+
+In the graphs below the first shows a trail $CFDBFE$.
+It is not a path since the vertex $F$ is repeated.
+The second shows a path $CADFB$, and the third a cycle $CADFC$. Also note the following
+distances, $d(A,D)=1$, while $d(A,F)=2$, and $d(A,E)=3$.
+
+image::images/graph9.png[]
+
+****
+
+
+A graph is *connected* if there is a path from each vertex to every other vertex.
+
+****
+.Example {counter:graphex} - A graph that is not connected
+
+The graph $G$ below is not connected since, as just one example, there is no path from vertex $a$ to vertex $e.$
+
+image::images/graph10.png[]
+
+$G$ has adjacency matrix
+
+latexmath:[
+\left(\begin{matrix}0&1&1&0&0\\1&0&1&0&0\\1&1&0&0&0\\0&0&0&0&1\\0&0&0&1&0\\\end{matrix}\right).
+]
+****
+
+
+//=== Eulerian paths and circuits
+
+=== Eulerian Graphs
+
+//Informally an  *Eulerian graph* is one in which there is a closed (beginning and ending with the same vertex) trail that includes all edges. To define this precisely, we use the idea of an Eulerian trail.
+
+An *Euler path* on a graph is a path that uses each edge of the graph exactly once. 
+
+An *Euler circuit* (also called an *Eulerian trail*) is a closed trail containing each edge of the graph $G$ exactly once and returning to the start vertex. A graph with an Euler circuit is considered *Eulerian* or is said to be an *Eulerian graph*.
+
+
+In the following, the first graph is Eulerian. The sequence of edges $e_1 e_2 e_3 e_4 e_5 e_6 e_7$ describes an Euler circuit. 
+The second graph is not an Eulerian graph. Convince yourself of this fact by  looking at all necessary trails or closed trails.
+
+//image::images/graph11.png[]
+image::imagesMKD/graph11_MKD.png[]
+
+
+The following are useful
+characterizations of graphs with Euler circuits and Euler paths and are due to Leonhard Euler
+
+.Theorem on Euler Circuits and Euler Paths
+
+****
+.. A finite connected graph has an Euler circuit if and only if each vertex has even degree.
+.. A finite connected graph has an Euler path if and only if it has at most two vertices with odd degree.
+****
+
+//=== Hamiltonian paths and circuits
+
+=== Hamiltonian Graphs
+
+A cycle in a graph $G$, is said to be a *Hamiltonian cycle* if every vertex,
+except for the starting and ending vertex, is visited exactly once.
+
+A graph is *Hamiltonian*, or said to be a *Hamiltonian graph*, if it contains a Hamiltonian cycle.
+
+
+The following graph is Hamiltonian and shows a Hamiltonian cycle $ABCDA$, highlighted, while
+the second graph is not Hamiltonian.
+
+image::images/graph12.png[]
+
+
+
+
+While we have the Euler Theorem to tell us which graphs are Eulerian or not, there are no comparable simple criteria to determine if graphs are Hamiltonian or not. We do have the following sufficient
+criterion due to Paul Dirac.
+
+.Theorem (Dirac) on Hamiltonian graphs
+****
+A simple graph, with $n≥3$ vertices, is Hamiltonian if every vertex $v$ has degree $d(v)\geq \frac{n}{2}$.
+
+****
+
+////
+=== Traveling Salesperson Problem (TSP)
+
+Application: The Traveling Salesman Problem
+• The traveling salesman problem is one of the classical problems in computer science.
+A traveling salesman wants to visit a number of cities and then return to his starting point. Of course he wants to save time and energy, so he wants to determine the shortest path for his trip.
+We can represent the cities and the distances between them by a weighted, complete, undirected graph.
+The problem then is to find a cycle of minimum total weight that visits each vertex exactly one.
+29
+   •
+Example: What path would the traveling salesman take to visit
+•
+Solution: The shortest path is Boston, New York, Chicago, Toronto, Boston (2,000 miles).
+Question: Given n vertices, how many different cycles (with all n vertices) can we form by connecting these vertices with edges?
+the following cities?
+Chicago
+Toronto 650 700 550
+700 600
+Boston 200
+New York
+30
+
+Solution: We first choose a starting point. Then we have (n – 1) choices for the second vertex in the cycle, (n – 2) for the third one, and so on, so there are (n – 1)! choices for the whole cycle.
+However, this number includes identical cycles that were constructed in opposite directions. Therefore, the actual number of different cycles is (n – 1)!/2.
+• Unfortunately, no algorithm solving the traveling salesman problem with polynomial worst-case time complexity has been devised yet.
+• This means that for large numbers of vertices, solving the traveling salesman problem is impractical.
+• In these cases, we can use efficient approximation algorithms that determine a path whose length may be slightly larger than the traveling salesman’s path, but
+////
+
+
+== Additional topics will be added to this chapter soon!
+
+//* Graph Coloring
+
+* Graph Isomorphism
+
+* Traveling Salesperson Problem (TSP)
+
+* Algorithms for Graphs
+* Shortest-path algorithms (Dijkstra’s and Floyd’s algorithms)
+* Transitive closure (Floyd’s algorithm)
+* Topological sort
+
+MORE TO COME!
+////
+
 
 == Subgraphs
 
@@ -534,91 +807,6 @@ $G-\{a,d\}$, with a slight abuse of notation
 image::images/graph8.png[]
 ****
 
-== Connectivity, Eulerian Graphs, and Hamiltonian Graphs
-A *walk* on a graph $G=\left(V,E\right)$ is a finite, non-empty, alternating sequence of
-vertices and edges of the form, $v_0e_1v_1e_2\ldots e_nv_n$, with vertices $v_i\in V$ and edges $e_i\in E$.
-
-A *trail* is a walk that does not repeat an edge, ie. all edges are distinct.
-
-A *path* is a trail that does not repeat a vertex.
-
-The *distance* between two vertices, $u$ and $v$, denoted $d(u,v)$, is the number of
-edges in a shortest path connecting them.
-
-A *cycle* is a non-empty trail in which the only repeating vertices are the beginning and
-ending vertices, $v_0=v_n$.
-
-In the graphs below the first shows a trail $CFDBFE$.
-It is not a path since the vertex $F$ is repeated.
-The second shows a path $CADFB$, and the third a cycle $CADFC$. Also note the following
-distances, $d(A,D)=1$, while $d(A,F)=2$, and $d(A,E)=3$.
-
-image::images/graph9.png[]
-
-A graph is *connected* if there is a path from each vertex to every other vertex.
-
-The graph below is not connected,
-
-image::images/graph10.png[]
-
-and has adjacency matrix,
-
-latexmath:[
-\left(\begin{matrix}0&1&1&0&0\\1&0&1&0&0\\1&1&0&0&0\\0&0&0&0&1\\0&0&0&1&0\\\end{matrix}\right).
-]
-
-
-
-=== Eulerian Graphs
-
-Informally an  *Eulerian graph* is one in which there is a closed (beginning and ending with the
-same vertex) trail that includes all edges. To define this precisely, we use the idea of an Eulerian trail.
-
-An *Eulerian trail* or *Eulerian circuit* is a closed trail containing each edge of the
-graph  $G=(V,\ G)$ exactly once and returning to the start vertex. A graph with an
-Eulerian trail is considered *Eulerian* or is said to be an *Eulerian graph*.
-
-In the following, the first graph is Eulerian with the Eulerian circuit sequenced from $1$ to $7$.
-The second is not an Eulerian graph. Convince yourself of this fact by  looking at all
-necessary trails or closed trails.
-
-image::images/graph11.png[]
-
-An *Euler path* on a graph is a path that uses each edge of the graph exactly once. The following are useful
-characterizations of graphs with Euler circuits and Euler paths and are due to Leonhard Euler
-
-.Theorem on Euler Circuits and Euler Paths
-
-****
-.. A finite connected graph has an Euler circuit if and only if each vertex has even degree.
-.. A finite connected graph has an Euler path if and only if it has most two vertices with odd degree.
-****
-
-=== Hamiltonian Graphs
-
-A cycle in a graph $G=\left(V,E\right)$, is said to be a *Hamiltonian cycle* if every vertex,
-except for the starting and ending vertex in $V$, is visited exactly once.
-
-A graph is *Hamiltonian*, or said to be a *Hamiltonian graph*, if it contains a Hamiltonian cycle.
-
-
-The following graph is Hamiltonian and shows a Hamiltonian cycle $ABCDA$, highlighted, while
-the second graph is not Hamiltonian.
-
-image::images/graph12.png[]
-
-
-
-
-While we have the Euler Theorem to tell us which graphs are Eulerian or not, there are no
-comparable simple criteria to determine if graphs are Hamiltonian or not. We do have the following sufficient
-criterion due to Paul Dirac.
-
-.Theorem (Dirac) on Hamiltonian graphs
-****
-A simple graph, with $n≥3$ vertices, is Hamiltonian if every vertex $v$ has degree $d(v)\geq \frac{n}{2}$.
-
-****
 == Exercises
 
 . For each of the following graphs, find their
