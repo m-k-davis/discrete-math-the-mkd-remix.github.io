@@ -3,7 +3,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on November 13, 2024._
+_This chapter was last updated on November 18, 2024._
 
 
 // MKD start topics lists
@@ -734,9 +734,170 @@ A simple graph, with $n≥3$ vertices, is Hamiltonian if every vertex $v$ has de
 
 ****
 
-////
+// MKD new section Nov 17 2024
+== Creating New Graphs From Old Graphs
+
+Given a set of one or more graphs, there are several ways to create new graphs using the graphs in the set. 
+
+//== Subgraphs
+=== Subgraphs
+
+//A graph $H=(V_1,E_1)$ is said to be a *subgraph* of the graph $G=(V,\ E)$ if $V_1\subseteq V$ and $E_1\subseteq E$. 
+// MKD Nov 17 2024
+Given a simple graph $G,$ you can form a *subgraph* $H$ by choosing a subset of the vertices of $G$ along with a subset of the edges of $G$ such that each edge has endpoints in the set of vertices you chose. That is, $H$ is a subgraph of $G$ if $H$ is a graph such that every vertex of $H$ is a vertex of $G$ and every edge of $H$ is a vertex of $G.$ + 
+[small]#More formally, $H = (V_{H}, E_{H})$ is a subgraph of $G = (V,E)$ if and only if all three of the following statements are True: $V_{H} \subseteq V,$ $E_{H} \subseteq E,$ and for every edge $e \in E_{H}$ the endpoints of $e$ are in $V_{H}.$#
+
+
+//If the vertex $v\in V$ belongs to the graph  $G=(V,E)$, 
+If $v$ is a vertex of $G,$
+we denote by *$G-v$*,
+the subgraph obtained from $G$ by removing the vertex $v$ along with all edges in $E$ that have $v$ as an endpoint.
+//adjacent to the vertex $v$.
+
+The image shows 
+//Below is shown 
+a graph $G$, and the subgraph $G-d$ formed by removing the vertex $d$.
+
+image::images/graph7.png[]
+
+//A natural generalization of the subgraph obtained by removing a 
+//single 
+//vertex and its associated edges 
+//is the 
+In the same way, you can obtain 
+//subgraph obtained 
+a subgraph by removing multiple vertices along with the edges associated with the removed vertices. The subgraph obtained 
+is called the subgraph *induced* by removing those vertices.
+
+****
+.Example {counter:graphex}
+Below is a graph $G(V,E)$ and the subgraph obtained by $V-\{a,d\}$, called the induced subgraph
+$G-\{a,d\}$, with a slight abuse of notation
+
+image::images/graph8.png[]
+****
+
+
+=== Unions and Intersections Of Graphs 
+
+Given two simple graphs $G_{1}$ and $G_{2}$, you can form the *union* of the graphs by taking the union of the two sets of vertices to get a new set of vertices, and taking the union of the two sets of edges to get a new set of edges. Notice that any edge that is in both graphs will only appear once in the new graph because you took the union of the sets of edges, that is, you can't create parallel edges by forming the union. 
+
+In the same way, you can form the *intersection* of two simple graphs by taking the intersection of the two sets of vertices to get a new set of vertices, and taking the intersection of the two sets of edges to get a new set of edges. 
+
+== Graph Isomorphism
+
+//As you have seen before, 
+Recall that a graph is determined by its set of vertices and how those vertices are connected by edges, but [underline]#not# the drawing you use to represent the graph. 
+
+****
+.Example {counter:graphex} - The Same Graph Can Be Drawn In More Than One Way 
+
+Consider the two graphs shown in the image. 
+
+//image::imagesMKD/Isomorphism2av2.png[Isomorphism2av2,550,290,float="right",align="center"]
+image::imagesMKD/Isomorphism2av2.png[Isomorphism2av2,440,232,align="center"]
+
+
+Notice that these two graphs are 
+//really just two 
+different-looking drawings of the _same graph_ that has vertex set $\{ A, B, C, D\}$ and edge set $\{\{A,B\},\{A,C\},\{A,D\}\{B,C\},\{B,D\},\{C,D\}\}.$ Also, notice that the drawing on the left appeared earlier in the chapter, but with unlabeled vertices: This is a drawing of $K_{4},$ the complete graph on $4$ vertices.  
+
+//That these really are the same graph is seen more easily by representing  the graph 
+
+Notice that using either the adjacency list 
+//The image shows two of the ways that the graph $K_{4}$ can be drawn. 
+
+
+[cols="<1e,<4e",width=25%",align="center",options="header"]
+|===
+^| *Vertex*     ^| *Adjacent Vertices* 
+^| A | B, C, D 
+^| B | A, C, D
+^| C | A, B, D 
+^| D | A, B, C 
+|===
+
+or the adajcency matrix \[\left(\begin{matrix}0&1&1&1\\1&0&1&1\\1&1&0&1\\1&1&1&0\\\end{matrix}\right)\] makes it easier to see that the two drawings represent the exact same graph. 
+
+You can imagine the graph on the right being the result of dragging the vertex $C$ inside the "triangle" with vertices $A,$ $B,$ and $D.$
+
+****
+
+
+Sometimes, different graphs may be essentially the same graph, as in the next example.
+
+
+****
+.Example {counter:graphex} - Two Graphs That Are Essentially The Same Graph
+
+Consider the two graphs, each with $4$ vertices and $6$ edges, shown in the image. 
+
+//image::imagesMKD/Isomorphism2av3.png[Isomorphism2av3,550,290,float="right",align="center"]
+image::imagesMKD/Isomorphism2av3.png[Isomorphism2av3,440,232,align="center"] 
+
+These graphs are not equal since the graph on the left has vertex set $\{ A, B, C, D\}$ and the graph on the right has vertex set $\{ W, X, Y, Z\}.$ However, by comparing the graph on the right to the one on the right in the previous example, you can see that there is a one-to-one correspondence between the two sets of vertices 
+that preserves adjacency (that is, if two vertices in the upper row are endpoints of an edge of the graph on the left, then the corresponding vertices in the lower row are endpoints of an edge of the graph on the right.) 
+
+image::imagesMKD/K4Isomporphismv1.png[K4Isomporphismv1,186,149,align="center"] 
+
+****
+
+
+//$\mathbf{M}=\left(\begin{matrix}0&0&1&1&0&0\\0&0&0&1&0&1\\1&0&0&0&0&1\\1&1&0&0&0&1\\0&0&0&0&0&1\\0&1&1&1&1&0\\\end{matrix}\right)$ + 
+//Notice that this one-to-one correspondence has the additional property that edges are mapped to corresponding edges. That is, the function $f:\{ A, B, C, D\} \rightarrow \{ W, X, Y, Z\}$ represented in the table has the property that the edge with endpoints $u$ and $v$ is mapped to the edge with endpoints $f(u)$ and $f(v).$ A one-to-one correspondence with this property is called a *graph isomorphism* and the two graphs are said to be *isomorphic.* Informally, you can think of a pair of graphs as isomporphic if one graph can be relabeled and/or reshaped to obtain the other graph.
+
+
+A one-to-one correspondence between the set of vertices of two simple graphs that preserves adjacency is called a *graph isomorphism,* and the two graphs are said to be *isomorphic.* Informally, you can think of two isomorphic graphs as a pair of graphs where one graph can be relabeled and/or reshaped to obtain the other graph (That is, the two graphs are the _same graph_ but have drawings that are labeled and/or shaped differently.)
+
+
+
+
+****
+.Example {counter:graphex} - Using Graph Isomorphism
+
+Using graph isomorphisms can help identify properties of a graph. 
+ 
+//image::imagesMKD/Isomorphism1av2.png[Isomorphism1av2,1380,600,float="right",align="center"]
+image::imagesMKD/Isomorphism1av2.png[Isomorphism1av2,690,300,align="center"] 
+The three graphs in the image are isomorphic; it is an exercise for you to write out the one-to-one correspondences. 
+
+.You Try
+Write out the one-to-one correspondences between the sets of vertices that define the graph isomorphisms.
+
+
+Once you have shown that the three graphs are isomorphic, you can use the fact that they are different representations of the _same_ graph. For example, 
+
+* It is not immediately clear that the graphs on the left and right are bipartite, but the arrangement of the vertices in the middle graph into "upper" and "lower" rows makes this easy to see.
+
+* Also, it is not immediately clear that the graph in the middle or the graph on the right is *planar* (that is, the graph can be redrawn in a $2$-dimension plane so that no edges cross) but this is obvious for the graph on the left. + 
+[small]#Note: This textbook does not discuss planar graphs in detail, but it is worth mentioning that it can be proven that neither $K_{5}$ nor $K_{3,3}$ is planar. If you'd like to learn more about planar graphs, one source is the section "Planar Graphs" in link:https://discrete.openmathbooks.org/dmoi3.html[Oscar Levin's _Discrete Mathematics: An Open Introduction,_ 3rd edition.]#
+
+
+[env.challenge]
+--
+Write out the adjacency matrix for each of the three graphs, using alphabetical order of the vertex labels, then identify a connection between the three adjacency matrices.
+--
+
+[click.hint]
+--
+Look for rows and columns in the different matrices that are identical. The order of the rows and columns would change if you use non-alphabetical reorderings of vertices that correspond to the graph isomorphisms you wrote for the "You try" exercise above. 
+--
+
+
+****
+
+//It is immediately clear by looking at the graph (drawing) on the left that the graph consists of a single cycle, and by looking at the graph (drawing) in the middle that the graph is bipartite; neither of these properties is immediately obvious if you only had the graph (drawing) on the right. 
+
+
+== Finding A Shortest Path: Dijkstra's Algorithm
+
+COMING SOON!
+
 === Traveling Salesperson Problem (TSP)
 
+COMING SOON!
+
+////
 Application: The Traveling Salesman Problem
 • The traveling salesman problem is one of the classical problems in computer science.
 A traveling salesman wants to visit a number of cities and then return to his starting point. Of course he wants to save time and energy, so he wants to determine the shortest path for his trip.
@@ -768,8 +929,6 @@ However, this number includes identical cycles that were constructed in opposite
 
 //* Graph Coloring
 
-* Graph Isomorphism
-
 * Traveling Salesperson Problem (TSP)
 
 * Algorithms for Graphs
@@ -781,31 +940,6 @@ MORE TO COME!
 ////
 
 
-== Subgraphs
-
-A graph $H=(V_1,E_1)$ is said to be a *subgraph* of the graph $G=(V,\ E)$ if
-$V_1\subseteq V$ and $E_1\subseteq E$.
-
-
-If the vertex $v\in V$ belongs to the graph  $G=(V,E)$, we denote by *$G-v$*,
-the subgraph obtained from G by removing the vertex $v$ and all edges in $E$
-adjacent to the vertex $v$.
-
-Below is shown a graph $G$, and the subgraph $G-d$ formed by removing the vertex $d$.
-
-image::images/graph7.png[]
-
-
-A natural generalization of the subgraph obtained by removing a vertex is the subgraph
-obtained by removing multiple vertices and the  edges associated with the removed vertices. The subgraph obtained is called the subgraph *induced* by removing those vertices.
-
-****
-.Example {counter:graphex}
-Below is a graph $G(V,E)$ and the subgraph obtained by $V-\{a,d\}$, called the induced subgraph
-$G-\{a,d\}$, with a slight abuse of notation
-
-image::images/graph8.png[]
-****
 
 == Exercises
 

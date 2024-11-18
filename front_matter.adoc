@@ -127,7 +127,7 @@ _International Standard ISO 80000-2:2019, Quantities and units — Part 2: Mathe
 //MKD already mentioned above
 //* The chapter "Introduction to Python" was moved to the appendices. 
 
-* The "Counting" chapter was split into two chapters, "Counting: Arithmetic Techniques" and "Counting: Peermutations And Combinations".
+* The "Counting" chapter was split into two chapters, "Counting: Arithmetic Techniques" and "Counting: Permutations And Combinations".
 
 * The "new" chapter "Number Bases" is based on the original "Number Theory" chapter, but content on divisibility, congruence, and modular arithmetic was moved into the chapters "Introducing Discrete Mathematics" and "Relations" of the Remix. 
 //"Number Bases" was moved before discussion of algorithms because some of the content acts as a lead-in to the analysis of algorithms. 

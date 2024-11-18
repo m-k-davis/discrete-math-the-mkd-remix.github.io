@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on November 13, 2024.
+        This chapter was last updated on November 18, 2024.
        </em>
       </p>
      </div>
@@ -1634,16 +1634,413 @@ criterion due to Paul Dirac.
       </div>
      </div>
      <div class="sect2">
+      <h3 id="_creating_new_graphs_from_old_graphs">
+       15.8. Creating New Graphs From Old Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        Given a set of one or more graphs, there are several ways to create new graphs using the graphs in the set.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_subgraphs">
+        15.8.1. Subgraphs
+       </h4>
+       <div class="paragraph">
+        <p>
+         Given a simple graph \(G,\) you can form a
+         <strong>
+          subgraph
+         </strong>
+         \(H\) by choosing a subset of the vertices of \(G\) along with a subset of the edges of \(G\) such that each edge has endpoints in the set of vertices you chose. That is, \(H\) is a subgraph of \(G\) if \(H\) is a graph such that every vertex of \(H\) is a vertex of \(G\) and every edge of \(H\) is a vertex of \(G.\)
+         <br/>
+         <span class="small">
+          More formally, \(H = (V_{H}, E_{H})\) is a subgraph of \(G = (V,E)\) if and only if all three of the following statements are True: \(V_{H} \subseteq V,\) \(E_{H} \subseteq E,\) and for every edge \(e \in E_{H}\) the endpoints of \(e\) are in \(V_{H}.\)
+         </span>
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         If \(v\) is a vertex of \(G,\)
+we denote by
+         <strong>
+          \(G-v\)
+         </strong>
+         ,
+the subgraph obtained from \(G\) by removing the vertex \(v\) along with all edges in \(E\) that have \(v\) as an endpoint.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The image shows
+a graph \(G\), and the subgraph \(G-d\) formed by removing the vertex \(d\).
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="graph7" src="images/graph7.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         In the same way, you can obtain
+a subgraph by removing multiple vertices along with the edges associated with the removed vertices. The subgraph obtained
+is called the subgraph
+         <strong>
+          induced
+         </strong>
+         by removing those vertices.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 9
+          </div>
+          <p>
+           Below is a graph \(G(V,E)\) and the subgraph obtained by \(V-\{a,d\}\), called the induced subgraph
+\(G-\{a,d\}\), with a slight abuse of notation
+          </p>
+         </div>
+         <div class="imageblock">
+          <div class="content">
+           <img alt="graph8" src="images/graph8.png"/>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_unions_and_intersections_of_graphs">
+        15.8.2. Unions and Intersections Of Graphs
+       </h4>
+       <div class="paragraph">
+        <p>
+         Given two simple graphs \(G_{1}\) and \(G_{2}\), you can form the
+         <strong>
+          union
+         </strong>
+         of the graphs by taking the union of the two sets of vertices to get a new set of vertices, and taking the union of the two sets of edges to get a new set of edges. Notice that any edge that is in both graphs will only appear once in the new graph because you took the union of the sets of edges, that is, you can’t create parallel edges by forming the union.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In the same way, you can form the
+         <strong>
+          intersection
+         </strong>
+         of two simple graphs by taking the intersection of the two sets of vertices to get a new set of vertices, and taking the intersection of the two sets of edges to get a new set of edges.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_graph_isomorphism">
+       15.9. Graph Isomorphism
+      </h3>
+      <div class="paragraph">
+       <p>
+        Recall that a graph is determined by its set of vertices and how those vertices are connected by edges, but
+        <span class="underline">
+         not
+        </span>
+        the drawing you use to represent the graph.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 10 - The Same Graph Can Be Drawn In More Than One Way
+         </div>
+         <p>
+          Consider the two graphs shown in the image.
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="Isomorphism2av2" height="232" src="imagesMKD/Isomorphism2av2.png" width="440"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that these two graphs are
+different-looking drawings of the
+          <em>
+           same graph
+          </em>
+          that has vertex set \(\{ A, B, C, D\}\) and edge set \(\{\{A,B\},\{A,C\},\{A,D\}\{B,C\},\{B,D\},\{C,D\}\}.\) Also, notice that the drawing on the left appeared earlier in the chapter, but with unlabeled vertices: This is a drawing of \(K_{4},\) the complete graph on \(4\) vertices.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that using either the adjacency list
+         </p>
+        </div>
+        <table class="tableblock frame-all grid-all" style="width: 25%;">
+         <colgroup>
+          <col style="width: 20%;"/>
+          <col style="width: 80%;"/>
+         </colgroup>
+         <thead>
+          <tr>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Vertex
+            </strong>
+           </th>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Adjacent Vertices
+            </strong>
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              A
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              B, C, D
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              B
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              A, C, D
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              C
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              A, B, D
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              D
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              A, B, C
+             </em>
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <div class="paragraph">
+         <p>
+          or the adajcency matrix \[\left(\begin{matrix}0&amp;1&amp;1&amp;1\\1&amp;0&amp;1&amp;1\\1&amp;1&amp;0&amp;1\\1&amp;1&amp;1&amp;0\\\end{matrix}\right)\] makes it easier to see that the two drawings represent the exact same graph.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          You can imagine the graph on the right being the result of dragging the vertex \(C\) inside the "triangle" with vertices \(A,\) \(B,\) and \(D.\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Sometimes, different graphs may be essentially the same graph, as in the next example.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 11 - Two Graphs That Are Essentially The Same Graph
+         </div>
+         <p>
+          Consider the two graphs, each with \(4\) vertices and \(6\) edges, shown in the image.
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="Isomorphism2av3" height="232" src="imagesMKD/Isomorphism2av3.png" width="440"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          These graphs are not equal since the graph on the left has vertex set \(\{ A, B, C, D\}\) and the graph on the right has vertex set \(\{ W, X, Y, Z\}.\) However, by comparing the graph on the right to the one on the right in the previous example, you can see that there is a one-to-one correspondence between the two sets of vertices
+that preserves adjacency (that is, if two vertices in the upper row are endpoints of an edge of the graph on the left, then the corresponding vertices in the lower row are endpoints of an edge of the graph on the right.)
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="K4Isomporphismv1" height="149" src="imagesMKD/K4Isomporphismv1.png" width="186"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        A one-to-one correspondence between the set of vertices of two simple graphs that preserves adjacency is called a
+        <strong>
+         graph isomorphism,
+        </strong>
+        and the two graphs are said to be
+        <strong>
+         isomorphic.
+        </strong>
+        Informally, you can think of two isomorphic graphs as a pair of graphs where one graph can be relabeled and/or reshaped to obtain the other graph (That is, the two graphs are the
+        <em>
+         same graph
+        </em>
+        but have drawings that are labeled and/or shaped differently.)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 12 - Using Graph Isomorphism
+         </div>
+         <p>
+          Using graph isomorphisms can help identify properties of a graph.
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="Isomorphism1av2" height="300" src="imagesMKD/Isomorphism1av2.png" width="690"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The three graphs in the image are isomorphic; it is an exercise for you to write out the one-to-one correspondences.
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          You Try
+         </div>
+         <p>
+          Write out the one-to-one correspondences between the sets of vertices that define the graph isomorphisms.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Once you have shown that the three graphs are isomorphic, you can use the fact that they are different representations of the
+          <em>
+           same
+          </em>
+          graph. For example,
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            It is not immediately clear that the graphs on the left and right are bipartite, but the arrangement of the vertices in the middle graph into "upper" and "lower" rows makes this easy to see.
+           </p>
+          </li>
+          <li>
+           <p>
+            Also, it is not immediately clear that the graph in the middle or the graph on the right is
+            <strong>
+             planar
+            </strong>
+            (that is, the graph can be redrawn in a \(2\)-dimension plane so that no edges cross) but this is obvious for the graph on the left.
+            <br/>
+            <span class="small">
+             Note: This textbook does not discuss planar graphs in detail, but it is worth mentioning that it can be proven that neither \(K_{5}\) nor \(K_{3,3}\) is planar. If you’d like to learn more about planar graphs, one source is the section "Planar Graphs" in
+             <a href="https://discrete.openmathbooks.org/dmoi3.html">
+              Oscar Levin’s
+              <em>
+               Discrete Mathematics: An Open Introduction,
+              </em>
+              3rd edition.
+             </a>
+            </span>
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="openblock challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Write out the adjacency matrix for each of the three graphs, using alphabetical order of the vertex labels, then identify a connection between the three adjacency matrices.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Look for rows and columns in the different matrices that are identical. The order of the rows and columns would change if you use non-alphabetical reorderings of vertices that correspond to the graph isomorphisms you wrote for the "You try" exercise above.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_finding_a_shortest_path_dijkstras_algorithm">
+       15.10. Finding A Shortest Path: Dijkstra’s Algorithm
+      </h3>
+      <div class="paragraph">
+       <p>
+        COMING SOON!
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_traveling_salesperson_problem_tsp">
+        15.10.1. Traveling Salesperson Problem (TSP)
+       </h4>
+       <div class="paragraph">
+        <p>
+         COMING SOON!
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
       <h3 id="_additional_topics_will_be_added_to_this_chapter_soon">
-       15.8. Additional topics will be added to this chapter soon!
+       15.11. Additional topics will be added to this chapter soon!
       </h3>
       <div class="ulist">
        <ul>
-        <li>
-         <p>
-          Graph Isomorphism
-         </p>
-        </li>
         <li>
          <p>
           Traveling Salesperson Problem (TSP)

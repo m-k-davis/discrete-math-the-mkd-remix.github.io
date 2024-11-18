@@ -626,7 +626,7 @@ code samples for sorting and searching avoid using built-in Python functions in 
 <div class="ulist">
 <ul>
 <li>
-<p>The "Counting" chapter was split into two chapters, "Counting: Arithmetic Techniques" and "Counting: Peermutations And Combinations".</p>
+<p>The "Counting" chapter was split into two chapters, "Counting: Arithmetic Techniques" and "Counting: Permutations And Combinations".</p>
 </li>
 <li>
 <p>The "new" chapter "Number Bases" is based on the original "Number Theory" chapter, but content on divisibility, congruence, and modular arithmetic was moved into the chapters "Introducing Discrete Mathematics" and "Relations" of the Remix.</p>
@@ -13454,7 +13454,7 @@ f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 = \sum_{i=0}^{n} f_i^2=f_n \cdot\ f_{n+1}.
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on November 13, 2024.</em></p>
+<p><em>This chapter was last updated on November 18, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p>Graphs are discrete mathematical structures that have many applications in a diversity of fields including chemistry, network analysis, algorithms, and social sciences.</p>
@@ -13959,12 +13959,216 @@ criterion due to Paul Dirac.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_topics_will_be_added_to_this_chapter_soon">15.8. Additional topics will be added to this chapter soon!</h3>
+<h3 id="_creating_new_graphs_from_old_graphs">15.8. Creating New Graphs From Old Graphs</h3>
+<div class="paragraph">
+<p>Given a set of one or more graphs, there are several ways to create new graphs using the graphs in the set.</p>
+</div>
+<div class="sect3">
+<h4 id="_subgraphs">15.8.1. Subgraphs</h4>
+<div class="paragraph">
+<p>Given a simple graph \(G,\) you can form a <strong>subgraph</strong> \(H\) by choosing a subset of the vertices of \(G\) along with a subset of the edges of \(G\) such that each edge has endpoints in the set of vertices you chose. That is, \(H\) is a subgraph of \(G\) if \(H\) is a graph such that every vertex of \(H\) is a vertex of \(G\) and every edge of \(H\) is a vertex of \(G.\)<br>
+<span class="small">More formally, \(H = (V_{H}, E_{H})\) is a subgraph of \(G = (V,E)\) if and only if all three of the following statements are True: \(V_{H} \subseteq V,\) \(E_{H} \subseteq E,\) and for every edge \(e \in E_{H}\) the endpoints of \(e\) are in \(V_{H}.\)</span></p>
+</div>
+<div class="paragraph">
+<p>If \(v\) is a vertex of \(G,\)
+we denote by <strong>\(G-v\)</strong>,
+the subgraph obtained from \(G\) by removing the vertex \(v\) along with all edges in \(E\) that have \(v\) as an endpoint.</p>
+</div>
+<div class="paragraph">
+<p>The image shows
+a graph \(G\), and the subgraph \(G-d\) formed by removing the vertex \(d\).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/graph7.png" alt="graph7">
+</div>
+</div>
+<div class="paragraph">
+<p>In the same way, you can obtain
+a subgraph by removing multiple vertices along with the edges associated with the removed vertices. The subgraph obtained
+is called the subgraph <strong>induced</strong> by removing those vertices.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 9</div>
+<p>Below is a graph \(G(V,E)\) and the subgraph obtained by \(V-\{a,d\}\), called the induced subgraph
+\(G-\{a,d\}\), with a slight abuse of notation</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/graph8.png" alt="graph8">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unions_and_intersections_of_graphs">15.8.2. Unions and Intersections Of Graphs</h4>
+<div class="paragraph">
+<p>Given two simple graphs \(G_{1}\) and \(G_{2}\), you can form the <strong>union</strong> of the graphs by taking the union of the two sets of vertices to get a new set of vertices, and taking the union of the two sets of edges to get a new set of edges. Notice that any edge that is in both graphs will only appear once in the new graph because you took the union of the sets of edges, that is, you can&#8217;t create parallel edges by forming the union.</p>
+</div>
+<div class="paragraph">
+<p>In the same way, you can form the <strong>intersection</strong> of two simple graphs by taking the intersection of the two sets of vertices to get a new set of vertices, and taking the intersection of the two sets of edges to get a new set of edges.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_graph_isomorphism">15.9. Graph Isomorphism</h3>
+<div class="paragraph">
+<p>Recall that a graph is determined by its set of vertices and how those vertices are connected by edges, but <span class="underline">not</span> the drawing you use to represent the graph.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 10 - The Same Graph Can Be Drawn In More Than One Way</div>
+<p>Consider the two graphs shown in the image.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="imagesMKD/Isomorphism2av2.png" alt="Isomorphism2av2" width="440" height="232">
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that these two graphs are
+different-looking drawings of the <em>same graph</em> that has vertex set \(\{ A, B, C, D\}\) and edge set \(\{\{A,B\},\{A,C\},\{A,D\}\{B,C\},\{B,D\},\{C,D\}\}.\) Also, notice that the drawing on the left appeared earlier in the chapter, but with unlabeled vertices: This is a drawing of \(K_{4},\) the complete graph on \(4\) vertices.</p>
+</div>
+<div class="paragraph">
+<p>Notice that using either the adjacency list</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 25%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"><strong>Vertex</strong></th>
+<th class="tableblock halign-center valign-top"><strong>Adjacent Vertices</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><em>A</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>B, C, D</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><em>B</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>A, C, D</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><em>C</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>A, B, D</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><em>D</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>A, B, C</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>or the adajcency matrix \[\left(\begin{matrix}0&amp;1&amp;1&amp;1\\1&amp;0&amp;1&amp;1\\1&amp;1&amp;0&amp;1\\1&amp;1&amp;1&amp;0\\\end{matrix}\right)\] makes it easier to see that the two drawings represent the exact same graph.</p>
+</div>
+<div class="paragraph">
+<p>You can imagine the graph on the right being the result of dragging the vertex \(C\) inside the "triangle" with vertices \(A,\) \(B,\) and \(D.\)</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Sometimes, different graphs may be essentially the same graph, as in the next example.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 11 - Two Graphs That Are Essentially The Same Graph</div>
+<p>Consider the two graphs, each with \(4\) vertices and \(6\) edges, shown in the image.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="imagesMKD/Isomorphism2av3.png" alt="Isomorphism2av3" width="440" height="232">
+</div>
+</div>
+<div class="paragraph">
+<p>These graphs are not equal since the graph on the left has vertex set \(\{ A, B, C, D\}\) and the graph on the right has vertex set \(\{ W, X, Y, Z\}.\) However, by comparing the graph on the right to the one on the right in the previous example, you can see that there is a one-to-one correspondence between the two sets of vertices
+that preserves adjacency (that is, if two vertices in the upper row are endpoints of an edge of the graph on the left, then the corresponding vertices in the lower row are endpoints of an edge of the graph on the right.)</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="imagesMKD/K4Isomporphismv1.png" alt="K4Isomporphismv1" width="186" height="149">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>A one-to-one correspondence between the set of vertices of two simple graphs that preserves adjacency is called a <strong>graph isomorphism,</strong> and the two graphs are said to be <strong>isomorphic.</strong> Informally, you can think of two isomorphic graphs as a pair of graphs where one graph can be relabeled and/or reshaped to obtain the other graph (That is, the two graphs are the <em>same graph</em> but have drawings that are labeled and/or shaped differently.)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 12 - Using Graph Isomorphism</div>
+<p>Using graph isomorphisms can help identify properties of a graph.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="imagesMKD/Isomorphism1av2.png" alt="Isomorphism1av2" width="690" height="300">
+</div>
+</div>
+<div class="paragraph">
+<p>The three graphs in the image are isomorphic; it is an exercise for you to write out the one-to-one correspondences.</p>
+</div>
+<div class="paragraph">
+<div class="title">You Try</div>
+<p>Write out the one-to-one correspondences between the sets of vertices that define the graph isomorphisms.</p>
+</div>
+<div class="paragraph">
+<p>Once you have shown that the three graphs are isomorphic, you can use the fact that they are different representations of the <em>same</em> graph. For example,</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Graph Isomorphism</p>
+<p>It is not immediately clear that the graphs on the left and right are bipartite, but the arrangement of the vertices in the middle graph into "upper" and "lower" rows makes this easy to see.</p>
 </li>
+<li>
+<p>Also, it is not immediately clear that the graph in the middle or the graph on the right is <strong>planar</strong> (that is, the graph can be redrawn in a \(2\)-dimension plane so that no edges cross) but this is obvious for the graph on the left.<br>
+<span class="small">Note: This textbook does not discuss planar graphs in detail, but it is worth mentioning that it can be proven that neither \(K_{5}\) nor \(K_{3,3}\) is planar. If you&#8217;d like to learn more about planar graphs, one source is the section "Planar Graphs" in <a href=https://discrete.openmathbooks.org/dmoi3.html>Oscar Levin&#8217;s <em>Discrete Mathematics: An Open Introduction,</em> 3rd edition.</a></span></p>
+</li>
+</ul>
+</div>
+<div class="openblock challenge">
+<div class="title">Challenge</div>
+<div class="content">
+<div class='click_oblique'>
+Write out the adjacency matrix for each of the three graphs, using alphabetical order of the vertex labels, then identify a connection between the three adjacency matrices.
+</div>
+</div>
+</div>
+<div class="openblock click">
+<div class="title">Hint</div>
+<div class="content">
+<div class='click_oblique'>
+Look for rows and columns in the different matrices that are identical. The order of the rows and columns would change if you use non-alphabetical reorderings of vertices that correspond to the graph isomorphisms you wrote for the "You try" exercise above.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_finding_a_shortest_path_dijkstras_algorithm">15.10. Finding A Shortest Path: Dijkstra&#8217;s Algorithm</h3>
+<div class="paragraph">
+<p>COMING SOON!</p>
+</div>
+<div class="sect3">
+<h4 id="_traveling_salesperson_problem_tsp">15.10.1. Traveling Salesperson Problem (TSP)</h4>
+<div class="paragraph">
+<p>COMING SOON!</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_additional_topics_will_be_added_to_this_chapter_soon">15.11. Additional topics will be added to this chapter soon!</h3>
+<div class="ulist">
+<ul>
 <li>
 <p>Traveling Salesperson Problem (TSP)</p>
 </li>
@@ -13995,35 +14199,128 @@ criterion due to Paul Dirac.</p>
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on August 27, 2024.</em></p>
+<p><em>This chapter was last updated on November 18, 2024.</em></p>
 </div>
 <div class="paragraph">
 <p>A <strong>tree</strong> is a connected graph that contains no simple circuits.
 Trees are used to model decisions, to sort data, and
 to optimize networks.</p>
 </div>
+<div class="sect2">
+<h3 id="_definitions_examples_and_properties_of_trees_and_forests">16.1. Definitions, Examples, and Properties of Trees and Forests</h3>
 <div class="paragraph">
-<p>Topics in this chapter will include:</p>
+<p>A <strong>tree</strong> is a simple graph \(T\) that is connected and has no cycles (that is, there is no trail in \(T\) that starts and ends at the same vertex.)</p>
 </div>
+<div class="paragraph">
+<p>A <strong>forest</strong> is the union of several trees. A forest is a simple graph that has one or more connected components, where each connected component is a tree.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="imagesMKD/Trees1v1.png" alt="Trees1v1" width="416" height="104">
+</div>
+</div>
+<div class="paragraph">
+<p>The image shows a forest composed of \(3\) trees. Notice that for any two vertices in one of the trees, there is only one simple path that joins the vertices. This is True for every tree.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>A graph \(G\) is a tree if and only for every pair of vertices of \(G\) there is exactly one trail between the vertices.</p>
+</div>
+<div class="openblock proof">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>First, we&#8217;ll assume that \(G\) is a tree and prove by contradiction that for any pair of vertices of \(G\) there is exactly one trail between the vertices. Suppose that \(G\) is a tree, then \(G\) is connected so for every pair of vertices there is a least one trail joining the vertices. Now suppose that for some pair of vertices \(u\) and \(v\) there are two (or more) trails between \(u\) and \(v\) - then we can go from \(u\) to \(v\) along one trail and go back to \(u\) along another trail; this means that there is a cycle in \(G,\) but since \(G\) is a tree, it has no cycles. We have gotten a contradiction, so there can be no pair of vertices that are joined by two (or more) trails so there is exactly one path joining any pair of vertices of the tree.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, we&#8217;ll assume that for every pair of vertices of \(G\) there is exactly one trail between the vertices and prove by contradiction that \(G\) must be a tree.
+Notice that \(G\) is connected since for any pair of vertices there is (exactly) one trail that joins them. If \(G\) has no cycles then it is a tree, so in order to get a contradiction we assume that \(G\) does have a cycle \(v_{0}v_{1} \cdots v_{n-1}v_{n}\) where \(v_{0} = v_{n}\) but all the other vertices are not repeated in the cycle.  Choose a value of \(k\) so that \(0 < k < n\) to create two different trails \(v_{0} \cdots v_{k}\) and \(v_{k} \cdots v_{n}.\) After reversing the order of vertices in the second trail, we now have two different trail between the vertices \(v_{0}\) and \(v_{k}\) which contradicts the assumption that for every pair of vertices of \(G\) there is exactly one trail between the vertices. This proves that \(G\) cannot have a cycle, and since we already proved that \(G\) is connected, we can conclude that \(G\) is a tree.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>For every positive integer \(n,\) if a tree has \(n\) vertices then the tree has \(n-1\) edges.</p>
+</div>
+<div class="openblock proof">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>We use mathematical induction on the number of vertices \(n.\)</p>
+</div>
+<div class="paragraph">
+<p>Let \(P(n)\) be the predicate "If a tree has \(n\) vertices then the tree has \(n-1\) edges." We will prove that \((\forall n \in \mathbb{N}_{>0})P(n)\) is True.</p>
+</div>
+<div class="paragraph">
+<p><strong>Basis Step:</strong> \(P(1)\) is True since a tree that has \(1\) vertex has \(0\) edges (otherwise, the edge would have to be a loop, but trees are simple graphs that don&#8217;t have loops.)<br>
+We can also prove that \(P(2)\) is True in case the proof of \(P(1)\) feels unsatisfying. If a tree has \(2\) vertices, then there is \(1\) edge between those two vertices; since a tree is a simple graph, it cannot have either loops or parallel edges, so the tree mus have exactly \(1\) edge. This proves that \(P(2)\) is True.</p>
+</div>
+<div class="paragraph">
+<p><strong>Induction Step:</strong> First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).</p>
+</div>
+<div class="paragraph">
+<p>Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use <em>modus ponens</em> (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.</p>
+</div>
+<div class="paragraph">
+<p>Assume that \(P(k)\) is True for the positive integer \(k,\) that is, if a tree has \(k\) vertices then the tree has \(k-1\) edges.
+We can assume \(k \geq 2\) since the cases when \(k \in \{ 1, 2 \}\) were proved in the Basis Step. Suppose that we have a tree \(T\) that has \(k+1\) vertices; we will prove that the tree must have \(k\) edges. Let \(v\) be a vertex of \(T\) such that the degree of \(v\) is \(1\) - such a vertex must exist because the tree \(T\) has no cycles. Remove \(v\) and the edge that has \(v\) as an endpoint to obtain the subgraph \(T-v,\) and notice that for every pair of vertices of \(T-v\) there is exactly one trail between the vertices. Using the previous theorem, \(T-v\) is a tree with \(k\) vertices, and the induction hypothesis allows us to conclude that \(T-v\) has \(k-1\) edges. We now reinsert vertex \(v\) and the edge that was removed to obtain a tree that has \(k+1\) vertices and \(k\) edges. Therefore, \(P(k+1)\) is True, too. This proves that \(P(k) \rightarrow P(k+1)\).</p>
+</div>
+<div class="paragraph">
+<p><strong>Conclusion Step:</strong> We have proven both the Basis Step and the Induction Step. Therefore, we can use <em>universal generalization</em> to conclude that
+for all positive integers \(n,\) if a tree has \(n\) vertices then the tree has \(n-1\) edges.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spanning_trees_and_spanning_forests">16.2. Spanning Trees and Spanning Forests</h3>
+<div class="paragraph">
+<p>COMING SOON!</p>
+</div>
+<div class="sect3">
+<h4 id="_kruskals_algorithm">16.2.1. Kruskal’s Algorithm</h4>
+<div class="paragraph">
+<p>COMING SOON!</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_additional_topics_in_this_chapter_will_include">16.3. Additional Topics in this chapter will include:</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Definitions, Examples, and Properties of Trees and Forests</p>
-</li>
-<li>
 <p>Binary Trees</p>
-</li>
-<li>
-<p>Spanning Trees and Spanning Forests</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>Tree Traversal Strategies</p>
 </li>
 <li>
 <p>Expression Trees</p>
 </li>
-<li>
-<p>Algorithms</p>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -14033,12 +14330,6 @@ to optimize networks.</p>
 <li>
 <p>Algorithms for Depth- and breadth-first traversals</p>
 </li>
-<li>
-<p>Algorithms for Minimum spanning tree (Prim’s and Kruskal’s algorithms)</p>
-</li>
-</ul>
-</div>
-</li>
 </ul>
 </div>
 </li>
@@ -14046,6 +14337,7 @@ to optimize networks.</p>
 </div>
 <div class="paragraph">
 <p>MORE TO COME!</p>
+</div>
 </div>
 </div>
 </div>
