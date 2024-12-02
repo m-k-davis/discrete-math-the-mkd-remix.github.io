@@ -105,21 +105,25 @@ Q.E.D.
 
 ****
 
-== Spanning Trees and Spanning Forests
+// == Spanning Trees and Spanning Forests
 
-COMING SOON!
+// COMING SOON!
 
-=== Kruskal’s Algorithm
+// === Kruskal’s Algorithm
 
-COMING SOON!
-
-
-== Additional Topics in this chapter will include:
+// COMING SOON!
 
 
-//* Spanning Trees and Spanning Forests
+== Additional Topics 
+// in this chapter will include:
 
-//** Kruskal’s Algorithm
+
+#Students in CSC 230 Fall 2024 should refer to the slide decks posted in link:https://sfsu.instructure.com/[Canvas.]#
+
+
+* Spanning Trees and Spanning Forests
+
+** Kruskal’s Algorithm
 
 
 * Binary Trees
@@ -138,7 +142,7 @@ COMING SOON!
 
 
 
-MORE TO COME!
+//MORE TO COME!
 ////
 
 == Examples of Trees
