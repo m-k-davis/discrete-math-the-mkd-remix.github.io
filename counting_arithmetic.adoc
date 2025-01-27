@@ -1,10 +1,9 @@
 = Counting: Arithmetic Techniques
 
-//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-
-_This chapter was last updated on September 3, 2024_ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+_This chapter was last updated on January 26, 2025._ + 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 ////
 AUG 2024 update on topics (basic counting)
@@ -36,6 +35,22 @@ Solving recurrence relations: The Master theorem
 AUG 2024 update on topics (modular arithmetic) 
 MKD: MOVED TO Relations -use treatment similar to Haggard Schlipf Whitesides 
 Basic modular arithmetic
+
+COUNTING I - January 2025 
+DS2013/Basics of Counting	Counting arguments: Set cardinality and counting
+DS2013/Basics of Counting	Counting arguments: Sum and product rule
+DS2013/Basics of Counting	Counting arguments: Inclusion-exclusion principle
+DS2013/Basics of Counting	Counting arguments: Arithmetic and geometric progressions
+DS2013/Basics of Counting	The pigeonhole principle
+DS2008/BasicsOfCounting	Counting arguments
+DS2008/BasicsOfCounting	Sum and product rule
+DS2008/BasicsOfCounting	Inclusion-exclusion principle
+DS2008/BasicsOfCounting	The pigeonhole principle
+DS2001/Basics of counting	Counting arguments: Sum and product rule
+DS2001/Basics of counting	Counting arguments: Inclusion-exclusion principle
+DS2001/Basics of counting	The pigeonhole principle
+MSF-Discrete_2023	4. Permutations, combinations, counting, pigeonhole principle
+
 
 // MKD notes 
 //	1. Arithmetic and geometric progressions are covered in Algebra Ⅰ in the Common Core, so Remix can simply "review" this material - put it in the Just-In-Time appendix 
@@ -76,9 +91,41 @@ Exercises (proofs by induction)
 
 //MKD content starts here
 
-Many of us learned how to count when we were young children. We may have counted up to 10 on our fingers, or up to 20 on our fingers and toes, but we probably never counted up to much more than 100. However, many problems in computer science or mathematics require that we count the number of elements of sets that contain millions or billions of elements, or even more. 
+//Many of us learned how to count when we were young children. We may have counted up to 10 on our fingers, or up to 20 on our fingers and toes, but we probably never counted up to much more than 100. However, many problems in computer science or mathematics require that we count the number of elements of sets that contain millions or billions of elements, or even more. 
 
-This chapter introduces techniques for counting the number of elements of a set. These techniques can be used quickly and efficiently no matter the size of the set.
+You probably learned how to count objects one by one when you were a child. You may have counted up to 5 on the fingers on one hand, or up to 10 on the fingers of two hands, or up to 20 on fingers and toes - that is, you paired the objects (fingers and/or toes) with number names to create a one-to-one correspondence. You may have counted all the way up to 100. 
+
+However, many problems in computer science or mathematics require you to count the number of elements in sets that contain millions of elements, or billions of elements, or even more elements, so counting one by one is inefficient or impossible. Starting with this chapter, and continuing later in the link:./counting_binomial.html[Counting: Permutations and Combinations] chapter, you will study ways to quickly and efficiently count the number of elements of any set no matter the size of the set.
+
+//This chapter introduces techniques for counting the number of elements of a set. These techniques can be used quickly and efficiently no matter the size of the set.
+//This chapter introduces techniques you can use to count the number of elements of any set quickly and efficiently no matter the size of the set.
+
+Key terms and concepts covered in this chapter:
+
+* Counting arguments
+** Sum Rule 
+// (also called the Addition Principle or the Rule Of Sum)
+** Product Rule
+// (also called the Multiplication Principle or the Rule Of Product)
+** Division Rule (also called the Rule Of Quotient)
+** Subtraction Rule (also called the Principle of Inclusion-Exclusion for two sets)
+//** Arithmetic and geometric progressions
+* The pigeonhole principle
+
+// MKD see https://en.wikipedia.org/wiki/Addition_principle
+// MKD Epp names "Difference Rule" as |A-B| = |A|-|B| 
+
+////
+// MKD move this to the counting_binomial.adoc file
+* Permutations and combinations
+** Basic definitions
+** Pascal’s identity
+** The binomial theorem
+//binomials
+MSF-Discrete_2023	4. Permutations, combinations, counting, pigeonhole principle
+//MKD: Arithmetic and geometric progressions appears to be CCSSM Algebra One, so this may be appropriate for the Intro and Just-In-Time chapters
+Counting arguments: Arithmetic and geometric progressions
+////
 
 
 == Some Foundational Counting Principles
@@ -87,7 +134,7 @@ Each of the four arithmetic operations corresponds to a rule we can use to count
 
 === The Sum Rule
 
-The *sum rule,* also called the *addition principle,* describes the number of possible choices of one element from a union of two sets that share no common elements. 
+The *sum rule,* also called the *addition principle* or the *rule of sum,* describes the number of possible choices of one element from a union of two sets that share no common elements (Such seets are called *disjoint sets*). 
 
 .The Sum Rule
 ****
@@ -106,9 +153,32 @@ A student in a Capstone course can choose a project from three different profess
 The student can pick out a project by choosing from the first professor, the second professor, or the third professor. Since no project is on more than
 one list, the sum rules says that there are $3 + 7 + 4 = 14$ projects to choose from.
 
+//image::imagesMKD/set-of-playing-card.jpg[set-of-playing-card,1920,1271,float="right",align="center"]
+//image::imagesMKD/set-of-playing-card_CROPPED.png[set-of-playing-card_CROPPED,1849,870,float="right",align="center"]
+image::imagesMKD/set-of-playing-card_CROPPED.png[set-of-playing-card_CROPPED,277,131,float="right",align="center"]
 .You Try
-A card is drawn from a link:https://en.wikipedia.org/wiki/Standard_52-card_deck[standard 52-card deck.] How many ways can the card be an even number or a king?
+A card 
+//is 
+will be 
+drawn from a link:https://en.wikipedia.org/wiki/Standard_52-card_deck[standard 52-card deck.] + 
+How many ways can the card be an even number or a king? + 
+[small]#Image credit: This is a cropped version of link:https://www.publicdomainpictures.net/en/view-image.php?image=65772&picture=set-of-playing-card["Set Of Playing Card"]. George Hodan has released this “Set Of Playing Card” image under Public Domain license  link:http://creativecommons.org/publicdomain/zero/1.0/[(CC0 Public Domain)].#
+
 ****
+
+// MKD notes Jan 22 2025
+//
+// This first deck uses T instead of Ace, and B (Bower) instead of Jack
+//https://www.publicdomainpictures.net/en/view-image.php?image=440680&picture=playing-cards
+//License: CC0 Public Domain
+//Sam Kal has released this “Playing Cards” image under Public Domain license. It means that you can use and modify it for your personal and commercial projects. If you intend to use an image you find here for commercial use, please be aware that some photos do require a model or a property release. Pictures featuring products should be used with care.
+//
+// This deck is the "standard American" or "International" deck
+//https://www.publicdomainpictures.net/en/view-image.php?image=65772&picture=set-of-playing-card
+//License: CC0 Public Domain
+//George Hodan has released this “Set Of Playing Card” image under Public Domain license. It means that you can use and modify it for your personal and commercial projects. If you intend to use an image you find here for commercial use, please be aware that some photos do require a model or a property release. Pictures featuring products should be used with care.
+
+
 
 //MKD is hiding Pinzon sum rule example video for now - 
 //	(1) It refers to sets, but the Remix may present this chapter before formally covering set theory, and 
@@ -179,8 +249,8 @@ By the subtraction rule, there are $150 + 43 - 25 = 168$ applicants that majored
 
 *Video Example*
 
-//The following video example features 
-//Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
+The following video example features 
+Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
 
 
 ++++
@@ -191,6 +261,9 @@ By the subtraction rule, there are $150 + 43 - 25 = 168$ applicants that majored
 
 
 === The Product Rule
+
+The *product rule,* also called the *multiplication principle* or the *rule of product,* describes the number of possible choices of one element from a union of two sets that share no common elements (Such seets are called *disjoint sets*). 
+
 
 To find the total number of outcomes for two or more successive events where both events must occur, multiply the number of outcomes for each event together.  For instance, if you want to find the number of outcomes possible when you roll a die and toss a coin, you could use the product rule. It is important to note that the events must be independent, meaning one doesn't effect the other.
 
@@ -291,7 +364,9 @@ If a card is drawn from a standard 52-card deck, how many ways can the card be b
 === The Division Rule
 
 
-This rule is used when there are $n$ ways to complete a procedure, but for each of those ways is equivalent to $d$ ways (including the way itself.)
+This rule is used when there are $n$ ways to complete a procedure, but 
+//for 
+each of those ways is equivalent to $d$ ways (including the way itself.)
 
 .The Division Rule
 ****
@@ -347,6 +422,8 @@ image::images/pigeons.png[pigeons, 300, 300]
 ////
 Click https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPigeons.jpg[here] to see a _photoshopped image_ that illustrates this principle.
 
+// MKD added Jan 26 2025
+//The Pigeonhole Principle is a easy to justify: If you start with $k+1$ pigeons and $k$ empty pigeonholes, you can choose pigeons, one by one, to assign to each empty pigeonhole, but after you have assigned the first $k$ pigeons to their holes, there is still $1$ pigeon remaining which will need to share a pigeonhole with one of the pigeons you already chose.
 
 ****
 .Example

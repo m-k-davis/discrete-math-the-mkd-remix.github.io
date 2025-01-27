@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on November 3, 2024._
+_This chapter was last updated on January 15, 2025._
 
 ////
 PROOFS: MATHEMATICAL INDUCTION (MKD) 
@@ -37,6 +37,18 @@ Structural induction
 Weak and strong induction (i.e., First and Second Principle of Induction)
 Strong induction
 Well orderings (MKD: so this chapter comes after Relations)
+
+MATHEMATICAL INDUCTION - January 2025
+DS2013/Proof Techniques	Induction over natural numbers
+DS2013/Proof Techniques	Structural induction
+DS2013/Proof Techniques	Weak and strong induction (i.e., First and Second Principle of Induction)
+DS2013/Proof Techniques	Well orderings [Core-Tier2]
+DS2008/ProofTechniques	Mathematical induction
+DS2008/ProofTechniques	Strong induction
+DS2008/ProofTechniques	Well orderings
+MSF-Discrete_2023	3. Proof techniques (induction, proof by contradiction)
+ACM_CCECC_2005/Mathematical induction	examples of mathematical induction
+ACM_CCECC_2005/Mathematical induction	strong induction
 
 Also maybe Principle of Inclusion and Exclusion (general case)
 		do 3-sets in Set Theory
@@ -91,6 +103,19 @@ Emphasize that
 In this chapter, you will learn how to use the *mathematical induction* proof technique to create a single proof of _infinitely many_ different but related propositions. 
 // using a three-step process, where each of the steps has finite length. 
 This proof technique will also be used to validate algorithms. 
+
+
+
+Key terms and concepts covered in this chapter:
+
+* Weak and strong induction (i.e., First and Second Principle of Induction)
+* Induction over natural numbers
+* Mathematical induction
+** examples of mathematical induction
+* Strong induction
+* Well orderings
+* Structural induction
+
 
 == Why Is Mathematical Induction Needed?
 

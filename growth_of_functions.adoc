@@ -4,7 +4,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on October 16, 2024._ + 
+_This chapter was last updated on January 16, 2025._ + 
 [small]#Revised the section on using limits to determine Big-$O$ and  Big-$\Theta$ relationships.#
 
 
@@ -110,6 +110,14 @@ Some tasks can be completed by more than one algorithm. In such a case, two ques
 
 //In this chapter, tools for comparing algorithms that perform the same task are discussed. 
 In particular, ways of comparing the _rates of growth_ of functions will allow us to compare how two algorithms perform as the size of the inputs to the algorithms increase with no upper bound (theoretically, since it's very likely that there are only a finite amount of computing resources available in the universe.)
+
+
+Key terms and concepts covered in this chapter:
+
+* Complexity
+* Big-$\Theta$ notation
+* Big-$O$ notation
+
 
 == Complexity of Algorithms
 

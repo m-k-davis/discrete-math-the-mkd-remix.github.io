@@ -484,62 +484,67 @@ $(document).on('page:load', ready2);
     <ul class="sectlevel1">
      <li>
       <a href="index.html#_about_this_text">
-       1. About this text
+       About this text
       </a>
      </li>
      <li>
       <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
-       2. Introducing Discrete Mathematics
+       1. Introducing Discrete Mathematics
       </a>
      </li>
      <li>
       <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
-       3. Counting: Arithmetic Techniques
-      </a>
-     </li>
-     <li>
-      <a href="number_bases.html#_number_bases">
-       4. Number Bases
-      </a>
-     </li>
-     <li>
-      <a href="counting_binomial.html#_counting_permutations_and_combinations">
-       5. Counting: Permutations and Combinations
+       2. Counting: Arithmetic Techniques
       </a>
      </li>
      <li>
       <a href="set_theory.html#_set_theory">
-       6. Set Theory
+       3. Set Theory
       </a>
      </li>
      <li>
       <a href="logic.html#_logic">
-       7. Logic
+       4. Logic
       </a>
      </li>
      <li>
       <a href="proofs.html#_proofs_basic_techniques">
-       8. Proofs: Basic Techniques
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
       </a>
      </li>
      <li>
       <a href="recursion.html#_sequences_and_recursion">
-       9. Sequences and Recursion
+       7. Sequences and Recursion
       </a>
      </li>
      <li>
       <a href="functions.html#_functions">
-       10. Functions
+       8. Functions
       </a>
      </li>
      <li>
       <a href="relations.html#_relations">
-       11. Relations
+       9. Relations
       </a>
      </li>
      <li>
       <a href="growth_of_functions.html#_rates_of_growth_of_functions">
-       12. Rates of Growth of Functions
+       10. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       11. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       12. Proofs: Mathematical Induction
       </a>
      </li>
      <li>
@@ -548,38 +553,33 @@ $(document).on('page:load', ready2);
       </a>
      </li>
      <li>
-      <a href="induction.html#_proofs_mathematical_induction">
-       14. Proofs: Mathematical Induction
-      </a>
-     </li>
-     <li>
       <a href="graph_theory.html#_graphs">
-       15. Graphs
+       14. Graphs
       </a>
      </li>
      <li>
       <a href="trees.html#_trees">
-       16. Trees
+       15. Trees
       </a>
      </li>
      <li>
       <a href="appendix_math.html#_appendix_on_demand_math_resources">
-       17. Appendix: On-Demand Math Resources
+       16. Appendix: On-Demand Math Resources
       </a>
      </li>
      <li>
       <a href="appendix_library.html#_appendix_library_of_functions">
-       18. Appendix: Library of Functions
+       17. Appendix: Library of Functions
       </a>
      </li>
      <li>
       <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
-       19. Appendix: An Introduction to Python
+       18. Appendix: An Introduction to Python
       </a>
      </li>
      <li>
       <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
-       20. Appendix: Python Syntax Examples
+       19. Appendix: Python Syntax Examples
       </a>
      </li>
     </ul>
@@ -596,7 +596,7 @@ $(document).on('page:load', ready2);
    </div>
    <div class="sect1">
     <h2 id="_functions">
-     10. Functions
+     8. Functions
     </h2>
     <div class="sectionbody">
      <div class="paragraph">
@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on October 7, 2024.
+        This chapter was last updated on January 23, 2025.
        </em>
       </p>
      </div>
@@ -678,168 +678,238 @@ a function \(f\) from set
          D.
         </em>
        </mark>
-       The previous highlighted sentence may seem unimportant since we usually only care about the outputs we can actually get from a function, but the following example attempts to show why it is important to be precise about what set the codomain is.
+       The previous, highlighted sentence may seem unimportant since we usually only care about the outputs we can actually get from a function, but the example presented in the next section shows why it is important to be precise about what set the codomain is.
       </p>
-     </div>
-     <div class="sidebarblock">
-      <div class="content">
-       <div class="openblock">
-        <div class="title">
-         Example 0 - The floor() functions in Python and Java
-        </div>
-        <div class="content">
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         In computing, integer data types are used to represent integers such as loop counters or indices into arrays, while floating-point data types are used to represent real numbers used in scientific or financial calculations.
-In general, numbers that can be stored using an integer type can also be stored using a floating-point type,
-but
-the
-         <em>
-          ways
-         </em>
-         in which that number can be used will depend on the data type.
-The following code examples show why it is important to keep this in mind when coding.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         First, recall that the floor of
-         <em>
-          x
-         </em>
-         , written as \(\lfloor x \rfloor,\) is the greatest integer less than or equal to the real number
-         <em>
-          x.
-         </em>
-         The floor() function is available in both Python and Java as an implementation of \(\lfloor x \rfloor.\) In both programming languages floor() takes a double precision floating-point number as its input, but Python floor() returns a value of integer data type while Java floor() function returns a value of floating-point data type.
-         <span class="small">
-          The gory details:
-On most hardware, both Python’s
-          <code>
-           float
-          </code>
-          data type and Java’s
-          <code>
-           double
-          </code>
-          data type are implementations of
-          <a href="https://ieeexplore.ieee.org/document/8766229">
-           IEEE 754
-          </a>
-          double precision 64-bit floating-point numbers. The
-          <a href="https://docs.python.org/3/library/math.html#math.floor">
-           floor() function in Python
-          </a>
-          takes a
-          <code>
-           float
-          </code>
-          as input and returns an
-          <code>
-           int
-          </code>
-          and the
-          <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#floor-double-">
-           floor() function in Java
-          </a>
-          takes a
-          <code>
-           double
-          </code>
-          as input and returns a
-          <code>
-           double.
-          </code>
-          This means that the floor() functions in Python and Java have the
-          <em>
-           same
-          </em>
-          domain and use, essentially, the
-          <em>
-           same
-          </em>
-          rule to compute output values, but have
-          <em>
-           different
-          </em>
-          codomains.
-         </span>
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         Notice that in the Python code below, the return value from the floor() function is an
-         <em>
-          int
-         </em>
-         which we can then use as an index into list L.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         To step through the code, click on the "Next" button.
-        </p>
-       </div>
-       <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0AL%3D%5B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%5D%0Ax%20%3D%201.4%0Ai%20%3D%20math.floor%28x%29%0Aprint%28L%5Bi%5D%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
-       </iframe>
-       <div style="text-align: right;">
-        <a href="http://www.pythontutor.com/visualize.html#code=import%20math%0AL%3D%5B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%5D%0Ax%20%3D%201.4%0Ai%20%3D%20math.floor%28x%29%0Aprint%28L%5Bi%5D%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
-         Edit in PythonTutor
-        </a>
-       </div>
-       <div class="paragraph">
-        <p>
-         Now notice that in the Java code below, that the return value from the floor() function is a
-         <em>
-          double
-         </em>
-         which we cannot use as an index into array L without error. We must first use another function to cast the
-         <em>
-          double
-         </em>
-         to type
-         <em>
-          int
-         </em>
-         to get the correct data type for an array index.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         To step through the code, click on the "Next" button.
-        </p>
-       </div>
-       <iframe frameborder="5" height="480" src="https://pythontutor.com/iframe-embed.html#code=import%20java.lang.Math%3B%0Apublic%20class%20LookUp%20%7B%0A%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20String%5B%5D%20L%20%3D%20new%20String%5B%5D%20%7B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%7D%3B%0A%20%20%20%20%20%20double%20x%20%3D%201.4%3B%0A%20%20%20%20%20%20double%20y%20%3D%20java.lang.Math.floor%28x%29%3B%0A%20%20%20%20%20%20//System.out.println%28L%5By%5D%29%3B%20//Error%3A%20incompatible%20types%3A%20possible%20lossy%20conversion%20from%20double%20to%20int%0A%20%20%20%20%20%20System.out.println%28L%5B%28int%29y%5D%29%3B%0A%20%20%20%7D%0A%7D&amp;codeDivHeight=480&amp;codeDivWidth=450&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=java&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" width="100%">
-       </iframe>
-       <div style="text-align: right;">
-        <a href="http://www.pythontutor.com/visualize.html#code=import%20java.lang.Math%3B%0Apublic%20class%20LookUp%20%7B%0A%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20String%5B%5D%20L%20%3D%20new%20String%5B%5D%20%7B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%7D%3B%0A%20%20%20%20%20%20double%20x%20%3D%201.4%3B%0A%20%20%20%20%20%20double%20y%20%3D%20java.lang.Math.floor%28x%29%3B%0A%20%20%20%20%20%20//System.out.println%28L%5By%5D%29%3B%20//Error%3A%20incompatible%20types%3A%20possible%20lossy%20conversion%20from%20double%20to%20int%0A%20%20%20%20%20%20System.out.println%28L%5B%28int%29y%5D%29%3B%0A%20%20%20%7D%0A%7D&amp;cumulative=false&amp;heapPrimitives=nevernest&amp;mode=edit&amp;origin=opt-frontend.js&amp;py=java&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" style="" target="_blank">
-         Edit in PythonTutor
-        </a>
-       </div>
-      </div>
      </div>
      <div class="paragraph">
       <p>
-       The formal definition given in the next section will let us distinguish between two functions that use the
-       <em>
-        same
-       </em>
-       rule and have the
-       <em>
-        same
-       </em>
-       domain but have
-       <em>
-        different
-       </em>
-       codomains.
+       Key terms and concepts covered in this chapter:
       </p>
+     </div>
+     <div class="ulist">
+      <ul>
+       <li>
+        <p>
+         Functions
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Domain
+           </p>
+          </li>
+          <li>
+           <p>
+            Codomain
+           </p>
+          </li>
+          <li>
+           <p>
+            Range
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         Properties of functions (injectivity, surjectivity, bijectivity)
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            A bijective function is the same as a one-to-one correspondence
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         Inverse functions
+        </p>
+       </li>
+       <li>
+        <p>
+         Composition of functions
+        </p>
+       </li>
+      </ul>
+     </div>
+     <div class="sect2">
+      <h3 id="_why_knowing_the_codomain_is_important">
+       8.1. Why Knowing the Codomain is Important
+      </h3>
+      <div class="paragraph">
+       <p>
+        The following example compares two implementations of what would seem to be the "same" function: The input values are the same, and the description of how to compute outputs seems to be the same, but the codomains are different which effects how the output values can be used.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 0 - The floor() functions in Python and Java
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          In computing, integer data types are used to represent integers such as loop counters or indices into arrays, while floating-point data types are used to represent real numbers used in scientific or financial calculations.
+In general, numbers that can be stored using an integer type can also be stored using a floating-point type,
+but
+the
+          <em>
+           ways
+          </em>
+          in which that number can be used will depend on the data type.
+The following code examples show why it is important to keep this in mind when coding.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          First, recall that the floor of
+          <em>
+           x
+          </em>
+          , written as \(\lfloor x \rfloor,\) is the greatest integer less than or equal to the real number
+          <em>
+           x.
+          </em>
+          The floor() function is available in both Python and Java as an implementation of \(\lfloor x \rfloor.\) In both programming languages floor() takes a double precision floating-point number as its input, but Python floor() returns a value of integer data type while Java floor() function returns a value of floating-point data type.
+          <span class="small">
+           The gory details:
+On most hardware, both Python’s
+           <code>
+            float
+           </code>
+           data type and Java’s
+           <code>
+            double
+           </code>
+           data type are implementations of
+           <a href="https://ieeexplore.ieee.org/document/8766229">
+            IEEE 754
+           </a>
+           double precision 64-bit floating-point numbers. The
+           <a href="https://docs.python.org/3/library/math.html#math.floor">
+            floor() function in Python
+           </a>
+           takes a
+           <code>
+            float
+           </code>
+           as input and returns an
+           <code>
+            int
+           </code>
+           and the
+           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#floor-double-">
+            floor() function in Java
+           </a>
+           takes a
+           <code>
+            double
+           </code>
+           as input and returns a
+           <code>
+            double.
+           </code>
+           This means that the floor() functions in Python and Java have the
+           <em>
+            same
+           </em>
+           domain and use, essentially, the
+           <em>
+            same
+           </em>
+           rule to compute output values, but have
+           <em>
+            different
+           </em>
+           codomains.
+          </span>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that in the Python code below, the return value from the floor() function is an
+          <em>
+           int
+          </em>
+          which we can then use as an index into list L.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          To step through the code, click on the "Next" button.
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0AL%3D%5B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%5D%0Ax%20%3D%201.4%0Ai%20%3D%20math.floor%28x%29%0Aprint%28L%5Bi%5D%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=import%20math%0AL%3D%5B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%5D%0Ax%20%3D%201.4%0Ai%20%3D%20math.floor%28x%29%0Aprint%28L%5Bi%5D%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="paragraph">
+         <p>
+          Now notice that in the Java code below, that the return value from the floor() function is a
+          <em>
+           double
+          </em>
+          which we cannot use as an index into array L without error.
+          <mark>
+           We must use a composition of functions (Java’s floor() function followed by the function that casts an input of type
+           <em>
+            double
+           </em>
+           to an output of type
+           <em>
+            int
+           </em>
+           ) to get the correct data type for an array index.
+          </mark>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          To step through the code, click on the "Next" button.
+         </p>
+        </div>
+        <iframe frameborder="5" height="480" src="https://pythontutor.com/iframe-embed.html#code=import%20java.lang.Math%3B%0Apublic%20class%20LookUp%20%7B%0A%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20String%5B%5D%20L%20%3D%20new%20String%5B%5D%20%7B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%7D%3B%0A%20%20%20%20%20%20double%20x%20%3D%201.4%3B%0A%20%20%20%20%20%20double%20y%20%3D%20java.lang.Math.floor%28x%29%3B%0A%20%20%20%20%20%20//System.out.println%28L%5By%5D%29%3B%20//Error%3A%20incompatible%20types%3A%20possible%20lossy%20conversion%20from%20double%20to%20int%0A%20%20%20%20%20%20System.out.println%28L%5B%28int%29y%5D%29%3B%0A%20%20%20%7D%0A%7D&amp;codeDivHeight=480&amp;codeDivWidth=450&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=java&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=import%20java.lang.Math%3B%0Apublic%20class%20LookUp%20%7B%0A%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20String%5B%5D%20L%20%3D%20new%20String%5B%5D%20%7B%22Zero%3F%22,%20%22Yes!%22,%20%22Nope.%22%7D%3B%0A%20%20%20%20%20%20double%20x%20%3D%201.4%3B%0A%20%20%20%20%20%20double%20y%20%3D%20java.lang.Math.floor%28x%29%3B%0A%20%20%20%20%20%20//System.out.println%28L%5By%5D%29%3B%20//Error%3A%20incompatible%20types%3A%20possible%20lossy%20conversion%20from%20double%20to%20int%0A%20%20%20%20%20%20System.out.println%28L%5B%28int%29y%5D%29%3B%0A%20%20%20%7D%0A%7D&amp;cumulative=false&amp;heapPrimitives=nevernest&amp;mode=edit&amp;origin=opt-frontend.js&amp;py=java&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The formal definition given in the next section will let us distinguish between two functions that use the
+        <em>
+         same
+        </em>
+        rule and have the
+        <em>
+         same
+        </em>
+        domain but have
+        <em>
+         different
+        </em>
+        codomains.
+       </p>
+      </div>
      </div>
      <div class="sect2">
       <h3 id="_a_formal_definition_of_function">
-       10.1. A Formal Definition Of Function
+       8.2. A Formal Definition Of Function
       </h3>
       <div class="sidebarblock">
        <div class="content">
@@ -886,8 +956,9 @@ The set \(A\) is called the
            codomain
           </strong>
           of the function.
+          <br/>
           <span class="small">
-           This definition of a function as an ordered triple is based on the  Bourbaki definition in the 1970 book
+           Note: This definition of a function as an ordered triple is based on the  Bourbaki definition in the 1970 book
            <a href="https://link.springer.com/book/10.1007/978-3-540-34035-5">
             Théorie des ensembles.
            </a>
@@ -898,11 +969,12 @@ The set \(A\) is called the
       </div>
       <div class="paragraph">
        <p>
+        Why would we need such a highly technical formal definition?
         <mark>
          The reason why the ordered triple is used in the definition is that we need to be able to distinguish two functions that have the same graph
 but different codomains.
         </mark>
-        Note that if two functions have the same graph then they must have the same domain, but they could still have different codomains.
+        Two functions can have different codomains even if their graphs, as sets of ordered pairs, are the same set (Notice that having the same graph implies that they have the same domain, too.) If this is not clear, see the example "Three closely-related functions, no two of which are equal," which comes after the definitions listed below.
        </p>
       </div>
       <div class="ulist">
@@ -1069,7 +1141,7 @@ have the same graph and the same domain.
      </div>
      <div class="sect2">
       <h3 id="_injective_surjective_bijective_and_inverse_functions">
-       10.2. Injective, Surjective, Bijective, and Inverse Functions
+       8.3. Injective, Surjective, Bijective, and Inverse Functions
       </h3>
       <div class="paragraph">
        <p>
@@ -1494,10 +1566,735 @@ to the real line such maps are viewed on a Cartesian plane.
 the important concepts of functions, including domain, codomain, range, and invertibility.
        </p>
       </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_algebra_of_functions">
+       8.4. The Algebra of Functions
+      </h3>
       <div class="paragraph">
        <p>
-        MORE TO COME!!
+        If two functions \(f\left(x\right)\) and \(g\left(x\right)\)
+have the same domain \(A\) and same codomain \(\mathbb{R},\) then you can combine these functions using the operations addition, subtraction, multiplication, and division.
        </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         The Algebra of Functions
+        </div>
+        <div class="olist loweralpha">
+         <ol class="loweralpha" type="a">
+          <li>
+           <p>
+            \(\left(f+g\right)\left(x\right)=f\left(x\right)+g\left(x\right)\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(\left(f-g\right)\left(x\right)=f\left(x\right)-g\left(x\right)\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(\left(f\cdot\ g\right)\left(x\right)=f\left(x\right)\cdot\ g\left(x\right)\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(\left(\frac{f}{g}\right)\left(x\right)=\frac{f\left(x\right)}{g\left(x\right)},\ \ g\left(x\right)\neq0\)
+           </p>
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 6
+         </div>
+         <p>
+          Consider \(f\left(x\right)=x^2+1\) and \(g\left(x\right)=\sqrt x\) defined on \(f,\ g: \mathbb{R}_{\geq0} \rightarrow \mathbb{R}\).
+Find the rules for the functions \(\left(f+g\right)\), \(\left(f-g\right)\), \(\left(f\cdot\ g\right)\),  and \(\left(\frac{f}{g}\right)?\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          The common domain is \(\mathbb{R}_{\geq0}\), since the square root is real valued only for \(\ x\ \geq0\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\left(f+g\right)\left(x\right)=f\left(x\right)+g\left(x\right)=x^2+1+\sqrt x\) , for \( x  ≥  0\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\left(f-g\right)\left(x\right)=f\left(x\right)-g\left(x\right)=x^2+1- \sqrt x\) ,  for \( x  ≥  0\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\left(f\cdot\ g\right)\left(x\right)=f\left(x\right)\cdot\ g\left(x\right)=\left(x^2+1\right)\cdot\ \sqrt x\),
+for \( x  ≥  0\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\left(\frac{f}{g}\right)\left(x\right)=\frac{f\left(x\right)}{g\left(x\right)}=\frac{x^2+1\cdot\ }{\ \sqrt x}\),
+for \( x  &gt;  0\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that the domain of \(\frac{f}{g}\) is \(x&gt;0\), because \(g\left(0\right)=\sqrt0=0\),
+and division by \(0\) is not defined.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_composition_of_functions">
+       8.5. Composition of Functions
+      </h3>
+      <div class="paragraph">
+       <p>
+        Suppose \(g:A\rightarrow B\) and \(f:B\rightarrow C\),
+then the functions \( f\) and \(g\), can be
+        <strong>
+         composed
+        </strong>
+        to obtain a function
+\(h:A\rightarrow C\), denoted as follows,
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(h\left(x\right)=\left(f\circ g\right)\left(x\right)=f\left(g\left(x\right)\right)\)
+provided \(x\ \in\ A\) and \(g\left(x\right)\in B\).
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 7
+         </div>
+         <p>
+          Consider \(f\left(x\right)=\frac{1}{x}\) and \(g\left(x\right)=2x-3\),
+defined on \(f,g:R\rightarrow R\). Notice that \(g\left(x\right)\)
+is defined for all real \(x\) and \(f\left(x\right)\) is defined for all real \(x\ \neq0\). Form the compositions,
+\(h\left(x\right)=\left(f \circ g\right)\left(x\right)\), and
+\(k\left(x\right)=\left(g \circ f\right)\left(x\right)\). Also determine their respective domains.
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          \(h\left(x\right)=\left(f \circ g\right)\left(x\right)=f\left(g\left(x\right)\right)=f\left(2x-3\right)=\frac{1}{2x-3}\).
+Here \(x\) needs to be in the domain of \(g\left(x\right)\),  or all real \(x\),
+and \(g\left(x\right)\) needs to be in the domain of \(f\left(x\right)\).
+In particular \(g\left(x\right)\neq 0\), or \(2x-3\ \neq 0\),   or \(x\ \neq\frac{3}{2}\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          By contrast,  \(k\left(x\right)=\left(g\circ f\right)\left(x\right)=g\left(f\left(x\right)\right)=g\left(\frac{1}{x}\right)=2\left(\frac{1}{x}\right)-3=\frac{2}{x}-3\).
+Here \(x\) needs to be in the domain of \(f\left(x\right)\), or \(x\ \neq 0\), and \(f\left(x\right)\)
+needs to be in the domain of \(g\left(x\right)\), or \(f\left(x\right)\) can be any real number.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 8 - composing inverse functions
+         </div>
+         <p>
+          Consider \(f\left(x\right)=x^3+1\) and  \$g(x) =root(3)(x-1)\$
+defined on on \(f,g:R\rightarrow R\).
+Show that \(\left(g \circ f\right)\left(1\right)=1, \left(g \circ f\right)\left(2\right)=2, \left(g\circ f\right)\left(3\right)=3\),
+and \(\left(g\circ f\right)\left(x\right)=x\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          \(f\left(1\right)=1^3+1=2\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(f\left(2\right)=2^3+1=9\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(f\left(3\right)=3^3+1=28\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(f\left(x\right)=x^3+1\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Therefore,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \( \left(g\circ f\right)\left(1\right)=g\left(f\left(1\right)\right)=g\left(2\right)=\) \$ root(3)(2-1)= root(3)(1)=1\$
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\left(g\circ f\right)\left(2\right)=g\left(f\left(2\right)\right)=g\left(9\right)=\) \$ root(3)(9-1)= root(3)(8)=2\$
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\left(g\circ f\right)\left(3\right)=g\left(f\left(3\right)\right)=g\left(28\right)=\) \$ root(3)(28-1)= root(3)(27)=3\$
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\left(g\circ f\right)\left(x\right)=g\left(f\left(x\right)\right)=g\left(x^3+1\ \right)=\)\$ root(3)(x^3 +1 -1)= root(3)(x^3 )=x\$
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice, in the last example, that \(g\left(x\right)\) undoes \(f\left(x\right)\), in the following sense:
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(f:1\rightarrow 2\)   and  \(g:2\rightarrow 1\), or the ordered pair \(\left(1,2\right)\)
+in \(f\), corresponds to \(\left(2,1\right)\) for \(g\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(f:2\rightarrow 9\)  and  \(g:9\rightarrow 2\), or the ordered pair \(\left(2,9\right)\),
+in \(f\), corresponds to \(\left(9,2\right)\) for \(g\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(f:3\rightarrow 28\)  and  \(g:28\rightarrow 3\), or the ordered pair \(\left(3,28\right)\),
+in \(f\), corresponds to \(\left(28,3\right)\) for \(g\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(f:x\rightarrow x^3+1\)  and  \(g:x^3+1\rightarrow x\), or the ordered pair \(\left(x,x^3+1\right)\),
+in \(f\), corresponds to \(\left(x^3+1,x\right)\) for \(g\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The function \$ g(x))= root(3)(x-1) \$  is said to be the inverse of the function \(f\left(x\right)=x^3+1\).
+We have shown explicitly that \(\left(g\circ f\right)\left(x\right)=x\).
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_inverse_of_a_function">
+       8.6. The Inverse of a Function
+      </h3>
+      <div class="paragraph">
+       <p>
+        In view of this relation when composing functions that are inverses of each other, we provide an intuitive definition of
+inverse functions.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Suppose \(f\left(a\right):A\rightarrow B\) is bijective,
+then the
+        <strong>
+         inverse
+        </strong>
+        of \(f\left(x\right)\), is the function denoted \(f^{-1}\left(b\right):B\rightarrow A\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The inverse can be similarly defined for relations in general, however the bijective property is used to ensure that the inverse of a function \(f\) is also a function.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        For example the following relations have inverses as given.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(\left\{\left(-3,\ 9\right),\ \left(-2,4\right),\ \left(-1,1\right),\ \left(0,0\right),\ \left(1,\ 1\right),\ \left(2,\ 4\right),\ \left(3,9\right)\right\}\) with inverse,
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(\left \{ \left(9,-3\ \right),\ \left(4,\ -2\ \right),\ \left(1,\ -1\right),\ \left(0,0\right),\ (1,\ 1,\ \left(4,2,\right),\ (9,3)\right \}\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that the original relation can be considered a function with
+domain \(A=\left\{-3,\ -2,\ -1,\ 0,\ 1,\ 2,\ 3,\right\}\) and co-domain
+\(B=\left\{0,\ 1,\ 4,\ 9\right\}\).  However the inverse mapping from domain
+\(A=\left\{0,\ 1,\ 4,\ 9\right\}\) with co-domain \(B=\left\{-3,\ -2,\ -1,\ 0,\ 1,\ 2,\ 3,\right\}\),
+is a relation that is not a function because of the mappings
+\(\left(-9,3\right)\), and \(\left(-9,\ 3\right)\).
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 9 - finding an inverse
+         </div>
+         <p>
+          Find the inverse \(g\left(x\right)\) of  the bijective function
+\(f\left(x\right)=3x+5\) for \(f,\ g:R\rightarrow R\) .  Verify the inverse and show \(\left(f \circ g\right)\left(x\right)=x=\left(g \circ f\right)\left(x\right)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Show specifically that \(f\left(2\right)=11\), and \(g\left(11\right)=2\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          If \(f:x\rightarrow y\) corresponds to \((x,y)\), then the inverse  \(g:y\rightarrow x\)
+corresponds to \((y,x)\). This means that the inverse of the relation
+\(y=f\left(x\right)=3x+5\), is the relation \(x=f\left(y\right)=3y+5\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Solving for \(y\) in \(x=f\left(y\right)\), gives \(f^{-1}(x)=y\).
+Solving for \(y\) in  \(x=f\left(y\right)=3y+5\), gives \(x-5=3y\) or
+\(\frac{x-5}{3}=y=\ f^{-1}(x)=g(x)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We now verify that \(\left(f\circ g\right)\left(x\right)=x=\left(g \circ f\right)\left(x\right)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\left(f\circ g\right)\left(x\right)=f\left(\frac{x-5}{3}\right)=\ 3\left(\frac{x-5}{3}\right)+5=\left(x-5\right)+5=x\),
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          and
+\(\left(g \circ f\right)\left(x\right)=g\left(3x+5\right)=\ \frac{(3x+5)-5}{3}=\frac{3x+5-5}{3}=\frac{3x}{3}=x\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Finally \(f\left(x\right)=3x+5\), and \(f\left(2\right)=3\left(2\right)+5=6+5=11\),
+or \(f:2\rightarrow 11\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          and
+\(g\left(x\right)=\frac{x-5}{3}\)  and ,  \(g\left(11\right)=\frac{11-5}{3}=\frac{6}{3}=2\)
+or \(g:11\rightarrow 2\).
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_exercises_5">
+       8.7. Exercises
+      </h3>
+      <div class="paragraph">
+       <p>
+        Remixer’s Note: This section is taken from the original
+        <a href="https://ggc-discrete-math.github.io/index.html">
+         “Discrete Math”
+        </a>
+        book with only minor changes.
+       </p>
+      </div>
+      <div class="olist arabic">
+       <ol class="arabic">
+        <li>
+         <p>
+          What can be said about the relation \(f:A\rightarrow B\), if
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(\exists z\in B\forall x\in A,f\left(x\right)\neq z\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\exists x,y \in A, \exists z\in B,\left(x\neq y\right)\bigwedge\left(f\left(x\right)=f\left(y\right)=z\right)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\forall x,y\in A, \left(f\left(x\right)=f\left(y\right)\right)\ \rightarrow\left(x=y\right)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\forall x,y\in A,\left(x\neq y\right)\rightarrow\left(f\left(x\right)\neq f\left(y\right)\right)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\forall z\in B, \exists x,f\left(x\right)=z\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\exists x,y\in A,\left(f\left(x\right)=f\left(y\right)\right)\bigwedge\left(x\ \neq\ y\right)\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Explain why exponential function \(f(x)=2^x\) is not surjective from
+\(f: \mathbb{R} \rightarrow \mathbb{R}\), but is in fact a bijection
+from \(f: \mathbb{R} \rightarrow \mathbb{R}^+\).
+         </p>
+        </li>
+       </ol>
+      </div>
+      <div class="olist arabic">
+       <ol class="arabic">
+        <li>
+         <p>
+          Explain why ceiling function \( \left \lceil x \right \rceil\) is not surjective from
+\(f: \mathbb{R} \rightarrow \mathbb{R}\), but is surjective from
+from \(f: \mathbb{R} \rightarrow \mathbb{Z}\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Use properties of logarithms to show that
+\(f\left(x\right)=2^x\) and \(g\left(x\right)=\log_2{x}\), where \(f, g: \mathbb{R} \rightarrow \mathbb{R}\),
+are inverses by verifying that \(f\left(g\left(x\right)\right)=g\left(f\left(x\right)\right)=x\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Use properties of logarithms to show that \(f\left(x\right)=10^x\) and
+\(g\left(x\right)=\log{x}\), where \(f, g: \mathbb{R} \rightarrow \mathbb{R}\), are inverses by verifying that
+\(f\left(g\left(x\right)\right)=g\left(f\left(x\right)\right)=x\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Show that the function \(f\left(x\right)=5x-3\), from \(f: \mathbb{R} \rightarrow \mathbb{R}\), is bijective and find its inverse.
+         </p>
+        </li>
+        <li>
+         <p>
+          Show that the function \(f\left(x\right)=2x^3-1\), from \(f: \mathbb{R} \rightarrow \mathbb{R}\) is bijective and find its inverse.
+         </p>
+        </li>
+        <li>
+         <p>
+          Consider the function \(f(x) = \left \lceil x \right \rceil\) where \(f:\mathbb{R}\rightarrow\mathbb{Z}\).
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Is the function a surjection?  Explain.
+            </p>
+           </li>
+           <li>
+            <p>
+             Is the function an injection? Explain
+            </p>
+           </li>
+           <li>
+            <p>
+             Is the function a bijection? Explain
+            </p>
+           </li>
+           <li>
+            <p>
+             Is the inverse  mapping a function? Why or why not?
+            </p>
+           </li>
+           <li>
+            <p>
+             Evaluate
+            </p>
+            <div class="olist lowerroman">
+             <ol class="lowerroman" type="i">
+              <li>
+               <p>
+                \(f\left(-2.1\right)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f\left(-1.9\right)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f\left(1.5\right)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f\left(1.9\right)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f\left(2\right)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f\left(2.3\right) \)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+           <li>
+            <p>
+             Suppose \(g\left(x\right)=2x\), with \(f\left(x\right)=\left\lceil x\right\rceil\).  Evaluate the following:
+            </p>
+            <div class="olist lowerroman">
+             <ol class="lowerroman" type="i">
+              <li>
+               <p>
+                \(f\left(g\left(2.3\right)\right)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(g\left(f\left(2.3\right)\right)\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Consider the function \(f(x) = \left \lfloor x \right \rfloor\) where \(f:\mathbb{R}\rightarrow\mathbb{Z}\).
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Is the function a surjection?  Explain.
+            </p>
+           </li>
+           <li>
+            <p>
+             Is the function an injection? Explain
+            </p>
+           </li>
+           <li>
+            <p>
+             Is the function a bijection? Explain
+            </p>
+           </li>
+           <li>
+            <p>
+             Is the inverse  mapping a function? Why or why not?
+            </p>
+           </li>
+           <li>
+            <p>
+             Evaluate
+            </p>
+            <div class="olist lowerroman">
+             <ol class="lowerroman" type="i">
+              <li>
+               <p>
+                \(f\left(-5.1\right) \)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f\left(-3.9\right)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f\left(-3.2\right)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f\left(5\right) \)_
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f\left(5.3\right)\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+           <li>
+            <p>
+             Suppose \(g\left(x\right)=3x\), with \(f\left(x\right)=\left\lfloor x\right\rfloor\). Evaluate the following:
+            </p>
+            <div class="olist lowerroman">
+             <ol class="lowerroman" type="i">
+              <li>
+               <p>
+                \(f\left(g\left(5.3\right)\right)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(g\left(f\left(5.3\right)\right)\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          The absolute value function, denoted \(f(x)=|x|\), where \(f\left(x\right):\mathbb{R} \rightarrow \mathbb{R}\), gives the distance from \(x\) to \(0\).
+For example, \(f\left(2.5\right)=\left|2.5\right|=2.5\). And \(f\left(-4.5\right)=\left|-4.5\right|=4.5\). Notice  that if \(x \geq 0\), then \(\left|x\right|=x\).
+However if \(x&lt;0\), then  \(\left|x\right|=\ -x\). We can state this using the notation for piecewise functions:
+         </p>
+         <div class="stemblock">
+          <div class="content">
+           \$f(x) = |x|={( x,  if x  ≥ 0),(-x,if x &lt; 0):}\$
+          </div>
+         </div>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Graph \(f\left(x\right)=|x|\), for -\(10\ \le x\ \le10\)
+            </p>
+           </li>
+           <li>
+            <p>
+             Evaluate
+            </p>
+            <div class="olist lowerroman">
+             <ol class="lowerroman" type="i">
+              <li>
+               <p>
+                \(f(-5)=|-5|\),
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f(-2.5)=|-2.5|\),
+               </p>
+              </li>
+              <li>
+               <p>
+                \(f(3.5)=|3.5|\).
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+           <li>
+            <p>
+             Show that \(f\left(x\right)=\left|x\right|\), with \(f:\mathbb{R}\rightarrow \mathbb{R}\), is not injective.
+            </p>
+           </li>
+           <li>
+            <p>
+             Show that \(f\left(x\right)=\left|x\right|\), with \(f:\mathbb{R}\rightarrow \mathbb{R}\), is not surjective.
+            </p>
+           </li>
+           <li>
+            <p>
+             Consider \(g\left(x\right)=3x+2\), with \(g:\mathbb{R}\rightarrow \mathbb{R}\), and \(f\left(x\right)=|x|\). Find and simplify the following:
+            </p>
+            <div class="olist lowerroman">
+             <ol class="lowerroman" type="i">
+              <li>
+               <p>
+                \(\left(g\circ f\right)\left(x\right)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(\left(f\circ g\right)\left(x\right)\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          A real-valued function, \(f: \mathbb{R} \rightarrow \mathbb{R}\), is said to be
+          <strong>
+           strictly
+increasing
+          </strong>
+          if whenever \$x&lt;y\$, then \$f(x)&lt;f(y)\$.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             State this using logical quantifiers.
+            </p>
+           </li>
+           <li>
+            <p>
+             State a similar definition for a
+             <strong>
+              strictly decreasing
+             </strong>
+             function, and then translate using logical quantifiers.
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+       </ol>
       </div>
      </div>
     </div>

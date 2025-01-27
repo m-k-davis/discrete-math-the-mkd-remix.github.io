@@ -16,10 +16,10 @@ chrisbracco.com
 https://chrisbracco.com › curly-quotes
 ////
 
-//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 4, 2024._ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+_This chapter was last updated on January 16, 2025._ + 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 // MKD example code, not sure where to use it yet
 //https://pythontutor.com/render.html#code=x%20%3D%204%0Aprint%28x%29%0Ax%20%3D%200b0101%0Aprint%28x%29%0Ax%20%3D%200O6%0Aprint%28x%29%0Ax%20%3D%200x07%0Aprint%28x%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
@@ -50,6 +50,9 @@ NUMBER BASES (MKD)
 AUG 2024 update on topics
 ACM_CCECC_2005/Number bases	binary, hexadecimal
 
+NUMBER BASES - January 2025 
+ACM_CCECC_2005/Number bases	binary, hexadecimal
+
 Also for jokes https://math.stackexchange.com/questions/166869/is-10-a-magical-number-or-i-am-missing-something
 		
 ////
@@ -75,6 +78,14 @@ to represent _any_ natural number.
 You may know that computers use base-two (binary) instead of base-ten (decimal), but what exactly does that mean? Computers store and manipulate data using sequences of bits (‘0’ and ‘1’), so it often is much more natural to express numbers in base-two instead of base-ten.
 
 In this chapter, you will learn how to represent natural numbers using place-value systems with bases other than ten. 
+
+Key terms and concepts covered in this chapter:
+
+* Number bases
+** binary
+** hexadecimal
+** octal
+** decimal
 
 
 //MKD new section - in progress

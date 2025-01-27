@@ -484,62 +484,67 @@ $(document).on('page:load', ready2);
     <ul class="sectlevel1">
      <li>
       <a href="index.html#_about_this_text">
-       1. About this text
+       About this text
       </a>
      </li>
      <li>
       <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
-       2. Introducing Discrete Mathematics
+       1. Introducing Discrete Mathematics
       </a>
      </li>
      <li>
       <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
-       3. Counting: Arithmetic Techniques
-      </a>
-     </li>
-     <li>
-      <a href="number_bases.html#_number_bases">
-       4. Number Bases
-      </a>
-     </li>
-     <li>
-      <a href="counting_binomial.html#_counting_permutations_and_combinations">
-       5. Counting: Permutations and Combinations
+       2. Counting: Arithmetic Techniques
       </a>
      </li>
      <li>
       <a href="set_theory.html#_set_theory">
-       6. Set Theory
+       3. Set Theory
       </a>
      </li>
      <li>
       <a href="logic.html#_logic">
-       7. Logic
+       4. Logic
       </a>
      </li>
      <li>
       <a href="proofs.html#_proofs_basic_techniques">
-       8. Proofs: Basic Techniques
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
       </a>
      </li>
      <li>
       <a href="recursion.html#_sequences_and_recursion">
-       9. Sequences and Recursion
+       7. Sequences and Recursion
       </a>
      </li>
      <li>
       <a href="functions.html#_functions">
-       10. Functions
+       8. Functions
       </a>
      </li>
      <li>
       <a href="relations.html#_relations">
-       11. Relations
+       9. Relations
       </a>
      </li>
      <li>
       <a href="growth_of_functions.html#_rates_of_growth_of_functions">
-       12. Rates of Growth of Functions
+       10. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       11. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       12. Proofs: Mathematical Induction
       </a>
      </li>
      <li>
@@ -548,38 +553,33 @@ $(document).on('page:load', ready2);
       </a>
      </li>
      <li>
-      <a href="induction.html#_proofs_mathematical_induction">
-       14. Proofs: Mathematical Induction
-      </a>
-     </li>
-     <li>
       <a href="graph_theory.html#_graphs">
-       15. Graphs
+       14. Graphs
       </a>
      </li>
      <li>
       <a href="trees.html#_trees">
-       16. Trees
+       15. Trees
       </a>
      </li>
      <li>
       <a href="appendix_math.html#_appendix_on_demand_math_resources">
-       17. Appendix: On-Demand Math Resources
+       16. Appendix: On-Demand Math Resources
       </a>
      </li>
      <li>
       <a href="appendix_library.html#_appendix_library_of_functions">
-       18. Appendix: Library of Functions
+       17. Appendix: Library of Functions
       </a>
      </li>
      <li>
       <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
-       19. Appendix: An Introduction to Python
+       18. Appendix: An Introduction to Python
       </a>
      </li>
      <li>
       <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
-       20. Appendix: Python Syntax Examples
+       19. Appendix: Python Syntax Examples
       </a>
      </li>
     </ul>
@@ -596,18 +596,25 @@ $(document).on('page:load', ready2);
    </div>
    <div class="sect1">
     <h2 id="_set_theory">
-     6. Set Theory
+     3. Set Theory
     </h2>
     <div class="sectionbody">
      <div class="paragraph">
       <p>
+       <mark>
+        <strong>
+         CAUTION
+        </strong>
+        - CHAPTER UNDER CONSTRUCTION!
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
        <em>
-        This chapter was last updated on September 12, 2024.
+        This chapter was last updated on January 26, 2025.
        </em>
        <br/>
-       <span class="small">
-        Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.
-       </span>
       </p>
      </div>
      <div class="paragraph">
@@ -617,11 +624,95 @@ $(document).on('page:load', ready2);
         the
        </span>
        foundation of mathematics in our time. In earlier eras, people tried to use arithmetic (e.g., counting and whole numbers) and geometry (e.g., measurement of lengths, areas, and volumes along with geometric constructions) as the foundations of all mathematics. However, over the last 3 centuries, mathematicians gained new understandings of issues with these traditional foundations which led them to seek a new, firmer foundation. For now, that firmer foundation uses set theory: The study of collections of objects and how those collections can be combined, associated, and themselves added to other collections.
+       <br/>
+       <span class="small">
+        NOTE: If you want to dig much more deeply into what the issues with using arithmetic or geometry as the foundation of mathematics are, you can start with this
+        <a href="https://en.wikipedia.org/wiki/Foundations_of_mathematics#Foundational_crisis">
+         Wikipedia page
+        </a>
+        which includes a a brief description of the "foundational crisis of mathematics."
+       </span>
       </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Key terms and concepts covered in this chapter:
+      </p>
+     </div>
+     <div class="ulist">
+      <ul>
+       <li>
+        <p>
+         Sets
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Subsets of a set
+           </p>
+          </li>
+          <li>
+           <p>
+            The empty set
+           </p>
+          </li>
+          <li>
+           <p>
+            The power set of a set
+           </p>
+          </li>
+          <li>
+           <p>
+            Cartesian products
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         Venn diagrams
+        </p>
+       </li>
+       <li>
+        <p>
+         Cardinality and countability of finite and infinite sets
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Set cardinality and counting
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         Operations with sets: Union, intersection, complement, and others
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            DeMorgan’s laws
+           </p>
+          </li>
+          <li>
+           <p>
+            Inclusion-exclusion principle
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+      </ul>
      </div>
      <div class="sect2">
       <h3 id="_sets">
-       6.1. Sets
+       3.1. Sets
       </h3>
       <div class="paragraph">
        <p>
@@ -651,7 +742,7 @@ $(document).on('page:load', ready2);
       </div>
       <div class="sect3">
        <h4 id="_describing_a_set_the_roster_method">
-        6.1.1. Describing A Set: The Roster Method
+        3.1.1. Describing A Set: The Roster Method
        </h4>
        <div class="paragraph">
         <p>
@@ -833,7 +924,7 @@ For example, \[A = \{1,-2,0,1,-3\} \] is the set whose elements are \(-3,\) \(-2
       </div>
       <div class="sect3">
        <h4 id="_describing_a_set_set_builder_notation">
-        6.1.2. Describing A Set: Set Builder Notation
+        3.1.2. Describing A Set: Set Builder Notation
        </h4>
        <div class="paragraph">
         <p>
@@ -880,7 +971,7 @@ We can use either the colon \(:\) or the vertical bar \(|\) as the separator in 
       </div>
       <div class="sect3">
        <h4 id="_describing_a_set_special_sets_of_numbers">
-        6.1.3. Describing A Set: Special Sets Of Numbers
+        3.1.3. Describing A Set: Special Sets Of Numbers
        </h4>
        <div class="paragraph">
         <p>
@@ -954,7 +1045,7 @@ We can use either the colon \(:\) or the vertical bar \(|\) as the separator in 
       </div>
       <div class="sect3">
        <h4 id="_describing_a_set_switching_between_representations">
-        6.1.4. Describing A Set: Switching Between Representations
+        3.1.4. Describing A Set: Switching Between Representations
        </h4>
        <div class="paragraph">
         <p>
@@ -1070,7 +1161,7 @@ We can use either the colon \(:\) or the vertical bar \(|\) as the separator in 
      </div>
      <div class="sect2">
       <h3 id="_equality_of_sets">
-       6.2. Equality Of Sets
+       3.2. Equality Of Sets
       </h3>
       <div class="paragraph">
        <p>
@@ -1100,7 +1191,7 @@ The extended equality \[\{2,3,5,7\} = \{5,2,7,3\} = \{x \in \mathbb{N} : x \text
      </div>
      <div class="sect2">
       <h3 id="_the_empty_set">
-       6.3. The Empty Set
+       3.3. The Empty Set
       </h3>
       <div class="paragraph">
        <p>
@@ -1214,7 +1305,7 @@ Python interprets the empty curly braces {} as an empty object of type
      </div>
      <div class="sect2">
       <h3 id="_subsets_of_a_set">
-       6.4. Subsets of a Set
+       3.4. Subsets of a Set
       </h3>
       <div class="paragraph">
        <p>
@@ -1315,7 +1406,7 @@ Python interprets the empty curly braces {} as an empty object of type
      </div>
      <div class="sect2">
       <h3 id="_the_power_set_of_a_set">
-       6.5. The Power Set of a Set
+       3.5. The Power Set of a Set
       </h3>
       <div class="paragraph">
        <p>
@@ -1368,7 +1459,7 @@ Notice that \(\mathcal{P}(A)\) is a set whose elements are themselves sets.
      </div>
      <div class="sect2">
       <h3 id="_cartesian_products">
-       6.6. Cartesian Products
+       3.6. Cartesian Products
       </h3>
       <div class="paragraph">
        <p>
@@ -1539,8 +1630,137 @@ are Cartesian products.
       </div>
      </div>
      <div class="sect2">
+      <h3 id="_venn_diagrams">
+       3.7. Venn Diagrams
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         Venn diagram,
+        </strong>
+        named after the English mathematician John Venn,  consists of one or more circles, with each circular region representing a set. An example can be seen
+        <a href="https://en.wikipedia.org/wiki/Venn_diagram#/media/File:Venn_diagram_gr_la_ru.svg">
+         here.
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We write the elements of a set within the circular region that represents the set; anything written outside the circular region is not an element of the set. If an element is written in the overlap of two or more regions, then it is an element of each of the sets.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The circles are often drawn inside a larger rectangle which represents a
+        <strong>
+         universal set
+        </strong>
+        \(U\) that we are focusing on. In the example linked above, the rectangle was omitted because every glyph was an element of at least one of the sets represented by a circular region, but if we introduced addition glyphs like ہ we would need to draw the rectangle because that glyph would need to be written outside
+        <em>
+         all
+        </em>
+        three circular regions.
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="VennVsEulerDiagrams" height="300" src="imagesMKD/VennVsEulerDiagrams.png" width="480"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        In this textbook,
+        <mark>
+         a Venn diagram must show
+         <em>
+          all the possible overlaps
+         </em>
+        </mark>
+        of the sets. This is consistent with
+        <a href="https://doi.org/10.1080/14786448008626877">
+         Venn’s paper from 1880.
+        </a>
+        <br/>
+        That is, you should NOT be able to answer the question "Is
+        <em>
+         x
+        </em>
+        an element of set
+        <em>
+         A?
+        </em>
+        " when
+        <em>
+         x
+        </em>
+        is written in the circular region for a different set,
+        <em>
+         B.
+        </em>
+        In the image, the upper right example shows a Venn diagram because you could write
+        <em>
+         x
+        </em>
+        in the overlap of the two regions or you could write
+        <em>
+         x
+        </em>
+        in the the part of the region for
+        <em>
+         B
+        </em>
+        that is outside the circular region for
+        <em>
+         A.
+        </em>
+        The lower two diagrams are not Venn diagrams: In either one of those, if
+        <em>
+         x
+        </em>
+        is written in the region for set
+        <em>
+         B,
+        </em>
+        it must be true that
+        <em>
+         x
+        </em>
+        is not an element of
+        <em>
+         A
+        </em>
+        (on the lower left) or that
+        <em>
+         x
+        </em>
+        is an element of
+        <em>
+         A
+        </em>
+        (the example on the lower right). Diagrams like the lower two examples will be called
+        <strong>
+         Euler diagrams
+        </strong>
+        in this textbook.
+        <br/>
+        <span class="small">
+         Some sources use the term
+         <em>
+          Venn diagram
+         </em>
+         for all four of the examples shown in the image, but you should always assume when reading this textbook that the lower two are NOT Venn diagrams. Click
+         <a href="https://commons.wikimedia.org/wiki/File:RGB_combination_on_wall.png">
+          here
+         </a>
+         to see the light!
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
       <h3 id="_cardinality_of_sets">
-       6.7. Cardinality Of Sets
+       3.8. Cardinality Of Sets
       </h3>
       <div class="paragraph">
        <p>
@@ -1553,7 +1773,7 @@ are Cartesian products.
       </div>
       <div class="sect3">
        <h4 id="_finite_sets">
-        6.7.1. Finite Sets
+        3.8.1. Finite Sets
        </h4>
        <div class="paragraph">
         <p>
@@ -1733,7 +1953,7 @@ The image shows that \(|\{0,1,2,3,4\}| = 5.\)
       </div>
       <div class="sect3">
        <h4 id="_infinite_sets">
-        6.7.2. Infinite Sets
+        3.8.2. Infinite Sets
        </h4>
        <div class="paragraph">
         <p>
@@ -2074,7 +2294,7 @@ Notice that, even if we tried to use a new sequence (for example, insert \(M\) a
       </div>
       <div class="sect3">
        <h4 id="_countable_and_uncountable_sets">
-        6.7.3. Countable and Uncountable Sets
+        3.8.3. Countable and Uncountable Sets
        </h4>
        <div class="paragraph">
         <p>
@@ -2153,137 +2373,8 @@ Notice that, even if we tried to use a new sequence (for example, insert \(M\) a
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_venn_diagrams">
-       6.8. Venn Diagrams
-      </h3>
-      <div class="paragraph">
-       <p>
-        A
-        <strong>
-         Venn diagram,
-        </strong>
-        named after the English mathematician John Venn,  consists of one or more circles, with each circular region representing a set. An example can be seen
-        <a href="https://en.wikipedia.org/wiki/Venn_diagram#/media/File:Venn_diagram_gr_la_ru.svg">
-         here.
-        </a>
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        We write the elements of a set within the circular region that represents the set; anything written outside the circular region is not an element of the set. If an element is written in the overlap of two or more regions, then it is an element of each of the sets.
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        The circles are often drawn inside a larger rectangle which represents a
-        <strong>
-         universal set
-        </strong>
-        \(U\) that we are focusing on. In the example linked above, the rectangle was omitted because every glyph was an element of at least one of the sets represented by a circular region, but if we introduced addition glyphs like ہ we would need to draw the rectangle because that glyph would need to be written outside
-        <em>
-         all
-        </em>
-        three circular regions.
-       </p>
-      </div>
-      <div class="imageblock right text-center">
-       <div class="content">
-        <img alt="VennVsEulerDiagrams" height="300" src="imagesMKD/VennVsEulerDiagrams.png" width="480"/>
-       </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        In this textbook,
-        <mark>
-         a Venn diagram must show
-         <em>
-          all the possible overlaps
-         </em>
-        </mark>
-        of the sets. This is consistent with
-        <a href="https://doi.org/10.1080/14786448008626877">
-         Venn’s paper from 1880.
-        </a>
-        <br/>
-        That is, you should NOT be able to answer the question "Is
-        <em>
-         x
-        </em>
-        an element of set
-        <em>
-         A?
-        </em>
-        " when
-        <em>
-         x
-        </em>
-        is written in the circular region for a different set,
-        <em>
-         B.
-        </em>
-        In the image, the upper right example shows a Venn diagram because you could write
-        <em>
-         x
-        </em>
-        in the overlap of the two regions or you could write
-        <em>
-         x
-        </em>
-        in the the part of the region for
-        <em>
-         B
-        </em>
-        that is outside the circular region for
-        <em>
-         A.
-        </em>
-        The lower two diagrams are not Venn diagrams: In either one of those, if
-        <em>
-         x
-        </em>
-        is written in the region for set
-        <em>
-         B,
-        </em>
-        it must be true that
-        <em>
-         x
-        </em>
-        is not an element of
-        <em>
-         A
-        </em>
-        (on the lower left) or that
-        <em>
-         x
-        </em>
-        is an element of
-        <em>
-         A
-        </em>
-        (the example on the lower right). Diagrams like the lower two examples will be called
-        <strong>
-         Euler diagrams
-        </strong>
-        in this textbook.
-        <br/>
-        <span class="small">
-         Some sources use the term
-         <em>
-          Venn diagram
-         </em>
-         for all four of the examples shown in the image, but you should always assume when reading this textbook that the lower two are NOT Venn diagrams. Click
-         <a href="https://commons.wikimedia.org/wiki/File:RGB_combination_on_wall.png">
-          here
-         </a>
-         to see the light!
-        </span>
-       </p>
-      </div>
-     </div>
-     <div class="sect2">
       <h3 id="_set_operations">
-       6.9. Set Operations
+       3.9. Set Operations
       </h3>
       <div class="paragraph">
        <p>
@@ -2301,7 +2392,7 @@ Notice that, even if we tried to use a new sequence (for example, insert \(M\) a
       </div>
       <div class="sect3">
        <h4 id="_union">
-        6.9.1. Union
+        3.9.1. Union
        </h4>
        <div class="paragraph">
         <p>
@@ -2374,7 +2465,7 @@ We have the following Venn Diagram for \(A \cup B\):
       </div>
       <div class="sect3">
        <h4 id="_intersection">
-        6.9.2. Intersection
+        3.9.2. Intersection
        </h4>
        <div class="paragraph">
         <p>
@@ -2450,7 +2541,7 @@ More formally, \[A \cap B = \{x \in U : x \in A \text{ and } x \in B\}.\]
       </div>
       <div class="sect3">
        <h4 id="_complement">
-        6.9.3. Complement
+        3.9.3. Complement
        </h4>
        <div class="paragraph">
         <p>
@@ -2500,7 +2591,7 @@ Note that other textbooks and internet sources may use different notation for th
       </div>
       <div class="sect3">
        <h4 id="_other_operations">
-        6.9.4. Other Operations
+        3.9.4. Other Operations
        </h4>
        <div class="paragraph">
         <p>
@@ -2661,7 +2752,7 @@ More formally, \[A \oplus B = \{x \in U: (x \in A \text{ and } x \not\in B) \tex
       </div>
       <div class="sect3">
        <h4 id="_multiple_set_operations">
-        6.9.5. Multiple Set Operations
+        3.9.5. Multiple Set Operations
        </h4>
        <div class="paragraph">
         <p>
@@ -2754,7 +2845,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
      </div>
      <div class="sect2">
       <h3 id="_set_identities">
-       6.10. Set Identities
+       3.10. Set Identities
       </h3>
       <div class="paragraph">
        <p>
@@ -2797,7 +2888,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
       </div>
       <div class="sect3">
        <h4 id="_operator_precedence_order_of_operations">
-        6.10.1. Operator Precedence (Order Of Operations)
+        3.10.1. Operator Precedence (Order Of Operations)
        </h4>
        <div class="paragraph">
         <p>
@@ -2831,7 +2922,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
      </div>
      <div class="sect2">
       <h3 id="_venn_diagrams_partitions_and_bitstrings">
-       6.11. Venn Diagrams, Partitions, and Bitstrings
+       3.11. Venn Diagrams, Partitions, and Bitstrings
       </h3>
       <div class="paragraph">
        <p>
@@ -2902,7 +2993,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
       </div>
       <div class="sect3">
        <h4 id="_disjunctive_normal_form_set_version">
-        6.11.1. Disjunctive Normal Form (Set Version)
+        3.11.1. Disjunctive Normal Form (Set Version)
        </h4>
        <div class="paragraph">
         <p>
@@ -2960,7 +3051,7 @@ written as a union of intersections of three sets, with one set chosen from each
        </div>
        <div class="paragraph">
         <p>
-         The advantage of using the DNF is that you can write out an expression for the shaded subset using a simple algorithmic.
+         The advantage of using the DNF is that you can write out an expression for the shaded subset using a simple algorithm.
 The DNF may be neither the shortest possible expression nor the most easily understood expression for the shaded part of the Venn diagram, but the DNF is a
          <span class="underline">
           <em>
@@ -2974,7 +3065,7 @@ The DNF may be neither the shortest possible expression nor the most easily unde
      </div>
      <div class="sect2">
       <h3 id="_the_principle_of_inclusion_exclusion_pie">
-       6.12. The Principle Of Inclusion-Exclusion (PIE)
+       3.12. The Principle Of Inclusion-Exclusion (PIE)
       </h3>
       <div class="paragraph">
        <p>
@@ -3147,8 +3238,8 @@ and
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_exercises_4">
-       6.13. Exercises
+      <h3 id="_exercises_2">
+       3.13. Exercises
       </h3>
       <div class="paragraph">
        <p>

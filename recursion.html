@@ -484,62 +484,67 @@ $(document).on('page:load', ready2);
     <ul class="sectlevel1">
      <li>
       <a href="index.html#_about_this_text">
-       1. About this text
+       About this text
       </a>
      </li>
      <li>
       <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
-       2. Introducing Discrete Mathematics
+       1. Introducing Discrete Mathematics
       </a>
      </li>
      <li>
       <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
-       3. Counting: Arithmetic Techniques
-      </a>
-     </li>
-     <li>
-      <a href="number_bases.html#_number_bases">
-       4. Number Bases
-      </a>
-     </li>
-     <li>
-      <a href="counting_binomial.html#_counting_permutations_and_combinations">
-       5. Counting: Permutations and Combinations
+       2. Counting: Arithmetic Techniques
       </a>
      </li>
      <li>
       <a href="set_theory.html#_set_theory">
-       6. Set Theory
+       3. Set Theory
       </a>
      </li>
      <li>
       <a href="logic.html#_logic">
-       7. Logic
+       4. Logic
       </a>
      </li>
      <li>
       <a href="proofs.html#_proofs_basic_techniques">
-       8. Proofs: Basic Techniques
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
       </a>
      </li>
      <li>
       <a href="recursion.html#_sequences_and_recursion">
-       9. Sequences and Recursion
+       7. Sequences and Recursion
       </a>
      </li>
      <li>
       <a href="functions.html#_functions">
-       10. Functions
+       8. Functions
       </a>
      </li>
      <li>
       <a href="relations.html#_relations">
-       11. Relations
+       9. Relations
       </a>
      </li>
      <li>
       <a href="growth_of_functions.html#_rates_of_growth_of_functions">
-       12. Rates of Growth of Functions
+       10. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       11. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       12. Proofs: Mathematical Induction
       </a>
      </li>
      <li>
@@ -548,38 +553,33 @@ $(document).on('page:load', ready2);
       </a>
      </li>
      <li>
-      <a href="induction.html#_proofs_mathematical_induction">
-       14. Proofs: Mathematical Induction
-      </a>
-     </li>
-     <li>
       <a href="graph_theory.html#_graphs">
-       15. Graphs
+       14. Graphs
       </a>
      </li>
      <li>
       <a href="trees.html#_trees">
-       16. Trees
+       15. Trees
       </a>
      </li>
      <li>
       <a href="appendix_math.html#_appendix_on_demand_math_resources">
-       17. Appendix: On-Demand Math Resources
+       16. Appendix: On-Demand Math Resources
       </a>
      </li>
      <li>
       <a href="appendix_library.html#_appendix_library_of_functions">
-       18. Appendix: Library of Functions
+       17. Appendix: Library of Functions
       </a>
      </li>
      <li>
       <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
-       19. Appendix: An Introduction to Python
+       18. Appendix: An Introduction to Python
       </a>
      </li>
      <li>
       <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
-       20. Appendix: Python Syntax Examples
+       19. Appendix: Python Syntax Examples
       </a>
      </li>
     </ul>
@@ -596,7 +596,7 @@ $(document).on('page:load', ready2);
    </div>
    <div class="sect1">
     <h2 id="_sequences_and_recursion">
-     9. Sequences and Recursion
+     7. Sequences and Recursion
     </h2>
     <div class="sectionbody">
      <div class="paragraph">
@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on October 7, 2024.
+        This chapter was last updated on January 15, 2025.
        </em>
       </p>
      </div>
@@ -636,9 +636,76 @@ $(document).on('page:load', ready2);
        is a process that you can use to define an object, compute a value, or describe the construction of an object or set of objects, by using a sequence of steps where each step after the initial step refers to one or more previously completed steps.
       </p>
      </div>
+     <div class="paragraph">
+      <p>
+       Key terms and concepts covered in this chapter:
+      </p>
+     </div>
+     <div class="ulist">
+      <ul>
+       <li>
+        <p>
+         recursive definitions of functions
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            factorials
+           </p>
+          </li>
+          <li>
+           <p>
+            Arithmetic and geometric progressions
+           </p>
+          </li>
+          <li>
+           <p>
+            Fibonacci sequences (Fibonacci numbers)
+           </p>
+          </li>
+          <li>
+           <p>
+            Towers of Hanoi
+           </p>
+          </li>
+          <li>
+           <p>
+            other functions and sequences
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         Recursive mathematical definitions
+        </p>
+       </li>
+       <li>
+        <p>
+         Solving recurrence relations
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Common examples
+           </p>
+          </li>
+          <li>
+           <p>
+            An example of a simple recurrence relation, such as Fibonacci numbers
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+      </ul>
+     </div>
      <div class="sect2">
       <h3 id="_examples_sequences_of_numbers">
-       9.1. Examples: Sequences of Numbers
+       7.1. Examples: Sequences of Numbers
       </h3>
       <div class="paragraph">
        <p>
@@ -656,13 +723,13 @@ $(document).on('page:load', ready2);
       </div>
       <div class="sidebarblock">
        <div class="content">
-        <div class="literalblock">
+        <div class="paragraph">
          <div class="title">
           Example 1 - Arithmetic Sequences
          </div>
-         <div class="content">
-          <pre>Consider the sequence pass:[\(a_n=3n+1\)] defined for all natural numbers pass:[\(n.\)] The first 5 terms of this sequence are shown below.</pre>
-         </div>
+         <p>
+          Consider the sequence \(a_n=3n+1\) defined for all natural numbers \(n.\) The first 5 terms of this sequence are shown below.
+         </p>
         </div>
         <div class="paragraph">
          <p>
@@ -891,7 +958,7 @@ $(document).on('page:load', ready2);
       </div>
       <div class="sect3">
        <h4 id="_solving_recurrence_relations">
-        9.1.1. Solving Recurrence Relations
+        7.1.1. Solving Recurrence Relations
        </h4>
        <div class="paragraph">
         <p>
@@ -947,7 +1014,7 @@ So our closed formula is \(a_n=2+3(n-1)\).
      </div>
      <div class="sect2">
       <h3 id="_recursion">
-       9.2. Recursion
+       7.2. Recursion
       </h3>
       <div class="paragraph" id="definition_of_recursive_definition">
        <p>
@@ -984,7 +1051,7 @@ So our closed formula is \(a_n=2+3(n-1)\).
       </div>
       <div class="sect3">
        <h4 id="_recursively_defined_structures">
-        9.2.1. Recursively-Defined Structures
+        7.2.1. Recursively-Defined Structures
        </h4>
        <div class="paragraph">
         <p>
@@ -1176,7 +1243,7 @@ uses of the recursion step; note that infinitely-many rooted trees are construct
       </div>
       <div class="sect3">
        <h4 id="_recursively_defined_functions">
-        9.2.2. Recursively-Defined Functions
+        7.2.2. Recursively-Defined Functions
        </h4>
        <div class="paragraph">
         <p>
@@ -1239,7 +1306,7 @@ Thinking of this as a recurrence relation we would write \(f_0=0, f_1=1\) and \(
      </div>
      <div class="sect2">
       <h3 id="_towers_of_hanoi">
-       9.3. Towers Of Hanoi
+       7.3. Towers Of Hanoi
       </h3>
       <div class="imageblock right text-center">
        <div class="content">

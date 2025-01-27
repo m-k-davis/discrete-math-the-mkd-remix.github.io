@@ -1,17 +1,17 @@
 = Set Theory
 
-//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 12, 2024._ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+_This chapter was last updated on January 26, 2025._ + 
+//#[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 // MKD intro blurb needs editing
-Set theory, along with logic, is [underline]#the# foundation of mathematics in our time. In earlier eras, people tried to use arithmetic (e.g., counting and whole numbers) and geometry (e.g., measurement of lengths, areas, and volumes along with geometric constructions) as the foundations of all mathematics. However, over the last 3 centuries, mathematicians gained new understandings of issues with these traditional foundations which led them to seek a new, firmer foundation. For now, that firmer foundation uses set theory: The study of collections of objects and how those collections can be combined, associated, and themselves added to other collections. 
+Set theory, along with logic, is [underline]#the# foundation of mathematics in our time. In earlier eras, people tried to use arithmetic (e.g., counting and whole numbers) and geometry (e.g., measurement of lengths, areas, and volumes along with geometric constructions) as the foundations of all mathematics. However, over the last 3 centuries, mathematicians gained new understandings of issues with these traditional foundations which led them to seek a new, firmer foundation. For now, that firmer foundation uses set theory: The study of collections of objects and how those collections can be combined, associated, and themselves added to other collections. + 
+[small]#NOTE: If you want to dig much more deeply into what the issues with using arithmetic or geometry as the foundation of mathematics are, you can start with this  link:https://en.wikipedia.org/wiki/Foundations_of_mathematics&num;Foundational_crisis[Wikipedia page] which includes a a brief description of the "foundational crisis of mathematics."#
+//[small]#NOTE: If you are curious about what the issues with the traditional foundations of arithmetic and geometry were, this link:https://en.wikipedia.org/wiki/Foundations_of_mathematics&num;Foundational_crisis[Wikipedia page] includes a a brief description of the "foundational crisis of mathematics."#
 
-//However, new understandings of mathematics have developed over the last 3 centuries and this led mathematicians to seek a firmer foundation. For now, that firmer foundation uses set theory: The study of collections of objects and how those collections can be combined, associated, and themselves added to other collections. 
-//Most of modern mathematics is built on the foundation of set theory. 
-//Sets serve as a logically sound basis for mathematics.
+//#Foundational_crisis
 
 ////
 SET THEORY (GGC05)
@@ -24,7 +24,7 @@ SET THEORY (GGC05)
 			DeMorgan’s laws
 	       	Cartesian products, 
  -->    Cardinality and countability (MKD: Here or in Functions?)
- 	ACTIVITY if time - Hauk's "Getting To Know Your Classmates" Venn Diagram Activity
+ 	ACTIVITY if time - Hauk et al. "Getting To Know Your Classmates" Venn Diagram Activity
 	2013 changes/additions:
 		Venn diagrams
 		Union, intersection, complement
@@ -42,11 +42,34 @@ DS2008/FunctionsRelationsAndSets	Sets (Venn diagrams, complements, Cartesian pro
 DS2008/FunctionsRelationsAndSets	Cardinality and countability
 ACM_CCECC_2005/Sets, relations, functions, congruences	sets including Venn diagrams, complements, power sets, operations, DeMorgan’s laws
 
+SET THEORY - January 2025
+DS2013/Sets, Relations, and Functions	Sets: Venn diagrams
+DS2013/Sets, Relations, and Functions	Sets: Union, intersection, complement
+DS2013/Sets, Relations, and Functions	Sets: Cartesian product
+DS2013/Sets, Relations, and Functions	Sets: Power sets
+DS2013/Sets, Relations, and Functions	Sets: Cardinality of finite sets
+DS2013/Basics of Counting	Counting arguments: Set cardinality and counting
+DS2013/Basics of Counting	Counting arguments: Sum and product rule
+DS2013/Basics of Counting	Counting arguments: Inclusion-exclusion principle
+DS2008/FunctionsRelationsAndSets	Sets (Venn diagrams, complements, Cartesian products, power sets)
+DS2008/FunctionsRelationsAndSets	Cardinality and countability
+ACM_CCECC_2005/Sets, relations, functions, congruences	sets including Venn diagrams, complements, power sets, operations, DeMorgan’s laws
+MSF-Discrete_2023	1. Sets, relations, functions, cardinality
 ////
 
-//MKD
-// Cantor's original diagonilization? 
-//https://www.digizeitschriften.de/id/37721857X_0001|log29?tify=%7B%22pages%22%3A%5B83%5D%2C%22view%22%3A%22info%22%7D#navi
+Key terms and concepts covered in this chapter:
+
+* Sets
+** Subsets of a set 
+** The empty set
+** The power set of a set
+** Cartesian products
+* Venn diagrams
+* Cardinality and countability of finite and infinite sets
+** Set cardinality and counting
+* Operations with sets: Union, intersection, complement, and others
+** DeMorgan’s laws
+** Inclusion-exclusion principle
 
 == Sets
 
@@ -463,6 +486,27 @@ The two-dimensional $xy$-plane is represented by $\mathbb{R}^2=\mathbb{R}\times 
 ====
 // MKD Cartesian product ends
 
+// MKD Jan 26 2025 moved Venn diagrams before Cardinality
+== Venn Diagrams
+
+A *Venn diagram,* named after the English mathematician John Venn,  consists of one or more circles, with each circular region representing a set. An example can be seen link:https://en.wikipedia.org/wiki/Venn_diagram#/media/File:Venn_diagram_gr_la_ru.svg[here.]
+
+We write the elements of a set within the circular region that represents the set; anything written outside the circular region is not an element of the set. If an element is written in the overlap of two or more regions, then it is an element of each of the sets. 
+
+The circles are often drawn inside a larger rectangle which represents a *universal set* $U$ that we are focusing on. In the example linked above, the rectangle was omitted because every glyph was an element of at least one of the sets represented by a circular region, but if we introduced addition glyphs like ہ we would need to draw the rectangle because that glyph would need to be written outside _all_ three circular regions.
+
+// For example the set _U_ could be the set of real numbers, or the set of all possible algorithms; the idea is to limit are discussion to only the types of elements we care about in the context. and one or more circles, which represent the sets under consideration. We will then shade in the regions of the diagram that correspond to one or more set operations. 
+
+//image::imagesMKD/VennVsEulerDiagrams.png[VennVsEulerDiagrams,1536,960,float="right",align="center"]
+image::imagesMKD/VennVsEulerDiagrams.png[VennVsEulerDiagrams,480,300,float="right",align="center"]
+In this textbook, #a Venn diagram must show _all the possible overlaps_# of the sets. This is consistent with link:https://doi.org/10.1080/14786448008626877[Venn's paper from 1880.]  
+//It should not be possible to choose a point at random from the region inside one of the circles and know for sure that the point is or is not in the region inside another circle. + 
+ + 
+That is, you should NOT be able to answer the question "Is _x_ an element of set _A?_" when _x_ is written in the circular region for a different set, _B._ 
+In the image, the upper right example shows a Venn diagram because you could write _x_ in the overlap of the two regions or you could write _x_ in the the part of the region for _B_ that is outside the circular region for _A._ The lower two diagrams are not Venn diagrams: In either one of those, if _x_ is written in the region for set _B,_ it must be true that _x_ is not an element of _A_ (on the lower left) or that _x_ is an element of _A_ (the example on the lower right). Diagrams like the lower two examples will be called *Euler diagrams* in this textbook. + 
+[small]#Some sources use the term _Venn diagram_ for all four of the examples shown in the image, but you should always assume when reading this textbook that the lower two are NOT Venn diagrams. Click link:https://commons.wikimedia.org/wiki/File:RGB_combination_on_wall.png[here] to see the light!#
+
+//Alternate image: https://commons.wikimedia.org/wiki/File:Additive_color.svg
 
 // MKD cardinality begins
 // === Cardinality
@@ -760,6 +804,11 @@ Therefore, such a one-to-one correspondence cannot exist.
 
 //https://en.wikipedia.org/wiki/Cantor%27s_theorem
 
+//MKD
+// Cantor's original diagonilization? 
+//https://www.digizeitschriften.de/id/37721857X_0001|log29?tify=%7B%22pages%22%3A%5B83%5D%2C%22view%22%3A%22info%22%7D#navi
+
+
 === Countable and Uncountable Sets
 
 
@@ -786,24 +835,7 @@ In advanced mathematics, the concept of "infinite cardinal number" is developed 
 
 // MKD cardinality ends
 
-== Venn Diagrams
 
-A *Venn diagram,* named after the English mathematician John Venn,  consists of one or more circles, with each circular region representing a set. An example can be seen link:https://en.wikipedia.org/wiki/Venn_diagram#/media/File:Venn_diagram_gr_la_ru.svg[here.]
-
-We write the elements of a set within the circular region that represents the set; anything written outside the circular region is not an element of the set. If an element is written in the overlap of two or more regions, then it is an element of each of the sets. 
-
-The circles are often drawn inside a larger rectangle which represents a *universal set* $U$ that we are focusing on. In the example linked above, the rectangle was omitted because every glyph was an element of at least one of the sets represented by a circular region, but if we introduced addition glyphs like ہ we would need to draw the rectangle because that glyph would need to be written outside _all_ three circular regions.
-
-// For example the set _U_ could be the set of real numbers, or the set of all possible algorithms; the idea is to limit are discussion to only the types of elements we care about in the context. and one or more circles, which represent the sets under consideration. We will then shade in the regions of the diagram that correspond to one or more set operations. 
-
-//image::imagesMKD/VennVsEulerDiagrams.png[VennVsEulerDiagrams,1536,960,float="right",align="center"]
-image::imagesMKD/VennVsEulerDiagrams.png[VennVsEulerDiagrams,480,300,float="right",align="center"]
-In this textbook, #a Venn diagram must show _all the possible overlaps_# of the sets. This is consistent with link:https://doi.org/10.1080/14786448008626877[Venn's paper from 1880.]  
-//It should not be possible to choose a point at random from the region inside one of the circles and know for sure that the point is or is not in the region inside another circle. + 
- + 
-That is, you should NOT be able to answer the question "Is _x_ an element of set _A?_" when _x_ is written in the circular region for a different set, _B._ 
-In the image, the upper right example shows a Venn diagram because you could write _x_ in the overlap of the two regions or you could write _x_ in the the part of the region for _B_ that is outside the circular region for _A._ The lower two diagrams are not Venn diagrams: In either one of those, if _x_ is written in the region for set _B,_ it must be true that _x_ is not an element of _A_ (on the lower left) or that _x_ is an element of _A_ (the example on the lower right). Diagrams like the lower two examples will be called *Euler diagrams* in this textbook. + 
-[small]#Some sources use the term _Venn diagram_ for all four of the examples shown in the image, but you should always assume when reading this textbook that the lower two are NOT Venn diagrams. Click link:https://commons.wikimedia.org/wiki/File:RGB_combination_on_wall.png[here] to see the light!#
 
 == Set Operations
 
@@ -1141,7 +1173,7 @@ Write the union of these 4 subsets to create an expression that describes the en
 
 This type of expression is called a *disjunctive normal form* (or DNF) for the set that it represents. We will see an analog of these in a different context in the chapter on Logic. 
 
-The advantage of using the DNF is that you can write out an expression for the shaded subset using a simple algorithmic. 
+The advantage of using the DNF is that you can write out an expression for the shaded subset using a simple algorithm. 
 //: For each shaded part, write an expression for that part as an intersection of the sets or their complements, and then write the union of those intersections. 
 The DNF may be neither the shortest possible expression nor the most easily understood expression for the shaded part of the Venn diagram, but the DNF is a [underline]#_correct_# expression for the shaded subset. 
 

@@ -484,62 +484,67 @@ $(document).on('page:load', ready2);
     <ul class="sectlevel1">
      <li>
       <a href="index.html#_about_this_text">
-       1. About this text
+       About this text
       </a>
      </li>
      <li>
       <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
-       2. Introducing Discrete Mathematics
+       1. Introducing Discrete Mathematics
       </a>
      </li>
      <li>
       <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
-       3. Counting: Arithmetic Techniques
-      </a>
-     </li>
-     <li>
-      <a href="number_bases.html#_number_bases">
-       4. Number Bases
-      </a>
-     </li>
-     <li>
-      <a href="counting_binomial.html#_counting_permutations_and_combinations">
-       5. Counting: Permutations and Combinations
+       2. Counting: Arithmetic Techniques
       </a>
      </li>
      <li>
       <a href="set_theory.html#_set_theory">
-       6. Set Theory
+       3. Set Theory
       </a>
      </li>
      <li>
       <a href="logic.html#_logic">
-       7. Logic
+       4. Logic
       </a>
      </li>
      <li>
       <a href="proofs.html#_proofs_basic_techniques">
-       8. Proofs: Basic Techniques
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
       </a>
      </li>
      <li>
       <a href="recursion.html#_sequences_and_recursion">
-       9. Sequences and Recursion
+       7. Sequences and Recursion
       </a>
      </li>
      <li>
       <a href="functions.html#_functions">
-       10. Functions
+       8. Functions
       </a>
      </li>
      <li>
       <a href="relations.html#_relations">
-       11. Relations
+       9. Relations
       </a>
      </li>
      <li>
       <a href="growth_of_functions.html#_rates_of_growth_of_functions">
-       12. Rates of Growth of Functions
+       10. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       11. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       12. Proofs: Mathematical Induction
       </a>
      </li>
      <li>
@@ -548,38 +553,33 @@ $(document).on('page:load', ready2);
       </a>
      </li>
      <li>
-      <a href="induction.html#_proofs_mathematical_induction">
-       14. Proofs: Mathematical Induction
-      </a>
-     </li>
-     <li>
       <a href="graph_theory.html#_graphs">
-       15. Graphs
+       14. Graphs
       </a>
      </li>
      <li>
       <a href="trees.html#_trees">
-       16. Trees
+       15. Trees
       </a>
      </li>
      <li>
       <a href="appendix_math.html#_appendix_on_demand_math_resources">
-       17. Appendix: On-Demand Math Resources
+       16. Appendix: On-Demand Math Resources
       </a>
      </li>
      <li>
       <a href="appendix_library.html#_appendix_library_of_functions">
-       18. Appendix: Library of Functions
+       17. Appendix: Library of Functions
       </a>
      </li>
      <li>
       <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
-       19. Appendix: An Introduction to Python
+       18. Appendix: An Introduction to Python
       </a>
      </li>
      <li>
       <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
-       20. Appendix: Python Syntax Examples
+       19. Appendix: Python Syntax Examples
       </a>
      </li>
     </ul>
@@ -596,9 +596,17 @@ $(document).on('page:load', ready2);
    </div>
    <div class="sect1">
     <h2 id="_about_this_text">
-     1. About this text
+     About this text
     </h2>
     <div class="sectionbody">
+     <div class="paragraph">
+      <p>
+       <em>
+        This chapter was last updated on January 26, 2025.
+       </em>
+       <br/>
+      </p>
+     </div>
      <div class="paragraph">
       <p>
        This work, "Discrete Math - The MKD Remix" by
@@ -654,9 +662,31 @@ is licensed under
        by Mark Kelly Davis.
       </p>
      </div>
+     <div class="admonitionblock note">
+      <table>
+       <tr>
+        <td class="icon">
+         <i class="fa icon-note" title="Note">
+         </i>
+        </td>
+        <td class="content">
+         If you were a student in my course during the Spring 2024 semester, the version of the book you used can be found
+         <a href="./book_Apr2024.html">
+          here.
+         </a>
+         <br/>
+         <br/>
+         If you were a student in one of my courses during the Fall 2024 semester, the version of the book you used can be found
+         <a href="./book_Dec2024.html">
+          here.
+         </a>
+        </td>
+       </tr>
+      </table>
+     </div>
      <div class="sect2">
       <h3 id="_how_does_the_remix_differ_from_the_original_work">
-       1.1. How does the Remix differ from the original work?
+       How does the Remix differ from the original work?
       </h3>
       <div class="paragraph">
        <p>
@@ -761,24 +791,19 @@ is licensed under
           </a>
          </p>
         </li>
-        <li>
-         <p>
-          incorporate
-          <a href="https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/">
-           team-worthy tasks
-          </a>
-          , currently in beta testing, for many of the topics
-         </p>
-        </li>
        </ul>
       </div>
       <div class="ulist">
        <ul>
         <li>
          <p>
-          give learners the ability to start learning new content based on what the learners likely know already, then move toward building a formal understanding (e.g., pointing out that the set of odd integers and the set of even integers are the two equivalence classes corresponding to a relation, and that the rules for adding and multiplying odd and/or even numbers is an example of modular arithmetic.)
+          give students the opportunity to learn new content based on what they already know then to move toward building a more formal understanding of the content (e.g., pointing out that the set of odd integers and the set of even integers are the two equivalence classes of an equivalence relation, , and that the rules for adding and multiplying "odds" and "evens" is an example of modular arithmetic.)
          </p>
         </li>
+       </ul>
+      </div>
+      <div class="ulist">
+       <ul>
         <li>
          <p>
           organize the content in "chunks" for ease of reading and digestion of new ideas
@@ -801,26 +826,21 @@ is licensed under
       </div>
       <div class="paragraph">
        <p>
-        If you are looking for
-an OER textbook for a Discrete Mathematics course intended primarily for Mathematics majors
-(e.g., one that does not include topics such as Big-
-        <em>
-         O
-        </em>
-        complexity analysis of algorithms, relations, and binary tree traversal algorithms),
+        If you are looking for an OER textbook for a Discrete Mathematics course  intended primarily for Mathematics majors
+(e.g., one that does not include topics like analysis of algorithms and binary tree traversal),
 there are many suitable ones that exist. For example, see
 Oscar Levin’s
-        <a href="https://discrete.openmathbooks.org/dmoi3.html">
+        <a href="https://discrete.openmathbooks.org/dmoi4.html">
          <em>
           Discrete Mathematics: An Open Introduction,
          </em>
-         3rd edition.
+         4th edition.
         </a>
        </p>
       </div>
       <div class="sect3">
        <h4 id="_about_the_use_of_python_in_the_remix">
-        1.1.1. About the use of Python in the Remix
+        About the use of Python in the Remix
        </h4>
        <div class="paragraph">
         <p>
@@ -854,25 +874,17 @@ code samples for sorting and searching avoid using built-in Python functions in 
          way of coding.
         </p>
        </div>
-       <div class="ulist">
-        <ul>
-         <li>
-          <p>
-           The chapter "Introduction to Python" was moved to the appendices.
-          </p>
-         </li>
-        </ul>
-       </div>
       </div>
       <div class="sect3">
        <h4 id="_partial_list_of_changes_made_or_to_be_made_to_the_remix">
-        1.1.2. Partial list of changes made (or to be made) to the Remix.
+        Partial list of changes made (or to be made) to the Remix.
        </h4>
        <div class="ulist">
         <ul>
          <li>
           <p>
-           Terminology, definitions, and notation and symbols were changed throughout the Remix to align with other commonly-used textbooks. For example, the Remix defines the set of natural numbers \(\mathbb{N}\) to include the integer 0 as an element; this definition is very common and is in fact a "standard" that appears in
+           Terminology, definitions,
+notation and symbols were changed throughout the Remix to align with other commonly-used textbooks. For example, the Remix defines the set of natural numbers \(\mathbb{N}\) to include the integer 0 as an element; this definition is very common and is in fact a "standard" that appears in
            <em>
             International Standard ISO 80000-2:2019, Quantities and units — Part 2: Mathematics.
            </em>
@@ -889,22 +901,28 @@ code samples for sorting and searching avoid using built-in Python functions in 
         <ul>
          <li>
           <p>
-           The "Counting" chapter was split into two chapters, "Counting: Arithmetic Techniques" and "Counting: Permutations And Combinations".
+           The original chapter "Introduction to Python" was moved to the appendices.
           </p>
          </li>
          <li>
           <p>
-           The "new" chapter "Number Bases" is based on the original "Number Theory" chapter, but content on divisibility, congruence, and modular arithmetic was moved into the chapters "Introducing Discrete Mathematics" and "Relations" of the Remix.
+           The original chapter "Counting" was split into two chapters, "Counting: Arithmetic Techniques" and "Counting: Permutations And Combinations". The first of these chapters is placed near the beginning of the book, but the second is place much later, after sequences and recurrence relations have been discussed.
           </p>
          </li>
          <li>
           <p>
-           The order of the chapters "Set Theory" and "Logic" was swapped. New material was inserted into each of the two chapters. The section "Representing Sets as Lists" was omitted from the "Set Theory" chapter.
+           The order of the chapters "Set Theory" and "Logic" was swapped. New material was inserted into each of the two chapters.
           </p>
          </li>
          <li>
           <p>
            A new chapter, "Proofs: Basic Techniques," was written and inserted after "Logic."
+          </p>
+         </li>
+         <li>
+          <p>
+           The
+chapter "Number Bases" is based on the original chapter "Number Theory," but the content on divisibility, congruence, and modular arithmetic was moved into the remixed chapters "Introducing Discrete Mathematics" and "Relations."
           </p>
          </li>
          <li>
@@ -960,7 +978,8 @@ code samples for sorting and searching avoid using built-in Python functions in 
          <li>
           <p>
            The chapter "Proofs: Mathematical Induction" is based in part on the original chapter "Sequences, Recursive Definitions, and Induction," but
-the content of this chapter was heavily rewritten and new content was inserted. This chapter now appears after the chapter "Algorithms and Their Analysis;" this placement was done so that mathematical induction can be
+the content of this chapter was heavily rewritten and new content was inserted. This chapter now appears
+before the chapter "Algorithms and Their Analysis;" this placement was done so that mathematical induction can be
 viewed as a way of validating algorithms
 rather than as
 just
@@ -976,8 +995,8 @@ proof technique.
          <li>
           <p>
            The original chapter "Graph Theory"
-will be
-split into two chapters, "Graphs" and "Trees". Additional content as well as team-worthy activities
+was
+split into two chapters, "Graphs" and "Trees". Additional content
 will be
 introduced into each of the new chapters.
           </p>

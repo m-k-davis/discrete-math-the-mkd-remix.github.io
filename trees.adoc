@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on November 18, 2024._
+_This chapter was last updated on January 16, 2025._
 
 // MKD start topics lists
 ////
@@ -16,6 +16,21 @@ Trees: Traversal strategies
 Traversal strategies
 Spanning trees/forests
 expression trees
+
+TREES - January 2025 
+DS2008/GraphsAndTrees	Trees
+DS2013/Graphs and Trees	Trees: Properties
+DS2013/Graphs and Trees	Trees: Traversal strategies
+DS2013/Graphs and Trees	Spanning trees/forests [Core-Tier2]
+DS2008/GraphsAndTrees	Trees
+DS2008/GraphsAndTrees	Spanning trees/forests
+DS2008/GraphsAndTrees	Traversal strategies
+DS2001/Graphs and trees	Trees
+DS2001/Graphs and trees	Spanning trees
+DS2001/Graphs and trees	Traversal strategies
+ACM_CCECC_2005/Graphs and trees	trees (binary, spanning)
+ACM_CCECC_2005/Graphs and trees	expression trees
+ACM_CCECC_2005/Graphs and trees	tree traversals
 
 Also: 
 Trees and forests
@@ -41,6 +56,20 @@ Trees are used to model decisions, to sort data, and
 to optimize networks.
 
 //.Example {counter:treeex} 
+
+Key terms and concepts covered in this chapter:
+
+
+* Trees
+** Properties
+** trees (binary, spanning)
+** expression trees
+* Traversal strategies
+* Spanning trees/forests
+* Spanning trees
+* tree traversals
+
+
 
 ==  Definitions, Examples, and Properties of Trees and Forests
 

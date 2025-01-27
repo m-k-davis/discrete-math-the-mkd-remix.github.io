@@ -23,7 +23,15 @@ os.system("/opt/homebrew/Cellar/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/asciidoctor-
 #chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'number_bases.adoc', 'algorithms_and_big_o.adoc', 'induction.adoc', 'counting.adoc', 'graph_theory.adoc', 'trees.adoc', 'probability.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
 #chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'number_bases.adoc', 'algorithms.adoc', 'induction.adoc', 'growth_functions.adoc', 'counting.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
 #chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'number_bases.adoc', 'growth_of_functions.adoc', 'algorithms.adoc', 'induction.adoc', 'counting.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
-chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'number_bases.adoc', 'counting_binomial.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'growth_of_functions.adoc', 'algorithms.adoc', 'induction.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+# Following is is the Fall 2024 chapter order
+#chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'number_bases.adoc', 'counting_binomial.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'growth_of_functions.adoc', 'algorithms.adoc', 'induction.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+# Following is is the Spring 2024 chapter order
+#chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'counting_binomial.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'growth_of_functions.adoc', 'number_bases.adoc', 'algorithms.adoc', 'induction.adoc', 'relations.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+#MKD Jan 22 2025 order 
+#chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'counting_binomial.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'growth_of_functions.adoc', 'number_bases.adoc', 'algorithms.adoc', 'induction.adoc', 'relations.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+#MKD Jan 26 2025 order 
+chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'number_bases.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'growth_of_functions.adoc', 'counting_binomial.adoc', 'induction.adoc', 'algorithms.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+
 chap_htmls = [f.replace('.adoc', '.html') for f in chap_adocs]
 
 # go through master toc and update links to point to separate html files.
@@ -33,22 +41,39 @@ anchors = toc_html.find_all('a')
 # MKD added next line
 #for a in anchors: print(a)
 
+# MKD debugging Jan 19 2025
+#for a in anchors:
+#	print(a)
+
+# MKD rewriting Jan 19 2025
+# chap_index = 0
+# for a in anchors:
+# 	label = str(a.text)
+# 	#print(label)
+# 	if not (label.startswith(str(chap_index+1) + ".")):
+# 		chap_index += 1
+# 	#a['href'] = chap_htmls[chap_index] + a['href']
+# 	# MKD
+# 	try: 
+# 		a['href'] = chap_htmls[chap_index] + a['href']
+# 	except IndexError: 
+# 		print(a)
+# 		raise
 chap_index = 0
 for a in anchors:
 	label = str(a.text)
-	#print(label)
-	if not (label.startswith(str(chap_index+1) + ".")):
-		chap_index += 1
-	#a['href'] = chap_htmls[chap_index] + a['href']
-	# MKD
 	try: 
 		a['href'] = chap_htmls[chap_index] + a['href']
 	except IndexError: 
 		print(a)
 		raise
+	chap_index += 1
 
 # build copies of book with just 1 chapter in each.
 for chap_index in range(0, len(chap_htmls)):
+	# MKD debugging Jan 19 2025
+	#print("Creating " + chap_htmls[chap_index] + "\t" + str(chap_index))
+	#
 	print("Creating " + chap_htmls[chap_index])
 	soup_copy = copy.copy(soup)
 	loop_count = 0

@@ -484,62 +484,67 @@ $(document).on('page:load', ready2);
     <ul class="sectlevel1">
      <li>
       <a href="index.html#_about_this_text">
-       1. About this text
+       About this text
       </a>
      </li>
      <li>
       <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
-       2. Introducing Discrete Mathematics
+       1. Introducing Discrete Mathematics
       </a>
      </li>
      <li>
       <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
-       3. Counting: Arithmetic Techniques
-      </a>
-     </li>
-     <li>
-      <a href="number_bases.html#_number_bases">
-       4. Number Bases
-      </a>
-     </li>
-     <li>
-      <a href="counting_binomial.html#_counting_permutations_and_combinations">
-       5. Counting: Permutations and Combinations
+       2. Counting: Arithmetic Techniques
       </a>
      </li>
      <li>
       <a href="set_theory.html#_set_theory">
-       6. Set Theory
+       3. Set Theory
       </a>
      </li>
      <li>
       <a href="logic.html#_logic">
-       7. Logic
+       4. Logic
       </a>
      </li>
      <li>
       <a href="proofs.html#_proofs_basic_techniques">
-       8. Proofs: Basic Techniques
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
       </a>
      </li>
      <li>
       <a href="recursion.html#_sequences_and_recursion">
-       9. Sequences and Recursion
+       7. Sequences and Recursion
       </a>
      </li>
      <li>
       <a href="functions.html#_functions">
-       10. Functions
+       8. Functions
       </a>
      </li>
      <li>
       <a href="relations.html#_relations">
-       11. Relations
+       9. Relations
       </a>
      </li>
      <li>
       <a href="growth_of_functions.html#_rates_of_growth_of_functions">
-       12. Rates of Growth of Functions
+       10. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       11. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       12. Proofs: Mathematical Induction
       </a>
      </li>
      <li>
@@ -548,38 +553,33 @@ $(document).on('page:load', ready2);
       </a>
      </li>
      <li>
-      <a href="induction.html#_proofs_mathematical_induction">
-       14. Proofs: Mathematical Induction
-      </a>
-     </li>
-     <li>
       <a href="graph_theory.html#_graphs">
-       15. Graphs
+       14. Graphs
       </a>
      </li>
      <li>
       <a href="trees.html#_trees">
-       16. Trees
+       15. Trees
       </a>
      </li>
      <li>
       <a href="appendix_math.html#_appendix_on_demand_math_resources">
-       17. Appendix: On-Demand Math Resources
+       16. Appendix: On-Demand Math Resources
       </a>
      </li>
      <li>
       <a href="appendix_library.html#_appendix_library_of_functions">
-       18. Appendix: Library of Functions
+       17. Appendix: Library of Functions
       </a>
      </li>
      <li>
       <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
-       19. Appendix: An Introduction to Python
+       18. Appendix: An Introduction to Python
       </a>
      </li>
      <li>
       <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
-       20. Appendix: Python Syntax Examples
+       19. Appendix: Python Syntax Examples
       </a>
      </li>
     </ul>
@@ -596,18 +596,15 @@ $(document).on('page:load', ready2);
    </div>
    <div class="sect1">
     <h2 id="_introducing_discrete_mathematics">
-     2. Introducing Discrete Mathematics
+     1. Introducing Discrete Mathematics
     </h2>
     <div class="sectionbody">
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on August 28, 2024 (added water glass example and link to video about \(\pi\) to section 2.1)
+        This chapter was last updated on January 26, 2025.
        </em>
        <br/>
-       <span class="small">
-        Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.
-       </span>
       </p>
      </div>
      <div class="paragraph">
@@ -617,21 +614,21 @@ $(document).on('page:load', ready2);
      </div>
      <div class="paragraph">
       <p>
-       Mathematics is one of human civilization’s greatest tools: It involves pattern noticing, collecting, counting, generalizing, formalizing, and abstracting. The development of mathematics is a continuing work that spans at least 5,000 years and many different peoples and cultures. This development will continue long after you and I are gone - never forget that we are living during an era that will be someone else’s Ancient History!
+       Mathematics is one of human civilization’s greatest tools: It involves pattern noticing, collecting, comparing, counting, generalizing, formalizing, and abstracting. The development of mathematics is a continuing work that spans at least 5,000 years and many different peoples and cultures. This development will continue long after you and I are gone - never forget that we are living during an era that will be someone else’s Ancient History!
       </p>
      </div>
      <div class="sect2">
       <h3 id="_what_is_discrete_mathematics">
-       2.1. What is "Discrete Mathematics"?
+       1.1. What is "Discrete Mathematics"?
       </h3>
       <div class="paragraph">
        <p>
-        There seems to be no universally agreed-upon definition of "discrete mathematics," but I, the remixer, will try to explain what it is.
+        There seems to be no universally agreed-upon definition of "discrete mathematics," but I will describe to you my understanding of what the phrase "discrete mathematics" means.
        </p>
       </div>
       <div class="paragraph">
        <p>
-        Discrete mathematics is the mathematics people use to study and understand structures built from individual objects in a way that the individual objects can still be treated as separate from one another within the structure. In such a structure, the individual objects can put into categories and counted; it makes sense to ask questions like "What is the next object in the structure after this one?" or "Which other objects are the closest to this one?" (where "closest" could refer to physical distance or could mean most similar in color or size) or "How many objects in the structure have a certain property?" Discrete mathematics is a collection of tools that can be used to answer these kind of questions.
+        Discrete mathematics is the mathematics people use to study and understand structures that are built from individual objects in a way that the individual objects can still be treated as separate from one another within the structure. In such a structure, the individual objects can be put into categories and counted; it makes sense to ask questions like "What is the next object in the structure after this one?" or "Which other objects are the closest to this one?" (where "closest" could refer to physical distance or could mean most similar in color or size) or "How many objects in the structure have a certain property?" Discrete mathematics is a collection of tools that can be used to answer these kind of questions.
        </p>
       </div>
       <div class="imageblock right text-center">
@@ -641,13 +638,14 @@ $(document).on('page:load', ready2);
       </div>
       <div class="paragraph">
        <p>
-        As an example, consider a wall, a structure built from individual stones and bricks, part of which is shown in the image to the right. The objects in the structure
-        <span class="underline">
-         <em>
-          are
-         </em>
-        </span>
-        the stones and bricks. You can still identify individual objects even though they were combined to build the larger structure, and can classify individual objects by type (either stone or brick) or by color or by the how close to the top of the wall the objects are. You can try to count the total number of individual objects, and you can count the number of individual objects that are next to any one object you choose. The wall is a (non-mathematical) example of a
+        As an example, consider a wall, a structure built from individual stones and bricks, part of which is shown in the image to the right. The
+individual
+objects in the structure are
+the stones and bricks. You can still identify individual objects even though they were combined to build the larger structure, and can classify
+an
+individual object
+by type (either stone or brick) or by color or by the how close to the top of the wall the object
+is. You can try to count the total number of individual objects, and you can count the number of individual objects that are next to any one object you choose. The wall is a (non-mathematical) example of a
         <strong>
          discrete structure.
         </strong>
@@ -674,9 +672,9 @@ $(document).on('page:load', ready2);
        <ul>
         <li>
          <p>
-          The set of humans in a family can be treated as a discrete structure.
+          A family of humans can be treated as a discrete structure.
           <br/>
-          We tend to perceive humans as individuals who can be separated from one another, and questions like "Which humans are siblings of this human?" and "Which humans are parents of this human?" and "How many children does this human have?" make sense.
+          The humans in a family are seen as individuals who can be distinguished from one another. Questions like "Which humans are siblings of this human?" and "Which humans are parents of this human?" and "How many children does this human have?" make sense.
          </p>
         </li>
         <li>
@@ -688,6 +686,16 @@ $(document).on('page:load', ready2);
         </li>
        </ul>
       </div>
+      <div class="paragraph">
+       <p>
+        Notice that in these examples, the individual objects are of a different nature than the entire structure: Individual bricks and stones aren’t considered a wall, individual humans aren’t considered a family, and individual integers are not a collection of integers.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        So what kind of structure is not discrete?
+       </p>
+      </div>
       <div class="imageblock right text-center">
        <div class="content">
         <img alt="Water Glass" height="212" src="imagesMKD/water-glass-13525637587gp.jpg" width="320"/>
@@ -695,7 +703,7 @@ $(document).on('page:load', ready2);
       </div>
       <div class="paragraph">
        <p>
-        So what kind of structure is not discrete? Consider the water in the glass shown in the image. The water in the glass
+        Consider the water in the glass shown in the image. The water in the glass
         <em>
          is
         </em>
@@ -703,13 +711,20 @@ $(document).on('page:load', ready2);
         <em>
          measurement of quantities
         </em>
-        of water, using units such as fluid ounces or milliliters. In our time we humans understand that the water is built from molecules, but because the molecules are so tiny, so numerous, and so densely distributed throughout the structure, we humans (except perhaps chemists, physicists, and some engineers) still ignore the individual molecules and use measurement instead of counting. For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10
+        of water, using units such as fluid ounces or milliliters.
+In our current era,
+we humans understand that the water is built from molecules,
+which are of a different nature than the water
+"structure,"
+but because the molecules are so tiny, numerous, and densely distributed throughout the structure, we humans (except perhaps some scientists and engineers)
+still use measurement instead of counting and ignore the individual molecules.
+For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10
         <sup>
          24
         </sup>
-        molecules of water." Notice that the measurement units do not correspond in any natural way to the individual molecules or groupings of the molecules (unless, perhaps, you are a chemist, physicist, or engineer.)
+        molecules of water." Notice that the measurement units used do not correspond in any natural way to individual molecules or groupings of individual molecules (unless, perhaps, you are a scientist or engineer.)
         <br/>
-        Notice also that the glass container itself is another structure in which individual molecules tend to be ignored.
+        Also, notice that the glass container itself is another structure in which the individual molecules tend to be ignored.
         <br/>
         <span class="small">
          Image credit:
@@ -743,33 +758,24 @@ $(document).on('page:load', ready2);
           <em>
            c
           </em>
-          is the
-          <em>
-           "best candidate"
-          </em>
-          for "the next real number after \(\pi\) on the number line" then the number \(c_{1} = \frac{c+\pi}{2},\) which is the midpoint of the interval with endpoints
+          is "the next real number after \(\pi\) on the number line" then we can compute the number \(c_{1} = \frac{c+\pi}{2},\) which is the midpoint of the interval with endpoints \(\pi,\) so \(c_{1}\) is closer to \(\pi\) than
           <em>
            c
           </em>
-          and \(\pi,\) is closer to \(\pi\) than is
+          is, which means \(c_{1}\) is a
           <em>
-           c,
+           better candidate
           </em>
-          so \(c_{1}\) is a
+          for "the next real number after \(\pi\) on the number line" than
           <em>
-           better candidate than the "best candidate"
+           c
           </em>
-          for "the next real number after \(\pi\) on the number line"…​ that is, the concept "the next real number after \(\pi\) on the number line" does not make sense for this structure as such a number cannot exist! Likewise, "the real numbers that are closest to \(\pi\)" do not exist.
+          is …​. The concept "the next real number after \(\pi\) on the number line" does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to \(\pi\) over and over again. Likewise, "the real numbers that are closest to \(\pi\)" do not exist.
           <br/>
-          <br/>
-          Instead, "the real numbers that differ from \(\pi\) by less than \(\epsilon\)" makes sense for any positive number \(\epsilon\) (The symbol \(\epsilon\) is  the Greek letter "epsilon".) By choosing \(\epsilon\) as small as we like, we can describe the real numbers that are as close to \(\pi\) as needed to use as approximations to \(\pi.\) This is why (and how) limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line.
+          Instead, it makes sense to talk about "the real numbers that differ from \(\pi\) by less than \(\epsilon\)" where \(\epsilon\) is some positive real number  (The symbol \(\epsilon\) is  the Greek letter "epsilon".) By choosing \(\epsilon\) as small as we like, we can describe the real numbers that are as close to \(\pi\) as needed to use as approximations to \(\pi.\) This is why and how limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line.
           <br/>
           <span class="small">
-           Note 1: The set of real numbers is called
-           <strong>
-            the continuum
-           </strong>
-           in advanced mathematics courses.
+           Note 1: You could use any other real number instead of \(\pi\) in the discussion above because the argument will still be valid. For example, "the next real number after \(-2\) on the number line" and "the real numbers that are closest to \(-2\) on the number line" do not exist since you can choose numbers that get closer and closer to \(-2\) such as \(-1,\) \(-1.5,\) \(-1.75,\) and so on.
            <br/>
            Note 2: The technique used to justify that "the next real number after \(\pi\) on the number line" does not exist is called
            <strong>
@@ -786,6 +792,12 @@ $(document).on('page:load', ready2);
             here
            </a>
            to view an artist’s explanation about where \(\pi\) lies on the number line. Be warned that some of what this artist says (about history, about \(\pi\) being equal to 3.14) is not correct, but the visualization still may be helpful to you.
+           <br/>
+           Note 4: FYI, the set of real numbers is called
+           <strong>
+            the continuum
+           </strong>
+           in advanced mathematics courses.
           </span>
          </p>
         </li>
@@ -794,7 +806,7 @@ $(document).on('page:load', ready2);
      </div>
      <div class="sect2">
       <h3 id="_to_the_student_some_things_to_know_before_you_begin">
-       2.2. To The Student: Some Things To Know Before You Begin
+       1.2. To The Student: Some Things To Know Before You Begin
       </h3>
       <div class="paragraph">
        <p>
@@ -803,11 +815,11 @@ $(document).on('page:load', ready2);
       </div>
       <div class="sect3">
        <h4 id="_how_to_use_this_textbook">
-        2.2.1. How To Use This textbook
+        1.2.1. How To Use This textbook
        </h4>
        <div class="paragraph">
         <p>
-         The textbook is designed to build on your previous knowledge, and then build new knowledge and understanding by visiting the topics over and over again. In the next subsection, the basis of foundational mathematical ideas  are discussed. You are encouraged to read through
+         The Remix is designed to build on your previous knowledge, and then build new knowledge and understanding by visiting the topics over and over again. In the next subsection, the basis of foundational mathematical ideas are discussed. You are encouraged to read through
          <span class="underline">
           <em>
            all
@@ -827,14 +839,14 @@ $(document).on('page:load', ready2);
           <p>
            Think of the course presented in the Remix as a language course.
            <br/>
-           You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then "forgetting" that content later, but still succeed in the course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.
+           You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then "forgetting" that content later, but still succeed inthe course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.
           </p>
          </li>
          <li>
           <p>
            Think of the course presented in the Remix as exercising at a gym.
            <br/>
-           You will build your strength and awareness about your abilities by working out. It may be tempting to watch others "demonstrate" how to do certain exercises and then choose not to do them yourself, but you are selling yourself short. A physical trainer usually knows already what they are capable of doing, so no compliment is being paid if you tell them "Wow, you’re really strong"…​ the trainer’s goal is to get you to say "Wow,
+           You will build your strength and awareness about your abilities by working out. It may be tempting to watch others "demonstrate" how to do certain exercises and then choose not to do them yourself, but you are selling yourself short. A physical trainer usually knows already what they are capable of doing, so it is no compliment if you tell them "Wow, you’re really strong"…​ the trainer’s goal is to get you to say "Wow,
            <span class="underline">
             <strong>
              I’m
@@ -848,19 +860,29 @@ $(document).on('page:load', ready2);
       </div>
       <div class="sect3">
        <h4 id="_foundations">
-        2.2.2. Foundations
+        1.2.2. Foundations
        </h4>
        <div class="paragraph">
         <p>
-         Learning discrete mathematics requires putting together old ideas in new ways and adding new ideas to the mix. This subsection highlights some of the old ideas you will need to get the most out of this textbook. Also, you’ll find opportunities here to practice with the built-in tools that are part of the textbook.
+         Learning discrete mathematics requires putting together old ideas in new ways and adding new ideas to your mix.
         </p>
        </div>
        <div class="paragraph">
         <p>
-         Some of these ideas may be old for you, but some others will probably be new. To use this textbook effectively, you’ll need to be able to work with these ideas with relative ease. If a few of these ideas are brand new to you, that is fine: All of these ideas will be discussed again, much more formally and in greater detail, later in the textbook.
+         This subsection highlights some of the ideas you will need to work with in order to get the most out of this textbook. Also, you’ll find opportunities here to practice with the built-in tools that are part of the textbook.
+Some of these ideas may be old for you, but others will probably be new. To use this textbook effectively, you’ll need to be able to work with each of these ideas with relative ease. If a few of these ideas are brand new to you, that is fine: All of these ideas will be discussed again, much more formally and in greater detail, later in the textbook.
         </p>
        </div>
-       <div class="ulist">
+       <div class="paragraph">
+        <p>
+         I encourage you to read
+         <em>
+          all
+         </em>
+         of the topics discussed below. Don’t skip anything, even if it looks "old" because there may be some new ways of understanding the old ideas that are introduced and that will be used later in the course.
+        </p>
+       </div>
+       <div class="ulist" id="informal_set_definition">
         <ul>
          <li>
           <p>
@@ -888,7 +910,7 @@ which contains exactly three elements: "blue", "green", and "red." It does not m
            <em>
             P
            </em>
-           instead of needing to read the list of elements every time you want to talk about the set. This is like using the Greek letter π instead of needing to read off the first few digits of the non-repeating decimal expansion 3.14159265359….
+           instead of needing to read the list of elements every time you want to talk about the set. This is like using the Greek letter π instead of needing to read off the first few digits of the non-repeating decimal expansion 3.14159265359… every time you refer to that number.
           </p>
           <div class="ulist">
            <ul>
@@ -896,10 +918,7 @@ which contains exactly three elements: "blue", "green", and "red." It does not m
              <p>
               NOTE 1:
 In mathematics, a set like
-              <em>
-               P
-              </em>
-              , that is, \(\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}\)
+\(P,\) that is, \(\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}\)
 is treated as a
               <em>
                constant,
@@ -988,7 +1007,7 @@ and so is \(\{  \},\) the empty set.
          </li>
         </ul>
        </div>
-       <div class="ulist">
+       <div class="ulist" id="informal_one_to_one_correspondence_definition">
         <ul>
          <li>
           <p>
@@ -1004,15 +1023,15 @@ and so is \(\{  \},\) the empty set.
            <em>
             B
            </em>
-           pairs each member of the set
+           is a pairing of each member of the set
            <em>
             A
            </em>
            with exactly one member of set
            <em>
-            B
+            B,
            </em>
-           , and  each member of set
+           and each member of set
            <em>
             B
            </em>
@@ -1033,7 +1052,12 @@ and so is \(\{  \},\) the empty set.
           </div>
           <p>
            As a first example, the one-to-one correspondence between
-the set of uppercase English letters and the set of lowercase English letters is represented in the following image.
+the set of uppercase English letters and the set of lowercase English letters is represented in the image.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           The one-to-one correspondence is described by first choosing an uppercase letter in the upper row and next following the arrow down to the corresponding lowercase letter in the lower row.
           </p>
          </div>
          <div class="imageblock text-center">
@@ -1043,41 +1067,89 @@ the set of uppercase English letters and the set of lowercase English letters is
          </div>
          <div class="paragraph">
           <p>
-           Notice that the arrows in the previous image point in both directions.
-You can choose any uppercase letter then follow the arrow down to its corresponding lowercase letter, or
-you can choose any lowercase letter then follow the arrow up to its corresponding uppercase letter.
+           Notice that you could choose any lowercase letter then follow the arrow up to its corresponding uppercase letter. This shows that the one-to-one correspondence
+is invertible in the sense that there is a second one-to-one correspondence  that can "undo" what the first one-to-one correspondence does.
+This is why, in this example, the arrows in the image point in both directions: It is natural to interpret the arrow as meaning "change case" in either direction.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           In fact,
+           <span class="underline">
+            every
+           </span>
+           one-to-one correspondence is a
+           <a href="./introduction_discrete_math.html#informal_function_definition">
+            function
+           </a>
+           that has an inverse function.
+          </p>
+         </div>
+         <div class="imageblock right text-center" id="informal_rock_paper_scissors">
+          <div class="content">
+           <img alt="THE_GAME_OF_KEN_derivative_v3" height="330" src="imagesMKD/THE_GAME_OF_KEN_derivative_v3.png" width="384"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           As a second example, consider the game "rock, paper, scissors."
+The image represents the one-to-one correspondence that pairs each element of the set \(\{ \text{"rock"},\,\text{"paper"},\,\text{"scissors"} \}\) with the element of the same set that wins against it.
            <br/>
+           <span class="small">
+            Image credit: Remixer-created derivative of original work
+            <a href="https://commons.wikimedia.org/wiki/File:THE_GAME_OF_KEN._(1910)_-_illustration_-_page_315.png">
+             "THE_GAME_OF_KEN.
+             <em>
+              (1910)
+             </em>
+             -
+             <em>
+              illustration
+             </em>
+             -_page_315.png"
+            </a>
+            . According to Japanese Copyright Law (June 1, 2018 grant) the copyright on the original work has expired and is as such public domain. Also, the original work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1930.
+           </span>
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           For this one-to-one correspondence, it makes sense to use arrows that point in only one direction.
+In the image, all the arrows point to the winner, so each arrow can be read as "loses to," for example "rock loses to paper".
            <br/>
+           <span class="small">
+            Note 1: A one-to-one correspondence between a set and itself is called a
+            <strong>
+             permutation.
+            </strong>
+            You will see the term "permutation" again, used with a related but different meaning, in the
+            <a href="./counting_binomial.html">
+             Counting: Permutations and Combinations
+            </a>
+            chapter.
+            <br/>
+            Note 2: "Rock, paper, scissors" is a modern form of a very old game that appears to date back at least 1,800 years to China during the time of the Han dynasty. You can learn more about the history of "rock, paper, scissors" and other intrasitive games at this
+            <a href="https://en.wikipedia.org/wiki/Rock_paper_scissorsl#History">
+             Wikipedia link
+            </a>
+            . The image used in the Remix is derived from one that appears in a
+            <a href="https://www.gutenberg.org/cache/epub/65870/pg65870-images.html#CHAPTER_XXII">
+             book
+            </a>
+            published in 1910 that describes the Japanese game stone-
+            <em>
+             ken
+            </em>
+            or
+            <em>
+             jan-ken.
+            </em>
+           </span>
           </p>
          </div>
         </div>
        </div>
-       <div class="ulist">
-        <ul>
-         <li>
-          <p>
-           A
-           <strong>
-            bitstring
-           </strong>
-           is a finite sequence of
-           <em>
-            bits,
-           </em>
-           that is, the binary digits 1 and 0. Bitstrings can be used to represent a sequence of answers to "Yes-No" or "True-False" questions. Bitstrings can also be used to represent numbers in
-           <em>
-            binary notation,
-           </em>
-           which will be discussed in the
-           <a href="./number_bases.html">
-            Number Bases
-           </a>
-           chapter.
-          </p>
-         </li>
-        </ul>
-       </div>
-       <div class="ulist">
+       <div class="ulist" id="informal_natural_numbers_definition">
         <ul>
          <li>
           <p>
@@ -1092,7 +1164,9 @@ you can choose any lowercase letter then follow the arrow up to its correspondin
             </em>
             .
            </mark>
-           The letter \(\mathbb{N}\) denotes the set of natural numbers, that is, \[\mathbb{N} = \{ 0,\,1,\,2,\,3,\,\ldots \}\] where the three dots are used because we cannot write down the infinitely-long list of natural numbers.
+           The letter \(\mathbb{N}\) denotes the set of natural numbers, that is, \[\mathbb{N} = \{ 0,\,1,\,2,\,3,\,\ldots \}\] where the three dots are used because we cannot write down the
+entire
+list of natural numbers.
           </p>
           <div class="ulist">
            <ul>
@@ -1157,15 +1231,45 @@ you can choose any lowercase letter then follow the arrow up to its correspondin
          </div>
         </div>
        </div>
+       <div class="imageblock right text-center" id="informal_finite_set_definition">
+        <div class="content">
+         <img alt="FingersToNumerals" height="109" src="imagesMKD/FingersToNumerals.png" width="375"/>
+        </div>
+       </div>
        <div class="ulist">
         <ul>
          <li>
           <p>
-           Are you surprised to see
+           A set is called a
+           <strong>
+            finite set
+           </strong>
+           if either the set is empty or there is a one-to-one correspondence between the set and \(\{1, 2, \ldots , n \}\) for some positive integer \(n.\) For example, the image represents how a child may "count up to 5" by pairing fingers with the numbers in \(\{1, 2, \ldots , 5 \}.\)
+           <br/>
+           A set that is not a finite set is called an
+           <strong>
+            infinite set.
+           </strong>
+           Both finite and infinite sets will be discussed in more detail in the
+           <a href="./set_theory.html">
+            Set Theory
+           </a>
+           chapter.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_counting_definition">
+        <ul>
+         <li>
+          <p>
+           You may be surprised to see
            <a href="./counting_arithmetic.html">
             Counting
            </a>
-           as a topic in a university-level mathematics course? You probably learned to count by putting physical objects (like fingers) into a one-to-one correspondence with number words such as "one, two, three, …​" when you were a young child. That way of counting is fine for small sets, but the counting techniques discussed in this textbook let you count the number of elements in very large sets quickly.
+           listed as a topic in a university-level course because you probably learned to count by putting physical objects (like fingers) into a one-to-one correspondence with number words such as "one, two, three, four, five" when you were a young child. That way of counting one by one is fine for small sets, but the counting techniques discussed in this textbook let you count the number of elements in very large
+finite
+sets quickly.
           </p>
          </li>
         </ul>
@@ -1208,7 +1312,7 @@ with the first character being one of the 26 uppercase English letters and  seco
          </div>
          <div class="paragraph">
           <p>
-           In this case, you can list all the possibilities as shown in the preceding table because 26 and 10 are small integers. What is important to notice is that this same technique (multiplying
+           In this case, 26 and 10 are small integers so you can list all possibilities by arranging them in a table as shown in the image. What is important to notice is that this same technique (multiplying
            <em>
             k
            </em>
@@ -1224,7 +1328,7 @@ with the first character being one of the 26 uppercase English letters and  seco
            <em>
             m,
            </em>
-           when creating such a table may be either not  helpful or impossible.
+           when creating such a table may be either not helpful or impossible.
           </p>
          </div>
          <div class="openblock challenge">
@@ -1234,6 +1338,9 @@ with the first character being one of the 26 uppercase English letters and  seco
           <div class="content">
            <div class="click_oblique">
             Suppose that a U. S. state uses passenger vehicle license plate numbers that are 7 characters long, where the first character is one of the 9 nonzero  Hindu-Arabic numerals, the second, third, and fourth characters are uppercase English letters, and the fifth, sixth, and seventh characters are  Hindu-Arabic numerals. How many different possible passenger vehicle license plate numbers can the state create?
+            <br/>
+            <br/>
+            Click on "Hint," "Another challenge," and "One last challenge" to reveal the hidden text.
            </div>
           </div>
          </div>
@@ -1304,15 +1411,13 @@ for its passenger vehicle license plate numbers.
            <strong>
             Pigeonhole Principle
            </strong>
-           states that if \(n\) is a positive integer and \(n+1\) objects are going to be assigned to \(n\) categories then one of the categories must be assigned at least 2 of the objects. Click
+           states that if \(n\) is a positive integer and \(n+1\) objects are going to be assigned to \(n\) categories then one of the categories must be assigned at least 2 of the objects.
+Click
            <a href="https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPigeons.jpg">
             here
            </a>
-           to see a
-           <em>
-            popular photoshopped image
-           </em>
-           that illustrates this principle.
+           to see a commonly-used _photoshopped
+           image that illustrates this principle.
           </p>
          </li>
         </ul>
@@ -1496,7 +1601,7 @@ for its passenger vehicle license plate numbers.
                 by the one-to-one correspondence.
                 <br/>
                 <br/>
-                Notice also that the one-to-one correspondence can be viewed as a function
+                Notice that the one-to-one correspondence can be used to define another function
                 <em>
                  g
                 </em>
@@ -1755,10 +1860,10 @@ In an earlier example, we defined list L to be ["Discrete", "Mathematics"] and t
            Click on the "Next" button to step through the code.
           </p>
          </div>
-         <iframe frameborder="5" height="400" src="https://pythontutor.com/iframe-embed.html#code=def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E0%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20%22%22%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=400" width="100%">
+         <iframe frameborder="5" height="550" src="https://pythontutor.com/iframe-embed.html#code=def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E0%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20%22%22%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Adef%20constantChatbot%28userInput%29%3A%0A%20%20%20%20return%20%22Hello!%22%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0Aprint%28constantChatbot%28%22Hi.%22%29%29%0Aprint%28constantChatbot%28%22Can%20you%20code%20in%20Python%3F%22%29%29%0Aprint%28constantChatbot%28%22So,%20'No'%3F%22%29%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=550" width="100%">
          </iframe>
          <div style="text-align: right;">
-          <a href="http://www.pythontutor.com/visualize.html#code=def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E0%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20%22%22%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E0%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20%22%22%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Adef%20constantChatbot%28userInput%29%3A%0A%20%20%20%20return%20%22Hello!%22%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0Aprint%28constantChatbot%28%22Hi.%22%29%29%0Aprint%28constantChatbot%28%22Can%20you%20code%20in%20Python%3F%22%29%29%0Aprint%28constantChatbot%28%22So,%20'No'%3F%22%29%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
            Edit in PythonTutor
           </a>
          </div>
@@ -1802,7 +1907,7 @@ In an earlier example, we defined list L to be ["Discrete", "Mathematics"] and t
          </div>
         </div>
        </div>
-       <div class="ulist">
+       <div class="ulist" id="informal_sequence_definition">
         <ul>
          <li>
           <p>
@@ -1813,6 +1918,7 @@ In an earlier example, we defined list L to be ["Discrete", "Mathematics"] and t
            is a function from the natural numbers, or a
 subset of the natural numbers, into another set (e.g., the natural numbers, or the real numbers, or a nonnumerical set.)
 For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for every natural number } i \] which describes the sequence of positive odd integers \(a_{0} = 1,\) \(a_{1} = 3,\) \(a_{2} = 5,\) and so on.
+           <br/>
           </p>
           <div class="ulist">
            <ul>
@@ -1856,20 +1962,103 @@ For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for ever
          </li>
         </ul>
        </div>
+       <div class="imageblock right text-center">
+        <div class="content">
+         <img alt="NumeralsToFingersFunction" height="109" src="imagesMKD/NumeralsToFingersFunction.png" width="375"/>
+        </div>
+       </div>
        <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           A
+           <strong>
+            finite sequence
+           </strong>
+           is a sequence that is defined for only a finite subset of \(\mathbb{N}.\) That is, the set of input \(i\) values that make sense for the sequence is a finite set.
+           <br/>
+           For example, a child counting up to five on the fingers of one hand is defining the sequence called \(\textit{fingers}_{i}\) that is represented by the image.
+           <br/>
+           <span class="small">
+            Technically, the sequence \(\textit{fingers}_{i}\) shown in the image is the
+            <em>
+             inverse
+            </em>
+            of the child’s actual counting sequence. Because the child assigns to each finger "input" exactly one number "output," the arrows would point up from a finger to the corresponding number.
+           </span>
+           <br/>
+           <br/>
+           The sequence \(\textit{fingers}_{i}\) can be written, formally, as
+\begin{equation}
+\begin{aligned}
+\textit{fingers}_{1} {} &amp; = \text{"Thumb"} \\
+\textit{fingers}_{2} {} &amp; = \text{"Index Finger"} \\
+\textit{fingers}_{3} {} &amp; = \text{"Middle Finger"} \\
+\textit{fingers}_{4} {} &amp; = \text{"Ring Finger"} \\
+\textit{fingers}_{5} {} &amp; = \text{"Pinky Finger"} \\
+\end{aligned}
+\end{equation}
+but it is much more common to list the terms of the sequence in order:  "Thumb," "Index Finger," "Middle Finger," "Ring Finger," "Pinky Finger."
+           <br/>
+           <br/>
+           Notice that Java arrays and Python lists are implementations of the mathematical concept of a finite sequence where the domain is the set of \(i\) values \(\{0, 1, \ldots , n \}\) for some natural number \(n.\)
+           <br/>
+           <br/>
+           An
+           <strong>
+            infinite sequence
+           </strong>
+           is a sequence that is not a finite sequence, that is, the there are infinitely many \(i\) values that make sense as inputs for the sequence. For example the sequence \[ \text{isOdd}_{i} = \begin{cases}
+\text{1} &amp; \text{ if } n \text{ is odd} \\
+\text{0} &amp; \text{ if } n \text{ is even} \\
+\end{cases}  \] is an infinite sequence with domain the integers that has only two output values.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_bitstring_definition">
+        <ul>
+         <li>
+          <p>
+           A
+           <strong>
+            bitstring
+           </strong>
+           is a finite sequence of
+the
+           <strong>
+            bits
+           </strong>
+           0 and 1. Bitstrings are written as a string of 0s and 1s without spaces or commas between the terms of the sequence; for example, 01101011 is a bitstring of length 8. Bitstrings can be used to represent a sequence of answers to "Yes-No" or "True-False" questions, with "1" representing "Yes" or "True" and "0" representing "No" or "False."  Bitstrings can also be used to represent numbers in
+           <em>
+            binary notation,
+           </em>
+           which will be discussed in the
+           <a href="./number_bases.html">
+            Number Bases
+           </a>
+           chapter.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_summation_notation_definition">
         <ul>
          <li>
           <p>
            <strong>
             Summation notation
            </strong>
-           is used to abbreviate a
-           <em>
-            finite
-           </em>
-           sum of numbers that contains a large number of addends. As an example, the sum \(1+3+5+7+9+11+13+15+17+19\) can be abbreviated as \(\sum\limits_{i=0}^{9}(2i+1)\). Likewise,
-the sum of the first \(500\) positive odd integers,
-\(1+3+5+\ldots+995+997+999\), can be abbreviated as  \(\sum\limits_{i=0}^{499}(2i+1)\).
+           is a "shortcut" used to abbreviate a sum of a finite sequence of numbers, called
+           <strong>
+            addends,
+           </strong>
+           when the sequence contains a large number of addends.
+           <br/>
+           As an example, the sum \(1+3+5+7+9+11+13+15+17+19\) is abbreviated as \(\sum\limits_{i=0}^{9}(2i+1)\).
+           <br/>
+           As another example, the sum of the first \(500\) positive odd integers,
+\(1+3+5+\ldots+995+997+999\), is abbreviated as  \(\sum\limits_{i=0}^{499}(2i+1)\).
           </p>
           <div class="ulist">
            <ul>
@@ -1882,24 +2071,38 @@ the sum of the first \(500\) positive odd integers,
               used in
 summation notation
 is called the
-              <em>
+              <strong>
                index of summation
-              </em>
-              . We substitute each integer value for
+              </strong>
+              and the symbol \(\sum\) is the capital Greek letter "sigma." To compute the value of the sum, you generate the sequence of addends by substituting each integer value, starting with the lower limit written below the sigma and stopping at the upper limit written above the sigma, for
               <em>
-               i,
+               i
               </em>
-              starting with the lower limit and stopping at the upper limit, into the algebraic expression or function written to the right of the capital Greek letter \(\sum\),
-"sigma".
+              into the algebraic expression or function written to the right of sigma, then find the sum of all the numbers in the sequence.
              </p>
             </li>
             <li>
              <p>
               NOTE 2: "Infinite sums," more properly called
-              <em>
+              <strong>
                infinite series,
-              </em>
-              are not discussed in this discrete mathematics textbook. Each infinite series is defined as the limit of its sequence of partial (finite) sums, and "limits" is a topic from continuous mathematics, not discrete mathematics.
+              </strong>
+              are not discussed in the Remix. The sum of an infinite series is defined as the limit of its sequence of partial (finite) sums, and "limits" is a topic from continuous mathematics, not discrete mathematics.
+              <br/>
+              <span class="small">
+               Another use of infinite sum notation is to represent the
+               <strong>
+                generating function
+               </strong>
+               of a sequence, which is discussed in some discrete mathematics textbooks but not in the Remix. If you want to learn about generating functions, you can read about them in Oscar Levin’s
+               <a href="https://discrete.openmathbooks.org/dmoi4/sec_addtops-genfun.html">
+                <em>
+                 Discrete Mathematics: An Open Introduction,
+                </em>
+                4th edition
+               </a>
+               .
+              </span>
              </p>
             </li>
            </ul>
@@ -1907,7 +2110,7 @@ is called the
          </li>
         </ul>
        </div>
-       <div class="ulist">
+       <div class="ulist" id="informal_recursion_definition">
         <ul>
          <li>
           <p>
@@ -1982,7 +2185,7 @@ is called the
          </div>
         </div>
        </div>
-       <div class="ulist">
+       <div class="ulist" id="informal_recurrence_relation_definition">
         <ul>
          <li>
           <p>
@@ -2127,7 +2330,7 @@ is called the
          </div>
         </div>
        </div>
-       <div class="ulist">
+       <div class="ulist" id="informal_proposition_definition">
         <ul>
          <li>
           <p>
@@ -2179,7 +2382,7 @@ Notice that the output of the predicate is a
          </li>
         </ul>
        </div>
-       <div class="ulist">
+       <div class="ulist" id="informal_algorithm_definition">
         <ul>
          <li>
           <p>
@@ -2323,7 +2526,7 @@ commands and statements that describe a process for completing a task.
                  <em>
                   q
                  </em>
-                 is the quotient, that is, the number of times step 2 was executed.
+                 is the quotient, that is, the number of times each of the two assignments under step 2 was executed.
                 </p>
                </li>
                <li>
@@ -2788,6 +2991,35 @@ because \(10 = 5 \cdot 2.\) As another example, \(-2\) is a factor of 10, and 10
         <ul>
          <li>
           <p>
+           Two integers
+           <em>
+            a
+           </em>
+           and
+           <em>
+            b
+           </em>
+           are called
+           <strong>
+            relatively prime
+           </strong>
+           if the only common positive integer factor of
+           <em>
+            a
+           </em>
+           and
+           <em>
+            b
+           </em>
+           is 1; this is equaivalent to stating that the two integers do not share any prime factors. For example, 10 and 21 are relatively prime integers.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_relation_definition">
+        <ul>
+         <li>
+          <p>
            A
            <strong>
             relation
@@ -2972,7 +3204,7 @@ because \(10 = 5 \cdot 2.\) As another example, \(-2\) is a factor of 10, and 10
          </li>
         </ul>
        </div>
-       <div class="ulist">
+       <div class="ulist" id="informal_graph_definition">
         <ul>
          <li>
           <p>
@@ -2994,13 +3226,15 @@ because \(10 = 5 \cdot 2.\) As another example, \(-2\) is a factor of 10, and 10
            <strong>
             edges.
            </strong>
-           Graphs are often represented by a drawing like the ones shown in the following examples, but you can also represent a graph in other ways that are easier to use in code; this will be discussed in the
+           Graphs are often represented by drawings like the ones shown in the following examples, but you can also represent a graph in other ways that are easier and more efficient to use in code; this will be discussed in the
            <a href="./graphs.html">
             Graphs
            </a>
-           chapter. It is very important to remember that a graph is NOT the same as a drawing of the graph; in fact, a graph can usually be drawn in many different ways that may look very different. What is important is not the drawing, but the connections between the vertices that are represented by the edges.
+           chapter.
            <br/>
-           Notice that the drawing of a graph is not treated like a geometric polygon: The only two points "on an edge" are the edge’s endpoints! Edges are just connectors between vertices and the points along an edge are ignored. Also, in a drawing of a graph, the lengths of the edges and the straightness or curvedness of the edges are not important, just the connections between the edges' endpoints.
+           <br/>
+           The drawing of a graph is not treated like a geometric polygon: The only two points "on an edge" are the edge’s endpoints. Edges are just connectors between vertices and points that are not indicated as endpoints of an edge are ignored. Also, in a drawing of a graph, the lengths of edges and the straightness or curvedness of edges are not important, just the connections between the edges' endpoints.
+           <br/>
           </p>
          </li>
         </ul>
@@ -3017,10 +3251,47 @@ because \(10 = 5 \cdot 2.\) As another example, \(-2\) is a factor of 10, and 10
            <strong>
             vertex-edge graph
            </strong>
-           to distinguish this type of graph from graphs of equations, functions, or statistical data.
+           to distinguish this type of graph from graphs (that is, plots of points in the \(xy\)-plane) for equations, functions, or statistical data.
           </td>
          </tr>
         </table>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example - Two Drawings of One Graph
+          </div>
+          <p>
+           Keep in mind that a graph is NOT the same as a
+           <em>
+            drawing
+           </em>
+           of the graph. In fact, a graph can usually be drawn in many different ways that may look very different. What is important is
+the connections, represented by the edges, between pairs of vertices.
+          </p>
+         </div>
+         <div class="imageblock right text-center">
+          <div class="content">
+           <img alt="Isomorphism2av2notComplete" height="147" src="imagesMKD/Isomorphism2av2notComplete.png" width="290"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           In the image, two different drawings are shown for the same graph.
+Notice that in each drawing, the connections between pairs of vertices are the same: The only pair of vertices that is
+           <span class="underline">
+            not
+           </span>
+           connected by an edge is \(\{ C, D \}.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Also notice that there is no vertex drawn where the two edges cross in the 1st drawing on the left, so this graph has 4 exactly vertices: \(A,\) \(B,\) \(C,\) and \(D.\)
+          </p>
+         </div>
+        </div>
        </div>
        <div class="sidebarblock">
         <div class="content">
@@ -3034,12 +3305,12 @@ because \(10 = 5 \cdot 2.\) As another example, \(-2\) is a factor of 10, and 10
          </div>
          <div class="imageblock right text-center">
           <div class="content">
-           <img alt="GraphWithSixNodes" height="155" src="imagesMKD/GraphWithSixNodes.png" width="280"/>
+           <img alt="GraphWithSevenNodesv2" height="155" src="imagesMKD/GraphWithSevenNodesv2.png" width="280"/>
           </div>
          </div>
          <div class="paragraph">
           <p>
-           Here is a graph that represents whether pairs of students are enrolled in at least one class together. Each of the 6 vertices represents a student, and each of the 7 edges represents a pair of students who are enrolled in a class together.
+           Here is a graph that represents whether pairs of students are enrolled in at least one class together. Each of the 7 vertices represents a student, and each of the 7 edges represents a pair of students who are enrolled in a class together.
 The graph indicates that Adil and Elias are enrolled in at least one class together and that Elias and Maya are enrolled in at least one class together.
            <br/>
           </p>
@@ -3081,6 +3352,54 @@ The graph indicates that Adil and Elias are enrolled in at least one class toget
           <div class="content">
            <div class="click_oblique">
             Can you imagine two different scenarios, one where the answer is "Yes" and another where the answer is "No"?
+           </div>
+          </div>
+         </div>
+         <div class="openblock question">
+          <div class="title">
+           Question
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            The vertex for Li has
+            <strong>
+             degree
+            </strong>
+            2 because it occurs as an endpoint of an edge 2 times. Can you determine how many classes Li is enrolled in from the graph?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Remember that an edge indicates that the pair of students at the endpoints are enrolled in at least one class together.
+           </div>
+          </div>
+         </div>
+         <div class="openblock question">
+          <div class="title">
+           Question
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Chris is represented by an
+            <strong>
+             isolated vertex
+            </strong>
+            that is not the endpoint of any edge (so that vertex has degree 0.) Does this mean that Chris is enrolled only in Independent Studies classes with no other students?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Think carefully about what an edge represents in this graph.
            </div>
           </div>
          </div>
@@ -3159,7 +3478,7 @@ The graph indicates that Adil and Elias are enrolled in at least one class toget
       </div>
       <div class="sect3">
        <h4 id="_on_demand_math_resources_and_library_of_functions_appendices">
-        2.2.3. On-Demand Math Resources and Library Of Functions Appendices
+        1.2.3. On-Demand Math Resources and Library Of Functions Appendices
        </h4>
        <div class="paragraph">
         <p>
@@ -3169,7 +3488,7 @@ The graph indicates that Adil and Elias are enrolled in at least one class toget
       </div>
       <div class="sect3">
        <h4 id="_do_i_need_to_know_how_to_program_in_python">
-        2.2.4. Do I Need To Know How To Program In Python?
+        1.2.4. Do I Need To Know How To Program In Python?
        </h4>
        <div class="paragraph">
         <p>
@@ -3196,7 +3515,7 @@ It is NOT one of the goals of this textbook to teach you Python, but instead
      </div>
      <div class="sect2">
       <h3 id="_applications_of_discrete_mathematics">
-       2.3. Applications of Discrete Mathematics
+       1.3. Applications of Discrete Mathematics
       </h3>
       <div class="paragraph">
        <p>
@@ -3215,7 +3534,7 @@ the social sciences.
       </div>
       <div class="sect3">
        <h4 id="_applications_to_applied_mathematics">
-        2.3.1. Applications to Applied Mathematics
+        1.3.1. Applications to Applied Mathematics
        </h4>
        <div class="paragraph">
         <p>
@@ -3237,7 +3556,7 @@ representative subset of the planar region.
       </div>
       <div class="sect3">
        <h4 id="_applications_to_information_technology_and_computer_science">
-        2.3.2. Applications to Information Technology and Computer Science
+        1.3.2. Applications to Information Technology and Computer Science
        </h4>
        <div class="paragraph">
         <p>
@@ -3276,7 +3595,7 @@ could be:
       </div>
       <div class="sect3">
        <h4 id="_applications_to_data_science">
-        2.3.3. Applications to Data Science
+        1.3.3. Applications to Data Science
        </h4>
        <div class="paragraph">
         <p>
@@ -3320,7 +3639,7 @@ classification, including methods from probability.
       </div>
       <div class="sect3">
        <h4 id="_applications_to_engineering">
-        2.3.4. Applications to Engineering
+        1.3.4. Applications to Engineering
        </h4>
        <div class="paragraph">
         <p>
@@ -3341,7 +3660,7 @@ processing the digital signal mathematically.
       </div>
       <div class="sect3">
        <h4 id="_applications_of_combinatorics">
-        2.3.5. Applications of Combinatorics
+        1.3.5. Applications of Combinatorics
        </h4>
        <div class="paragraph">
         <p>
@@ -3373,7 +3692,7 @@ computational cost  of the algorithm as a function of \(𝑛\).
       </div>
       <div class="sect3">
        <h4 id="_applications_of_graph_theory">
-        2.3.6. Applications of Graph Theory
+        1.3.6. Applications of Graph Theory
        </h4>
        <div class="paragraph">
         <p>
@@ -3470,7 +3789,7 @@ using a software solution.
       </div>
       <div class="sect3">
        <h4 id="_applications_of_probability_and_statistics">
-        2.3.7. Applications of Probability and Statistics
+        1.3.7. Applications of Probability and Statistics
        </h4>
        <div class="paragraph">
         <p>
@@ -3506,7 +3825,7 @@ and the dependent variable would be \(Y\), classified as \(0\), or \(1\),
       </div>
       <div class="sect3">
        <h4 id="_applications_to_social_sciences">
-        2.3.8. Applications to Social Sciences
+        1.3.8. Applications to Social Sciences
        </h4>
        <div class="paragraph">
         <p>
@@ -3549,6 +3868,138 @@ wins \(2\) out of \(10\) districts, but in scenario \(B\) it wins \(7\)  out of 
          </div>
         </div>
        </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_links_to_the_informal_definitions_in_this_chapter">
+       1.4. Links to the Informal Definitions in this Chapter
+      </h3>
+      <div class="paragraph" id="links_to_informal_definitions">
+       <p>
+        For your reference in the future, here are direct links to the foundational ideas discussed in this section.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_set_definition">
+         Sets
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_one_to_one_correspondence_definition">
+         One-to-one correspondence
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_natural_numbers_definition">
+         Natural Numbers
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_finite_set_definition">
+         Finite and infinite sets
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_counting_definition">
+         Counting
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_counting_definition">
+         Multiplication Principle
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_counting_definition">
+         Pigeonhole Principle
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_function_definition">
+         Functions
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_sequence_definition">
+         Sequences
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_bitstring_definition">
+         Bitstrings
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_summation_notation_definition">
+         Summation Notation
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_recursion_definition">
+         Recursion
+        </a>
+        <a href="./introduction_discrete_math.html#informal_recurrence_relation_definition">
+         Recurrence Relations
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_proposition_definition">
+         Propositions
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_predicate_definition">
+         Predicates
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_algorithm_definition">
+         Algorithms
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_relation_definition">
+         Relations
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_graph_definition">
+         Graphs and trees
+        </a>
+       </p>
       </div>
      </div>
     </div>

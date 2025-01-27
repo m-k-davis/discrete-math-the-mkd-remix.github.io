@@ -1,9 +1,9 @@
 = Logic
 
-//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 30, 2024._ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+_This chapter was last updated on January 15, 2025._ + 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 
 //COMING SOON!
@@ -14,12 +14,6 @@ _This chapter was last updated on September 30, 2024._ +
 // \lor for \vee
 // \\rightarrow for \implies (made this change - Both Rosen and Haggard, Schlipf, and Whitesides use \\rightarrow; Liben-Nowell uses \\Rightarrow which is shorter than \implies)
 // \leftrightarrow for \iff (made this change - Both Rosen and Haggard, Schlipf, and Whitesides use \leftrightarrow; Liben-Nowell uses \iff)
-
-// MKD added the following introductory text about how logic is used in computer science: circuit design, validation of algorithms, etc.
-*Logic* is the study of reasoning. Logic is used to create, analyze, and validate *arguments,* where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument. 
-//Two applications of logic to computer science are correct and efficient design of electronic circuits and validation of algorithms and programs.
-
-Among the applications of logic to computer science are design of electronic circuits and validation of algorithms and programs.
 
 ////
 LOGIC (GGC04)
@@ -61,6 +55,61 @@ DS2008/BasicLogic	Normal forms (conjunctive and disjunctive)
 DS2013/Basic Logic	Validity of well-formed formula
 DS2008/BasicLogic	Validity
 ACM_CCECC_2005/Logic and Boolean algebra	Boolean algebra and Boolean circuits
+
+LOGIC - January 2025
+DS2013/Basic Logic	Propositional logic
+DS2013/Basic Logic	Logical connectives
+DS2013/Basic Logic	Truth tables
+DS2013/Basic Logic	Normal forms (conjunctive and disjunctive)
+DS2013/Basic Logic	Validity of well-formed formula
+DS2013/Basic Logic	Propositional inference rules (concepts of modus ponens and modus tollens)
+DS2013/Basic Logic	Predicate logic
+DS2013/Basic Logic	Predicate logic: Universal and existential quantification
+DS2013/Basic Logic	Limitations of propositional and predicate logic (e.g., expressiveness issues)
+DS2013/Basic Logic	Limitations of propositional and predicate logic (e.g., expressiveness issues)
+DS2008/ProofTechniques	Notions of implication, converse, inverse, contrapositive, negation, and contradiction
+DS2008/BasicLogic	Propositional logic
+DS2008/BasicLogic	Logical connectives
+DS2008/BasicLogic	Truth tables
+DS2008/BasicLogic	Normal forms (conjunctive and disjunctive)
+DS2008/BasicLogic	Validity
+DS2008/BasicLogic	Predicate logic
+DS2008/BasicLogic	Universal and existential quantification
+DS2008/BasicLogic	Modus ponens and modus tollens
+DS2008/BasicLogic	Limitations of predicate logic
+DS2008/ProofTechniques	Notions of implication, converse, inverse, contrapositive, negation, and contradiction
+MSF-Discrete_2023	6. Logic: truth tables, connectives (operators), inference rules, formulas, normal forms, simple predicate logic
+ACM_CCECC_2005/Logic and Boolean algebra	truth tables
+ACM_CCECC_2005/Logic and Boolean algebra	propositional calculus
+ACM_CCECC_2005/Logic and Boolean algebra	Boolean algebra and Boolean circuits
+
+DS2013/Basic Logic	Propositional logic
+DS2013/Basic Logic	Logical connectives
+DS2013/Basic Logic	Truth tables
+DS2013/Basic Logic	Normal forms (conjunctive and disjunctive)
+DS2013/Basic Logic	Validity of well-formed formula
+DS2013/Basic Logic	Propositional inference rules (concepts of modus ponens and modus tollens)
+DS2013/Basic Logic	Predicate logic
+DS2013/Basic Logic	Predicate logic: Universal and existential quantification
+DS2013/Basic Logic	Limitations of propositional and predicate logic (e.g., expressiveness issues)
+DS2013/Proof Techniques	Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction
+DS2008/BasicLogic	Propositional logic
+DS2008/BasicLogic	Logical connectives
+DS2008/BasicLogic	Truth tables
+DS2008/BasicLogic	Normal forms (conjunctive and disjunctive)
+DS2008/BasicLogic	Validity
+DS2008/BasicLogic	Predicate logic
+DS2008/BasicLogic	Universal and existential quantification
+DS2008/BasicLogic	Modus ponens and modus tollens
+DS2008/BasicLogic	Limitations of predicate logic
+DS2008/ProofTechniques	Notions of implication, converse, inverse, contrapositive, negation, and contradiction
+MSF-Discrete_2023	6. Logic: truth tables, connectives (operators), inference rules, formulas, normal forms, simple predicate logic
+ACM_CCECC_2005/Logic and Boolean algebra	truth tables
+ACM_CCECC_2005/Logic and Boolean algebra	propositional calculus
+ACM_CCECC_2005/Logic and Boolean algebra	Boolean algebra and Boolean circuits
+
+
+
 MKD: Inference/Modus ponens/modus tollens are discussed in Proofs chpater
 	DS2013/Basic Logic	Propositional inference rules (concepts of modus ponens and modus tollens)
 	DS2008/BasicLogic	Modus ponens and modus tollens
@@ -82,6 +131,31 @@ Additional ideas
 	so that ALL can be done with NANDs or NORs	
     	
 ////
+
+
+// MKD added the following introductory text about how logic is used in computer science: circuit design, validation of algorithms, etc.
+*Logic* is the study of reasoning. Logic is used to create, analyze, and validate *arguments,* where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument. 
+//Two applications of logic to computer science are correct and efficient design of electronic circuits and validation of algorithms and programs.
+
+Among the applications of logic to computer science are design of electronic circuits and validation of algorithms and programs.
+
+Key terms and concepts covered in this chapter:
+
+* Propositional logic
+* propositional calculus
+* Logical connectives (operators)
+* Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction
+* Truth tables
+* Normal forms (conjunctive and disjunctive)
+* Validity of well-formed formula
+* Validity
+* Propositional inference rules (concepts of modus ponens and modus tollens)
+* Modus ponens and modus tollens
+* Predicate logic
+** Universal and existential quantification
+* Limitations of propositional and predicate logic (e.g., expressiveness issues)
+* Limitations of predicate logic
+* Boolean algebra and Boolean circuits
 
 
 == Propositional Logic

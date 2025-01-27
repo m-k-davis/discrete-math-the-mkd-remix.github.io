@@ -1,9 +1,9 @@
 = Counting: Permutations and Combinations
 
-//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on September 12, 2024._ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+_This chapter was last updated on January 16, 2025._ + 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 ////
 AUG 2024 update on topics (basic counting)
@@ -35,6 +35,24 @@ Solving recurrence relations: The Master theorem
 AUG 2024 update on topics (modular arithmetic) 
 MKD: MOVED TO Relations -use treatment similar to Haggard Schlipf Whitesides 
 Basic modular arithmetic
+
+COUNTING II - January 2025
+DS2013/Basics of Counting	Permutations and combinations: Basic definitions
+DS2013/Basics of Counting	Permutations and combinations: Pascal’s identity
+DS2013/Basics of Counting	Permutations and combinations: The binomial theorem
+DS2008/BasicsOfCounting	Permutations and combinations
+DS2008/BasicsOfCounting	Basic definitions
+DS2008/BasicsOfCounting	Pascal’s identity
+DS2008/BasicsOfCounting	The binomial theorem
+DS2001/Basics of counting	Permutations and combinations: Basic definitions
+DS2001/Basics of counting	Permutations and combinations: Pascal’s identity
+DS2001/Basics of counting	Permutations and combinations: The binomial theorem
+ACM_CCECC_2005/Combinatorics	binomials
+ACM_CCECC_2005/Combinatorics	counting arguments
+ACM_CCECC_2005/Combinatorics	discrete probability
+ACM_CCECC_2005/Combinatorics	combinations and permutations
+ACM_CCECC_2005/Combinatorics	pigeon-hole principle
+
 
 // MKD notes 
 //	1. Arithmetic and geometric progressions are covered in Algebra Ⅰ in the Common Core, so Remix can simply "review" this material - put it in the Just-In-Time appendix 
@@ -92,6 +110,20 @@ Many problems can be solved by counting the number of possible outcomes when cho
 Some of these problems involve choosing an _ordered sequence_ of $r$ elements while other problems involve choosing a _subset_ of $r$ elements. 
 
 This chapter presents techniques for doing this type of counting. These techniques are built on the ones you studied in the link:./counting_arithmetic.html[Counting: Arithmetic Techniques] chapter.
+
+
+
+Key terms and concepts covered in this chapter:
+
+* Permutations and combinations
+** Basic definitions
+** Pascal’s identity
+** The binomial theorem
+* binomials
+// ACM_CCECC_2005/Combinatorics	binomials
+// ACM_CCECC_2005/Combinatorics	counting arguments
+// ACM_CCECC_2005/Combinatorics	combinations and permutations
+// ACM_CCECC_2005/Combinatorics	pigeon-hole principle
 
 
 // MKD new section Sept 8 2024

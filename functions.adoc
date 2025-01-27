@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on October 7, 2024._
+_This chapter was last updated on January 23, 2025._
 
 // MKD start of topics
 ////
@@ -35,6 +35,14 @@ DS2008/FunctionsRelationsAndSets	Functions (surjections, injections, inverses, c
 ACM_CCECC_2005/Sets, relations, functions, congruences	functions including injective, surjective, inverse, composition, domain, co-domain, range
 DS2008/FunctionsRelationsAndSets	Pigeonhole principle
 
+FUNCTIONS - January 2025
+DS2013/Sets, Relations, and Functions	Functions: Surjections, injections, bijections
+DS2013/Sets, Relations, and Functions	Functions: Inverses
+DS2013/Sets, Relations, and Functions	Functions: Composition
+DS2008/FunctionsRelationsAndSets	Functions (surjections, injections, inverses, composition)
+DS2008/FunctionsRelationsAndSets	Pigeonhole principle
+ACM_CCECC_2005/Sets, relations, functions, congruences	functions including injective, surjective, inverse, composition, domain, co-domain, range
+MSF-Discrete_2023	1. Sets, relations, functions, cardinality
 
 
 
@@ -87,7 +95,22 @@ a function $f$ from set _D_ to set _C_ is a rule that assigns to each input elem
 //This informal definition was introduced in <<introduction_discrete_math.adoc#informal_function_definition,the Introducing Discrete Mathematics>>  chapter.
 
 Notice that the informal definition states that _every_ element in the domain _D_ is assigned an output value in the codomain _C._ #The informal definition does not specify whether _every_ element in the codomain _C_ is an output for some input in the domain _D._# 
-The previous highlighted sentence may seem unimportant since we usually only care about the outputs we can actually get from a function, but the following example attempts to show why it is important to be precise about what set the codomain is. 
+//The previous highlighted sentence may seem unimportant since we usually only care about the outputs we can actually get from a function, but the following example attempts to show why it is important to be precise about what set the codomain is. 
+The previous, highlighted sentence may seem unimportant since we usually only care about the outputs we can actually get from a function, but the example presented in the next section shows why it is important to be precise about what set the codomain is. 
+
+
+Key terms and concepts covered in this chapter:
+
+* Functions
+** Domain
+** Codomain
+** Range
+* Properties of functions (injectivity, surjectivity, bijectivity)
+//** The (generalized) pigeonhole principle
+** A bijective function is the same as a one-to-one correspondence
+* Inverse functions
+* Composition of functions
+
 ////
 //;_ 
 //that is, some elements of _C_ may not be output values.
@@ -98,6 +121,14 @@ but the following example shows how it can make a
 //huge 
 difference.  
 ////
+
+
+// MKD made example into its own section January 15, 2025
+== Why Knowing the Codomain is Important
+
+//The following example compares two implementations of what should be the "same" function but using different codomains. You will see how the different codomains effect how the functions' outputs can be used.
+The following example compares two implementations of what would seem to be the "same" function: The input values are the same, and the description of how to compute outputs seems to be the same, but the codomains are different which effects how the output values can be used.
+
 
 // MKD inserted python floor example and java floor example HERE!
 :pt_code_height: 350
@@ -161,7 +192,9 @@ To step through the code, click on the "Next" button.
 include::python_tutor.adoc[]	
 
 
-Now notice that in the Java code below, that the return value from the floor() function is a _double_ which we cannot use as an index into array L without error. We must first use another function to cast the _double_ to type _int_ to get the correct data type for an array index.
+Now notice that in the Java code below, that the return value from the floor() function is a _double_ which we cannot use as an index into array L without error. 
+//#We must first use another function to cast the _double_ to type _int_ to get the correct data type for an array index.#
+#We must use a composition of functions (Java's floor() function followed by the function that casts an input of type _double_ to an output of type _int_) to get the correct data type for an array index.#
 
 //Someone new to Java may be surprised by this since its easy to think that each int can be represented as a double, but the data type matters here.
 
@@ -215,7 +248,18 @@ The formal definition given in the next section will let us distinguish between 
 //The formal definition given in the next section will let us distinguish between two functions that use the _same_ rule and have the _same_ set of input values but _different_ sets of output values. 
 //The following code examples illustrate show why this is important.
 
+////
+Key terms and concepts covered in this chapter:
 
+* Functions
+** Domain
+** Co-domain and Range, and how they differ
+* Properties of functions (injectivity, surjectivity, bijectivity)
+** A bijective function is the same as a one-to-one correspondence
+* Inverse functions
+* Composition of functions
+* The generalized pigeonhole principle
+////
 
 == A Formal Definition Of Function
 
@@ -246,19 +290,21 @@ appears as the first coordinate of exactly one pair $( a, \, b) \in f.$
 
 That is, $f \subseteq A \times B$ and for each element $a \in A$ there is exactly one $b \in B$ such that $(a,\, b) \in f$. The set $f$ of ordered pairs is called the *graph* of the function. 
 //; it is referred to as the *rule* of the function, also. 
-The set $A$ is called the *domain* of the function and the set $B$ is called the *codomain* of the function.
-[small]#This definition of a function as an ordered triple is based on the  Bourbaki definition in the 1970 book 
+The set $A$ is called the *domain* of the function and the set $B$ is called the *codomain* of the function. + 
+[small]#Note: This definition of a function as an ordered triple is based on the  Bourbaki definition in the 1970 book 
 link:https://link.springer.com/book/10.1007/978-3-540-34035-5[Théorie des ensembles.]#
 //https://link.springer.com/book/10.1007/978-3-540-34035-5
 ****
 
 
-
+// MKD Jan 23 2025 inserted first sentence
+Why would we need such a highly technical formal definition? 
 #The reason why the ordered triple is used in the definition is that we need to be able to distinguish two functions that have the same graph 
 //by specifying the codomain. 
 but different codomains.# 
-Note that if two functions have the same graph then they must have the same domain, but they could still have different codomains.
-
+//Note that if two functions have the same graph then they must have the same domain, but they could still have different codomains.
+// MKD Jan 23 2025 revision
+Two functions can have different codomains even if their graphs, as sets of ordered pairs, are the same set (Notice that having the same graph implies that they have the same domain, too.) If this is not clear, see the example "Three closely-related functions, no two of which are equal," which comes after the definitions listed below.
 
 //MKD need example from R to R here to illustrate that the graph is what you typically plot as points in the _xy_-plane.
 
@@ -614,7 +660,7 @@ In link:appendix_library.html[Appendix: Library of Functions], several functions
 the important concepts of functions, including domain, codomain, range, and invertibility.
 
 
-MORE TO COME!!
+//MORE TO COME!!
 
 ////
 //MKD examples and compostion, etc begins
@@ -749,7 +795,7 @@ image::images/min.png[geometricsequence,1000,1000]
 --
 
 ****
-
+////
 
 == The Algebra of Functions
 
@@ -934,6 +980,7 @@ or $g:11\rightarrow 2$.
 //== Applications of Functions
 //#MKD needs to write this section!#
 
+////
 
 ////
 	pigeonhole Principle
@@ -957,8 +1004,12 @@ or $g:11\rightarrow 2$.
 ////
 
 
-////
 == Exercises
+
+Remixer's Note: This section is taken from the original 
+https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with only minor changes.
+
+
 . What can be said about the relation $f:A\rightarrow B$, if
 .. $\exists z\in B\forall x\in A,f\left(x\right)\neq z$
 .. $\exists x,y \in A, \exists z\in B,\left(x\neq y\right)\bigwedge\left(f\left(x\right)=f\left(y\right)=z\right)$
@@ -1043,5 +1094,3 @@ increasing* if whenever asciimath:[x<y], then asciimath:[f(x)<f(y)].
 
 .. State this using logical quantifiers.
 .. State a similar definition for a *strictly decreasing* function, and then translate using logical quantifiers.
-
-////

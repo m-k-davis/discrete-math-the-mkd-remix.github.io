@@ -1,9 +1,9 @@
 = Proofs: Basic Techniques
 
-//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on October 6, 2024 (fixed subscript typo in proof of Generalized Pigeonhole Principle)_ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+_This chapter was last updated on January 15, 2025_ + 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 
 //MKD: Need to add info on Rules of Inference
@@ -78,6 +78,25 @@ DS2008/ProofTechniques	Proof by contradiction
 ACM_CCECC_2005/Other proof techniques	proofs by counter example, contrapositive, and contradiction
 ACM_CCECC_2005/Other proof techniques	logical equivalence and circles of implication
 
+PROOF TECHNIQUES - January 2025
+DS2013/Proof Techniques	Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction
+DS2013/Proof Techniques	The structure of mathematical proofs
+DS2013/Proof Techniques	Direct proofs
+DS2013/Proof Techniques	Disproving by counterexample
+DS2013/Proof Techniques	Proof by contradiction
+DS2008/ProofTechniques	Notions of implication, converse, inverse, contrapositive, negation, and contradiction
+DS2008/ProofTechniques	The structure of mathematical proofs
+DS2008/ProofTechniques	Direct proofs
+DS2008/ProofTechniques	Proof by counterexample
+DS2001/Proof techniques	Proof by contraposition
+DS2008/ProofTechniques	Proof by contradiction
+MSF-Discrete_2023	3. Proof techniques (induction, proof by contradiction)
+MSF-Discrete_2023	6. Logic: truth tables, connectives (operators), inference rules, formulas, normal forms, simple predicate logic
+ACM_CCECC_2005/Other proof techniques	direct proof
+ACM_CCECC_2005/Other proof techniques	proofs by counter example, contrapositive, and contradiction
+ACM_CCECC_2005/Other proof techniques	logical equivalence and circles of implication
+
+
 Also see 	Proof Templates (slides 10-12) and (Jose Ortiz sets slides 35-40)
 		these are in chapter 1 of Haggard,Schlipf, and Whitesides
 
@@ -110,6 +129,21 @@ An argument is *valid* if it is of a form such that if all premises are True the
 A *proof* is a valid argument made up of propositions. In a proof, some premises may be *axioms* or *postulates,* which are propositions that we simply ASSUME to be True. Other premises used in a proof may be previously-proven propositions called *theorems.* There are many other terms used for theorems depending on the context, such as *lemma* (a minor theorem needed to prove a more important major theorem) and *corollary* (a theorem that is a conclusion based on a premise that is a more important theorem), 
 //etc., 
 but each of these specialized terms describes a theorem.
+
+
+Key terms and concepts covered in this chapter:
+
+* Propositional inference rules (concepts of modus ponens and modus tollens)
+** Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction
+* The structure of mathematical proofs
+* Proof techniques (induction, proof by contradiction)
+** Direct proofs
+** Proof by counterexample (Disproving by counterexample)
+** Proof by contraposition (proof by contrapositive)
+** Proof by contradiction
+* logical equivalence and circles of implication
+
+
 
 //You will see later in this chapter that in many proofs, we ASSUME that some premises are True and may prove other premises along the way before reaching the final conclusion.
 

@@ -1,8 +1,9 @@
 = Introducing Discrete Mathematics
 
-_This chapter was last updated on August 28, 2024 (added water glass example and link to video about $\pi$ to section 2.1)_ + 
+_This chapter was last updated on January 26, 2025._ + 
+// (added water glass example and link to video about $\pi$ to section 2.1)_ + 
 //discussion of continuous mathematics and structures in 2.1)._
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 // MKD various sources
 //	https://cacm.acm.org/opinion/lets-not-dumb-down-the-history-of-computer-science/ 
@@ -14,21 +15,25 @@ _This chapter was last updated on August 28, 2024 (added water glass example and
 Welcome to the Remix! I hope this textbook provides you an opportunity for a stimulating and intellectually enjoyable learning experience. 
 
 // MKD musing to help students understand our approach: 
-Mathematics is one of human civilization's greatest tools: It involves pattern noticing, collecting, counting, generalizing, formalizing, and abstracting. The development of mathematics is a continuing work that spans at least 5,000 years and many different peoples and cultures. This development will continue long after you and I are gone - never forget that we are living during an era that will be someone else's Ancient History!
+Mathematics is one of human civilization's greatest tools: It involves pattern noticing, collecting, comparing, counting, generalizing, formalizing, and abstracting. The development of mathematics is a continuing work that spans at least 5,000 years and many different peoples and cultures. This development will continue long after you and I are gone - never forget that we are living during an era that will be someone else's Ancient History!
 
 
 // MKD trying to define Discrete Mathematics 
 //	see also https://philsci-archive.pitt.edu/16561/1/Discrete%20and%20Continuous.pdf and https://www.google.com/search?q=defintion+of+discrete+mathematics+site%3A.edu
 == What is "Discrete Mathematics"? 
 
-There seems to be no universally agreed-upon definition of "discrete mathematics," but I, the remixer, will try to explain what it is. 
+//There seems to be no universally agreed-upon definition of "discrete mathematics," but I, the remixer, will try to explain what it is. 
+There seems to be no universally agreed-upon definition of "discrete mathematics," but I will describe to you my understanding of what the phrase "discrete mathematics" means. 
+//"discrete mathematics" is. 
+//it is using real-world analogies.
+//it is using some analogies.
 
 //MKD old attempt
 //Discrete mathematics is used to study and understand structures built out of individual objects that are naturally separate from other objects in the same structure; such objects can placed into categories and counted. For example, a structure built from individual objects for which questions like "What is the next object in the structure?" or "Which other objects are the closest to this object?" (where "closest" could refer to physical distance or could mean most similar in color or size) or "How many objects in the structure have a certain property?" are the kind of questions that discrete mathematics can address. If this seems vague, think about the following examples.
 // MKD old wall example 
 //A wall made of stone and brick is a structure, and we can use this as an example of a discrete structure. The objects in the discrete structure are the stones and bricks. You can tell individual objects apart, and can classify the objects by type (either stone or brick) or by color or by the how close to the top of the wall the objects are. You can try to count the total number of objects, and you can count the number of objects that are next to any one of the objects you choose. 
 
-Discrete mathematics is the mathematics people use to study and understand structures built from individual objects in a way that the individual objects can still be treated as separate from one another within the structure. In such a structure, the individual objects can put into categories and counted; it makes sense to ask questions like "What is the next object in the structure after this one?" or "Which other objects are the closest to this one?" (where "closest" could refer to physical distance or could mean most similar in color or size) or "How many objects in the structure have a certain property?" Discrete mathematics is a collection of tools that can be used to answer these kind of questions. 
+Discrete mathematics is the mathematics people use to study and understand structures that are built from individual objects in a way that the individual objects can still be treated as separate from one another within the structure. In such a structure, the individual objects can be put into categories and counted; it makes sense to ask questions like "What is the next object in the structure after this one?" or "Which other objects are the closest to this one?" (where "closest" could refer to physical distance or could mean most similar in color or size) or "How many objects in the structure have a certain property?" Discrete mathematics is a collection of tools that can be used to answer these kind of questions. 
 
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,480,307,float="right",align="center"]
 image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,320,205,float="right",align="center"]
@@ -36,23 +41,55 @@ image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,3
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,1920,1227,float="right",align="center"]
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,240,154,float="right",align="center",title="link:https://www.publicdomainpictures.net/en/view-image.php?image=87806&picture=vintage-stone-and-brick-wall[Vintage Stone And Brick Wall] by Paul Brennan. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0]."]
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,240,154,float="right",align="center"]
-As an example, consider a wall, a structure built from individual stones and bricks, part of which is shown in the image to the right. The objects in the structure [underline]#_are_# the stones and bricks. You can still identify individual objects even though they were combined to build the larger structure, and can classify individual objects by type (either stone or brick) or by color or by the how close to the top of the wall the objects are. You can try to count the total number of individual objects, and you can count the number of individual objects that are next to any one object you choose. The wall is a (non-mathematical) example of a *discrete structure.* + 
+As an example, consider a wall, a structure built from individual stones and bricks, part of which is shown in the image to the right. The 
+individual 
+objects in the structure are 
+//[underline]#_are_# 
+the stones and bricks. You can still identify individual objects even though they were combined to build the larger structure, and can classify 
+//the 
+an 
+individual object 
+//s 
+by type (either stone or brick) or by color or by the how close to the top of the wall the object 
+//s are
+is. You can try to count the total number of individual objects, and you can count the number of individual objects that are next to any one object you choose. The wall is a (non-mathematical) example of a *discrete structure.* + 
 [small]#Image credit: link:https://www.publicdomainpictures.net/en/view-image.php?image=87806&picture=vintage-stone-and-brick-wall["Vintage Stone And Brick Wall"] by Paul Brennan. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0].#
 
 //If this seems vague, think about the following examples.
 Here are two more examples of discrete structures.
 
-* The set of humans in a family can be treated as a discrete structure. + 
-We tend to perceive humans as individuals who can be separated from one another, and questions like "Which humans are siblings of this human?" and "Which humans are parents of this human?" and "How many children does this human have?" make sense. 
+//* The set of humans in a family can be treated as a discrete structure. + 
+//We tend to perceive humans as individuals who can be separated from one another, and questions like "Which humans are siblings of this human?" and "Which humans are parents of this human?" and "How many children does this human have?" make sense. 
+* A family of humans can be treated as a discrete structure. + 
+The humans in a family are seen as individuals who can be distinguished from one another. Questions like "Which humans are siblings of this human?" and "Which humans are parents of this human?" and "How many children does this human have?" make sense. 
 * The set of integers, in the usual order, as represented on a number line is a discrete structure. + 
 It makes sense to ask questions like "What is the next integer after -2?" or "What are the integers that are closest to -2?" for this structure. 
 
+Notice that in these examples, the individual objects are of a different nature than the entire structure: Individual bricks and stones aren't considered a wall, individual humans aren't considered a family, and individual integers are not a collection of integers.
+
 //MKD bread or water in a glass as example of "continuous structure"
 //image::imagesMKD/water-glass-13525637587gp.jpg[Water Glass,1920,1272,float="right",align="center"]
-image::imagesMKD/water-glass-13525637587gp.jpg[Water Glass,320,212,float="right",align="center"]
+//image::imagesMKD/water-glass-13525637587gp.jpg[Water Glass,320,212,float="right",align="center"]
 // ALT VERSION: Now consider the water in the glass shown in the image. The water is built from individual molecules but most humans do not perceive the individual molecules: The molecules are so numerous and so densely distributed throughout the water that most humans (except perhaps chemists, physicists, and some engineers) ignore the molecules' individual identities and properties and use _measurement of quantities_ using units such as fluid ounces or milliliters instead of counting the molecules. For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10^24 molecules of water" - who would try to count all those molecules? Notice that the measurement units do not correspond to individual objects that make up the structure. The water in the glass _is_ a structure, but it is not treated the same way as the wall built from stones and bricks. Notice also that the glass container is another structure in which its molecules' individual identities tend to be ignored. + 
-So what kind of structure is not discrete? Consider the water in the glass shown in the image. The water in the glass _is_ a structure, but for most of human history it has not been seen as made up of objects that are of a different nature than the structure. That is, many generations of humans have recognized the difference between a wall and the individual stones and bricks that make up the wall, but likely have perceived water as being made up of... water. This is why humans tend to use _measurement of quantities_ of water, using units such as fluid ounces or milliliters. In our time we humans understand that the water is built from molecules, but because the molecules are so tiny, so numerous, and so densely distributed throughout the structure, we humans (except perhaps chemists, physicists, and some engineers) still ignore the individual molecules and use measurement instead of counting. For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10^24^ molecules of water." Notice that the measurement units do not correspond in any natural way to the individual molecules or groupings of the molecules (unless, perhaps, you are a chemist, physicist, or engineer.) + 
-Notice also that the glass container itself is another structure in which individual molecules tend to be ignored. + 
+//So what kind of structure is not discrete? Consider the water in the glass shown in the image. The water in the glass _is_ a structure, but for most of human history it has not been seen as made up of objects that are of a different nature than the structure. That is, many generations of humans have recognized the difference between a wall and the individual stones and bricks that make up the wall, but likely have perceived water as being made up of... water. This is why humans tend to use _measurement of quantities_ of water, using units such as fluid ounces or milliliters. In our time we humans understand that the water is built from molecules, but because the molecules are so tiny, so numerous, and so densely distributed throughout the structure, we humans (except perhaps chemists, physicists, and some engineers) still ignore the individual molecules and use measurement instead of counting. For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10^24^ molecules of water." Notice that the measurement units do not correspond in any natural way to the individual molecules or groupings of the molecules (unless, perhaps, you are a chemist, physicist, or engineer.) + 
+
+// MKD Jan 22 2025 revision follows
+So what kind of structure is not discrete? 
+
+image::imagesMKD/water-glass-13525637587gp.jpg[Water Glass,320,212,float="right",align="center"]
+Consider the water in the glass shown in the image. The water in the glass _is_ a structure, but for most of human history it has not been seen as made up of objects that are of a different nature than the structure. That is, many generations of humans have recognized the difference between a wall and the individual stones and bricks that make up the wall, but likely have perceived water as being made up of... water. This is why humans tend to use _measurement of quantities_ of water, using units such as fluid ounces or milliliters. 
+//In our time 
+In our current era, 
+we humans understand that the water is built from molecules, 
+which are of a different nature than the water 
+"structure," 
+//, 
+but because the molecules are so tiny, numerous, and densely distributed throughout the structure, we humans (except perhaps some scientists and engineers) 
+//still ignore the individual molecules and use measurement instead of counting. 
+still use measurement instead of counting and ignore the individual molecules. 
+For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10^24^ molecules of water." Notice that the measurement units used do not correspond in any natural way to individual molecules or groupings of individual molecules (unless, perhaps, you are a scientist or engineer.) + 
+//Also, notice that the glass container itself is another structure in which the individuality of molecules tends to be ignored. + 
+Also, notice that the glass container itself is another structure in which the individual molecules tend to be ignored. + 
 [small]#Image credit: link:https://www.publicdomainpictures.net/en/view-image.php?image=27533&picture=water-glass["Water Glass"] by Peter Griffin. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0].#
 
 //On the other hand, continuous mathematics involves quantities that often are densely distributed throughout a structure, for which measurement is more appropriate than counting. 
@@ -61,12 +98,15 @@ Humans use *continuous mathematics* like calculus to study a structure that is b
 //Think of measuring lengths, areas, volumes, intervals of time... all of these tend to measured using _units,_ but the units do not correspond to individual objects that make up the structure. 
 
 * The set of real numbers, in the usual order, as represented on a number line is NOT a discrete structure. + 
-It does NOT makes sense to ask about "the next real number after $\pi$ on the number line" because if we think _c_ is the _"best candidate"_ for "the next real number after $\pi$ on the number line" then the number $c_{1} = \frac{c+\pi}{2},$ which is the midpoint of the interval with endpoints _c_ and $\pi,$ is closer to $\pi$ than is _c,_ so $c_{1}$ is a _better candidate than the "best candidate"_ for "the next real number after $\pi$ on the number line"... that is, the concept "the next real number after $\pi$ on the number line" does not make sense for this structure as such a number cannot exist! Likewise, "the real numbers that are closest to $\pi$" do not exist. + 
- + 
-Instead, "the real numbers that differ from $\pi$ by less than $\epsilon$" makes sense for any positive number $\epsilon$ (The symbol $\epsilon$ is  the Greek letter "epsilon".) By choosing $\epsilon$ as small as we like, we can describe the real numbers that are as close to $\pi$ as needed to use as approximations to $\pi.$ This is why (and how) limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line. + 
-[small]#Note 1: The set of real numbers is called *the continuum* in advanced mathematics courses. + 
+//It does NOT makes sense to ask about "the next real number after $\pi$ on the number line" because if we think _c_ is the _"best candidate"_ for "the next real number after $\pi$ on the number line" then the number $c_{1} = \frac{c+\pi}{2},$ which is the midpoint of the interval with endpoints _c_ and $\pi,$ is closer to $\pi$ than is _c,_ so $c_{1}$ is a _better candidate than the "best candidate"_ for "the next real number after $\pi$ on the number line"... that is, the concept "the next real number after $\pi$ on the number line" does not make sense for this structure as such a number cannot exist! Likewise, "the real numbers that are closest to $\pi$" do not exist. + 
+It does NOT makes sense to ask about "the next real number after $\pi$ on the number line" because if we think _c_ is "the next real number after $\pi$ on the number line" then we can compute the number $c_{1} = \frac{c+\pi}{2},$ which is the midpoint of the interval with endpoints $\pi,$ so $c_{1}$ is closer to $\pi$ than _c_ is, which means $c_{1}$ is a _better candidate_ for "the next real number after $\pi$ on the number line" than _c_ is .... The concept "the next real number after $\pi$ on the number line" does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to $\pi$ over and over again. Likewise, "the real numbers that are closest to $\pi$" do not exist. + 
+//Instead, "the real numbers that differ from $\pi$ by less than $\epsilon$" makes sense for any positive number $\epsilon$ (The symbol $\epsilon$ is  the Greek letter "epsilon".) By choosing $\epsilon$ as small as we like, we can describe the real numbers that are as close to $\pi$ as needed to use as approximations to $\pi.$ This is why (and how) limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line. + 
+Instead, it makes sense to talk about "the real numbers that differ from $\pi$ by less than $\epsilon$" where $\epsilon$ is some positive real number  (The symbol $\epsilon$ is  the Greek letter "epsilon".) By choosing $\epsilon$ as small as we like, we can describe the real numbers that are as close to $\pi$ as needed to use as approximations to $\pi.$ This is why and how limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line. + 
+[small]#Note 1: You could use any other real number instead of $\pi$ in the discussion above because the argument will still be valid. For example, "the next real number after $-2$ on the number line" and "the real numbers that are closest to $-2$ on the number line" do not exist since you can choose numbers that get closer and closer to $-2$ such as $-1,$ $-1.5,$ $-1.75,$ and so on. + 
+//It is important to distinguish what mathematicians mean by "natural number" (nonnegative whole numbers) and "real number" (i.e., a number that can be represented by a decimal expansion) to understand this 
 Note 2: The technique used to justify that "the next real number after $\pi$ on the number line" does not exist is called *proof by contradiction* and will be discussed along with other techniques in the link:./proofs.html[Proofs: Basic Techniques] chapter of this textbook. + 
-Note 3: Is $\pi$ really on the number line? Click link:https://www.youtube.com/watch?v=PFf9d7U2tVA&t=282s[here] to view an artist's explanation about where $\pi$ lies on the number line. Be warned that some of what this artist says (about history, about $\pi$ being equal to 3.14) is not correct, but the visualization still may be helpful to you.#
+Note 3: Is $\pi$ really on the number line? Click link:https://www.youtube.com/watch?v=PFf9d7U2tVA&t=282s[here] to view an artist's explanation about where $\pi$ lies on the number line. Be warned that some of what this artist says (about history, about $\pi$ being equal to 3.14) is not correct, but the visualization still may be helpful to you. + 
+Note 4: FYI, the set of real numbers is called *the continuum* in advanced mathematics courses.#
 
 //
 //https://www.youtube.com/watch?v=PFf9d7U2tVA&t=282s
@@ -131,26 +171,94 @@ Here are some things to orient you.
 
 === How To Use This textbook
 
-The textbook is designed to build on your previous knowledge, and then build new knowledge and understanding by visiting the topics over and over again. In the next subsection, the basis of foundational mathematical ideas  are discussed. You are encouraged to read through [underline]#_all_# of those foundational topics and to work through the Questions and Challenges. 
+The Remix is designed to build on your previous knowledge, and then build new knowledge and understanding by visiting the topics over and over again. In the next subsection, the basis of foundational mathematical ideas are discussed. You are encouraged to read through [underline]#_all_# of those foundational topics and to work through the Questions and Challenges. 
 
 There are two analogies that I, the remixer, like to use here:
 
 * Think of the course presented in the Remix as a language course. + 
-You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then "forgetting" that content later, but still succeed in the course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.
+You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then "forgetting" that content later, but still succeed inthe course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.
 
 * Think of the course presented in the Remix as exercising at a gym. + 
-You will build your strength and awareness about your abilities by working out. It may be tempting to watch others "demonstrate" how to do certain exercises and then choose not to do them yourself, but you are selling yourself short. A physical trainer usually knows already what they are capable of doing, so no compliment is being paid if you tell them "Wow, you're really strong"... the trainer's goal is to get you to say "Wow, [underline]#*I'm*# starting to get really strong!"
+You will build your strength and awareness about your abilities by working out. It may be tempting to watch others "demonstrate" how to do certain exercises and then choose not to do them yourself, but you are selling yourself short. A physical trainer usually knows already what they are capable of doing, so it is no compliment if you tell them "Wow, you're really strong"... the trainer's goal is to get you to say "Wow, [underline]#*I'm*# starting to get really strong!"
 
 
 === Foundations 
 
-Learning discrete mathematics requires putting together old ideas in new ways and adding new ideas to the mix. This subsection highlights some of the old ideas you will need to get the most out of this textbook. Also, you'll find opportunities here to practice with the built-in tools that are part of the textbook.
+Learning discrete mathematics requires putting together old ideas in new ways and adding new ideas to your mix. 
 
+This subsection highlights some of the ideas you will need to work with in order to get the most out of this textbook. Also, you'll find opportunities here to practice with the built-in tools that are part of the textbook. 
 //Here is an informal introduction to some foundational mathematical ideas that will be used throughout the textbook. 
-Some of these ideas may be old for you, but some others will probably be new. To use this textbook effectively, you'll need to be able to work with these ideas with relative ease. If a few of these ideas are brand new to you, that is fine: All of these ideas will be discussed again, much more formally and in greater detail, later in the textbook.
+Some of these ideas may be old for you, but others will probably be new. To use this textbook effectively, you'll need to be able to work with each of these ideas with relative ease. If a few of these ideas are brand new to you, that is fine: All of these ideas will be discussed again, much more formally and in greater detail, later in the textbook.
+
+////
+[[informal_set_definition]]
+[[informal_one_to_one_correspondence_definition]]
+[[informal_rock_paper_scissors]]
+[[informal_natural_numbers_definition]]
+[[informal_finite_set_definition]]
+[[informal_counting_definition]]
+[[informal_function_definition]]
+[[informal_sequence_definition]]
+[[informal_bitstring_definition]]
+[[informal_summation_notation_definition]]
+[[informal_recursion_definition]]
+[[informal_recurrence_relation_definition]]
+[[informal_proposition_definition]]
+[[informal_predicate_definition]]
+[[informal_algorithm_definition]]
+[[informal_relation_definition]]
+[[informal_graph_definition]]
+[[vertex-edge-graphs]]
+////
+
+////
+For your reference, here are links directly to each of the foundational topics in this chapter. 
+
+Sets: link:./introduction_discrete_math.html#informal_set_definition[link]
+
+One-to-one correspondence: link:./introduction_discrete_math.html#informal_one_to_one_correspondence_definition[link]
+
+//link:./introduction_discrete_math.html#informal_rock_paper_scissors[link]
+
+Natural Numbers: link:./introduction_discrete_math.html#informal_natural_numbers_definition[link]
+
+Finite and Infinite sets: link:./introduction_discrete_math.html#informal_finite_set_definition[link]
+
+Counting (Multiplication Principle and the Pigeonhole Principle): link:./introduction_discrete_math.html#informal_counting_definition[link]
+
+Functions: link:./introduction_discrete_math.html#informal_function_definition[link]
+
+Sequences: link:./introduction_discrete_math.html#informal_sequence_definition[link]
+
+Bitstrings: link:./introduction_discrete_math.html#informal_bitstring_definition[link]
+
+Summation Notation: link:./introduction_discrete_math.html#informal_summation_notation_definition[link]
+
+Recursion: link:./introduction_discrete_math.html#informal_recursion_definition[link]
+
+Recurrence Relations: link:./introduction_discrete_math.html#informal_recurrence_relation_definition[link]
+
+Propositions: link:./introduction_discrete_math.html#informal_proposition_definition[link]
+
+Predicates:
+link:./introduction_discrete_math.html#informal_predicate_definition[link]
+
+Algorithms: link:./introduction_discrete_math.html#informal_algorithm_definition[link]
+
+Relations: link:./introduction_discrete_math.html#informal_relation_definition[link]
+
+Graphs and trees: link:./introduction_discrete_math.html#informal_graph_definition[link]
+
+//link:./introduction_discrete_math.html#vertex-edge-graphs[link]
+////
+
+//[[links_to_informal_definitions]]
+//I encourage you to read _all_ of the topics discussed below - don't skip anything, because there may be some new information about one of the old ideas that will be used later in the Remix.
+I encourage you to read _all_ of the topics discussed below. Don't skip anything, even if it looks "old" because there may be some new ways of understanding the old ideas that are introduced and that will be used later in the course.
 
 
 // MKD sets begins
+[[informal_set_definition]]
 * A *set* is an unordered collection of zero or more objects. 
 You can think of a set as a list of the names of the objects included, but we do not care about the order of the names in the list and we do not care if the list contains duplicate names. + 
  + 
@@ -158,10 +266,10 @@ You can think of a set as a list of the names of the objects included, but we do
 An example is the set of the names of the additive primary colors of light which can be written as \[\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}\] 
 which contains exactly three elements: "blue", "green", and "red." It does not matter that "red" appears twice, and it does not matter that the order of the colors in the list "blue", "green", and "red" is different from the order used in the previous set notation. We could define the _same_ set with any other list that contains the same three elements, for example, $\{ \text{"green"},\,\text{"red"},\,\text{"blue"} \}.$ + 
  + 
-As you will see in the link:./set_theory.html[Set Theory] chapter, it is common practice to use uppercase English letters to stand for sets; this is similar to how lowercase letters are used as variables or constants in algebra. For example, you could write \[P = \{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}\] which allows you to refer to the set as _P_ instead of needing to read the list of elements every time you want to talk about the set. This is like using the Greek letter π instead of needing to read off the first few digits of the non-repeating decimal expansion 3.14159265359…. 
+As you will see in the link:./set_theory.html[Set Theory] chapter, it is common practice to use uppercase English letters to stand for sets; this is similar to how lowercase letters are used as variables or constants in algebra. For example, you could write \[P = \{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}\] which allows you to refer to the set as _P_ instead of needing to read the list of elements every time you want to talk about the set. This is like using the Greek letter π instead of needing to read off the first few digits of the non-repeating decimal expansion 3.14159265359… every time you refer to that number. 
 ** NOTE 1: 
 In mathematics, a set like 
-_P_, that is, $\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}$ 
+$P,$ that is, $\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}$ 
 is treated as a _constant,_ so you cannot remove elements or insert new elements once a set has been defined and described. 
 As an example, if you wanted to insert 
 //the names of the additive secondary colors "yellow", "cyan", and "magenta" 
@@ -189,35 +297,90 @@ and so is $\{  \},$ the empty set.
 
 
 // MKD one-to-one correspondence begins
-* A *one-to-one correspondence* between two sets _A_ and _B_ pairs each member of the set _A_ with exactly one member of set _B_, and  each member of set _B_ with exactly one member of set _A._ + 
+[[informal_one_to_one_correspondence_definition]]
+* A *one-to-one correspondence* between two sets _A_ and _B_ 
+//pairs 
+is a pairing of each member of the set _A_ with exactly one member of set _B,_ and each member of set _B_ with exactly one member of set _A._ + 
 //For example, the pairing of each uppercase English letter to its corresponding lowercase English letter is a one-to-one correspondence between the set of uppercase English letters and the set of lowercase English letters. 
 ****
 .Examples - One-To-One Correspondences 
 
 As a first example, the one-to-one correspondence between 
-the set of uppercase English letters and the set of lowercase English letters is represented in the following image. 
+the set of uppercase English letters and the set of lowercase English letters is represented in the image. 
+
+The one-to-one correspondence is described by first choosing an uppercase letter in the upper row and next following the arrow down to the corresponding lowercase letter in the lower row. 
 
 //image::imagesMKD/UpperLowerOneToOneCorrepsondence.PNG[align="center"]
 //image::imagesMKD/UpperLowerOneToOneCorrV2.png[align="center"]
 image::imagesMKD/UpperLowerOneToOneCorrV3.png[align="center"]
 // MKD see BAK file for Python one-to-one correspondence example 
 
-Notice that the arrows in the previous image point in both directions. 
-You can choose any uppercase letter then follow the arrow down to its corresponding lowercase letter, or 
+////
+Notice that the arrows in the image point in both directions. 
+This indicates that 
+//You 
+you 
+can choose any uppercase letter then follow the arrow down to its corresponding lowercase letter, or 
 //and then back to the uppercase letter; 
 you can choose any lowercase letter then follow the arrow up to its corresponding uppercase letter. + 
- + 
 ////
-As a second example, consider the game "Rock-Paper-Scissors."
 
-image::imagesMKD/MKDPlaceholder.png[align="center"]
+//The one-to-one correspondence is described by following the arrows down
+//In this example, the arrows in the image point in both directions to indicate the . 
+
+//The one-to-one correspondence is described by first choosing an uppercase letter in the upper row and next following the arrow down to the corresponding lowercase letter in the lower row. 
+
+Notice that you could choose any lowercase letter then follow the arrow up to its corresponding uppercase letter. This shows that the one-to-one correspondence 
+//has an *inverse function* which is also a one-to-one correspondence. 
+is invertible in the sense that there is a second one-to-one correspondence  that can "undo" what the first one-to-one correspondence does.
+This is why, in this example, the arrows in the image point in both directions: It is natural to interpret the arrow as meaning "change case" in either direction. 
+
+//This shows that the one-to-one correspondence has an *inverse* which is also a one-to-one correspondence.
+ 
+
+In fact, [underline]#every# one-to-one correspondence is a link:./introduction_discrete_math.html#informal_function_definition[function] that has an inverse function. 
+
+[[informal_rock_paper_scissors]]
+image::imagesMKD/THE_GAME_OF_KEN_derivative_v3.png[THE_GAME_OF_KEN_derivative_v3,384,330,float="right",align="center"]
+As a second example, consider the game "rock, paper, scissors."
+The image represents the one-to-one correspondence that pairs each element of the set $\{ \text{"rock"},\,\text{"paper"},\,\text{"scissors"} \}$ with the element of the same set that wins against it. 
+//
+//image::imagesMKD/MKDPlaceholder.png[align="center"]
+//image::imagesMKD/THE_GAME_OF_KEN_derivative_v3.png[THE_GAME_OF_KEN_derivative_v3,512,438,align="center"]
+//image::imagesMKD/THE_GAME_OF_KEN_derivative_v3.png[THE_GAME_OF_KEN_derivative_v3,384,330,float="center",align="center"]
+//image::imagesMKD/THE_GAME_OF_KEN_derivative_v3.png[THE_GAME_OF_KEN_derivative_v3,384,330,float="left",align="center"]
+ + 
+[small]#Image credit: Remixer-created derivative of original work  link:https://commons.wikimedia.org/wiki/File:THE_GAME_OF_KEN.&#95;(1910)&#95;-&#95;illustration&#95;-&#95;page&#95;315.png["THE_GAME_OF_KEN._(1910)_-_illustration_-_page_315.png"]. According to Japanese Copyright Law (June 1, 2018 grant) the copyright on the original work has expired and is as such public domain. Also, the original work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1930.#
+
+For this one-to-one correspondence, it makes sense to use arrows that point in only one direction.  
+//to indicate which hand gesture wins. 
+In the image, all the arrows point to the winner, so each arrow can be read as "loses to," for example "rock loses to paper". + 
+// (but the image could have used arrows that always point to the loser instead.) + 
+[small]#Note 1: A one-to-one correspondence between a set and itself is called a *permutation.* You will see the term "permutation" again, used with a related but different meaning, in the link:./counting_binomial.html[Counting: Permutations and Combinations] chapter. + 
+Note 2: "Rock, paper, scissors" is a modern form of a very old game that appears to date back at least 1,800 years to China during the time of the Han dynasty. You can learn more about the history of "rock, paper, scissors" and other intrasitive games at this  link:https://en.wikipedia.org/wiki/Rock_paper_scissorsl&#35;History[ Wikipedia link]. The image used in the Remix is derived from one that appears in a link:https://www.gutenberg.org/cache/epub/65870/pg65870-images.html&#35;CHAPTER_XXII[book] published in 1910 that describes the Japanese game stone-_ken_ or _jan-ken._#
+
+
+////
+This image represents a one-to-one correspondence that pairs each element of the set $\{ \text{"rock"},\,\text{"paper"},\,\text{"scissors"} \}$ with the element of the same set that wins against it. 
+//In this case, it makes sense to use directed arrows that point in only one direction: The arrowhead points toward the winner. + 
+In this example, it makes more sense to use arrows that point in only one direction. Here, all arrowheads point to the winner (but the example could have used arrowheads that always point to the loser instead.) + 
+[small]#Note 1: A one-to-one correspondence between a set and itself is called a *permutation.* You will see the term "permutation" again, used with a related but different meaning, in the link:./counting_binomial.html[Counting: Permutations and Combinations] chapter. + 
+Note 2: "Rock, paper, scissors" is a modern form of a very old game that appears to date back at least 1,800 years to China during the time of the Han dynasty. You can learn more about the history of "rock, paper, scissors" and other intrasitive games at this  link:https://en.wikipedia.org/wiki/Rock_paper_scissorsl&#35;History[ Wikipedia link]. The image used in the Remix is derived from one that appears in a link:https://www.gutenberg.org/cache/epub/65870/pg65870-images.html&#35;CHAPTER_XXII[book] published in 1910 that describes the Japanese game stone-_ken_ or _jan-ken._#
+////
+
+//https://commons.wikimedia.org/wiki/File:THE_GAME_OF_KEN._(1910)_-_illustration_-_page_315.png
+
 // image should show function mapping 
 //	Rock -> Scissors 
 //	Paper -> Rock
 //	Scissors -> Paper
 // a second image could show hand gestures and the "cyclic" arrows
 
-#MKD NEEDS TO ADD THIS CONTENT ALONG WITH A CORRECT IMAGE!#
+// https://en.wikipedia.org/wiki/Permutation
+// https://en.wikipedia.org/wiki/Bijection
+
+////
+//#MKD NEEDS TO ADD THIS CONTENT ALONG WITH A CORRECT IMAGE!#
 // May want to ONLY use Rock-Paper-Scissors and keep the upper-to-lower in text above example, or as a later code example 
 // Also lay groundwork for Graph Theory with 
 // Rock-Paper-Scissors-Lizard-Spock 
@@ -231,19 +394,17 @@ image::imagesMKD/MKDPlaceholder.png[align="center"]
 // MKD one-to-one correspondence ends
 
 
-// MKD bitstring begins
-* A *bitstring* is a finite sequence of _bits,_ that is, the binary digits 1 and 0. Bitstrings can be used to represent a sequence of answers to "Yes-No" or "True-False" questions. Bitstrings can also be used to represent numbers in _binary notation,_ which will be discussed in the link:./number_bases.html[Number Bases] chapter. 
-//as in the example "There are 10 kinds of people in this world — those who understand binary and those who don’t."
-//MKD maybe say a bit more about binary notation vs. decimal notation? No, put in Number Bases chapter.
-// MKD bitstring ends
-
-
 // MKD natural numbers begins
+[[informal_natural_numbers_definition]]
 // MKD NOTE: Both "Rosen" and "Haggard, Schlipf, and Whitesides" define the natural numbers as $\{ 0,\,1,\,2,\,3,\,\ldots \}$ 
 // MKD ISO 80000-2 ALSO DEFINES NATURAL NUMBERS TO INCLUDE 0
 // "ISO" is the International Organization for Standardization
 * #A *natural number* is one of the _nonnegative integers_.# 
-The letter $\mathbb{N}$ denotes the set of natural numbers, that is, \[\mathbb{N} = \{ 0,\,1,\,2,\,3,\,\ldots \}\] where the three dots are used because we cannot write down the infinitely-long list of natural numbers. 
+The letter $\mathbb{N}$ denotes the set of natural numbers, that is, \[\mathbb{N} = \{ 0,\,1,\,2,\,3,\,\ldots \}\] where the three dots are used because we cannot write down the 
+// MKD reworded Jan 23 2025
+//infinitely-long 
+entire 
+list of natural numbers. 
 ** NOTE: We almost always use the base-ten (decimal) place-value system to represent natural numbers, but later in this textbook you will see that there are 
 //link:./number_bases.html[many other ways to represent numbers,] such as the base-two (binary) place-value system that are useful in some contexts. 
 link:./number_bases.html[other number base systems] such as the base-two (binary) place-value system, that are useful in some contexts. 
@@ -282,9 +443,20 @@ include::python_tutor.adoc[]
 // MKD natural numbers ends
 
 
+// MKD finite set begins
+[[informal_finite_set_definition]]
+image::imagesMKD/FingersToNumerals.png[FingersToNumerals,375,109,float="right",align="center"]
+* A set is called a *finite set* if either the set is empty or there is a one-to-one correspondence between the set and $\{1, 2, \ldots , n \}$ for some positive integer $n.$ For example, the image represents how a child may "count up to 5" by pairing fingers with the numbers in $\{1, 2, \ldots , 5 \}.$ + 
+A set that is not a finite set is called an *infinite set.* Both finite and infinite sets will be discussed in more detail in the link:./set_theory.html[Set Theory] chapter. 
+// MKD finite set ends
+
+
 // MKD multiplication principle begins
+[[informal_counting_definition]]
 //* Are you surprised that counting is a topic in a university-level course? You probably learned to count by putting physical objects into a one-to-one correspondence with number words such as "one, two, three, ..." when you were a young child. The techniques discussed in the   link:./counting_arithmetic.html[Counting] chapter allow you to count the number of elements in large sets quickly.  
-* Are you surprised to see link:./counting_arithmetic.html[Counting] as a topic in a university-level mathematics course? You probably learned to count by putting physical objects (like fingers) into a one-to-one correspondence with number words such as "one, two, three, ..." when you were a young child. That way of counting is fine for small sets, but the counting techniques discussed in this textbook let you count the number of elements in very large sets quickly.  
+* You may be surprised to see link:./counting_arithmetic.html[Counting] listed as a topic in a university-level course because you probably learned to count by putting physical objects (like fingers) into a one-to-one correspondence with number words such as "one, two, three, four, five" when you were a young child. That way of counting one by one is fine for small sets, but the counting techniques discussed in this textbook let you count the number of elements in very large 
+finite 
+sets quickly.  
 ****
 //.Example {counter:introdm} - The Multiplication Principle
 .Example - The Multiplication Principle
@@ -303,14 +475,16 @@ with the first character being one of the 26 uppercase English letters and  seco
 //image::imagesMKD/MultRuleExampleCropped.png[MultRuleExampleCropped,1402,353,float="right",align="center"]
 //image::imagesMKD/MultRuleExampleCropped.png[MultRuleExampleCropped,600,150,align="center"]
 image::imagesMKD/MultRuleExampleCropped.png[MultRuleExampleCropped,align="center"]
-In this case, you can list all the possibilities as shown in the preceding table because 26 and 10 are small integers. What is important to notice is that this same technique (multiplying _k_ and _m_) will work for much larger values of _k_ and _m,_ when creating such a table may be either not  helpful or impossible.
+In this case, 26 and 10 are small integers so you can list all possibilities by arranging them in a table as shown in the image. What is important to notice is that this same technique (multiplying _k_ and _m_) will work for much larger values of _k_ and _m,_ when creating such a table may be either not helpful or impossible.
 
 // MKD insert Questions and Challenges here
 // 	E.g. California vehicle license plates from https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_California#1963_to_present
 
 [env.challenge]
 --
-Suppose that a U. S. state uses passenger vehicle license plate numbers that are 7 characters long, where the first character is one of the 9 nonzero  Hindu-Arabic numerals, the second, third, and fourth characters are uppercase English letters, and the fifth, sixth, and seventh characters are  Hindu-Arabic numerals. How many different possible passenger vehicle license plate numbers can the state create?
+Suppose that a U. S. state uses passenger vehicle license plate numbers that are 7 characters long, where the first character is one of the 9 nonzero  Hindu-Arabic numerals, the second, third, and fourth characters are uppercase English letters, and the fifth, sixth, and seventh characters are  Hindu-Arabic numerals. How many different possible passenger vehicle license plate numbers can the state create? + 
+ + 
+Click on "Hint," "Another challenge," and "One last challenge" to reveal the hidden text.
 --
 
 [click.hint]
@@ -357,7 +531,9 @@ You may want to use some addition and/or subtraction as well as the multiplicati
 // MKD need a picture of pigeons in pigeonholes - maybe cropped to show only 4 pigeons in 3 pigeonholes.
 // MKD need a function picture with 4 arrows into 3 outputs
 // MOVE TO FUNCTIONS AND/OR COUNTING
-** The *Pigeonhole Principle* states that if $n$ is a positive integer and $n+1$ objects are going to be assigned to $n$ categories then one of the categories must be assigned at least 2 of the objects. Click https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPigeons.jpg[here] to see a _popular photoshopped image_ that illustrates this principle.
+** The *Pigeonhole Principle* states that if $n$ is a positive integer and $n+1$ objects are going to be assigned to $n$ categories then one of the categories must be assigned at least 2 of the objects. 
+//Click https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPigeons.jpg[here] to see a _popular photoshopped image_ that illustrates this principle.
+Click https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPigeons.jpg[here, window=_blank] to see a commonly-used _photoshopped_ image that illustrates this principle.
 // MKD could also use a picture here of the standard blobs-and-arrow function representation, with one set having four objects and the other three.
 // MKD pigeonhole principle ends
 
@@ -394,9 +570,27 @@ can be viewed as a function $f$ from _A_ to _B_.
 ** The codomain of $f$ is the set _B._ 
 ** The range of $f$ is the set _B,_ too, because every element in _B_ is paired with an element in _A_ by the one-to-one correspondence. + 
  + 
-Notice also that the one-to-one correspondence can be viewed as a function _g_ from _B_ to _A_ with domain _B,_ codomain _A,_ range _A,_ and rule given by the pairing of elements in _B_ with elements in _A._ The two functions $f$ and _g_ are called *inverse functions* because $f$ and _g_ "invert" or "undo" each other. Inverse functions will be discussed in more detail in the link:./functions.html[Functions] chapter. 
+// MKD reworded Jan 23 2025
+//Notice also that the one-to-one correspondence can be viewed as a function _g_ from _B_ to _A_ with domain _B,_ codomain _A,_ range _A,_ and rule given by the pairing of elements in _B_ with elements in _A._ The two functions $f$ and _g_ are called *inverse functions* because $f$ and _g_ "invert" or "undo" each other. Inverse functions will be discussed in more detail in the link:./functions.html[Functions] chapter. 
+Notice that the one-to-one correspondence can be used to define another function _g_ from _B_ to _A_ with domain _B,_ codomain _A,_ range _A,_ and rule given by the pairing of elements in _B_ with elements in _A._ The two functions $f$ and _g_ are called *inverse functions* because $f$ and _g_ "invert" or "undo" each other. Inverse functions will be discussed in more detail in the link:./functions.html[Functions] chapter. 
+
+// MKD added Jan 23 2025
+////
+[env.challenge]
+--
+For the "rock, scissors, paper" one-to-one correspondence described link:./introduction_discrete_math.html#informal_rock_paper_scissors[here,] draw the picture that represents the inverse function. Click on "Hint" to reveal the hidden text.
+--
+
+[click.hint]
+--
+Consider how you could rephrase a statement like "rock loses to paper" if you wanted to describe which hand gesture wins.
+--
+////
+
 // MKD example one-to-one correspondence and inverse function ends
 
+
+// MKD Jan 15 2025 insert new composition example or reinstate the one below
 ////
 // MKD example x -> 2x+1 on R and composition of functions begins
 // MKD move this example to Functions chapter and add inverse, too
@@ -485,10 +679,17 @@ In an earlier example, we defined list L to be ["Discrete", "Mathematics"] and t
 // MKD ALTERNATE CODE FOR EXAMPLE: def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E%200%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20%23%20We%20should%20handle%20an%20IndexError%20here%20%0A%20%20%20%20%20%20%20%20%23%20but%20for%20now,%20just%20return%20theString.%0A%20%20%20%20%20%20%20%20return%20theString%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28getFirstChar%28%22%22%29%29%0Aprint%28squareMe%289%29%29%0A
 // MKD ANOTHER ALTERNATIVE ef%20getFirstChar%28theString%29%3A%0A%20%20%20%20%23%20BAD%20CODER!%20You%20need%20to%20check%0A%20%20%20%20%23%20%20%20for%20the%20empty%20string!%0A%20%20%20%20return%20theString%5B0%5D%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0A
 
-:pt_code_height: 400
-:pt_rawinput: false
-:pt_code: def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E0%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20%22%22%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0A 
+//MKD replaced this code on Jan 23 2025
+//:pt_code_height: 400
+//:pt_rawinput: false
+//:pt_code: def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E0%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20%22%22%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0A 
+// the next line was alreay commented out
 //def%20getFirstChar%28theString%29%3A%0A%20%20%20%20%23%20BAD%20CODE!%20Throws%20an%20IndexError%20%0A%20%20%20%20%23%20%20%20when%20theString%20is%20%22%22%0A%20%20%20%20return%20theString%5B0%5D%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0A
+
+:pt_code_height: 550
+:pt_rawinput: false
+:pt_code: def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E0%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20%22%22%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Adef%20constantChatbot%28userInput%29%3A%0A%20%20%20%20return%20%22Hello!%22%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0Aprint%28constantChatbot%28%22Hi.%22%29%29%0Aprint%28constantChatbot%28%22Can%20you%20code%20in%20Python%3F%22%29%29%0Aprint%28constantChatbot%28%22So,%20'No'%3F%22%29%29
+//def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E0%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20%22%22%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Adef%20friendlyConstantChatbot%28userInput%29%3A%0A%20%20%20%20return%20%22Hello!%22%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0Aprint%28friendlyConstantChatbot%28%22Good%20morning.%22%29%29%0Aprint%28friendlyConstantChatbot%28%22Can%20you%20write%20some%20Python%20code%20for%20me%3F%22%29%29
 
 ****
 //.Example {counter:introdm} - Functions
@@ -527,39 +728,88 @@ include::python_tutor.adoc[]
 
 
 // MKD sequences begins
+[[informal_sequence_definition]]
 * A *sequence* is a function from the natural numbers, or a 
 //finite 
 subset of the natural numbers, into another set (e.g., the natural numbers, or the real numbers, or a nonnumerical set.) 
 // like the set of power functions or a set of statements.) 
 //For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for every } i \in \mathbb{N}\] 
-For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for every natural number } i \] which describes the sequence of positive odd integers $a_{0} = 1,$ $a_{1} = 3,$ $a_{2} = 5,$ and so on.    
+For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for every natural number } i \] which describes the sequence of positive odd integers $a_{0} = 1,$ $a_{1} = 3,$ $a_{2} = 5,$ and so on. + 
+   
 ** NOTE 1: It is common to use _i_ as a variable in sequence notation because _i_ is the initial letter of the word _index._ This 
 //use of 
 _i_ has nothing to do with the complex number $\sqrt{-1}.$ Mathematicians recycle and reuse letters!
 ** NOTE 2: It is traditional to write the input variable for a sequence as a subscript instead of putting it between parentheses. In the preceding example, $a_{i} = 2i+1$ has the same meaning as $a(i) = 2i+1$.
 ** NOTE 3: The output values of a sequence are called *terms.* For example, the 0th term of the sequence is $a_{0} = 1,$ the 1st term of the sequence is $a_{1} = 3,$ and so on. 
 //** NOTE 4: A sequence is often written as $\{a_{i}\}_{i=0}^{\infty}.$ 
+
+// MKD added Jan 25 2025 
+//image::imagesMKD/NumeralsToFingers.png[NumeralsToFingers,375,109,float="right",align="center"]
+image::imagesMKD/NumeralsToFingersFunction.png[NumeralsToFingersFunction,375,109,float="right",align="center"]
+* A *finite sequence* is a sequence that is defined for only a finite subset of $\mathbb{N}.$ That is, the set of input $i$ values that make sense for the sequence is a finite set. + 
+//** For example, a child counting up to five on the fingers of one hand is defining a sequence called _fingers_ as shown  link:./introduction_discrete_math.html#informal_finite_set_definition[here]. + 
+For example, a child counting up to five on the fingers of one hand is defining the sequence called $\textit{fingers}_{i}$ that is represented by the image. + 
+[small]#Technically, the sequence $\textit{fingers}_{i}$ shown in the image is the _inverse_ of the child's actual counting sequence. Because the child assigns to each finger "input" exactly one number "output," the arrows would point up from a finger to the corresponding number.# + 
+ + 
+//A person _could_ write the child's counting sequence as 
+//The child's counting sequence _could_ be written formally as 
+The sequence $\textit{fingers}_{i}$ can be written, formally, as 
+\begin{equation}
+\begin{aligned}
+\textit{fingers}_{1} {} & = \text{"Thumb"} \\ 
+\textit{fingers}_{2} {} & = \text{"Index Finger"} \\ 
+\textit{fingers}_{3} {} & = \text{"Middle Finger"} \\ 
+\textit{fingers}_{4} {} & = \text{"Ring Finger"} \\ 
+\textit{fingers}_{5} {} & = \text{"Pinky Finger"} \\ 
+\end{aligned}
+\end{equation}
+but it is much more common to list the terms of the sequence in order:  "Thumb," "Index Finger," "Middle Finger," "Ring Finger," "Pinky Finger." + 
+ + 
+//As another example, 
+Notice that Java arrays and Python lists are implementations of the mathematical concept of a finite sequence where the domain is the set of $i$ values $\{0, 1, \ldots , n \}$ for some natural number $n.$ + 
+ + 
+An *infinite sequence* is a sequence that is not a finite sequence, that is, the there are infinitely many $i$ values that make sense as inputs for the sequence. For example the sequence \[ \text{isOdd}_{i} = \begin{cases}
+\text{1} & \text{ if } n \text{ is odd} \\
+\text{0} & \text{ if } n \text{ is even} \\
+\end{cases}  \] is an infinite sequence with domain the integers that has only two output values. 
 // MKD sequences ends
+
+// \text{fingers}_{3}
+
+// MKD bitstring begins
+[[informal_bitstring_definition]]
+* A *bitstring* is a finite sequence of 
+//_bits,_ 
+the *bits* 
+//where the bits are 
+//the "*bi*nary digi*ts*" 
+0 and 1. Bitstrings are written as a string of 0s and 1s without spaces or commas between the terms of the sequence; for example, 01101011 is a bitstring of length 8. Bitstrings can be used to represent a sequence of answers to "Yes-No" or "True-False" questions, with "1" representing "Yes" or "True" and "0" representing "No" or "False."  Bitstrings can also be used to represent numbers in _binary notation,_ which will be discussed in the link:./number_bases.html[Number Bases] chapter. 
+//as in the example "There are 10 kinds of people in this world — those who understand binary and those who don’t."
+//MKD maybe say a bit more about binary notation vs. decimal notation? No, put in Number Bases chapter.
+// MKD bitstring ends
 
 
 // MKD summation notation begins
-* *Summation notation* is used to abbreviate a _finite_ sum of numbers that contains a large number of addends. As an example, the sum $1+3+5+7+9+11+13+15+17+19$ can be abbreviated as $\sum\limits_{i=0}^{9}(2i+1)$. Likewise, 
-the sum of the first $500$ positive odd integers,  
-$1+3+5+\ldots+995+997+999$, can be abbreviated as  $\sum\limits_{i=0}^{499}(2i+1)$. 
+[[informal_summation_notation_definition]]
+//* *Summation notation* is used to abbreviate a _finite_ sum of numbers that contains a large number of addends. As an example, the sum $1+3+5+7+9+11+13+15+17+19$ can be abbreviated as 
+* *Summation notation* is a "shortcut" used to abbreviate a sum of a finite sequence of numbers, called *addends,* when the sequence contains a large number of addends. + 
+As an example, the sum $1+3+5+7+9+11+13+15+17+19$ is abbreviated as $\sum\limits_{i=0}^{9}(2i+1)$. + 
+As another example, the sum of the first $500$ positive odd integers,  
+$1+3+5+\ldots+995+997+999$, is abbreviated as  $\sum\limits_{i=0}^{499}(2i+1)$. 
 //** NOTE 1: The variable $i$ is commonly used in summation notation and is called the _index of summation._ We substitute each integer value for $i$, starting with the lower limit and stopping at the upper limit, into the algebraic expression or function written to the right of the capital Greek letter $\sum$, which is called "sigma". This index of summation $i$ has nothing to do with the complex number constant $i$ - Mathematicians recycle and reuse letters!
 ** NOTE 1: The variable _i_ used in 
 //the preceding 
 summation notation 
 //examples 
-is called the _index of summation_. We substitute each integer value for _i,_ starting with the lower limit and stopping at the upper limit, into the algebraic expression or function written to the right of the capital Greek letter $\sum$, 
-//which is called 
-"sigma". 
+is called the *index of summation* and the symbol $\sum$ is the capital Greek letter "sigma." To compute the value of the sum, you generate the sequence of addends by substituting each integer value, starting with the lower limit written below the sigma and stopping at the upper limit written above the sigma, for _i_ into the algebraic expression or function written to the right of sigma, then find the sum of all the numbers in the sequence. 
 //This index of summation $i$ has nothing to do with the complex number constant $i$ - Mathematicians recycle and reuse letters!
-** NOTE 2: "Infinite sums," more properly called _infinite series,_ are not discussed in this discrete mathematics textbook. Each infinite series is defined as the limit of its sequence of partial (finite) sums, and "limits" is a topic from continuous mathematics, not discrete mathematics.
+** NOTE 2: "Infinite sums," more properly called *infinite series,* are not discussed in the Remix. The sum of an infinite series is defined as the limit of its sequence of partial (finite) sums, and "limits" is a topic from continuous mathematics, not discrete mathematics. + 
+[small]#Another use of infinite sum notation is to represent the *generating function* of a sequence, which is discussed in some discrete mathematics textbooks but not in the Remix. If you want to learn about generating functions, you can read about them in Oscar Levin's link:https://discrete.openmathbooks.org/dmoi4/sec_addtops-genfun.html[_Discrete Mathematics: An Open Introduction,_ 4th edition].#
 // MKD summation notation ends
 
 
 // MKD recursion begins
+[[informal_recursion_definition]]
 * *Recursion* is a process that defines an object, or computes a value, or describes the construction of an object or set of objects, using steps that refer to one or more previously completed steps.
 
 // MKD may want another non-recurrence relation example, like wff but simpler. 
@@ -587,6 +837,7 @@ Later in the textbook, you will be able to _prove_ that the `power_of_5`  functi
 
 ****
 
+[[informal_recurrence_relation_definition]]
 * *Recurrence relations* consist of one or more equations that define a sequence or a function with domain $\mathbb{N}.$ 
 
 ****
@@ -658,6 +909,7 @@ You may want to review arithmetic sequences and geometric sequences link:./appen
 
 
 // MKD sentence_and_proposition begin 
+[[informal_proposition_definition]]
 * In English, there are four types of sentences, depending on what is being communicated: statements (or declarative sentences), commands, exclamations, and questions. 
 A *proposition* is a statement that declares a fact that is either True or False (but not both!) 
 In mathematics, we are usually most interested in analyzing and verifying propositions.
@@ -692,6 +944,7 @@ Two predicates are *equivalent* if for every possible substitution for the varia
 
 
 // MKD - Algorithm begins
+[[informal_algorithm_definition]]
 * An *algorithm* is a finite sequence of 
 commands and statements that describe a process for completing a task. + 
 One example is the following (correct but inefficient) algorithm for division of positive integers. 
@@ -717,7 +970,7 @@ $a = q \cdot b + r$ and $0 \leq r < b.$
 ** Output: Integers _q_ and _r_ such that both $a = q \cdot b + r$ and $0 \leq r < b.$
 //*** _q_ is the quotient, that is, the number of times step 1 was executed. 
 //*** _r_ is the remainder, that is, the result of the last execution of step 1.
-*** _q_ is the quotient, that is, the number of times step 2 was executed. 
+*** _q_ is the quotient, that is, the number of times each of the two assignments under step 2 was executed. 
 *** _r_ is the remainder, that is, the result of the last execution of step 2, so $r = a - q \cdot b.$
 // (so $0 \leq r < b$).
 //keeping count of the number of times _a_ has been subtracted, until you get a number _r_ that satisfies $b > r >= 0$. The number of times _a_ was subtracted from _a_ is _q_.
@@ -869,8 +1122,11 @@ because $10 = 5 \cdot 2.$ As another example, $-2$ is a factor of 10, and 10 is 
 * A positive integer _n_ that is greater than 1 is called *prime* if the only positive integer factors of _n_ are 1 and _n_ itself, and is called *composite* otherwise. For example, 2 is prime since its set of positive integer factors is $\{ 1,\,2 \}$, but 6 is composite since its set of positive integer factors is $\{ 1,\,2,\,3,\,6 \}$. 
 ** NOTE: #The integer 1 is considered neither prime nor composite.# The reason for this is beyond the scope of this textbook but would be discussed in a more advanced math course in _ring theory_.
 
+//MKD added Jan 25 2025, but commented out 
+* Two integers _a_ and _b_ are called *relatively prime* if the only common positive integer factor of _a_ and _b_ is 1; this is equaivalent to stating that the two integers do not share any prime factors. For example, 10 and 21 are relatively prime integers.
 
 // MKD relation begin
+[[informal_relation_definition]]
 //MKD maybe add Relations here with divisibility as example?
 //	also something about modular arithmetic?????
 * A *relation* on the sets _A_ and _B_ is an association between elements from set _A_ and set _B_; _A_ and _B_ are often the same set. Relations will be defined much more formally and precisely in the link:./relations.html[Relations] chapter of the textbook. + 
@@ -890,28 +1146,41 @@ A related example is inequality, $s \neq t.$
 // MKD relation end
 
 
-////
-// MKD multiplication principle begin
-// MKD not likely known already - perhaps move to Counting?
-* The *multiplication principle* (also called the *product rule*) is a basic counting technique. Suppose that we have a procedure that consists of completing two steps, that there are $k$ possible ways to complete the first step, and for each possible way of completing the first step, there are $m$ possible ways to complete the second step, then there are $k \cdot m$ ways to complete the two steps. As an example, the number of ways to construct a two-character string whose first character is one of the 26 uppercase letters from the English alphabet and whose second character is one of the 10 Hindu-Arabic numerals is $26 \cdot 10$ or $260$.
-// MKD multiplication principle end
-////
-
-
-
 // MKD vertex-edge graph begins
-
+[[informal_graph_definition]]
 //image::imagesMKD/GraphWithSixNodes.png[GraphWithSixNodes,419,232,float="right",align="center"]
-* [[vertex-edge-graphs]] A *graph* is a mathematical object that consists of *vertices* (also called *nodes*) that are connected by *edges.* Graphs are often represented by a drawing like the ones shown in the following examples, but you can also represent a graph in other ways that are easier to use in code; this will be discussed in the link:./graphs.html[Graphs]chapter. It is very important to remember that a graph is NOT the same as a drawing of the graph; in fact, a graph can usually be drawn in many different ways that may look very different. What is important is not the drawing, but the connections between the vertices that are represented by the edges.
+//image::imagesMKD/GraphTheoryForSHv2_cropped.png[GraphTheoryForSHv2_cropped,737,515,float="right",align="center"]
+//image::imagesMKD/GraphTheoryForSHv2_cropped.png[GraphTheoryForSHv2_cropped,367,208,float="right",align="center"]
+* [[vertex-edge-graphs]] A *graph* is a mathematical object that consists of *vertices* (also called *nodes*) that are connected by *edges.* Graphs are often represented by drawings like the ones shown in the following examples, but you can also represent a graph in other ways that are easier and more efficient to use in code; this will be discussed in the link:./graphs.html[Graphs]chapter. + 
+ + 
+The drawing of a graph is not treated like a geometric polygon: The only two points "on an edge" are the edge's endpoints. Edges are just connectors between vertices and points that are not indicated as endpoints of an edge are ignored. Also, in a drawing of a graph, the lengths of edges and the straightness or curvedness of edges are not important, just the connections between the edges' endpoints. + 
+
+NOTE: Some high school-level textbooks use the term *vertex-edge graph* to distinguish this type of graph from graphs (that is, plots of points in the $xy$-plane) for equations, functions, or statistical data. 
+
+****
+//.Example {counter:introdm} - Two Drawings of One Graph
+.Example - Two Drawings of One Graph
+
+Keep in mind that a graph is NOT the same as a _drawing_ of the graph. In fact, a graph can usually be drawn in many different ways that may look very different. What is important is 
+//not the drawing, but 
+the connections, represented by the edges, between pairs of vertices.
+
+//image::imagesMKD/Isomorphism2av2.png[Isomorphism2av2,550,290,float="right",align="center"]
+//image::imagesMKD/Isomorphism2av2notComplete.png[Isomorphism2av2notComplete,868,441,float="center",align="center"] 
+image::imagesMKD/Isomorphism2av2notComplete.png[Isomorphism2av2notComplete,290,147,float="right",align="center"] 
+In the image, two different drawings are shown for the same graph. 
+// that has 4 vertices and 5 edges. 
+Notice that in each drawing, the connections between pairs of vertices are the same: The only pair of vertices that is [underline]#not# connected by an edge is $\{ C, D \}.$ 
+
+Also notice that there is no vertex drawn where the two edges cross in the 1st drawing on the left, so this graph has 4 exactly vertices: $A,$ $B,$ $C,$ and $D.$ 
+
+****
+
 //The drawing is just an easy way to represent the graph. 
 //Edges connect vertices that are related in some way. 
 // that there is some sort of connection between the objects represented by the endpoint vertices, for example, cities that are directly connected by an airline's scheduled flights, or people who are connected through a social network.  + 
 // The edge simply represents a connection between two vertices. 
 // In the example, there are 6 vertices and 7 edges. 
- + 
-Notice that the drawing of a graph is not treated like a geometric polygon: The only two points "on an edge" are the edge's endpoints! Edges are just connectors between vertices and the points along an edge are ignored. Also, in a drawing of a graph, the lengths of the edges and the straightness or curvedness of the edges are not important, just the connections between the edges' endpoints. 
-
-NOTE: Some high school-level textbooks use the term *vertex-edge graph* to distinguish this type of graph from graphs of equations, functions, or statistical data. 
 
 ****
 //.Example {counter:introdm} - A Network Of Students
@@ -920,9 +1189,13 @@ NOTE: Some high school-level textbooks use the term *vertex-edge graph* to disti
 A graph can represent relationships between pairs of people. 
 
 //image::imagesMKD/GraphWithSixNodes.png[GraphWithSixNodes,838,464,float="right",align="center"]
-image::imagesMKD/GraphWithSixNodes.png[GraphWithSixNodes,280,155,float="right",align="center"]
+//image::imagesMKD/GraphWithSixNodes.png[GraphWithSixNodes,280,155,float="right",align="center"]
+//image::imagesMKD/GraphWithSevenNodes.png[GraphWithSevenNodes,280,155,float="right",align="center"]
+image::imagesMKD/GraphWithSevenNodesv2.png[GraphWithSevenNodesv2,280,155,float="right",align="center"]
 //In this drawing, the graph represents whether pairs of students are enrolled in at least one class together. There are 6 students, represented by the vertices, and 7 edges such that each edge connects a pair of students who are enrolled in a class together. 
-Here is a graph that represents whether pairs of students are enrolled in at least one class together. Each of the 6 vertices represents a student, and each of the 7 edges represents a pair of students who are enrolled in a class together. 
+//Here is a graph that represents whether pairs of students are enrolled in at least one class together. Each of the 6 vertices represents a student, and each of the 7 edges represents a pair of students who are enrolled in a class together. 
+// MKD Jan 23 2025 revision
+Here is a graph that represents whether pairs of students are enrolled in at least one class together. Each of the 7 vertices represents a student, and each of the 7 edges represents a pair of students who are enrolled in a class together. 
 //The graph indicates that Adil and Maya are _not_ enrolled in a class together, that Elias and Adil _are_ enrolled in a class together, so that Elias and Maya must be enrolled in _another_ class together. + 
 The graph indicates that Adil and Elias are enrolled in at least one class together and that Elias and Maya are enrolled in at least one class together. + 
 
@@ -946,10 +1219,33 @@ Are all three of the students Sofia, Elias, and Jun enrolled in at least one cla
 Can you imagine two different scenarios, one where the answer is "Yes" and another where the answer is "No"?
 --
 
+[env.question]
+--
+The vertex for Li has *degree* 2 because it occurs as an endpoint of an edge 2 times. Can you determine how many classes Li is enrolled in from the graph?
+--
+
+[click.hint]
+--
+Remember that an edge indicates that the pair of students at the endpoints are enrolled in at least one class together.
+--
+
+[env.question]
+--
+Chris is represented by an *isolated vertex* that is not the endpoint of any edge (so that vertex has degree 0.) Does this mean that Chris is enrolled only in Independent Studies classes with no other students? 
+--
+
+[click.hint]
+--
+Think carefully about what an edge represents in this graph. 
+--
+
 ****
 //Can you imagine two different scenarios, one where the answer is "Yes" and another where the answer is "No"?
-
-
+//[click.answer]
+//--
+//The graph indicates that Li is enrolled in at least one class with Adil and in at least one class with Sofia. So Li is enrolled in _at least_ 2 classes, but may be enrolled in more than one with either Adil or Sofia (or some other student who is not included in the graph.)
+//--
+// What is the real-world interpretation of this isolated vertex?
 ****
 //.Examples {counter:introdm} - Complete Graphs and Star Graphs
 .Examples - Complete Graphs and Star Graphs
@@ -965,7 +1261,6 @@ image::imagesMKD/StarGraphOn6Vertices.png[StarGraphOn6Vertices,92,88,float="righ
 A *star graph* is a graph that has one central vertex that is one of the  endpoints of every edge in the graph. The image shows the star graph on 6 vertices. The star graph is one example of a *tree,* a graph in which for every pair of distinct vertices there is exactly one path of edges that can be used to connect the vertices. Some of the many applications of trees in computer science will be discussed in the link:./trees.html[Trees] chapter.
 
 ****
-
 
 // MKD NEEDS MORE ARTWORK HERE.
 // maybe https://eng.libretexts.org/@api/deki/files/42793/clipboard_e2c0029f031ce8d39860aa77e76b909cf.png?revision=1&size=bestfit&width=321&height=151 from https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_and_Computation_Fundamentals/Mathematics_for_Computer_Science_%28Lehman_Leighton_and_Meyer%29/02%3A_Structures/11%3A_Simple_Graphs/11.01%3A_Vertex_Adjacency_and_Degrees (MIT Courseware, so should be CC BY-NC)
@@ -1180,6 +1475,56 @@ wins $2$ out of $10$ districts, but in scenario $B$ it wins $7$  out of $10$ dis
 image::images/gerrymandering.png[]
 
 ****
+
+
+== Links to the Informal Definitions in this Chapter
+
+[[links_to_informal_definitions]] 
+For your reference in the future, here are direct links to the foundational ideas discussed in this section. 
+
+//|===
+link:./introduction_discrete_math.html#informal_set_definition[Sets]
+
+link:./introduction_discrete_math.html#informal_one_to_one_correspondence_definition[One-to-one correspondence]
+
+//link:./introduction_discrete_math.html#informal_rock_paper_scissors["rock, paper, scissors"]
+
+link:./introduction_discrete_math.html#informal_natural_numbers_definition[Natural Numbers]
+
+link:./introduction_discrete_math.html#informal_finite_set_definition[Finite and infinite sets]
+
+link:./introduction_discrete_math.html#informal_counting_definition[Counting]
+
+link:./introduction_discrete_math.html#informal_counting_definition[Multiplication Principle]
+
+link:./introduction_discrete_math.html#informal_counting_definition[Pigeonhole Principle]
+
+link:./introduction_discrete_math.html#informal_function_definition[Functions]
+
+link:./introduction_discrete_math.html#informal_sequence_definition[Sequences]
+
+link:./introduction_discrete_math.html#informal_bitstring_definition[Bitstrings]
+
+link:./introduction_discrete_math.html#informal_summation_notation_definition[Summation Notation]
+
+link:./introduction_discrete_math.html#informal_recursion_definition[Recursion]
+ link:./introduction_discrete_math.html#informal_recurrence_relation_definition[Recurrence Relations]
+
+link:./introduction_discrete_math.html#informal_proposition_definition[Propositions]
+
+link:./introduction_discrete_math.html#informal_predicate_definition[Predicates]
+
+link:./introduction_discrete_math.html#informal_algorithm_definition[Algorithms]
+
+link:./introduction_discrete_math.html#informal_relation_definition[Relations]
+
+link:./introduction_discrete_math.html#informal_graph_definition[Graphs and trees]
+
+//link:./introduction_discrete_math.html#vertex-edge-graphs[link]
+//|===
+
+
+
 
 ////
 //MKD This subsection has MAJOR issues... Maybe omit???

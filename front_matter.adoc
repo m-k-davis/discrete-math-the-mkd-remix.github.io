@@ -1,5 +1,10 @@
 = About this text
 
+//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+
+_This chapter was last updated on January 26, 2025._ + 
+//#[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+
 This work, "Discrete Math - The MKD Remix" by https://github.com/m-k-davis/[Mark Kelly Davis,] is adapted from https://ggc-discrete-math.github.io/index.html[“Discrete Math”] by https://www.ggc.edu/directory/mohamed-jamaloodeen[Mohamed Jamaloodeen,] https://www.ggc.edu/directory/katherine-pinzon[Kathy Pinzon,] https://www.ggc.edu/directory/daniel-pragel[Daniel Pragel,] https://www.ggc.edu/directory/joshua-roberts[Joshua Roberts,] and https://www.ggc.edu/directory/sebastien-siva[Sebastien Siva.] https://ggc-discrete-math.github.io/index.html[“Discrete Math”] is used under https://creativecommons.org/licenses/by-nc/4.0/[CC BY-NC 4.0]. All files for https://ggc-discrete-math.github.io/index.html[“Discrete Math”] are available at its associated https://github.com/ggc-discrete-math/ggc-discrete-math.github.io[GitHub repository]. 
 
 This work, "Discrete Math - The MKD Remix", 
@@ -7,9 +12,16 @@ is licensed under
 https://creativecommons.org/licenses/by-nc/4.0/[CC BY-NC 4.0] 
 by Mark Kelly Davis.
 
+
+NOTE: If you were a student in my course during the Spring 2024 semester, the version of the book you used can be found link:./book_Apr2024.html[here.] + 
+ + 
+If you were a student in one of my courses during the Fall 2024 semester, the version of the book you used can be found link:./book_Dec2024.html[here.]
+
 == How does the Remix differ from the original work?
 
 The remixer's goal is to adapt the original https://ggc-discrete-math.github.io/index.html[“Discrete Math”] to create an OER textbook for a one-semester [underline]#_Discrete Mathematics/Discrete Structures_# course for Computer Science students who have some experience coding in Java, Python, or another high-level programming language, and have completed an Algebra Ⅱ-level (or equivalent) mathematics course. The Remix is a work-in-progress that will continue to evolve over time toward this goal. 
+
+// MKD add that OER stands for "open educational resource"?
 
 The remixer's intent is that the Remix: 
 
@@ -73,11 +85,23 @@ https://dl.acm.org/doi/pdf/10.1145/2534860
 * use terminology, definitions, notation, and symbols that align with commonly-used textbooks such as Kenneth H. Rosen's https://www.mheducation.com/highered/product/discrete-mathematics-applications-rosen/M9781259676512.html[_Discrete Mathematics and Its Applications,_ 8th Edition.]
 // MKD needs a proper citation here
 
-* incorporate https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/[team-worthy tasks], currently in beta testing, for many of the topics
-// MKD needs proper link and citation
+////
+//* incorporate  https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/[team-worthy tasks] 
+//, currently in beta testing, 
+//for many of the topics
+// MKD needs public link & citation - available by end of January 2025?
+
+* incorporate, eventually, several "team-worthy tasks" and other activity-based lessons 
+//, currently in beta testing, 
+for many of the topics
+// MKD needs public link & citation - available by end of January 2025?
+////
 
 //* organizes the content in "chunks" for ease of reading and digestion of new ideas
-* give learners the ability to start learning new content based on what the learners likely know already, then move toward building a formal understanding (e.g., pointing out that the set of odd integers and the set of even integers are the two equivalence classes corresponding to a relation, and that the rules for adding and multiplying odd and/or even numbers is an example of modular arithmetic.) 
+//* give learners the ability to start learning new content based on what the learners likely know already, then move toward building a formal understanding (e.g., pointing out that the set of odd integers and the set of even integers are the two equivalence classes corresponding to a relation, and that the rules for adding and multiplying odd and/or even numbers is an example of modular arithmetic.) 
+//* give students the opportunity to learn new content based on what they already know then to move toward building a formal understanding of more advanced ideas and concepts (e.g., pointing out that the set of odd integers and the set of even integers are the two equivalence classes corresponding to a relation, and that the rules for adding and multiplying "odds" and "evens" is an example of modular arithmetic.) 
+* give students the opportunity to learn new content based on what they already know then to move toward building a more formal understanding of the content (e.g., pointing out that the set of odd integers and the set of even integers are the two equivalence classes of an equivalence relation, , and that the rules for adding and multiplying "odds" and "evens" is an example of modular arithmetic.) 
+
 //* starts with basic mathematical ideas, listed in the next chapter, that learners are likely familiar with, then builds upon that to formalize the new ideas by making explicit connections between the new ideas and the basics ideas (e.g., pointing out that the set of odd integers and the set of even integers are the two equivalence classes corresponding to a relation).
 
 * organize the content in "chunks" for ease of reading and digestion of new ideas
@@ -91,13 +115,20 @@ https://dl.acm.org/doi/pdf/10.1145/2534860
 //// 
 //MKD - intro comment block 1
 
- 
+////
 If you are looking for 
 //a free, open source textbook 
 an OER textbook for a Discrete Mathematics course intended primarily for Mathematics majors 
 (e.g., one that does not include topics such as Big-_O_ complexity analysis of algorithms, relations, and binary tree traversal algorithms), 
 there are many suitable ones that exist. For example, see 
-Oscar Levin's https://discrete.openmathbooks.org/dmoi3.html[_Discrete Mathematics: An Open Introduction,_ 3rd edition.]
+Oscar Levin's link:https://discrete.openmathbooks.org/dmoi4.html[_Discrete Mathematics: An Open Introduction,_ 4th edition.]
+////
+
+If you are looking for an OER textbook for a Discrete Mathematics course  intended primarily for Mathematics majors 
+//(e.g., one that does not include topics such as Big-_O_ complexity analysis of algorithms, relations, and binary tree traversal algorithms), 
+(e.g., one that does not include topics like analysis of algorithms and binary tree traversal), 
+there are many suitable ones that exist. For example, see 
+Oscar Levin's link:https://discrete.openmathbooks.org/dmoi4.html[_Discrete Mathematics: An Open Introduction,_ 4th edition.]
 
 
 === About the use of Python in the Remix
@@ -109,14 +140,16 @@ The original https://ggc-discrete-math.github.io/index.html[“Discrete Math”]
 "Algorithms & Big-_O_", 
 code samples for sorting and searching avoid using built-in Python functions in order to illustrate all steps needed by the algorithm. In many cases, a comment can be found near a non-optimal code example that explains or illustrates a more link:https://docs.python.org/3/glossary.html#term-Pythonic[Pythonic] way of coding. 
 
-
-* The chapter "Introduction to Python" was moved to the appendices.
+// MKD commented out Jan 22 2025
+//* The chapter "Introduction to Python" was moved to the appendices.
 
 //Here is a partial list of changes made (or to be made) to the original. 
 
 === Partial list of changes made (or to be made) to the Remix. 
 
-* Terminology, definitions, and notation and symbols were changed throughout the Remix to align with other commonly-used textbooks. For example, the Remix defines the set of natural numbers $\mathbb{N}$ to include the integer 0 as an element; this definition is very common and is in fact a "standard" that appears in 
+* Terminology, definitions, 
+//and 
+notation and symbols were changed throughout the Remix to align with other commonly-used textbooks. For example, the Remix defines the set of natural numbers $\mathbb{N}$ to include the integer 0 as an element; this definition is very common and is in fact a "standard" that appears in 
 _International Standard ISO 80000-2:2019, Quantities and units — Part 2: Mathematics._
 // MKD needs proper citation
 
@@ -124,17 +157,20 @@ _International Standard ISO 80000-2:2019, Quantities and units — Part 2: Mathe
 // MKD note that the ceiling and floor functions should be given here.
 // or in Library???
 
-//MKD already mentioned above
-//* The chapter "Introduction to Python" was moved to the appendices. 
+//MKD already mentioned above - but restored here Jan 22 2025
+* The original chapter "Introduction to Python" was moved to the appendices. 
 
-* The "Counting" chapter was split into two chapters, "Counting: Arithmetic Techniques" and "Counting: Permutations And Combinations".
+* The original chapter "Counting" was split into two chapters, "Counting: Arithmetic Techniques" and "Counting: Permutations And Combinations". The first of these chapters is placed near the beginning of the book, but the second is place much later, after sequences and recurrence relations have been discussed.  
 
-* The "new" chapter "Number Bases" is based on the original "Number Theory" chapter, but content on divisibility, congruence, and modular arithmetic was moved into the chapters "Introducing Discrete Mathematics" and "Relations" of the Remix. 
-//"Number Bases" was moved before discussion of algorithms because some of the content acts as a lead-in to the analysis of algorithms. 
-
-* The order of the chapters "Set Theory" and "Logic" was swapped. New material was inserted into each of the two chapters. The section "Representing Sets as Lists" was omitted from the "Set Theory" chapter. 
+* The order of the chapters "Set Theory" and "Logic" was swapped. New material was inserted into each of the two chapters. 
+// The section "Representing Sets as Lists" was omitted from the "Set Theory" chapter. 
 
 * A new chapter, "Proofs: Basic Techniques," was written and inserted after "Logic."
+
+* The 
+//"new" 
+chapter "Number Bases" is based on the original chapter "Number Theory," but the content on divisibility, congruence, and modular arithmetic was moved into the remixed chapters "Introducing Discrete Mathematics" and "Relations." 
+//"Number Bases" was moved before discussion of algorithms because some of the content acts as a lead-in to the analysis of algorithms. 
 
 * The chapter "Sequences and Recursion" is based on the original chapter "Sequences, Recursive Definitions, and Induction," which was split into two new chapters, "Sequences and Recursion" and "Proofs: Mathematical Induction." "Sequences and Recursion" appears before and as a lead-in to "Functions" since sequences are a special case of functions and recursion is often used to define functions.
 
@@ -153,7 +189,9 @@ _International Standard ISO 80000-2:2019, Quantities and units — Part 2: Mathe
 Note that algorithms and their analysis are not mentioned explicitly as topics to be included in the ACM/IEEE-CS/AAAI and CCC C-ID courses, but these topics fit naturally as a motivation to learn much of the other content of the Remix.
 
 * The chapter "Proofs: Mathematical Induction" is based in part on the original chapter "Sequences, Recursive Definitions, and Induction," but  
-the content of this chapter was heavily rewritten and new content was inserted. This chapter now appears after the chapter "Algorithms and Their Analysis;" this placement was done so that mathematical induction can be 
+the content of this chapter was heavily rewritten and new content was inserted. This chapter now appears 
+//after 
+before the chapter "Algorithms and Their Analysis;" this placement was done so that mathematical induction can be 
 viewed as a way of validating algorithms  
 rather than as 
 just 
@@ -166,8 +204,10 @@ proof technique.
 //* The "Counting" chapter has had only minor revisions made at this time.
 
 * The original chapter "Graph Theory" 
-will be 
-split into two chapters, "Graphs" and "Trees". Additional content as well as team-worthy activities 
+//will be 
+was 
+split into two chapters, "Graphs" and "Trees". Additional content 
+//as well as team-worthy activities 
 will be 
 introduced into each of the new chapters.
 

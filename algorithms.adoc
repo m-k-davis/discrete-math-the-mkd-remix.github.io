@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on October 16, 2024._ + 
+_This chapter was last updated on January 16, 2025._ + 
 [small]#Fixed typos, updated Big-O discussion for the two division algorithms, added Big-O discussion for the Euclidean algorithm, revised  Big-O discussion of Merge Sort.#
 
 //// 
@@ -48,6 +48,16 @@ Additional algorithms that involve graphs and trees will be introduced later in 
 NOTE: In this chapter, several algorithms are implemented in Python using non-optimal code to illustrate all steps needed. 
 //Most of the Python examples in the Remix use non-optimal code. 
 As mentioned in the link:./index.html[About this text] chapter, this was a deliberate choice because the code examples are designed for _teaching the mathematical concepts_ but not for illustrating the link:https://docs.python.org/3/glossary.html#term-Pythonic["Pythonic"] way of coding. However, a few code examples in this chapter _do_ show how you can complete the same task by using some of Python's built-in methods.
+
+
+Key terms and concepts covered in this chapter:
+
+* Algorithm
+** Properties of an algorithm
+* Types of algorithm 
+** Arithmetic
+** Search 
+** Sorting
 
 
 //== Examples of Algorithms
