@@ -1,9 +1,9 @@
 = Introducing Discrete Mathematics
 
-_This chapter was last updated on January 26, 2025._ + 
+_This chapter was last updated on January 27, 2025._ + 
 // (added water glass example and link to video about $\pi$ to section 2.1)_ + 
 //discussion of continuous mathematics and structures in 2.1)._
-//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 // MKD various sources
 //	https://cacm.acm.org/opinion/lets-not-dumb-down-the-history-of-computer-science/ 
@@ -41,7 +41,9 @@ image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,3
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,1920,1227,float="right",align="center"]
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,240,154,float="right",align="center",title="link:https://www.publicdomainpictures.net/en/view-image.php?image=87806&picture=vintage-stone-and-brick-wall[Vintage Stone And Brick Wall] by Paul Brennan. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0]."]
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,240,154,float="right",align="center"]
-As an example, consider a wall, a structure built from individual stones and bricks, part of which is shown in the image to the right. The 
+As an example, consider a wall, a structure built from individual stones and bricks, part of which is shown in the image. 
+//to the right. 
+The 
 individual 
 objects in the structure are 
 //[underline]#_are_# 
@@ -99,7 +101,7 @@ Humans use *continuous mathematics* like calculus to study a structure that is b
 
 * The set of real numbers, in the usual order, as represented on a number line is NOT a discrete structure. + 
 //It does NOT makes sense to ask about "the next real number after $\pi$ on the number line" because if we think _c_ is the _"best candidate"_ for "the next real number after $\pi$ on the number line" then the number $c_{1} = \frac{c+\pi}{2},$ which is the midpoint of the interval with endpoints _c_ and $\pi,$ is closer to $\pi$ than is _c,_ so $c_{1}$ is a _better candidate than the "best candidate"_ for "the next real number after $\pi$ on the number line"... that is, the concept "the next real number after $\pi$ on the number line" does not make sense for this structure as such a number cannot exist! Likewise, "the real numbers that are closest to $\pi$" do not exist. + 
-It does NOT makes sense to ask about "the next real number after $\pi$ on the number line" because if we think _c_ is "the next real number after $\pi$ on the number line" then we can compute the number $c_{1} = \frac{c+\pi}{2},$ which is the midpoint of the interval with endpoints $\pi,$ so $c_{1}$ is closer to $\pi$ than _c_ is, which means $c_{1}$ is a _better candidate_ for "the next real number after $\pi$ on the number line" than _c_ is .... The concept "the next real number after $\pi$ on the number line" does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to $\pi$ over and over again. Likewise, "the real numbers that are closest to $\pi$" do not exist. + 
+It does NOT makes sense to ask about "the next real number after $\pi$ on the number line" because if we think _c_ is "the next real number after $\pi$ on the number line" then we can compute the number $c_{1} = \frac{c+\pi}{2},$ which is the midpoint of the interval with endpoints $\pi$ and _c,_ so $c_{1}$ is closer to $\pi$ than _c_ is, which means $c_{1}$ is a _better candidate_ for "the next real number after $\pi$ on the number line" than _c_ … so the concept "the next real number after $\pi$ on the number line" does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to $\pi$ over and over again. Likewise, "the real numbers that are closest to $\pi$" do not exist. + 
 //Instead, "the real numbers that differ from $\pi$ by less than $\epsilon$" makes sense for any positive number $\epsilon$ (The symbol $\epsilon$ is  the Greek letter "epsilon".) By choosing $\epsilon$ as small as we like, we can describe the real numbers that are as close to $\pi$ as needed to use as approximations to $\pi.$ This is why (and how) limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line. + 
 Instead, it makes sense to talk about "the real numbers that differ from $\pi$ by less than $\epsilon$" where $\epsilon$ is some positive real number  (The symbol $\epsilon$ is  the Greek letter "epsilon".) By choosing $\epsilon$ as small as we like, we can describe the real numbers that are as close to $\pi$ as needed to use as approximations to $\pi.$ This is why and how limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line. + 
 [small]#Note 1: You could use any other real number instead of $\pi$ in the discussion above because the argument will still be valid. For example, "the next real number after $-2$ on the number line" and "the real numbers that are closest to $-2$ on the number line" do not exist since you can choose numbers that get closer and closer to $-2$ such as $-1,$ $-1.5,$ $-1.75,$ and so on. + 
@@ -306,9 +308,9 @@ is a pairing of each member of the set _A_ with exactly one member of set _B,_ a
 .Examples - One-To-One Correspondences 
 
 As a first example, the one-to-one correspondence between 
-the set of uppercase English letters and the set of lowercase English letters is represented in the image. 
+the set of uppercase English letters and the set of lowercase English letters is represented in the image. You can choose each letter in the upper row and follow the arrow down to the corresponding lowercase letter that it is paired with. 
 
-The one-to-one correspondence is described by first choosing an uppercase letter in the upper row and next following the arrow down to the corresponding lowercase letter in the lower row. 
+//The one-to-one correspondence is described by first choosing an uppercase letter in the upper row and next following the arrow down to the corresponding lowercase letter in the lower row. 
 
 //image::imagesMKD/UpperLowerOneToOneCorrepsondence.PNG[align="center"]
 //image::imagesMKD/UpperLowerOneToOneCorrV2.png[align="center"]
@@ -330,20 +332,24 @@ you can choose any lowercase letter then follow the arrow up to its correspondin
 
 //The one-to-one correspondence is described by first choosing an uppercase letter in the upper row and next following the arrow down to the corresponding lowercase letter in the lower row. 
 
-Notice that you could choose any lowercase letter then follow the arrow up to its corresponding uppercase letter. This shows that the one-to-one correspondence 
+Notice that you could choose any lowercase letter in the image and follow the arrow up to its corresponding uppercase letter. This shows that the one-to-one correspondence 
 //has an *inverse function* which is also a one-to-one correspondence. 
-is invertible in the sense that there is a second one-to-one correspondence  that can "undo" what the first one-to-one correspondence does.
-This is why, in this example, the arrows in the image point in both directions: It is natural to interpret the arrow as meaning "change case" in either direction. 
+is invertible in the sense that there is a second one-to-one correspondence that can "undo" what the first one-to-one correspondence does.
+//This is why, in this example, the arrows in the image point in both directions: It is natural to interpret the arrow as meaning "change case" in either direction. 
+//This is why, in this first example, the arrows in the image point in both the down and up directions: It is natural to interpret the arrow as meaning "change case" in either direction. 
+This is why the arrows in the image point in both directions: It is natural to interpret the arrow as meaning "change case" in either direction. + 
+[small]#In fact, the image for the one-to-one correspondence actually represents two link:./introduction_discrete_math.html#informal_function_definition[functions]: The first function is the uppercase-to-lowercase conversion that uses only the down arrows, and the second function lowercase-to-uppercase conversion that uses only the up arrows.#
 
 //This shows that the one-to-one correspondence has an *inverse* which is also a one-to-one correspondence.
  
 
-In fact, [underline]#every# one-to-one correspondence is a link:./introduction_discrete_math.html#informal_function_definition[function] that has an inverse function. 
+//In fact, [underline]#every# one-to-one correspondence is a link:./introduction_discrete_math.html#informal_function_definition[function] that has an inverse function. 
 
 [[informal_rock_paper_scissors]]
 image::imagesMKD/THE_GAME_OF_KEN_derivative_v3.png[THE_GAME_OF_KEN_derivative_v3,384,330,float="right",align="center"]
-As a second example, consider the game "rock, paper, scissors."
-The image represents the one-to-one correspondence that pairs each element of the set $\{ \text{"rock"},\,\text{"paper"},\,\text{"scissors"} \}$ with the element of the same set that wins against it. 
+As a second example, consider the game link:https://en.wikipedia.org/wiki/Rock_paper_scissors["rock, paper, scissors."] 
+//The image represents the one-to-one correspondence that pairs each element of the set $\{ \text{"rock"},\,\text{"paper"},\,\text{"scissors"} \}$ with the element of the same set that wins against it. 
+The image represents the one-to-one correspondence that pairs each element of the set $\{ \text{"rock"},\,\text{"paper"},\,\text{"scissors"} \}$ with the element of the same set that it loses to. 
 //
 //image::imagesMKD/MKDPlaceholder.png[align="center"]
 //image::imagesMKD/THE_GAME_OF_KEN_derivative_v3.png[THE_GAME_OF_KEN_derivative_v3,512,438,align="center"]
@@ -352,7 +358,7 @@ The image represents the one-to-one correspondence that pairs each element of th
  + 
 [small]#Image credit: Remixer-created derivative of original work  link:https://commons.wikimedia.org/wiki/File:THE_GAME_OF_KEN.&#95;(1910)&#95;-&#95;illustration&#95;-&#95;page&#95;315.png["THE_GAME_OF_KEN._(1910)_-_illustration_-_page_315.png"]. According to Japanese Copyright Law (June 1, 2018 grant) the copyright on the original work has expired and is as such public domain. Also, the original work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1930.#
 
-For this one-to-one correspondence, it makes sense to use arrows that point in only one direction.  
+For this one-to-one correspondence, it makes more sense to use arrows that point in only one direction.  
 //to indicate which hand gesture wins. 
 In the image, all the arrows point to the winner, so each arrow can be read as "loses to," for example "rock loses to paper". + 
 // (but the image could have used arrows that always point to the loser instead.) + 
@@ -736,7 +742,7 @@ subset of the natural numbers, into another set (e.g., the natural numbers, or t
 //For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for every } i \in \mathbb{N}\] 
 For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for every natural number } i \] which describes the sequence of positive odd integers $a_{0} = 1,$ $a_{1} = 3,$ $a_{2} = 5,$ and so on. + 
    
-** NOTE 1: It is common to use _i_ as a variable in sequence notation because _i_ is the initial letter of the word _index._ This 
+** NOTE 1: It is common to use _i_ as a variable in sequence notation because _i_ is the initial letter of the word *index.* This 
 //use of 
 _i_ has nothing to do with the complex number $\sqrt{-1}.$ Mathematicians recycle and reuse letters!
 ** NOTE 2: It is traditional to write the input variable for a sequence as a subscript instead of putting it between parentheses. In the preceding example, $a_{i} = 2i+1$ has the same meaning as $a(i) = 2i+1$.
@@ -1480,12 +1486,13 @@ image::images/gerrymandering.png[]
 == Links to the Informal Definitions in this Chapter
 
 [[links_to_informal_definitions]] 
-For your reference in the future, here are direct links to the foundational ideas discussed in this section. 
+//For your reference in the future, here are direct links to the foundational ideas discussed in this section. 
+For your reference in the future, here are direct links to most of the bullet points in the list of foundational ideas discussed in this section. 
 
 //|===
-link:./introduction_discrete_math.html#informal_set_definition[Sets]
+link:./introduction_discrete_math.html#informal_set_definition[Sets], including subsets, the empty set, unions of sets, and intersections of sets
 
-link:./introduction_discrete_math.html#informal_one_to_one_correspondence_definition[One-to-one correspondence]
+link:./introduction_discrete_math.html#informal_one_to_one_correspondence_definition[One-to-one correspondence], including the example "rock, paper, scissors"
 
 //link:./introduction_discrete_math.html#informal_rock_paper_scissors["rock, paper, scissors"]
 
@@ -1493,23 +1500,24 @@ link:./introduction_discrete_math.html#informal_natural_numbers_definition[Natur
 
 link:./introduction_discrete_math.html#informal_finite_set_definition[Finite and infinite sets]
 
-link:./introduction_discrete_math.html#informal_counting_definition[Counting]
+link:./introduction_discrete_math.html#informal_counting_definition[Counting], including the Multiplication Principle and Pigeonhole Principle
 
-link:./introduction_discrete_math.html#informal_counting_definition[Multiplication Principle]
+//link:./introduction_discrete_math.html#informal_counting_definition[Multiplication Principle]
 
-link:./introduction_discrete_math.html#informal_counting_definition[Pigeonhole Principle]
+//link:./introduction_discrete_math.html#informal_counting_definition[Pigeonhole Principle]
 
-link:./introduction_discrete_math.html#informal_function_definition[Functions]
+link:./introduction_discrete_math.html#informal_function_definition[Functions], including domain, codomain, range, inverse function, and the floor and ceiling functions $\lfloor x \rfloor$ and $\lceil x \rceil$
 
-link:./introduction_discrete_math.html#informal_sequence_definition[Sequences]
+link:./introduction_discrete_math.html#informal_sequence_definition[Sequences], including index and terms
 
 link:./introduction_discrete_math.html#informal_bitstring_definition[Bitstrings]
 
 link:./introduction_discrete_math.html#informal_summation_notation_definition[Summation Notation]
 
 link:./introduction_discrete_math.html#informal_recursion_definition[Recursion]
- link:./introduction_discrete_math.html#informal_recurrence_relation_definition[Recurrence Relations]
 
+link:./introduction_discrete_math.html#informal_recurrence_relation_definition[Recurrence Relations], including closed forms
+ 
 link:./introduction_discrete_math.html#informal_proposition_definition[Propositions]
 
 link:./introduction_discrete_math.html#informal_predicate_definition[Predicates]

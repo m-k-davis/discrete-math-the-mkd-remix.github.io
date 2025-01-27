@@ -713,7 +713,7 @@ introduced into each of the new chapters.</p>
 <h2 id="_introducing_discrete_mathematics">1. Introducing Discrete Mathematics</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This chapter was last updated on January 26, 2025.</em><br></p>
+<p><em>This chapter was last updated on January 27, 2025.</em><br></p>
 </div>
 <div class="paragraph">
 <p>Welcome to the Remix! I hope this textbook provides you an opportunity for a stimulating and intellectually enjoyable learning experience.</p>
@@ -735,7 +735,8 @@ introduced into each of the new chapters.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>As an example, consider a wall, a structure built from individual stones and bricks, part of which is shown in the image to the right. The
+<p>As an example, consider a wall, a structure built from individual stones and bricks, part of which is shown in the image.
+The
 individual
 objects in the structure are
 the stones and bricks. You can still identify individual objects even though they were combined to build the larger structure, and can classify
@@ -790,7 +791,7 @@ Also, notice that the glass container itself is another structure in which the i
 <ul>
 <li>
 <p>The set of real numbers, in the usual order, as represented on a number line is NOT a discrete structure.<br>
-It does NOT makes sense to ask about "the next real number after \(\pi\) on the number line" because if we think <em>c</em> is "the next real number after \(\pi\) on the number line" then we can compute the number \(c_{1} = \frac{c+\pi}{2},\) which is the midpoint of the interval with endpoints \(\pi,\) so \(c_{1}\) is closer to \(\pi\) than <em>c</em> is, which means \(c_{1}\) is a <em>better candidate</em> for "the next real number after \(\pi\) on the number line" than <em>c</em> is &#8230;&#8203;. The concept "the next real number after \(\pi\) on the number line" does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to \(\pi\) over and over again. Likewise, "the real numbers that are closest to \(\pi\)" do not exist.<br>
+It does NOT makes sense to ask about "the next real number after \(\pi\) on the number line" because if we think <em>c</em> is "the next real number after \(\pi\) on the number line" then we can compute the number \(c_{1} = \frac{c+\pi}{2},\) which is the midpoint of the interval with endpoints \(\pi\) and <em>c,</em> so \(c_{1}\) is closer to \(\pi\) than <em>c</em> is, which means \(c_{1}\) is a <em>better candidate</em> for "the next real number after \(\pi\) on the number line" than <em>c</em> … so the concept "the next real number after \(\pi\) on the number line" does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to \(\pi\) over and over again. Likewise, "the real numbers that are closest to \(\pi\)" do not exist.<br>
 Instead, it makes sense to talk about "the real numbers that differ from \(\pi\) by less than \(\epsilon\)" where \(\epsilon\) is some positive real number  (The symbol \(\epsilon\) is  the Greek letter "epsilon".) By choosing \(\epsilon\) as small as we like, we can describe the real numbers that are as close to \(\pi\) as needed to use as approximations to \(\pi.\) This is why and how limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line.<br>
 <span class="small">Note 1: You could use any other real number instead of \(\pi\) in the discussion above because the argument will still be valid. For example, "the next real number after \(-2\) on the number line" and "the real numbers that are closest to \(-2\) on the number line" do not exist since you can choose numbers that get closer and closer to \(-2\) such as \(-1,\) \(-1.5,\) \(-1.75,\) and so on.<br>
 Note 2: The technique used to justify that "the next real number after \(\pi\) on the number line" does not exist is called <strong>proof by contradiction</strong> and will be discussed along with other techniques in the <a href=./proofs.html>Proofs: Basic Techniques</a> chapter of this textbook.<br>
@@ -902,10 +903,7 @@ is a pairing of each member of the set <em>A</em> with exactly one member of set
 <div class="paragraph">
 <div class="title">Examples - One-To-One Correspondences</div>
 <p>As a first example, the one-to-one correspondence between
-the set of uppercase English letters and the set of lowercase English letters is represented in the image.</p>
-</div>
-<div class="paragraph">
-<p>The one-to-one correspondence is described by first choosing an uppercase letter in the upper row and next following the arrow down to the corresponding lowercase letter in the lower row.</p>
+the set of uppercase English letters and the set of lowercase English letters is represented in the image. You can choose each letter in the upper row and follow the arrow down to the corresponding lowercase letter that it is paired with.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -913,12 +911,10 @@ the set of uppercase English letters and the set of lowercase English letters is
 </div>
 </div>
 <div class="paragraph">
-<p>Notice that you could choose any lowercase letter then follow the arrow up to its corresponding uppercase letter. This shows that the one-to-one correspondence
-is invertible in the sense that there is a second one-to-one correspondence  that can "undo" what the first one-to-one correspondence does.
-This is why, in this example, the arrows in the image point in both directions: It is natural to interpret the arrow as meaning "change case" in either direction.</p>
-</div>
-<div class="paragraph">
-<p>In fact, <span class="underline">every</span> one-to-one correspondence is a <a href=./introduction_discrete_math.html#informal_function_definition>function</a> that has an inverse function.</p>
+<p>Notice that you could choose any lowercase letter in the image and follow the arrow up to its corresponding uppercase letter. This shows that the one-to-one correspondence
+is invertible in the sense that there is a second one-to-one correspondence that can "undo" what the first one-to-one correspondence does.
+This is why the arrows in the image point in both directions: It is natural to interpret the arrow as meaning "change case" in either direction.<br>
+<span class="small">In fact, the image for the one-to-one correspondence actually represents two <a href=./introduction_discrete_math.html#informal_function_definition>functions</a>: The first function is the uppercase-to-lowercase conversion that uses only the down arrows, and the second function lowercase-to-uppercase conversion that uses only the up arrows.</span></p>
 </div>
 <div id="informal_rock_paper_scissors" class="imageblock right text-center">
 <div class="content">
@@ -926,13 +922,13 @@ This is why, in this example, the arrows in the image point in both directions: 
 </div>
 </div>
 <div class="paragraph">
-<p>As a second example, consider the game "rock, paper, scissors."
-The image represents the one-to-one correspondence that pairs each element of the set \(\{ \text{"rock"},\,\text{"paper"},\,\text{"scissors"} \}\) with the element of the same set that wins against it.
+<p>As a second example, consider the game <a href=https://en.wikipedia.org/wiki/Rock_paper_scissors>"rock, paper, scissors."</a>
+The image represents the one-to-one correspondence that pairs each element of the set \(\{ \text{"rock"},\,\text{"paper"},\,\text{"scissors"} \}\) with the element of the same set that it loses to.
 <br>
 <span class="small">Image credit: Remixer-created derivative of original work  <a href=https://commons.wikimedia.org/wiki/File:THE_GAME_OF_KEN.&#95;(1910)&#95;-&#95;illustration&#95;-&#95;page&#95;315.png>"THE_GAME_OF_KEN.<em>(1910)</em>-<em>illustration</em>-_page_315.png"</a>. According to Japanese Copyright Law (June 1, 2018 grant) the copyright on the original work has expired and is as such public domain. Also, the original work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1930.</span></p>
 </div>
 <div class="paragraph">
-<p>For this one-to-one correspondence, it makes sense to use arrows that point in only one direction.
+<p>For this one-to-one correspondence, it makes more sense to use arrows that point in only one direction.
 In the image, all the arrows point to the winner, so each arrow can be read as "loses to," for example "rock loses to paper".<br>
 <span class="small">Note 1: A one-to-one correspondence between a set and itself is called a <strong>permutation.</strong> You will see the term "permutation" again, used with a related but different meaning, in the <a href=./counting_binomial.html>Counting: Permutations and Combinations</a> chapter.<br>
 Note 2: "Rock, paper, scissors" is a modern form of a very old game that appears to date back at least 1,800 years to China during the time of the Han dynasty. You can learn more about the history of "rock, paper, scissors" and other intrasitive games at this  <a href=https://en.wikipedia.org/wiki/Rock_paper_scissorsl&#35;History> Wikipedia link</a>. The image used in the Remix is derived from one that appears in a <a href=https://www.gutenberg.org/cache/epub/65870/pg65870-images.html&#35;CHAPTER_XXII>book</a> published in 1910 that describes the Japanese game stone-<em>ken</em> or <em>jan-ken.</em></span></p>
@@ -1305,7 +1301,7 @@ For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for ever
 <div class="ulist">
 <ul>
 <li>
-<p>NOTE 1: It is common to use <em>i</em> as a variable in sequence notation because <em>i</em> is the initial letter of the word <em>index.</em> This
+<p>NOTE 1: It is common to use <em>i</em> as a variable in sequence notation because <em>i</em> is the initial letter of the word <strong>index.</strong> This
 <em>i</em> has nothing to do with the complex number \(\sqrt{-1}.\) Mathematicians recycle and reuse letters!</p>
 </li>
 <li>
@@ -2195,13 +2191,13 @@ wins \(2\) out of \(10\) districts, but in scenario \(B\) it wins \(7\)  out of 
 <div class="sect2">
 <h3 id="_links_to_the_informal_definitions_in_this_chapter">1.4. Links to the Informal Definitions in this Chapter</h3>
 <div id="links_to_informal_definitions" class="paragraph">
-<p>For your reference in the future, here are direct links to the foundational ideas discussed in this section.</p>
+<p>For your reference in the future, here are direct links to most of the bullet points in the list of foundational ideas discussed in this section.</p>
 </div>
 <div class="paragraph">
-<p><a href=./introduction_discrete_math.html#informal_set_definition>Sets</a></p>
+<p><a href=./introduction_discrete_math.html#informal_set_definition>Sets</a>, including subsets, the empty set, unions of sets, and intersections of sets</p>
 </div>
 <div class="paragraph">
-<p><a href=./introduction_discrete_math.html#informal_one_to_one_correspondence_definition>One-to-one correspondence</a></p>
+<p><a href=./introduction_discrete_math.html#informal_one_to_one_correspondence_definition>One-to-one correspondence</a>, including the example "rock, paper, scissors"</p>
 </div>
 <div class="paragraph">
 <p><a href=./introduction_discrete_math.html#informal_natural_numbers_definition>Natural Numbers</a></p>
@@ -2210,19 +2206,13 @@ wins \(2\) out of \(10\) districts, but in scenario \(B\) it wins \(7\)  out of 
 <p><a href=./introduction_discrete_math.html#informal_finite_set_definition>Finite and infinite sets</a></p>
 </div>
 <div class="paragraph">
-<p><a href=./introduction_discrete_math.html#informal_counting_definition>Counting</a></p>
+<p><a href=./introduction_discrete_math.html#informal_counting_definition>Counting</a>, including the Multiplication Principle and Pigeonhole Principle</p>
 </div>
 <div class="paragraph">
-<p><a href=./introduction_discrete_math.html#informal_counting_definition>Multiplication Principle</a></p>
+<p><a href=./introduction_discrete_math.html#informal_function_definition>Functions</a>, including domain, codomain, range, inverse function, and the floor and ceiling functions \(\lfloor x \rfloor\) and \(\lceil x \rceil\)</p>
 </div>
 <div class="paragraph">
-<p><a href=./introduction_discrete_math.html#informal_counting_definition>Pigeonhole Principle</a></p>
-</div>
-<div class="paragraph">
-<p><a href=./introduction_discrete_math.html#informal_function_definition>Functions</a></p>
-</div>
-<div class="paragraph">
-<p><a href=./introduction_discrete_math.html#informal_sequence_definition>Sequences</a></p>
+<p><a href=./introduction_discrete_math.html#informal_sequence_definition>Sequences</a>, including index and terms</p>
 </div>
 <div class="paragraph">
 <p><a href=./introduction_discrete_math.html#informal_bitstring_definition>Bitstrings</a></p>
@@ -2231,8 +2221,10 @@ wins \(2\) out of \(10\) districts, but in scenario \(B\) it wins \(7\)  out of 
 <p><a href=./introduction_discrete_math.html#informal_summation_notation_definition>Summation Notation</a></p>
 </div>
 <div class="paragraph">
-<p><a href=./introduction_discrete_math.html#informal_recursion_definition>Recursion</a>
- <a href=./introduction_discrete_math.html#informal_recurrence_relation_definition>Recurrence Relations</a></p>
+<p><a href=./introduction_discrete_math.html#informal_recursion_definition>Recursion</a></p>
+</div>
+<div class="paragraph">
+<p><a href=./introduction_discrete_math.html#informal_recurrence_relation_definition>Recurrence Relations</a>, including closed forms</p>
 </div>
 <div class="paragraph">
 <p><a href=./introduction_discrete_math.html#informal_proposition_definition>Propositions</a></p>
