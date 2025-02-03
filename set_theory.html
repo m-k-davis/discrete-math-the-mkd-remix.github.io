@@ -533,18 +533,18 @@ $(document).on('page:load', ready2);
       </a>
      </li>
      <li>
-      <a href="growth_of_functions.html#_rates_of_growth_of_functions">
-       10. Rates of Growth of Functions
-      </a>
-     </li>
-     <li>
       <a href="counting_binomial.html#_counting_permutations_and_combinations">
-       11. Counting: Permutations and Combinations
+       10. Counting: Permutations and Combinations
       </a>
      </li>
      <li>
       <a href="induction.html#_proofs_mathematical_induction">
-       12. Proofs: Mathematical Induction
+       11. Proofs: Mathematical Induction
+      </a>
+     </li>
+     <li>
+      <a href="growth_of_functions.html#_rates_of_growth_of_functions">
+       12. Rates of Growth of Functions
       </a>
      </li>
      <li>
@@ -612,9 +612,12 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on January 26, 2025.
+        This chapter was last updated on February 2, 2025.
        </em>
        <br/>
+       <em>
+        Split section on Cardinality into two sections (One for finite sets and one for infinite sets), moved section on Venn diagrams after section on Finite Sets, and moved section on infinite sets closer to the end of the chapter.
+       </em>
       </p>
      </div>
      <div class="paragraph">
@@ -1630,8 +1633,197 @@ are Cartesian products.
       </div>
      </div>
      <div class="sect2">
+      <h3 id="_cardinality_of_sets_finite_sets">
+       3.7. Cardinality Of Sets: Finite Sets
+      </h3>
+      <div class="paragraph">
+       <p>
+        Cardinality is the formalization of the idea of the count of the number of elements in a set.
+        <br/>
+        <span class="small">
+         In this section, we will prefer counting from 1 instead of 0. You will see below why this makes no difference.
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Set \(A\) is called a
+        <strong>
+         finite set
+        </strong>
+        if either
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          \(A\) is the empty set or
+         </p>
+        </li>
+        <li>
+         <p>
+          there is a one-to-one correspondence between \(A\) and the set
+\(\{ i \in \mathbb{N} \, | \, 0 &lt; i \leq n \} = \{1, 2, \ldots , n \}\) for some positive integer \(n.\)
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="imageblock right text-center">
+           <div class="content">
+            <img alt="FingersToNumerals" height="109" src="imagesMKD/FingersToNumerals.png" width="375"/>
+           </div>
+          </div>
+          <div class="paragraph">
+           <p>
+            This definition of "finite set" may seem abstract, but it’s just a formal description of what is likely the way you learned to count when you were young: You matched objects with number names (that is, numerals) as shown in the image.
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="04to15" height="91" src="imagesMKD/04to15.png" width="123"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         cardinality
+        </strong>
+        of a finite set \(A,\) denoted by \(|A|,\) is
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          0 if \(A = \emptyset\) or
+         </p>
+        </li>
+        <li>
+         <p>
+          the value of \(n\) for which there is a one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        For a
+        <em>
+         finite set
+        </em>
+        \(A\) the cardinality \(|A|\) is just the number of elements in the set.
+The image shows that \(|\{0,1,2,3,4\}| = 5.\)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 10 - Cardinality of Finite Sets in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The cardinality of a finite set \(A\) can be computed in Python as follows:
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          len(A)
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B2,3,5,8%7D%0AB%20%3D%20set%28%29%0AC%20%3D%20%7B0%7D%0Aprint%28len%28A%29%29%0Aprint%28len%28B%29%29%0Aprint%28len%28C%29%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B2,3,5,8%7D%0AB%20%3D%20set%28%29%0AC%20%3D%20%7B0%7D%0Aprint%28len%28A%29%29%0Aprint%28len%28B%29%29%0Aprint%28len%28C%29%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 11
+         </div>
+         <p>
+          Suppose that \(A\) and \(B\) are finite sets.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            The cardinality of the Cartesian product \(A × B\) is \(|A × B|=|A| \cdot |B|\).
+           </p>
+          </li>
+          <li>
+           <p>
+            The cardinality of the power set of \(A\) is \(\left|\mathcal{P}(A)\right| = 2^{|A|}.\)
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="openblock Challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Give informal arguments to justify each of the two bulleted statements.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Your arguments can use some of the rules introduced in
+           <a href="./counting_arithmetic.html">
+            Counting: Arithmetic Techniques
+           </a>
+           chapter
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Answer
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           For the Cartesian product, the elements of \(A × B\) are ordered pairs of the form \((x,y)\) where \(x\in A\) and \(y\in B.\) There are \(|A|\) choices for the first coordinate, and for each of those choices there are \(|B|\) choices for the second coordinate. Use the product rule to conclude that there are \(|A| \cdot |B|\) different ways to choose an ordered pair, so that \(|A × B|=|A| \cdot |B|.\)
+           <br/>
+           <br/>
+           For the power set of \(A,\) to choose a subset of \(A\) you must decide for each of the \(|A|\) elements in \(A\) whether to include that element in the subset. There are 2 choices for each element, so using the product rule repeatedly you can conclude that there are \((2)(2)\cdots(2)\) ways to choose a subset, where the number of factors of \(2\) is \(|A|\). So \(\left|\mathcal{P}(A)\right| = 2^{|A|}.\) You can also think of this as counting all possible bitstrings of length \(n,\) where a 1 bit means "include the corresponding element" and a 0 bit means "omit the corresponding element."
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
       <h3 id="_venn_diagrams">
-       3.7. Venn Diagrams
+       3.8. Venn Diagrams
       </h3>
       <div class="paragraph">
        <p>
@@ -1759,620 +1951,6 @@ are Cartesian products.
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_cardinality_of_sets">
-       3.8. Cardinality Of Sets
-      </h3>
-      <div class="paragraph">
-       <p>
-        Cardinality is the formalization of the idea of the count of the number of elements in a set.
-        <br/>
-        <span class="small">
-         In this section, we will prefer counting from 1 instead of 0. You will see below why this makes no difference.
-        </span>
-       </p>
-      </div>
-      <div class="sect3">
-       <h4 id="_finite_sets">
-        3.8.1. Finite Sets
-       </h4>
-       <div class="paragraph">
-        <p>
-         Set \(A\) is called a
-         <strong>
-          finite set
-         </strong>
-         if either
-        </p>
-       </div>
-       <div class="ulist">
-        <ul>
-         <li>
-          <p>
-           \(A\) is the empty set or
-          </p>
-         </li>
-         <li>
-          <p>
-           there is a one-to-one correspondence between \(A\) and the set
-\(\{ i \in \mathbb{N} \, | \, 0 &lt; i \leq n \} = \{1, 2, \ldots , n \}\) for some positive integer \(n.\)
-          </p>
-         </li>
-        </ul>
-       </div>
-       <div class="admonitionblock note">
-        <table>
-         <tr>
-          <td class="icon">
-           <i class="fa icon-note" title="Note">
-           </i>
-          </td>
-          <td class="content">
-           <div class="imageblock right text-center">
-            <div class="content">
-             <img alt="FingersToNumerals" height="109" src="imagesMKD/FingersToNumerals.png" width="375"/>
-            </div>
-           </div>
-           <div class="paragraph">
-            <p>
-             This definition of "finite set" may seem abstract, but it’s just a formal description of what is likely the way you learned to count when you were young: You matched objects with number names (that is, numerals) as shown in the image.
-            </p>
-           </div>
-          </td>
-         </tr>
-        </table>
-       </div>
-       <div class="imageblock right text-center">
-        <div class="content">
-         <img alt="04to15" height="91" src="imagesMKD/04to15.png" width="123"/>
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         The
-         <strong>
-          cardinality
-         </strong>
-         of a finite set \(A,\) denoted by \(|A|,\) is
-        </p>
-       </div>
-       <div class="ulist">
-        <ul>
-         <li>
-          <p>
-           0 if \(A = \emptyset\) or
-          </p>
-         </li>
-         <li>
-          <p>
-           the value of \(n\) for which there is a one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)
-          </p>
-         </li>
-        </ul>
-       </div>
-       <div class="paragraph">
-        <p>
-         For a
-         <em>
-          finite set
-         </em>
-         \(A\) the cardinality \(|A|\) is just the number of elements in the set.
-The image shows that \(|\{0,1,2,3,4\}| = 5.\)
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="openblock">
-          <div class="title">
-           Example 10 - Cardinality of Finite Sets in Python
-          </div>
-          <div class="content">
-          </div>
-         </div>
-         <div class="paragraph">
-          <p>
-           The cardinality of a finite set \(A\) can be computed in Python as follows:
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           len(A)
-          </p>
-         </div>
-         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B2,3,5,8%7D%0AB%20%3D%20set%28%29%0AC%20%3D%20%7B0%7D%0Aprint%28len%28A%29%29%0Aprint%28len%28B%29%29%0Aprint%28len%28C%29%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
-         </iframe>
-         <div style="text-align: right;">
-          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B2,3,5,8%7D%0AB%20%3D%20set%28%29%0AC%20%3D%20%7B0%7D%0Aprint%28len%28A%29%29%0Aprint%28len%28B%29%29%0Aprint%28len%28C%29%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
-           Edit in PythonTutor
-          </a>
-         </div>
-        </div>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="paragraph">
-          <div class="title">
-           Example 11
-          </div>
-          <p>
-           Suppose that \(A\) and \(B\) are finite sets.
-          </p>
-         </div>
-         <div class="ulist">
-          <ul>
-           <li>
-            <p>
-             The cardinality of the Cartesian product \(A × B\) is \(|A × B|=|A| \cdot |B|\).
-            </p>
-           </li>
-           <li>
-            <p>
-             The cardinality of the power set of \(A\) is \(\left|\mathcal{P}(A)\right| = 2^{|A|}.\)
-            </p>
-           </li>
-          </ul>
-         </div>
-         <div class="openblock Challenge">
-          <div class="title">
-           Challenge
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            Give informal arguments to justify each of the two bulleted statements.
-           </div>
-          </div>
-         </div>
-         <div class="openblock click">
-          <div class="title">
-           Hint
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            Your arguments can use some of the rules introduced in
-            <a href="./counting_arithmetic.html">
-             Counting: Arithmetic Techniques
-            </a>
-            chapter
-           </div>
-          </div>
-         </div>
-         <div class="openblock click">
-          <div class="title">
-           Answer
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            For the Cartesian product, the elements of \(A × B\) are ordered pairs of the form \((x,y)\) where \(x\in A\) and \(y\in B.\) There are \(|A|\) choices for the first coordinate, and for each of those choices there are \(|B|\) choices for the second coordinate. Use the product rule to conclude that there are \(|A| \cdot |B|\) different ways to choose an ordered pair, so that \(|A × B|=|A| \cdot |B|.\)
-            <br/>
-            <br/>
-            For the power set of \(A,\) to choose a subset of \(A\) you must decide for each of the \(|A|\) elements in \(A\) whether to include that element in the subset. There are 2 choices for each element, so using the product rule repeatedly you can conclude that there are \((2)(2)\cdots(2)\) ways to choose a subset, where the number of factors of \(2\) is \(|A|\). So \(\left|\mathcal{P}(A)\right| = 2^{|A|}.\) You can also think of this as counting all possible bitstrings of length \(n,\) where a 1 bit means "include the corresponding element" and a 0 bit means "omit the corresponding element."
-           </div>
-          </div>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_infinite_sets">
-        3.8.2. Infinite Sets
-       </h4>
-       <div class="paragraph">
-        <p>
-         Set \(A\) is called an
-         <strong>
-          infinite set
-         </strong>
-         if it not a finite set.
-That is, \(A\) is not the empty set, and for every positive integer \(n\) there is no one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         Intuitively an infinite set \(A\) is at least as big as the set of positive integers. You may think that \(A\)
-         <em>
-          must
-         </em>
-         have the same size as the set of  positive integers, but cardinality is a much more …​ "interesting" concept for infinite sets, as you will see.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         First, we will say that two infinite sets \(A\) and \(B\) have the same cardinality if and only if there is a one-to-one correspondence between the two sets. As an example, the set of positive integers and the set of negative integers have the same cardinality since each nonzero integer \(n\) can be paired with its additive inverse, \(-n.\)
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         For finite sets, if \(A\) is a proper subset of \(B\) then it must be true that
-the cardinality of \(A\) is not the same as the cardinality of \(B.\) This fails spectacularly for infinite sets as the next few examples show.
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="openblock">
-          <div class="title">
-           Example 12 - The Natural Numbers and The Positive Integers
-          </div>
-          <div class="content">
-          </div>
-         </div>
-         <div class="imageblock text-center">
-          <div class="content">
-           <img alt="NtoNstar" height="98" src="imagesMKD/NtoNstar.png" width="291"/>
-          </div>
-         </div>
-         <div class="paragraph">
-          <p>
-           The image shows that there is a one-to-one correspondence between the natural numbers and the positive integers, so these two sets have the same cardinality. But this isn’t so bad, we only have one more number in the set of natural numbers, which is why we can just shift every thing over by 1 in the image.
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           Notice that this example also suggests why it really does not matter whether we start counting from 1 or 0…​ we can always "reindex" the counting if necessary.
-          </p>
-         </div>
-         <div class="openblock Challenge">
-          <div class="title">
-           Challenge
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            Write a formula for the function that represents the one-to-one correspondence between the natural numbers and the positive integers.
-           </div>
-          </div>
-         </div>
-         <div class="openblock click">
-          <div class="title">
-           Hint
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            The function is a linear function. If you don’t remember how to find the equation of a linear function, see
-            <a href="./appendix_math.html">
-             this appendix.
-            </a>
-           </div>
-          </div>
-         </div>
-        </div>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="openblock">
-          <div class="title">
-           Example 13 - The Natural Numbers and The Integers
-          </div>
-          <div class="content">
-          </div>
-         </div>
-         <div class="imageblock text-center">
-          <div class="content">
-           <img alt="ZtoN" height="93" src="imagesMKD/ZtoN.png" width="309"/>
-          </div>
-         </div>
-         <div class="paragraph">
-          <p>
-           The image shows that there is a one-to-one correspondence between the set of all integers and the natural numbers.
-          </p>
-         </div>
-         <div class="imageblock text-center">
-          <div class="content">
-           <img alt="NtoZ" height="98" src="imagesMKD/NtoZ.png" width="331"/>
-          </div>
-         </div>
-         <div class="paragraph">
-          <p>
-           The image shows the inverse of the one-to-one correspondence above, which is a one-to-one correspondence between the set of natural numbers and the set of integers.
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           These two sets have the same cardinality, which may surprise you since "intuitively" it would seem there should be about twice as many integers as natural numbers. However, this example shows that you can double (roughly) the size of an infinite set and get a new set that has the same cardinality.
-          </p>
-         </div>
-         <div class="openblock Challenge">
-          <div class="title">
-           Challenge
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            Write a formula for a function that represents one of the two one-to-one correspondences involving the natural numbers and the integers.
-           </div>
-          </div>
-         </div>
-         <div class="openblock click">
-          <div class="title">
-           Hint
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            Either function will be defined by two linear expressions. The definition will be of the form \[ f(n) = \begin{cases}
-\text{some linear expression}, &amp; \text{ if } n \geq 0 \\
-\text{some linear expression}, &amp; \text{ if } n &lt; 0 \\
-\end{cases} \]
-or \[ g(n) = \begin{cases}
-\text{some linear expression}, &amp; \text{ if } n \text{ is even} \\
-\text{some linear expression}, &amp; \text{ if } n \text{ is odd} \\
-\end{cases}  \]
-           </div>
-          </div>
-         </div>
-        </div>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="openblock">
-          <div class="title">
-           Example 14 - The Natural Numbers and Ordered Pairs of Natural Numbers
-          </div>
-          <div class="content">
-          </div>
-         </div>
-         <div class="imageblock text-center">
-          <div class="content">
-           <img alt="Cantor’s_Pairing_Function" height="324" src="imagesMKD/Cantor's_Pairing_Function.svg" width="324"/>
-          </div>
-         </div>
-         <div class="paragraph">
-          <p>
-           This first image, which shows red points plotted in the \(xy\)-plane that have been labeled with natural numbers, suggests a way to define a one-to-one correspondence between the set of ordered pairs of natural numbers, \(\mathbb{N} × \mathbb{N},\) and the set of natural numbers \(\mathbb{N}.\)
-           <br/>
-           <span class="small">
-            Image credit:
-            <a href="https://commons.wikimedia.org/wiki/File:Cantor%27s_Pairing_Function.svg">
-             "Cantor’s Pairing Function"
-            </a>
-            by crh23. The image is dedicated to the public domain under
-            <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">
-             CC0
-            </a>
-            .
-           </span>
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           <span class="image right">
-            <img alt="PairsToSingles" height="75" src="imagesMKD/PairsToSingles.png" width="480"/>
-           </span>
-           This second image displays the same one-to-one correspondence in tabular form.
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           In the first image, notice that for each fixed value of the second coordinate \(y \in \mathbb{N},\) the horizontal row of red points of the form \(\{ (x, y) : x \in \mathbb{N} \} = \{ (0, y), (1, y), (2, y), (3, y), \ldots \}\) has the same cardinality as \(\mathbb{N}\) and
-that there is one such row for every natural number \(y \in \mathbb{N}.\) That is, the set of rows has the same cardinality as the set \(\mathbb{N},\) and each of the rows has the same cardinality as \(\mathbb{N}.\)
-There are, in essence, as many copies of \(\mathbb{N}\) (the rows of red points) as there are elements in \(\mathbb{N},\) and these copies are joined together to form the Cartesian product \(\mathbb{N} × \mathbb{N}\)…​ but this set still has the same cardinality as \(\mathbb{N}.\)
-           <br/>
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           Notice something else about this example: It shows that each
-           <em>
-            pair of natural numbers
-           </em>
-           can be encoded as a
-           <em>
-            single natural number.
-           </em>
-           In fact, this example can be generalized to show that any element in the set of
-           <em>
-            all finite-length sequences of natural numbers
-           </em>
-           can be encoded uniquely to a natural number (so, for example, the set of all possible finite-length strings of Unicode characters/code points can be encoded to the set of natural numbers, which may or may not be surprising to you.)
-          </p>
-         </div>
-         <div class="openblock Mega-challenge!">
-          <div class="title">
-           Mega-challenge!
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            Try to find an algebraic formula for the function \(n = f(x,y)\) that describes the one-to-one correspondence described by the images, then show that the function must map two different inputs (ordered pairs of natural numbers) to two different outputs (natural numbers) and also that
-            <em>
-             every
-            </em>
-            natural number is an output from the function for some input ordered pair of natural numbers.
-           </div>
-          </div>
-         </div>
-         <div class="openblock click">
-          <div class="title">
-           Hint
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            It’s possible to write \(f(x,y)\) as a quadratic polynomial in the two variables \(x\) and \(y.\)
-            <br/>
-            <br/>
-            You may want to read about
-            <a href="https://en.wikipedia.org/wiki/Triangular_number">
-             triangular numbers
-            </a>
-            to get an idea of how the mapping of ordered pairs to numbers is being done. In the first image, the red points form a "triangle of infinite height" with a vertex at \((0,0)\) and sides lying along the \(x-\) and \(y-\)axes. "Row 0" of the triangle is the single point \((0,0),\) and "row \(n\)" of the triangle is made up of the red points with natural number coordinates \((x,y)\) that add up to \(n\) (that is, \(x+y = n\).)
-            <br/>
-            <br/>
-            A proof that this mapping of ordered pairs of natural numbers to individual natural numbers is in fact a one-to-one correspondence will be presented later in the textbook.
-           </div>
-          </div>
-         </div>
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         So far, every infinite set presented has the same cardinality as \(\mathbb{N}.\)
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         Maybe
-         <em>
-          all
-         </em>
-         infinite sets have the same cardinality as \(\mathbb{N}?\) Nope!
-         <br/>
-         <br/>
-         The next theorem shows that \(\mathcal{P}(\mathbb{N})\) cannot have the same cardinality as \(\mathbb{N}\) so there must be at least two "infinities."
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          Theorem
-         </div>
-         <div class="paragraph">
-          <p>
-           There is no one-to-one correspondence between \(\mathbb{N}\) and \(\mathcal{P}(\mathbb{N}).\)
-          </p>
-         </div>
-         <div class="openblock click">
-          <div class="title">
-           Proof
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            This proof uses a technique called
-            <a href="https://en.wikipedia.org/wiki/Georg_Cantor">
-             "Cantor’s diagonal argument"
-            </a>
-            and is an example of the proof by contradiction technique that will be discussed later in the
-            <a href="./proofs.html">
-             Proofs: Basic Techniques
-            </a>
-            chapter.
-            <br/>
-            <br/>
-            <span class="image right">
-             <img alt="SeqOfSets" height="164" src="imagesMKD/SeqOfSets.png" width="445"/>
-            </span>
-            Let’s suppose that we had such a one-to-one correspondence.
-As shown in the image, we could represent the one-to-one correspondence by a sequence \(S_0 , S_1 , S_2 , \ldots\) of subsets of \(\mathbb{N},\) which is what the elements of \(\mathcal{P}(\mathbb{N})\) are. In the one-to-one correspondence,
-            <em>
-             every subset
-            </em>
-            of \(\mathbb{N}\) (that is,
-            <em>
-             every element
-            </em>
-            of \(\mathcal{P}(\mathbb{N})\)) appears as one of the \(S_{n}\) in the sequence: Every subset has been paired with a natural number and every natural number has been paired with a subset.
-            <br/>
-            <br/>
-            Next, define a subset \(M \subseteq \mathbb{N}\) as \[M = \{ n \in \mathbb{N} : n \not\in S_n \}\]
-
-That is, \(M\) is defined by the rule that for each natural number \(n,\) we have \(n \in M\) if and only if \(n \not\in S_{n}.\) So, for example, 0 is an element of \(M\) if 0 is not an element of \(S_0,\) but is not an element of \(M\) if 0 is an element of \(S_0.\) Likewise, 1 is an element of \(M\) if 1 is not an element of \(S_1,\) but is not an element of \(M\) if 1 is an element of \(S_1.\) The same is true for each of the natural numbers 2, 3, and so on: The natural number \(n\) is an element of exactly one of the sets \(S_n\) and \(M.\)
-            <br/>
-            <br/>
-            Now we show that \(M\) must be
-            <span class="underline">
-             missing
-            </span>
-            from the sequence \(S_0 , S_1 , S_2 , \ldots\)
-            <br/>
-            \(M\) cannot be \(S_0\) since one of those sets contains 0 and the other one does not. \(M\) cannot be \(S_1\) since one of those sets contains 1 and the other one does not. The same must be true for each of the natural numbers 2, 3, and so on. So, for
-            <em>
-             every natural number
-            </em>
-            \(n,\) \(n\) is an element of exactly one of the two sets \(S_n\) and \(M,\) which means \(M \neq S_n\) is true for
-            <em>
-             every natural number
-            </em>
-            \(n.\) This means that \(M\) cannot be any of the sets in the sequence…​ it is missing!
-            <br/>
-            <br/>
-            We assumed that every subset is listed in the sequence, but just showed that there is some subset that is not listed in the sequence.
-Notice that, even if we tried to use a new sequence (for example, insert \(M\) at position 0 and shift all the other subsets over by adding 1 to their subscripts) the diagonal argument could be used to define another subset that is missing from the new sequence. So,
-            <em>
-             every possible sequence of subsets must be missing at least one subset.
-            </em>
-            <br/>
-            <br/>
-            Therefore, such a one-to-one correspondence cannot exist.
-           </div>
-          </div>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_countable_and_uncountable_sets">
-        3.8.3. Countable and Uncountable Sets
-       </h4>
-       <div class="paragraph">
-        <p>
-         Set \(A\) is called
-         <strong>
-          countable
-         </strong>
-         if
-        </p>
-       </div>
-       <div class="ulist">
-        <ul>
-         <li>
-          <p>
-           \(A\) is a finite set or
-          </p>
-         </li>
-         <li>
-          <p>
-           there is a one-to-one correspondence between \(A\) and \(\mathbb{N}.\) In this case, \(A\) is also called
-           <strong>
-            countably infinite.
-           </strong>
-          </p>
-         </li>
-        </ul>
-       </div>
-       <div class="paragraph">
-        <p>
-         Set \(A\) is called
-         <strong>
-          uncountable
-         </strong>
-         if it is not a countable set. That is, \(A\) is infinite and there is no one-to-one correspondence between \(A\) and \(\mathbb{N}.\)
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         Several examples of countably infinite sets were given in the examples in the preceding subsection:
-        </p>
-       </div>
-       <div class="ulist">
-        <ul>
-         <li>
-          <p>
-           The set of positive integers \(\{ i \in \mathbb{N} \, | \, i &gt; 0 \},\)
-          </p>
-         </li>
-         <li>
-          <p>
-           the set of integers \(\mathbb{Z},\) and
-          </p>
-         </li>
-         <li>
-          <p>
-           the set of ordered pairs of natural numbers, \(\mathbb{N} × \mathbb{N}.\)
-          </p>
-         </li>
-        </ul>
-       </div>
-       <div class="paragraph">
-        <p>
-         On the other hand, the theorem in the preceding subsection shows that \(\mathcal{P}(\mathbb{N})\) is an uncountable set.
-        </p>
-       </div>
-       <div class="sect4">
-        <h5 id="_infinite_cardinal_numbers">
-         Infinite Cardinal Numbers
-        </h5>
-        <div class="paragraph">
-         <p>
-          In advanced mathematics, the concept of "infinite cardinal number" is developed and used to represent the sizes of infinite sets. Mathematicians use these infinite cardinal numbers to make sense of cardinalities like \(|\mathbb{N}|\) and \(|\mathcal{P}(\mathbb{N})|.\) It can be proven that \[|\mathbb{Q}| = |\mathbb{N}|\] \[|\mathbb{N}| &lt; |\mathcal{P}(\mathbb{N})|\] \[|\mathcal{P}(\mathbb{N})| = |\mathbb{R}|\] and that \[\text{for any infinite set } A, |A| &lt; |\mathcal{P}(A)|\] which shows that there must be infinitely-many infinite cardinal numbers.
-         </p>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="sect2">
       <h3 id="_set_operations">
        3.9. Set Operations
       </h3>
@@ -2424,7 +2002,7 @@ We have the following Venn Diagram for \(A \cup B\):
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 15
+           Example 12
           </div>
           <p>
            If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \cup B = \{1,2,3,4,5,6,7,9\}.\]
@@ -2436,7 +2014,7 @@ We have the following Venn Diagram for \(A \cup B\):
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 16 - Union in Python
+           Example 13 - Union in Python
           </div>
           <div class="content">
           </div>
@@ -2500,7 +2078,7 @@ More formally, \[A \cap B = \{x \in U : x \in A \text{ and } x \in B\}.\]
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 17
+           Example 14
           </div>
           <p>
            If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \cap B = \{1,3,5\}.\]
@@ -2512,7 +2090,7 @@ More formally, \[A \cap B = \{x \in U : x \in A \text{ and } x \in B\}.\]
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 18 - Intersection in Python
+           Example 15 - Intersection in Python
           </div>
           <div class="content">
           </div>
@@ -2572,7 +2150,7 @@ Note that other textbooks and internet sources may use different notation for th
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 19
+           Example 16
           </div>
           <p>
            Suppose that our universal set is \(U = \{0,1,2,3,4,5,6,7,8,9\},\) the set of all decimal digits. If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[\overline{A} = \{0,7,8,9\}\] and \[\overline{B} = \{0,2,4,6,8\}.\]
@@ -2580,7 +2158,7 @@ Note that other textbooks and internet sources may use different notation for th
          </div>
          <div class="paragraph">
           <div class="title">
-           Example 20
+           Example 17
           </div>
           <p>
            Suppose that our universal set is \(\mathbb{Z}.\) If we let \(E\) be the set of all even integers, then \(\overline{E}\) is the set of all odd integers.
@@ -2637,7 +2215,7 @@ However, if \(A = B,\) then \(A\setminus B = B \setminus A = \emptyset\).
          <div class="content">
           <div class="paragraph">
            <div class="title">
-            Example 21
+            Example 18
            </div>
            <p>
             If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \setminus B = \{2,4,6\}\] and \[B \setminus A = \{7,9\}.\]
@@ -2649,7 +2227,7 @@ However, if \(A = B,\) then \(A\setminus B = B \setminus A = \emptyset\).
          <div class="content">
           <div class="openblock">
            <div class="title">
-            Example 22 - Difference in Python
+            Example 19 - Difference in Python
            </div>
            <div class="content">
            </div>
@@ -2710,7 +2288,7 @@ More formally, \[A \oplus B = \{x \in U: (x \in A \text{ and } x \not\in B) \tex
          <div class="content">
           <div class="paragraph">
            <div class="title">
-            Example 23
+            Example 20
            </div>
            <p>
             If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \oplus B = \{2,4,6,7,9\}.\]
@@ -2722,7 +2300,7 @@ More formally, \[A \oplus B = \{x \in U: (x \in A \text{ and } x \not\in B) \tex
          <div class="content">
           <div class="openblock">
            <div class="title">
-            Example 24 - Symmetric Difference in Python
+            Example 21 - Symmetric Difference in Python
            </div>
            <div class="content">
            </div>
@@ -3111,7 +2689,7 @@ The DNF may be neither the shortest possible expression nor the most easily unde
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 25
+          Example 22
          </div>
          <p>
           Consider the set \(U = \{ n \in \mathbb{N} : 1 \leq n \leq 60 \}\). How many elements of \(U\) are divisible by either 2 or 3 or both? How many elements of \(U\) are divisible by neither 2 nor 3?
@@ -3187,7 +2765,7 @@ so there are \(60 - 40 = 20\) integers in \(U\) that are divisible by neither 2 
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 26
+          Example 23
          </div>
          <p>
           Consider the set \(U = \{ n \in \mathbb{N} : 1 \leq n \leq 60 \}\) as in the previous example. How many elements of \(U\) are divisible by at least one of 2, 3, or 5?? How many elements of \(U\) are divisible by none of 2, 3, or 5?
@@ -3238,8 +2816,428 @@ and
       </div>
      </div>
      <div class="sect2">
+      <h3 id="_cardinality_of_sets_infinite_sets">
+       3.13. Cardinality Of Sets: Infinite Sets
+      </h3>
+      <div class="paragraph">
+       <p>
+        Set \(A\) is called an
+        <strong>
+         infinite set
+        </strong>
+        if it not a finite set.
+That is, \(A\) is not the empty set, and for every positive integer \(n\) there is no one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Intuitively an infinite set \(A\) is at least as big as the set of positive integers. You may think that \(A\)
+        <em>
+         must
+        </em>
+        have the same size as the set of  positive integers, but cardinality is a much more …​ "interesting" concept for infinite sets, as you will see.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        First, we will say that two infinite sets \(A\) and \(B\) have the same cardinality if and only if there is a one-to-one correspondence between the two sets. As an example, the set of positive integers and the set of negative integers have the same cardinality since each nonzero integer \(n\) can be paired with its additive inverse, \(-n.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        For finite sets, if \(A\) is a proper subset of \(B\) then it must be true that
+the cardinality of \(A\) is not the same as the cardinality of \(B.\) This fails spectacularly for infinite sets as the next few examples show.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 24 - The Natural Numbers and The Positive Integers
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="NtoNstar" height="98" src="imagesMKD/NtoNstar.png" width="291"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The image shows that there is a one-to-one correspondence between the natural numbers and the positive integers, so these two sets have the same cardinality. But this isn’t so bad, we only have one more number in the set of natural numbers, which is why we can just shift every thing over by 1 in the image.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that this example also suggests why it really does not matter whether we start counting from 1 or 0…​ we can always "reindex" the counting if necessary.
+         </p>
+        </div>
+        <div class="openblock Challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Write a formula for the function that represents the one-to-one correspondence between the natural numbers and the positive integers.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           The function is a linear function. If you don’t remember how to find the equation of a linear function, see
+           <a href="./appendix_math.html">
+            this appendix.
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 25 - The Natural Numbers and The Integers
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="ZtoN" height="93" src="imagesMKD/ZtoN.png" width="309"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The image shows that there is a one-to-one correspondence between the set of all integers and the natural numbers.
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="NtoZ" height="98" src="imagesMKD/NtoZ.png" width="331"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The image shows the inverse of the one-to-one correspondence above, which is a one-to-one correspondence between the set of natural numbers and the set of integers.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          These two sets have the same cardinality, which may surprise you since "intuitively" it would seem there should be about twice as many integers as natural numbers. However, this example shows that you can double (roughly) the size of an infinite set and get a new set that has the same cardinality.
+         </p>
+        </div>
+        <div class="openblock Challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Write a formula for a function that represents one of the two one-to-one correspondences involving the natural numbers and the integers.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Either function will be defined by two linear expressions. The definition will be of the form \[ f(n) = \begin{cases}
+\text{some linear expression}, &amp; \text{ if } n \geq 0 \\
+\text{some linear expression}, &amp; \text{ if } n &lt; 0 \\
+\end{cases} \]
+or \[ g(n) = \begin{cases}
+\text{some linear expression}, &amp; \text{ if } n \text{ is even} \\
+\text{some linear expression}, &amp; \text{ if } n \text{ is odd} \\
+\end{cases}  \]
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 26 - The Natural Numbers and Ordered Pairs of Natural Numbers
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="Cantor’s_Pairing_Function" height="324" src="imagesMKD/Cantor's_Pairing_Function.svg" width="324"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          This first image, which shows red points plotted in the \(xy\)-plane that have been labeled with natural numbers, suggests a way to define a one-to-one correspondence between the set of ordered pairs of natural numbers, \(\mathbb{N} × \mathbb{N},\) and the set of natural numbers \(\mathbb{N}.\)
+          <br/>
+          <span class="small">
+           Image credit:
+           <a href="https://commons.wikimedia.org/wiki/File:Cantor%27s_Pairing_Function.svg">
+            "Cantor’s Pairing Function"
+           </a>
+           by crh23. The image is dedicated to the public domain under
+           <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">
+            CC0
+           </a>
+           .
+          </span>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <span class="image right">
+           <img alt="PairsToSingles" height="75" src="imagesMKD/PairsToSingles.png" width="480"/>
+          </span>
+          This second image displays the same one-to-one correspondence in tabular form.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In the first image, notice that for each fixed value of the second coordinate \(y \in \mathbb{N},\) the horizontal row of red points of the form \(\{ (x, y) : x \in \mathbb{N} \} = \{ (0, y), (1, y), (2, y), (3, y), \ldots \}\) has the same cardinality as \(\mathbb{N}\) and
+that there is one such row for every natural number \(y \in \mathbb{N}.\) That is, the set of rows has the same cardinality as the set \(\mathbb{N},\) and each of the rows has the same cardinality as \(\mathbb{N}.\)
+There are, in essence, as many copies of \(\mathbb{N}\) (the rows of red points) as there are elements in \(\mathbb{N},\) and these copies are joined together to form the Cartesian product \(\mathbb{N} × \mathbb{N}\)…​ but this set still has the same cardinality as \(\mathbb{N}.\)
+          <br/>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice something else about this example: It shows that each
+          <em>
+           pair of natural numbers
+          </em>
+          can be encoded as a
+          <em>
+           single natural number.
+          </em>
+          In fact, this example can be generalized to show that any element in the set of
+          <em>
+           all finite-length sequences of natural numbers
+          </em>
+          can be encoded uniquely to a natural number (so, for example, the set of all possible finite-length strings of Unicode characters/code points can be encoded to the set of natural numbers, which may or may not be surprising to you.)
+         </p>
+        </div>
+        <div class="openblock Mega-challenge!">
+         <div class="title">
+          Mega-challenge!
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Try to find an algebraic formula for the function \(n = f(x,y)\) that describes the one-to-one correspondence described by the images, then show that the function must map two different inputs (ordered pairs of natural numbers) to two different outputs (natural numbers) and also that
+           <em>
+            every
+           </em>
+           natural number is an output from the function for some input ordered pair of natural numbers.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           It’s possible to write \(f(x,y)\) as a quadratic polynomial in the two variables \(x\) and \(y.\)
+           <br/>
+           <br/>
+           You may want to read about
+           <a href="https://en.wikipedia.org/wiki/Triangular_number">
+            triangular numbers
+           </a>
+           to get an idea of how the mapping of ordered pairs to numbers is being done. In the first image, the red points form a "triangle of infinite height" with a vertex at \((0,0)\) and sides lying along the \(x-\) and \(y-\)axes. "Row 0" of the triangle is the single point \((0,0),\) and "row \(n\)" of the triangle is made up of the red points with natural number coordinates \((x,y)\) that add up to \(n\) (that is, \(x+y = n\).)
+           <br/>
+           <br/>
+           A proof that this mapping of ordered pairs of natural numbers to individual natural numbers is in fact a one-to-one correspondence will be presented later in the textbook.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        So far, every infinite set presented has the same cardinality as \(\mathbb{N}.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Maybe
+        <em>
+         all
+        </em>
+        infinite sets have the same cardinality as \(\mathbb{N}?\) Nope!
+        <br/>
+        <br/>
+        The next theorem shows that \(\mathcal{P}(\mathbb{N})\) cannot have the same cardinality as \(\mathbb{N}\) so there must be at least two "infinities."
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          There is no one-to-one correspondence between \(\mathbb{N}\) and \(\mathcal{P}(\mathbb{N}).\)
+         </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           This proof uses a technique called
+           <a href="https://en.wikipedia.org/wiki/Georg_Cantor">
+            "Cantor’s diagonal argument"
+           </a>
+           and is an example of the proof by contradiction technique that will be discussed later in the
+           <a href="./proofs.html">
+            Proofs: Basic Techniques
+           </a>
+           chapter.
+           <br/>
+           <br/>
+           <span class="image right">
+            <img alt="SeqOfSets" height="164" src="imagesMKD/SeqOfSets.png" width="445"/>
+           </span>
+           Let’s suppose that we had such a one-to-one correspondence.
+As shown in the image, we could represent the one-to-one correspondence by a sequence \(S_0 , S_1 , S_2 , \ldots\) of subsets of \(\mathbb{N},\) which is what the elements of \(\mathcal{P}(\mathbb{N})\) are. In the one-to-one correspondence,
+           <em>
+            every subset
+           </em>
+           of \(\mathbb{N}\) (that is,
+           <em>
+            every element
+           </em>
+           of \(\mathcal{P}(\mathbb{N})\)) appears as one of the \(S_{n}\) in the sequence: Every subset has been paired with a natural number and every natural number has been paired with a subset.
+           <br/>
+           <br/>
+           Next, define a subset \(M \subseteq \mathbb{N}\) as \[M = \{ n \in \mathbb{N} : n \not\in S_n \}\]
+
+That is, \(M\) is defined by the rule that for each natural number \(n,\) we have \(n \in M\) if and only if \(n \not\in S_{n}.\) So, for example, 0 is an element of \(M\) if 0 is not an element of \(S_0,\) but is not an element of \(M\) if 0 is an element of \(S_0.\) Likewise, 1 is an element of \(M\) if 1 is not an element of \(S_1,\) but is not an element of \(M\) if 1 is an element of \(S_1.\) The same is true for each of the natural numbers 2, 3, and so on: The natural number \(n\) is an element of exactly one of the sets \(S_n\) and \(M.\)
+           <br/>
+           <br/>
+           Now we show that \(M\) must be
+           <span class="underline">
+            missing
+           </span>
+           from the sequence \(S_0 , S_1 , S_2 , \ldots\)
+           <br/>
+           \(M\) cannot be \(S_0\) since one of those sets contains 0 and the other one does not. \(M\) cannot be \(S_1\) since one of those sets contains 1 and the other one does not. The same must be true for each of the natural numbers 2, 3, and so on. So, for
+           <em>
+            every natural number
+           </em>
+           \(n,\) \(n\) is an element of exactly one of the two sets \(S_n\) and \(M,\) which means \(M \neq S_n\) is true for
+           <em>
+            every natural number
+           </em>
+           \(n.\) This means that \(M\) cannot be any of the sets in the sequence…​ it is missing!
+           <br/>
+           <br/>
+           We assumed that every subset is listed in the sequence, but just showed that there is some subset that is not listed in the sequence.
+Notice that, even if we tried to use a new sequence (for example, insert \(M\) at position 0 and shift all the other subsets over by adding 1 to their subscripts) the diagonal argument could be used to define another subset that is missing from the new sequence. So,
+           <em>
+            every possible sequence of subsets must be missing at least one subset.
+           </em>
+           <br/>
+           <br/>
+           Therefore, such a one-to-one correspondence cannot exist.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_countable_and_uncountable_sets">
+        3.13.1. Countable and Uncountable Sets
+       </h4>
+       <div class="paragraph">
+        <p>
+         Set \(A\) is called
+         <strong>
+          countable
+         </strong>
+         if
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           \(A\) is a finite set or
+          </p>
+         </li>
+         <li>
+          <p>
+           there is a one-to-one correspondence between \(A\) and \(\mathbb{N}.\) In this case, \(A\) is also called
+           <strong>
+            countably infinite.
+           </strong>
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         Set \(A\) is called
+         <strong>
+          uncountable
+         </strong>
+         if it is not a countable set. That is, \(A\) is infinite and there is no one-to-one correspondence between \(A\) and \(\mathbb{N}.\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Several examples of countably infinite sets were given in the examples in the preceding subsection:
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           The set of positive integers \(\{ i \in \mathbb{N} \, | \, i &gt; 0 \},\)
+          </p>
+         </li>
+         <li>
+          <p>
+           the set of integers \(\mathbb{Z},\) and
+          </p>
+         </li>
+         <li>
+          <p>
+           the set of ordered pairs of natural numbers, \(\mathbb{N} × \mathbb{N}.\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         On the other hand, the theorem in the preceding subsection shows that \(\mathcal{P}(\mathbb{N})\) is an uncountable set.
+        </p>
+       </div>
+       <div class="sect4">
+        <h5 id="_infinite_cardinal_numbers">
+         Infinite Cardinal Numbers
+        </h5>
+        <div class="paragraph">
+         <p>
+          In advanced mathematics, the concept of "infinite cardinal number" is developed and used to represent the sizes of infinite sets. Mathematicians use these infinite cardinal numbers to make sense of cardinalities like \(|\mathbb{N}|\) and \(|\mathcal{P}(\mathbb{N})|.\) It can be proven that \[|\mathbb{Q}| = |\mathbb{N}|\] \[|\mathbb{N}| &lt; |\mathcal{P}(\mathbb{N})|\] \[|\mathcal{P}(\mathbb{N})| = |\mathbb{R}|\] and that \[\text{for any infinite set } A, |A| &lt; |\mathcal{P}(A)|\] which shows that there must be infinitely-many infinite cardinal numbers.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
       <h3 id="_exercises_2">
-       3.13. Exercises
+       3.14. Exercises
       </h3>
       <div class="paragraph">
        <p>

@@ -2,12 +2,13 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on January 26, 2025._ + 
+_This chapter was last updated on February 2, 2025._ + 
+_Split section on Cardinality into two sections (one for finite sets and one for infinite sets), moved section on Venn diagrams after section on Finite Sets, and moved section on infinite sets closer to the end of the chapter._
 //#[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 // MKD intro blurb needs editing
-Set theory, along with logic, is [underline]#the# foundation of mathematics in our time. In earlier eras, people tried to use arithmetic (e.g., counting and whole numbers) and geometry (e.g., measurement of lengths, areas, and volumes along with geometric constructions) as the foundations of all mathematics. However, over the last 3 centuries, mathematicians gained new understandings of issues with these traditional foundations which led them to seek a new, firmer foundation. For now, that firmer foundation uses set theory: The study of collections of objects and how those collections can be combined, associated, and themselves added to other collections. + 
+Set theory, along with logic, is [underline]#the# foundation of mathematics in our time. In earlier eras, people tried to use arithmetic (e.g., counting and whole numbers) and geometry (e.g., measurement of lengths, areas, and volumes along with geometric constructions) as the foundations of all mathematics. However, over the last two centuries, mathematicians gained new understandings of issues with these traditional foundations which led them to seek a new, firmer foundation. For now, that firmer foundation uses set theory: The study of collections of objects and how those collections can be combined, associated, and themselves added to other collections. + 
 [small]#NOTE: If you want to dig much more deeply into what the issues with using arithmetic or geometry as the foundation of mathematics are, you can start with this  link:https://en.wikipedia.org/wiki/Foundations_of_mathematics&num;Foundational_crisis[Wikipedia page] which includes a a brief description of the "foundational crisis of mathematics."#
 //[small]#NOTE: If you are curious about what the issues with the traditional foundations of arithmetic and geometry were, this link:https://en.wikipedia.org/wiki/Foundations_of_mathematics&num;Foundational_crisis[Wikipedia page] includes a a brief description of the "foundational crisis of mathematics."#
 
@@ -486,32 +487,12 @@ The two-dimensional $xy$-plane is represented by $\mathbb{R}^2=\mathbb{R}\times 
 ====
 // MKD Cartesian product ends
 
-// MKD Jan 26 2025 moved Venn diagrams before Cardinality
-== Venn Diagrams
-
-A *Venn diagram,* named after the English mathematician John Venn,  consists of one or more circles, with each circular region representing a set. An example can be seen link:https://en.wikipedia.org/wiki/Venn_diagram#/media/File:Venn_diagram_gr_la_ru.svg[here.]
-
-We write the elements of a set within the circular region that represents the set; anything written outside the circular region is not an element of the set. If an element is written in the overlap of two or more regions, then it is an element of each of the sets. 
-
-The circles are often drawn inside a larger rectangle which represents a *universal set* $U$ that we are focusing on. In the example linked above, the rectangle was omitted because every glyph was an element of at least one of the sets represented by a circular region, but if we introduced addition glyphs like ہ we would need to draw the rectangle because that glyph would need to be written outside _all_ three circular regions.
-
-// For example the set _U_ could be the set of real numbers, or the set of all possible algorithms; the idea is to limit are discussion to only the types of elements we care about in the context. and one or more circles, which represent the sets under consideration. We will then shade in the regions of the diagram that correspond to one or more set operations. 
-
-//image::imagesMKD/VennVsEulerDiagrams.png[VennVsEulerDiagrams,1536,960,float="right",align="center"]
-image::imagesMKD/VennVsEulerDiagrams.png[VennVsEulerDiagrams,480,300,float="right",align="center"]
-In this textbook, #a Venn diagram must show _all the possible overlaps_# of the sets. This is consistent with link:https://doi.org/10.1080/14786448008626877[Venn's paper from 1880.]  
-//It should not be possible to choose a point at random from the region inside one of the circles and know for sure that the point is or is not in the region inside another circle. + 
- + 
-That is, you should NOT be able to answer the question "Is _x_ an element of set _A?_" when _x_ is written in the circular region for a different set, _B._ 
-In the image, the upper right example shows a Venn diagram because you could write _x_ in the overlap of the two regions or you could write _x_ in the the part of the region for _B_ that is outside the circular region for _A._ The lower two diagrams are not Venn diagrams: In either one of those, if _x_ is written in the region for set _B,_ it must be true that _x_ is not an element of _A_ (on the lower left) or that _x_ is an element of _A_ (the example on the lower right). Diagrams like the lower two examples will be called *Euler diagrams* in this textbook. + 
-[small]#Some sources use the term _Venn diagram_ for all four of the examples shown in the image, but you should always assume when reading this textbook that the lower two are NOT Venn diagrams. Click link:https://commons.wikimedia.org/wiki/File:RGB_combination_on_wall.png[here] to see the light!#
-
-//Alternate image: https://commons.wikimedia.org/wiki/File:Additive_color.svg
 
 // MKD cardinality begins
 // === Cardinality
 // made its own section on Sept 4 2024
-== Cardinality Of Sets
+// split into Cardinality Of Sets: Finite Sets and Cardinality Of Sets: Infinite Sets Feb 2 2025
+== Cardinality Of Sets: Finite Sets
 
 
 Cardinality is the formalization of the idea of the count of the number of elements in a set. + 
@@ -529,7 +510,7 @@ If $A$ and $B$ are finite sets, then the cardinality of the Cartesian product $A
 
 // MKD added Aug 17 2024 - may need to edit the tow paragraphs that follow this one
 
-=== Finite Sets
+//=== Finite Sets
 
 Set $A$ is called a *finite set* if either 
 
@@ -603,239 +584,28 @@ For the power set of $A,$ to choose a subset of $A$ you must decide for each of 
 ****
 
 
-=== Infinite Sets
+// MKD Jan 26 2025 moved Venn diagrams before Cardinality
+// Feb 2 2025 moved after Cardinality of Finite Sets
+== Venn Diagrams
 
-Set $A$ is called an *infinite set* if it not a finite set. 
-That is, $A$ is not the empty set, and for every positive integer $n$ there is no one-to-one correspondence between $A$ and $\{1, 2, \ldots , n \}.$ 
+A *Venn diagram,* named after the English mathematician John Venn,  consists of one or more circles, with each circular region representing a set. An example can be seen link:https://en.wikipedia.org/wiki/Venn_diagram#/media/File:Venn_diagram_gr_la_ru.svg[here.]
 
+We write the elements of a set within the circular region that represents the set; anything written outside the circular region is not an element of the set. If an element is written in the overlap of two or more regions, then it is an element of each of the sets. 
 
+The circles are often drawn inside a larger rectangle which represents a *universal set* $U$ that we are focusing on. In the example linked above, the rectangle was omitted because every glyph was an element of at least one of the sets represented by a circular region, but if we introduced addition glyphs like ہ we would need to draw the rectangle because that glyph would need to be written outside _all_ three circular regions.
 
-Intuitively an infinite set $A$ is at least as big as the set of positive integers. You may think that $A$ _must_ have the same size as the set of  positive integers, but cardinality is a much more ... "interesting" concept for infinite sets, as you will see. 
+// For example the set _U_ could be the set of real numbers, or the set of all possible algorithms; the idea is to limit are discussion to only the types of elements we care about in the context. and one or more circles, which represent the sets under consideration. We will then shade in the regions of the diagram that correspond to one or more set operations. 
 
-First, we will say that two infinite sets $A$ and $B$ have the same cardinality if and only if there is a one-to-one correspondence between the two sets. As an example, the set of positive integers and the set of negative integers have the same cardinality since each nonzero integer $n$ can be paired with its additive inverse, $-n.$
-
-////
-[NOTE]
-====
-The infinity symbol $\infty$ isn't used for the cardinality of an infinite set because 
-there are [.underline]#many# different _infinite cardinal numbers_ that correspond to the sizes of different infinite sets.    
-It is beyond the scope of this textbook to discuss these infinite cardinal numbers in detail, but as just two examples (1) $|\mathbb{Q}|$ must be strictly less than $|\mathbb{R}|$, even though both $\mathbb{Q}$ and $\mathbb{R}$ are infinite sets, and (2) perhaps more surprisingly, $|\mathbb{N}|$ and $|\mathbb{Q}|$ _must be equal_ even though $\mathbb{N}$ would appear to be a much smaller set than $\mathbb{Q}$.
-====
-//MKD maybe explain above how cardinalities are equal iff there is a one-to-one correspondence between the sets
-//MKD also define "countability"
-////
-
-// MKD added Sept 8 2024
-//=== Cardinality Of Infinite Sets
-
-For finite sets, if $A$ is a proper subset of $B$ then it must be true that 
-//$|A| < |B|.$ 
-the cardinality of $A$ is not the same as the cardinality of $B.$ This fails spectacularly for infinite sets as the next few examples show.
-
-****
-.Example {counter:setex} - The Natural Numbers and The Positive Integers
---
---
-
-//image::imagesMKD/NtoNstar.png[NtoNstar,862,295,float="right",align="center"]
-image::imagesMKD/NtoNstar.png[NtoNstar,291,98,align="center"]
-The image shows that there is a one-to-one correspondence between the natural numbers and the positive integers, so these two sets have the same cardinality. But this isn't so bad, we only have one more number in the set of natural numbers, which is why we can just shift every thing over by 1 in the image. 
-
-Notice that this example also suggests why it really does not matter whether we start counting from 1 or 0... we can always "reindex" the counting if necessary.
-
-[env.Challenge]
---
-Write a formula for the function that represents the one-to-one correspondence between the natural numbers and the positive integers.
---
-
-[click.hint]
---
-The function is a linear function. If you don't remember how to find the equation of a linear function, see link:./appendix_math.html[this appendix.]
---
-****
-
-****
-.Example {counter:setex} - The Natural Numbers and The Integers
---
---
-
-//image::imagesMKD/ZtoN.png[ZtoN,1031,312,float="right",align="center"]
-image::imagesMKD/ZtoN.png[ZtoN,309,93,align="center"]
-The image shows that there is a one-to-one correspondence between the set of all integers and the natural numbers. 
-
-//image::imagesMKD/NtoZ.png[NtoZ,992,294,float="right",align="center"]
-image::imagesMKD/NtoZ.png[NtoZ,331,98,align="center"]
-The image shows the inverse of the one-to-one correspondence above, which is a one-to-one correspondence between the set of natural numbers and the set of integers. 
-
-These two sets have the same cardinality, which may surprise you since "intuitively" it would seem there should be about twice as many integers as natural numbers. However, this example shows that you can double (roughly) the size of an infinite set and get a new set that has the same cardinality. 
-
-
-[env.Challenge]
---
-Write a formula for a function that represents one of the two one-to-one correspondences involving the natural numbers and the integers.
---
-
-[click.hint]
---
-Either function will be defined by two linear expressions. The definition will be of the form \[ f(n) = \begin{cases}
-\text{some linear expression}, & \text{ if } n \geq 0 \\
-\text{some linear expression}, & \text{ if } n < 0 \\
-\end{cases} \]
-or \[ g(n) = \begin{cases}
-\text{some linear expression}, & \text{ if } n \text{ is even} \\
-\text{some linear expression}, & \text{ if } n \text{ is odd} \\
-\end{cases}  \]
-
---
-****
-//.. but these two one-to-one correspondences are valid! T
-//This may go against your intuition, but we have enough evidence to prove it!
-//MKD https://www.youtube.com/watch?v=5VCfs6FWMiE
-////
-$f(n) = 
-\left\{
-	\begin{array}{ll}
-		\text{some linear expression} & \mbox{if } n \geq 0 \\
-		\text{some linear expression} & \mbox{if } n < 0
-	\end{array}
-\right$ 
-or + 
-$g(n) = 
-\left\{
-	\begin{array}{ll}
-		\text{some linear expression} & \mbox{if } n \text{ is even} \\
-		\text{some linear expression} & \mbox{if } n \text{ is odd}
-	\end{array}
-\right$
-////
-
-****
-.Example {counter:setex} - The Natural Numbers and Ordered Pairs of Natural Numbers
---
---
-
-//image::imagesMKD/Cantor's_Pairing_Function.png[Cantor's_Pairing_Function,432,432,float="right",align="center"]
-image::imagesMKD/Cantor's_Pairing_Function.svg[Cantor's_Pairing_Function,324,324,align="center"]
-//Oh, it gets even worse! + 
-This first image, which shows red points plotted in the $xy$-plane that have been labeled with natural numbers, suggests a way to define a one-to-one correspondence between the set of ordered pairs of natural numbers, $\mathbb{N} × \mathbb{N},$ and the set of natural numbers $\mathbb{N}.$ + 
-[small]#Image credit: link:https://commons.wikimedia.org/wiki/File:Cantor%27s_Pairing_Function.svg["Cantor's Pairing Function"] by crh23. The image is dedicated to the public domain under link:https://creativecommons.org/publicdomain/zero/1.0/deed.en[CC0].#
-
-image:imagesMKD/PairsToSingles.png[PairsToSingles,480,75,float="right",align="center"] 
-This second image displays the same one-to-one correspondence in tabular form. 
-
-In the first image, notice that for each fixed value of the second coordinate $y \in \mathbb{N},$ the horizontal row of red points of the form $\{ (x, y) : x \in \mathbb{N} \} = \{ (0, y), (1, y), (2, y), (3, y), \ldots \}$ has the same cardinality as $\mathbb{N}$ and 
-//the number of such rows is $|\mathbb{N}|.$ 
-that there is one such row for every natural number $y \in \mathbb{N}.$ That is, the set of rows has the same cardinality as the set $\mathbb{N},$ and each of the rows has the same cardinality as $\mathbb{N}.$ 
-There are, in essence, as many copies of $\mathbb{N}$ (the rows of red points) as there are elements in $\mathbb{N},$ and these copies are joined together to form the Cartesian product $\mathbb{N} × \mathbb{N}$... but this set still has the same cardinality as $\mathbb{N}.$ + 
-
-
-Notice something else about this example: It shows that each _pair of natural numbers_ can be encoded as a _single natural number._ In fact, this example can be generalized to show that any element in the set of _all finite-length sequences of natural numbers_ can be encoded uniquely to a natural number (so, for example, the set of all possible finite-length strings of Unicode characters/code points can be encoded to the set of natural numbers, which may or may not be surprising to you.)
-
-[env.Mega-challenge!]
---
-Try to find an algebraic formula for the function $n = f(x,y)$ that describes the one-to-one correspondence described by the images, then show that the function must map two different inputs (ordered pairs of natural numbers) to two different outputs (natural numbers) and also that _every_ natural number is an output from the function for some input ordered pair of natural numbers.
---
-
-[click.hint]
---
-It's possible to write $f(x,y)$ as a quadratic polynomial in the two variables $x$ and $y.$ + 
+//image::imagesMKD/VennVsEulerDiagrams.png[VennVsEulerDiagrams,1536,960,float="right",align="center"]
+image::imagesMKD/VennVsEulerDiagrams.png[VennVsEulerDiagrams,480,300,float="right",align="center"]
+In this textbook, #a Venn diagram must show _all the possible overlaps_# of the sets. This is consistent with link:https://doi.org/10.1080/14786448008626877[Venn's paper from 1880.]  
+//It should not be possible to choose a point at random from the region inside one of the circles and know for sure that the point is or is not in the region inside another circle. + 
  + 
-You may want to read about link:https://en.wikipedia.org/wiki/Triangular_number[triangular numbers] to get an idea of how the mapping of ordered pairs to numbers is being done. In the first image, the red points form a "triangle of infinite height" with a vertex at $(0,0)$ and sides lying along the $x-$ and $y-$axes. "Row 0" of the triangle is the single point $(0,0),$ and "row $n$" of the triangle is made up of the red points with natural number coordinates $(x,y)$ that add up to $n$ (that is, $x+y = n$.) + 
-  +  
-A proof that this mapping of ordered pairs of natural numbers to individual natural numbers is in fact a one-to-one correspondence will be presented later in the textbook.
---
+That is, you should NOT be able to answer the question "Is _x_ an element of set _A?_" when _x_ is written in the circular region for a different set, _B._ 
+In the image, the upper right example shows a Venn diagram because you could write _x_ in the overlap of the two regions or you could write _x_ in the the part of the region for _B_ that is outside the circular region for _A._ The lower two diagrams are not Venn diagrams: In either one of those, if _x_ is written in the region for set _B,_ it must be true that _x_ is not an element of _A_ (on the lower left) or that _x_ is an element of _A_ (the example on the lower right). Diagrams like the lower two examples will be called *Euler diagrams* in this textbook. + 
+[small]#Some sources use the term _Venn diagram_ for all four of the examples shown in the image, but you should always assume when reading this textbook that the lower two are NOT Venn diagrams. Click link:https://commons.wikimedia.org/wiki/File:RGB_combination_on_wall.png[here] to see the light!#
 
-****
-
-
-//If you get stuck, don't worry... a
-//image:imagesMKD/PairsToSingles.png[PairsToSingles,1439,224,float="right",align="center"] 
-
-////
-[env.Challenge]
---
-First, verify that the function \[ {\displaystyle f (k,m):={\frac {1}{2}}(k+m)(k+m+1)+m} \] maps each ordered pair corresponding to a red point to a natural number that labels that point. + 
-Secondly, show that if you have a natural number 
---
-
-[click.hint]
---
-
---
-////
-
-So far, every infinite set presented has the same cardinality as $\mathbb{N}.$ 
-
-Maybe _all_ infinite sets have the same cardinality as $\mathbb{N}?$ Nope! + 
- + 
-The next theorem shows that $\mathcal{P}(\mathbb{N})$ cannot have the same cardinality as $\mathbb{N}$ so there must be at least two "infinities." 
-
-.Theorem
-****
-
-There is no one-to-one correspondence between $\mathbb{N}$ and $\mathcal{P}(\mathbb{N}).$ 
-
-[click.Proof]
---
-This proof uses a technique called link:https://en.wikipedia.org/wiki/Georg_Cantor["Cantor's diagonal argument"] and is an example of the proof by contradiction technique that will be discussed later in the link:./proofs.html[Proofs: Basic Techniques] chapter. + 
- +  
-image:imagesMKD/SeqOfSets.png[SeqOfSets,445,164,float="right",align="center"] 
-Let's suppose that we had such a one-to-one correspondence. 
-As shown in the image, we could represent the one-to-one correspondence by a sequence $S_0 , S_1 , S_2 , \ldots$ of subsets of $\mathbb{N},$ which is what the elements of $\mathcal{P}(\mathbb{N})$ are. In the one-to-one correspondence, _every subset_ of $\mathbb{N}$ (that is, _every element_ of $\mathcal{P}(\mathbb{N})$) appears as one of the $S_{n}$ in the sequence: Every subset has been paired with a natural number and every natural number has been paired with a subset. + 
- +  
-Next, define a subset $M \subseteq \mathbb{N}$ as \[M = \{ n \in \mathbb{N} : n \not\in S_n \}\] 
-
-That is, $M$ is defined by the rule that for each natural number $n,$ we have $n \in M$ if and only if $n \not\in S_{n}.$ So, for example, 0 is an element of $M$ if 0 is not an element of $S_0,$ but is not an element of $M$ if 0 is an element of $S_0.$ Likewise, 1 is an element of $M$ if 1 is not an element of $S_1,$ but is not an element of $M$ if 1 is an element of $S_1.$ The same is true for each of the natural numbers 2, 3, and so on: The natural number $n$ is an element of exactly one of the sets $S_n$ and $M.$ + 
- + 
-Now we show that $M$ must be [underline]#missing# from the sequence $S_0 , S_1 , S_2 , \ldots$ + 
-$M$ cannot be $S_0$ since one of those sets contains 0 and the other one does not. $M$ cannot be $S_1$ since one of those sets contains 1 and the other one does not. The same must be true for each of the natural numbers 2, 3, and so on. So, for _every natural number_ $n,$ $n$ is an element of exactly one of the two sets $S_n$ and $M,$ which means $M \neq S_n$ is true for _every natural number_ $n.$ This means that $M$ cannot be any of the sets in the sequence... it is missing! + 
- + 
-We assumed that every subset is listed in the sequence, but just showed that there is some subset that is not listed in the sequence. 
-Notice that, even if we tried to use a new sequence (for example, insert $M$ at position 0 and shift all the other subsets over by adding 1 to their subscripts) the diagonal argument could be used to define another subset that is missing from the new sequence. So, _every possible sequence of subsets must be missing at least one subset._ + 
- + 
-Therefore, such a one-to-one correspondence cannot exist.
---
-
-****
-//that we claimed contained _every_ possible subset.
-
-//of that pairs every natural number $n$ to a subset of the natural numbers $S_n$ in $\left|\mathcal{P}(\mathbb{N})\right|.$
-//image::imagesMKD/SeqOfSets.png[SeqOfSets,889,327,float="right",align="center"]
-
-//https://en.wikipedia.org/wiki/Cantor%27s_theorem
-
-//MKD
-// Cantor's original diagonilization? 
-//https://www.digizeitschriften.de/id/37721857X_0001|log29?tify=%7B%22pages%22%3A%5B83%5D%2C%22view%22%3A%22info%22%7D#navi
-
-
-=== Countable and Uncountable Sets
-
-
-Set $A$ is called *countable* if 
-
-* $A$ is a finite set or 
-* there is a one-to-one correspondence between $A$ and $\mathbb{N}.$ In this case, $A$ is also called *countably infinite.*
-
-Set $A$ is called *uncountable* if it is not a countable set. That is, $A$ is infinite and there is no one-to-one correspondence between $A$ and $\mathbb{N}.$ 
-
-
-Several examples of countably infinite sets were given in the examples in the preceding subsection:
-
-* The set of positive integers $\{ i \in \mathbb{N} \, | \, i > 0 \},$ 
-* the set of integers $\mathbb{Z},$ and 
-* the set of ordered pairs of natural numbers, $\mathbb{N} × \mathbb{N}.$ 
-
-On the other hand, the theorem in the preceding subsection shows that $\mathcal{P}(\mathbb{N})$ is an uncountable set. 
-
-==== Infinite Cardinal Numbers
-
-In advanced mathematics, the concept of "infinite cardinal number" is developed and used to represent the sizes of infinite sets. Mathematicians use these infinite cardinal numbers to make sense of cardinalities like $|\mathbb{N}|$ and $|\mathcal{P}(\mathbb{N})|.$ It can be proven that \[|\mathbb{Q}| = |\mathbb{N}|\] \[|\mathbb{N}| < |\mathcal{P}(\mathbb{N})|\] \[|\mathcal{P}(\mathbb{N})| = |\mathbb{R}|\] and that \[\text{for any infinite set } A, |A| < |\mathcal{P}(A)|\] which shows that there must be infinitely-many infinite cardinal numbers.
-
-
-// MKD cardinality ends
-
-
+//Alternate image: https://commons.wikimedia.org/wiki/File:Additive_color.svg
 
 == Set Operations
 
@@ -1293,6 +1063,241 @@ $|A \cup B \cup C| = 30 + 20 + 12 - 10 - 6 - 4 + 1 = 44$
 There are 44 integers in $U$ that are divisible by at least one of 2, 3, or 5, and there are $60 - 44 = 16$ integers in $U$ that are divisible by none of 2, 3, or 5. 
 
 ****
+
+== Cardinality Of Sets: Infinite Sets
+//=== Infinite Sets
+
+Set $A$ is called an *infinite set* if it not a finite set. 
+That is, $A$ is not the empty set, and for every positive integer $n$ there is no one-to-one correspondence between $A$ and $\{1, 2, \ldots , n \}.$ 
+
+
+
+Intuitively an infinite set $A$ is at least as big as the set of positive integers. You may think that $A$ _must_ have the same size as the set of  positive integers, but cardinality is a much more ... "interesting" concept for infinite sets, as you will see. 
+
+First, we will say that two infinite sets $A$ and $B$ have the same cardinality if and only if there is a one-to-one correspondence between the two sets. As an example, the set of positive integers and the set of negative integers have the same cardinality since each nonzero integer $n$ can be paired with its additive inverse, $-n.$
+
+////
+[NOTE]
+====
+The infinity symbol $\infty$ isn't used for the cardinality of an infinite set because 
+there are [.underline]#many# different _infinite cardinal numbers_ that correspond to the sizes of different infinite sets.    
+It is beyond the scope of this textbook to discuss these infinite cardinal numbers in detail, but as just two examples (1) $|\mathbb{Q}|$ must be strictly less than $|\mathbb{R}|$, even though both $\mathbb{Q}$ and $\mathbb{R}$ are infinite sets, and (2) perhaps more surprisingly, $|\mathbb{N}|$ and $|\mathbb{Q}|$ _must be equal_ even though $\mathbb{N}$ would appear to be a much smaller set than $\mathbb{Q}$.
+====
+//MKD maybe explain above how cardinalities are equal iff there is a one-to-one correspondence between the sets
+//MKD also define "countability"
+////
+
+// MKD added Sept 8 2024
+//=== Cardinality Of Infinite Sets
+
+For finite sets, if $A$ is a proper subset of $B$ then it must be true that 
+//$|A| < |B|.$ 
+the cardinality of $A$ is not the same as the cardinality of $B.$ This fails spectacularly for infinite sets as the next few examples show.
+
+****
+.Example {counter:setex} - The Natural Numbers and The Positive Integers
+--
+--
+
+//image::imagesMKD/NtoNstar.png[NtoNstar,862,295,float="right",align="center"]
+image::imagesMKD/NtoNstar.png[NtoNstar,291,98,align="center"]
+The image shows that there is a one-to-one correspondence between the natural numbers and the positive integers, so these two sets have the same cardinality. But this isn't so bad, we only have one more number in the set of natural numbers, which is why we can just shift every thing over by 1 in the image. 
+
+Notice that this example also suggests why it really does not matter whether we start counting from 1 or 0... we can always "reindex" the counting if necessary.
+
+[env.Challenge]
+--
+Write a formula for the function that represents the one-to-one correspondence between the natural numbers and the positive integers.
+--
+
+[click.hint]
+--
+The function is a linear function. If you don't remember how to find the equation of a linear function, see link:./appendix_math.html[this appendix.]
+--
+****
+
+****
+.Example {counter:setex} - The Natural Numbers and The Integers
+--
+--
+
+//image::imagesMKD/ZtoN.png[ZtoN,1031,312,float="right",align="center"]
+image::imagesMKD/ZtoN.png[ZtoN,309,93,align="center"]
+The image shows that there is a one-to-one correspondence between the set of all integers and the natural numbers. 
+
+//image::imagesMKD/NtoZ.png[NtoZ,992,294,float="right",align="center"]
+image::imagesMKD/NtoZ.png[NtoZ,331,98,align="center"]
+The image shows the inverse of the one-to-one correspondence above, which is a one-to-one correspondence between the set of natural numbers and the set of integers. 
+
+These two sets have the same cardinality, which may surprise you since "intuitively" it would seem there should be about twice as many integers as natural numbers. However, this example shows that you can double (roughly) the size of an infinite set and get a new set that has the same cardinality. 
+
+
+[env.Challenge]
+--
+Write a formula for a function that represents one of the two one-to-one correspondences involving the natural numbers and the integers.
+--
+
+[click.hint]
+--
+Either function will be defined by two linear expressions. The definition will be of the form \[ f(n) = \begin{cases}
+\text{some linear expression}, & \text{ if } n \geq 0 \\
+\text{some linear expression}, & \text{ if } n < 0 \\
+\end{cases} \]
+or \[ g(n) = \begin{cases}
+\text{some linear expression}, & \text{ if } n \text{ is even} \\
+\text{some linear expression}, & \text{ if } n \text{ is odd} \\
+\end{cases}  \]
+
+--
+****
+//.. but these two one-to-one correspondences are valid! T
+//This may go against your intuition, but we have enough evidence to prove it!
+//MKD https://www.youtube.com/watch?v=5VCfs6FWMiE
+////
+$f(n) = 
+\left\{
+	\begin{array}{ll}
+		\text{some linear expression} & \mbox{if } n \geq 0 \\
+		\text{some linear expression} & \mbox{if } n < 0
+	\end{array}
+\right$ 
+or + 
+$g(n) = 
+\left\{
+	\begin{array}{ll}
+		\text{some linear expression} & \mbox{if } n \text{ is even} \\
+		\text{some linear expression} & \mbox{if } n \text{ is odd}
+	\end{array}
+\right$
+////
+
+****
+.Example {counter:setex} - The Natural Numbers and Ordered Pairs of Natural Numbers
+--
+--
+
+//image::imagesMKD/Cantor's_Pairing_Function.png[Cantor's_Pairing_Function,432,432,float="right",align="center"]
+image::imagesMKD/Cantor's_Pairing_Function.svg[Cantor's_Pairing_Function,324,324,align="center"]
+//Oh, it gets even worse! + 
+This first image, which shows red points plotted in the $xy$-plane that have been labeled with natural numbers, suggests a way to define a one-to-one correspondence between the set of ordered pairs of natural numbers, $\mathbb{N} × \mathbb{N},$ and the set of natural numbers $\mathbb{N}.$ + 
+[small]#Image credit: link:https://commons.wikimedia.org/wiki/File:Cantor%27s_Pairing_Function.svg["Cantor's Pairing Function"] by crh23. The image is dedicated to the public domain under link:https://creativecommons.org/publicdomain/zero/1.0/deed.en[CC0].#
+
+image:imagesMKD/PairsToSingles.png[PairsToSingles,480,75,float="right",align="center"] 
+This second image displays the same one-to-one correspondence in tabular form. 
+
+In the first image, notice that for each fixed value of the second coordinate $y \in \mathbb{N},$ the horizontal row of red points of the form $\{ (x, y) : x \in \mathbb{N} \} = \{ (0, y), (1, y), (2, y), (3, y), \ldots \}$ has the same cardinality as $\mathbb{N}$ and 
+//the number of such rows is $|\mathbb{N}|.$ 
+that there is one such row for every natural number $y \in \mathbb{N}.$ That is, the set of rows has the same cardinality as the set $\mathbb{N},$ and each of the rows has the same cardinality as $\mathbb{N}.$ 
+There are, in essence, as many copies of $\mathbb{N}$ (the rows of red points) as there are elements in $\mathbb{N},$ and these copies are joined together to form the Cartesian product $\mathbb{N} × \mathbb{N}$... but this set still has the same cardinality as $\mathbb{N}.$ + 
+
+
+Notice something else about this example: It shows that each _pair of natural numbers_ can be encoded as a _single natural number._ In fact, this example can be generalized to show that any element in the set of _all finite-length sequences of natural numbers_ can be encoded uniquely to a natural number (so, for example, the set of all possible finite-length strings of Unicode characters/code points can be encoded to the set of natural numbers, which may or may not be surprising to you.)
+
+[env.Mega-challenge!]
+--
+Try to find an algebraic formula for the function $n = f(x,y)$ that describes the one-to-one correspondence described by the images, then show that the function must map two different inputs (ordered pairs of natural numbers) to two different outputs (natural numbers) and also that _every_ natural number is an output from the function for some input ordered pair of natural numbers.
+--
+
+[click.hint]
+--
+It's possible to write $f(x,y)$ as a quadratic polynomial in the two variables $x$ and $y.$ + 
+ + 
+You may want to read about link:https://en.wikipedia.org/wiki/Triangular_number[triangular numbers] to get an idea of how the mapping of ordered pairs to numbers is being done. In the first image, the red points form a "triangle of infinite height" with a vertex at $(0,0)$ and sides lying along the $x-$ and $y-$axes. "Row 0" of the triangle is the single point $(0,0),$ and "row $n$" of the triangle is made up of the red points with natural number coordinates $(x,y)$ that add up to $n$ (that is, $x+y = n$.) + 
+  +  
+A proof that this mapping of ordered pairs of natural numbers to individual natural numbers is in fact a one-to-one correspondence will be presented later in the textbook.
+--
+
+****
+
+
+//If you get stuck, don't worry... a
+//image:imagesMKD/PairsToSingles.png[PairsToSingles,1439,224,float="right",align="center"] 
+
+////
+[env.Challenge]
+--
+First, verify that the function \[ {\displaystyle f (k,m):={\frac {1}{2}}(k+m)(k+m+1)+m} \] maps each ordered pair corresponding to a red point to a natural number that labels that point. + 
+Secondly, show that if you have a natural number 
+--
+
+[click.hint]
+--
+
+--
+////
+
+So far, every infinite set presented has the same cardinality as $\mathbb{N}.$ 
+
+Maybe _all_ infinite sets have the same cardinality as $\mathbb{N}?$ Nope! + 
+ + 
+The next theorem shows that $\mathcal{P}(\mathbb{N})$ cannot have the same cardinality as $\mathbb{N}$ so there must be at least two "infinities." 
+
+.Theorem
+****
+
+There is no one-to-one correspondence between $\mathbb{N}$ and $\mathcal{P}(\mathbb{N}).$ 
+
+[click.Proof]
+--
+This proof uses a technique called link:https://en.wikipedia.org/wiki/Georg_Cantor["Cantor's diagonal argument"] and is an example of the proof by contradiction technique that will be discussed later in the link:./proofs.html[Proofs: Basic Techniques] chapter. + 
+ +  
+image:imagesMKD/SeqOfSets.png[SeqOfSets,445,164,float="right",align="center"] 
+Let's suppose that we had such a one-to-one correspondence. 
+As shown in the image, we could represent the one-to-one correspondence by a sequence $S_0 , S_1 , S_2 , \ldots$ of subsets of $\mathbb{N},$ which is what the elements of $\mathcal{P}(\mathbb{N})$ are. In the one-to-one correspondence, _every subset_ of $\mathbb{N}$ (that is, _every element_ of $\mathcal{P}(\mathbb{N})$) appears as one of the $S_{n}$ in the sequence: Every subset has been paired with a natural number and every natural number has been paired with a subset. + 
+ +  
+Next, define a subset $M \subseteq \mathbb{N}$ as \[M = \{ n \in \mathbb{N} : n \not\in S_n \}\] 
+
+That is, $M$ is defined by the rule that for each natural number $n,$ we have $n \in M$ if and only if $n \not\in S_{n}.$ So, for example, 0 is an element of $M$ if 0 is not an element of $S_0,$ but is not an element of $M$ if 0 is an element of $S_0.$ Likewise, 1 is an element of $M$ if 1 is not an element of $S_1,$ but is not an element of $M$ if 1 is an element of $S_1.$ The same is true for each of the natural numbers 2, 3, and so on: The natural number $n$ is an element of exactly one of the sets $S_n$ and $M.$ + 
+ + 
+Now we show that $M$ must be [underline]#missing# from the sequence $S_0 , S_1 , S_2 , \ldots$ + 
+$M$ cannot be $S_0$ since one of those sets contains 0 and the other one does not. $M$ cannot be $S_1$ since one of those sets contains 1 and the other one does not. The same must be true for each of the natural numbers 2, 3, and so on. So, for _every natural number_ $n,$ $n$ is an element of exactly one of the two sets $S_n$ and $M,$ which means $M \neq S_n$ is true for _every natural number_ $n.$ This means that $M$ cannot be any of the sets in the sequence... it is missing! + 
+ + 
+We assumed that every subset is listed in the sequence, but just showed that there is some subset that is not listed in the sequence. 
+Notice that, even if we tried to use a new sequence (for example, insert $M$ at position 0 and shift all the other subsets over by adding 1 to their subscripts) the diagonal argument could be used to define another subset that is missing from the new sequence. So, _every possible sequence of subsets must be missing at least one subset._ + 
+ + 
+Therefore, such a one-to-one correspondence cannot exist.
+--
+
+****
+//that we claimed contained _every_ possible subset.
+
+//of that pairs every natural number $n$ to a subset of the natural numbers $S_n$ in $\left|\mathcal{P}(\mathbb{N})\right|.$
+//image::imagesMKD/SeqOfSets.png[SeqOfSets,889,327,float="right",align="center"]
+
+//https://en.wikipedia.org/wiki/Cantor%27s_theorem
+
+//MKD
+// Cantor's original diagonilization? 
+//https://www.digizeitschriften.de/id/37721857X_0001|log29?tify=%7B%22pages%22%3A%5B83%5D%2C%22view%22%3A%22info%22%7D#navi
+
+
+=== Countable and Uncountable Sets
+
+
+Set $A$ is called *countable* if 
+
+* $A$ is a finite set or 
+* there is a one-to-one correspondence between $A$ and $\mathbb{N}.$ In this case, $A$ is also called *countably infinite.*
+
+Set $A$ is called *uncountable* if it is not a countable set. That is, $A$ is infinite and there is no one-to-one correspondence between $A$ and $\mathbb{N}.$ 
+
+
+Several examples of countably infinite sets were given in the examples in the preceding subsection:
+
+* The set of positive integers $\{ i \in \mathbb{N} \, | \, i > 0 \},$ 
+* the set of integers $\mathbb{Z},$ and 
+* the set of ordered pairs of natural numbers, $\mathbb{N} × \mathbb{N}.$ 
+
+On the other hand, the theorem in the preceding subsection shows that $\mathcal{P}(\mathbb{N})$ is an uncountable set. 
+
+==== Infinite Cardinal Numbers
+
+In advanced mathematics, the concept of "infinite cardinal number" is developed and used to represent the sizes of infinite sets. Mathematicians use these infinite cardinal numbers to make sense of cardinalities like $|\mathbb{N}|$ and $|\mathcal{P}(\mathbb{N})|.$ It can be proven that \[|\mathbb{Q}| = |\mathbb{N}|\] \[|\mathbb{N}| < |\mathcal{P}(\mathbb{N})|\] \[|\mathcal{P}(\mathbb{N})| = |\mathbb{R}|\] and that \[\text{for any infinite set } A, |A| < |\mathcal{P}(A)|\] which shows that there must be infinitely-many infinite cardinal numbers.
+
+
+// MKD cardinality ends
+
+
 
 
 == Exercises

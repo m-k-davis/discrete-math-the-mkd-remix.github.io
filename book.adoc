@@ -70,6 +70,9 @@ include::front_matter.adoc[]
 //MKD Jan 26 2025 order 
 //chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'number_bases.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'growth_of_functions.adoc', 'counting_binomial.adoc', 'induction.adoc', 'algorithms.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
 
+//#MKD Feb 2 2025 order 
+//chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'number_bases.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'counting_binomial.adoc', 'induction.adoc', 'growth_of_functions.adoc', 'algorithms.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+
 include::introduction_discrete_math.adoc[]
 
 include::counting_arithmetic.adoc[]
@@ -90,13 +93,13 @@ include::functions.adoc[]
 
 include::relations.adoc[]
 
-// MKD renamed adoc file
-//include::growth_functions.adoc[]
-include::growth_of_functions.adoc[]
-
 include::counting_binomial.adoc[]
 
 include::induction.adoc[]
+
+// MKD renamed adoc file
+//include::growth_functions.adoc[]
+include::growth_of_functions.adoc[]
 
 include::algorithms.adoc[]
 

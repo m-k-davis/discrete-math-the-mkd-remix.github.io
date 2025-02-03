@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on January 26, 2025._ + 
+_This chapter was last updated on February 2, 2025._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 ////
@@ -95,7 +95,7 @@ Exercises (proofs by induction)
 
 You probably learned how to count objects one by one when you were a child. You may have counted up to 5 on the fingers on one hand, or up to 10 on the fingers of two hands, or up to 20 on fingers and toes - that is, you paired the objects (fingers and/or toes) with number names to create a one-to-one correspondence. You may have counted all the way up to 100. 
 
-However, many problems in computer science or mathematics require you to count the number of elements in sets that contain millions of elements, or billions of elements, or even more elements, so counting one by one is inefficient or impossible. Starting with this chapter, and continuing later in the link:./counting_binomial.html[Counting: Permutations and Combinations] chapter, you will study ways to quickly and efficiently count the number of elements of any set no matter the size of the set.
+However, many problems in computer science or mathematics require you to count the number of elements in sets that contain millions of elements, or billions of elements, or even more elements, so counting one by one is inefficient or impossible. Starting with this chapter, and continuing later in the link:./set_theory.html[Set Theory] and link:./counting_binomial.html[Counting: Permutations and Combinations] chapters, you will study ways to quickly and efficiently count the number of elements of any set no matter the size of the set.
 
 //This chapter introduces techniques for counting the number of elements of a set. These techniques can be used quickly and efficiently no matter the size of the set.
 //This chapter introduces techniques you can use to count the number of elements of any set quickly and efficiently no matter the size of the set.
@@ -134,7 +134,7 @@ Each of the four arithmetic operations corresponds to a rule we can use to count
 
 === The Sum Rule
 
-The *sum rule,* also called the *addition principle* or the *rule of sum,* describes the number of possible choices of one element from a union of two sets that share no common elements (Such seets are called *disjoint sets*). 
+The *sum rule,* also called the *addition principle* or the *rule of sum,* describes the number of possible choices of one element from a union of two sets that share no common elements (Such sets are called *disjoint sets*). 
 
 .The Sum Rule
 ****
@@ -240,7 +240,7 @@ Also note that $(17-6)+(13-6)+6 = 17+(-6)+13+(-6)+6 = 17 + 13 -6 =24,$ which is 
 ****
 .Example {counter:countexample}
 // MKD change context??
-A tech company has 200 applicants for a position. Of the applicants, 150 of  were computer science majors, 43 were business majors, and 25 were double majors in computer science and business. + 
+A tech company has 200 applicants for a position. Of the applicants, 150 were computer science majors, 43 were business majors, and 25 were double majors in both computer science and business. + 
 How many applicants did not major in either computer science or business?
 
 .Solution
@@ -260,9 +260,12 @@ Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett Colle
 // video::ka6PEspyJgw[youtube, 700, 500]
 
 
+
+[small]#Notice that Dr. Roberts uses a Venn diagram to represent the sets in this video. Venn diagrams are covered in the link:./set_theory.html[Set Theory] chapter of the Remix.#
+
 === The Product Rule
 
-The *product rule,* also called the *multiplication principle* or the *rule of product,* describes the number of possible choices of one element from a union of two sets that share no common elements (Such seets are called *disjoint sets*). 
+The *product rule,* also called the *multiplication principle* or the *rule of product,* describes the number of possible choices of two successive elements where the first element comes from one set and the second from another set (which could be the same set as the first set). 
 
 
 To find the total number of outcomes for two or more successive events where both events must occur, multiply the number of outcomes for each event together.  For instance, if you want to find the number of outcomes possible when you roll a die and toss a coin, you could use the product rule. It is important to note that the events must be independent, meaning one doesn't effect the other.
@@ -273,7 +276,8 @@ To find the total number of outcomes for two or more successive events where bot
 Suppose that we have a procedure that consists of completing two steps, that there are _k_ possible ways to complete the first step, and for each possible way of completing the first step, there are _m_ possible ways to complete the second step. Then there are _k⋅m_ ways to complete the procedure. 
 ****
 
-The product rule also called the *multiplication principle.*  
+// MKD commented out Feb 02 2025
+//The product rule also called the *multiplication principle.*  
 
 // MKD new example involving ordered pairs with x-coordinate in the set {2, 3} and y-coordinate in {-1, 0, 1}, with Grapher image. Mayb also a tree diagram?
 
@@ -312,10 +316,21 @@ include::python_tutor.adoc[]
 Suppose there are 27 computers in a computer center and each computer has 15 ports. How many different ways are there to choose a specific port?
 
 .Solution
-Choosing a port means you first choose a computer and then a port on that computer. Since there are 27 computers and 15 ways to choose a port on a computer, there are $27 \times 15 = 405$ ways to choose a port.
+Choosing a port means you first choose a computer and then a port on that computer. Since there are 27 computers and 15 ways to choose a port on a computer, 
+//there are $27 \times 15 = 405$ ways to choose a port.
+there are $(27)(15) = 405$ ways to choose a port.
 
 .You Try
-How many functions are there from a set $A$ with $m$ elements to a set $B$ with $n$ elements?
+How many functions are there from a set $A$ with $m$ elements to a set $B$ with $n$ elements? + 
+Click on "Hint" to reveal the hidden text.
+
+[click.hint]
+--
+Try working out an example where $m$ and $n$ are small natural numbers. For example, how many functions are there from the set $\{ 1, 2, 3, 4 \}$ to the set $\{ \text{"red"},\,\text{"green"},\,\text{"blue"} \}$?
+--
+
+
+
 ****
 
 // MKD RobertsLicensePlateExample begins
@@ -341,21 +356,27 @@ Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett Colle
 // MKD RobertsLicensePlateExample ends
 
 
+// MKD Example reworded Feb 02 2025
 ****
 .Example {counter:countexample}
 
 You can use more than one of the rules to solve a problem. 
 
-How many bit strings of length four start with 1 or end with 00?
+How many bitstrings of length four start with 1 or end with 00?
 
 .Solution
-A bit string of length four that starts with 1 will be of the form $1~*~*~*$. For each $*$ there are two choices, 0 or 1, so by the product rule, there are $2^3$ bit strings of this form. A bit string of length four that ends with 00 will be of the form $*~*~0~0$, so there are $2^2$ bit strings of this form.
-Finally,
-a bit string of length four that starts with 1 and ends with 00 will be of the form $1~*~0~0$, so there are 2 bit strings of this form. By the subtraction rule
-there are $2^3 + 2^2 - 2 = 8+4-2=10$ possibilities.
+First, a bitstring of length four that starts with 1 will be of the form $1~*~*~*$, where there are two choices for each $*$, either 0 or 1. Use the product rule to compute that there are $(1)(2)(2)(2) = 2^3 = 8$ bitstrings of this form. + 
+ + 
+Secondly, a bitstring of length four that ends with 00 will be of the form $*~*~0~0$, so there are $(2)(2)(1)(1) = 2^2 = 4$ bitstrings of this form. + 
+ + 
+ Thirdly,
+a bitstring of length four that starts with 1 and ends with 00 will be of the form $1~*~0~0$, so there are $(1)(2)(1)(1) = 2$ bitstrings of this form.  + 
+ + 
+Now use the subtraction rule to compute the number of bitstrings of length four that start with 1 or end with 00 (or both): $8 + 4 - 2 =10.$
+//$2^3 + 2^2 - 2 = 8+4-2=10$ possibilities.
 
 .You Try
-If a card is drawn from a standard 52-card deck, how many ways can the card be black or a face card (that is, a Jack, Queen, or King)?
+If a card is drawn from a standard 52-card deck, how many ways can the card be black or a face card (that is, either a Jack or a Queen or a King)?
 ****
 
 // MKD added  (that is, a Jack, Queen, or King)
@@ -366,7 +387,7 @@ If a card is drawn from a standard 52-card deck, how many ways can the card be b
 
 This rule is used when there are $n$ ways to complete a procedure, but 
 //for 
-each of those ways is equivalent to $d$ ways (including the way itself.)
+each of those ways is equivalent to $d$ ways (including the way itself.) That is, every possible outcome of the procedure can be done in $d$ different ways
 
 .The Division Rule
 ****
@@ -386,7 +407,7 @@ image::imagesMKD/DivisionRuleCircularTableImage.png[DivisionRuleCircularTableIma
 Four students will sit around a circular table, but two seatings are  considered "not different" whenever each student has the same left neighbor and right neighbor. How many different seatings are there? 
 
 .Solution 
-First use the product rule to find that there are (4)(3)(2)(1) = 24 possible ways for the 4 students to sit. Next, notice that if all the students shifted one chair to the left once, twice, or thrice, they would all have the same neighbors that they originally had. This means that for _each_ of the 24 ways the students can sit, 4 of those ways are not considered different. + 
+First use the product rule to find that there are (4)(3)(2)(1) = 24 possible ways for the 4 students to sit (For example, there are 4 choices for the "North," then 3 choices remaining for the "East," then 2 choices remaining for the "South," and 1 choice remaining for the "West.") Next, notice that if all the students shifted one chair to the left once, twice, or thrice, they would all have the same neighbors that they originally had. This means that for _each_ of the 24 ways the students can sit, 4 of those ways are not considered different. + 
 Therefore, there are $\frac{24}{4}$ or 6 different seatings.
 
 ****
@@ -409,7 +430,8 @@ A suprising number of counting problems can be solved with the so-called pigeonh
 
 .Pigeonhole Principle
 ****
-If $k+1$ pigeons are roosting in $k$ pigeonholes then at least one pigeonhole contains more than one pigeon. + 
+//If $k+1$ pigeons are roosting in $k$ pigeonholes then at least one pigeonhole contains more than one pigeon. + 
+If $k+1$ pigeons are roosting in $k$ pigeonholes then at least one pigeonhole must contain more than one pigeon. + 
  + 
 [small]#NOTE: The Pigeonhole Principle is often attributed to Peter Gustav Lejeune Dirichlet, who called it the _Schubfachprinzip._ The remixer is willing to speculate that this principle has been known for at least as long as humans have link:https://en.wikipedia.org/wiki/Pigeon_keeping[kept birds such as pigeons.]#
 ****
@@ -430,7 +452,8 @@ Click https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPige
 In a group of 367 people at least two will have the same birthday because there are only 366 possible birthdays (counting February 29).
 
 .You Try
-How many people, with English names, must be in a room for two of them to have a first name that starts with the same letter?
+How many people, with English names, must be in a room for at least two of the people to have first names that starts with the same letter?
+//How many people, with English names, must be in a room for two of them to have a first name that starts with the same letter?
 ****
 
 == Exercises

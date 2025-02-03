@@ -1,9 +1,9 @@
 = Introducing Discrete Mathematics
 
-_This chapter was last updated on January 27, 2025._ + 
-// (added water glass example and link to video about $\pi$ to section 2.1)_ + 
+_This chapter was last updated on January 30, 2025._ + 
+//(added some topics to the list of links in section 1.4)_ + 
 //discussion of continuous mathematics and structures in 2.1)._
-//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 // MKD various sources
 //	https://cacm.acm.org/opinion/lets-not-dumb-down-the-history-of-computer-science/ 
@@ -178,7 +178,7 @@ The Remix is designed to build on your previous knowledge, and then build new kn
 There are two analogies that I, the remixer, like to use here:
 
 * Think of the course presented in the Remix as a language course. + 
-You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then "forgetting" that content later, but still succeed inthe course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.
+You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then "forgetting" that content later, but still succeed in the course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.
 
 * Think of the course presented in the Remix as exercising at a gym. + 
 You will build your strength and awareness about your abilities by working out. It may be tempting to watch others "demonstrate" how to do certain exercises and then choose not to do them yourself, but you are selling yourself short. A physical trainer usually knows already what they are capable of doing, so it is no compliment if you tell them "Wow, you're really strong"... the trainer's goal is to get you to say "Wow, [underline]#*I'm*# starting to get really strong!"
@@ -1522,7 +1522,7 @@ link:./introduction_discrete_math.html#informal_proposition_definition[Propositi
 
 link:./introduction_discrete_math.html#informal_predicate_definition[Predicates]
 
-link:./introduction_discrete_math.html#informal_algorithm_definition[Algorithms]
+link:./introduction_discrete_math.html#informal_algorithm_definition[Algorithms], including the Division Algorithm
 
 link:./introduction_discrete_math.html#informal_relation_definition[Relations]
 
