@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on February 2, 2025._ + 
+_This chapter was last updated on February 10, 2025._ + 
 _Split section on Cardinality into two sections (one for finite sets and one for infinite sets), moved section on Venn diagrams after section on Finite Sets, and moved section on infinite sets closer to the end of the chapter._
 //#[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 

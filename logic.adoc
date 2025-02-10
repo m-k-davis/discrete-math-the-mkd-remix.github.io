@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on January 15, 2025._ + 
+_This chapter was last updated on February 10 2025._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 
@@ -673,12 +673,19 @@ The NAND and NOR operators correspond to two important digital logic gates used 
 ===== NAND 
 
 //"I have *not both* a pencil and a pen."
-"A chimpanzee is *not both* an ape and a monkey."
+// MKD Feb 5 2025 needed to replace the chimp example - it may be incorrect!
+//		see https://en.wikipedia.org/wiki/Ape#Name_and_terminology
+//"A chimpanzee is *not both* an ape and a monkey."
+//	https://sciencenotes.org/is-tomato-a-fruit-difference-between-fruits-and-vegetables/
+//"A cherry is *not both* a fruit and a vegetable."
+"An link:https://en.wikipedia.org/wiki/Onion[onion] is *not both* a fruit and a vegetable."
 
 //Let $p$ and $q$ be propositions. The NAND of $p$ and $q$ is commonly denoted by $p \mid q$ and is False when both $p$ and $q$ are True and True otherwise. That is, the NAND is the negation of $p \land q.$ + 
 //[small]#In this context, the symbol $\mid$ is called the "Sheffer stroke." Other notations for NAND include $p{\overline {\land }}q$ and $p \uparrow q.$#
 // MKD changed notation 9/22/2024 to avoid clashing with bitwise OR notation used in section from original book
-Let $p$ and $q$ be propositions. In this textbook, the NAND of $p$ and $q$ is denoted by $p \uparrow q$ and is False when both $p$ and $q$ are True and is True otherwise. That is, the NAND is the negation of $p \land q.$ 
+Let $p$ and $q$ be propositions. In this textbook, the NAND of $p$ and $q$ is denoted by $p \uparrow q$ and is False when both $p$ and $q$ are True and is True otherwise. That is, the NAND is the negation of $p \land q$ - think of NAND as "Not AND." + 
+// and," this is $\neg (p \land q).$
+//The term "NAND" can be thought of "not and." 
 
 //| $p$ | $q$ | $p \mid q$
 
@@ -694,11 +701,17 @@ Let $p$ and $q$ be propositions. In this textbook, the NAND of $p$ and $q$ is de
 //Notice that the two propositions $p \mid q$ and $q \mid p$ always have the same truth value.
 Notice that the two propositions $p \uparrow q$ and $q \uparrow p$ always have the same truth value.
 
+
+
+
 ===== NOR 
 
-"This pen is *neither* black *nor* blue."
+// MKD Feb 5 2025 made relatively minor edits
 
-//Let $p$ and $q$ be propositions. The NOR of $p$ and $q$ is commonly denoted by $p \downarrow q$ and is True when both of $p$ and $q$ are False and False otherwise. The NOR is also referred to as "joint denial" since it is True exactly when neither $p$ nor $q$ is True. That is, the NOR is the negation of $p \lor q.$ + 
+//"This pen is *neither* black *nor* blue."
+"This pen's ink is *neither* red *nor* blue."
+
+//Let $p$ and $q$ be propositions. The NOR of $p$ and $q$ is commonly denoted by $p \downarrow q$ and is True when both $p$ and $q$ are False and False otherwise. The NOR is also referred to as "joint denial" since it is True exactly when neither $p$ nor $q$ is True. That is, the NOR is the negation of $p \lor q$ - think of NOR as "Not OR." + 
 //[small]#In this context, the symbol $\downarrow$ is called the "Peirce arrow." Another common notation for NOR is $p{\overline {\lor }}q.$#
 Let $p$ and $q$ be propositions. In this textbook, the NOR of $p$ and $q$ is denoted by $p \downarrow q$ and is True when both of $p$ and $q$ are False and is False otherwise. The NOR is also referred to as "joint denial" since it is True exactly when neither $p$ nor $q$ is True. That is, the NOR is the negation of $p \lor q.$
 [width=50%",align="center",options="header"]
@@ -1146,7 +1159,7 @@ The set $\{ \neg , \land , \lor \}$ is functionally complete.
 
 [click.Proof]
 --
-An informal justification can use the method show in the previous examples for finding a DNF or CNF. 
+An informal justification can use the method shown in the previous examples for finding a DNF or CNF. 
 
 A formal proof requires the link:./induction.html[mathematical induction proof technique] and the recursive defintion of well-formed formulae given earlier in this chapter.
 --
@@ -1495,7 +1508,7 @@ Hint:  Let $x$ be a student in the class, $y$ be a practice problem, and $P(x,y)
 == Applications of Logic
 
 Remixer's Note: This section is taken from the original 
-https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with minor edits to include base-two notation.
+https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with minor edits to include base-two notation and a link to the NANDgame website.
 
 In this section we consider two applications of logic to information technology and
 computer science. The first involves bitwise operations, and the second designing and analyzing logic circuits.
@@ -1558,7 +1571,10 @@ Logic circuits are important in designing the arithmetic and logic units of a co
 
 Consider the problem of adding two $8$-bit numbers in binary. 
 //In binary $0+0=0$, and $1+0=0+1=1$, but, as in decimal addition, in binary $1+1=2$, which in binary will be a sum of $0$ and a carry of $1$ to the next significant column on the left.  
-In binary, $(0)_2 + (0)_2 = (0)_2$ and $(0)_2 + (1)_2 = (1)_2 + (0)_2 = (1)_2$, but as in decimal addition, $(1)_2 + (1)_2 = (10)_2$ requires a carry, that is, the "sum bit" is $0$ with a "carry bit" of $1$ to the next significant column on the left.  
+In binary, $(0)_2 + (0)_2 = (0)_2$ and $(0)_2 + (1)_2 = (1)_2 + (0)_2 = (1)_2$, but as in decimal addition, $(1)_2 + (1)_2 = (10)_2$ requires a carry, that is, the "sum bit" is $0$ with a "carry bit" of $1$ to the next significant column on the left. +  
+//MKD note added Feb 5 2025
+[small]#Note: The bits are enclosed in parentheses which are followed by the subscript $_2$ to emphasize that binary notation, not decimal notation, is being used. This notation is covered in much more detail in the link:./number_bases.html[Number Bases] chapter.#
+
 Thinking then of adding a specific column of two binary digits, say $A$ and
 $B$, involves as input the 
 //digits 
@@ -1682,6 +1698,12 @@ Putting these now in left to right order we obtain the following logic circuit.
 image::images/logic_gate_5.png[]
 
 ****
+
+//[env.NANDgame]
+[env.How.about.a.game.of.NAND?]
+--
+Here is a link:https://nandgame.com/[link] to a website that lets you build a computer, starting from the most basic level of the NAND component.
+--
 
 == Exercises
 
