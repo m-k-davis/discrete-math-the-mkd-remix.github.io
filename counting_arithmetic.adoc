@@ -1,9 +1,9 @@
 = Counting: Arithmetic Techniques
 
-#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
 _This chapter was last updated on February 2, 2025._ + 
-//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 ////
 AUG 2024 update on topics (basic counting)
