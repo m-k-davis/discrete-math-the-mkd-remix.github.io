@@ -2,8 +2,8 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on February 10 2025._ + 
-//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+_This chapter was last updated on February 13, 2025._ + 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 //COMING SOON!
@@ -141,22 +141,40 @@ Among the applications of logic to computer science are design of electronic cir
 
 Key terms and concepts covered in this chapter:
 
-* Propositional logic
-* propositional calculus
-* Logical connectives (operators)
-* Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction
-* Truth tables
-* Normal forms (conjunctive and disjunctive)
-* Validity of well-formed formula
-* Validity
-* Propositional inference rules (concepts of modus ponens and modus tollens)
-* Modus ponens and modus tollens
+//MKD Feb 13 2025 - cleaned up topics and terminolgy list
+* Propositional logic (also called "propositional calculus")
+** Logical operators (also called "logical connectives") 
+*** Negation ("not")
+*** Conjunction ("and")
+*** Disjunction ("or")
+*** Conditional ("implication")
+**** The converse, inverse, and contrapositive of a conditional
+//*** Biconditional ("equivalence")
+*** Biconditional ("if and only if," abbreviated as "iff")
+//**** how implication and equivalence are different
+// MKD Feb 13 2025 added Satisfiability, tautology, and contradiction
+** Truth tables
+//*** how negation and contradiction are different
+// MKD Feb 13 2025 - substituted wff for "validity" and "validity of well-formed formulas" following two
+** Well-formed formulas
+** Satisfiability, tautology, and contradiction
+** Normal forms (conjunctive and disjunctive)
+// MKD Feb 13 2025 - Inference is covered in the next chapter
 * Predicate logic
-** Universal and existential quantification
+** Predicates as "statement-valued functions"
+** Quantification of Predicates
+*** Universal quantifier
+*** Existential quantifier
 * Limitations of propositional and predicate logic (e.g., expressiveness issues)
-* Limitations of predicate logic
 * Boolean algebra and Boolean circuits
 
+
+// MKD new code for material implication Feb 13 2025
+// https://pythontutor.com/visualize.html#code=def%20material_implication%28p,q%29%3A%0A%20%20%20%20if%20p%3A%0A%20%20%20%20%20%20%20%20if%20q%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20True%0A%20%20%20%20%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20True%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20p-%3Eq%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20%23print%28p,%20q,%20material_implication%28p,%20q%29%29%0A%20%20%20%20%20%20%20%20print%28str%28p%29%5B0%5D%20%2B%20%22%20%20%20%20%22%20%2B%20str%28q%29%5B0%5D%20%2B%20%22%20%20%20%20%22%20%2B%20str%28material_implication%28p,%20q%29%29%5B0%5D%29&cumulative=false&heapPrimitives=false&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+
+// MKD Feb 16 2025
+// https://en.wikipedia.org/wiki/First-order_logic
 
 == Propositional Logic
 //MKD add "propositional calculus"
@@ -194,23 +212,37 @@ A *proposition* is a statement that declares a fact that is either True or False
 
 //MKD added the following 2 paragraphs
 //An *argument* is a finite sequence of propositions that ends with a conclusion based on inferences made from earlier propositions in the argument. 
-A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based _solely_ on the propositions' *truth values* (True and False), ignoring the actual content of the propositions. Choosing to ignore the actual content of the propositions may seem strange at first, but compare this to doing algebra: 
+A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based _solely_ on the propositions' *truth values* (True and False), ignoring the actual content of the propositions. 
+// MKD Feb 13 2025 commented out some text 
+//Choosing to ignore the actual content of the propositions may seem strange at first, but c
+Compare this to doing algebra: 
 //We can write $2 (x + 3 y) = 2x + 6y$ because we know that it is correct and valid to distribute multiplication over addition - we can do the algebra and ignore the actual real-world meaning of the "numerical content" that $x$ and $y$ stand for. 
-You can write $2 (x + 3 y) = 2x + 6y$ because it is correct and valid to distribute multiplication over addition - you can do the algebra and ignore the actual meaning/content (that is, the specific numerical values) that $x$ and $y$ stand for. 
+You can write $2 (x + 3 y) = 2x + 6y$ because it is a correct and valid step to distribute multiplication over addition. You can do the algebra and ignore 
+// MKD Feb 13 2025 commented out some text 
+//the actual meaning/content (that is, 
+the specific numerical values 
+//) 
+(the "numerical content") that $x$ and $y$ stand for. 
 
-In propositional logic, it is traditional to use *propositional variables* such as _p_, _q_, and _r_ to represent the possible assignments of truth values to propositions; 
+In propositional logic, it is traditional to use *propositional variables* such as _p,_ _q,_ and _r_ to 
+//represent 
+stand for 
+the possible assignments of truth values to propositions; 
 //often, we refer to the variables themselves as the propositions. Again, compare this to the algebraic example where we can treat $x$ and $y$ as numbers even though they are actually variables that stand for numbers.
-often, the variables themselves are referred to as the propositions. Again, compare this to the algebraic example where you can treat $x$ and $y$ as numbers even though they are actually variables that stand for numbers.
+often, the propositional variables themselves are referred to as the propositions. Again, compare this to the algebraic example where you can treat $x$ and $y$ as numbers even though they are actually variables that stand for numbers.
 //MKD moved this section of original book to appear earlier
 
 //MKD mashed up some of the original text 9/22/2024
+//MKD more mashing and rewording Feb 13 2025
 //*Logical Translations*
 What is the advantage of using symbols? 
-A long time ago philosophers discovered that is easier to follow lines of reasoning by putting our thoughts into symbols. This was an important step in the eventual development of our modern technological society and our use of digital computers. Before computers can work, we have to put our thoughts into them! However, the English language is difficult and many different phrases can represent the same logical statements; translating statements from English sentences to symbols and back is a skill that needs lots of practice.
+A link:https://en.wikipedia.org/wiki/History_of_logic[long time ago,] philosophers discovered that is easier to follow lines of reasoning by putting our thoughts into symbols. This was an important step in the eventual development of modern technological society and, in particular,  electronic computers. Before a computer can do its work, humans need to put our thoughts into them; however, a spoken language like English can be too difficult to use because many different phrases can represent the same logical statements. 
+//; translating statements from English sentences to symbols and back is a skill that needs lots of practice.
 
 ****
 .Example {counter:logicexample} - Generalizing and abstracting an argument
 //MKD inserted this example 2/13/24
+//MKD Feb 13 2025 changed "we" to "you" throughout the example
 Consider the following argument consisting of three propositions:
 
 * Sarah earned a B.S. in Computer Science.
@@ -220,13 +252,13 @@ Consider the following argument consisting of three propositions:
 
 This argument is 
 //correct and 
-valid: If we ASSUME that the first two propositions are True, then we can correctly conclude that the third proposition (which follows the introductory phrase "Therefore,") must be True as well.
+valid: If you ASSUME that the first two propositions are True, then you can correctly conclude that the third proposition (which follows the introductory phrase "Therefore,") must be True as well.
 
-Notice that we could change the name "Sarah" to "Daniel" without affecting the 
+Notice that you could change the name "Sarah" to "Daniel" without affecting the 
 //correctness and 
 validity of the argument. 
 
-We can generalize the argument by changing "Sarah" to "the student." In fact, we can generalize much more by noticing that the _form_ of the argument matches the following argument.
+You can generalize the argument by changing "Sarah" to "the student." In fact, you can generalize much more by noticing that the _form_ of the argument matches the following argument.
 
 //* Person X (or object X) is a member of category A
 //* Any person (or object) that is a member of category A must also be a member of category B.
@@ -237,7 +269,7 @@ We can generalize the argument by changing "Sarah" to "the student." In fact, we
 * Therefore, individual X is a member of category B
 
 //We can abstract this argument fully as follows.
-Now we can make this argument completely abstract using propositional variables.
+You can make this argument completely abstract using propositional variables.
 
 * _p_ is true.
 //* The implication "if _p_ is true then _q_ is true" is true, too.
@@ -250,12 +282,12 @@ Now we can make this argument completely abstract using propositional variables.
 //MKD added on 2/13/24
 //We can build *compound propositions* (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if _p_ then _q_" as a new proposition built from the propositional variables _p_ and _q_.
 // MKD edit 9/22/2024
-You can build *compound propositions* (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if _p_ then _q_" as a new proposition built from the propositional variables _p_ and _q_. In the next section, you will see how we represent compound propositions using symbols.
+You can build *compound propositions* (also called "propositional functions") from simpler propositions. For example, in the preceding example, the compound propostion "if _p_ then _q_" was introduced as a new proposition built from the propositional variables _p_ and _q_. In the next section, you will learn how to represent compound propositions using symbols.
 
 // MKD new section re-added here on 9/22/2024
 == Logical Operations and Truth Tables 
 
-In this section, compound propostions will be represented by using propositional variables and *logical operator* symbols (also called logical operations.) Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.
+In this section, compound propostions will be represented by using propositional variables and *logical operator* symbols (also called "logical operations" or "logical connectives") Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.
 
 
 //MKD: Reword - Python is not necessary here, but is useful as a tool 
@@ -304,7 +336,7 @@ The most commonly-used logical operators are described in the rest of this secti
 
 "I am *not* an astronaut."
 
-The negation of a proposition $p$, denoted in mathematics by $\neg p$ and 
+The *negation* of a proposition $p$, denoted in mathematics by $\neg p$ and 
 read as "not $p$", is the proposition 
 "It is __not the case__ that $p$". 
 //Note that other books and sources may use different notation such as $\overline{p}$ or $\sim \! p$ for the negation of $p$.
@@ -331,7 +363,7 @@ exactly one is False.
 Notice that, in each row of the truth table, exactly one of the two propositions $p$ and $\neg p$ is True and exactly one is False.
 ////
 
-Also, notice that the two propositions $p$ and $\neg (\neg p)$ must always have the _same_ truth value.
+Notice that the two propositions $p$ and $\neg (\neg p)$ must always have the _same_ truth value (You can see this by inserting a column for $\neg (\neg p)$ in the truth table shown earlier in this subsection.)
 
 
 NOTE: In the first few truth tables in this chapter, "True" and "False" 
@@ -362,7 +394,7 @@ include::python_tutor.adoc[]
 //MKD: Mention other common notations for negation
 "I am a rock *and* I am an island."
 
-Let $p$ and $q$ be propositions.  The conjunction of $p$ and $q$, denoted in mathematics by $p \land q$ and read as "$p$ and $q$", is True when both $p$ and $q$ are True and is False otherwise.
+Let $p$ and $q$ be propositions.  The *conjunction* of $p$ and $q$, denoted in mathematics by $p \land q$ and read as "$p$ and $q$", is True when both $p$ and $q$ are True and is False otherwise.
 
 [width=50%",align="center",options="header"]
 |====
@@ -395,7 +427,7 @@ include::python_tutor.adoc[]
 //MKD: Mention other common notations for negation
 "They studied hard *or* they are extremely bright."
 
-Let $p$ and $q$ be propositions.  The disjunction of $p$ and $q$, denoted in mathematics by $p \lor q$ and read as "$p$ or $q$", is True when at least one of $p$ and $q$ are True and is False otherwise.
+Let $p$ and $q$ be propositions.  The *disjunction* of $p$ and $q$, denoted in mathematics by $p \lor q$ and read as "$p$ or $q$", is True when at least one of $p$ and $q$ are True and is False otherwise.
 
 [width=50%",align="center",options="header"]
 |====
@@ -496,7 +528,7 @@ Given propositions _p_ and _q_, we can form three additional compound propositio
 * $ \neg q \rightarrow \neg p$, called the *contrapositive of $p \rightarrow q$*
 * $ \neg p \rightarrow \neg q$, called the *inverse of $p \rightarrow q$* 
 
-The exteneded truth table for the conditional and the three related propositions is shown below.
+The extended truth table for the conditional and the three related propositions is shown below.
 
 [width=50%",align="center",options="header"]
 |====
@@ -527,7 +559,8 @@ on <<Logically Equivalent Propositions>> we will discuss the bullet points in th
 //MKD This example was problematic since p and q were not propositions but predicates!!! Revised to eliminate the n in the statement. 
 // if the number of students in class is divisible by 4, then the number of students in class is divisible by 2
 
-We illustrate these four propositions with an example.
+//We illustrate these four propositions with an example.
+The next example illustrates these four propositions.
 
 ****
 .Example {counter:logicexample} - Conditional, Converse, Contrapositive and Inverse.
@@ -540,9 +573,9 @@ We illustrate these four propositions with an example.
 
 .. Let
 +
-$p$ be the propostion "The number of students in class is divisible by 4."
+$p$ be the proposition "The number of students in class is divisible by 4."
 +
-$q$ be the propostion "The number of students in class is divisible by 2."
+$q$ be the proposition "The number of students in class is divisible by 2."
 +
 The conditional $p\rightarrow q$ translates as "If the number of students in class is divisible by 4, then the number of students in class is divisible by 2."
 
@@ -567,7 +600,7 @@ Notice that in this example, the conditional must be True, based on properties o
 
 Let $p$ and $q$ be propositions. The *biconditional* $p \leftrightarrow q$, read as "_p_ if and only if _q_", is the proposition that is True when _p_ and _q_ have the _same_ truth value, and False otherwise. The biconditional is also called "the bi-implication". 
 //Other books and sources may use $p \iff q$ for the biconditional statement.
-Note that $p \leftrightarrow q$ can also be denoted by $p \Leftrightarrow q$ or $p \iff q.$
+[small]#Note that $p \leftrightarrow q$ can also be denoted by $p \Leftrightarrow q$ or $p \iff q.$#
 
 
 [width=50%",align="center",options="header"]
@@ -579,7 +612,8 @@ Note that $p \leftrightarrow q$ can also be denoted by $p \Leftrightarrow q$ or 
 | False | False | True
 |====
 
-From the truth table it can be seen that the two propositions $p \leftrightarrow q$ and $q \leftrightarrow p$ always have the same truth value.
+//From the truth table it can be seen that the two propositions $p \leftrightarrow q$ and $q \leftrightarrow p$ always have the same truth value.
+You can use a truth table to show that two propositions $p \leftrightarrow q$ and $q \leftrightarrow p$ always have the same truth value.
 
 [NOTE]
 ====
@@ -749,7 +783,9 @@ Here is a recursive definition of wff:
 ** $\left( \alpha \rightarrow \beta \right)$ 
 ** $\left( \alpha \leftrightarrow \beta \right)$ 
 
-The definition of wff allows you to analyze any string of symbols to determine whether it is a wff. For example, $(p \land q \lor r)$ isn't a wff but both $(p \land (q \lor r))$ and $((p \land q) \lor r)$ are wffs. You could write code to implement an algorithm to validate a string as a wff. 
+The definition of wff allows you 
+or, even better, a computer 
+to analyze _any_ string of symbols to determine whether the string of symbols is a wff. For example, $(p \land q \lor r)$ isn't a wff but both $(p \land (q \lor r))$ and $((p \land q) \lor r)$ are wffs. You could write code to implement an algorithm to validate a string as a wff. 
 // MKD expression trees needed here
 
 //It can be seen that there is a one-to-one correspondence between the set of well-formed formulae and the set of compound propositions. 
@@ -957,20 +993,21 @@ Notice that the truth values for $p \lor \neg p$ are all True and $p \land \neg 
 
 The two compound propositions in the previous example are so important that they have their own names,
  
-.The Laws of Excluded Middle and Contradiction
+.The Law of Excluded Middle
 ****
-//Given any proposition $p$, the following proposition, called "The Law of Excluded Middle." is a tautology.
-
-$ p  \lor \neg p \text{, "The Law of Excluded Middle," is always True.}$
-
-//And the following proposition, called "The Law of Contradiction" is a contradiction.
-
-$p  \land \neg p \text{, "The Law of Contradiction," is always False.}$
+Given any proposition $p$, the compound proposition \[p  \lor \neg p\] 
+is a tautology (that is, the compound proposition is always True.)
 ****
+
+.The Law of Contradiction
+****
+Given any proposition $p$, the compound proposition \[p  \land \neg p\] 
+is a contradiction (that is, the compound proposition is always False.)
+**** 
 
 
 === De Morgan's Laws
-Two important logical equivalences are De Morgan's Law.  These describe how we "distribute" the $\neg$ operator across the $\land$ and $\lor$ operators.
+Two important logical equivalences are De Morgan's Law.  These describe how to "distribute" the $\neg$ operator across the $\land$ and $\lor$ operators.
 
 .De Morgan's Laws
 ****
@@ -1312,10 +1349,22 @@ Consider the statements
 *  For all integers $x$, $x^2\geq 0$.
 *  Some student in the class has a birthday in July.
 
-Each of these statements considers a proposition over an entire population or set, called the *domain,* and quantifies how many elements (or people) in the set satisfy the proposition.  To represent this idea, we use two main quantifiers, the *universal quantifier* and the *existential quantifier*. + 
+Each of these statements considers a proposition over an entire population or set, called the *domain,* and  
+// MKD Feb 13 2025
+//quantifies how many elements (or people) 
+describes whether at least one element, or all of the elements 
+in the 
+//set 
+domain 
+satisfy the proposition. 
+//To represent this idea, we use 
+There are two 
+//main 
+commonly-used 
+quantifiers, the *universal quantifier* and the *existential quantifier*. + 
 [small]#The domain is also called the *domain of discourse* or the *universe of discourse.*#
 
-The *Universal Quantifier*, $\forall$, represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true _for all values_ in the domain.
+The *Universal Quantifier,* $\forall,$ represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true _for all values_ in the domain.
 
 :pt_code_height: 450
 :pt_rawinput: false
@@ -1348,7 +1397,7 @@ Let $P(x)$ be the statement $x + x \gt x$.  Is this true for all integers x?
 include::python_tutor.adoc[]
 ****
 
-The *Existential Quantifier*, $\exists$, represents the statement "there exists", "for some", "at least one".  When it comes before a statement, it means the statement is true for _at least one value_ in the domain.
+The *Existential Quantifier,* $\exists,$ represents the statement "there exists", "for some", "at least one".  When it comes before a statement, it means the statement is true for _at least one value_ in the domain.
 
 
 :pt_code_height: 450
@@ -1414,9 +1463,7 @@ Similarly, the negation of an existential statement is a universal statement.  $
 
 .De Morgan's Laws with Quantifiers
 ****
-$\neg \forall x P(x)\equiv \exists x \neg P(x)$
-
-$\neg \exists x P(x) \equiv \forall x \neg P(x)$
+For any predicate $P(x)$ \[\neg \forall x P(x)\equiv \exists x \neg P(x)\] and \[\neg \exists x P(x) \equiv \forall x \neg P(x)\]
 ****
 
 ****

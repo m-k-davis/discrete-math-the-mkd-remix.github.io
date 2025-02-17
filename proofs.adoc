@@ -2,8 +2,9 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on January 15, 2025_ + 
-//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+_This chapter was last updated on February 16, 2025_ + 
+_Inserted example of "Proof By Exhaustion"_
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 //MKD: Need to add info on Rules of Inference
@@ -752,6 +753,10 @@ Write a proof of the following statement: If $a,$ $b,$ and $c$ are integers such
 
 // also do a "proof by cases", "exhaustive proof"
 // MKD maybe do proof of 1-1 corr between N and Z here?
+// MKD Feb 15 2025 - need to insert proof by cases (K4 coloring example?)
+//	or the remainder when n^2 is divided by 4 must be either 0 or 1
+
+
 		
 === Proof By Contraposition
 
@@ -903,9 +908,7 @@ Here is another example of proof by contradiction.
 
 .Theorem - Generalized Pigeonhole Principle
 ****
-Suppose that $n$ and $k$ are positive integers. 
- 
-If each of $n$ objects is assigned to one of $k$ categories, then at least one category contains at least $\displaystyle{\left\lceil \frac{n}{k} \right\rceil}$ objects.
+Suppose that $n$ and $k$ are positive integers. If each of $n$ objects is assigned to one of $k$ categories, then at least one category contains at least $\displaystyle{\left\lceil \frac{n}{k} \right\rceil}$ objects.
 
 .Proof 
 
@@ -948,6 +951,62 @@ If each of $n$ objects is assigned to one of $k$ categories, then at least one c
 ==== 
 
 ****
+
+//==== Proof By Exhaustion (Proof By Cases)
+=== Proof By Exhaustion (Proof By Cases)
+
+Sometimes it is convenient to break a proof into a finite number of cases. 
+//that cover all possible hypotheses. 
+For example, it may be easier to prove a statement that involves an integer by considering a first case where the integer is odd and a separate second case where the integer is even, then combining the two separate cases to create a single proof for all integers $n.$
+
+In a general proof by cases, you make an argument that a conditional statement $(p_{1} \lor \cdots \lor p_{n}) \rightarrow r$ must be True. This means that 
+//we can assume that 
+if any one of the "cases" $p_{i},$ where $i \in \{ 1, 2, \ldots , n \},$ is True, you can apply the tautology $p_{i} \rightarrow (p_{1} \lor \cdots \lor p_{n})$ and the _transitivity_ rule of inference 
+//and _modus ponens_ 
+to prove that $r$ must be True, too. 
+
+//A proof by exhaustion is a special kind of proof by cases where we know that $(p_{1} \lor \cdots \lor p_{n})$ must be True. That is, the propositions $p_{1},$ $p_{2},$… $p_{n}$ "exhaust" all the possible cases for the premise.
+A proof by exhaustion is a special kind of proof by cases where the premise is of the form $(p_{1} \lor \cdots \lor p_{n} \lor \neg (p_{1} \lor \cdots \lor p_{n}) ).$ Notice that this premise must be True since if all of $p_{1},$ $p_{2},$… $p_{n}$ are False then $\neg (p_{1} \lor \cdots \lor p_{n})$ is True.
+//For example, we can prove that "if $n$ is an integer, then $n(n+1)$ is an even integer" by rewriting the premise as "if ($n$ is an even integer or $n$ is an odd integer), then $n(n+1)$ is an even integer" - and we know that one of the cases "$n$ is an even integer" or "$n$ is an odd integer" must be True (though we don't know _which one_ is True unless we've chosen a specific value of $n,$ which we cannot do if we want to make a general proof.)
+
+If there are two cases, proof by exhaustion corresponds to using the "proof by cases" rule of inference discussed above in the section "Other Common Rules Of Inference." The tautology can be rewritten in the simpler form $((p \rightarrow q) \land (\neg p \rightarrow r)) \rightarrow r$ because $p \lor \neg p$ must always be True.
+
+//If there are two cases, proof by exhaustion corresponds to using "proof by cases" rule of inference in the form  where the tautology can be written in the simpler form $((p \rightarrow q) \land (\neg p \rightarrow r)) \rightarrow r$ because $p \lor \neg p$ must always be True.
+
+If there are more than two cases, this corresponds to using the tautology 
+$((p_{1} \rightarrow r) \land ... \land (p_{n} \rightarrow r) \land (\neg (p_{1} \lor \cdots \lor p_{n}) \rightarrow r)) \rightarrow r$.
+
+//$((p \rightarrow q) \land (q \rightarrow r) \land (p \lor q)) \rightarrow r$.
+
+//rule of inference
+
+
+
+//.Theorem
+****
+.Example {counter:proofexample} - Working with multiple cases
+
+Let's prove the following theorem: \[ \text{If $n$ is an integer, then $n(n+1)$ is an even integer.} \]
+
+.Proof 
+
+Consider the following two cases: 
+
+* Case 1: $n$ is an odd integer. + 
+In this case, $n+1$ must be an even integer, and $n(n+1)$ is the product of an odd integer and an even integer so must be even. (Note that this could be made more formal by stating that there is some integer $j$ such that $n+1 = 2j$ so that $n(n+1) = n(2j) = (2j)n = 2(jn).$)
+
+* Case 2: $n$ is an even integer. + 
+In this case, $n+1$ must be an odd integer, and $n(n+1)$ is the product of an even integer and an odd integer so must be even. (Note again that this could be made more formal by stating that there is some integer $k$ such that $n = 2k$ so that $n(n+1) = (2k)(n+1) = 2((k)(n+1)).$)
+
+Since the statement "$n$ is an odd integer or $n$ is an even integer" 
+//of the two cases must apply to 
+must be True no matter what value the integer $n$ has, this shows that the statement of the theorem is a True proposition.
+
+Q.E.D.
+
+****
+
+
 
 // \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{ \frac{n}{k} } - 1 \right) \leq  \] 
 
@@ -1079,4 +1138,46 @@ $n = 2^{65{\small,}536},$ an integer that has $19{\small,}729$ decimal digits.
 //Uniquesness proofs
 //Open Problems: The 3x + 1 Conjecture ROSEN PAGE 107 (Collatz Problem)
 //
+////
+
+
+
+// MKD Second proof by cases example, Feb 16 2025 (unfinished)
+////
+//.Theorem
+****
+.Example {counter:proofexample} - Working with multiple cases
+
+Consider the graph shown. 
+
+//image::imagesMKD/k4_planar.png[K4_planar,270,257,float="right",align="center"] 
+image::imagesMKD/k4_planar.png[K4_planar,135,128,float="right",align="center"] 
+//If each edge will be assigned one of the colors red or black, and all three edges that have $W$ as an endpoint are assigned the same color, then at least one of the triangles $WXY,$ $WXZ,$ $WYZ,$ or $XYZ$ will have all three edges assigned the same color.
+Each edge will be assigned one of the colors red or black. + 
+Suppose that all three edges that have $W$ as an endpoint are assigned the same color. Show that for at least one of the triangles $WXY,$ $WXZ,$ $WYZ,$ or $XYZ,$ all three edges of the triangle will be assigned the same color.
+
+.Proof 
+
+//MKD NEEDS TO FINISH THIS. 
+#To be written!#
+We can consider two cases: 
+[arabic]
+. At least one of the "outer" edges (the ones that do not have $W$ as an endpoint) will be assigned the same color as the three edges that do have $W$ as an endpoint. 
+. None of the "outer" edges (the ones that do not have $W$ as an endpoint) will be assigned the same color as the three edges that do have $W$ as an endpoint. 
+
+
+This shows that the statement of the theorem is a True proposition.
+
+Q.E.D.
+
+.You Try
+
+Write a proof of the following statement: If $n$ is a natural number, then $n(n+1)$ is an even natural number.
+
+[click.hint]
+--
+Consider two cases: (1) $n$ is an even natural number, and (2) $n$ is an odd natural number.
+--
+
+****
 ////

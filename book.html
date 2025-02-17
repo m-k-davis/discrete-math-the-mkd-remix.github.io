@@ -4571,7 +4571,7 @@ Therefore, such a one-to-one correspondence cannot exist.
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on February 10 2025.</em><br></p>
+<p><em>This chapter was last updated on February 13, 2025.</em><br></p>
 </div>
 <div class="paragraph">
 <p><strong>Logic</strong> is the study of reasoning. Logic is used to create, analyze, and validate <strong>arguments,</strong> where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument.</p>
@@ -4585,50 +4585,78 @@ Therefore, such a one-to-one correspondence cannot exist.
 <div class="ulist">
 <ul>
 <li>
-<p>Propositional logic</p>
+<p>Propositional logic (also called "propositional calculus")</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Logical operators (also called "logical connectives")</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Negation ("not")</p>
 </li>
 <li>
-<p>propositional calculus</p>
+<p>Conjunction ("and")</p>
 </li>
 <li>
-<p>Logical connectives (operators)</p>
+<p>Disjunction ("or")</p>
 </li>
 <li>
-<p>Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction</p>
+<p>Conditional ("implication")</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The converse, inverse, and contrapositive of a conditional</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Biconditional ("if and only if," abbreviated as "iff")</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Truth tables</p>
 </li>
 <li>
+<p>Well-formed formulas</p>
+</li>
+<li>
+<p>Satisfiability, tautology, and contradiction</p>
+</li>
+<li>
 <p>Normal forms (conjunctive and disjunctive)</p>
 </li>
-<li>
-<p>Validity of well-formed formula</p>
-</li>
-<li>
-<p>Validity</p>
-</li>
-<li>
-<p>Propositional inference rules (concepts of modus ponens and modus tollens)</p>
-</li>
-<li>
-<p>Modus ponens and modus tollens</p>
+</ul>
+</div>
 </li>
 <li>
 <p>Predicate logic</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Universal and existential quantification</p>
+<p>Predicates as "statement-valued functions"</p>
+</li>
+<li>
+<p>Quantification of Predicates</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Universal quantifier</p>
+</li>
+<li>
+<p>Existential quantifier</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p>Limitations of propositional and predicate logic (e.g., expressiveness issues)</p>
-</li>
-<li>
-<p>Limitations of predicate logic</p>
 </li>
 <li>
 <p>Boolean algebra and Boolean circuits</p>
@@ -4682,16 +4710,21 @@ Therefore, such a one-to-one correspondence cannot exist.
 <p><strong>Propositional logic</strong> consists of a set of formal rules for combining propositions in order to derive new propositions.</p>
 </div>
 <div class="paragraph">
-<p>A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based <em>solely</em> on the propositions' <strong>truth values</strong> (True and False), ignoring the actual content of the propositions. Choosing to ignore the actual content of the propositions may seem strange at first, but compare this to doing algebra:
-You can write \(2 (x + 3 y) = 2x + 6y\) because it is correct and valid to distribute multiplication over addition - you can do the algebra and ignore the actual meaning/content (that is, the specific numerical values) that \(x\) and \(y\) stand for.</p>
+<p>A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based <em>solely</em> on the propositions' <strong>truth values</strong> (True and False), ignoring the actual content of the propositions.
+Compare this to doing algebra:
+You can write \(2 (x + 3 y) = 2x + 6y\) because it is a correct and valid step to distribute multiplication over addition. You can do the algebra and ignore
+the specific numerical values
+(the "numerical content") that \(x\) and \(y\) stand for.</p>
 </div>
 <div class="paragraph">
-<p>In propositional logic, it is traditional to use <strong>propositional variables</strong> such as <em>p</em>, <em>q</em>, and <em>r</em> to represent the possible assignments of truth values to propositions;
-often, the variables themselves are referred to as the propositions. Again, compare this to the algebraic example where you can treat \(x\) and \(y\) as numbers even though they are actually variables that stand for numbers.</p>
+<p>In propositional logic, it is traditional to use <strong>propositional variables</strong> such as <em>p,</em> <em>q,</em> and <em>r</em> to
+stand for
+the possible assignments of truth values to propositions;
+often, the propositional variables themselves are referred to as the propositions. Again, compare this to the algebraic example where you can treat \(x\) and \(y\) as numbers even though they are actually variables that stand for numbers.</p>
 </div>
 <div class="paragraph">
 <p>What is the advantage of using symbols?
-A long time ago philosophers discovered that is easier to follow lines of reasoning by putting our thoughts into symbols. This was an important step in the eventual development of our modern technological society and our use of digital computers. Before computers can work, we have to put our thoughts into them! However, the English language is difficult and many different phrases can represent the same logical statements; translating statements from English sentences to symbols and back is a skill that needs lots of practice.</p>
+A <a href=https://en.wikipedia.org/wiki/History_of_logic>long time ago,</a> philosophers discovered that is easier to follow lines of reasoning by putting our thoughts into symbols. This was an important step in the eventual development of modern technological society and, in particular,  electronic computers. Before a computer can do its work, humans need to put our thoughts into them; however, a spoken language like English can be too difficult to use because many different phrases can represent the same logical statements.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -4714,14 +4747,14 @@ A long time ago philosophers discovered that is easier to follow lines of reason
 </div>
 <div class="paragraph">
 <p>This argument is
-valid: If we ASSUME that the first two propositions are True, then we can correctly conclude that the third proposition (which follows the introductory phrase "Therefore,") must be True as well.</p>
+valid: If you ASSUME that the first two propositions are True, then you can correctly conclude that the third proposition (which follows the introductory phrase "Therefore,") must be True as well.</p>
 </div>
 <div class="paragraph">
-<p>Notice that we could change the name "Sarah" to "Daniel" without affecting the
+<p>Notice that you could change the name "Sarah" to "Daniel" without affecting the
 validity of the argument.</p>
 </div>
 <div class="paragraph">
-<p>We can generalize the argument by changing "Sarah" to "the student." In fact, we can generalize much more by noticing that the <em>form</em> of the argument matches the following argument.</p>
+<p>You can generalize the argument by changing "Sarah" to "the student." In fact, you can generalize much more by noticing that the <em>form</em> of the argument matches the following argument.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4737,7 +4770,7 @@ validity of the argument.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Now we can make this argument completely abstract using propositional variables.</p>
+<p>You can make this argument completely abstract using propositional variables.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4755,13 +4788,13 @@ validity of the argument.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can build <strong>compound propositions</strong> (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if <em>p</em> then <em>q</em>" as a new proposition built from the propositional variables <em>p</em> and <em>q</em>. In the next section, you will see how we represent compound propositions using symbols.</p>
+<p>You can build <strong>compound propositions</strong> (also called "propositional functions") from simpler propositions. For example, in the preceding example, the compound propostion "if <em>p</em> then <em>q</em>" was introduced as a new proposition built from the propositional variables <em>p</em> and <em>q</em>. In the next section, you will learn how to represent compound propositions using symbols.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_logical_operations_and_truth_tables">4.2. Logical Operations and Truth Tables</h3>
 <div class="paragraph">
-<p>In this section, compound propostions will be represented by using propositional variables and <strong>logical operator</strong> symbols (also called logical operations.) Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.</p>
+<p>In this section, compound propostions will be represented by using propositional variables and <strong>logical operator</strong> symbols (also called "logical operations" or "logical connectives") Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -4796,7 +4829,7 @@ is created with rows representing all possible <strong>interpretations</strong> 
 <p>"I am <strong>not</strong> an astronaut."</p>
 </div>
 <div class="paragraph">
-<p>The negation of a proposition \(p\), denoted in mathematics by \(\neg p\) and
+<p>The <strong>negation</strong> of a proposition \(p\), denoted in mathematics by \(\neg p\) and
 read as "not \(p\)", is the proposition
 "It is <em>not the case</em> that \(p\)".
 The proposition \(\neg p\) has the opposite truth value to \(p.\)<br>
@@ -4830,7 +4863,7 @@ The proposition \(\neg p\) has the opposite truth value to \(p.\)<br>
 <span class="small">For a proposition \(p,\) exactly one of \(p\) and \(\neg p\) is True and exactly one is False. Two propositions can be contrary (that is, they could not both be True) without being negations of each other: As an example, both of the propositions "Today is Friday." and "Today is Saturday." could be False, so "Today is Saturday." is not the negation of "Today is Friday."</span></p>
 </div>
 <div class="paragraph">
-<p>Also, notice that the two propositions \(p\) and \(\neg (\neg p)\) must always have the <em>same</em> truth value.</p>
+<p>Notice that the two propositions \(p\) and \(\neg (\neg p)\) must always have the <em>same</em> truth value (You can see this by inserting a column for \(\neg (\neg p)\) in the truth table shown earlier in this subsection.)</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4876,7 +4909,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 <p>"I am a rock <strong>and</strong> I am an island."</p>
 </div>
 <div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions.  The conjunction of \(p\) and \(q\), denoted in mathematics by \(p \land q\) and read as "\(p\) and \(q\)", is True when both \(p\) and \(q\) are True and is False otherwise.</p>
+<p>Let \(p\) and \(q\) be propositions.  The <strong>conjunction</strong> of \(p\) and \(q\), denoted in mathematics by \(p \land q\) and read as "\(p\) and \(q\)", is True when both \(p\) and \(q\) are True and is False otherwise.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -4942,7 +4975,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 <p>"They studied hard <strong>or</strong> they are extremely bright."</p>
 </div>
 <div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions.  The disjunction of \(p\) and \(q\), denoted in mathematics by \(p \lor q\) and read as "\(p\) or \(q\)", is True when at least one of \(p\) and \(q\) are True and is False otherwise.</p>
+<p>Let \(p\) and \(q\) be propositions.  The <strong>disjunction</strong> of \(p\) and \(q\), denoted in mathematics by \(p \lor q\) and read as "\(p\) or \(q\)", is True when at least one of \(p\) and \(q\) are True and is False otherwise.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -5127,7 +5160,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The exteneded truth table for the conditional and the three related propositions is shown below.</p>
+<p>The extended truth table for the conditional and the three related propositions is shown below.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -5215,7 +5248,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 on <a href=#_logically_equivalent_propositions> logically equivalent propositions</a> we will discuss the bullet points in the preceding note in more detail.</p>
 </div>
 <div class="paragraph">
-<p>We illustrate these four propositions with an example.</p>
+<p>The next example illustrates these four propositions.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -5236,10 +5269,10 @@ on <a href=#_logically_equivalent_propositions> logically equivalent proposition
 <li>
 <p>Let</p>
 <div class="paragraph">
-<p>\(p\) be the propostion "The number of students in class is divisible by 4."</p>
+<p>\(p\) be the proposition "The number of students in class is divisible by 4."</p>
 </div>
 <div class="paragraph">
-<p>\(q\) be the propostion "The number of students in class is divisible by 2."</p>
+<p>\(q\) be the proposition "The number of students in class is divisible by 2."</p>
 </div>
 <div class="paragraph">
 <p>The conditional \(p\rightarrow q\) translates as "If the number of students in class is divisible by 4, then the number of students in class is divisible by 2."</p>
@@ -5273,7 +5306,7 @@ on <a href=#_logically_equivalent_propositions> logically equivalent proposition
 </div>
 <div class="paragraph">
 <p>Let \(p\) and \(q\) be propositions. The <strong>biconditional</strong> \(p \leftrightarrow q\), read as "<em>p</em> if and only if <em>q</em>", is the proposition that is True when <em>p</em> and <em>q</em> have the <em>same</em> truth value, and False otherwise. The biconditional is also called "the bi-implication".
-Note that \(p \leftrightarrow q\) can also be denoted by \(p \Leftrightarrow q\) or \(p \iff q.\)</p>
+<span class="small">Note that \(p \leftrightarrow q\) can also be denoted by \(p \Leftrightarrow q\) or \(p \iff q.\)</span></p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -5312,7 +5345,7 @@ Note that \(p \leftrightarrow q\) can also be denoted by \(p \Leftrightarrow q\)
 </tbody>
 </table>
 <div class="paragraph">
-<p>From the truth table it can be seen that the two propositions \(p \leftrightarrow q\) and \(q \leftrightarrow p\) always have the same truth value.</p>
+<p>You can use a truth table to show that two propositions \(p \leftrightarrow q\) and \(q \leftrightarrow p\) always have the same truth value.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5548,7 +5581,9 @@ The conditional represents a one-way contract: You earn an A in the class <em>if
 </ul>
 </div>
 <div class="paragraph">
-<p>The definition of wff allows you to analyze any string of symbols to determine whether it is a wff. For example, \((p \land q \lor r)\) isn&#8217;t a wff but both \((p \land (q \lor r))\) and \(((p \land q) \lor r)\) are wffs. You could write code to implement an algorithm to validate a string as a wff.</p>
+<p>The definition of wff allows you
+or, even better, a computer
+to analyze <em>any</em> string of symbols to determine whether the string of symbols is a wff. For example, \((p \land q \lor r)\) isn&#8217;t a wff but both \((p \land (q \lor r))\) and \(((p \land q) \lor r)\) are wffs. You could write code to implement an algorithm to validate a string as a wff.</p>
 </div>
 <div class="paragraph">
 <p>It can be shown that every compound proposition can be represented by at least one wff.
@@ -5939,12 +5974,19 @@ be a <strong>contingency</strong> since its truth value can be either True or Fa
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="title">The Laws of Excluded Middle and Contradiction</div>
+<div class="title">The Law of Excluded Middle</div>
 <div class="paragraph">
-<p>\( p  \lor \neg p \text{, "The Law of Excluded Middle," is always True.}\)</p>
+<p>Given any proposition \(p\), the compound proposition \[p  \lor \neg p\]
+is a tautology (that is, the compound proposition is always True.)</p>
 </div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">The Law of Contradiction</div>
 <div class="paragraph">
-<p>\(p  \land \neg p \text{, "The Law of Contradiction," is always False.}\)</p>
+<p>Given any proposition \(p\), the compound proposition \[p  \land \neg p\]
+is a contradiction (that is, the compound proposition is always False.)</p>
 </div>
 </div>
 </div>
@@ -5952,7 +5994,7 @@ be a <strong>contingency</strong> since its truth value can be either True or Fa
 <div class="sect3">
 <h4 id="_de_morgans_laws">4.3.2. De Morgan&#8217;s Laws</h4>
 <div class="paragraph">
-<p>Two important logical equivalences are De Morgan&#8217;s Law.  These describe how we "distribute" the \(\neg\) operator across the \(\land\) and \(\lor\) operators.</p>
+<p>Two important logical equivalences are De Morgan&#8217;s Law.  These describe how to "distribute" the \(\neg\) operator across the \(\land\) and \(\lor\) operators.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -6542,11 +6584,18 @@ Notice that code correctly outputs the two propositions as strings (of type <em>
 </ul>
 </div>
 <div class="paragraph">
-<p>Each of these statements considers a proposition over an entire population or set, called the <strong>domain,</strong> and quantifies how many elements (or people) in the set satisfy the proposition.  To represent this idea, we use two main quantifiers, the <strong>universal quantifier</strong> and the <strong>existential quantifier</strong>.<br>
+<p>Each of these statements considers a proposition over an entire population or set, called the <strong>domain,</strong> and
+describes whether at least one element, or all of the elements
+in the
+domain
+satisfy the proposition.
+There are two
+commonly-used
+quantifiers, the <strong>universal quantifier</strong> and the <strong>existential quantifier</strong>.<br>
 <span class="small">The domain is also called the <strong>domain of discourse</strong> or the <strong>universe of discourse.</strong></span></p>
 </div>
 <div class="paragraph">
-<p>The <strong>Universal Quantifier</strong>, \(\forall\), represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true <em>for all values</em> in the domain.</p>
+<p>The <strong>Universal Quantifier,</strong> \(\forall,\) represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true <em>for all values</em> in the domain.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -6603,7 +6652,7 @@ We use the example domain [-2, -1, 0, 1, 2] because code can not check all integ
 </div>
 </div>
 <div class="paragraph">
-<p>The <strong>Existential Quantifier</strong>, \(\exists\), represents the statement "there exists", "for some", "at least one".  When it comes before a statement, it means the statement is true for <em>at least one value</em> in the domain.</p>
+<p>The <strong>Existential Quantifier,</strong> \(\exists,\) represents the statement "there exists", "for some", "at least one".  When it comes before a statement, it means the statement is true for <em>at least one value</em> in the domain.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -6718,10 +6767,7 @@ Again, we use the example domain [-2, -1, 0, 1, 2] because code can not check al
 <div class="content">
 <div class="title">De Morgan&#8217;s Laws with Quantifiers</div>
 <div class="paragraph">
-<p>\(\neg \forall x P(x)\equiv \exists x \neg P(x)\)</p>
-</div>
-<div class="paragraph">
-<p>\(\neg \exists x P(x) \equiv \forall x \neg P(x)\)</p>
+<p>For any predicate \(P(x)\) \[\neg \forall x P(x)\equiv \exists x \neg P(x)\] and \[\neg \exists x P(x) \equiv \forall x \neg P(x)\]</p>
 </div>
 </div>
 </div>
@@ -7677,7 +7723,8 @@ Determine the true value of the  following, an explain your reasoning.</p>
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on January 15, 2025</em><br></p>
+<p><em>This chapter was last updated on February 16, 2025</em><br>
+<em>Inserted example of "Proof By Exhaustion"</em></p>
 </div>
 <div class="paragraph">
 <p>Recall from the <a href=./logic.html>Logic</a> chapter that an <strong>argument</strong> is a finite sequence of statements that ends with a final statement, the <strong>conclusion,</strong> that is based on inferences made from the earlier statements, called <strong>premises</strong> or <strong>hypotheses.</strong></p>
@@ -8684,10 +8731,7 @@ That is, the square root of 2 is not a rational number.</p>
 <div class="content">
 <div class="title">Theorem - Generalized Pigeonhole Principle</div>
 <div class="paragraph">
-<p>Suppose that \(n\) and \(k\) are positive integers.</p>
-</div>
-<div class="paragraph">
-<p>If each of \(n\) objects is assigned to one of \(k\) categories, then at least one category contains at least \(\displaystyle{\left\lceil \frac{n}{k} \right\rceil}\) objects.</p>
+<p>Suppose that \(n\) and \(k\) are positive integers. If each of \(n\) objects is assigned to one of \(k\) categories, then at least one category contains at least \(\displaystyle{\left\lceil \frac{n}{k} \right\rceil}\) objects.</p>
 </div>
 <div class="paragraph">
 <div class="title">Proof</div>
@@ -8743,6 +8787,59 @@ That is, the square root of 2 is not a rational number.</p>
 <p>If each of \(n\) objects is assigned to one of \(k\) categories, then at least one category contains at least \(\displaystyle{\left\lceil \frac{n}{k} \right\rceil}\) objects.</p>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_proof_by_exhaustion_proof_by_cases">5.3.5. Proof By Exhaustion (Proof By Cases)</h4>
+<div class="paragraph">
+<p>Sometimes it is convenient to break a proof into a finite number of cases.
+For example, it may be easier to prove a statement that involves an integer by considering a first case where the integer is odd and a separate second case where the integer is even, then combining the two separate cases to create a single proof for all integers \(n.\)</p>
+</div>
+<div class="paragraph">
+<p>In a general proof by cases, you make an argument that a conditional statement \((p_{1} \lor \cdots \lor p_{n}) \rightarrow r\) must be True. This means that
+if any one of the "cases" \(p_{i},\) where \(i \in \{ 1, 2, \ldots , n \},\) is True, you can apply the tautology \(p_{i} \rightarrow (p_{1} \lor \cdots \lor p_{n})\) and the <em>transitivity</em> rule of inference
+to prove that \(r\) must be True, too.</p>
+</div>
+<div class="paragraph">
+<p>A proof by exhaustion is a special kind of proof by cases where the premise is of the form \((p_{1} \lor \cdots \lor p_{n} \lor \neg (p_{1} \lor \cdots \lor p_{n}) ).\) Notice that this premise must be True since if all of \(p_{1},\) \(p_{2},\)… \(p_{n}\) are False then \(\neg (p_{1} \lor \cdots \lor p_{n})\) is True.</p>
+</div>
+<div class="paragraph">
+<p>If there are two cases, proof by exhaustion corresponds to using the "proof by cases" rule of inference discussed above in the section "Other Common Rules Of Inference." The tautology can be rewritten in the simpler form \(((p \rightarrow q) \land (\neg p \rightarrow r)) \rightarrow r\) because \(p \lor \neg p\) must always be True.</p>
+</div>
+<div class="paragraph">
+<p>If there are more than two cases, this corresponds to using the tautology
+\(((p_{1} \rightarrow r) \land ... \land (p_{n} \rightarrow r) \land (\neg (p_{1} \lor \cdots \lor p_{n}) \rightarrow r)) \rightarrow r\).</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 3 - Working with multiple cases</div>
+<p>Let&#8217;s prove the following theorem: \[ \text{If \(n\) is an integer, then \(n(n+1)\) is an even integer.} \]</p>
+</div>
+<div class="paragraph">
+<div class="title">Proof</div>
+<p>Consider the following two cases:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Case 1: \(n\) is an odd integer.<br>
+In this case, \(n+1\) must be an even integer, and \(n(n+1)\) is the product of an odd integer and an even integer so must be even. (Note that this could be made more formal by stating that there is some integer \(j\) such that \(n+1 = 2j\) so that \(n(n+1) = n(2j) = (2j)n = 2(jn).\))</p>
+</li>
+<li>
+<p>Case 2: \(n\) is an even integer.<br>
+In this case, \(n+1\) must be an odd integer, and \(n(n+1)\) is the product of an even integer and an odd integer so must be even. (Note again that this could be made more formal by stating that there is some integer \(k\) such that \(n = 2k\) so that \(n(n+1) = (2k)(n+1) = 2((k)(n+1)).\))</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Since the statement "\(n\) is an odd integer or \(n\) is an even integer"
+must be True no matter what value the integer \(n\) has, this shows that the statement of the theorem is a True proposition.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
 </div>
 </div>
 </div>

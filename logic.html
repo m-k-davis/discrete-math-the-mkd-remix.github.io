@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on February 10 2025.
+        This chapter was last updated on February 13, 2025.
        </em>
        <br/>
       </p>
@@ -643,53 +643,75 @@ $(document).on('page:load', ready2);
       <ul>
        <li>
         <p>
-         Propositional logic
+         Propositional logic (also called "propositional calculus")
         </p>
-       </li>
-       <li>
-        <p>
-         propositional calculus
-        </p>
-       </li>
-       <li>
-        <p>
-         Logical connectives (operators)
-        </p>
-       </li>
-       <li>
-        <p>
-         Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction
-        </p>
-       </li>
-       <li>
-        <p>
-         Truth tables
-        </p>
-       </li>
-       <li>
-        <p>
-         Normal forms (conjunctive and disjunctive)
-        </p>
-       </li>
-       <li>
-        <p>
-         Validity of well-formed formula
-        </p>
-       </li>
-       <li>
-        <p>
-         Validity
-        </p>
-       </li>
-       <li>
-        <p>
-         Propositional inference rules (concepts of modus ponens and modus tollens)
-        </p>
-       </li>
-       <li>
-        <p>
-         Modus ponens and modus tollens
-        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Logical operators (also called "logical connectives")
+           </p>
+           <div class="ulist">
+            <ul>
+             <li>
+              <p>
+               Negation ("not")
+              </p>
+             </li>
+             <li>
+              <p>
+               Conjunction ("and")
+              </p>
+             </li>
+             <li>
+              <p>
+               Disjunction ("or")
+              </p>
+             </li>
+             <li>
+              <p>
+               Conditional ("implication")
+              </p>
+              <div class="ulist">
+               <ul>
+                <li>
+                 <p>
+                  The converse, inverse, and contrapositive of a conditional
+                 </p>
+                </li>
+               </ul>
+              </div>
+             </li>
+             <li>
+              <p>
+               Biconditional ("if and only if," abbreviated as "iff")
+              </p>
+             </li>
+            </ul>
+           </div>
+          </li>
+          <li>
+           <p>
+            Truth tables
+           </p>
+          </li>
+          <li>
+           <p>
+            Well-formed formulas
+           </p>
+          </li>
+          <li>
+           <p>
+            Satisfiability, tautology, and contradiction
+           </p>
+          </li>
+          <li>
+           <p>
+            Normal forms (conjunctive and disjunctive)
+           </p>
+          </li>
+         </ul>
+        </div>
        </li>
        <li>
         <p>
@@ -699,8 +721,27 @@ $(document).on('page:load', ready2);
          <ul>
           <li>
            <p>
-            Universal and existential quantification
+            Predicates as "statement-valued functions"
            </p>
+          </li>
+          <li>
+           <p>
+            Quantification of Predicates
+           </p>
+           <div class="ulist">
+            <ul>
+             <li>
+              <p>
+               Universal quantifier
+              </p>
+             </li>
+             <li>
+              <p>
+               Existential quantifier
+              </p>
+             </li>
+            </ul>
+           </div>
           </li>
          </ul>
         </div>
@@ -708,11 +749,6 @@ $(document).on('page:load', ready2);
        <li>
         <p>
          Limitations of propositional and predicate logic (e.g., expressiveness issues)
-        </p>
-       </li>
-       <li>
-        <p>
-         Limitations of predicate logic
         </p>
        </li>
        <li>
@@ -811,8 +847,11 @@ $(document).on('page:load', ready2);
         <strong>
          truth values
         </strong>
-        (True and False), ignoring the actual content of the propositions. Choosing to ignore the actual content of the propositions may seem strange at first, but compare this to doing algebra:
-You can write \(2 (x + 3 y) = 2x + 6y\) because it is correct and valid to distribute multiplication over addition - you can do the algebra and ignore the actual meaning/content (that is, the specific numerical values) that \(x\) and \(y\) stand for.
+        (True and False), ignoring the actual content of the propositions.
+Compare this to doing algebra:
+You can write \(2 (x + 3 y) = 2x + 6y\) because it is a correct and valid step to distribute multiplication over addition. You can do the algebra and ignore
+the specific numerical values
+(the "numerical content") that \(x\) and \(y\) stand for.
        </p>
       </div>
       <div class="paragraph">
@@ -823,24 +862,29 @@ You can write \(2 (x + 3 y) = 2x + 6y\) because it is correct and valid to distr
         </strong>
         such as
         <em>
-         p
+         p,
         </em>
-        ,
         <em>
-         q
+         q,
         </em>
-        , and
+        and
         <em>
          r
         </em>
-        to represent the possible assignments of truth values to propositions;
-often, the variables themselves are referred to as the propositions. Again, compare this to the algebraic example where you can treat \(x\) and \(y\) as numbers even though they are actually variables that stand for numbers.
+        to
+stand for
+the possible assignments of truth values to propositions;
+often, the propositional variables themselves are referred to as the propositions. Again, compare this to the algebraic example where you can treat \(x\) and \(y\) as numbers even though they are actually variables that stand for numbers.
        </p>
       </div>
       <div class="paragraph">
        <p>
         What is the advantage of using symbols?
-A long time ago philosophers discovered that is easier to follow lines of reasoning by putting our thoughts into symbols. This was an important step in the eventual development of our modern technological society and our use of digital computers. Before computers can work, we have to put our thoughts into them! However, the English language is difficult and many different phrases can represent the same logical statements; translating statements from English sentences to symbols and back is a skill that needs lots of practice.
+A
+        <a href="https://en.wikipedia.org/wiki/History_of_logic">
+         long time ago,
+        </a>
+        philosophers discovered that is easier to follow lines of reasoning by putting our thoughts into symbols. This was an important step in the eventual development of modern technological society and, in particular,  electronic computers. Before a computer can do its work, humans need to put our thoughts into them; however, a spoken language like English can be too difficult to use because many different phrases can represent the same logical statements.
        </p>
       </div>
       <div class="sidebarblock">
@@ -875,18 +919,18 @@ A long time ago philosophers discovered that is easier to follow lines of reason
         <div class="paragraph">
          <p>
           This argument is
-valid: If we ASSUME that the first two propositions are True, then we can correctly conclude that the third proposition (which follows the introductory phrase "Therefore,") must be True as well.
+valid: If you ASSUME that the first two propositions are True, then you can correctly conclude that the third proposition (which follows the introductory phrase "Therefore,") must be True as well.
          </p>
         </div>
         <div class="paragraph">
          <p>
-          Notice that we could change the name "Sarah" to "Daniel" without affecting the
+          Notice that you could change the name "Sarah" to "Daniel" without affecting the
 validity of the argument.
          </p>
         </div>
         <div class="paragraph">
          <p>
-          We can generalize the argument by changing "Sarah" to "the student." In fact, we can generalize much more by noticing that the
+          You can generalize the argument by changing "Sarah" to "the student." In fact, you can generalize much more by noticing that the
           <em>
            form
           </em>
@@ -914,7 +958,7 @@ validity of the argument.
         </div>
         <div class="paragraph">
          <p>
-          Now we can make this argument completely abstract using propositional variables.
+          You can make this argument completely abstract using propositional variables.
          </p>
         </div>
         <div class="ulist">
@@ -959,7 +1003,7 @@ validity of the argument.
         <strong>
          compound propositions
         </strong>
-        (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if
+        (also called "propositional functions") from simpler propositions. For example, in the preceding example, the compound propostion "if
         <em>
          p
         </em>
@@ -967,7 +1011,7 @@ validity of the argument.
         <em>
          q
         </em>
-        " as a new proposition built from the propositional variables
+        " was introduced as a new proposition built from the propositional variables
         <em>
          p
         </em>
@@ -975,7 +1019,7 @@ validity of the argument.
         <em>
          q
         </em>
-        . In the next section, you will see how we represent compound propositions using symbols.
+        . In the next section, you will learn how to represent compound propositions using symbols.
        </p>
       </div>
      </div>
@@ -989,7 +1033,7 @@ validity of the argument.
         <strong>
          logical operator
         </strong>
-        symbols (also called logical operations.) Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.
+        symbols (also called "logical operations" or "logical connectives") Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.
        </p>
       </div>
       <div class="admonitionblock tip">
@@ -1052,7 +1096,11 @@ is created with rows representing all possible
        </div>
        <div class="paragraph">
         <p>
-         The negation of a proposition \(p\), denoted in mathematics by \(\neg p\) and
+         The
+         <strong>
+          negation
+         </strong>
+         of a proposition \(p\), denoted in mathematics by \(\neg p\) and
 read as "not \(p\)", is the proposition
 "It is
          <em>
@@ -1120,11 +1168,11 @@ The proposition \(\neg p\) has the opposite truth value to \(p.\)
        </div>
        <div class="paragraph">
         <p>
-         Also, notice that the two propositions \(p\) and \(\neg (\neg p)\) must always have the
+         Notice that the two propositions \(p\) and \(\neg (\neg p)\) must always have the
          <em>
           same
          </em>
-         truth value.
+         truth value (You can see this by inserting a column for \(\neg (\neg p)\) in the truth table shown earlier in this subsection.)
         </p>
        </div>
        <div class="admonitionblock note">
@@ -1204,7 +1252,11 @@ that
        </div>
        <div class="paragraph">
         <p>
-         Let \(p\) and \(q\) be propositions.  The conjunction of \(p\) and \(q\), denoted in mathematics by \(p \land q\) and read as "\(p\) and \(q\)", is True when both \(p\) and \(q\) are True and is False otherwise.
+         Let \(p\) and \(q\) be propositions.  The
+         <strong>
+          conjunction
+         </strong>
+         of \(p\) and \(q\), denoted in mathematics by \(p \land q\) and read as "\(p\) and \(q\)", is True when both \(p\) and \(q\) are True and is False otherwise.
         </p>
        </div>
        <table class="tableblock frame-all grid-all" style="width: 50%;">
@@ -1345,7 +1397,11 @@ that
        </div>
        <div class="paragraph">
         <p>
-         Let \(p\) and \(q\) be propositions.  The disjunction of \(p\) and \(q\), denoted in mathematics by \(p \lor q\) and read as "\(p\) or \(q\)", is True when at least one of \(p\) and \(q\) are True and is False otherwise.
+         Let \(p\) and \(q\) be propositions.  The
+         <strong>
+          disjunction
+         </strong>
+         of \(p\) and \(q\), denoted in mathematics by \(p \lor q\) and read as "\(p\) or \(q\)", is True when at least one of \(p\) and \(q\) are True and is False otherwise.
         </p>
        </div>
        <table class="tableblock frame-all grid-all" style="width: 50%;">
@@ -1786,7 +1842,7 @@ that
         </div>
         <div class="paragraph">
          <p>
-          The exteneded truth table for the conditional and the three related propositions is shown below.
+          The extended truth table for the conditional and the three related propositions is shown below.
          </p>
         </div>
         <table class="tableblock frame-all grid-all" style="width: 50%;">
@@ -2001,7 +2057,7 @@ on
         </div>
         <div class="paragraph">
          <p>
-          We illustrate these four propositions with an example.
+          The next example illustrates these four propositions.
          </p>
         </div>
         <div class="sidebarblock">
@@ -2034,12 +2090,12 @@ on
              </p>
              <div class="paragraph">
               <p>
-               \(p\) be the propostion "The number of students in class is divisible by 4."
+               \(p\) be the proposition "The number of students in class is divisible by 4."
               </p>
              </div>
              <div class="paragraph">
               <p>
-               \(q\) be the propostion "The number of students in class is divisible by 2."
+               \(q\) be the proposition "The number of students in class is divisible by 2."
               </p>
              </div>
              <div class="paragraph">
@@ -2117,7 +2173,9 @@ on
           same
          </em>
          truth value, and False otherwise. The biconditional is also called "the bi-implication".
-Note that \(p \leftrightarrow q\) can also be denoted by \(p \Leftrightarrow q\) or \(p \iff q.\)
+         <span class="small">
+          Note that \(p \leftrightarrow q\) can also be denoted by \(p \Leftrightarrow q\) or \(p \iff q.\)
+         </span>
         </p>
        </div>
        <table class="tableblock frame-all grid-all" style="width: 50%;">
@@ -2212,7 +2270,7 @@ Note that \(p \leftrightarrow q\) can also be denoted by \(p \Leftrightarrow q\)
        </table>
        <div class="paragraph">
         <p>
-         From the truth table it can be seen that the two propositions \(p \leftrightarrow q\) and \(q \leftrightarrow p\) always have the same truth value.
+         You can use a truth table to show that two propositions \(p \leftrightarrow q\) and \(q \leftrightarrow p\) always have the same truth value.
         </p>
        </div>
        <div class="admonitionblock note">
@@ -2757,7 +2815,13 @@ The conditional represents a one-way contract: You earn an A in the class
        </div>
        <div class="paragraph">
         <p>
-         The definition of wff allows you to analyze any string of symbols to determine whether it is a wff. For example, \((p \land q \lor r)\) isn’t a wff but both \((p \land (q \lor r))\) and \(((p \land q) \lor r)\) are wffs. You could write code to implement an algorithm to validate a string as a wff.
+         The definition of wff allows you
+or, even better, a computer
+to analyze
+         <em>
+          any
+         </em>
+         string of symbols to determine whether the string of symbols is a wff. For example, \((p \land q \lor r)\) isn’t a wff but both \((p \land (q \lor r))\) and \(((p \land q) \lor r)\) are wffs. You could write code to implement an algorithm to validate a string as a wff.
         </p>
        </div>
        <div class="paragraph">
@@ -3639,16 +3703,25 @@ be a
        <div class="sidebarblock">
         <div class="content">
          <div class="title">
-          The Laws of Excluded Middle and Contradiction
+          The Law of Excluded Middle
          </div>
          <div class="paragraph">
           <p>
-           \( p  \lor \neg p \text{, "The Law of Excluded Middle," is always True.}\)
+           Given any proposition \(p\), the compound proposition \[p  \lor \neg p\]
+is a tautology (that is, the compound proposition is always True.)
           </p>
          </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          The Law of Contradiction
+         </div>
          <div class="paragraph">
           <p>
-           \(p  \land \neg p \text{, "The Law of Contradiction," is always False.}\)
+           Given any proposition \(p\), the compound proposition \[p  \land \neg p\]
+is a contradiction (that is, the compound proposition is always False.)
           </p>
          </div>
         </div>
@@ -3660,7 +3733,7 @@ be a
        </h4>
        <div class="paragraph">
         <p>
-         Two important logical equivalences are De Morgan’s Law.  These describe how we "distribute" the \(\neg\) operator across the \(\land\) and \(\lor\) operators.
+         Two important logical equivalences are De Morgan’s Law.  These describe how to "distribute" the \(\neg\) operator across the \(\land\) and \(\lor\) operators.
         </p>
        </div>
        <div class="sidebarblock">
@@ -5023,7 +5096,14 @@ Notice that code correctly outputs the two propositions as strings (of type
          <strong>
           domain,
          </strong>
-         and quantifies how many elements (or people) in the set satisfy the proposition.  To represent this idea, we use two main quantifiers, the
+         and
+describes whether at least one element, or all of the elements
+in the
+domain
+satisfy the proposition.
+There are two
+commonly-used
+quantifiers, the
          <strong>
           universal quantifier
          </strong>
@@ -5049,9 +5129,9 @@ Notice that code correctly outputs the two propositions as strings (of type
         <p>
          The
          <strong>
-          Universal Quantifier
+          Universal Quantifier,
          </strong>
-         , \(\forall\), represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true
+         \(\forall,\) represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true
          <em>
           for all values
          </em>
@@ -5131,9 +5211,9 @@ Notice that code correctly outputs the two propositions as strings (of type
         <p>
          The
          <strong>
-          Existential Quantifier
+          Existential Quantifier,
          </strong>
-         , \(\exists\), represents the statement "there exists", "for some", "at least one".  When it comes before a statement, it means the statement is true for
+         \(\exists,\) represents the statement "there exists", "for some", "at least one".  When it comes before a statement, it means the statement is true for
          <em>
           at least one value
          </em>
@@ -5297,12 +5377,7 @@ Notice that code correctly outputs the two propositions as strings (of type
          </div>
          <div class="paragraph">
           <p>
-           \(\neg \forall x P(x)\equiv \exists x \neg P(x)\)
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(\neg \exists x P(x) \equiv \forall x \neg P(x)\)
+           For any predicate \(P(x)\) \[\neg \forall x P(x)\equiv \exists x \neg P(x)\] and \[\neg \exists x P(x) \equiv \forall x \neg P(x)\]
           </p>
          </div>
         </div>
