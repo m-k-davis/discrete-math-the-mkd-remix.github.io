@@ -2,8 +2,9 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on February 13, 2025._ + 
-//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+_This chapter was last updated on February 18, 2025._ + 
+_Added link to DNF and CNF website_ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 //COMING SOON!
@@ -165,8 +166,9 @@ Key terms and concepts covered in this chapter:
 ** Quantification of Predicates
 *** Universal quantifier
 *** Existential quantifier
-* Limitations of propositional and predicate logic (e.g., expressiveness issues)
-* Boolean algebra and Boolean circuits
+* To be added to this chapter after May 23, 2025:
+** Limitations of propositional and predicate logic (e.g., expressiveness issues)
+** Boolean algebra and Boolean circuits
 
 
 // MKD new code for material implication Feb 13 2025
@@ -1176,7 +1178,7 @@ The last expression is logically equivalent to the unknown proposition.
 
 ****
 
-
+Here is a link:https://www.mathematik.uni-marburg.de/~thormae/lectures/ti1/code/normalform/index.html[website] that allows you to build the DNF and CNF for a given propositional function.
 
 
 //MKD Moved "Tautologies, Contradictions and Contingencies" from here to before De Morgan's laws

@@ -969,7 +969,7 @@ to prove that $r$ must be True, too.
 A proof by exhaustion is a special kind of proof by cases where the premise is of the form $(p_{1} \lor \cdots \lor p_{n} \lor \neg (p_{1} \lor \cdots \lor p_{n}) ).$ Notice that this premise must be True since if all of $p_{1},$ $p_{2},$… $p_{n}$ are False then $\neg (p_{1} \lor \cdots \lor p_{n})$ is True.
 //For example, we can prove that "if $n$ is an integer, then $n(n+1)$ is an even integer" by rewriting the premise as "if ($n$ is an even integer or $n$ is an odd integer), then $n(n+1)$ is an even integer" - and we know that one of the cases "$n$ is an even integer" or "$n$ is an odd integer" must be True (though we don't know _which one_ is True unless we've chosen a specific value of $n,$ which we cannot do if we want to make a general proof.)
 
-If there are two cases, proof by exhaustion corresponds to using the "proof by cases" rule of inference discussed above in the section "Other Common Rules Of Inference." The tautology can be rewritten in the simpler form $((p \rightarrow q) \land (\neg p \rightarrow r)) \rightarrow r$ because $p \lor \neg p$ must always be True.
+If there are two cases, proof by exhaustion corresponds to using the "proof by cases" rule of inference discussed above in the section "Other Common Rules Of Inference." The tautology can be rewritten in the simpler form $((p \rightarrow r) \land (\neg p \rightarrow r)) \rightarrow r$ because $p \lor \neg p$ must always be True.
 
 //If there are two cases, proof by exhaustion corresponds to using "proof by cases" rule of inference in the form  where the tautology can be written in the simpler form $((p \rightarrow q) \land (\neg p \rightarrow r)) \rightarrow r$ because $p \lor \neg p$ must always be True.
 
