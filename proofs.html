@@ -612,12 +612,9 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on February 16, 2025
+        This chapter was last updated on February 24, 2025
        </em>
        <br/>
-       <em>
-        Inserted example of "Proof By Exhaustion"
-       </em>
       </p>
      </div>
      <div class="paragraph">
@@ -650,7 +647,8 @@ $(document).on('page:load', ready2);
        <strong>
         valid
        </strong>
-       if it is of a form such that if all premises are True then the conclusion must be True, too. An argument is not valid just because it exists! Compare this situation to a proposition, which is a single statement that may be either True or False (but not both); an argument is a finite sequence of statements that may be either valid or invalid.
+       if it is of a form such that if all premises are True then the conclusion must be True, too. An argument is not valid just because it exists!
+Just as a proposition is a single statement that may be either True or False (but not both), an argument is a finite sequence of statements that may be either valid or invalid (ut not both.)
       </p>
      </div>
      <div class="paragraph">
@@ -711,7 +709,7 @@ but each of these specialized terms describes a theorem.
        </li>
        <li>
         <p>
-         Proof techniques (induction, proof by contradiction)
+         Proof techniques
         </p>
         <div class="ulist">
          <ul>
@@ -755,9 +753,9 @@ but each of these specialized terms describes a theorem.
 proceed from True propositions to other True propositions without introducing False propositions into the argument.
 To do this, we use
         <strong>
-         rules of inference
+         rules of inference,
         </strong>
-        , which are ways to draw a True conclusion from one or more premises that are already known to be True (or assumed to be True). That is, a
+        which are ways to draw a True conclusion from one or more premises that are already known to be True (or assumed to be True). That is, a
         <strong>
          rule of inference
         </strong>
@@ -918,10 +916,8 @@ The premises \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) are usually presented in an orde
            Modus ponens
           </em>
           is a
-          <strong>
-           valid
-          </strong>
-          argument form because it corresponds to the  tautology \((p \land (p \rightarrow q)) \rightarrow q\).
+valid
+argument form because it corresponds to the tautology \((p \land (p \rightarrow q)) \rightarrow q\).
          </p>
         </div>
         <table class="tableblock frame-all grid-all" style="width: 50%;">
@@ -1198,8 +1194,9 @@ argument form
            <em>
             non sequitur
            </em>
+           ,
           </strong>
-          , which is Latin for "it does not follow".
+          which is Latin for "it does not follow".
 The argument form is
           <strong>
            invalid
@@ -1397,15 +1394,16 @@ as can be seen in the truth table for the compound proposition
         </div>
         <div class="paragraph">
          <p>
-          This particular fallacy is used so often that it has its own name: The
+          This particular fallacy is used
+by people
+so often that it has its own name: The
           <strong>
-           converse error
+           converse error,
           </strong>
-          , or
+          or
           <strong>
-           fallacy of the converse
+           fallacy of the converse.
           </strong>
-          .
          </p>
         </div>
         <div class="paragraph">
@@ -1420,7 +1418,7 @@ as can be seen in the truth table for the compound proposition
          <ul class="no-bullet">
           <li>
            <p>
-            Ping did not earn a B.S. in Computer Science.
+            Jing did not earn a B.S. in Computer Science.
            </p>
           </li>
           <li>
@@ -1430,7 +1428,7 @@ as can be seen in the truth table for the compound proposition
           </li>
           <li>
            <p>
-            Therefore, Ping did not earn a C or better in Discrete Math.
+            Therefore, Jing did not earn a C or better in Discrete Math.
            </p>
           </li>
          </ul>
@@ -1472,9 +1470,13 @@ as can be seen in the truth table for the compound proposition
            </strong>
            or
            <strong>
-            fallacy of the inverse
+            fallacy of the inverse.
            </strong>
-           .
+           <br/>
+           <br/>
+           <span class="small">
+            Another way to see that this argument is invalid is to consider a case where Jing did earn a C or better in Discrete Math even though the two premises are True; for example, Jing could have earned a B.S. in Mathematics instead of Computer Science and also earned a C or better in Discrete Math.
+           </span>
           </div>
          </div>
         </div>
@@ -1536,7 +1538,7 @@ as can be seen in the truth table for the compound proposition
        </div>
        <div class="paragraph">
         <p>
-         By applying transitivity multiple times, we can build a finite chain of implications of any length we want:
+         By applying transitivity multiple times, you can build a finite chain of implications of any length you want:
         </p>
        </div>
        <div class="ulist no-bullet">
@@ -1585,23 +1587,9 @@ as can be seen in the truth table for the compound proposition
        </h4>
        <div class="paragraph">
         <p>
-         Recall that if we have propositions
-         <em>
-          p
-         </em>
-         and
-         <em>
-          q
-         </em>
-         , we can form the conditional with
-         <strong>
-          hypothesis
-         </strong>
-         \(p\) and
-         <strong>
-          consequent
-         </strong>
-         \(q\), written as \(p \rightarrow q\), as well as three other related
+         Recall that if you have propositions \(p\) and \(q,\) you can form the conditional with
+hypothesis \(p\) and consequent \(q,\) which is written as
+\(p \rightarrow q\), as well as three other related
 conditionals.
         </p>
        </div>
@@ -1640,7 +1628,7 @@ conditionals.
        </div>
        <div class="paragraph">
         <p>
-         From the four conditionals we get two rules of inference and two fallacies.
+         From the four conditionals you can get two rules of inference and two fallacies.
 Together, these four argument forms are referred to as the
          <strong>
           mixed hypothetical syllogisms.
@@ -2095,8 +2083,7 @@ write down and give names to. Instead, we’ll just list a few tautologies.
        </h4>
        <div class="paragraph">
         <p>
-         Universal instantiation states that, from the premise \(\forall x P(x)\)
-and the premise \(c \in U,\) where \(c\) is an arbitrarily-chosen element, you can conclude that \(P(c)\) must also be true.
+         Universal instantiation states that, from the premise that \(\forall x P(x)\) is True, where \(x\) ranges over all elements of the universal set \(U,\) you can conclude that \(P(c)\) must also be True, where \(c \in U\) is any arbitrarily-chosen element of \(U.\)
         </p>
        </div>
        <div class="sidebarblock">
@@ -2122,7 +2109,7 @@ and the premise \(c \in U,\) where \(c\) is an arbitrarily-chosen element, you c
        </div>
        <div class="paragraph">
         <p>
-         Universal generalization states that, from the premise \(P(x)\) is true for every arbitrarily-chosen value of \(x\) that is an element of the universal set \(U,\) you can conclude \(\forall x P(x)\) must also be true.
+         Universal generalization states that, from the premise that \(P(x)\) is True for every arbitrarily-chosen value of \(x\) that is an element of the universal set \(U,\) you can conclude \(\forall x P(x)\) must also be True, where \(x\) ranges over all elements of the universal set \(U.\)
         </p>
        </div>
        <div class="sidebarblock">
@@ -2166,7 +2153,7 @@ and the premise \(c \in U,\) where \(c\) is an arbitrarily-chosen element, you c
        </h4>
        <div class="paragraph">
         <p>
-         Existential instantiation states that, from the premise \(\exists x P(x),\) you can conclude that there must be at least one \(c \in U\) such that \(P(c)\) is true. This allows you to pick a "constant" \(c\) instead of needing to refer repeatedly to the existential quantifier.
+         Existential instantiation states that, from the premise \(\exists x P(x),\) you can conclude that there must be at least one \(c \in U\) such that \(P(c)\) is true. This allows you to pick a "constant" \(c\) that makes the predicate \(P(x)\) True instead of needing to refer repeatedly to the existential quantifier.
         </p>
        </div>
        <div class="sidebarblock">
@@ -2192,7 +2179,7 @@ and the premise \(c \in U,\) where \(c\) is an arbitrarily-chosen element, you c
        </div>
        <div class="paragraph">
         <p>
-         Existential generalization states that, from the premise that \(P(c)\) is true for at least one \(c \in U,\) you can conclude that \(\exists x P(x)\) must also be true.
+         Existential generalization states that, from the premise that \(P(c)\) is True for at least one \(c \in U,\) you can conclude that \(\exists x P(x)\) must also be True.
         </p>
        </div>
        <div class="sidebarblock">
@@ -2272,6 +2259,37 @@ Most of these proofs establish an arithmetic fact that you probably have always 
          later chapter.
         </a>
        </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 3 - Why do we need proofs at all?
+         </div>
+         <p>
+          Consider the following proposition: "For all natural number \(n,\) the value of \(n^{2} + n + 41\) is a prime integer."
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For each of the natural numbers 0, 1, …​, 10, the predicate \(P(n)\): "\(n^{2} + n + 41\) is a prime integer." evaluates to a proposition that is True. In fact, \(P(n)\) is True for each of the natural numbers \(n\) that is less than or equal to 40.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          It may seem that we have "checked enough cases" to conclude that \(P(n)\) will evaluate to a proposition that is True for every possible natural number value of \(n.\) However, \(P(41)\) is proposition \(41^{2} + 41 + 41 \text{is a prime integer.},\) which is False - notice that \(41^{2} + 41 + 41 = 41 \cdot (41 + 1 + 1) = 41 \cdot 43\) is a composite number.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          This example shows that it is not enough to verify that a proposition or predicate is True for just a few cases, unless those cases happen to cover
+          <em>
+           every
+          </em>
+          possibility.
+         </p>
+        </div>
+       </div>
       </div>
       <div class="sect3">
        <h4 id="_direct_proof">
@@ -2733,7 +2751,7 @@ to prove that \(r\) must be True, too.
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 3 - Working with multiple cases
+           Example 4 - Working with multiple cases
           </div>
           <p>
            Let’s prove the following theorem: \[ \text{If \(n\) is an integer, then \(n(n+1)\) is an even integer.} \]

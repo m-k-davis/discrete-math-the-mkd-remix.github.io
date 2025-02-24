@@ -2,8 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on February 16, 2025_ + 
-_Inserted example of "Proof By Exhaustion"_
+_This chapter was last updated on February 24, 2025_ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
@@ -125,7 +124,10 @@ Also see 	Proof Templates (slides 10-12) and (Jose Ortiz sets slides 35-40)
 
 Recall from the link:./logic.html[Logic] chapter that an *argument* is a finite sequence of statements that ends with a final statement, the *conclusion,* that is based on inferences made from the earlier statements, called *premises* or *hypotheses.*
 
-An argument is *valid* if it is of a form such that if all premises are True then the conclusion must be True, too. An argument is not valid just because it exists! Compare this situation to a proposition, which is a single statement that may be either True or False (but not both); an argument is a finite sequence of statements that may be either valid or invalid.
+An argument is *valid* if it is of a form such that if all premises are True then the conclusion must be True, too. An argument is not valid just because it exists! 
+//Compare this situation to a proposition, which is a single statement that may be either True or False (but not both); an argument is a finite sequence of statements that may be either valid or invalid.
+// MKD Feb 22 2025
+Just as a proposition is a single statement that may be either True or False (but not both), an argument is a finite sequence of statements that may be either valid or invalid (ut not both.)
 
 A *proof* is a valid argument made up of propositions. In a proof, some premises may be *axioms* or *postulates,* which are propositions that we simply ASSUME to be True. Other premises used in a proof may be previously-proven propositions called *theorems.* There are many other terms used for theorems depending on the context, such as *lemma* (a minor theorem needed to prove a more important major theorem) and *corollary* (a theorem that is a conclusion based on a premise that is a more important theorem), 
 //etc., 
@@ -137,7 +139,8 @@ Key terms and concepts covered in this chapter:
 * Propositional inference rules (concepts of modus ponens and modus tollens)
 ** Notions of implication, equivalence, converse, inverse, contrapositive, negation, and contradiction
 * The structure of mathematical proofs
-* Proof techniques (induction, proof by contradiction)
+* Proof techniques 
+// (induction, proof by contradiction)
 ** Direct proofs
 ** Proof by counterexample (Disproving by counterexample)
 ** Proof by contraposition (proof by contrapositive)
@@ -184,7 +187,7 @@ To create a proof, we must
 proceed from True propositions to other True propositions without introducing False propositions into the argument. 
 //using invalid reasoning. 
 //To this end, 
-To do this, we use *rules of inference*, which are ways to draw a True conclusion from one or more premises that are already known to be True (or assumed to be True). That is, a *rule of inference* is an argument form that corresponds to a tautology, and so is valid. 
+To do this, we use *rules of inference,* which are ways to draw a True conclusion from one or more premises that are already known to be True (or assumed to be True). That is, a *rule of inference* is an argument form that corresponds to a tautology, and so is valid. 
 //This is most easily explained by example.
 
 //One source of rules of inference are tautologies as discussed in the chapter on Logic.
@@ -272,7 +275,10 @@ The argument is of the form
 
 
 This argument form is named *_modus ponens_* which is translated roughly from Latin as "method of affirming". 
-_Modus ponens_ is a *valid* argument form because it corresponds to the  tautology $(p \land (p \rightarrow q)) \rightarrow q$. 
+_Modus ponens_ is a 
+//*valid* 
+valid 
+argument form because it corresponds to the tautology $(p \land (p \rightarrow q)) \rightarrow q$. 
 
 [width=50%",align="center",options="header"]
 |====
@@ -328,7 +334,7 @@ argument form
 * if _p_ then _q_
 * $\therefore$ _p_ 
 
-This argument form is an example of a *fallacy* or *_non sequitur_*, which is Latin for "it does not follow". 
+This argument form is an example of a *fallacy* or *_non sequitur_,* which is Latin for "it does not follow". 
 //This 
 The argument form is *invalid* 
 //and is  
@@ -359,18 +365,21 @@ $(q \land (p \rightarrow q)) \rightarrow p$.
 
 Notice that there is at least one row of the truth table in which both $q$ and $p \rightarrow q$ are True but $p$ is False! This means that we can NOT infer that $p$ is True whenever $(q \land (p \rightarrow q))$ is True. The argument form is *invalid* because $(q \land (p \rightarrow q)) \rightarrow p$ is not a tautology. 
 
-This particular fallacy is used so often that it has its own name: The *converse error*, or *fallacy of the converse*.
+This particular fallacy is used 
+by people 
+so often that it has its own name: The *converse error,* or *fallacy of the converse.*
 
 .A Third Argument - You Try
 //Compare the above argument to the following one.
 
 Write the argument form for the following argument. 
+// MKD Feb 24 2025 - changed Ping to Jing
 
 [no-bullet]
-* Ping did not earn a B.S. in Computer Science.
+* Jing did not earn a B.S. in Computer Science.
 //* Anyone who earned a B.S. in Computer Science earned a C or better in Discrete Math.
 * Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
-* Therefore, Ping did not earn a C or better in Discrete Math.
+* Therefore, Jing did not earn a C or better in Discrete Math.
 
 Find a compound proposition that corresponds to the argument form you wrote, and write the truth table for that compound proposition.
 
@@ -386,7 +395,9 @@ The argument is valid if and only if the compound proposition is a tautology.
 
 [click.answer]
 --
-No. The argument is invalid and is an example of the *inverse error* or *fallacy of the inverse*.
+No. The argument is invalid and is an example of the *inverse error* or *fallacy of the inverse.* + 
+ + 
+[small]#Another way to see that this argument is invalid is to consider a case where Jing did earn a C or better in Discrete Math even though the two premises are True; for example, Jing could have earned a B.S. in Mathematics instead of Computer Science and also earned a C or better in Discrete Math.#
 --
 
 
@@ -413,7 +424,7 @@ This rule of inference corresponds to the tautology
 $((p \rightarrow q) \land (q \rightarrow r)) \rightarrow (p \rightarrow r)$.
 ****
 
-By applying transitivity multiple times, we can build a finite chain of implications of any length we want: 
+By applying transitivity multiple times, you can build a finite chain of implications of any length you want: 
 [no-bullet]
 * $p \rightarrow p_{1}$
 * $p_{1} \rightarrow p_{2}$
@@ -427,7 +438,10 @@ By applying transitivity multiple times, we can build a finite chain of implicat
 //=== More on Modus Ponens, et al.
 === Rules Of Inference And Fallacies Arising From The Conditional
 
-Recall that if we have propositions _p_ and _q_, we can form the conditional with *hypothesis* $p$ and *consequent* $q$, written as $p \rightarrow q$, as well as three other related 
+Recall that if you have propositions $p$ and $q,$ you can form the conditional with 
+//*hypothesis* $p$ and *consequent* $q,$ written as 
+hypothesis $p$ and consequent $q,$ which is written as 
+$p \rightarrow q$, as well as three other related 
 //compound propositions that are also 
 conditionals.
 
@@ -436,9 +450,9 @@ conditionals.
 * $\neg q \rightarrow \neg p$, the contrapositive of $p \rightarrow q$
 * $\neg p \rightarrow \neg q$, the inverse of $p \rightarrow q$ 
 
-Also, recall that $(p \rightarrow q) \equiv (\neg q \rightarrow \neg p)$. That is, $(p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)$ is a tautology. This means that the conditional is logically equivalent to its contrapositive. The conditional is NOT logically equivalent to either its converse or its inverse, as was shown using truth tables in the link:./logic.html[Logic] chapter.
+Also, recall that $(p \rightarrow q) \equiv (\neg q \rightarrow \neg p)$. That is, $(p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)$ is a tautology. This means that the conditional is logically equivalent to its contrapositive. The conditional is NOT logically equivalent to either its converse or its inverse, as was shown using truth tables in the link:./logic.html[Logic]chapter.
 
-From the four conditionals we get two rules of inference and two fallacies. 
+From the four conditionals you can get two rules of inference and two fallacies. 
 Together, these four argument forms are referred to as the 
 *mixed hypothetical syllogisms.*
 //, a term unlikely to be used again in this textbook.
@@ -639,8 +653,9 @@ In this section, four rules of inference that apply to quantified predicates  ar
 
 === Rules of Inference for Universally-Quantified Predicates
 
-Universal instantiation states that, from the premise $\forall x P(x)$
-and the premise $c \in U,$ where $c$ is an arbitrarily-chosen element, you can conclude that $P(c)$ must also be true. 
+//Universal instantiation states that, from the premise $\forall x P(x)$ where  
+//and the premise $c \in U,$ where $c$ is an arbitrarily-chosen element, you can conclude that $P(c)$ must also be true. 
+Universal instantiation states that, from the premise that $\forall x P(x)$ is True, where $x$ ranges over all elements of the universal set $U,$ you can conclude that $P(c)$ must also be True, where $c \in U$ is any arbitrarily-chosen element of $U.$ 
 
 .Universal Instantiation (Universal Specification)
 ****
@@ -653,7 +668,7 @@ and the premise $c \in U,$ where $c$ is an arbitrarily-chosen element, you can c
 ****
 
 
-Universal generalization states that, from the premise $P(x)$ is true for every arbitrarily-chosen value of $x$ that is an element of the universal set $U,$ you can conclude $\forall x P(x)$ must also be true. 
+Universal generalization states that, from the premise that $P(x)$ is True for every arbitrarily-chosen value of $x$ that is an element of the universal set $U,$ you can conclude $\forall x P(x)$ must also be True, where $x$ ranges over all elements of the universal set $U.$ 
 
 .Universal Generalization
 ****
@@ -669,7 +684,7 @@ You will see later in the textbook that universal generalization is applied in _
 
 === Rules of Inference for Existentially-Quantified Predicates
 
-Existential instantiation states that, from the premise $\exists x P(x),$ you can conclude that there must be at least one $c \in U$ such that $P(c)$ is true. This allows you to pick a "constant" $c$ instead of needing to refer repeatedly to the existential quantifier.
+Existential instantiation states that, from the premise $\exists x P(x),$ you can conclude that there must be at least one $c \in U$ such that $P(c)$ is true. This allows you to pick a "constant" $c$ that makes the predicate $P(x)$ True instead of needing to refer repeatedly to the existential quantifier.
 
 .Existential Instantiation (Existential Elimination)
 ****
@@ -682,7 +697,7 @@ Existential instantiation states that, from the premise $\exists x P(x),$ you ca
 ****
 
 
-Existential generalization states that, from the premise that $P(c)$ is true for at least one $c \in U,$ you can conclude that $\exists x P(x)$ must also be true. 
+Existential generalization states that, from the premise that $P(c)$ is True for at least one $c \in U,$ you can conclude that $\exists x P(x)$ must also be True. 
 
 .Existential Generalization
 ****
@@ -717,6 +732,26 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 
 Another important proof technique, *mathematical induction,* will be discussed in a link:./induction.html[later chapter.] 
 // link:./induction.html[Proofs: Mathematical Induction ]
+
+// MKD Feb 24 2025 - classic "Why we need induction example."
+//https://oeis.org/A005846 or 
+//https://oeis.org/search?q=43%2c47%2c53%2c61%20id:5846 
+
+****
+.Example {counter:proofexample} - Why do we need proofs at all? 
+
+//Can't we just check a lot of cases?
+
+Consider the following proposition: "For all natural number $n,$ the value of $n^{2} + n + 41$ is a prime integer."
+
+For each of the natural numbers 0, 1, ..., 10, the predicate $P(n)$: "$n^{2} + n + 41$ is a prime integer." evaluates to a proposition that is True. In fact, $P(n)$ is True for each of the natural numbers $n$ that is less than or equal to 40. 
+
+It may seem that we have "checked enough cases" to conclude that $P(n)$ will evaluate to a proposition that is True for every possible natural number value of $n.$ However, $P(41)$ is proposition $41^{2} + 41 + 41 \text{is a prime integer.},$ which is False - notice that $41^{2} + 41 + 41 = 41 \cdot (41 + 1 + 1) = 41 \cdot 43$ is a composite number.
+
+This example shows that it is not enough to verify that a proposition or predicate is True for just a few cases, unless those cases happen to cover _every_ possibility. 
+
+****
+
 
 
 === Direct Proof
@@ -840,6 +875,9 @@ There exists at least one natural number $n,$ such that for all natural numbers 
 //Lagrange's four-square theorem
 
 ****
+
+
+
         
 === Proof by Contradiction
 
