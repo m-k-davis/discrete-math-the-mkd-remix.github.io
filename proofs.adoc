@@ -2,8 +2,8 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on February 24, 2025_ + 
-//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+_This chapter was last updated on February 25, 2025_ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 //MKD: Need to add info on Rules of Inference
@@ -145,8 +145,8 @@ Key terms and concepts covered in this chapter:
 ** Proof by counterexample (Disproving by counterexample)
 ** Proof by contraposition (proof by contrapositive)
 ** Proof by contradiction
-* logical equivalence and circles of implication
-
+* To be added to this chapter after May 23, 2025:
+** logical equivalence and circles of implication
 
 
 //You will see later in this chapter that in many proofs, we ASSUME that some premises are True and may prove other premises along the way before reaching the final conclusion.
