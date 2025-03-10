@@ -628,6 +628,7 @@ Consider how you could rephrase a statement like "rock loses to paper" if you wa
 // MKD example x -> 2x+1 on Z and composition of functions ends
 //// 
 
+[[informal_floor_and_ceiling_definition]]
 // MKD example floor and ceiling begins
 * The *floor of _x_,* $\lfloor x \rfloor,$ and the *ceiling of _x_,* $\lceil x \rceil,$ are two functions defined for all real numbers as follows: 
 ** $\lfloor x \rfloor$ is the greatest integer less than or equal to _x._ 

@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on January 23, 2025.
+        This chapter was last updated on March 10, 2025.
        </em>
       </p>
      </div>
@@ -643,16 +643,19 @@ a function \(f\) from set
        <em>
         C
        </em>
-       is called the codomain of the function. This informal definition was introduced in the
+       is called the codomain of the function. This informal definition
+was given in the chapter
        <a href="introduction_discrete_math.html#informal_function_definition">
-        Introducing Discrete Mathematics
+        Introducing Discrete Mathematics.
        </a>
-       chapter.
       </p>
      </div>
      <div class="paragraph">
       <p>
-       Notice that the informal definition states that
+       The
+informal definition
+implies
+that
        <em>
         every
        </em>
@@ -660,12 +663,19 @@ a function \(f\) from set
        <em>
         D
        </em>
-       is assigned an output value in the codomain
+       is
+an "input" that is
+assigned an output value in the codomain
        <em>
         C.
        </em>
        <mark>
-        The informal definition does not specify whether
+        The informal definition
+        <strong>
+         does not
+imply
+        </strong>
+        that
         <em>
          every
         </em>
@@ -678,7 +688,18 @@ a function \(f\) from set
          D.
         </em>
        </mark>
-       The previous, highlighted sentence may seem unimportant since we usually only care about the outputs we can actually get from a function, but the example presented in the next section shows why it is important to be precise about what set the codomain is.
+       The
+highlighted
+sentence may seem unimportant since
+you
+usually only care about the outputs
+you can actually get from a function, but the example presented in the next section shows why it is important to be precise about what set the codomain is.
+A
+formal definition of function
+is introduced
+in this chapter
+to address this
+need for precision.
       </p>
      </div>
      <div class="paragraph">
@@ -723,6 +744,23 @@ a function \(f\) from set
             A bijective function is the same as a one-to-one correspondence
            </p>
           </li>
+          <li>
+           <p>
+            An injective function is one that assigns every pair of different inputs  to
+a pair of
+different outputs
+           </p>
+          </li>
+          <li>
+           <p>
+            A surjective function is one whose range is equal to its codomain (that is, every element of the codomain is an output assigned to one or more inputs)
+           </p>
+          </li>
+          <li>
+           <p>
+            A bijective function is both injective and surjective
+           </p>
+          </li>
          </ul>
         </div>
        </li>
@@ -739,27 +777,37 @@ a function \(f\) from set
       </ul>
      </div>
      <div class="sect2">
-      <h3 id="_why_knowing_the_codomain_is_important">
-       8.1. Why Knowing the Codomain is Important
+      <h3 id="_why_specifying_the_codomain_is_important">
+       8.1. Why Specifying the Codomain is Important
       </h3>
       <div class="paragraph">
        <p>
-        The following example compares two implementations of what would seem to be the "same" function: The input values are the same, and the description of how to compute outputs seems to be the same, but the codomains are different which effects how the output values can be used.
+        The following example compares two implementations, in different programming languages, of
+the "same" function: The input values are the same, and the rule that assigns to each input its one and only output is the same.
+However, the two implementations use different codomains which effects how the output values can be used.
        </p>
       </div>
       <div class="sidebarblock">
        <div class="content">
         <div class="openblock">
          <div class="title">
-          Example 0 - The floor() functions in Python and Java
+          Example 1 - The floor() functions in Python and Java
          </div>
          <div class="content">
          </div>
         </div>
         <div class="paragraph">
          <p>
-          In computing, integer data types are used to represent integers such as loop counters or indices into arrays, while floating-point data types are used to represent real numbers used in scientific or financial calculations.
-In general, numbers that can be stored using an integer type can also be stored using a floating-point type,
+          In computing, integer data types are used
+to represent
+loop
+counters
+or indices into arrays, while floating-point data types are used to represent real numbers
+(like decimals)
+in scientific or financial calculations.
+In general,
+a number
+that can be stored using an integer type can also be stored using a floating-point type,
 but
 the
           <em>
@@ -771,68 +819,92 @@ The following code examples show why it is important to keep this in mind when c
         </div>
         <div class="paragraph">
          <p>
-          First, recall that the floor of
-          <em>
-           x
-          </em>
-          , written as \(\lfloor x \rfloor,\) is the greatest integer less than or equal to the real number
+          First, recall that the
+          <a href="./introduction_discrete_math.html#informal_floor_and_ceiling_definition">
+           floor of
+           <em>
+            x
+           </em>
+           ,
+          </a>
+          written as \(\lfloor x \rfloor,\) is the greatest integer less than or equal to the real number
           <em>
            x.
           </em>
           The floor() function is available in both Python and Java as an implementation of \(\lfloor x \rfloor.\) In both programming languages floor() takes a double precision floating-point number as its input, but Python floor() returns a value of integer data type while Java floor() function returns a value of floating-point data type.
-          <span class="small">
-           The gory details:
-On most hardware, both Python’s
-           <code>
-            float
-           </code>
-           data type and Java’s
-           <code>
-            double
-           </code>
-           data type are implementations of
-           <a href="https://ieeexplore.ieee.org/document/8766229">
-            IEEE 754
-           </a>
-           double precision 64-bit floating-point numbers. The
-           <a href="https://docs.python.org/3/library/math.html#math.floor">
-            floor() function in Python
-           </a>
-           takes a
-           <code>
-            float
-           </code>
-           as input and returns an
-           <code>
-            int
-           </code>
-           and the
-           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#floor-double-">
-            floor() function in Java
-           </a>
-           takes a
-           <code>
-            double
-           </code>
-           as input and returns a
-           <code>
-            double.
-           </code>
-           This means that the floor() functions in Python and Java have the
-           <em>
-            same
-           </em>
-           domain and use, essentially, the
-           <em>
-            same
-           </em>
-           rule to compute output values, but have
-           <em>
-            different
-           </em>
-           codomains.
-          </span>
          </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          More detail about floating point
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           <span class="small">
+            On most hardware, both Python’s
+            <code>
+             float
+            </code>
+            data type and Java’s
+            <code>
+             double
+            </code>
+            data type are implementations of
+            <a href="https://ieeexplore.ieee.org/document/9091348">
+             IEEE 754
+            </a>
+            double precision 64-bit floating-point numbers. For example, the decimal number 1.4 is encoded by the bitstring  \[001111111111011001100110011001100110011001100110011001100110011\] of length 64 whether you use a Python
+            <code>
+             float
+            </code>
+            with value 1.4 or a Java
+            <code>
+             double
+            </code>
+            with value 1.4. The underlying bitstring used for the encoding 1.4 is the same in both languages.
+            <br/>
+            The
+            <a href="https://docs.python.org/3/library/math.html#math.floor">
+             floor() function in Python
+            </a>
+            takes a
+            <code>
+             float
+            </code>
+            as input and returns an
+            <code>
+             int
+            </code>
+            <br/>
+            The
+            <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#floor-double-">
+             floor() function in Java
+            </a>
+            takes a
+            <code>
+             double
+            </code>
+            as input and returns a
+            <code>
+             double.
+            </code>
+            <br/>
+            This means that the floor() functions in Python and Java have the
+            <em>
+             same
+            </em>
+            domain and use, essentially, the
+            <em>
+             same
+            </em>
+            rule to compute output values, but have
+            <em>
+             different
+            </em>
+            codomains (that are represented by different data types in the two languages.)
+           </span>
+          </div>
+         </div>
         </div>
         <div class="paragraph">
          <p>
@@ -971,10 +1043,10 @@ The set \(A\) is called the
        <p>
         Why would we need such a highly technical formal definition?
         <mark>
-         The reason why the ordered triple is used in the definition is that we need to be able to distinguish two functions that have the same graph
+         The reason why the ordered triple is used in the definition is that we need to be able to distinguish two functions that have the same graph, as a set of ordered pairs,
 but different codomains.
         </mark>
-        Two functions can have different codomains even if their graphs, as sets of ordered pairs, are the same set (Notice that having the same graph implies that they have the same domain, too.) If this is not clear, see the example "Three closely-related functions, no two of which are equal," which comes after the definitions listed below.
+        Two functions can have different codomains even if their graphs, as sets of ordered pairs, are the same set (Notice that if two functions have the same graph then they must have the same domain.) If this is not clear, see the example "Three closely-related functions, no two of which are equal," which comes after the definitions listed below.
        </p>
       </div>
       <div class="ulist">
@@ -1099,7 +1171,7 @@ defined by the formulae \(f(x) = |x|\) and \(g(x) = \sqrt(x^{2})\) are
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 1 -  Three closely-related functions, no two of which are equal.
+          Example 2 -  Three closely-related functions, no two of which are equal.
          </div>
          <p>
           Consider functions \(f\), \(g\), and \(h\) defined as follows:
@@ -1126,7 +1198,8 @@ defined by the formulae \(f(x) = |x|\) and \(g(x) = \sqrt(x^{2})\) are
         <div class="paragraph">
          <p>
           No two of these functions are equal even though they
-can all be described by the words "the output is the square of the input"
+can all be described by the
+rule "the output is the square of the input"
 and
 have
 identical formulas:
@@ -1140,346 +1213,252 @@ have the same graph and the same domain.
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_injective_surjective_bijective_and_inverse_functions">
-       8.3. Injective, Surjective, Bijective, and Inverse Functions
+      <h3 id="_properties_of_functions">
+       8.3. Properties of Functions
       </h3>
       <div class="paragraph">
        <p>
-        A function \(f\) is
-        <strong>
-         injective
-        </strong>
-        , or
-        <strong>
-         one to one
-        </strong>
-        , if every element in the range \(B\) is
-associated with a unique element from the domain \(A\), that is, different elements of \(A\) have nonequal images in \(B\). This means that if \(f(m)=b\)
-and \(f(n)=b\), then necessarily \(m=n\).
+        In this subsection you will learn about several properties of functions.
        </p>
       </div>
-      <div class="paragraph">
-       <p>
-        Real-valued functions, \(f: \mathbb{R} \rightarrow \mathbb{R}\), that are strictly
-increasing or strictly decreasing, such as exponential or logarithmic functions,  are injective.
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="title">
-         Theorem on real valued functions
-        </div>
-        <div class="paragraph">
-         <p>
-          A real-valued function, \(f: \mathbb{R} \rightarrow \mathbb{R}\), that is strictly increasing or strictly decreasing is injective.
-         </p>
-        </div>
+      <div class="sect3">
+       <h4 id="_injective_functions">
+        8.3.1. Injective Functions
+       </h4>
+       <div class="paragraph">
+        <p>
+         A function \(f : A \rightarrow B\) is
+         <strong>
+          injective
+         </strong>
+         if distinct elements of the domain \(A\) are mapped to distinct elements of the range.
+That is, for all \(a_1\) and \(a_2\) in \(A,\) if \(a_1 \neq a_2\) then \(f(a_1) \neq f(a_2).\)
+Using the contrapositive, this can be stated as: For all \(a_1\) and \(a_2\) in \(A,\) if \(f(a_1) = f(a_2)\) then \(a_1 = a_2.\)
+         <br/>
+         <span class="small">
+          Note: Injective functions are also called
+          <strong>
+           one to one
+          </strong>
+          functions.  The Remix avoids this term because it is easy to confuse "one to one function" with "one-to-one correspondence."
+         </span>
+        </p>
        </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        Informally a function is
-        <strong>
-         injective
-        </strong>
-        if different elements in the domain are mapped to different elements in the range. A function is
-        <strong>
-         not injective
-        </strong>
-        if at least
-        <em>
-         two different elements
-        </em>
-        are mapped to the
-        <em>
-         same element
-        </em>
-        in the range.
-       </p>
-      </div>
-      <div class="admonitionblock note">
-       <table>
-        <tr>
-         <td class="icon">
-          <i class="fa icon-note" title="Note">
-          </i>
-         </td>
-         <td class="content">
-          <div class="paragraph">
-           <p>
-            On a Cartesian plane, this means that
-            <em>
-             every
-            </em>
-            horizontal line intersects
-the graph
-            <em>
-             at most once
-            </em>
-            for an injective function.  A function is not injective if
-            <em>
-             at least one
-            </em>
-            horizontal line intersects the graph
-            <em>
-             more than once
-            </em>
-            .
-           </p>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 3 - Injective Functions
           </div>
-         </td>
-        </tr>
-       </table>
+          <p>
+           Consider the functions
+           <br/>
+           \(f : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(f(n) = 2^{n}\)
+           <br/>
+           \(g : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(g(n) = n^{2},\) and
+           <br/>
+           \(h : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(h(n) = n + 2,\) and
+           <br/>
+           \(k : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(k(n) = \frac{1}{4}((-1)^n (2n+1) - 1).\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(f\) is injective because different input values must be mapped to different output values. Notice that \(f(a) = f(c)\) means that \(2^{a} = 2^{c}\) from which \(2^{a} / 2^{c} = 1 = 2^{a-c}\) must be True, so \(a-c = 0\) must be True, that is, \(a = c.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(g\) is not injective because the input values \(2\) and \(-2\) are mapped to the same output value: \((2)^2 = 4\) and \((-2)^2 = 4.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(h\) is injective because \(h(a) = h(c)\) means that \(a+2 = c+2,\) which means that \(a=c.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(k\) is not injective because the input values \(-1\) and \(0\) are mapped to the same output value, 0.
+          </p>
+         </div>
+        </div>
+       </div>
       </div>
-      <div class="paragraph">
-       <p>
-        A function \(f\) from the set \(A\) to the set \(B\) is
-        <strong>
-         surjective
-        </strong>
-        , or
-        <strong>
-         onto
-        </strong>
-        , if the image set of \(A\) is the entire set \(B\). This means than for any element \(b \in B\) there is some element \(a \in A\) with \(f(a)=b\).
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        Informally a function is
-        <strong>
-         surjective
-        </strong>
-        to its codomain \(B\), if
-        <em>
-         every
-        </em>
-        element in \(B\)
-can be reached
-by \(f\). A function is
-        <strong>
-         not surjective
-        </strong>
-        to its codomain if at least
-        <em>
-         one element
-        </em>
-        in the co-domain is not in the range or in the image set of \(f\).
-       </p>
-      </div>
-      <div class="admonitionblock note">
-       <table>
-        <tr>
-         <td class="icon">
-          <i class="fa icon-note" title="Note">
-          </i>
-         </td>
-         <td class="content">
-          <div class="paragraph">
-           <p>
-            On a Cartesian plane,
-this means that
-            <em>
-             every
-            </em>
-            horizontal line intersects
-the graph
-            <em>
-             at least once
-            </em>
-            for a surjective function.
-A function is not surjective if
-            <em>
-             there is
-            </em>
-            a horizontal line  that
-            <em>
-             does not intersect
-            </em>
-            the graph.
-           </p>
+      <div class="sect3">
+       <h4 id="_surjective_functions">
+        8.3.2. Surjective Functions
+       </h4>
+       <div class="paragraph">
+        <p>
+         A function \(f\) from the set \(A\) to the set \(B\) is
+         <strong>
+          surjective
+         </strong>
+         if the image set of \(A\) is the entire set \(B\). This means than for each element \(b\) in the codomain \(B,\) there is some element \(a \in A\) with \(f(a)=b\).
+         <br/>
+         <span class="small">
+          Note: Surjective functions are also called
+          <strong>
+           onto
+          </strong>
+          functions.
+         </span>
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 4 - Surjective Functions
           </div>
-         </td>
-        </tr>
-       </table>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 2 - injective but not surjective.
+          <p>
+           Consider the functions
+           <br/>
+           \(f : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(f(n) = 2^{n}\)
+           <br/>
+           \(g : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(g(n) = n^{2},\) and
+           <br/>
+           \(h : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(h(n) = n + 2,\) and
+           <br/>
+           \(k : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(k(n) = \frac{1}{4}((-1)^n (2n+1) - 1).\)
+          </p>
          </div>
-         <p>
-          Explain why the real-valued exponential function \(f(x)=2^x\) is injective, but not surjective,
-from \(f: \mathbb{R} \rightarrow \mathbb{R}\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <div class="title">
-          Solution
+         <div class="paragraph">
+          <p>
+           \(f\) is not surjective since it is not possible for \(2^{n}\) to have a value that is less than or equal to 0.
+          </p>
          </div>
-         <p>
-          For injectivity, notice that the exponential function \(f(x)=2^x\) is strictly
-increasing, as can be seen from its graph.
-Every horizontal line intersects the graph at most once, meaning that if \(2^m =2^n\), then
-necessarily \(m=n\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          For surjectivity, notice that \(f(x)=2^x\), is strictly positive \((0,\infty)\) so its range is not all real numbers. As a specific,
-example, there is no real \(x\), for which \(f(x) = 2^x =-1\). The \(y-\) value \(y=-1\) is not reached by any
-real \(x\).  We conclude that \(f(x)=2^x\), with
-\(f: \mathbb{R} \rightarrow \mathbb{R}\), is injective, but not
-surjective, from \(\mathbb{R} \rightarrow \mathbb{R}\).
-         </p>
+         <div class="paragraph">
+          <p>
+           \(g\) is not surjective because is not possible for \(n^{2}\) to have a value that is less than 0.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(h\) is surjective because every \(b\) in the codomain \(\mathbb{Z}\) is an output for some input: Notice that \(h(b-2) = (b-2+2) = 2.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(k\) is surjective because every \(b\) in the codomain \(\mathbb{Z}\) is an output for some nonnegative input - for inputs \(n \geq 0,\) the outputs \(k(n)\) are shown in the lower row of the image.
+          </p>
+         </div>
+         <div class="imageblock text-center">
+          <div class="content">
+           <img alt="NtoZ" height="98" src="imagesMKD/NtoZ.png" width="331"/>
+          </div>
+         </div>
         </div>
        </div>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 3- neither injective nor surjective
-         </div>
-         <p>
-          Explain why the real-valued exponential function \(f(x)=x^2\) is neither injective
-nor surjective, from \(f: \mathbb{R} \rightarrow \mathbb{R}\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <div class="title">
-          Solution
-         </div>
-         <p>
-          Notice from the graph of \(f(x)=x^2\), that the range is only non-negative numbers.
-This means that negative numbers cannot be reached. The function \(f(x)=x^2\) is
-not surjective, from \(f: \mathbb{R} \rightarrow \mathbb{R}\). In particular there is no real,
-\(x\), for which, for example, \(f(x)=x^2 =-1\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Also notice that \(f(2)=4\), and \(f(-2)=4\), but \(2 \neq -2\), which means the function is not
-injective. A horizontal line at \(y=4\), meets the graph at both \(x=2\), and \(x=-2\).
-         </p>
-        </div>
+       <div class="paragraph">
+        <p>
+         Notice that whether a function is surjective depends on what the function’s codomain. This is, again, why the formal definition of function is needed.
+        </p>
        </div>
       </div>
-      <div class="paragraph">
-       <p>
-        A function \(f\) is
-        <strong>
-         bijective
-        </strong>
-        if it is both injective and surjective.
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 4 - A bijective function
-         </div>
-         <p>
-          Explain why the function \(f(x)=x^3\), from \(f:R\rightarrow R\), is bijective.
-         </p>
-        </div>
-        <div class="paragraph">
-         <div class="title">
-          Solution
-         </div>
-         <p>
-          We need to show that the function is both injective and surjective.
-Notice from the graph of \(f(x)=x^3\) that the domain and codomain are
-both all real numbers, \(\mathbb{R}\). Every real number \(b\) can be reached because
-\(f(x)=x^3 =b\), has \$x=root(3)(b)\$. For example \(-27\) is mapped to by \(-3\),
-because \(f(-3)=(-3)^3 = -27\), and \(64\), is mapped to by \(4\) because \(f(4)=(4)^3 = 64\).
-This may also be confirmed  from the graph of \(f(x)=x^3\), by noticing that
-every horizontal line meets the graph at least once.
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          For injectivity, notice that the graph of \(f(x)=x^3\), that the function is strictly
-increasing.
-This means that if \(a^3=b^3\), then necessarily \(a=b\). In fact if \(a^3=b^3=c\), then,
-\(a=b=\) \$ root(3)(c)\$, uniquely.
-         </p>
-        </div>
+      <div class="sect3">
+       <h4 id="_bijective_functions">
+        8.3.3. Bijective Functions
+       </h4>
+       <div class="paragraph">
+        <p>
+         A function \(f\) is
+         <strong>
+          bijective
+         </strong>
+         if it is both injective and surjective.
+        </p>
        </div>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 5 - Verifying a function is bijective
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 5 - Verifying a function is bijective
+          </div>
+          <p>
+           Verify that the function \(f\left(x\right)=3x+5\), from \(f:R\rightarrow R\), is bijective.
+          </p>
          </div>
-         <p>
-          Verify that the function \(f\left(x\right)=3x+5\), from \(f:R\rightarrow R\), is bijective.
-         </p>
-        </div>
-        <div class="paragraph">
-         <div class="title">
-          Solution
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           For injectivity, suppose \(f\left(m\right)=f(n)\). We want to show \(m=n\).
+          </p>
          </div>
-         <p>
-          For injectivity, suppose \(f\left(m\right)=f(n)\). We want to show \(m=n\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(f\left(m\right)=f(n)\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(3m+5=3n+5\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Subtracting 5 from both sides gives \(3m=3n\), and then multiplying both sides by
+         <div class="paragraph">
+          <p>
+           \(f\left(m\right)=f(n)\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(3m+5=3n+5\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Subtracting 5 from both sides gives \(3m=3n\), and then multiplying both sides by
 \(\frac{1}{3}\) gives \(m=n\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          To show that \(f\left(x\right)\) is surjective we need to
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           To show that \(f\left(x\right)\) is surjective we need to
 show that any \(c\in R\) can be reached by  \(f\left(x\right)\).
-Specifically, to show that  \(f\left(x\right)\) is surjective, we need to show that for any
+Specifically, to show that \(f\left(x\right)\) is surjective, we need to show that for any
 \(c\in R\), there is a corresponding \(x\) for which \(f\left(x\right)=c\).  To show this
 consider \(f\left(x\right)=3x+5\). Equate to \(c\) and solve for \(x\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(f\left(x\right)=3x+5=c\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Well,    \(3x+5=c\) gives \(3x=c-5\) or \( x=\frac{c-5}{3}\).  So, for any \(c\), there is an \(x\), namely
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(f\left(x\right)=3x+5=c\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Well,    \(3x+5=c\) gives \(3x=c-5\) or \( x=\frac{c-5}{3}\).  So, for any \(c\), there is an \(x\), namely
 \(x=\frac{c-5}{3}\), for which \(f\left(x\right)=c\).
-         </p>
+          </p>
+         </div>
         </div>
        </div>
       </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_inverse_functions">
+       8.4. Inverse Functions
+      </h3>
       <div class="paragraph">
        <p>
-        A function \(f\) is
+        Informally, a function \(f\) is invertible if each \(b\) in the codomain \(B\) is assigned to exactly one input \(a\) in the domain \(A.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Formally, a function \(f : A \rightarrow  B\) is
         <strong>
          invertible
         </strong>
-        if the inverse of relation \(f : A \rightarrow  B\) is
-also a function. The inverse is usually denoted \( f^{-1}\).
-For example if \((a,b)\), corresponds to \(f(a)=b\) , then \( f^{-1}:  B \rightarrow  A\), corresponds to \( f^{-1}(b)=a\).
+        if the ordered triple \((\{(b, a) \, | \, (a, b) \in f \},\, B,\, A)\) is a function.
        </p>
       </div>
       <div class="paragraph">
        <p>
-        The following theorem shows that invertibility of a function is equivalent to
-bijectivity, or a function being both a one-to one function and onto function.
+        The set \(\{(b, a) \, | \, (a, b) \in f \}\) is usually denoted by \(f^{-1}\) even in cases when \(f\) is not invertible.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        For example if \((a,b)\), corresponds to \(f(a)=b\) , then \( f^{-1}:  B \rightarrow  A\), corresponds to \( f^{-1}(b)=a\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following theorem shows that invertibility of a function is equivalent to bijectivity, or a function being both injective and surjective.
        </p>
       </div>
       <div class="sidebarblock">
@@ -1489,7 +1468,7 @@ bijectivity, or a function being both a one-to one function and onto function.
         </div>
         <div class="paragraph">
          <p>
-          A function \(f: A \rightarrow  B\) is invertible if and only if \(f\)  is bijective.
+          A function \(f: A \rightarrow  B\) is invertible if and only if \(f\) is bijective.
          </p>
         </div>
        </div>
@@ -1569,7 +1548,7 @@ the important concepts of functions, including domain, codomain, range, and inve
      </div>
      <div class="sect2">
       <h3 id="_the_algebra_of_functions">
-       8.4. The Algebra of Functions
+       8.5. The Algebra of Functions
       </h3>
       <div class="paragraph">
        <p>
@@ -1660,7 +1639,7 @@ and division by \(0\) is not defined.
      </div>
      <div class="sect2">
       <h3 id="_composition_of_functions">
-       8.5. Composition of Functions
+       8.6. Composition of Functions
       </h3>
       <div class="paragraph">
        <p>
@@ -1811,118 +1790,79 @@ in \(f\), corresponds to \(\left(x^3+1,x\right)\) for \(g\).
 We have shown explicitly that \(\left(g\circ f\right)\left(x\right)=x\).
        </p>
       </div>
-     </div>
-     <div class="sect2">
-      <h3 id="_the_inverse_of_a_function">
-       8.6. The Inverse of a Function
-      </h3>
-      <div class="paragraph">
-       <p>
-        In view of this relation when composing functions that are inverses of each other, we provide an intuitive definition of
-inverse functions.
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        Suppose \(f\left(a\right):A\rightarrow B\) is bijective,
-then the
-        <strong>
-         inverse
-        </strong>
-        of \(f\left(x\right)\), is the function denoted \(f^{-1}\left(b\right):B\rightarrow A\).
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        The inverse can be similarly defined for relations in general, however the bijective property is used to ensure that the inverse of a function \(f\) is also a function.
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        For example the following relations have inverses as given.
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        \(\left\{\left(-3,\ 9\right),\ \left(-2,4\right),\ \left(-1,1\right),\ \left(0,0\right),\ \left(1,\ 1\right),\ \left(2,\ 4\right),\ \left(3,9\right)\right\}\) with inverse,
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        \(\left \{ \left(9,-3\ \right),\ \left(4,\ -2\ \right),\ \left(1,\ -1\right),\ \left(0,0\right),\ (1,\ 1,\ \left(4,2,\right),\ (9,3)\right \}\)
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        Notice that the original relation can be considered a function with
-domain \(A=\left\{-3,\ -2,\ -1,\ 0,\ 1,\ 2,\ 3,\right\}\) and co-domain
-\(B=\left\{0,\ 1,\ 4,\ 9\right\}\).  However the inverse mapping from domain
-\(A=\left\{0,\ 1,\ 4,\ 9\right\}\) with co-domain \(B=\left\{-3,\ -2,\ -1,\ 0,\ 1,\ 2,\ 3,\right\}\),
-is a relation that is not a function because of the mappings
-\(\left(-9,3\right)\), and \(\left(-9,\ 3\right)\).
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 9 - finding an inverse
-         </div>
-         <p>
-          Find the inverse \(g\left(x\right)\) of  the bijective function
+      <div class="sect3">
+       <h4 id="_inverse_functions_and_composition">
+        8.6.1. Inverse Functions and Composition
+       </h4>
+       <div class="paragraph">
+        <p>
+         Notice that if you happen to have two functions \(f : A \rightarrow B\) and  \(g : B \rightarrow A\) such that
+\((g \circ f)(a) = g(f(a)) = a\) for every \(a \in A\) and
+\((f \circ g)(b) = f(g(b)) = b\) for every \(b \in B,\) then \(f\) and \(g\) are inverse functions.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 9 - finding an inverse
+          </div>
+          <p>
+           Find the inverse \(g\left(x\right)\) of  the bijective function
 \(f\left(x\right)=3x+5\) for \(f,\ g:R\rightarrow R\) .  Verify the inverse and show \(\left(f \circ g\right)\left(x\right)=x=\left(g \circ f\right)\left(x\right)\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Show specifically that \(f\left(2\right)=11\), and \(g\left(11\right)=2\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <div class="title">
-          Solution
+          </p>
          </div>
-         <p>
-          If \(f:x\rightarrow y\) corresponds to \((x,y)\), then the inverse  \(g:y\rightarrow x\)
+         <div class="paragraph">
+          <p>
+           Show specifically that \(f\left(2\right)=11\), and \(g\left(11\right)=2\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           If \(f:x\rightarrow y\) corresponds to \((x,y)\), then the inverse  \(g:y\rightarrow x\)
 corresponds to \((y,x)\). This means that the inverse of the relation
 \(y=f\left(x\right)=3x+5\), is the relation \(x=f\left(y\right)=3y+5\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Solving for \(y\) in \(x=f\left(y\right)\), gives \(f^{-1}(x)=y\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Solving for \(y\) in \(x=f\left(y\right)\), gives \(f^{-1}(x)=y\).
 Solving for \(y\) in  \(x=f\left(y\right)=3y+5\), gives \(x-5=3y\) or
 \(\frac{x-5}{3}=y=\ f^{-1}(x)=g(x)\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          We now verify that \(\left(f\circ g\right)\left(x\right)=x=\left(g \circ f\right)\left(x\right)\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(\left(f\circ g\right)\left(x\right)=f\left(\frac{x-5}{3}\right)=\ 3\left(\frac{x-5}{3}\right)+5=\left(x-5\right)+5=x\),
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          and
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           We now verify that \(\left(f\circ g\right)\left(x\right)=x=\left(g \circ f\right)\left(x\right)\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(\left(f\circ g\right)\left(x\right)=f\left(\frac{x-5}{3}\right)=\ 3\left(\frac{x-5}{3}\right)+5=\left(x-5\right)+5=x\),
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           and
 \(\left(g \circ f\right)\left(x\right)=g\left(3x+5\right)=\ \frac{(3x+5)-5}{3}=\frac{3x+5-5}{3}=\frac{3x}{3}=x\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Finally \(f\left(x\right)=3x+5\), and \(f\left(2\right)=3\left(2\right)+5=6+5=11\),
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Finally \(f\left(x\right)=3x+5\), and \(f\left(2\right)=3\left(2\right)+5=6+5=11\),
 or \(f:2\rightarrow 11\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          and
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           and
 \(g\left(x\right)=\frac{x-5}{3}\)  and ,  \(g\left(11\right)=\frac{11-5}{3}=\frac{6}{3}=2\)
 or \(g:11\rightarrow 2\).
-         </p>
+          </p>
+         </div>
         </div>
        </div>
       </div>
@@ -1986,17 +1926,6 @@ or \(g:11\rightarrow 2\).
           Explain why exponential function \(f(x)=2^x\) is not surjective from
 \(f: \mathbb{R} \rightarrow \mathbb{R}\), but is in fact a bijection
 from \(f: \mathbb{R} \rightarrow \mathbb{R}^+\).
-         </p>
-        </li>
-       </ol>
-      </div>
-      <div class="olist arabic">
-       <ol class="arabic">
-        <li>
-         <p>
-          Explain why ceiling function \( \left \lceil x \right \rceil\) is not surjective from
-\(f: \mathbb{R} \rightarrow \mathbb{R}\), but is surjective from
-from \(f: \mathbb{R} \rightarrow \mathbb{Z}\).
          </p>
         </li>
         <li>
@@ -2109,6 +2038,11 @@ are inverses by verifying that \(f\left(g\left(x\right)\right)=g\left(f\left(x\r
            </li>
           </ol>
          </div>
+        </li>
+        <li>
+         <p>
+          Explain why ceiling function \( \left \lceil x \right \rceil\) is not surjective from \(f: \mathbb{R} \rightarrow \mathbb{R}.\)
+         </p>
         </li>
         <li>
          <p>

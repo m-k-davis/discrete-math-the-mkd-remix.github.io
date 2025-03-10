@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on January 23, 2025._
+_This chapter was last updated on March 10, 2025._
 
 //COMING SOON!
 
@@ -432,6 +432,8 @@ Conversely, if $\Pi$ is a partition of $S$, then the relation defined by $R = \{
 == Order Relations on a Set
 
 
+It is often useful to be able to compare elements of a set, based on some key property. In this subsection, several examples of such order relations will be discussed.
+
 
 === Partial Orderings
 
@@ -441,35 +443,46 @@ Conversely, if $\Pi$ is a partition of $S$, then the relation defined by $R = \{
 A binary relation $R$ on a set $S$ is called a *partial order* on $S$ if $R$ is reflexive, antisymmetric, and transitive.
 
 ****
-.Example {counter:mkdrelex} - Parital Orders
+.Example {counter:mkdrelex} - Partial Orders
 --
 --
 
 //* For the set of real numbers $\mathbb{R}$ the usual order relations $<,$ $\leq,$ $>,$ and $\geq$ are partial orders.
 
-* For any set $S,$ the relations $\subseteq$ and $\subset$ are partial orders.
+* For any set $S,$ the relations $\subseteq$ is a partial order.
 
 ****
 
-=== Total Orderings
+==== Total Orderings
 
-A *total ordering* of a set $S$ is a relation $R$ on $S$ that has the property $(\forall x \in S)(\forall y \in S)(xRy \lor yRx).$ 
+A *total ordering* of a set $S$ is a 
+//relation 
+partial order $R$ on $S$ that has the additional property $(\forall x \in S)(\forall y \in S)(xRy \lor yRx).$ 
 
 //The usual orderings "less than" and "greater than" of the rational numbers $\mathbb{Q}$ and the real numbers $\mathbb{R}$ are examples of total orderings.
 
+****
+.Example {counter:mkdrelex} - Total Orderings
+--
+--
 
-===	Well-Ordering
+* For the set of real numbers $\mathbb{R}$ the usual order relations $\leq$ and $\geq$ are total orders.
 
-A *well-ordering* of a set $S$ is a total ordering that has the additional property that every nonempty subset of $S$ contains a least element with respect to the order relation.
+
+****
+
+
+====	Well-Orderings
+
+A *well-ordering* of a set $S$ is a total ordering $R$ on $S$ that has the additional property that every nonempty subset of $S$ contains a least element with respect to the order relation.
 
 
 .Axiom 
 ****
-The set $\mathbb{N}$ of natural numbers is a well-ordered set.
+The relation $\leq$ on the set $\mathbb{N}$ of natural numbers is a well-ordering.
 ****
 
-Note that the above statement is not a theorem... it is an axiom that we assume to be true about the natural numbers!
-
+Notice that the above statement is not a theorem... it is an axiom that we assume to be true about the natural numbers!
 
 
 
@@ -479,11 +492,64 @@ Note that the above statement is not a theorem... it is an axiom that we assume 
 //		Find all n such that n^2 \cong 1 mod 7 (Hint: you can make a table of values of the squaring function)
 //		Find all n such that n^2 \cong -1 mod 10 (Hint: What positive numbers are congruent to -1 modulo 10)
 
-For any positive integer $m,$ you can define *congruence modulo $m$* as the relation $\equiv_{m} = \{ (a, b) \, | \, m \text{ divides } (a-b) \}.$ 
+//$\equiv_{m} = \{ (a, b) \, | \, m \text{ divides } (a-b) \}.$ 
 
-For each positive integer $m,$ $\equiv_{m}$ is an equivalence relation. For any integer $a,$ you can use the division algorithm to find the quotient and remainder such that $a = q \cdot m + r$, where $q$ and $r$ are integers and $0 \leq r < m.$  So every integer is congruent modulo $m$ to one of the integers in the set $\{ 0, 1, \ldots, m-1 \}.$ 
+//For any positive integer $m,$ you can define *congruence modulo $m$* as the relation \[\{ (a, b) \, | \, m \text{ divides } (a-b) \}\] and we write $a \equiv_{m} b$ if the pair $(a, b)$ is in the relation. 
 
-You likely learned how to do arithmetic with the remainders when $m = 2$ when you were quite young, but not in the formal way presented in this textbook. Instead of referring to the equivalence classes as 0 and 1, you likely used the words "even" and "odd" but could describe certain properties of arithmetic using those words. For example, "odd times even equals even" is a simpler way of stating that if $a \in [1\]_{\equiv_{2}}$ and $b \in [0\]_{\equiv_{2}}$ then $(a \cdot b) \in [0\]_{\equiv_{2}}.$
+For any positive integer $m,$ you can define *congruence modulo $m$* as the relation \[\{ (a, b) \in \mathbb{Z} \times \mathbb{Z} \, : \, m \text{ divides } (a-b) \}.\] 
+The symbol $\equiv_{m}$ is used to represent this relation, that is \[a \equiv_{m} b \text{ if and only if } m \text{ divides } (a-b)\]
+
+For each positive integer $m,$ $\equiv_{m}$ is an equivalence relation. 
+
+For any integer $a,$ you can use the division algorithm to find the quotient and remainder such that $a = q \cdot m + r$, where $q$ and $r$ are integers and $0 \leq r < m,$ so every integer is congruent modulo $m$ to one of the integers in the set $\{ 0, 1, \ldots, m-1 \}.$ The set of equivalence classes $\{ [ 0 \]_{\equiv_{m}}, \, [ 1 \]_{\equiv_{m}}, \, [ 2 \]_{\equiv_{m}}, \, \ldots \,  [ m-1 \]_{\equiv_{m}} \}$ is the partition of $\mathbb{Z}$ that corresponds to to the relation $\equiv_{m}.$
+
+****
+.Example {counter:mkdrelex} - Arithmetic with Even and Odd Numbers 
+--
+--
+You likely learned, when you were quite young, that some integers are called "even" and other integers are called "odd." 
+
+Notice that every integer is either even or odd but not both, which means that the set \[\{ \text{the set of all even integers}, \, \text{the set of all odd integers} \}\] forms a partition of the set $\mathbb{Z}$ of integers. This partition corresponds to the relation $\equiv_{2},$ that is, congruence modulo 2: The set of all even numbers is the equivalence class $[ 0 \]_{\equiv_{2}}$ and the set of all odd numbers is the equivalence class $[ 1 \]_{\equiv_{2}}.$
+
+You may have learned how to do arithmetic with "even" and "odd," too, as shown in the tables.
+
+//image::imagesMKD/EvenAndOdd.png[EvenAndOdd,928,328,float="right",align="center"]
+//image::imagesMKD/EvenAndOdd.png[EvenAndOdd,310,110,float="center",align="center"]
+image::imagesMKD/EvenAndOdd.png[EvenAndOdd,464,164,float="center",align="center"]
+
+When you did arithmetic with "even" and "odd," you were really doing arithmetic with the equivalence classes $[ 0 \]_{\equiv_{2}}$ and $[ 1 \]_{\equiv_{2}}:$ For example, it will not matter _which_ two odd numbers you add, the result must be even because the two numbers were odd. You can just do the operations on the remainders that you get after dividing by 2.
+
+// to which odd number because the result 0 and 1 modulo 2, or Numbers remainders when $m = 2$ when you were quite young, but not in the formal way presented above. 
+//this textbook. 
+//Instead of referring to the equivalence classes as 0 and 1, you likely used the words "even" and "odd" but could describe certain properties of arithmetic using those words. For example, "odd times even equals even" is a simpler way of stating that if $a \in [1\]_{\equiv_{2}}$ and $b \in [0\]_{\equiv_{2}}$ then $(a \cdot b) \in [0\]_{\equiv_{2}}.$
+//You learned to refer to the equivalence classes as "the even numbers" and "the odd numbers," and could describe certain properties of arithmetic using those words. For example, "odd times even equals even" is a simpler way of stating that if $a \in [1\]_{\equiv_{2}}$ and $b \in [0\]_{\equiv_{2}}$ then $(a \cdot b) \in [0\]_{\equiv_{2}}.$
+
+****
+
+The following theorem proves that you can do addition and multiplication with the remainders (or, what amounts to the same thing, the equivalence classes) in the same way as was done with Evens and Odds in the previous example for the relation $\equiv_{m},$ where $m$ can be any integer greater than 1.
+
+.Theorem
+****
+
+If $m$ is an integer greater than 1, and $a,$ $b,$ $c,$ and $d$ are integers, and $a \equiv_{m} b$ and $c \equiv_{m} d,$ + 
+then $a + c \equiv_{m} b + d$ and $a \cdot c \equiv_{m} b \cdot d.$
+
+.Proof 
+
+Assume that $m,$ $a,$ $b,$ $c,$ and $d$ are integers, and $m > 1.$ 
+This means that $m$ is a divisor of both $(a-b)$ and $(c-d),$ that is, both $(a-b)$ and $(c-d)$ are multiples of $m.$ 
+
+The sum $(a-b) + (c-d)$ must also be a multiple of $m,$ and this sum can be rewritten using properties of addition as $(a+c) - (b+d).$  
+//which is still a multiple of $m.$ 
+This shows that $m$ is a divisor of $(a+c) - (b+d,)$ which can also be stated as \[(a+c) \equiv_{m} (b+d).\]
+
+The expressions $(a-b) \cdot c$ and $b \cdot (c-d)$ must be multiples of $m,$ and the sum of those expressions is $(a-b) \cdot c + b \cdot (c-d),$ which can be simplified using properties of multiplication and addition to $(a \cdot c) - (b \cdot d).$ This shows that $m$ is a divisor of $(a \cdot c) - (b \cdot d),$ which can also be stated as \[(a \cdot c) \equiv_{m} (b \cdot d).\]
+
+
+Q.E.D.
+****
+
+For example, we can write $9 + 5 \equiv_{12} 2$ (This is an example of "clock arithmetic" using a 12-hour clock: 5 hours after 9 o'clock will be 2 o'clock.)
 
 
 // 1000294000873 = 1000003 times 1000291

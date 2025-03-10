@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on January 23, 2025._
+_This chapter was last updated on March 10, 2025._
 
 // MKD start of topics
 ////
@@ -85,19 +85,57 @@ then revised to contrast reals and integers
 
 // MKD added following two paragraphs
 //function as a rule that assigns to each input exactly one output
+// March 6 2025 - more rewording
 
 Informally, 
 //a 
 //As an informal definition, 
 //a function _f_ is a rule that assigns to each input value exactly one output value. 
-a function $f$ from set _D_ to set _C_ is a rule that assigns to each input element in _D_ exactly one output element from _C._ The set _D_ is called the domain of the function, and the set _C_ is called the codomain of the function. This informal definition was introduced in the link:introduction_discrete_math.html#informal_function_definition[ Introducing Discrete Mathematics] chapter.
+a function $f$ from set _D_ to set _C_ is a rule that assigns to each input element in _D_ exactly one output element from _C._ The set _D_ is called the domain of the function, and the set _C_ is called the codomain of the function. This informal definition 
+//was introduced in the 
+was given in the chapter link:introduction_discrete_math.html#informal_function_definition[ Introducing Discrete Mathematics.]
+// chapter.
 
 //This informal definition was introduced in <<introduction_discrete_math.adoc#informal_function_definition,the Introducing Discrete Mathematics>>  chapter.
 
-Notice that the informal definition states that _every_ element in the domain _D_ is assigned an output value in the codomain _C._ #The informal definition does not specify whether _every_ element in the codomain _C_ is an output for some input in the domain _D._# 
+//Notice that the 
+The 
+informal definition 
+//states 
+implies 
+that _every_ element in the domain _D_ is 
+an "input" that is 
+assigned an output value in the codomain _C._ 
+#The informal definition 
+//#but 
+*does not 
+//specify whether 
+imply* that 
+_every_ element in the codomain _C_ is an output for some input in the domain _D._# 
 //The previous highlighted sentence may seem unimportant since we usually only care about the outputs we can actually get from a function, but the following example attempts to show why it is important to be precise about what set the codomain is. 
-The previous, highlighted sentence may seem unimportant since we usually only care about the outputs we can actually get from a function, but the example presented in the next section shows why it is important to be precise about what set the codomain is. 
-
+The 
+//previous, 
+highlighted 
+//part of the previous 
+sentence may seem unimportant since 
+//we 
+you 
+usually only care about the outputs 
+//we 
+you can actually get from a function, but the example presented in the next section shows why it is important to be precise about what set the codomain is. 
+// added March 6 2025
+//For this reason, 
+//you will be given 
+//a 
+A 
+//much more 
+//precise, 
+formal definition of function 
+is introduced 
+in this chapter 
+to address this 
+//concern 
+need for precision.
 
 Key terms and concepts covered in this chapter:
 
@@ -108,6 +146,14 @@ Key terms and concepts covered in this chapter:
 * Properties of functions (injectivity, surjectivity, bijectivity)
 //** The (generalized) pigeonhole principle
 ** A bijective function is the same as a one-to-one correspondence
+// Next three sub-bullets added March 6 2025
+//** A function is injective if and only if for every pair of two different inputs the function assigns those inputs to two different outputs 
+//** A function is surjective if and only if the function's range is equal to its codomain
+** An injective function is one that assigns every pair of different inputs  to 
+a pair of 
+different outputs 
+** A surjective function is one whose range is equal to its codomain (that is, every element of the codomain is an output assigned to one or more inputs)
+** A bijective function is both injective and surjective 
 * Inverse functions
 * Composition of functions
 
@@ -124,10 +170,19 @@ difference.
 
 
 // MKD made example into its own section January 15, 2025
-== Why Knowing the Codomain is Important
+//== Why Knowing the Codomain is Important
+// MKD changed title March 6 2025
+== Why Specifying the Codomain is Important
 
 //The following example compares two implementations of what should be the "same" function but using different codomains. You will see how the different codomains effect how the functions' outputs can be used.
-The following example compares two implementations of what would seem to be the "same" function: The input values are the same, and the description of how to compute outputs seems to be the same, but the codomains are different which effects how the output values can be used.
+//The following example compares two implementations of what would seem to be the "same" function: The input values are the same, and the description of how to compute outputs seems to be the same, but the codomains are different which effects how the output values can be used.
+// MKD revised March 6 2025
+//The following example compares two implementations of the "same" function in different programming languages: The input values are the same, and the rule that assigns to each input its one and only output is the same, but the codomains are different which effects how output values can be used.
+The following example compares two implementations, in different programming languages, of 
+//what appears to be 
+the "same" function: The input values are the same, and the rule that assigns to each input its one and only output is the same. 
+//However, the implementations use different codomains, which effects how the output values can be used.
+However, the two implementations use different codomains which effects how the output values can be used.
 
 
 // MKD inserted python floor example and java floor example HERE!
@@ -142,7 +197,8 @@ The following example compares two implementations of what would seem to be the 
 
 ****
 //.Example {counter:funcex:0} - Python's floor() returns an int, Java's floor() returns a double
-.Example {counter:funcex:0} - The floor() functions in Python and Java
+//.Example {counter:funcex:0} - The floor() functions in Python and Java
+.Example {counter:funcex} - The floor() functions in Python and Java
 
 --
 --
@@ -164,22 +220,46 @@ The following example compares two implementations of what would seem to be the 
 //In computing, the implementations of integer data types is very different from the implementations of floating-point data types that are used to represent real numbers. 
 //In mathematics, it is common to treat the set of integers as a subset of the set of real numbers, though at a more advanced level of mathematics the integers can also be regarded as very different from the real numbers.
 
-In computing, integer data types are used to represent integers such as loop counters or indices into arrays, while floating-point data types are used to represent real numbers used in scientific or financial calculations. 
+In computing, integer data types are used 
+//primarily 
+to represent 
+//integers 
+//natural numbers (and their negatives) (either positive, negative, or zero) 
+//such as 
+loop 
+counters 
+//in loops 
+or indices into arrays, while floating-point data types are used to represent real numbers 
+(like decimals) 
+//used 
+in scientific or financial calculations. 
 //It is important to note that the implementation, in hardware and software, of integer data types is very different from the implementation of floating-point data types. 
 //Even though most 
-In general, numbers that can be stored using an integer type can also be stored using a floating-point type, 
+In general, 
+a number 
+//numbers 
+that can be stored using an integer type can also be stored using a floating-point type, 
 but 
 the _ways_ in which that number can be used will depend on the data type. 
 The following code examples show why it is important to keep this in mind when coding. 
 
-First, recall that the floor of _x_, written as $\lfloor x \rfloor,$ is the greatest integer less than or equal to the real number _x._ The floor() function is available in both Python and Java as an implementation of $\lfloor x \rfloor.$ In both programming languages floor() takes a double precision floating-point number as its input, but Python floor() returns a value of integer data type while Java floor() function returns a value of floating-point data type. 
+First, recall that the link:./introduction_discrete_math.html#informal_floor_and_ceiling_definition[floor of _x_,] written as $\lfloor x \rfloor,$ is the greatest integer less than or equal to the real number _x._ The floor() function is available in both Python and Java as an implementation of $\lfloor x \rfloor.$ In both programming languages floor() takes a double precision floating-point number as its input, but Python floor() returns a value of integer data type while Java floor() function returns a value of floating-point data type. 
 //return values are of different data types. + 
-//The following two code samples each implement a lookup: The floor of a floating-point number is computed then that result is used as an index into a list or an array.
-[small]#The gory details: 
+//The following two code samples each implement a lookup: The floor of a floating-point number is computed then that result is used as an index into a list or an array. 
+
+//[small]#The gory details: 
 //Into the weeds: 
-On most hardware, both Python's `float` data type and Java's `double` data type are implementations of 
-link:https://ieeexplore.ieee.org/document/8766229[IEEE 754]  double precision 64-bit floating-point numbers. The link:https://docs.python.org/3/library/math.html#math.floor[floor() function in Python] takes a `float` as input and returns an `int` and the link:https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#floor-double-[floor() function in Java] takes a `double` as input and returns a `double.` 
-This means that the floor() functions in Python and Java have the _same_ domain and use, essentially, the _same_ rule to compute output values, but have _different_ codomains.# 
+//[click.More.detail.about.double precision.floating-point]
+//https://ieeexplore.ieee.org/document/8766229
+//https://ieeexplore.ieee.org/document/9091348 
+[click.More.detail.about.floating.point]
+--
+[small]#On most hardware, both Python's `float` data type and Java's `double` data type are implementations of 
+link:https://ieeexplore.ieee.org/document/9091348[IEEE 754] double precision 64-bit floating-point numbers. For example, the decimal number 1.4 is encoded by the bitstring  \[001111111111011001100110011001100110011001100110011001100110011\] of length 64 whether you use a Python `float` with value 1.4 or a Java `double` with value 1.4. The underlying bitstring used for the encoding 1.4 is the same in both languages. + 
+The link:https://docs.python.org/3/library/math.html#math.floor[floor() function in Python] takes a `float` as input and returns an `int` + 
+The link:https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#floor-double-[floor() function in Java] takes a `double` as input and returns a `double.` + 
+This means that the floor() functions in Python and Java have the _same_ domain and use, essentially, the _same_ rule to compute output values, but have _different_ codomains (that are represented by different data types in the two languages.)# 
+--
 //link:https://standards.ieee.org/ieee/754/6210/[IEEE 754] 
 //On most hardware, both Python's `float` data type and Java's `double` data type are implementations of link:https://ieeexplore.ieee.org/document/8766229[IEEE 754]  double precision 64-bit floating-point numbers. The remixer is using this to justify that the floor() functions in both Python and Java use the _same_ rule and have the _same_ domain but different codomains.# 
 //link:https://standards.ieee.org/ieee/754/6210/[IEEE 754] 
@@ -299,12 +379,13 @@ link:https://link.springer.com/book/10.1007/978-3-540-34035-5[Théorie des ensem
 
 // MKD Jan 23 2025 inserted first sentence
 Why would we need such a highly technical formal definition? 
-#The reason why the ordered triple is used in the definition is that we need to be able to distinguish two functions that have the same graph 
+#The reason why the ordered triple is used in the definition is that we need to be able to distinguish two functions that have the same graph, as a set of ordered pairs, 
 //by specifying the codomain. 
 but different codomains.# 
 //Note that if two functions have the same graph then they must have the same domain, but they could still have different codomains.
 // MKD Jan 23 2025 revision
-Two functions can have different codomains even if their graphs, as sets of ordered pairs, are the same set (Notice that having the same graph implies that they have the same domain, too.) If this is not clear, see the example "Three closely-related functions, no two of which are equal," which comes after the definitions listed below.
+// further rewording March 9 2025
+Two functions can have different codomains even if their graphs, as sets of ordered pairs, are the same set (Notice that if two functions have the same graph then they must have the same domain.) If this is not clear, see the example "Three closely-related functions, no two of which are equal," which comes after the definitions listed below.
 
 //MKD need example from R to R here to illustrate that the graph is what you typically plot as points in the _xy_-plane.
 
@@ -439,7 +520,9 @@ $h = \{ (x,\,x^{2}) \mid x \in \mathbb{N} \}.$
 
 No two of these functions are equal even though they 
 //are defined by the same rule "the output is the square of the input" 
-can all be described by the words "the output is the square of the input" 
+can all be described by the 
+//words 
+rule "the output is the square of the input" 
 and  
 //because they are 
 have 
@@ -456,16 +539,50 @@ have the same graph and the same domain.
 
 
 //COMING SOON!
-// MKD little or no changes have been made below.
+// MKD March 9 2025 reorganized all below
 
-== Injective, Surjective, Bijective, and Inverse Functions
-A function $f$ is *injective*, or *one to one*, if every element in the range $B$ is
-associated with a unique element from the domain $A$, that is, different elements of $A$ have nonequal images in $B$. This means that if $f(m)=b$
-and $f(n)=b$, then necessarily $m=n$.
+//== Injective, Surjective, Bijective, and Inverse Functions
+== Properties of Functions
 
+In this subsection you will learn about several properties of functions.
+
+=== Injective Functions
+
+A function $f : A \rightarrow B$ is *injective* if distinct elements of the domain $A$ are mapped to distinct elements of the range. 
+// in the range is associated with a unique element from the domain $A.$ 
+That is, for all $a_1$ and $a_2$ in $A,$ if $a_1 \neq a_2$ then $f(a_1) \neq f(a_2).$ 
+//That is, different input elements of $A$ have different output images in $B$. 
+//This means that if $f(m)=b$ and $f(n)=b$, then necessarily $m=n$. + 
+Using the contrapositive, this can be stated as: For all $a_1$ and $a_2$ in $A,$ if $f(a_1) = f(a_2)$ then $a_1 = a_2.$ + 
+[small]#Note: Injective functions are also called *one to one* functions.  The Remix avoids this term because it is easy to confuse "one to one function" with "one-to-one correspondence."#
+
+****
+.Example {counter:funcex} - Injective Functions
+
+Consider the functions + 
+$f : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $f(n) = 2^{n}$ + 
+$g : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $g(n) = n^{2},$ and + 
+$h : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $h(n) = n + 2,$ and + 
+$k : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $k(n) = \frac{1}{4}((-1)^n (2n+1) - 1).$
+
+$f$ is injective because different input values must be mapped to different output values. Notice that $f(a) = f(c)$ means that $2^{a} = 2^{c}$ from which $2^{a} / 2^{c} = 1 = 2^{a-c}$ must be True, so $a-c = 0$ must be True, that is, $a = c.$
+
+$g$ is not injective because the input values $2$ and $-2$ are mapped to the same output value: $(2)^2 = 4$ and $(-2)^2 = 4.$
+
+$h$ is injective because $h(a) = h(c)$ means that $a+2 = c+2,$ which means that $a=c.$ 
+
+$k$ is not injective because the input values $-1$ and $0$ are mapped to the same output value, 0.
+
+****
+
+// MKD March 10 2025
+// k(x) that is not injective but is surjective: 
+// $k : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $k(n) = \frac{1}{4}((-1)^n (2n+1) -1).$
+
+////
+// MKD March 9 2025 - commented out
 Real-valued functions, $f: \mathbb{R} \rightarrow \mathbb{R}$, that are strictly
 increasing or strictly decreasing, such as exponential or logarithmic functions,  are injective.
-
 
 .Theorem on real valued functions
 ****
@@ -480,9 +597,39 @@ On a Cartesian plane, this means that _every_ horizontal line intersects
 the graph _at most once_ for an injective function.  A function is not injective if _at least one_ horizontal line intersects the graph _more than once_.
 //MKD ADD GRAPH SHOWING NOT INJECTIVE
 ====
-A function $f$ from the set $A$ to the set $B$ is *surjective*, or *onto*, if the image set of $A$ is the entire set $B$. This means than for any element $b \in B$ there is some element $a \in A$ with $f(a)=b$.
+////
 
+=== Surjective Functions
 
+A function $f$ from the set $A$ to the set $B$ is *surjective* if the image set of $A$ is the entire set $B$. This means than for each element $b$ in the codomain $B,$ there is some element $a \in A$ with $f(a)=b$. + 
+[small]#Note: Surjective functions are also called *onto* functions.#
+
+****
+.Example {counter:funcex} - Surjective Functions
+
+Consider the functions + 
+$f : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $f(n) = 2^{n}$ + 
+$g : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $g(n) = n^{2},$ and + 
+$h : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $h(n) = n + 2,$ and + 
+$k : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $k(n) = \frac{1}{4}((-1)^n (2n+1) - 1).$
+
+$f$ is not surjective since it is not possible for $2^{n}$ to have a value that is less than or equal to 0.
+
+$g$ is not surjective because is not possible for $n^{2}$ to have a value that is less than 0.
+
+$h$ is surjective because every $b$ in the codomain $\mathbb{Z}$ is an output for some input: Notice that $h(b-2) = (b-2+2) = 2.$ 
+
+$k$ is surjective because every $b$ in the codomain $\mathbb{Z}$ is an output for some nonnegative input - for inputs $n \geq 0,$ the outputs $k(n)$ are shown in the lower row of the image.
+
+//image::imagesMKD/NtoZ.png[NtoZ,992,294,float="right",align="center"]
+image::imagesMKD/NtoZ.png[NtoZ,331,98,align="center"]
+
+****
+
+Notice that whether a function is surjective depends on what the function's codomain. This is, again, why the formal definition of function is needed.
+
+////
+// MKD March 9 2025 - commented out
 Informally a function is *surjective* to its codomain $B$, if _every_ element in $B$
 can be reached
 by $f$. A function is  *not surjective*  to its codomain if at least
@@ -535,12 +682,17 @@ injective. A horizontal line at $y=4$, meets the graph at both $x=2$, and $x=-2$
 
 
 ****
+////
 
 
+=== Bijective Functions
 
 A function $f$ is *bijective* if it is both injective and surjective.
 // MKD state that bijective is "same as"  1-1 correspondence
 
+
+////
+// MKD March 9 2025 - commented out
 ****
 .Example {counter:funcex} - A bijective function
 
@@ -562,6 +714,7 @@ This means that if $a^3=b^3$, then necessarily $a=b$. In fact if $a^3=b^3=c$, th
 $a=b=$ asciimath:[ root(3)(c)], uniquely.
 
 ****
+////
 
 ****
 .Example {counter:funcex} - Verifying a function is bijective
@@ -581,7 +734,7 @@ $\frac{1}{3}$ gives $m=n$.
 
 To show that $f\left(x\right)$ is surjective we need to
 show that any $c\in R$ can be reached by  $f\left(x\right)$.
-Specifically, to show that  $f\left(x\right)$ is surjective, we need to show that for any
+Specifically, to show that $f\left(x\right)$ is surjective, we need to show that for any
 $c\in R$, there is a corresponding $x$ for which $f\left(x\right)=c$.  To show this
 consider $f\left(x\right)=3x+5$. Equate to $c$ and solve for $x$.
 
@@ -592,16 +745,26 @@ $x=\frac{c-5}{3}$, for which $f\left(x\right)=c$.
 ****
 
 
-A function $f$ is *invertible* if the inverse of relation $f : A \rightarrow  B$ is
-also a function. The inverse is usually denoted $ f^{-1}$.
+// MKD March 9 2025 - new section for Invertible functions
+== Inverse Functions
+
+Informally, a function $f$ is invertible if each $b$ in the codomain $B$ is assigned to exactly one input $a$ in the domain $A.$ 
+
+Formally, a function $f : A \rightarrow  B$ is *invertible* if the ordered triple $(\{(b, a) \, | \, (a, b) \in f \},\, B,\, A)$ is a function. 
+
+The set $\{(b, a) \, | \, (a, b) \in f \}$ is usually denoted by $f^{-1}$ even in cases when $f$ is not invertible.
+
+//inverse of relation $f : A \rightarrow  B$ is from set $A$ to set $B$* is an ordered triple $(f,\, A,\, B)$ consisting of sets $f,$ $A,$ and $B$ such that 
+
+//A function $f$ is *invertible* if the inverse of relation $f : A \rightarrow  B$ is also a function. The inverse is usually denoted $ f^{-1}$.
+
 For example if $(a,b)$, corresponds to $f(a)=b$ , then $ f^{-1}:  B \rightarrow  A$, corresponds to $ f^{-1}(b)=a$.
 
-The following theorem shows that invertibility of a function is equivalent to
-bijectivity, or a function being both a one-to one function and onto function.
+The following theorem shows that invertibility of a function is equivalent to bijectivity, or a function being both injective and surjective.
 
 .Theorem on Invertibility
 ****
-A function $f: A \rightarrow  B$ is invertible if and only if $f$  is bijective.
+A function $f: A \rightarrow  B$ is invertible if and only if $f$ is bijective.
 ****
 
 [NOTE]
@@ -916,29 +1079,28 @@ in $f$, corresponds to $\left(x^3+1,x\right)$ for $g$.
 The function asciimath:[ g(x))= root(3)(x-1) ]  is said to be the inverse of the function $f\left(x\right)=x^3+1$.
 We have shown explicitly that $\left(g\circ f\right)\left(x\right)=x$.
 
-== The Inverse of a Function
-In view of this relation when composing functions that are inverses of each other, we provide an intuitive definition of
-inverse functions.
+//== The Inverse of a Function
+// MKD March 9 2025 reworked this subsection
+=== Inverse Functions and Composition
+
+Notice that if you happen to have two functions $f : A \rightarrow B$ and  $g : B \rightarrow A$ such that 
+$(g \circ f)(a) = g(f(a)) = a$ for every $a \in A$ and
+$(f \circ g)(b) = f(g(b)) = b$ for every $b \in B,$ then $f$ and $g$ are inverse functions. 
+
+//In view of this relation when composing functions that are inverses of each other, we provide an intuitive definition of inverse functions.
+
+//Suppose $f\left(a\right):A\rightarrow B$ is bijective, then the *inverse* of $f\left(x\right)$, is the function denoted $f^{-1}\left(b\right):B\rightarrow A$.
+
+//The inverse can be similarly defined for relations in general, however the bijective property is used to ensure that the inverse of a function $f$ is also a function.
+
+//For example the following relations have inverses as given.
+
+//$\left\{\left(-3,\ 9\right),\ \left(-2,4\right),\ \left(-1,1\right),\ \left(0,0\right),\ \left(1,\ 1\right),\ \left(2,\ 4\right),\ \left(3,9\right)\right\}$ with inverse,
+
+//$\left \{ \left(9,-3\ \right),\ \left(4,\ -2\ \right),\ \left(1,\ -1\right),\ \left(0,0\right),\ (1,\ 1,\ \left(4,2,\right),\ (9,3)\right \}$
 
 
-Suppose $f\left(a\right):A\rightarrow B$ is bijective,
-then the *inverse* of $f\left(x\right)$, is the function denoted $f^{-1}\left(b\right):B\rightarrow A$.
-
-The inverse can be similarly defined for relations in general, however the bijective property is used to ensure that the inverse of a function $f$ is also a function.
-
-For example the following relations have inverses as given.
-
-$\left\{\left(-3,\ 9\right),\ \left(-2,4\right),\ \left(-1,1\right),\ \left(0,0\right),\ \left(1,\ 1\right),\ \left(2,\ 4\right),\ \left(3,9\right)\right\}$ with inverse,
-
-$\left \{ \left(9,-3\ \right),\ \left(4,\ -2\ \right),\ \left(1,\ -1\right),\ \left(0,0\right),\ (1,\ 1,\ \left(4,2,\right),\ (9,3)\right \}$
-
-
-Notice that the original relation can be considered a function with
-domain $A=\left\{-3,\ -2,\ -1,\ 0,\ 1,\ 2,\ 3,\right\}$ and co-domain
-$B=\left\{0,\ 1,\ 4,\ 9\right\}$.  However the inverse mapping from domain
-$A=\left\{0,\ 1,\ 4,\ 9\right\}$ with co-domain $B=\left\{-3,\ -2,\ -1,\ 0,\ 1,\ 2,\ 3,\right\}$,
-is a relation that is not a function because of the mappings
-$\left(-9,3\right)$, and $\left(-9,\ 3\right)$.
+//Notice that the original relation can be considered a function with domain $A=\left\{-3,\ -2,\ -1,\ 0,\ 1,\ 2,\ 3,\right\}$ and co-domain $B=\left\{0,\ 1,\ 4,\ 9\right\}$.  However the inverse mapping from domain $A=\left\{0,\ 1,\ 4,\ 9\right\}$ with co-domain $B=\left\{-3,\ -2,\ -1,\ 0,\ 1,\ 2,\ 3,\right\}$, is a relation that is not a function because of the mappings $\left(-9,3\right)$, and $\left(-9,\ 3\right)$.
 
 
 ****
@@ -1008,7 +1170,7 @@ or $g:11\rightarrow 2$.
 
 Remixer's Note: This section is taken from the original 
 https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with only minor changes.
-
+//MKD inserted missing $ after \rceil in celing function below
 
 . What can be said about the relation $f:A\rightarrow B$, if
 .. $\exists z\in B\forall x\in A,f\left(x\right)\neq z$
@@ -1021,11 +1183,6 @@ https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book with on
 . Explain why exponential function $f(x)=2^x$ is not surjective from
 $f: \mathbb{R} \rightarrow \mathbb{R}$, but is in fact a bijection
 from $f: \mathbb{R} \rightarrow \mathbb{R}^+$.
-
-//MKD inserted missing $ after \rceil
-. Explain why ceiling function $ \left \lceil x \right \rceil$ is not surjective from
-$f: \mathbb{R} \rightarrow \mathbb{R}$, but is surjective from
-from $f: \mathbb{R} \rightarrow \mathbb{Z}$.
 
 . Use properties of logarithms to show that
 $f\left(x\right)=2^x$ and $g\left(x\right)=\log_2{x}$, where $f, g: \mathbb{R} \rightarrow \mathbb{R}$,
@@ -1054,6 +1211,8 @@ $f\left(g\left(x\right)\right)=g\left(f\left(x\right)\right)=x$.
 .. 	Suppose $g\left(x\right)=2x$, with $f\left(x\right)=\left\lceil x\right\rceil$.  Evaluate the following:
 ... $f\left(g\left(2.3\right)\right)$
 ... $g\left(f\left(2.3\right)\right)$
+
+. Explain why ceiling function $ \left \lceil x \right \rceil$ is not surjective from $f: \mathbb{R} \rightarrow \mathbb{R}.$
 
 . Consider the function $f(x) = \left \lfloor x \right \rfloor$ where $f:\mathbb{R}\rightarrow\mathbb{Z}$.
 .. Is the function a surjection?  Explain.

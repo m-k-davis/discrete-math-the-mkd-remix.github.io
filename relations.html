@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on January 23, 2025.
+        This chapter was last updated on March 10, 2025.
        </em>
       </p>
      </div>
@@ -1421,6 +1421,11 @@ Most of the focus of this chapter will be on binary relations.
       <h3 id="_order_relations_on_a_set">
        9.4. Order Relations on a Set
       </h3>
+      <div class="paragraph">
+       <p>
+        It is often useful to be able to compare elements of a set, based on some key property. In this subsection, several examples of such order relations will be discussed.
+       </p>
+      </div>
       <div class="sect3">
        <h4 id="_partial_orderings">
         9.4.1. Partial Orderings
@@ -1438,7 +1443,7 @@ Most of the focus of this chapter will be on binary relations.
         <div class="content">
          <div class="openblock">
           <div class="title">
-           Example 4 - Parital Orders
+           Example 4 - Partial Orders
           </div>
           <div class="content">
           </div>
@@ -1447,57 +1452,78 @@ Most of the focus of this chapter will be on binary relations.
           <ul>
            <li>
             <p>
-             For any set \(S,\) the relations \(\subseteq\) and \(\subset\) are partial orders.
+             For any set \(S,\) the relations \(\subseteq\) is a partial order.
             </p>
            </li>
           </ul>
          </div>
         </div>
        </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_total_orderings">
-        9.4.2. Total Orderings
-       </h4>
-       <div class="paragraph">
-        <p>
-         A
-         <strong>
-          total ordering
-         </strong>
-         of a set \(S\) is a relation \(R\) on \(S\) that has the property \((\forall x \in S)(\forall y \in S)(xRy \lor yRx).\)
-        </p>
-       </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_well_ordering">
-        9.4.3. Well-Ordering
-       </h4>
-       <div class="paragraph">
-        <p>
-         A
-         <strong>
-          well-ordering
-         </strong>
-         of a set \(S\) is a total ordering that has the additional property that every nonempty subset of \(S\) contains a least element with respect to the order relation.
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          Axiom
-         </div>
-         <div class="paragraph">
-          <p>
-           The set \(\mathbb{N}\) of natural numbers is a well-ordered set.
-          </p>
+       <div class="sect4">
+        <h5 id="_total_orderings">
+         Total Orderings
+        </h5>
+        <div class="paragraph">
+         <p>
+          A
+          <strong>
+           total ordering
+          </strong>
+          of a set \(S\) is a
+partial order \(R\) on \(S\) that has the additional property \((\forall x \in S)(\forall y \in S)(xRy \lor yRx).\)
+         </p>
+        </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="openblock">
+           <div class="title">
+            Example 5 - Total Orderings
+           </div>
+           <div class="content">
+           </div>
+          </div>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              For the set of real numbers \(\mathbb{R}\) the usual order relations \(\leq\) and \(\geq\) are total orders.
+             </p>
+            </li>
+           </ul>
+          </div>
          </div>
         </div>
        </div>
-       <div class="paragraph">
-        <p>
-         Note that the above statement is not a theorem…​ it is an axiom that we assume to be true about the natural numbers!
-        </p>
+       <div class="sect4">
+        <h5 id="_well_orderings">
+         Well-Orderings
+        </h5>
+        <div class="paragraph">
+         <p>
+          A
+          <strong>
+           well-ordering
+          </strong>
+          of a set \(S\) is a total ordering \(R\) on \(S\) that has the additional property that every nonempty subset of \(S\) contains a least element with respect to the order relation.
+         </p>
+        </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="title">
+           Axiom
+          </div>
+          <div class="paragraph">
+           <p>
+            The relation \(\leq\) on the set \(\mathbb{N}\) of natural numbers is a well-ordering.
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that the above statement is not a theorem…​ it is an axiom that we assume to be true about the natural numbers!
+         </p>
+        </div>
        </div>
       </div>
      </div>
@@ -1511,17 +1537,107 @@ Most of the focus of this chapter will be on binary relations.
         <strong>
          congruence modulo \(m\)
         </strong>
-        as the relation \(\equiv_{m} = \{ (a, b) \, | \, m \text{ divides } (a-b) \}.\)
+        as the relation \[\{ (a, b) \in \mathbb{Z} \times \mathbb{Z} \, : \, m \text{ divides } (a-b) \}.\]
+The symbol \(\equiv_{m}\) is used to represent this relation, that is \[a \equiv_{m} b \text{ if and only if } m \text{ divides } (a-b)\]
        </p>
       </div>
       <div class="paragraph">
        <p>
-        For each positive integer \(m,\) \(\equiv_{m}\) is an equivalence relation. For any integer \(a,\) you can use the division algorithm to find the quotient and remainder such that \(a = q \cdot m + r\), where \(q\) and \(r\) are integers and \(0 \leq r &lt; m.\)  So every integer is congruent modulo \(m\) to one of the integers in the set \(\{ 0, 1, \ldots, m-1 \}.\)
+        For each positive integer \(m,\) \(\equiv_{m}\) is an equivalence relation.
        </p>
       </div>
       <div class="paragraph">
        <p>
-        You likely learned how to do arithmetic with the remainders when \(m = 2\) when you were quite young, but not in the formal way presented in this textbook. Instead of referring to the equivalence classes as 0 and 1, you likely used the words "even" and "odd" but could describe certain properties of arithmetic using those words. For example, "odd times even equals even" is a simpler way of stating that if \(a \in [1]_{\equiv_{2}}\) and \(b \in [0]_{\equiv_{2}}\) then \((a \cdot b) \in [0]_{\equiv_{2}}.\)
+        For any integer \(a,\) you can use the division algorithm to find the quotient and remainder such that \(a = q \cdot m + r\), where \(q\) and \(r\) are integers and \(0 \leq r &lt; m,\) so every integer is congruent modulo \(m\) to one of the integers in the set \(\{ 0, 1, \ldots, m-1 \}.\) The set of equivalence classes \(\{ [ 0 ]_{\equiv_{m}}, \, [ 1 ]_{\equiv_{m}}, \, [ 2 ]_{\equiv_{m}}, \, \ldots \,  [ m-1 ]_{\equiv_{m}} \}\) is the partition of \(\mathbb{Z}\) that corresponds to to the relation \(\equiv_{m}.\)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 6 - Arithmetic with Even and Odd Numbers
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          You likely learned, when you were quite young, that some integers are called "even" and other integers are called "odd."
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that every integer is either even or odd but not both, which means that the set \[\{ \text{the set of all even integers}, \, \text{the set of all odd integers} \}\] forms a partition of the set \(\mathbb{Z}\) of integers. This partition corresponds to the relation \(\equiv_{2},\) that is, congruence modulo 2: The set of all even numbers is the equivalence class \([ 0 ]_{\equiv_{2}}\) and the set of all odd numbers is the equivalence class \([ 1 ]_{\equiv_{2}}.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          You may have learned how to do arithmetic with "even" and "odd," too, as shown in the tables.
+         </p>
+        </div>
+        <div class="imageblock center text-center">
+         <div class="content">
+          <img alt="EvenAndOdd" height="164" src="imagesMKD/EvenAndOdd.png" width="464"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          When you did arithmetic with "even" and "odd," you were really doing arithmetic with the equivalence classes \([ 0 ]_{\equiv_{2}}\) and \([ 1 ]_{\equiv_{2}}:\) For example, it will not matter
+          <em>
+           which
+          </em>
+          two odd numbers you add, the result must be even because the two numbers were odd. You can just do the operations on the remainders that you get after dividing by 2.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following theorem proves that you can do addition and multiplication with the remainders (or, what amounts to the same thing, the equivalence classes) in the same way as was done with Evens and Odds in the previous example for the relation \(\equiv_{m},\) where \(m\) can be any integer greater than 1.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          If \(m\) is an integer greater than 1, and \(a,\) \(b,\) \(c,\) and \(d\) are integers, and \(a \equiv_{m} b\) and \(c \equiv_{m} d,\)
+          <br/>
+          then \(a + c \equiv_{m} b + d\) and \(a \cdot c \equiv_{m} b \cdot d.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Proof
+         </div>
+         <p>
+          Assume that \(m,\) \(a,\) \(b,\) \(c,\) and \(d\) are integers, and \(m &gt; 1.\)
+This means that \(m\) is a divisor of both \((a-b)\) and \((c-d),\) that is, both \((a-b)\) and \((c-d)\) are multiples of \(m.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The sum \((a-b) + (c-d)\) must also be a multiple of \(m,\) and this sum can be rewritten using properties of addition as \((a+c) - (b+d).\)
+This shows that \(m\) is a divisor of \((a+c) - (b+d,)\) which can also be stated as \[(a+c) \equiv_{m} (b+d).\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The expressions \((a-b) \cdot c\) and \(b \cdot (c-d)\) must be multiples of \(m,\) and the sum of those expressions is \((a-b) \cdot c + b \cdot (c-d),\) which can be simplified using properties of multiplication and addition to \((a \cdot c) - (b \cdot d).\) This shows that \(m\) is a divisor of \((a \cdot c) - (b \cdot d),\) which can also be stated as \[(a \cdot c) \equiv_{m} (b \cdot d).\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        For example, we can write \(9 + 5 \equiv_{12} 2\) (This is an example of "clock arithmetic" using a 12-hour clock: 5 hours after 9 o’clock will be 2 o’clock.)
        </p>
       </div>
       <div class="paragraph">

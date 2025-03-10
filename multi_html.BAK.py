@@ -87,27 +87,3 @@ for chap_index in range(0, len(chap_htmls)):
 	with open(chap_htmls[chap_index], "wb") as f_output:
 			f_output.write(soup_copy.prettify("utf-8"))
 			f_output.close()
-
-# # MKD float to 64 bits added Mar 6 2025
-# import struct
-# 
-# def float_to_bits(f):
-#   """Converts a float to its 64-bit binary representation as a string."""
-#   # Pack the float into a 64-bit double-precision (d) byte string in little-endian (<) order
-#   packed_bytes = struct.pack('<d', f)
-#   # Convert the bytes to an integer and then to a binary string
-#   bits = bin(int.from_bytes(packed_bytes, 'little'))[2:].zfill(64)
-#   return bits
-# 
-# # Example usage:
-# number = 12.2
-# number = 1.4
-# bits = float_to_bits(number)
-# print(f"The 64-bit representation of {number} is: {bits}")
-# #The 64-bit representation of 1.4 is: #"0011111111110110011001100110011001100110011001100110011001100110"
-# #"0011111111110110011001100110011001100110011001100110011001100110"
-# 
-# number = 0.1
-# bits = float_to_bits(number)
-# print(f"The 64-bit representation of {number} is: {bits}")
-# 
