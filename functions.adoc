@@ -2,7 +2,8 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on March 10, 2025._
+_This chapter was last updated on March 11, 2025._ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 // MKD start of topics
 ////
@@ -560,7 +561,7 @@ Using the contrapositive, this can be stated as: For all $a_1$ and $a_2$ in $A,$
 .Example {counter:funcex} - Injective Functions
 
 Consider the functions + 
-$f : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $f(n) = 2^{n}$ + 
+$f : \mathbb{Z} \rightarrow \mathbb{Q}$ defined by $f(n) = 2^{n}$ + 
 $g : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $g(n) = n^{2},$ and + 
 $h : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $h(n) = n + 2,$ and + 
 $k : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $k(n) = \frac{1}{4}((-1)^n (2n+1) - 1).$
@@ -608,7 +609,7 @@ A function $f$ from the set $A$ to the set $B$ is *surjective* if the image set 
 .Example {counter:funcex} - Surjective Functions
 
 Consider the functions + 
-$f : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $f(n) = 2^{n}$ + 
+$f : \mathbb{Z} \rightarrow \mathbb{Q}$ defined by $f(n) = 2^{n}$ + 
 $g : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $g(n) = n^{2},$ and + 
 $h : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $h(n) = n + 2,$ and + 
 $k : \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $k(n) = \frac{1}{4}((-1)^n (2n+1) - 1).$

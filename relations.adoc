@@ -2,7 +2,9 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on March 10, 2025._
+_This chapter was last updated on March 11, 2025._ + 
+_added additional example at end of chapter_ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 //COMING SOON!
 
@@ -555,6 +557,36 @@ For example, we can write $9 + 5 \equiv_{12} 2$ (This is an example of "clock ar
 // 1000294000873 = 1000003 times 1000291
 // 1000276000819 = 1000003 times 1000273
 // 1000276000819 and 1000294000873
+
+****
+.Example {counter:mkdrelex} - Solving a linear congruence
+--
+--
+
+If it is 12 o'clock now, what is the least number of 7-hour intervals that must pass before the clock will read 4 o'clock?
+
+This question is equivalent to finding the smallest natural number $n$ that solves the linear congruence $7n \equiv_{12} 4.$
+
+One way to solve this congruence is to treat this as a "clock arithmetic" problem: + 
+After one 7-hour interval passes, the clock will read 7 o-clock. + 
+After two 7-hour intervals pass, the clock will read 2 o-clock, because $7+7=14$ and $14 \equiv_{12} 2.$ + 
+After three 7-hour intervals pass, the clock will read 9 o-clock, because $2+7 = 9$. + 
+After four 7-hour intervals pass, the clock will read 4 o-clock, because $9+7 = 16$ and $16 \equiv_{12} 4.$. + 
+So the least number of 7-hour intervals that must pass before the clock will read 4 o'clock is four. 
+
+Another way to solve this congruence is to consider the remainders of natural number-multiples of 7 after dividing by 12: + 
+$1 \cdot 7 = 7$ and $7 \equiv_{12} 7$ + 
+$2 \cdot 7 = 14$ and $14 \equiv_{12} 2$ since $14 = 1 \cdot 12 + 2$ + 
+$3 \cdot 7 = 21$ and $21 \equiv_{12} 9$ since $21 = 1 \cdot 12 + 9$ + 
+$4 \cdot 7 = 28$ and $28 \equiv_{12} 4$ since $28 = 2 \cdot 12 + 4$ + 
+Since $4 \cdot 7 \equiv_{12} 4,$ four 7-hour intervals must pass before the clock will read 4 o'clock.
+
+.You try
+
+* Find the smallest natural number $n$ such that $3n \equiv_{11} 5.$
+* Explain why there is no natural number $n$ that solves the congruence $4n \equiv_{10} 5.$
+
+****
 
 
 MORE TO COME!

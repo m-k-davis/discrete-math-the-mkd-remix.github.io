@@ -10599,7 +10599,8 @@ The game is won by moving the stack of disks from the original peg to another pe
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on March 10, 2025.</em></p>
+<p><em>This chapter was last updated on March 11, 2025.</em><br>
+<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
 </div>
 <div class="paragraph">
 <p>Informally,
@@ -10890,7 +10891,7 @@ Using the contrapositive, this can be stated as: For all \(a_1\) and \(a_2\) in 
 <div class="paragraph">
 <div class="title">Example 3 - Injective Functions</div>
 <p>Consider the functions<br>
-\(f : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(f(n) = 2^{n}\)<br>
+\(f : \mathbb{Z} \rightarrow \mathbb{Q}\) defined by \(f(n) = 2^{n}\)<br>
 \(g : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(g(n) = n^{2},\) and<br>
 \(h : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(h(n) = n + 2,\) and<br>
 \(k : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(k(n) = \frac{1}{4}((-1)^n (2n+1) - 1).\)</p>
@@ -10921,7 +10922,7 @@ Using the contrapositive, this can be stated as: For all \(a_1\) and \(a_2\) in 
 <div class="paragraph">
 <div class="title">Example 4 - Surjective Functions</div>
 <p>Consider the functions<br>
-\(f : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(f(n) = 2^{n}\)<br>
+\(f : \mathbb{Z} \rightarrow \mathbb{Q}\) defined by \(f(n) = 2^{n}\)<br>
 \(g : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(g(n) = n^{2},\) and<br>
 \(h : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(h(n) = n + 2,\) and<br>
 \(k : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(k(n) = \frac{1}{4}((-1)^n (2n+1) - 1).\)</p>
@@ -11524,7 +11525,9 @@ increasing</strong> if whenever \$x&lt;y\$, then \$f(x)&lt;f(y)\$.</p>
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on March 10, 2025.</em></p>
+<p><em>This chapter was last updated on March 11, 2025.</em><br>
+<em>added additional example at end of chapter</em><br>
+<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
 </div>
 <div class="paragraph">
 <p>Relations are used to describe an association of data.</p>
@@ -12076,6 +12079,49 @@ This shows that \(m\) is a divisor of \((a+c) - (b+d,)\) which can also be state
 </div>
 <div class="paragraph">
 <p>For example, we can write \(9 + 5 \equiv_{12} 2\) (This is an example of "clock arithmetic" using a 12-hour clock: 5 hours after 9 o&#8217;clock will be 2 o&#8217;clock.)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 7 - Solving a linear congruence</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>If it is 12 o&#8217;clock now, what is the least number of 7-hour intervals that must pass before the clock will read 4 o&#8217;clock?</p>
+</div>
+<div class="paragraph">
+<p>This question is equivalent to finding the smallest natural number \(n\) that solves the linear congruence \(7n \equiv_{12} 4.\)</p>
+</div>
+<div class="paragraph">
+<p>One way to solve this congruence is to treat this as a "clock arithmetic" problem:<br>
+After one 7-hour interval passes, the clock will read 7 o-clock.<br>
+After two 7-hour intervals pass, the clock will read 2 o-clock, because \(7+7=14\) and \(14 \equiv_{12} 2.\)<br>
+After three 7-hour intervals pass, the clock will read 9 o-clock, because \(2+7 = 9\).<br>
+After four 7-hour intervals pass, the clock will read 4 o-clock, because \(9+7 = 16\) and \(16 \equiv_{12} 4.\).<br>
+So the least number of 7-hour intervals that must pass before the clock will read 4 o&#8217;clock is four.</p>
+</div>
+<div class="paragraph">
+<p>Another way to solve this congruence is to consider the remainders of natural number-multiples of 7 after dividing by 12:<br>
+\(1 \cdot 7 = 7\) and \(7 \equiv_{12} 7\)<br>
+\(2 \cdot 7 = 14\) and \(14 \equiv_{12} 2\) since \(14 = 1 \cdot 12 + 2\)<br>
+\(3 \cdot 7 = 21\) and \(21 \equiv_{12} 9\) since \(21 = 1 \cdot 12 + 9\)<br>
+\(4 \cdot 7 = 28\) and \(28 \equiv_{12} 4\) since \(28 = 2 \cdot 12 + 4\)<br>
+Since \(4 \cdot 7 \equiv_{12} 4,\) four 7-hour intervals must pass before the clock will read 4 o&#8217;clock.</p>
+</div>
+<div class="ulist">
+<div class="title">You try</div>
+<ul>
+<li>
+<p>Find the smallest natural number \(n\) such that \(3n \equiv_{11} 5.\)</p>
+</li>
+<li>
+<p>Explain why there is no natural number \(n\) that solves the congruence \(4n \equiv_{10} 5.\)</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>MORE TO COME!</p>
