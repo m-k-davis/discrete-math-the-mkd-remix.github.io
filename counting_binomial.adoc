@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on January 16, 2025._ + 
+_This chapter was last updated on March 17, 2025._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 ////
@@ -501,7 +501,7 @@ $C(n,r)$ such bit strings.
 
 === Properties Of Combinations
 
-#*RECOMMENDATION:* The link:https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/["Binomial" activity] can replace this subsection.#
+//#*RECOMMENDATION:* The link:https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/["Binomial" activity] can replace this subsection.#
 
 In this subsection you will learn about some properties of $C(n, r)$ and a famous "number triangle;" you will see that the values listed in the triangle coincide with the values of $C(n,r).$
 
@@ -526,6 +526,10 @@ Consider the following number triangle. \[{\displaystyle {\begin{array}{c}1\\1\q
 We refer to the top row of this triangle as "row 0," and the left side of the triangle as "column 0" (so the columns are actually drawn diagonally.)  Notice that each number that is in row 2 or lower (and not on one of the sides of the triangle) is the sum of the two numbers directly above it in the triangle. For example, in row 5, column 2 row, the number 10 is the sum of the numbers in row 4, column 1 (the number 4) and row 4, column 2 (the number 6.)
 
 This number triangle is often called "Pascal's Triangle" after the French mathematician Blaise Pascal who link:https://cudl.lib.cam.ac.uk/view/PR-CCB-00013-00024/5[wrote] about the triangle in the mid-1600's A.D.. However, the number triangle was  link:https://aperiodical.com/2021/12/pascals-triangle-and-its-secrets-introduction/[known for centuries] before Pascal lived. You may also want to see the "History" section of this  link:https://en.wikipedia.org/wiki/Pascal%27s_triangle[wikipedia page]for additional information.
+
+
+#*RECOMMENDATION:* The "Binomial" activity can replace the rest of this subsection.#
+
 
 ==== The Numbers in the Triangle Are The Values Of $C(n,r)$
 
@@ -628,7 +632,9 @@ Look at the next highest powers:
 \end{equation}
 
 
-We will prove later in the link:./induction.html[Proofs: Mathematical Induction] chapter that \[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i}  a^{n-i} b^{i} \] for every natural number $n.$
+We will prove 
+//later 
+in the link:./induction.html[Proofs: Mathematical Induction] chapter that \[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i}  a^{n-i} b^{i} \] for every natural number $n.$
 
 //\[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i} a^{n-i}b^{i} \] 
 

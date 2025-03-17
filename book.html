@@ -12136,7 +12136,7 @@ Since \(4 \cdot 7 \equiv_{12} 4,\) four 7-hour intervals must pass before the cl
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on January 16, 2025.</em><br></p>
+<p><em>This chapter was last updated on March 17, 2025.</em><br></p>
 </div>
 <div class="paragraph">
 <p>Many problems can be solved by counting the number of possible outcomes when choosing \(r\) elements from a set that contains \(n\) elements, with no repetition allowed (that is, each element can only be counted once). To be clear, this assumes that \(r\) and \(n\) are natural numbers and \(r \leq n.\)<br></p>
@@ -12556,9 +12556,6 @@ This argument shows that
 <div class="sect3">
 <h4 id="_properties_of_combinations">10.3.1. Properties Of Combinations</h4>
 <div class="paragraph">
-<p><mark><strong>RECOMMENDATION:</strong> The <a href=https://calearninglab.org/project/expanding-equity-and-access-in-discrete-mathematics/>"Binomial" activity</a> can replace this subsection.</mark></p>
-</div>
-<div class="paragraph">
 <p>In this subsection you will learn about some properties of \(C(n, r)\) and a famous "number triangle;" you will see that the values listed in the triangle coincide with the values of \(C(n,r).\)</p>
 </div>
 <div class="sect4">
@@ -12571,6 +12568,9 @@ This argument shows that
 </div>
 <div class="paragraph">
 <p>This number triangle is often called "Pascal&#8217;s Triangle" after the French mathematician Blaise Pascal who <a href=https://cudl.lib.cam.ac.uk/view/PR-CCB-00013-00024/5>wrote</a> about the triangle in the mid-1600&#8217;s A.D.. However, the number triangle was  <a href=https://aperiodical.com/2021/12/pascals-triangle-and-its-secrets-introduction/>known for centuries</a> before Pascal lived. You may also want to see the "History" section of this  <a href=https://en.wikipedia.org/wiki/Pascal%27s_triangle>wikipedia page</a>for additional information.</p>
+</div>
+<div class="paragraph">
+<p><mark><strong>RECOMMENDATION:</strong> The "Binomial" activity can replace the rest of this subsection.</mark></p>
 </div>
 </div>
 <div class="sect4">
@@ -12666,7 +12666,8 @@ This is an informal proof of the following theorem.</p>
 \end{equation}</p>
 </div>
 <div class="paragraph">
-<p>We will prove later in the <a href=./induction.html>Proofs: Mathematical Induction</a> chapter that \[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i}  a^{n-i} b^{i} \] for every natural number \(n.\)</p>
+<p>We will prove
+in the <a href=./induction.html>Proofs: Mathematical Induction</a> chapter that \[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i}  a^{n-i} b^{i} \] for every natural number \(n.\)</p>
 </div>
 </div>
 <div class="sect2">
@@ -12817,7 +12818,7 @@ This is an informal proof of the following theorem.</p>
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on January 15, 2025.</em></p>
+<p><em>This chapter was last updated on March 16, 2025.</em></p>
 </div>
 <div class="paragraph">
 <p>In this chapter, you will learn how to use the <strong>mathematical induction</strong> proof technique to create a single proof of <em>infinitely many</em> different but related propositions.
@@ -12829,15 +12830,12 @@ This proof technique will also be used to validate algorithms.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Weak and strong induction (i.e., First and Second Principle of Induction)</p>
-</li>
-<li>
-<p>Induction over natural numbers</p>
-</li>
-<li>
 <p>Mathematical induction</p>
 <div class="ulist">
 <ul>
+<li>
+<p>Weak and strong induction (i.e., First and Second Principle of Induction)</p>
+</li>
 <li>
 <p>examples of mathematical induction</p>
 </li>
@@ -12845,10 +12843,7 @@ This proof technique will also be used to validate algorithms.</p>
 </div>
 </li>
 <li>
-<p>Strong induction</p>
-</li>
-<li>
-<p>Well orderings</p>
+<p>Well-ordering and Induction</p>
 </li>
 <li>
 <p>Structural induction</p>
@@ -12860,7 +12855,9 @@ This proof technique will also be used to validate algorithms.</p>
 <div class="paragraph">
 <p>We often encounter an infinite sequence of related propositions, all of which appear to be True. To prove all of the propositions, we might try to write a proof for each individual proposition and then combine all those proofs together as a single infinitely long "proof"&#8230;&#8203; but recall from the chapter on <a href=./proofs.html>Proofs: Basic Techniques</a> that a proof
 consists of a <em>finite</em> sequence of propositions of <em>finite</em> length.
-As an analogy, imagine you had an "algorithm" that required infinitely many steps to complete its task&#8230;&#8203; such an algorithm would not be useful in the real world since it could never complete the task!</p>
+As an analogy, imagine you had an "algorithm" that required infinitely many steps to complete its task&#8230;&#8203; such an algorithm would not be useful in the real world since it
+might
+never complete the task!</p>
 </div>
 <div class="paragraph">
 <p>The next example introduces the ideas we will use to prove an infinite sequence of related propositions.</p>
@@ -12952,8 +12949,21 @@ Recall that the predicate&#8217;s output is a <em>proposition</em> - the output 
 build a proof for all the integers up to and including any value of \(n \in \mathbb{N}\) that we want.</p>
 </div>
 <div class="paragraph">
-<p>For example, to prove \(P(1,\!000,\!000),\) we could start by asserting that \(P(1)\) is True, then apply the conditional \(P(k) \rightarrow P(k+1)\) along with the rule of inference <em>modus ponens</em> \(999,\!999\) times to prove that \(P(1,\!000,\!000)\) is True. This proof <em>is</em> finite - I never claimed that the proof would be short!<br>
-<span class="small">You can make an analogy of repeatedly applying <em>modus ponens</em> to the conditional as using a loop in code. We are just repeating the same argument \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\) over and over again as the value of the variable \(k\) is incremented by 1 at the end of each iteration until we reach the value of \(k+1\) that we want to stop at.</span></p>
+<p>For example, to prove \(P(1,\!000,\!000),\) we could start by asserting that \(P(1)\) is True, then apply the conditional \(P(k) \rightarrow P(k+1)\) along with the rule of inference <em>modus ponens</em> \(999,\!999\) times to prove that \(P(1,\!000,\!000)\) is True. This proof <em>is</em> finite - I never claimed that the proof would be short!</p>
+</div>
+<div class="paragraph">
+<p>As an analogy,
+think
+of repeatedly applying <em>modus ponens</em> to the conditional as using a loop in code. We are just repeating the same argument \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\) over and over again as the value of the variable \(k\) is incremented by 1 at the end of each
+loop
+iteration until we reach the value
+that we want to stop at.
+In the following code snippet, the user-defined function <code>addTheOdds</code> implements the computations used in this example&#8217;s argument. Notice how the Basis Step corresponds to validating the loop initialization and how the Induction Step corresponds to validating the output at the end of each loop iteration (assuming that the values were correct at the start of that loop iteration.) You can change the value of \(n\) in the code to confirm the truth value of \(P(n)\) for any integer you&#8217;d like, assuming you have enough time and computing resources.</p>
+</div>
+<iframe width="100%" frameborder="5" height="650" src="https://pythontutor.com/iframe-embed.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20False%0A%20%20%20%20%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%20first,%20increment%20k%20second%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0Adef%20truth_value_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29%29%0A%23print%28P%28n%29,%22is%20a%22,truth_value_of_P%28n%29,%22proposition.%22%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=650"> </iframe>
+
+<div style="text-align: right;">
+<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20False%0A%20%20%20%20%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%20first,%20increment%20k%20second%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0Adef%20truth_value_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29%29%0A%23print%28P%28n%29,%22is%20a%22,truth_value_of_P%28n%29,%22proposition.%22%29&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
 </div>
 <div class="paragraph">
 <p>Since we can now, in principle, build a proof of \(P(n)\) for any value of \(n \in \mathbb{N}\) that we could choose, we apply the rule of inference <em>universal generalization</em> to conclude that \((\forall \in \mathbb{N})P(n).\) That is, we have proven the proposition \[ \text{"For every positive natural number } n \text{, the sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] <span class="small">Another way to look at this is to define \(s(n)\) to be the number of disks in a \(n \times n\) square arrangement of disks. We have shown that \(s(1) = 1\) and that \(s(k+1) = s(k) + 2k + 1\) for every positive natural number value of \(k,\) and have concluded that \(s(n) = n^{2}\) for every positive natural number \(n.\)</span></p>
@@ -13015,16 +13025,107 @@ The basis step involves placing a foundation on the ground (either a flat surfac
 and the induction step justifies that if we have built a tower that has height \(k\) then we can build a tower of height \(k+1\) by placing one more block on the tower. The conclusion step states that we can build a tower that is of any finite height \(n\) (as long as we have \(n\) or more blocks and ignore issues arising from real-world physics!) Note that we never build an infinitely tall tower.<br>
 <span class="small">Note: Some textbooks and sources use an "infinite ladder" analogy for mathematical induction, but this is not quite correct. A better analogy is a ladder that can be extended to any finite height you need, but that is always of finite height.</span></p>
 </div>
+<div class="paragraph">
+<p>As
+an
+example, here is a proof of the Handshake Theorem for <a href=./introduction_discrete_math.html#informal_graph_definition>graphs.</a></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 2 - Proof of the Handshake Theorem</div>
+<p>We will prove the following proposition using mathematical induction.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Theorem</div>
+<p>If \(G\) is a graph with vertex set \(V\) and edge set \(E,\) where both \(V\) and \(E\) are finite sets, then the sum of the degrees of all vertices in \(V\) is equal to 2 times the number of edges in \(E.\)</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice first that since this needs to proven for <em>any</em> graph with any finite number of vertices and edges, it is a good candidate for proof by mathematical induction.</p>
+</div>
+<div class="paragraph">
+<p>Which number should be one we use for induction?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We could try using induction on the number of vertices, but notice that we can add an isolated vertex without effecting either the sum of the degrees or the number of edges. This indicates that the number of vertices is not the correct variable to use for a proof by induction.</p>
+</li>
+<li>
+<p>We could try using induction on the sum of the degrees of the vertices, but we&#8217;d have to figure out how to add 1 to that sum&#8230;&#8203;
+but notice that, as above, adding a new vertex \(v\) to the graph</p>
+<div class="ulist">
+<ul>
+<li>
+<p>either leaves the sum of degrees unchanged (if \(v\) is isolated)</p>
+</li>
+<li>
+<p>or changes the sum of degrees by 2 (because either \(v\) is an endpoint of a loop or \(v\) comes along with a new edge that connects to another vertex of the graph.) Since we cannot meaningfully add 1 to the sum of the degrees, this is also not the correct variable to use for induction.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>We could try using induction on the number of edges. This <em>could</em> work since adding a new edge will increase the sum of degrees of the vertices by 2 (whether the vertices are "new" or "old").</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So, to prove the theorem, let \(n\) represent the number of edges in a graph and let \(P(n)\) be the predicate \[P(n)\text{: "The sum of the degrees of the vertices for a graph with } n \text{ edges is equal to } 2 \cdot n \text{."}\] We will prove that \((\forall n \in \mathbb{N})P(n).\)</p>
+</div>
+<div class="paragraph">
+<p><strong>Basis Step:</strong> \(P(0)\) is the proposition "The sum of the degrees of the vertices for a graph with \(0\) edges is equal to \(2 \cdot 0.\)"
+since a graph with 0 edges is just a collection of isolated vertices, and each of the isolated vertices has degree 0, the sum of the degrees of the vertices must also be 0, which is 2 times the number of edges. This means that \(P(0)\) is True, and the Basis has been established.</p>
+</div>
+<div class="paragraph">
+<p><strong>Induction Step:</strong> First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).</p>
+</div>
+<div class="paragraph">
+<p>Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use <em>modus ponens</em> (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.</p>
+</div>
+<div class="paragraph">
+<p>For the natural number \(k,\) the predicate \(P(k)\) is the proposition "The sum of the degrees of the vertices for a graph with \(k\) edges is equal to \(2 \cdot k.\)</p>
+</div>
+<div class="paragraph">
+<p>Suppose that we have a graph with \(k\) edges. We insert one new edge \(e\) into the graph. There are, essentially, two possible cases to consider.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(e\) has two different endpoints, in which case the degree of each endpoint increases by 1 when \(e\) is added to the graph, so the sum of the degrees of the vertices increases by 2, or ,</p>
+</li>
+<li>
+<p>\(e\) is a loop with only one endpoint, in which case the degree of that endpoint increases by 2, so the sum of the degrees of the vertices increases by 2.<br>
+<span class="small">Notice that in either bullet, it does not to matter whether the new edge \(e\) has endpoints that are "new" to the graph or were "old" vertices that were in the graph already.</span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Notice that any graph with \(k+1\) edges can be built up this way from a graph that had \(k\) edges. So, using the fact that \(2 \cdot k + 2 = 2 \cdot (k+1),\) we have proven that "The sum of the degrees of the vertices for a graph with \(k+1\) edges is equal to \(2 \cdot (k + 1).\)  That is, we have proven that \(P(k) \rightarrow P(k+1)\).</p>
+</div>
+<div class="paragraph">
+<p><strong>Conclusion Step:</strong> We have proven both the Basis Step and the Induction Step. Therefore, we can use <em>universal generalization</em> to conclude that
+\((\forall n \in \mathbb{N})P(n),\) which translates to "For all natural umber \(n,\) the sum of the degrees of the vertices for a graph with \(n\) edges is equal to \(2 \cdot n.\)"</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_example_proofs_using_mathematical_induction">11.3. Example Proofs Using Mathematical Induction</h3>
+<h3 id="_more_example_proofs_using_mathematical_induction">11.3. More Example Proofs Using Mathematical Induction</h3>
 <div class="paragraph">
 <p>As a first example, here is the formal proof that corresponds to the first example of this chapter</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 2 - An Algebraic Expression for Positive Odd Integers</div>
+<div class="title">Example 3 - An Algebraic Expression for Positive Odd Integers</div>
 <p>Let \(P(n)\) be the predicate \[P(n)\text{: "The } n\text{th positive odd integer is equal to } 2n-1 \text{."}\] We will prove that \((\forall n \in \mathbb{N}_{>0})P(n),\) that is, for all positive integers \(n.\)<br>
 <span class="small">Notice that you can find evidence for the conjecture that \(k\text{th}\) positive odd integer is \(2k - 1\) by making a table and finding an algebraic formula that matches the table. See <a href=./appendix_math.html>this appendix</a> if you don&#8217;t remember how to do this.</span></p>
 </div>
@@ -13065,7 +13166,7 @@ for all positive integers \(n,\) the \(n\)th positive odd integer is equal to \(
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 3 - Square Numbers</div>
+<div class="title">Example 4 - Square Numbers</div>
 <p>Let \(P(n)\) be the predicate \[P(n)\text{: "The sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] We will prove that \((\forall n \in \mathbb{N}_{>0})P(n).\)</p>
 </div>
 <div class="paragraph">
@@ -13117,10 +13218,13 @@ for the sum \(\sum\limits_{i=1}^{k}(2i-1)\) based on the induction hypothesis.</
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_still_more_examples_of_proofs_by_mathematical_induction">11.4. Still More Examples of Proofs by Mathematical Induction</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 4 - An Inequality</div>
+<div class="title">Example 5 - An Inequality</div>
 <p>Let \(P(n)\) be the predicate \[P(n): 2^{n} &lt; n!\] We will prove that \((\forall n \in \mathbb{N}_{\geq 4})P(n).\)</p>
 </div>
 <div class="paragraph">
@@ -13159,7 +13263,7 @@ for all positive integers \(n \geq 4\), \(2^{n} < n!\)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_strong_induction">11.4. Strong Induction</h3>
+<h3 id="_strong_induction">11.5. Strong Induction</h3>
 <div class="paragraph">
 <p>Strong induction is used when it is easier to use the assumption that <em>all the propositions \(P(0), P(1), \ldots , P(n-1)\) are True</em> in order to prove that \(P(n)\) is True.</p>
 </div>
@@ -13198,7 +13302,7 @@ Conclusion Step
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 5 - An Upper Bound for the Fibonacci numbers</div>
+<div class="title">Example 6 - An Upper Bound for the Fibonacci numbers</div>
 <p>Recall that the <a href=./recursion.html#definition_of_fibonacci_numbers>Fibonacci numbers</a> are defined by the following recurrence relation: \[f_{0}=0, \, f_{1}=1, \text{ and } f_{n} = f_{n-1} + f_{n-2} \text{ for } n \geq 2.\]</p>
 </div>
 <div class="paragraph">
@@ -13328,14 +13432,14 @@ for all natural numbers \(n > 2,\) \(n\) is either a prime number or a product o
 </div>
 </div>
 <div class="sect2">
-<h3 id="_validating_an_algorithm_using_induction">11.5. Validating An Algorithm Using Induction</h3>
+<h3 id="_validating_an_algorithm_using_induction">11.6. Validating An Algorithm Using Induction</h3>
 <div class="paragraph">
 <p>One of the uses of mathematical induction in computer science is the validation of algorithms. In this section, we&#8217;ll prove that the <a href=./algorithms.html#algorithms_euclidean_algorithm>Euclidean Algorithm</a> correctly computes the greatest common divisor (g.c.d.) of two integers.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 6 - The Euclidean Algorithm</div>
+<div class="title">Example 7 - The Euclidean Algorithm</div>
 <div class="content">
 
 </div>
@@ -13479,7 +13583,7 @@ The French mathematician Gabriel Lamé proved in 1844 that if the Euclidean Algo
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercises_7">11.6. Exercises</h3>
+<h3 id="_exercises_7">11.7. Exercises</h3>
 <div class="paragraph">
 <p>Remixer&#8217;s Note: This section is taken from the original <a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> book, with only a few minor revisions.</p>
 </div>
