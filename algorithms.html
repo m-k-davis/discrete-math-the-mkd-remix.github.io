@@ -612,12 +612,9 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on January 16, 2025.
+        This chapter was last updated on April 1, 2025.
        </em>
        <br/>
-       <span class="small">
-        Fixed typos, updated Big-O discussion for the two division algorithms, added Big-O discussion for the Euclidean algorithm, revised  Big-O discussion of Merge Sort.
-       </span>
       </p>
      </div>
      <div class="paragraph">
@@ -665,7 +662,7 @@ As mentioned in the
          <em>
           teaching the mathematical concepts
          </em>
-         but not for illustrating the
+         and for neither presenting the most efficient implementations nor illustrating the
          <a href="https://docs.python.org/3/glossary.html#term-Pythonic">
           "Pythonic"
          </a>
@@ -881,7 +878,7 @@ As mentioned in the
        </div>
        <div class="paragraph">
         <p>
-         Does this satisfy all the requirements for an algorithm? Each step is precisely defined and can be done exactly and in a finite length of time. The process terminates after a finite number of steps (when \(min\) has been compared to the element at the highest index of the list.) The imput and output are specified. This process satisfies the requirements for an algorithm.
+         Does this satisfy all the requirements for an algorithm? Each step is precisely defined and can be done exactly and in a finite length of time. The process terminates after a finite number of steps (when \(min\) has been compared to the element at the highest index of the list.) The input and output are specified. This process satisfies the requirements for an algorithm.
         </p>
        </div>
        <div class="paragraph">
@@ -945,8 +942,8 @@ As mentioned in the
        </p>
       </div>
       <div class="sect3">
-       <h4 id="_division_by_repeated_division">
-        13.2.1. Division By Repeated Division
+       <h4 id="_division_by_repeated_subtraction">
+        13.2.1. Division By Repeated Subtraction
        </h4>
        <div class="paragraph">
         <p>
@@ -1488,7 +1485,7 @@ found by solving the exponential equation,
          </div>
          <div class="paragraph">
           <p>
-           If need to know whether the target value
+           If you need to know whether the target value
            <em>
             x
            </em>
@@ -1515,7 +1512,7 @@ found by solving the exponential equation,
          </div>
          <div class="paragraph">
           <p>
-           If need to know how many times the target value
+           If you need to know how many times the target value
            <em>
             x
            </em>
@@ -1628,6 +1625,10 @@ produces the correct result but is
          </span>
          inefficient. You should almost never use bubble sort in code that you write. In almost every application that requires sorting a list, there is an algorithm that can be used that is much more efficient than bubble sort.
 You have been warned!
+         <br/>
+         <span class="small">
+          In fact, most modern programming languages have built-in sort methods for you to use; these built-in methods are implemented using efficient algorithms.
+         </span>
         </p>
        </div>
        <div class="paragraph">
@@ -1777,12 +1778,11 @@ both the elements in positions 1 and 2 are both in their correct positions.
         </div>
         <div class="paragraph">
          <p>
-          We will show later, that
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \( 1+2+3+\cdots+n-1= \frac{(n-1)\cdot\ n}{2}=\frac{n^2}{2}-\frac{n}{2}\), which is \(O(n^2)\).
+          You can use
+          <a href="./induction.html">
+           mathematical induction
+          </a>
+          to prove that \(1+2+3+\cdots+n-1= \frac{(n-1)\cdot\ n}{2}=\frac{n^2}{2}-\frac{n}{2}\), which means that the bubble sort algorithm is \(O(n^2)\).
          </p>
         </div>
        </div>

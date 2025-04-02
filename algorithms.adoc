@@ -2,8 +2,8 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on January 16, 2025._ + 
-[small]#Fixed typos, updated Big-O discussion for the two division algorithms, added Big-O discussion for the Euclidean algorithm, revised  Big-O discussion of Merge Sort.#
+_This chapter was last updated on April 1, 2025._ + 
+//[small]#Fixed typos, updated Big-O discussion for the two division algorithms, added Big-O discussion for the Euclidean algorithm, revised  Big-O discussion of Merge Sort.#
 
 //// 
 State, Explain, or Calculate complexity in the ideal and in the worst-case scenario for both implementations. [Remembering, Understanding, Applying]
@@ -47,7 +47,9 @@ Additional algorithms that involve graphs and trees will be introduced later in 
 //MKD added the following
 NOTE: In this chapter, several algorithms are implemented in Python using non-optimal code to illustrate all steps needed. 
 //Most of the Python examples in the Remix use non-optimal code. 
-As mentioned in the link:./index.html[About this text] chapter, this was a deliberate choice because the code examples are designed for _teaching the mathematical concepts_ but not for illustrating the link:https://docs.python.org/3/glossary.html#term-Pythonic["Pythonic"] way of coding. However, a few code examples in this chapter _do_ show how you can complete the same task by using some of Python's built-in methods.
+//As mentioned in the link:./index.html[About this text] chapter, this was a deliberate choice because the code examples are designed for _teaching the mathematical concepts_ but not for illustrating the link:https://docs.python.org/3/glossary.html#term-Pythonic["Pythonic"] way of coding. However, a few code examples in this chapter _do_ show how you can complete the same task by using some of Python's built-in methods.
+// MKD Apr 1 2025
+As mentioned in the link:./index.html[About this text] chapter, this was a deliberate choice because the code examples are designed for _teaching the mathematical concepts_ and for neither presenting the most efficient implementations nor illustrating the link:https://docs.python.org/3/glossary.html#term-Pythonic["Pythonic"] way of coding. However, a few code examples in this chapter _do_ show how you can complete the same task by using some of Python's built-in methods.
 
 
 Key terms and concepts covered in this chapter:
@@ -121,7 +123,7 @@ then update the value of $min$.
 have been inspected and compared against the variable $min$.
 ////
 
-Does this satisfy all the requirements for an algorithm? Each step is precisely defined and can be done exactly and in a finite length of time. The process terminates after a finite number of steps (when $min$ has been compared to the element at the highest index of the list.) The imput and output are specified. This process satisfies the requirements for an algorithm. 
+Does this satisfy all the requirements for an algorithm? Each step is precisely defined and can be done exactly and in a finite length of time. The process terminates after a finite number of steps (when $min$ has been compared to the element at the highest index of the list.) The input and output are specified. This process satisfies the requirements for an algorithm. 
 
 A Python implementation of this algorithm is given below.
 
@@ -161,7 +163,7 @@ Historically, algorithms first arose as link:https://en.wikipedia.org/wiki/Algor
 
 //=== The Division Algorithm 
 //=== Division Of Natural Numbers By Repeated Division 
-=== Division By Repeated Division 
+=== Division By Repeated Subtraction 
 
 //In this subsection, two algorithms for division are presented.
 A simple division algorithm is presented in this subsection. 
@@ -392,14 +394,14 @@ You can search for the index of a target value in a Python list by calling the l
 :pt_code: s%20%3D%20%5B67,22,59,38,45,16%5D%0Ax%20%3D%2044%0Ai%20%3D%20s.index%28x%29%0A%23%20Change%20x%20to%20a%20value%20in%20s%20%0A%23%20%20%20to%20avoid%20the%20ValueError%0A
 include::python_tutor.adoc[]
 
-If need to know whether the target value _x_ is in the list _s_ but do not need the least index, you can use `x in s` which returns a `Boolean.`
+If you need to know whether the target value _x_ is in the list _s_ but do not need the least index, you can use `x in s` which returns a `Boolean.`
 
 :pt_code_height: 320
 :pt_rawinput: false
 :pt_code: s%20%3D%20%5B67,22,59,38,45,16%5D%0Ax%20%3D%2044%0Ab%20%3D%20x%20in%20s%0A
 include::python_tutor.adoc[]
 
-If need to know how many times the target value _x_ occurs in the list _s_ you can use the `list.count(x)` method.
+If you need to know how many times the target value _x_ occurs in the list _s_ you can use the `list.count(x)` method.
 
 :pt_code_height: 320
 :pt_rawinput: false
@@ -469,7 +471,10 @@ WARNING: The bubble sort algorithm
 produces the correct result but is 
 [.underline]#*_very_*# inefficient. You should almost never use bubble sort in code that you write. In almost every application that requires sorting a list, there is an algorithm that can be used that is much more efficient than bubble sort. 
 //Bubble sort is presented here, and in other textbooks, because it is so simple and very easy to understand. 
-You have been warned!
+You have been warned! + 
+// MKD Apr 01 2025
+[small]#In fact, most modern programming languages have built-in sort methods for you to use; these built-in methods are implemented using efficient algorithms.# 
+
 
 
 //MKD inserted comment on naming
@@ -580,9 +585,12 @@ In general, if the list is of size $n$, there will be $n-1$ passes with swaps,
 
 $n-1+n-2+...3+2+1 = 1+2+3+...+n-1$.
 
-We will show later, that
+//We will show later, that
+// MKD Apr 01 2025
+You can use link:./induction.html[mathematical induction] to prove that $1+2+3+\cdots+n-1= \frac{(n-1)\cdot\ n}{2}=\frac{n^2}{2}-\frac{n}{2}$, which means that the bubble sort algorithm is $O(n^2)$.
+ 
 
-$ 1+2+3+\cdots+n-1= \frac{(n-1)\cdot\ n}{2}=\frac{n^2}{2}-\frac{n}{2}$, which is $O(n^2)$.
+//$ 1+2+3+\cdots+n-1= \frac{(n-1)\cdot\ n}{2}=\frac{n^2}{2}-\frac{n}{2}$, which is $O(n^2)$.
 
 
 === Insertion Sort

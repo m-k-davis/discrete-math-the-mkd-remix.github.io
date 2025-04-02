@@ -508,6 +508,7 @@ In this subsection you will learn about some properties of $C(n, r)$ and a famou
 
 // MKD Pascal begins 
 //MKD added this new subsubsection 
+[[arithmetic_triangle]]
 ==== Pascal’s Triangle
 
 // MKD add historical note and also the link to the triangle
@@ -630,6 +631,10 @@ Look at the next highest powers:
 & = a^{4} + 4 a^{3} b + 6 a^{2} b^{2} + 4 ab^{3} + b^{4}
 \end{aligned}
 \end{equation}
+
+
+// MKD March 18 2025
+Notice that the coefficients in the algebraic expansions above are the same numbers that appear in Pascal's link:./counting_binomial#arithmetic_triangle[arithmetic triangle.]
 
 
 We will prove 

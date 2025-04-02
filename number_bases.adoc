@@ -16,9 +16,9 @@ chrisbracco.com
 https://chrisbracco.com › curly-quotes
 ////
 
-#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on January 16, 2025._ + 
+_This chapter was last updated on April 1, 2025._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 // MKD example code, not sure where to use it yet
@@ -27,6 +27,12 @@ _This chapter was last updated on January 16, 2025._ +
 //https://pythontutor.com/render.html#code=L%20%3D%20%5B%2017,%200b10001,%200o21,%200x11%20%5D%0Aprint%28L%29&cumulative=false&curInstr=1&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 // MKD and every base is base-10
 //https://pythontutor.com/render.html#code=L%20%3D%20%5B%2010,%200b10,%200o10,%200x10%20%5D%0Aprint%28L%29&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// MKD March 22 2025 
+//https://pythontutor.com/render.html#code=x%20%3D%204%0Aprint%28x%29%0Ax%20%3D%200b0101%0Aprint%28x%29%0Ax%20%3D%200O6%0Aprint%28x%29%0Ax%20%3D%200x07%0Aprint%28x%29%0As%20%3D%200b010%20%2B%200o10%20%2B%200x10%0Aprint%28s,%20bin%28s%29,oct%28s%29,hex%28s%29%29&cumulative=false&curInstr=10&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// MKD March 22 2025 - find digitValues 
+//https://pythontutor.com/render.html#code=a%20%3D%2063%20%2313%0Ab%20%3D%205%20%232%0Adivisor%20%3D%201%0AplaceValues%20%3D%20%5B%5D%0Awhile%20a%20%3E%20divisor%3A%0A%20%20%20%20placeValues.insert%280,%20divisor%29%0A%20%20%20%20divisor%20*%3D%20b%0Aprint%28placeValues%29%0Ar%20%3D%20a%0AdigitValues%20%3D%20%5B%5D%0Afor%20n%20in%20placeValues%3A%0A%20%20%20%20q%20%3D%200%0A%20%20%20%20while%20r%20%3E%20n%3A%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20n%0A%20%20%20%20%20%20%20%20q%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%23%20there%20is%20a%20bug%20here!!!%0A%20%20%20%20digitValues.insert%28-1,%20q%29%0Aprint%28digitValues%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 
 //MKD Rhind Papyrus doubling method of multiplication
 //https://mathshistory.st-andrews.ac.uk/HistTopics/Egyptian_papyri/
@@ -75,7 +81,15 @@ This system uses ten symbols, the *Hindu-Arabic numerals*
 ‘9’, 
 to represent _any_ natural number.
 
-You may know that computers use base-two (binary) instead of base-ten (decimal), but what exactly does that mean? Computers store and manipulate data using sequences of bits (‘0’ and ‘1’), so it often is much more natural to express numbers in base-two instead of base-ten.
+//You may know that computers use base-two (binary) instead of base-ten (decimal), but what exactly does that mean? Computers store and manipulate data using sequences of bits (‘0’ and ‘1’), so it often is much more natural to express numbers in base-two instead of base-ten.
+
+In the base-ten place-value system that uses *decimal* notation, each natural number is represented by a numeral which is a string of one or more of the ten Hindu-Arabic digits. 
+//Examples are "5," "15," or "135." 
+However, in some computer science contexts, it is more useful to represent natural numbers in a place-value system that uses a different *number base* such as *binary* (base-two), *octal* (base-eight), or *hexadecimal* (base-sixteen). 
+//As you may already know, computer arithmetic is based on binary, which is base-two; 
+//Thinking of numbers represented by numerals in these systems can help you to develop much more efficient algorithms and to recognize when certain numerals could be interpreted as encoding multiple pieces of information.
+Using or thinking about numbers represented by numerals in these other systems can help you develop more efficient algorithms and recognize when certain numerals can be interpreted as encodings of multiple pieces of information.
+
 
 In this chapter, you will learn how to represent natural numbers using place-value systems with bases other than ten. 
 
@@ -103,7 +117,8 @@ In everyday life, it is common to treat numbers and numerals as if they are the 
 [small]#NOTE: The word "digit" comes from the Latin word _digitus_ which means "finger" or "toe."# 
 
 //but in this chapter, the word "digit" will be used for any base $b.$#  
-
+// MKD Apr 01 2025
+//counter:numextally 5
 
 ****
 .Example {counter:numex} -  Numerals, Numbers, and Digits
@@ -118,18 +133,24 @@ Consider the following words:
 * "पाँच" ("paanch"), 
 * "五" ("wǔ"). 
 
-These words, taken from different languages, are examples of _numerals,_ words that represent a _number._ In fact, all those numerals represent the same number, but no one of the numerals _is_ the number itself, which is an abstract idea. 
+These words, taken from different languages, are examples of _numerals,_ words that represent a _number._ In fact, all those numerals represent the same number, but no one of the numerals _is_ the number. The number itself is an abstract idea that can be referred to using any of those numerals. 
 // . A number is an abstraction. 
 // noun, just like "blue" or "beauty" or "justice".
 //Is ❤️ an actual heart? Is it "love"?
+
 In the same way, 
 
-* the Arabic numerals "5" and "٥", 
-* the Roman numeral "Ⅴ," 
-* Braille "⠑" 
+* the Roman "Ⅴ", 
+* the Braille "⠼⠑", 
+* the Coptic Epact "𐋥",
+//Arabic-Indic 
+* the Eastern Arabic "٥", 
+* the Western Arabic "5". 
+//* tally marks {counter:numextally}
 
-are other ways of representing the same number that the word "five" represents.
-
+are other ways of representing the same number that the 
+//word "five" represents.
+words above represent.
 
 [click.Semiotics]
 --
@@ -156,19 +177,35 @@ And you may already be familiar with link:https://en.wikipedia.org/wiki/Zoom_Cat
 --
 ////
 
-In the same way that we can use multiple words to represent a single number, so can we use a place-value numeral system with a positive integer base _b_ that is different than ten 
+////
+//In the same way that we can use 
+//multiple 
+many different 
+words to represent a single number, 
+//so can 
+we use a place-value numeral system with a positive integer base _b_ that is different than ten 
 // other than base-ten 
 to represent a number.
+////
 
-
+// MKD Apr 01 2025 
+//It's likely that you are very familiar with using *decimal* notation (base-ten place-value system) to represent natural numbers: 
+//Each natural number can be represented by a numeral that is a string of one or more of the ten Hindu-Arabic digits, such as "5," "15," or "135." 
+//In this chapter, you will learn how to use a place-value numeral system with a positive integer base _b_ that is different than ten to represent a natural numbers.
 //MKD - moved from Introduction chapter; it fits better here
 //* 
 //In everyday life we use *base-ten Hindu-Arabic place-value notation* to represent the natural numbers. 
 // and integers (as well as real numbers.) 
-However, 
+//However, 
 //in Computer Science applications 
-It is often useful to represent natural numbers using a different *number base*, such as *binary* (base-two), *octal* (base-eight), or *hexadecimal* (base-sixteen). As you may already know, computer arithmetic is based on binary, which is base-two; you can develop algorithms that are much more effective and efficient when this is kept in mind!
 
+////
+In the base-ten place-value system that uses *decimal* notation, each natural number is represented by a numeral which is a string of one or more of the ten Hindu-Arabic digits. 
+//Examples are "5," "15," or "135." 
+However, in some computer science contexts, it is more useful to represent natural numbers in a place-value system that uses a different *number base* such as *binary* (base-two), *octal* (base-eight), or *hexadecimal* (base-sixteen). 
+//As you may already know, computer arithmetic is based on binary, which is base-two; 
+Thinking of numbers represented by numerals in these systems can help you to develop much more efficient algorithms and to recognize when certain numerals could be interpreted as encoding multiple pieces of information.
+////
 
 //	MKD may want to refer to //https://math.libretexts.org/Courses/Hartnell_College/Mathematics_for_Elementary_Teachers/03%3A_Counting_and_Numerals/3.01%3A_Numbers_and_Numerals
 
@@ -303,7 +340,8 @@ Notice that the items in $s = [ r_{0}, \, r_{1}, \, r_{2} ]$ are the numbers cor
 \end{aligned}
 \end{equation}
 
-Notice that the algorithm is essentially rewriting $432$ as $2 + 10 \cdot 43 = 2 + 10 \cdot (3 + 10 \cdot 4)).$
+//Notice that the algorithm is essentially rewriting $432$ as $2 + 10 \cdot 43 = 2 + 10 \cdot (3 + 10 \cdot 4)).$
+Notice that the algorithm is rewriting $432$ as the sum $2 + 10 \cdot (3 + 10 \cdot 4)).$
 
 ****
 
@@ -327,9 +365,11 @@ Notice that the algorithm is essentially rewriting $432$ as $2 + 10 \cdot 43 = 2
 
 ==  The Base-Two Place Value System (Binary Notation)
 
-Next, let's describe the base-two (binary) place value system. You will see that much of what is done here can be achieved by simply replacing "ten" by "two" in what was described in the previous section. + 
+//Next, let's describe the base-two (binary) place value system. You will see that much of what is done here can be achieved by simply replacing "ten" by "two" in what was described in the previous section. + 
+This subsection describes the base-two (binary) place value system. You will see that much of what is written here is the result of replacing "ten" by "two" in the description of the base-ten (decimal) system in the previous section. + 
 
-A base-two numeral is a string formed from one or more digits (i.e., the *binary digits* or *bits* ‘0’ and ‘1’.) 
+//A base-two numeral is a string formed from one or more digits (i.e., the *binary digits* or *bits* ‘0’ and ‘1’.) 
+A base-two numeral is a string formed from one or more of the two *binary digits* (or *bits*) ‘0’ and ‘1’. 
 
 * The string is read from left-to-right. 
 * Each digit in the string represents a multiple of a power of the base, two, depending on the its position in the string. 
@@ -338,28 +378,36 @@ A base-two numeral is a string formed from one or more digits (i.e., the *binary
 * As an example, the string "101" represents the number described by the phrase "1 four plus 0 twos, plus 1 ones," where 1 four is the same as two twos. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Wait... WHAT?!?) }\]  
 //🤯: WHAT!?!?! + 
 //🤓: 
-Yes, this equation is correct _in the base-two place value system!_ "10" is how the number two is represented in base-two notation!  + 
-[small]#As an analogy, the string "pie" signifies very different things in English (a baked dessert) and Spanish (a foot.) We must take care to know which language we are working with!# 
+Yes, this equation, 
+which may appear to be written in the base-ten system,  
+is correct _in the base-two place value system,_ too!  "10" is how the number two is represented in base-two notation!  + 
+[small]#As an analogy, the string "pie" signifies different things in English (a baked dessert) and Spanish (a foot.) You must take care to know which context you are working in!# 
 
 
 [IMPORTANT] 
 ====
 
-To avoid confusion, 
+//To avoid confusion, 
 //that the previous equation could cause, 
-it is traditional to use notation to indicate that the strings "10" and "101" 
+It is traditional to use 
+some extra 
+notation to indicate 
+//that 
+when the strings "10" and "101" 
 //are _base-two_ numerals and 
 [underline]#_are not_# 
-base-ten numerals. In this textbook, we will write base-two numerals between a pair of parentheses followed by a subscript indicating the base. The subscript is written as a _base-ten numeral._ For example, we could rewrite the previous equation as \[(101)_{2} = (1)_2 \cdot (10)_2 \cdot (10)_2 + (0)_2 \cdot (10)_2 + (1)_2 \cdot (1)_2 \]
+base-ten numerals 
+to avoid confusion. 
+In this textbook, 
+//we will write base-two numerals 
+numerals in any base other than ten 
+will be written 
+between a pair of parentheses followed by a subscript indicating the base. The subscript is written as a _base-ten numeral._ For example, we could rewrite the previous equation as \[(101)_{2} = (1)_2 \cdot (10)_2 \cdot (10)_2 + (0)_2 \cdot (10)_2 + (1)_2 \cdot (1)_2 \]
 //\[(101)_{2} = (1)_{2} \cdot (10)_{2} \cdot (10)_{2} + (0)_{2} \cdot (10)_{2} + (1)_{2} \cdot (1)_{2} \] 
-which translates into base-ten as $5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.$ We can also write $5 = (101)_2$ which is a way of saying that the base-ten numeral and the base-two numeral signify the same number.
-
-====
-
-//[small]#NOTE: 
-The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used... and we don't need to use the parentheses or subscripts if we are already working in base-ten.
-//#
+which translates into base-ten as $5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.$ We can also write $5 = (101)_2$ which is a way of saying that the base-ten numeral and the base-two numeral signify the same number. + [small]#NOTE: 
+The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used... and we don't need to use the parentheses or subscripts if we are already working in base-ten.#
 //This also allows us to write "base-10" to mean "the usual decimal base" and to write "base"+ 
+====
 
 
 [NOTE]
@@ -370,8 +418,10 @@ The reason we use base-ten numerals as the subscripts on numerals in other bases
 //Privilege 
 // + 
 
-Also, the use of notation like the parentheses and subscript is not necessary if it is clear from the context that a numeral is not a base-ten numeral. For example, \[ \text{chmod 755 hello.txt} \] 
-is a Unix/Linux command that changes the file permission bits (read, write, execute) of the file "hello.txt" for the file's owner, the file's group, and any other user. In this example, the string "755" is not a base-10 numeral, but is in *octal (base-eight).* Octal will be discussed later in the chapter. No subscript is used in the Unix/Linux command because it is _natural_ to an experienced user of that operating system to use octal in the context. 
+The parentheses and subscript are not necessary if it is clear from the context that a numeral is not a base-ten numeral. For example, \[ \text{chmod 755 hello.txt} \] 
+is a Unix/Linux command that changes the file permission bits (read, write, execute) of the file "hello.txt" for the file's owner, the file's group, and any other user. In this example, the string "755" is not a base-10 numeral, but is in *octal (base-eight).* Octal will be discussed later in the chapter. No subscript is used in the Unix/Linux command because it is _natural_ to an experienced user of that operating system to use octal in the context. + 
+// MKD Apr 01 2025
+[small]#In fact, the octal numeral "755" is used here as an encoding of three bitstrings, where each bitstring is of length 3; this idea is discussed in a later subsection of this chapter.#
 //The reason we use base-ten numerals as subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used. BUT WE DON'T HAVE TO IF THE CONTEXT IS CLEAR... of if we want to tell jokes like 
 
 Also, we can omit the parentheses and subscripts if we want to tell a couple of "jokes:"
@@ -384,7 +434,8 @@ Also, we can omit the parentheses and subscripts if we want to tell a couple of 
 ====
 
 
-You are ready to convert base-ten numerals to base-two now.
+//You are ready now to learn how to convert base-ten numerals to base-two numerals.
+You are ready now to learn how to represent numbers using base-two numerals.
 
 
 === An Algorithm That Computes The Digits Of A Base-Two Numeral
@@ -407,7 +458,8 @@ compute an array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]
 //** Output: Integers _q_ and _r_ where
 ** Output: An array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$ where each number is represented by a single digit, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0}.\]
 
-That is, we rewrite $n$ as $r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))$
+//That is, we rewrite $n$ as $r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))$
+That is, the algorithm rewrites $n$ as $r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))$
 
 ****
 
@@ -433,8 +485,14 @@ Notice that the items in $s = [ r_{0}, \, r_{1}, \, r_{2} , \, r_{3} ]$ are the 
 \end{aligned}
 \end{equation}
 
-The algorithm lets us rewrite $13$ as $1 + 2 \cdot 6 = 1 + 2 \cdot (0 + 2 \cdot 3) = 1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).$ + 
-You can also write $13 = (1101)_2$ to indicate that the base-ten numeral and the base-two numeral represent the same number, thirteen. 
+The algorithm 
+//lets us \rewrite $13$ as $1 + 2 \cdot 6 = 1 + 2 \cdot (0 + 2 \cdot 3) = 1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).$ + 
+rewrites $13$ as $1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).$ + 
+Again, notice that the items in the array $[1, 0, 1, 1]$ are listed in reverse order, so  
+//You can also write 
+$13 = (1101)_2$ 
+//to indicate that 
+where the base-ten numeral and the base-two numeral represent the same number, thirteen. 
 
 ****
 
@@ -448,9 +506,11 @@ If you made it to this sentence without skipping any of the discussion above, co
 
 ==  The Base-$b$ Place Value System
 
-We can now describe the base-$b$ place value system for any natural number $b>1.$. 
+//We can now describe the base-$b$ place value system for any natural number $b>1.$ 
+//If you understand how to find the binary expansion as discussed in the previous subsection, 
+If you made it here, you are ready to learn how to find, given any natural number $n,$ the numeral that represents $n$ in the base-$b$ place value system (It is assumed that the base $b$ is a natural number greater than or equal to 2.) You can compare the algorithm and example in this subsection to the ones in the preceding subsections for base-ten and base-two.
 
-A base-$b$ numeral is a string formed from one or more digits out of a set that contains $b$ digits.
+A base-$b$ numeral is a string formed from one or more digits out of a set that contains $b$ symbols, where each symbol is called a "base-$b$ digit."
 
 * The string is read from left-to-right. 
 * Each digit in the string represents a multiple of a power of the base, $b,$ depending on the its position in the string. 
@@ -460,7 +520,11 @@ A base-$b$ numeral is a string formed from one or more digits out of a set that 
 //🤓: 
 Yes, this equation is correct, too, _in the base-b place value system!_  
 
-We can use a pair of parentheses followed by the subscript $b$ to indicate the base, where $b$ is written as a _base-ten numeral._ For example, we could rewrite the previous equation as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \] 
+//We can use a pair of parentheses followed by the subscript $b$ to indicate the base, where $b$ is written as a _base-ten numeral._ For example, we could rewrite the previous equation as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \] 
+To avoid confusion, you can enclose each numeral in a pair of parentheses followed by the subscript $b$ to indicate the base, where $b$ is written as a _base-ten numeral._ For example, 
+//we could rewrite 
+the previous equation 
+can be written as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \] 
 which translates into base-ten as $b^2 + 1 = 1 \cdot b \cdot b + 0 \cdot b + 1 \cdot 1.$ 
 
 === An Algorithm That Computes The Digits Of A Base-$b$ Numeral
@@ -469,7 +533,9 @@ which translates into base-ten as $b^2 + 1 = 1 \cdot b \cdot b + 0 \cdot b + 1 \
 This is an adaptation of the algorithm presented earlier for base-two.  #Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.#
 
 * Task: Given the natural number _n,_ and positive integer constant $b > 1$
-compute an array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$ so that each of $r_{0}, r_{1}, \ldots , r_{k}$ is represented by a single digit in base-$b$, and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0} \] where $k$ is the greatest natural number such that $b^{k} < n.$
+compute an array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$ so that each of $r_{0}, r_{1}, \ldots , r_{k}$ 
+//is 
+can be represented by a single digit in base-$b$, and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0} \] where $k$ is the greatest natural number such that $b^{k} < n.$
 ** Input: The natural number $n$ 
 ** Steps: 
 . Set $a$ equal to $n$ 
@@ -481,9 +547,18 @@ compute an array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]
 .. go to step 3
 . Return the sequence $s.$
 //** Output: Integers _q_ and _r_ where
-** Output: An array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$ where each number is represented by a single digit, and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0}.\]
+** Output: An array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$ where each number is represented by a 
+//single digit, 
+single digit in base-$b,$ 
+and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0}.\]
 
-That is, we rewrite $n$ as $r_{0} + b \cdot (r_{1} + b \cdot (r_{2} + \ldots r_{k-1} + (b \cdot (r_{k})) \ldots )).$ The result is the digits that allows us to write $n$ as $(r_{k}\ldots r_{1}r_{0})_b$ in base-$b$ notation.
+//That is, we rewrite 
+The algorithm rewrites $n$ as $r_{0} + b \cdot (r_{1} + b \cdot (r_{2} + \ldots r_{k-1} + (b \cdot (r_{k})) \ldots )).$ The result 
+$s$ contains the numbers 
+//is the digits that allows us to 
+that let you write $n$ 
+//as $(r_{k}\ldots r_{1}r_{0})_b$ 
+in base-$b$ notation.
 
 
 === Octal Notation (Base-8)
@@ -553,9 +628,11 @@ $11 = (B)_{16},$
 $12 = (C)_{16},$ 
 $13 = (D)_{16},$ 
 $14 = (E)_{16},$ and  
-$15 = (F)_{16}.$ 
+$15 = (F)_{16}.$ + 
+[small]#Note: Some programming languages like Python use the lowercase letters 'a' through 'f' instead of the uppercase letters.#
 
-We will store the remainders in the array $s$ using base-ten notation, and then change to hexadecimal digits when write the base-16 numeral for 500. 
+//We will store the remainders in the array $s$ using base-ten notation, and then change to hexadecimal digits when write the base-16 numeral for 500. 
+The remainders stored in the array $s$ are represented in base-ten notation, and will need to be replaced by the corresponding hexadecimal digits in the base-16 numeral for 500. 
 
 \begin{equation}
 \begin{aligned}
@@ -657,9 +734,10 @@ For the induction step, assume that $n > b$ and that all integers less than $n$ 
 == Converting From Base-$b$ to Base-Ten
 
 // MKD adds
-In this section we show how to rewrite a base-$b$ numeral in base-ten.
+//In this section we show how to rewrite a base-$b$ numeral in base-ten.
+In this section you will learn how to rewrite a base-$b$ numeral in base-ten.
 
-The base-ten numeral of a positive integer is referred to as the *decimal  expansion*. 
+//The base-ten numeral of a positive integer is referred to as the *decimal  expansion*. 
 
 //When expressing the decimal expansion of a positive integer, we typically omit the subscript 10.
 
@@ -731,12 +809,26 @@ Since we have reached a quotient of $0$, we are finished. Thus, we see that \[22
 //MKD added
 One of the ways that octal (base-eight) and hexadecimal (base-sixteen) are used in computer science is to abbreviate long bitstrings. The following examples will show how this is done.
 
-Suppose we want to convert the positive integer $n$ from hexadecimal to binary. One method would be to first convert 
+Suppose 
+//we want 
+you need to convert 
+//the positive integer $n$ 
+a numeral 
+from hexadecimal to binary. One method would be to first convert 
 //from
-$n$ from hexadecimal to decimal, and then 
-convert the result from decimal to binary. However, we can also take advantage of the fact
-that $2^4 = 16.$ This implies that we can express each hexadecimal digit of $(n)\_{16}$ uniquely as a block of 4 bits as
-follows:
+//$n$ 
+from hexadecimal to decimal, and then 
+convert the result from decimal to binary. However, 
+//we can also take advantage of the fact 
+it is much more efficient to notice that since 
+//that $2^4 = 16.$ 
+$2^4 = 16,$ 
+//This implies that we 
+you can express each hexadecimal digit 
+//of $(n)\_{16}$ uniquely 
+as a block of 4 bits 
+(that is, a link:./introduction_discrete_math.html#informal_bitstring_definition[_bitstring_] of length 4) 
+as follows:
 [latexmath]
 +++++++++++++++++++++++++++++++++++++++++
 \begin{array}{llll}
@@ -746,7 +838,8 @@ follows:
 (\mathrm{C})_{16} = (1100)_2& (\mathrm{D})_{16} = (1101)_2& (\mathrm{E})_{16} = (1110)_2&  (\mathrm{F})_{16} = (1111)_2.
 \end{array}
 +++++++++++++++++++++++++++++++++++++++++
-We then concatenate our blocks, removing any leading zeros if necessary.
+//We then concatenate our blocks, removing any leading zeros if necessary.
+You can then concatenate the blocks, and remove any leading zeros if you need to. 
 
 
 ****
@@ -754,19 +847,40 @@ We then concatenate our blocks, removing any leading zeros if necessary.
 Find the binary expansion of $(4\mathrm{C}\mathrm{A}7)\_{16}.$
 
 .Solution
-We have the following:
+//We have the following:
+//There are four blocks of 4 bits:
+Each hexadecimal digit can be replaced by a block of 4 bits:
 [latexmath]
 +++++++++++++++++++++++++++++++++++++++++
 \begin{array}{llll}
 (4)_{16} = (0100)_2 & (\mathrm{C})_{16} = (1100)_2 & (\mathrm{A})_{16} = (1010)_2 & (7)_{16} = (0111)_2.
 \end{array}
 +++++++++++++++++++++++++++++++++++++++++
-Thus, we see that \[(4\mathrm{C}\mathrm{A}7)\_{16} = (100110010100111)\_{2}.\]
+//Thus, we see that \[(4\mathrm{C}\mathrm{A}7)\_{16} = (100110010100111)\_{2}.\]
+
+This means that you can write either \[(4\mathrm{C}\mathrm{A}7)\_{16} = (0100110010100111)\_{2}\] or, if the leading zero is not needed, \[(4\mathrm{C}\mathrm{A}7)\_{16} = (100110010100111)\_{2}.\] [small]#Why wouldn't you always delete leading zeroes? Notice that a bitstring of length 4 can be used to encode a sequence of "Yes/No" or "True/False" answers. As an example, since $(6)_{16} = (0110)_2,$ the hexadecimal digit $(6)_{16}$ can be used to encode the sequence of 4 answers "No, Yes, Yes, No" to a Yes/No survey, and in this context the leftmost bit should be kept to make it clear that the answer to the first question was "No" (as opposed to the sequence "Yes, Yes, No, blank" where the fourth question was not answered.)#
 
 ****
 
-To convert $n$ from binary to hexadecimal, we simply break up $(n)_2$ into blocks of 4 binary digits, adding a suitable number of
-leading zeros if necessary. We convert each block of 4 bits to hexadecimal digits and concatenate our results, removing any leading
+To convert 
+//$n$ 
+a numeral from binary to hexadecimal, 
+//we simply 
+first 
+break up 
+//$(n)_2$ 
+the binary notation into blocks of 4 
+//binary digits, 
+bits, 
+adding a suitable number of
+leading zeros if necessary. 
+//We 
+Next, convert each block of 4 bits to 
+a hexadecimal digit 
+//s 
+and concatenate 
+//our 
+the results, removing any leading
 zeros if necessary.
 
 ****
@@ -774,14 +888,18 @@ zeros if necessary.
 Find the hexadecimal expansion of $(110 1011 1111)_2.$
 
 .Solution
-We have the following blocks of 4 bits: \[0110,\ 1011,\ 1111.\]
-Since $(0110)\_2 = (6)\_{16},$ $(1011)\_2 = (\mathrm{B})\_{16},$ and $(1111)\_2 = (\mathrm{F})\_{16},$ we see that \[(11010111111)\_{2} = (6\mathrm{B}\mathrm{F})\_{16}.\]
+//We have the following blocks of 4 bits:
+The are three blocks of 4 bits: \[0110,\ 1011,\ 1111.\]
+Since $(0110)\_2 = (6)\_{16},$ $(1011)\_2 = (\mathrm{B})\_{16},$ and $(1111)\_2 = (\mathrm{F})\_{16},$ \[(11010111111)\_{2} = (6\mathrm{B}\mathrm{F})\_{16}.\]
+
+//we see that 
 ****
 
 A similar method can be used to convert between octal and binary. 
-We can take advantage of the fact
-that $2^3 = 8.$ This implies that we can express each octal digit of $(n)\_{8}$ uniquely as a block of 3 bits as
-follows:
+//We can take advantage of the fact
+//that $2^3 = 8.$ This implies that we can express each octal digit of $(n)\_{8}$ uniquely as a block of 3 bits as
+//follows:
+Since $2^3 = 8,$ each octal digit can be written uniquely as a block of 3 bits as follows:
 [latexmath]
 +++++++++++++++++++++++++++++++++++++++++
 \begin{array}{llll}
@@ -805,6 +923,38 @@ Also, the following table can be used to covert quickly between decimal, hexadec
 |===
 
 // image::images/baseconverstion.png[baseconverstion, 1000, 1000]
+
+////
+// MKD March 28 2025 
+
+== Base Representations in Python
+
+By default, integers of type `int` in Python are defined using the base-ten decimal representation. The code below shows how to define integers using binary, octal, or hexadecimal instead, and also how to convert an integer between any two of decimal, binary, octal, or hexadecimal.
+
+
+//https://pythontutor.com/render.html#code=x%20%3D%2013%0A%23print%28x,%22%3D%22,bin%28x%29%29%0A%23print%28x,%22%3D%22,oct%28x%29%29%0A%23print%28x,%22%3D%22,hex%28x%29%29%0Aprint%28%22The%20number%20with%20decimal%20representation%22,x,%22is%20represented%20by%22%29%0A%23print%28%22%5CtBinary%20%20%20%20%20%3A%22,bin%28x%29%29%0A%23print%28%22%5CtOctal%20%20%20%20%20%20%3A%22,oct%28x%29%29%0A%23print%28%22%5CtHexadecimal%3A%22,hex%28x%29%29%0Aprint%28%22%20%20%22,%20bin%28x%29,%20%22in%20binary,%22%29%0Aprint%28%22%20%20%22,%20oct%28x%29,%20%22in%20octal,%20and%22%29%0Aprint%28%22%20%20%22,%20hex%28x%29,%20%22in%20hexadecimal.%22%29&cumulative=false&curInstr=5&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+//https://pythontutor.com/render.html#code=def%20convert_base_10_2_8_16%28n%29%3A%0A%20%20%20%20print%28%22The%20number%20with%20decimal%20representation%22,n,%22is%20represented%20by%22%29%0A%20%20%20%20print%28%22%20%20%22,%20bin%28n%29,%20%22in%20binary,%22%29%0A%20%20%20%20print%28%22%20%20%22,%20oct%28n%29,%20%22in%20octal,%20and%22%29%0A%20%20%20%20print%28%22%20%20%22,%20hex%28n%29,%20%22in%20hexadecimal.%22%29%0A%0Ax%20%3D%2013%0A%23print%28x,%22%3D%22,bin%28x%29%29%0A%23print%28x,%22%3D%22,oct%28x%29%29%0A%23print%28x,%22%3D%22,hex%28x%29%29%0Aprint%28%22The%20number%20with%20decimal%20representation%22,x,%22is%20represented%20by%22%29%0A%23print%28%22%5CtBinary%20%20%20%20%20%3A%22,bin%28x%29%29%0A%23print%28%22%5CtOctal%20%20%20%20%20%20%3A%22,oct%28x%29%29%0A%23print%28%22%5CtHexadecimal%3A%22,hex%28x%29%29%0Aprint%28%22%20%20%22,%20bin%28x%29,%20%22in%20binary,%22%29%0Aprint%28%22%20%20%22,%20oct%28x%29,%20%22in%20octal,%20and%22%29%0Aprint%28%22%20%20%22,%20hex%28x%29,%20%22in%20hexadecimal.%22%29%0Ay%20%3D%200xFACE%0Aprint%28y%29%0Aconvert_base_10_2_8_16%28y%29&cumulative=false&curInstr=15&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+//https://pythontutor.com/render.html#code=def%20convert_base_10_2_8_16%28n%29%3A%0A%20%20%20%20print%28%22The%20number%22,n,%22in%20decimal%20%28base-ten%29%20is%20represented%20by%22%29%0A%20%20%20%20print%28%22%20%20%22,%20bin%28n%29,%20%22in%20binary,%22%29%0A%20%20%20%20print%28%22%20%20%22,%20oct%28n%29,%20%22in%20octal,%20and%22%29%0A%20%20%20%20print%28%22%20%20%22,%20hex%28n%29,%20%22in%20hexadecimal.%22%29%0A%0Ax%20%3D%2013%0Aconvert_base_10_2_8_16%28x%29%0Ay%20%3D%200xface%20%23y%20defined%20using%20hexadecimal%20notation%0Aconvert_base_10_2_8_16%28y%29&cumulative=false&curInstr=17&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+:pt_code_height: 550
+:pt_rawinput: false
+:pt_code: //def%20convert_base_10_2_8_16%28n%29%3A%0A%20%20%20%20print%28%22The%20number%22,n,%22in%20decimal%20%28base-ten%29%20is%20represented%20by%22%29%0A%20%20%20%20print%28%22%20%20%22,%20bin%28n%29,%20%22in%20binary,%22%29%0A%20%20%20%20print%28%22%20%20%22,%20oct%28n%29,%20%22in%20octal,%20and%22%29%0A%20%20%20%20print%28%22%20%20%22,%20hex%28n%29,%20%22in%20hexadecimal.%22%29%0A%0Ax%20%3D%2013%0Aconvert_base_10_2_8_16%28x%29%0Ay%20%3D%200xface%20%23y%20defined%20using%20hexadecimal%20notation%0Aconvert_base_10_2_8_16%28y%29%0A
+:pt_code: def%20convert_base_10_2_8_16%28n%29%3A%0A%20%20%20%20print%28%22The%20number%22,n,%22in%20decimal%20%28base-ten%29%20is%20represented%20by%22%29%0A%20%20%20%20print%28%22%20%20%22,%20bin%28n%29,%20%22in%20binary,%22%29%0A%20%20%20%20print%28%22%20%20%22,%20oct%28n%29,%20%22in%20octal,%20and%22%29%0A%20%20%20%20print%28%22%20%20%22,%20hex%28n%29,%20%22in%20hexadecimal.%22%29%0A%0Aw%20%3D%2013%0Aconvert_base_10_2_8_16%28w%29%0Ax%20%3D%200b10110%20%23x%20defined%20using%20binary%20notation%0Aconvert_base_10_2_8_16%28x%29%0Ay%20%3D%200o732%20%23y%20defined%20using%20octal%20notation%0Aconvert_base_10_2_8_16%28y%29%0Az%20%3D%200xface%20%23z%20defined%20using%20hexadecimal%20notation%0Aconvert_base_10_2_8_16%28z%29
+****
+.Example {counter:numex} - Converting Bases in Python
+--
+--
+
+Notice in the Python code that `print` function defaults to base-ten.
+
+To step through the code, click on the "Next" button. 
+
+include::python_tutor.adoc[]	
+
+****
+////
 
 == Exercises
 

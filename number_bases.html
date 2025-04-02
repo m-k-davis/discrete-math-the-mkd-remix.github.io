@@ -601,18 +601,8 @@ $(document).on('page:load', ready2);
     <div class="sectionbody">
      <div class="paragraph">
       <p>
-       <mark>
-        <strong>
-         CAUTION
-        </strong>
-        - CHAPTER UNDER CONSTRUCTION!
-       </mark>
-      </p>
-     </div>
-     <div class="paragraph">
-      <p>
        <em>
-        This chapter was last updated on January 16, 2025.
+        This chapter was last updated on April 1, 2025.
        </em>
        <br/>
       </p>
@@ -648,7 +638,29 @@ to represent
      </div>
      <div class="paragraph">
       <p>
-       You may know that computers use base-two (binary) instead of base-ten (decimal), but what exactly does that mean? Computers store and manipulate data using sequences of bits (‘0’ and ‘1’), so it often is much more natural to express numbers in base-two instead of base-ten.
+       In the base-ten place-value system that uses
+       <strong>
+        decimal
+       </strong>
+       notation, each natural number is represented by a numeral which is a string of one or more of the ten Hindu-Arabic digits.
+However, in some computer science contexts, it is more useful to represent natural numbers in a place-value system that uses a different
+       <strong>
+        number base
+       </strong>
+       such as
+       <strong>
+        binary
+       </strong>
+       (base-two),
+       <strong>
+        octal
+       </strong>
+       (base-eight), or
+       <strong>
+        hexadecimal
+       </strong>
+       (base-sixteen).
+Using or thinking about numbers represented by numerals in these other systems can help you develop more efficient algorithms and recognize when certain numerals can be interpreted as encodings of multiple pieces of information.
       </p>
      </div>
      <div class="paragraph">
@@ -799,32 +811,47 @@ to represent
           <em>
            is
           </em>
-          the number itself, which is an abstract idea.
-In the same way,
+          the number. The number itself is an abstract idea that can be referred to using any of those numerals.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In the same way,
          </p>
         </div>
         <div class="ulist">
          <ul>
           <li>
            <p>
-            the Arabic numerals "5" and "٥",
+            the Roman "Ⅴ",
            </p>
           </li>
           <li>
            <p>
-            the Roman numeral "Ⅴ,"
+            the Braille "⠼⠑",
            </p>
           </li>
           <li>
            <p>
-            Braille "⠑"
+            the Coptic Epact "𐋥",
+           </p>
+          </li>
+          <li>
+           <p>
+            the Eastern Arabic "٥",
+           </p>
+          </li>
+          <li>
+           <p>
+            the Western Arabic "5".
            </p>
           </li>
          </ul>
         </div>
         <div class="paragraph">
          <p>
-          are other ways of representing the same number that the word "five" represents.
+          are other ways of representing the same number that the
+words above represent.
          </p>
         </div>
         <div class="openblock click">
@@ -869,38 +896,6 @@ Further discussion is beyond the scope of this textbook, and beyond the remixer�
          </div>
         </div>
        </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        In the same way that we can use multiple words to represent a single number, so can we use a place-value numeral system with a positive integer base
-        <em>
-         b
-        </em>
-        that is different than ten
-to represent a number.
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        However,
-It is often useful to represent natural numbers using a different
-        <strong>
-         number base
-        </strong>
-        , such as
-        <strong>
-         binary
-        </strong>
-        (base-two),
-        <strong>
-         octal
-        </strong>
-        (base-eight), or
-        <strong>
-         hexadecimal
-        </strong>
-        (base-sixteen). As you may already know, computer arithmetic is based on binary, which is base-two; you can develop algorithms that are much more effective and efficient when this is kept in mind!
-       </p>
       </div>
      </div>
      <div class="sect2">
@@ -1120,7 +1115,7 @@ It is often useful to represent natural numbers using a different
          </div>
          <div class="paragraph">
           <p>
-           Notice that the algorithm is essentially rewriting \(432\) as \(2 + 10 \cdot 43 = 2 + 10 \cdot (3 + 10 \cdot 4)).\)
+           Notice that the algorithm is rewriting \(432\) as the sum \(2 + 10 \cdot (3 + 10 \cdot 4)).\)
           </p>
          </div>
         </div>
@@ -1133,7 +1128,7 @@ It is often useful to represent natural numbers using a different
       </h3>
       <div class="paragraph">
        <p>
-        Next, let’s describe the base-two (binary) place value system. You will see that much of what is done here can be achieved by simply replacing "ten" by "two" in what was described in the previous section.
+        This subsection describes the base-two (binary) place value system. You will see that much of what is written here is the result of replacing "ten" by "two" in the description of the base-ten (decimal) system in the previous section.
         <br/>
        </p>
       </div>
@@ -1178,14 +1173,16 @@ It is often useful to represent natural numbers using a different
         <li>
          <p>
           As an example, the string "101" represents the number described by the phrase "1 four plus 0 twos, plus 1 ones," where 1 four is the same as two twos. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Wait…​ WHAT?!?) }\]
-Yes, this equation is correct
+Yes, this equation,
+which may appear to be written in the base-ten system,
+is correct
           <em>
-           in the base-two place value system!
+           in the base-two place value system,
           </em>
-          "10" is how the number two is represented in base-two notation!
+          too!  "10" is how the number two is represented in base-two notation!
           <br/>
           <span class="small">
-           As an analogy, the string "pie" signifies very different things in English (a baked dessert) and Spanish (a foot.) We must take care to know which language we are working with!
+           As an analogy, the string "pie" signifies different things in English (a baked dessert) and Spanish (a foot.) You must take care to know which context you are working in!
           </span>
          </p>
         </li>
@@ -1201,29 +1198,35 @@ Yes, this equation is correct
          <td class="content">
           <div class="paragraph">
            <p>
-            To avoid confusion,
-it is traditional to use notation to indicate that the strings "10" and "101"
+            It is traditional to use
+some extra
+notation to indicate
+when the strings "10" and "101"
             <span class="underline">
              <em>
               are not
              </em>
             </span>
-            base-ten numerals. In this textbook, we will write base-two numerals between a pair of parentheses followed by a subscript indicating the base. The subscript is written as a
+            base-ten numerals
+to avoid confusion.
+In this textbook,
+numerals in any base other than ten
+will be written
+between a pair of parentheses followed by a subscript indicating the base. The subscript is written as a
             <em>
              base-ten numeral.
             </em>
             For example, we could rewrite the previous equation as \[(101)_{2} = (1)_2 \cdot (10)_2 \cdot (10)_2 + (0)_2 \cdot (10)_2 + (1)_2 \cdot (1)_2 \]
-which translates into base-ten as \(5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.\) We can also write \(5 = (101)_2\) which is a way of saying that the base-ten numeral and the base-two numeral signify the same number.
+which translates into base-ten as \(5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.\) We can also write \(5 = (101)_2\) which is a way of saying that the base-ten numeral and the base-two numeral signify the same number. +
+            <span class="small">
+             NOTE:
+The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used…​ and we don’t need to use the parentheses or subscripts if we are already working in base-ten.
+            </span>
            </p>
           </div>
          </td>
         </tr>
        </table>
-      </div>
-      <div class="paragraph">
-       <p>
-        The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used…​ and we don’t need to use the parentheses or subscripts if we are already working in base-ten.
-       </p>
       </div>
       <div class="admonitionblock note">
        <table>
@@ -1235,7 +1238,7 @@ which translates into base-ten as \(5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 
          <td class="content">
           <div class="paragraph">
            <p>
-            Also, the use of notation like the parentheses and subscript is not necessary if it is clear from the context that a numeral is not a base-ten numeral. For example, \[ \text{chmod 755 hello.txt} \]
+            The parentheses and subscript are not necessary if it is clear from the context that a numeral is not a base-ten numeral. For example, \[ \text{chmod 755 hello.txt} \]
 is a Unix/Linux command that changes the file permission bits (read, write, execute) of the file "hello.txt" for the file’s owner, the file’s group, and any other user. In this example, the string "755" is not a base-10 numeral, but is in
             <strong>
              octal (base-eight).
@@ -1245,6 +1248,10 @@ is a Unix/Linux command that changes the file permission bits (read, write, exec
              natural
             </em>
             to an experienced user of that operating system to use octal in the context.
+            <br/>
+            <span class="small">
+             In fact, the octal numeral "755" is used here as an encoding of three bitstrings, where each bitstring is of length 3; this idea is discussed in a later subsection of this chapter.
+            </span>
            </p>
           </div>
           <div class="paragraph">
@@ -1276,7 +1283,7 @@ is a Unix/Linux command that changes the file permission bits (read, write, exec
       </div>
       <div class="paragraph">
        <p>
-        You are ready to convert base-ten numerals to base-two now.
+        You are ready now to learn how to represent numbers using base-two numerals.
        </p>
       </div>
       <div class="sect3">
@@ -1373,7 +1380,7 @@ is a Unix/Linux command that changes the file permission bits (read, write, exec
        </div>
        <div class="paragraph">
         <p>
-         That is, we rewrite \(n\) as \(r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))\)
+         That is, the algorithm rewrites \(n\) as \(r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))\)
         </p>
        </div>
        <div class="sidebarblock">
@@ -1414,9 +1421,12 @@ is a Unix/Linux command that changes the file permission bits (read, write, exec
          </div>
          <div class="paragraph">
           <p>
-           The algorithm lets us rewrite \(13\) as \(1 + 2 \cdot 6 = 1 + 2 \cdot (0 + 2 \cdot 3) = 1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).\)
+           The algorithm
+rewrites \(13\) as \(1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).\)
            <br/>
-           You can also write \(13 = (1101)_2\) to indicate that the base-ten numeral and the base-two numeral represent the same number, thirteen.
+           Again, notice that the items in the array \([1, 0, 1, 1\)] are listed in reverse order, so
+\(13 = (1101)_2\)
+where the base-ten numeral and the base-two numeral represent the same number, thirteen.
           </p>
          </div>
         </div>
@@ -1443,12 +1453,12 @@ is a Unix/Linux command that changes the file permission bits (read, write, exec
       </h3>
       <div class="paragraph">
        <p>
-        We can now describe the base-\(b\) place value system for any natural number \(b&gt;1.\).
+        If you made it here, you are ready to learn how to find, given any natural number \(n,\) the numeral that represents \(n\) in the base-\(b\) place value system (It is assumed that the base \(b\) is a natural number greater than or equal to 2.) You can compare the algorithm and example in this subsection to the ones in the preceding subsections for base-ten and base-two.
        </p>
       </div>
       <div class="paragraph">
        <p>
-        A base-\(b\) numeral is a string formed from one or more digits out of a set that contains \(b\) digits.
+        A base-\(b\) numeral is a string formed from one or more digits out of a set that contains \(b\) symbols, where each symbol is called a "base-\(b\) digit."
        </p>
       </div>
       <div class="ulist">
@@ -1493,11 +1503,13 @@ Yes, this equation is correct, too,
       </div>
       <div class="paragraph">
        <p>
-        We can use a pair of parentheses followed by the subscript \(b\) to indicate the base, where \(b\) is written as a
+        To avoid confusion, you can enclose each numeral in a pair of parentheses followed by the subscript \(b\) to indicate the base, where \(b\) is written as a
         <em>
          base-ten numeral.
         </em>
-        For example, we could rewrite the previous equation as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \]
+        For example,
+the previous equation
+can be written as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \]
 which translates into base-ten as \(b^2 + 1 = 1 \cdot b \cdot b + 0 \cdot b + 1 \cdot 1.\)
        </p>
       </div>
@@ -1522,7 +1534,8 @@ which translates into base-ten as \(b^2 + 1 = 1 \cdot b \cdot b + 0 \cdot b + 1 
             n,
            </em>
            and positive integer constant \(b &gt; 1\)
-compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] so that each of \(r_{0}, r_{1}, \ldots , r_{k}\) is represented by a single digit in base-\(b\), and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0} \] where \(k\) is the greatest natural number such that \(b^{k} &lt; n.\)
+compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] so that each of \(r_{0}, r_{1}, \ldots , r_{k}\)
+can be represented by a single digit in base-\(b\), and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0} \] where \(k\) is the greatest natural number such that \(b^{k} &lt; n.\)
           </p>
           <div class="ulist">
            <ul>
@@ -1586,7 +1599,9 @@ compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} 
             </li>
             <li>
              <p>
-              Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a single digit, and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0}.\]
+              Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a
+single digit in base-\(b,\)
+and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0}.\]
              </p>
             </li>
            </ul>
@@ -1596,7 +1611,10 @@ compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} 
        </div>
        <div class="paragraph">
         <p>
-         That is, we rewrite \(n\) as \(r_{0} + b \cdot (r_{1} + b \cdot (r_{2} + \ldots r_{k-1} + (b \cdot (r_{k})) \ldots )).\) The result is the digits that allows us to write \(n\) as \((r_{k}\ldots r_{1}r_{0})_b\) in base-\(b\) notation.
+         The algorithm rewrites \(n\) as \(r_{0} + b \cdot (r_{1} + b \cdot (r_{2} + \ldots r_{k-1} + (b \cdot (r_{k})) \ldots )).\) The result
+\(s\) contains the numbers
+that let you write \(n\)
+in base-\(b\) notation.
         </p>
        </div>
       </div>
@@ -1694,11 +1712,15 @@ So
 \(13 = (D)_{16},\)
 \(14 = (E)_{16},\) and
 \(15 = (F)_{16}.\)
+           <br/>
+           <span class="small">
+            Note: Some programming languages like Python use the lowercase letters 'a' through 'f' instead of the uppercase letters.
+           </span>
           </p>
          </div>
          <div class="paragraph">
           <p>
-           We will store the remainders in the array \(s\) using base-ten notation, and then change to hexadecimal digits when write the base-16 numeral for 500.
+           The remainders stored in the array \(s\) are represented in base-ten notation, and will need to be replaced by the corresponding hexadecimal digits in the base-16 numeral for 500.
           </p>
          </div>
          <div class="paragraph">
@@ -1762,16 +1784,7 @@ To write the base-16 numeral for 500, you need to replace "15" in base-ten  by \
       </h3>
       <div class="paragraph">
        <p>
-        In this section we show how to rewrite a base-\(b\) numeral in base-ten.
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        The base-ten numeral of a positive integer is referred to as the
-        <strong>
-         decimal  expansion
-        </strong>
-        .
+        In this section you will learn how to rewrite a base-\(b\) numeral in base-ten.
        </p>
       </div>
       <div class="sidebarblock">
@@ -1879,11 +1892,24 @@ To write the base-16 numeral for 500, you need to replace "15" in base-ten  by \
       </div>
       <div class="paragraph">
        <p>
-        Suppose we want to convert the positive integer \(n\) from hexadecimal to binary. One method would be to first convert
-\(n\) from hexadecimal to decimal, and then
-convert the result from decimal to binary. However, we can also take advantage of the fact
-that \(2^4 = 16.\) This implies that we can express each hexadecimal digit of \((n)_{16}\) uniquely as a block of 4 bits as
-follows:
+        Suppose
+you need to convert
+a numeral
+from hexadecimal to binary. One method would be to first convert
+from hexadecimal to decimal, and then
+convert the result from decimal to binary. However,
+it is much more efficient to notice that since
+\(2^4 = 16,\)
+you can express each hexadecimal digit
+as a block of 4 bits
+(that is, a
+        <a href="./introduction_discrete_math.html#informal_bitstring_definition">
+         <em>
+          bitstring
+         </em>
+        </a>
+        of length 4)
+as follows:
        </p>
       </div>
       <div class="stemblock">
@@ -1898,7 +1924,7 @@ follows:
       </div>
       <div class="paragraph">
        <p>
-        We then concatenate our blocks, removing any leading zeros if necessary.
+        You can then concatenate the blocks, and remove any leading zeros if you need to.
        </p>
       </div>
       <div class="sidebarblock">
@@ -1916,7 +1942,7 @@ follows:
           Solution
          </div>
          <p>
-          We have the following:
+          Each hexadecimal digit can be replaced by a block of 4 bits:
          </p>
         </div>
         <div class="stemblock">
@@ -1928,15 +1954,28 @@ follows:
         </div>
         <div class="paragraph">
          <p>
-          Thus, we see that \[(4\mathrm{C}\mathrm{A}7)_{16} = (100110010100111)_{2}.\]
+          This means that you can write either \[(4\mathrm{C}\mathrm{A}7)_{16} = (0100110010100111)_{2}\] or, if the leading zero is not needed, \[(4\mathrm{C}\mathrm{A}7)_{16} = (100110010100111)_{2}.\]
+          <span class="small">
+           Why wouldn’t you always delete leading zeroes? Notice that a bitstring of length 4 can be used to encode a sequence of "Yes/No" or "True/False" answers. As an example, since \((6)_{16} = (0110)_2,\) the hexadecimal digit \((6)_{16}\) can be used to encode the sequence of 4 answers "No, Yes, Yes, No" to a Yes/No survey, and in this context the leftmost bit should be kept to make it clear that the answer to the first question was "No" (as opposed to the sequence "Yes, Yes, No, blank" where the fourth question was not answered.)
+          </span>
          </p>
         </div>
        </div>
       </div>
       <div class="paragraph">
        <p>
-        To convert \(n\) from binary to hexadecimal, we simply break up \((n)_2\) into blocks of 4 binary digits, adding a suitable number of
-leading zeros if necessary. We convert each block of 4 bits to hexadecimal digits and concatenate our results, removing any leading
+        To convert
+a numeral from binary to hexadecimal,
+first
+break up
+the binary notation into blocks of 4
+bits,
+adding a suitable number of
+leading zeros if necessary.
+Next, convert each block of 4 bits to
+a hexadecimal digit
+and concatenate
+the results, removing any leading
 zeros if necessary.
        </p>
       </div>
@@ -1955,8 +1994,8 @@ zeros if necessary.
           Solution
          </div>
          <p>
-          We have the following blocks of 4 bits: \[0110,\ 1011,\ 1111.\]
-Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 = (\mathrm{F})_{16},\) we see that \[(11010111111)_{2} = (6\mathrm{B}\mathrm{F})_{16}.\]
+          The are three blocks of 4 bits: \[0110,\ 1011,\ 1111.\]
+Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 = (\mathrm{F})_{16},\) \[(11010111111)_{2} = (6\mathrm{B}\mathrm{F})_{16}.\]
          </p>
         </div>
        </div>
@@ -1964,9 +2003,7 @@ Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 
       <div class="paragraph">
        <p>
         A similar method can be used to convert between octal and binary.
-We can take advantage of the fact
-that \(2^3 = 8.\) This implies that we can express each octal digit of \((n)_{8}\) uniquely as a block of 3 bits as
-follows:
+Since \(2^3 = 8,\) each octal digit can be written uniquely as a block of 3 bits as follows:
        </p>
       </div>
       <div class="stemblock">
