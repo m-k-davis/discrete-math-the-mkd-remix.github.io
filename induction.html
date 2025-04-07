@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on March 16, 2025.
+        This chapter was last updated on April 7, 2025.
        </em>
       </p>
      </div>
@@ -1198,11 +1198,6 @@ since a graph with 0 edges is just a collection of isolated vertices, and each o
       <h3 id="_more_example_proofs_using_mathematical_induction">
        11.3. More Example Proofs Using Mathematical Induction
       </h3>
-      <div class="paragraph">
-       <p>
-        As a first example, here is the formal proof that corresponds to the first example of this chapter
-       </p>
-      </div>
       <div class="sidebarblock">
        <div class="content">
         <div class="paragraph">
@@ -1385,16 +1380,11 @@ for the sum \(\sum\limits_{i=1}^{k}(2i-1)\) based on the induction hypothesis.
         </div>
        </div>
       </div>
-     </div>
-     <div class="sect2">
-      <h3 id="_still_more_examples_of_proofs_by_mathematical_induction">
-       11.4. Still More Examples of Proofs by Mathematical Induction
-      </h3>
       <div class="sidebarblock">
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 5 - An Inequality
+          Example 5 - The Factorial Grows Faster Than An Exponential Function
          </div>
          <p>
           Let \(P(n)\) be the predicate \[P(n): 2^{n} &lt; n!\] We will prove that \((\forall n \in \mathbb{N}_{\geq 4})P(n).\)
@@ -1465,6 +1455,47 @@ for all positive integers \(n \geq 4\), \(2^{n} &lt; n!\)
         </div>
        </div>
       </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Exercise - Setting Up A Proof By Induction (The Towers Of Hanoi)
+         </div>
+         <p>
+          Set up the proof of the following statement.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The minimal number of moves needed to solve the
+          <a href="./recursion.html#Towers_Of_Hanoi">
+           Towers Of Hanoi
+          </a>
+          puzzle with \(n\) discs is \(2^{n}-1.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What is the predicate \(P(n)\)?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What value of \(n\) is best to use in the Basis Step?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What is the Induction Hypothesis?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What property of the puzzle is used the key feature to proving the Induction Step? You can describe this in words or use an algebraic equation.
+         </p>
+        </div>
+       </div>
+      </div>
       <div class="paragraph">
        <p>
         MORE PROOFS TO COME!
@@ -1473,7 +1504,7 @@ for all positive integers \(n \geq 4\), \(2^{n} &lt; n!\)
      </div>
      <div class="sect2">
       <h3 id="_strong_induction">
-       11.5. Strong Induction
+       11.4. Strong Induction
       </h3>
       <div class="paragraph">
        <p>
@@ -1776,22 +1807,90 @@ for all natural numbers \(n &gt; 2,\) \(n\) is either a prime number or a produc
      </div>
      <div class="sect2">
       <h3 id="_validating_an_algorithm_using_induction">
-       11.6. Validating An Algorithm Using Induction
+       11.5. Validating An Algorithm Using Induction
       </h3>
       <div class="paragraph">
        <p>
-        One of the uses of mathematical induction in computer science is the validation of algorithms. In this section, we’ll prove that the
-        <a href="./algorithms.html#algorithms_euclidean_algorithm">
-         Euclidean Algorithm
-        </a>
-        correctly computes the greatest common divisor (g.c.d.) of two integers.
+        In this section, we’ll prove that the Euclidean Algorithm as described below correctly computes the greatest common divisor of two positive integers.
        </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Task: Given the positive integers \(a\) and \(b\) with \(a &gt; b\),
+compute the greatest common divisor (or "g.c.d") of \(a\) and \(b.\) That is, compute the greatest integer that is a factor of both \(a\) and \(b.\)
+         </p>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             Input: Two positive integers
+            </p>
+           </li>
+           <li>
+            <p>
+             Steps:
+            </p>
+            <div class="olist arabic">
+             <ol class="arabic">
+              <li>
+               <p>
+                Set \(a\) to the greater and \(b\) to the lesser of the two input values.
+               </p>
+              </li>
+              <li>
+               <p>
+                Compute the remainder \(r\) when \(a\) is divided by \(b\) (using long division of integers, not "floating-point" decimals.)
+               </p>
+              </li>
+              <li>
+               <p>
+                If \(r &gt; 0\)
+               </p>
+               <div class="olist loweralpha">
+                <ol class="loweralpha" type="a">
+                 <li>
+                  <p>
+                   Set \(a\) equal to \(b\)
+                  </p>
+                 </li>
+                 <li>
+                  <p>
+                   Set \(b\) equal to \(r\)
+                  </p>
+                 </li>
+                 <li>
+                  <p>
+                   Go to step 2
+                  </p>
+                 </li>
+                </ol>
+               </div>
+              </li>
+              <li>
+               <p>
+                Return the value stored in \(b.\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+           <li>
+            <p>
+             Output: A positive integer that is a factor of both input values.
+            </p>
+           </li>
+          </ul>
+         </div>
+        </li>
+       </ul>
       </div>
       <div class="sidebarblock">
        <div class="content">
         <div class="openblock">
          <div class="title">
-          Example 7 - The Euclidean Algorithm
+          Example 7 - The Euclidean Algorithm in Python
          </div>
          <div class="content">
          </div>
@@ -2017,11 +2116,21 @@ for all natural numbers \(n,\) if the loop executes \(n\) times then the last no
           </i>
          </td>
          <td class="content">
-          The French mathematician Gabriel Lamé proved in 1844 that if the Euclidean Algorithm requires \(n\) steps then \(f_{n+2} \leq a\) and \(f_{n+1} \leq b.\) A proof by induction is given at this
+          Notice that if \(a = f_{n+2}\) and \(b = f_{n+1}\) are consecutive Fibonacci numbers then the Euclidean Algorithm requires exactly \(n\) loop iterations to compute the last nonzero remainder.
+          <br/>
+          The French mathematician Gabriel Lamé proved in 1844 that if the Euclidean Algorithm requires \(n\) loop iterations to compute the last nonzero remainder for two given positive integer inputs \(a\) and \(b\) (with \(a&gt;b\))
+then it must be True that both \(f_{n+2} \leq a\) and \(f_{n+1} \leq b.\) A proof by induction of Lamé’s theorem is given at this
           <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case">
            Wikipedia page.
           </a>
-          Notice that the worst-case complexity for the Euclidean Algorithm is described there as well: The Euclidean Algorithm is \(O(log_{\phi}(b)).\)
+          <br/>
+          <span class="small">
+           The "worst-case complexity" for the Euclidean Algorithm is described at that webpage as well: The Euclidean Algorithm is \(O(log_{\phi}(b)).\) (Complexity and "big \(O\)" notation are discussed in the
+           <a href="./growth_of_functions.html">
+            Rates of Growth of Functions
+           </a>
+           chapter.)
+          </span>
          </td>
         </tr>
        </table>
@@ -2029,17 +2138,8 @@ for all natural numbers \(n,\) if the loop executes \(n\) times then the last no
      </div>
      <div class="sect2">
       <h3 id="_exercises_7">
-       11.7. Exercises
+       11.6. Exercises
       </h3>
-      <div class="paragraph">
-       <p>
-        Remixer’s Note: This section is taken from the original
-        <a href="https://ggc-discrete-math.github.io/index.html">
-         “Discrete Math”
-        </a>
-        book, with only a few minor revisions.
-       </p>
-      </div>
       <div class="olist arabic">
        <ol class="arabic">
         <li>
@@ -2127,7 +2227,7 @@ for all natural numbers \(n,\) if the loop executes \(n\) times then the last no
         </li>
         <li>
          <p>
-          Prove by induction that there are \(4^n\) numbers in base 4 (using the digits 0 ,1, 2, 3,) made up of \(n\) digits.
+          Prove by induction that there are \(4^n\) numbers in base 4 (using the digits 0 ,1, 2, 3) made up of \(n\) digits.
          </p>
         </li>
         <li>
@@ -2137,7 +2237,7 @@ for all natural numbers \(n,\) if the loop executes \(n\) times then the last no
         </li>
         <li>
          <p>
-          Consider the sequence defined recursively as \(a_1=1,a_2=5,\) and \(a_n=5a_{n-1}-6a_{n-2}.\)
+          Consider the sequence defined recursively as \[a_1=1,a_2=5, \text{ and } a_n=5a_{n-1}-6a_{n-2}\]
          </p>
          <div class="olist loweralpha">
           <ol class="loweralpha" type="a">
@@ -2148,7 +2248,9 @@ for all natural numbers \(n,\) if the loop executes \(n\) times then the last no
            </li>
            <li>
             <p>
-             Prove by induction that the recursive sequence is given by the formula \(a_n=3^n-2^n.\) (Hint: You may be able to use the fact that \(2\) and \(3\) are the two solutions of the quadratic equation \(x^{2} = 5x - 6.\))
+             Prove by induction that the closed-form formula for the sequence is \(a_{n} = 3^{n} - 2^{n}.\)
+             <br/>
+             (Hint: You can use the fact that \(2\) and \(3\) are the solutions of the quadratic equation \(x^{2} = 5x - 6.\))
             </p>
            </li>
           </ol>
@@ -2156,7 +2258,7 @@ for all natural numbers \(n,\) if the loop executes \(n\) times then the last no
         </li>
         <li>
          <p>
-          Consider the sequence defined recursively as \(a_1=1\) and \(a_n=2a_{n-1}+n\).
+          Consider the sequence defined recursively as \[a_1=1 \text{ and } a_n=2a_{n-1}+n\]
          </p>
          <div class="olist loweralpha">
           <ol class="loweralpha" type="a">
@@ -2185,19 +2287,19 @@ for all natural numbers \(n,\) if the loop executes \(n\) times then the last no
           <ol class="loweralpha" type="a">
            <li>
             <p>
-             Prove by induction that the sum of the first \((n+1)\) Fibonacci numbers is 1 less than the \((n+2)\)th Fibonacci number, that is,
+             Prove by induction that
 
 \[
-f_0+f_1+f_2+\ldots+f_n=\sum_{i=0}^{n}{f_i=f_{n+2}-1}.
+f_0+f_1+f_2+\ldots+f_n= f_{n+2}-1.
 \]
             </p>
            </li>
            <li>
             <p>
-             Prove by induction that the sum of the squares of the first \((n+1)\) Fibonacci numbers is
+             Prove by induction that
 
 \[
-f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 = \sum_{i=0}^{n} f_i^2=f_n \cdot\ f_{n+1}.
+f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 =f_n \cdot\ f_{n+1}.
 \]
             </p>
            </li>
