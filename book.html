@@ -10572,7 +10572,7 @@ So our closed formula is \(a_n=2+3(n-1)\).</p>
 </div>
 <div class="paragraph">
 <div class="title">You Try</div>
-<p>First, find the general closed form solution for the recurrence relation \(a_n=-b_{n-1}+20b_{n-2}.\) Next, find the constants \(\alpha\) and \(\beta\) if the initial conditions \(a_0 =1\) and \(a_1=2\) must also be satisfied.</p>
+<p>First, find the general closed form solution for the recurrence relation \(b_n=-b_{n-1}+20b_{n-2}.\) Next, find the constants \(\alpha\) and \(\beta\) if the initial conditions \(a_0 =1\) and \(a_1=2\) must also be satisfied.</p>
 </div>
 </div>
 </div>
@@ -12941,7 +12941,7 @@ By starting at the lower left corner of the square and grouping disks of the sam
 </div>
 <div class="paragraph">
 <p>In the following code snippet, function \(P\) implements the predicate used in this example.
-Recall that the predicate&#8217;s output is a <em>proposition</em> - the output is just a string of symbols and does not indicate whether the proposition is True of False.</p>
+Recall that the predicate&#8217;s output is a <em>proposition</em> - the output is just a string of symbols and does not indicate whether the proposition is True or False.</p>
 </div>
 <iframe width="100%" frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0Afor%20n%20in%20%5B1,2,3,4%5D%3A%0A%20%20%20%20print%28P%28n%29%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=350"> </iframe>
 
@@ -13812,14 +13812,23 @@ f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 =f_n \cdot\ f_{n+1}.
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on January 16, 2025.</em><br>
-<span class="small">Revised the section on using limits to determine Big-\(O\) and  Big-\(\Theta\) relationships.</span></p>
+<p><em>This chapter was last updated on April 14, 2025.</em><br></p>
 </div>
 <div class="paragraph">
-<p>Some tasks can be completed by more than one algorithm. In such a case, two questions to ask are "How do you choose which algorithm to use?" and "Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions.</p>
+<p>You have seen that some tasks can be completed by more than one algorithm. Two questions to ask are</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>"How do you choose which algorithm to use?"</p>
+</li>
+<li>
+<p>"Why is is it important to make such a choice?"</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>In particular, ways of comparing the <em>rates of growth</em> of functions will allow us to compare how two algorithms perform as the size of the inputs to the algorithms increase with no upper bound (theoretically, since it&#8217;s very likely that there are only a finite amount of computing resources available in the universe.)</p>
+<p>This chapter will discuss tools you can use to help answer these questions. In particular, ways of comparing the <em>rates of growth</em> of functions will allow us to compare how two algorithms perform as the size of their input increase with no upper bound.</p>
 </div>
 <div class="paragraph">
 <p>Key terms and concepts covered in this chapter:</p>
@@ -13843,18 +13852,19 @@ f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 =f_n \cdot\ f_{n+1}.
 <p>In order to implement an algorithm, there are issues of the space needed to do the work and the time needed to complete all the steps.</p>
 </div>
 <div class="paragraph">
-<p>For example, imagine that you are asked to complete a "few" Algebra homework exercises that involve solving linear equations by hand using paper and pencil. Now suppose that "few" means "one hundred" and that each linear equation will involve multiple steps to solve
+<p>For example, imagine that you are asked to complete a few Algebra homework exercises by hand, and each exercise involves solving linear equations by hand using paper and pencil. Now suppose that "few" means "one hundred" and that each linear equation involves multiple steps to solve
 like the one below. \[ \text{Exercise 1. Solve for } x \text{:    } 40(x+6)-9(3x+5) = 65(x+7)-(7x+132)\]
-It is not <em>difficult</em> to solve linear equations like this because it is clear what steps you need to use&#8230;&#8203; but it is tedious and will likely require a lot of paper! That is, it will consume a lot of time and space to solve even the first one of the equations, and you&#8217;ll have only ninety-nine more to do after that!</p>
+It is not <em>difficult</em> to solve linear equations like this one because it is clear what steps you need to use&#8230;&#8203; but it is tedious and will likely require a lot of paper! That is, it will consume a lot of time and space to solve even the first one of these equations, and you&#8217;ll have only ninety-nine more to do after that!</p>
 </div>
 <div class="paragraph">
-<p>In this textbook, the focus will be on time complexity and <strong>asymptotics,</strong> that is, the comparison of the time needed by the algorithms as the size of the data becomes larger and larger without any bound.</p>
+<p>In this textbook, the focus will be on time complexity and <strong>asymptotics,</strong> that is, the comparison of the time needed by the algorithms as the size of the input becomes larger and larger without any bound.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_the_order_of_a_function_and_big_theta_notation">12.2. The Order of a Function and Big Theta Notation</h3>
 <div class="paragraph">
-<p>In this section, we will define a relation that describes what it means to say that "two functions grow at the same rate." More precisely, "two functions grow at the same rate, asymptotically, as the input variable grows without an upper bound." We will also introduce big \(\Theta\) notation (\(\Theta\) is the uppercase Greek letter "theta.")</p>
+<p>In this section, we will define a relation that describes what it means to say that "two functions grow at the same rate." More precisely, "two functions grow at the same rate, asymptotically, as the input variable grows without an upper bound." We will also introduce big \(\Theta\) notation.<br>
+<span class="small">Note: \(\Theta\) is the uppercase Greek letter "Theta."</span></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -13873,8 +13883,8 @@ to mean that</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The constants \(A,\) \(B,\) and \(x_{0}\) are called <strong>witnesses</strong> since they witness the "has the exact same order as" relationship between the two functions.
-<span class="small">This definition of "has the exact same order as" is based on one proposed by Donald Knuth in the 1976 letter "Big Omicron and Big Omega and Big Theta" published in <a href=https://dl.acm.org/doi/10.1145/1008328.1008329><em>ACM SIGACT News</em>.</a></span></p>
+<p>The constants \(A,\) \(B,\) and \(x_{0}\) are called <strong>witnesses:</strong> The constants confirm the "has the exact same order as" relationship between the two functions.<br>
+<span class="small">The Remix&#8217;s definition of "has the exact same order as" is based on notations and descriptions proposed by Donald Knuth in the 1976 letter "Big Omicron and Big Omega and Big Theta" published in <a href=https://dl.acm.org/doi/10.1145/1008328.1008329><em>ACM SIGACT News</em>.</a></span></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -13907,30 +13917,58 @@ to mean that</p>
 <p>However, if we zoom out, it appears that the plotted graph of \(f\) lies between the two straight lines for all values of the input <em>x</em> that have a large absolute value. In fact, the image seems to indicate that \[ 0.9g(x) \leq f(x) \leq 1.1g(x) \text{ for all } x \geq 100.\]
 That is, the image suggests that <em>f</em> has the exact same order as <em>g.</em>
 Notice that we could prove, more rigorously, that the inequality is true, by using some algebra and the fact that the sine function&#8217;s outputs are in the interval \([-1, \, 1\)], so the functions have the exact same order. The two functions \(f\) and \(g\) grow at the same rate, asymptotically, as the input variable grows without an upper bound.<br>
-<span class="small">It appears from the zoomed-out plot that we could choose a value less than 100 for the bound \(x_{0},\) but the definition of "has the exact same order as" does not require us to find optimal values of any of the constants \(A,\) \(B,\) and \(x_{0}.\) In fact, if there exists at least one ordered triple \(( A, \, B, \, x_{0})\) that witnesses the "has the exact same order as" relation between two functions, then there must be infinitely many other ordered triples that witness the same relationship. As an example, we&#8217;ve used the ordered triple \(( 0.9, \, 1.1, \, 100)\) for the two multipliers and the lower bound for inputs, but we could use the same two multipliers and <em>any</em> value greater than 100 for \(x_{0}\) instead. Also, the triple \(( 0.25, \, 4, \, 0)\) witnesses the same relationship.</span></p>
+<span class="small">It appears from the zoomed-out plot that we could choose a value less than 100 for the bound \(x_{0},\) but the definition of "has the exact same order as" does not require us to find optimal values of any of the constants \(A,\) \(B,\) and \(x_{0}.\) In fact, if there exists at least one ordered triple \(( A, \, B, \, x_{0})\) that witnesses the "has the exact same order as" relation between two functions, then there must be infinitely many other ordered triples that witness the same relationship. As an example, we&#8217;ve used the ordered triple \(( 0.9, \, 1.1, \, 100)\) for the two multipliers and the lower bound for inputs, but we could use the same two multipliers and <em>any</em> value greater than 100 for \(x_{0}\) instead. Also, the triple \(( \frac{1}{4}, \, 4, \, 0)\) witnesses the same relationship since \[ \frac{1}{4}g(x) \leq f(x) \leq 4g(x) \text{ for all } x \geq 0.\]</span></p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="imagesMKD/BigThetaLinear010_alt.png" alt="BigThetaLinear010_alt" width="236" height="236">
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>We have the following theorem about this relation.</p>
+<p>We have the following theorem about the "has the exact same order as" relation.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Theorem</div>
 <div class="paragraph">
-<p>The following statements are true for the "has the exact same order as" relationship.</p>
+<p>For any functions \(f,\) \(g,\) and \(h\) with domain \(\mathbb{R}\) and codomain \(\mathbb{R},\)</p>
 </div>
 <div class="paragraph">
-<p>(1) \(f\) has the exact same order as \(f\)<br>
-(2) If \(f\) has the exact same order as \(g,\) then \(g\) has the exact same order as \(f\).<br>
-(3) If \(f\) has the exact same order as \(g,\) and \(g\) has the exact same order as \(h,\) then \(f\) has the exact same order as \(h.\)</p>
+<p>(1) \(f\) has the exact same order as \(f,\)<br>
+(2) if \(f\) has the exact same order as \(g,\) then \(g\) has the exact same order as \(f,\)<br>
+(3) if \(f\) has the exact same order as \(g,\) and \(g\) has the exact same order as \(h,\) then \(f\) has the exact same order as \(h.\)</p>
+</div>
+<div class="openblock click">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+For statement (1), choose any value \(x_{0}\) that is in the domain of \(f\) and \(A = 1\) and \(B = 1\) as witnesses. Since \[1 \cdot |f(x)| \leq |f(x)| \leq 1 \cdot |f(x)| \text{ for all } x \geq x_0\] must be True, \(f\) has the exact same order as \(f.\) Notice that we could have used other values for the witnesses \(A\) and \(B\) such as \(A = 0.99\) and \(B = 1.01.\)<br>
+<br>
+For statement (2), assume that \(f\) has the exact same order as \(g,\) so there are positive real number constants \(A,\) \(B,\) and \(x_{0}\) such that \[A|g(x)| \leq |f(x)| \leq B|g(x)| \text{ for all } x  &gt; x_{0}.\] Notice that the extended inequality above can be broken into the two inequalities \[A|g(x)| \leq |f(x)| \text{ and } |f(x)| \leq B|g(x)|\] which are both True for all \(x  > x_{0}.\) The two inequalities can be rewritten as \[|g(x)| \leq \frac{1}{A}|f(x)| \text{ and } \frac{1}{B}|f(x)| \leq |g(x)|\] which shows that \[\frac{1}{B}|f(x)| \leq |g(x)| \leq \frac{1}{A}|f(x)| \text{ for all } x  &gt; x_{0}.\] The last extended inequality above shows that \(g\) has the exact same order as \(f.\)<br>
+<br>
+For statement (3), assume both that \(f\) has the exact same order as \(g\) and that \(g\) has the exact same order as \(h.\) This means that there are positive real number constants \(A,\) \(B,\) and \(x_{0}\) such that \[A|g(x)| \leq |f(x)| \leq B|g(x)| \text{ for all } x  &gt; x_{0}\] and also positive real number constants \(C,\) \(D,\) and \(x_{1}\) such that \[C|h(x)| \leq |g(x)| \leq D|h(x)| \text{ for all } x  &gt; x_{1}.\] By breaking up the extended inequalities, then doing some algebra and recombining inequalities, you can get
+
+\[AC|h(x)| \leq A|g(x)| \leq |f(x)| \text{ and } |f(x)| \leq B|g(x)| \leq BD|h(x)|\] which are True for all pass:[\(x > max(x_{0}, x_{1}).\)] So 
+\[AC|h(x)| \leq |f(x)| \leq BD|h(x)| \text{ for all } x &gt; max(x_{0}, x_{1})\] which shows that \(f\) has the exact same order as \(h,\) witnessed by the constants \(AC,\) \(BD,\) and \(max(x_{0}, x_{1}).\)
+
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>These three properties let you conclude that the "has the exact same order as" relationship partitions the set \(\{ f \, | \, f \text{ is a function with domain and codomain } \mathbb{R} \}\) into disjoint sets. That is, if we define \(\Theta(g)\) as the set \[ \Theta(g) = \{ f \, | \, f \text{ has the exact same order as } g \} \] then every function with domain and codomain \(\mathbb{R}\) is an element of at least one of the \(\Theta(g)\) (since \(g\) is an element of \(\Theta(g)\)), and for any two functions \(g\) and \(h,\) the sets \(\Theta(g)\) and \(\Theta(h)\) must either be equal or have empty intersection.</p>
+<p>These three properties let you conclude that the "has the exact same order as"
+relation is an equivalence relation, so
+the relation
+partitions the set \(S = \{ f \, | \, f \text{ is a function with domain and codomain } \mathbb{R} \}\) into disjoint sets.
+For each function \(g \in S\) we can define \(\Theta(g)\) to be the equivalence class \[ \Theta(g) = \{ f \, | \, f \text{ has the exact same order as } g \} \]
+Every function with domain and codomain \(\mathbb{R}\) is an element of at least one of the \(\Theta(g)\)
+and for any two functions \(g\) and \(h,\) the sets \(\Theta(g)\) and \(\Theta(h)\) must either be equal or have empty intersection.
+For example, the earlier example shows that \(\Theta(x + \sin x)\) and \(\Theta(x)\) are the same set, so we can say that the function \(f(x) = x + \sin x\) is of linear order.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -13945,7 +13983,7 @@ A mathematician, like the author of the Remix, would write the very formal \(f \
 <br>
 Computer scientists have traditionally written this relation as \(f(x) = \Theta(g(x))\) and state "\(f(x)\) is big Theta of \(g(x)\)." In the earlier example, a computer scientist could write "\(x + \sin(x) = \Theta(x)\)."  As a mathematician, I need to point out that the function <em>f</em> is not equal, in the mathematical sense, to the equivalence class containing <em>g</em> because it&#8217;s just one of the infinitely many functions in that equivalence class.<br>
 <br>
-I believe that both mathematicians and computer scientists agree that <span class="line-through">Θ(<em>g</em>(<em>x</em>)) = <em>f</em>(<em>x</em>)</span> is just too hideous a notation to use&#8230;&#8203; so do not ever, ever use it!
+I believe that both mathematicians and computer scientists agree that <span class="line-through">Θ(<em>g</em>(<em>x</em>)) = <em>f</em>(<em>x</em>)</span> is just too hideous a notation to use&#8230;&#8203; so please do not ever, ever use it!
 </td>
 </tr>
 </table>
@@ -13974,12 +14012,14 @@ I believe that both mathematicians and computer scientists agree that <span clas
 </div>
 <div class="paragraph">
 <p>Big <em>O</em>  is typically used to analyze the worst case complexity of an algorithm.
-If, for example, \(n\) is the size of the input data, then big <em>O</em> really only cares about what happens when your input data size \(n\) becomes arbitrarily large and not quite as interested in when the input is small.  Mathematically, we want to speak of complexity in the asymptotic sense, when \(n\) is arbitrarily large. In this asymptotic sense of large \(n\), we may ignore constants.
+If, for example, \(n\) is the size of the input, then big <em>O</em> really only cares about what happens in the "worst-case" when \(n\) becomes arbitrarily large.  Mathematically, we want to consider time complexity in this asymptotic sense, when \(n\) is arbitrarily large, so may ignore constants.
 That we can ignore constants will make sense after discussing how
 limits, borrowed from continuous mathematics (that is, calculus), can be used to compare the rates of growth of two different functions.</p>
 </div>
+<div class="sect3">
+<h4 id="_common_complexities_to_consider">12.3.1. Common Complexities To Consider</h4>
 <div class="paragraph">
-<p>The size of the input complexities ordered from smallest to largest:</p>
+<p>The size of the input complexities most commonly used, ordered from smallest to largest, are as follows.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -14121,25 +14161,6 @@ we have the following growth ordering, also presented graphically on a logarithm
 <div class="paragraph">
 <p>Likewise we want to say that if \(c\) is a constant that \(c \cdot f(x)\), and \(f(x)\) have the same asymptotic behavior for large \(n\), or \(O(c \cdot f(x))=O(f(x))\).</p>
 </div>
-<div class="paragraph">
-<p>Motivated by these we formally define the <em>Big O</em> notation.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title"><em>Big</em> \(O\) notation</div>
-<div class="paragraph">
-<p>Suppose \(f\) and \(g\) are real valued functions from \(f(x):\mathbb{R}→\mathbb{R}\),
-we say \(f(x)\) is <strong>Big \(O\)</strong> of \(g(x)\), written
-"\(f(x)\) is \(O(g(x))\)", if there exists
-positive integers \(A\) and \(n\), so that \(|f(x)| \leq A|g(x)|\) whenever \(x  > n\).</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>To determine if a function \(f(x)\) is \(O(g(x))\) amounts to
-identifying the positive constants \(A\) and \(n\), (sometimes called witnesses).
-That is, we must find the factor \( A\)  and the point \( k \) for which \( f(x)  \leq A g(x)\), whenever \( x > k.\)</p>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -14232,6 +14253,7 @@ exist for a given fixed \(A\).</p>
 <p>For example, consider \(g(x)=A  \sqrt{x}\) and \( f(x) =x^2 \),
 when \( x= A^2\) we obtain \( g(A^2) = A  \sqrt{(A^2)}= A^2\) and \( f(A^2) = {\left ( {A}^2 \right )}^2\) and
 \( f(A^2)= A^4 > A^2 = g(A^2) \) when \(A>1\).</p>
+</div>
 </div>
 </div>
 </div>
@@ -14595,7 +14617,7 @@ words what it means that \( f(x)\) is <span class="underline">not</span> \( O(g(
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on April 1, 2025.</em><br></p>
+<p><em>This chapter was last updated on April 14, 2025.</em><br></p>
 </div>
 <div class="paragraph">
 <p>An <strong>algorithm</strong> is a step-by-step process, defined by a set of
@@ -14807,7 +14829,7 @@ Output
 <h5 id="_big_o_analysis_of_division_by_repeated_subtraction">Big-O Analysis Of Division By Repeated Subtraction</h5>
 <div class="paragraph">
 <p>Notice that the "division by repeated subtraction" algorithm has a worst-case scenario when the divisor <em>b</em> equals 1.
-It should be clear that "division by repeated subtraction" is \(O(a),\) that is, of order less than the value of the dividend \(a,\) since in the worst-case scenario you must subtract the divisor \(b=1\) exactly \(a\) times to exit the loop.</p>
+In this worst-case scenario you must subtract the divisor \(b=1\) exactly \(a\) times to exit the loop, so "division by repeated subtraction" is \(O(a),\) that is, of at least linear order in the larger number \(a.\)</p>
 </div>
 </div>
 </div>
@@ -14830,18 +14852,22 @@ It should be clear that "division by repeated subtraction" is \(O(a),\) that is,
 <div class="paragraph">
 <p>Click on the "Next" button to step through the code.</p>
 </div>
-<iframe width="100%" frameborder="5" height="600" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=600"> </iframe>
+<iframe width="100%" frameborder="5" height="650" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=650"> </iframe>
 
 <div style="text-align: right;">
 <a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
+</div>
+<div class="paragraph">
+<p>This long division algorithm uses powers of two (instead of ten) but otherwise is like the standard algorithm, using decimal notation, that you may have learned in school.<br>
+<span class="small">Notice that the shift operators <code>&lt;&lt;</code> and <code>&gt;&gt;</code> multiply or divide by 2 (<code>&gt;&gt;</code> gives only the quotient, without keeping track of the remainder.)</span></p>
 </div>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_big_o_analysis_of_long_division">Big-O Analysis Of Long Division</h5>
 <div class="paragraph">
-<p>This long division algorithm uses powers of two (instead of ten) but otherwise is like the algorithm you may have learned in school. The worst-case scenario corresponds to the divisor \(b=1,\) which requires you to shift as many times as there are <em>binary</em> digits in \(a.\) Notice that \(a\) is bounded above by 2 raised to the number of binary digits; this means that
-the long division algorithm is \(O(\log (a)).\)</p>
+<p>The worst-case scenario corresponds to the divisor \(b=1,\) which requires you to shift as many times as there are <em>binary</em> digits in \(a.\) Notice that \(a\) is bounded above by 2 raised to the number of binary digits; this means that
+the long division algorithm is \(O(\log (a)).\)<br></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -14941,7 +14967,7 @@ Python&#8217;s <code>math</code> module includes a function <code>gcd</code> tha
 <dl>
 <dt class="hdlist1">Why not use -1 to indicate that the target integer was not found?</dt>
 <dd>
-<p>Negative integers can be <em>valid indices</em> for a Python list! This ivery different than other languages like Java in which indices <span class="underline">must</span> be natural numbers.
+<p>Negative integers can be <em>valid indices</em> for a Python list! This is very different than other languages like Java in which indices <span class="underline">must</span> be natural numbers.
 As an example, for the list \(L = \lbrack 2,4,7 \rbrack\) we have \(L \lbrack -1 \rbrack = 7,\) \(L \lbrack -2 \rbrack = 4,\) and \(L \lbrack -3 \rbrack = 2.\) If you are coding in Python it may be safer either to raise an exception or to use the built-in constant <code>None</code> to indicate that no index for the target was found.</p>
 </dd>
 </dl>
@@ -15221,10 +15247,10 @@ both the elements in positions 1 and 2 are both in their correct positions.</p>
 <p>In general, if the list is of size \(n\), there will be \(n-1\) passes with swaps,</p>
 </div>
 <div class="paragraph">
-<p>\(n-1+n-2+...3+2+1 = 1+2+3+...+n-1\).</p>
+<p>\((n-1)+(n-2)+...+2+1 = 1+2+...+(n-2)+(n-1)\).</p>
 </div>
 <div class="paragraph">
-<p>You can use <a href=./induction.html>mathematical induction</a> to prove that \(1+2+3+\cdots+n-1= \frac{(n-1)\cdot\ n}{2}=\frac{n^2}{2}-\frac{n}{2}\), which means that the bubble sort algorithm is \(O(n^2)\).</p>
+<p>You can use <a href=./induction.html>mathematical induction</a> to prove that \[1+2+\cdots+(n-2)+(n-1)= \frac{(n-1)\cdot n}{2}\] and since \(\frac{(n-1)\cdot n}{2} =\frac{1}{2}n^2-\frac{1}{2}n\), the bubble sort algorithm is \(O(n^2)\).</p>
 </div>
 </div>
 </div>

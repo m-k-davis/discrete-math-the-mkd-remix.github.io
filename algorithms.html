@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on April 1, 2025.
+        This chapter was last updated on April 14, 2025.
        </em>
        <br/>
       </p>
@@ -1003,7 +1003,7 @@ As mentioned in the
            b
           </em>
           equals 1.
-It should be clear that "division by repeated subtraction" is \(O(a),\) that is, of order less than the value of the dividend \(a,\) since in the worst-case scenario you must subtract the divisor \(b=1\) exactly \(a\) times to exit the loop.
+In this worst-case scenario you must subtract the divisor \(b=1\) exactly \(a\) times to exit the loop, so "division by repeated subtraction" is \(O(a),\) that is, of at least linear order in the larger number \(a.\)
          </p>
         </div>
        </div>
@@ -1046,12 +1046,33 @@ It should be clear that "division by repeated subtraction" is \(O(a),\) that is,
            Click on the "Next" button to step through the code.
           </p>
          </div>
-         <iframe frameborder="5" height="600" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=600" width="100%">
+         <iframe frameborder="5" height="650" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=650" width="100%">
          </iframe>
          <div style="text-align: right;">
           <a href="http://www.pythontutor.com/visualize.html#code=a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
            Edit in PythonTutor
           </a>
+         </div>
+         <div class="paragraph">
+          <p>
+           This long division algorithm uses powers of two (instead of ten) but otherwise is like the standard algorithm, using decimal notation, that you may have learned in school.
+           <br/>
+           <span class="small">
+            Notice that the shift operators
+            <code>
+             &lt;&lt;
+            </code>
+            and
+            <code>
+             &gt;&gt;
+            </code>
+            multiply or divide by 2 (
+            <code>
+             &gt;&gt;
+            </code>
+            gives only the quotient, without keeping track of the remainder.)
+           </span>
+          </p>
          </div>
         </div>
        </div>
@@ -1061,12 +1082,13 @@ It should be clear that "division by repeated subtraction" is \(O(a),\) that is,
         </h5>
         <div class="paragraph">
          <p>
-          This long division algorithm uses powers of two (instead of ten) but otherwise is like the algorithm you may have learned in school. The worst-case scenario corresponds to the divisor \(b=1,\) which requires you to shift as many times as there are
+          The worst-case scenario corresponds to the divisor \(b=1,\) which requires you to shift as many times as there are
           <em>
            binary
           </em>
           digits in \(a.\) Notice that \(a\) is bounded above by 2 raised to the number of binary digits; this means that
 the long division algorithm is \(O(\log (a)).\)
+          <br/>
          </p>
         </div>
         <div class="admonitionblock note">
@@ -1305,7 +1327,7 @@ the long division algorithm is \(O(\log (a)).\)
                <em>
                 valid indices
                </em>
-               for a Python list! This ivery different than other languages like Java in which indices
+               for a Python list! This is very different than other languages like Java in which indices
                <span class="underline">
                 must
                </span>
@@ -1773,7 +1795,7 @@ both the elements in positions 1 and 2 are both in their correct positions.
         </div>
         <div class="paragraph">
          <p>
-          \(n-1+n-2+...3+2+1 = 1+2+3+...+n-1\).
+          \((n-1)+(n-2)+...+2+1 = 1+2+...+(n-2)+(n-1)\).
          </p>
         </div>
         <div class="paragraph">
@@ -1782,7 +1804,7 @@ both the elements in positions 1 and 2 are both in their correct positions.
           <a href="./induction.html">
            mathematical induction
           </a>
-          to prove that \(1+2+3+\cdots+n-1= \frac{(n-1)\cdot\ n}{2}=\frac{n^2}{2}-\frac{n}{2}\), which means that the bubble sort algorithm is \(O(n^2)\).
+          to prove that \[1+2+\cdots+(n-2)+(n-1)= \frac{(n-1)\cdot n}{2}\] and since \(\frac{(n-1)\cdot n}{2} =\frac{1}{2}n^2-\frac{1}{2}n\), the bubble sort algorithm is \(O(n^2)\).
          </p>
         </div>
        </div>

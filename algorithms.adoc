@@ -2,7 +2,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on April 1, 2025._ + 
+_This chapter was last updated on April 14, 2025._ + 
 //[small]#Fixed typos, updated Big-O discussion for the two division algorithms, added Big-O discussion for the Euclidean algorithm, revised  Big-O discussion of Merge Sort.#
 
 //// 
@@ -161,6 +161,12 @@ Note that Python provides a built-in function to find the minimum of a list: The
 
 Historically, algorithms first arose as link:https://en.wikipedia.org/wiki/Algorithm#History[ways to solve arithmetic problems.] In this section, algorithms for such operations are presented. 
 
+
+// MKD April 9 2025
+//=== "Russian Peasant" Multiplication 
+
+
+
 //=== The Division Algorithm 
 //=== Division Of Natural Numbers By Repeated Division 
 === Division By Repeated Subtraction 
@@ -197,14 +203,16 @@ include::python_tutor.adoc[]
 
 Notice that the "division by repeated subtraction" algorithm has a worst-case scenario when the divisor _b_ equals 1. 
 //If _n_ is the number _a,_ then 
-It should be clear that "division by repeated subtraction" is $O(a),$ that is, of order less than the value of the dividend $a,$ since in the worst-case scenario you must subtract the divisor $b=1$ exactly $a$ times to exit the loop.
+//It should be clear that "division by repeated subtraction" is $O(a),$ that is, of order less than the value of the dividend $a,$ since in the worst-case scenario you must subtract the divisor $b=1$ exactly $a$ times to exit the loop.
+// MKD Apr 14 2025 
+In this worst-case scenario you must subtract the divisor $b=1$ exactly $a$ times to exit the loop, so "division by repeated subtraction" is $O(a),$ that is, of at least linear order in the larger number $a.$
 
 
 === Long Division Of Natural Numbers
 // MKD insert example using "binary" shifts
 You can revise the previous algorithm to work faster by using place-value thinking.
 
-:pt_code_height: 600
+:pt_code_height: 650
 :pt_rawinput: false
 :pt_code: a%20%3D%20130%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Apower_of_2%20%3D%201%0Ab_times_power_of_2%20%3D%20b%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%28a%20%3E%20b_times_power_of_2%29%3A%20%23%20shift%20b%20to%20correct%20%22binary%20column%22%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3C%3C%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3C%3C%201%0Awhile%28r%3Eb%29%3A%20%23%20subtract%20down%20%22binary%20columns%22%0A%20%20%20%20if%28r%3E%3Db_times_power_of_2%29%3A%0A%20%20%20%20%20%20%20%20q%20%3D%20q%20%2B%20power_of_2%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20b_times_power_of_2%0A%20%20%20%20%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0A%20%20%20%20power_of_2%20%3D%20power_of_2%20%3E%3E%201%0A%20%20%20%20b_times_power_of_2%20%3D%20b_times_power_of_2%20%3E%3E%201%20%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29
 
@@ -224,14 +232,20 @@ Click on the "Next" button to step through the code.
 
 include::python_tutor.adoc[]
 
+// MKD Apr 14 2025 
+This long division algorithm uses powers of two (instead of ten) but otherwise is like the standard algorithm, using decimal notation, that you may have learned in school. + 
+[small]#Notice that the shift operators `<<` and `>>` multiply or divide by 2 (`>>` gives only the quotient, without keeping track of the remainder.)#
+
 ****
 
 
 ==== Big-O Analysis Of Long Division
 
-This long division algorithm uses powers of two (instead of ten) but otherwise is like the algorithm you may have learned in school. The worst-case scenario corresponds to the divisor $b=1,$ which requires you to shift as many times as there are _binary_ digits in $a.$ Notice that $a$ is bounded above by 2 raised to the number of binary digits; this means that 
+// MKD Apr 14 2025 
+The worst-case scenario corresponds to the divisor $b=1,$ which requires you to shift as many times as there are _binary_ digits in $a.$ Notice that $a$ is bounded above by 2 raised to the number of binary digits; this means that 
 //if _n_ is the number _a,_ this 
-the long division algorithm is $O(\log (a)).$
+the long division algorithm is $O(\log (a)).$ + 
+
 
 
 
@@ -300,7 +314,7 @@ include::python_tutor.adoc[]
 
 --
 Why not use -1 to indicate that the target integer was not found?::
-Negative integers can be _valid indices_ for a Python list! This ivery different than other languages like Java in which indices [underline]#must# be natural numbers. 
+Negative integers can be _valid indices_ for a Python list! This is very different than other languages like Java in which indices [underline]#must# be natural numbers. 
 As an example, for the list $L = \lbrack 2,4,7 \rbrack$ we have $L \lbrack -1 \rbrack = 7,$ $L \lbrack -2 \rbrack = 4,$ and $L \lbrack -3 \rbrack = 2.$ If you are coding in Python it may be safer either to raise an exception or to use the built-in constant `None` to indicate that no index for the target was found.
 --
 
@@ -583,11 +597,11 @@ $4+3+2+1=1+2+3+4$.
 
 In general, if the list is of size $n$, there will be $n-1$ passes with swaps,
 
-$n-1+n-2+...3+2+1 = 1+2+3+...+n-1$.
+$(n-1)+(n-2)+...+2+1 = 1+2+...+(n-2)+(n-1)$.
 
 //We will show later, that
 // MKD Apr 01 2025
-You can use link:./induction.html[mathematical induction] to prove that $1+2+3+\cdots+n-1= \frac{(n-1)\cdot\ n}{2}=\frac{n^2}{2}-\frac{n}{2}$, which means that the bubble sort algorithm is $O(n^2)$.
+You can use link:./induction.html[mathematical induction] to prove that \[1+2+\cdots+(n-2)+(n-1)= \frac{(n-1)\cdot n}{2}\] and since $\frac{(n-1)\cdot n}{2} =\frac{1}{2}n^2-\frac{1}{2}n$, the bubble sort algorithm is $O(n^2)$.
  
 
 //$ 1+2+3+\cdots+n-1= \frac{(n-1)\cdot\ n}{2}=\frac{n^2}{2}-\frac{n}{2}$, which is $O(n^2)$.

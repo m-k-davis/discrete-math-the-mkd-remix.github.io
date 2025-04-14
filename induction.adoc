@@ -177,7 +177,7 @@ Notice that the sum of the odd integers on the left-hand side of each equation i
  
 
 In the following code snippet, function $P$ implements the predicate used in this example. 
-Recall that the predicate's output is a _proposition_ - the output is just a string of symbols and does not indicate whether the proposition is True of False.
+Recall that the predicate's output is a _proposition_ - the output is just a string of symbols and does not indicate whether the proposition is True or False.
 
 include::python_tutor.adoc[]
  
@@ -1634,3 +1634,7 @@ f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 =f_n \cdot\ f_{n+1}.
 
 //MKD//// 
 // unreviewed original content 3
+
+
+// MKD Apr 8 2025 code for 5^n < n!
+//https://pythontutor.com/render.html#code=counter%20%3D%201%0Aa%20%3D%205%0Ab%20%3D%201%0Awhile%20a%20%3E%20b%3A%0A%20%20%20%20print%28a,%20b%29%0A%20%20%20%20counter%20%3D%20counter%20%2B%201%0A%20%20%20%20a%20*%3D%205%0A%20%20%20%20b%20*%3D%20counter%0Aprint%20%28counter%29&cumulative=false&curInstr=60&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false

@@ -612,26 +612,37 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on January 16, 2025.
+        This chapter was last updated on April 14, 2025.
        </em>
        <br/>
-       <span class="small">
-        Revised the section on using limits to determine Big-\(O\) and  Big-\(\Theta\) relationships.
-       </span>
       </p>
      </div>
      <div class="paragraph">
       <p>
-       Some tasks can be completed by more than one algorithm. In such a case, two questions to ask are "How do you choose which algorithm to use?" and "Why is is it important to make such a choice?" This chapter will discuss tools you can use to help answer these questions.
+       You have seen that some tasks can be completed by more than one algorithm. Two questions to ask are
       </p>
+     </div>
+     <div class="olist arabic">
+      <ol class="arabic">
+       <li>
+        <p>
+         "How do you choose which algorithm to use?"
+        </p>
+       </li>
+       <li>
+        <p>
+         "Why is is it important to make such a choice?"
+        </p>
+       </li>
+      </ol>
      </div>
      <div class="paragraph">
       <p>
-       In particular, ways of comparing the
+       This chapter will discuss tools you can use to help answer these questions. In particular, ways of comparing the
        <em>
         rates of growth
        </em>
-       of functions will allow us to compare how two algorithms perform as the size of the inputs to the algorithms increase with no upper bound (theoretically, since it’s very likely that there are only a finite amount of computing resources available in the universe.)
+       of functions will allow us to compare how two algorithms perform as the size of their input increase with no upper bound.
       </p>
      </div>
      <div class="paragraph">
@@ -669,13 +680,13 @@ $(document).on('page:load', ready2);
       </div>
       <div class="paragraph">
        <p>
-        For example, imagine that you are asked to complete a "few" Algebra homework exercises that involve solving linear equations by hand using paper and pencil. Now suppose that "few" means "one hundred" and that each linear equation will involve multiple steps to solve
+        For example, imagine that you are asked to complete a few Algebra homework exercises by hand, and each exercise involves solving linear equations by hand using paper and pencil. Now suppose that "few" means "one hundred" and that each linear equation involves multiple steps to solve
 like the one below. \[ \text{Exercise 1. Solve for } x \text{:    } 40(x+6)-9(3x+5) = 65(x+7)-(7x+132)\]
 It is not
         <em>
          difficult
         </em>
-        to solve linear equations like this because it is clear what steps you need to use…​ but it is tedious and will likely require a lot of paper! That is, it will consume a lot of time and space to solve even the first one of the equations, and you’ll have only ninety-nine more to do after that!
+        to solve linear equations like this one because it is clear what steps you need to use…​ but it is tedious and will likely require a lot of paper! That is, it will consume a lot of time and space to solve even the first one of these equations, and you’ll have only ninety-nine more to do after that!
        </p>
       </div>
       <div class="paragraph">
@@ -684,7 +695,7 @@ It is not
         <strong>
          asymptotics,
         </strong>
-        that is, the comparison of the time needed by the algorithms as the size of the data becomes larger and larger without any bound.
+        that is, the comparison of the time needed by the algorithms as the size of the input becomes larger and larger without any bound.
        </p>
       </div>
      </div>
@@ -694,7 +705,11 @@ It is not
       </h3>
       <div class="paragraph">
        <p>
-        In this section, we will define a relation that describes what it means to say that "two functions grow at the same rate." More precisely, "two functions grow at the same rate, asymptotically, as the input variable grows without an upper bound." We will also introduce big \(\Theta\) notation (\(\Theta\) is the uppercase Greek letter "theta.")
+        In this section, we will define a relation that describes what it means to say that "two functions grow at the same rate." More precisely, "two functions grow at the same rate, asymptotically, as the input variable grows without an upper bound." We will also introduce big \(\Theta\) notation.
+        <br/>
+        <span class="small">
+         Note: \(\Theta\) is the uppercase Greek letter "Theta."
+        </span>
        </p>
       </div>
       <div class="sidebarblock">
@@ -731,11 +746,12 @@ Define the relation
          <p>
           The constants \(A,\) \(B,\) and \(x_{0}\) are called
           <strong>
-           witnesses
+           witnesses:
           </strong>
-          since they witness the "has the exact same order as" relationship between the two functions.
+          The constants confirm the "has the exact same order as" relationship between the two functions.
+          <br/>
           <span class="small">
-           This definition of "has the exact same order as" is based on one proposed by Donald Knuth in the 1976 letter "Big Omicron and Big Omega and Big Theta" published in
+           The Remix’s definition of "has the exact same order as" is based on notations and descriptions proposed by Donald Knuth in the 1976 letter "Big Omicron and Big Omega and Big Theta" published in
            <a href="https://dl.acm.org/doi/10.1145/1008328.1008329">
             <em>
              ACM SIGACT News
@@ -841,9 +857,14 @@ That is, the image suggests that
              <em>
               any
              </em>
-             value greater than 100 for \(x_{0}\) instead. Also, the triple \(( 0.25, \, 4, \, 0)\) witnesses the same relationship.
+             value greater than 100 for \(x_{0}\) instead. Also, the triple \(( \frac{1}{4}, \, 4, \, 0)\) witnesses the same relationship since \[ \frac{1}{4}g(x) \leq f(x) \leq 4g(x) \text{ for all } x \geq 0.\]
             </span>
            </p>
+          </div>
+          <div class="imageblock text-center">
+           <div class="content">
+            <img alt="BigThetaLinear010_alt" height="236" src="imagesMKD/BigThetaLinear010_alt.png" width="236"/>
+           </div>
           </div>
          </div>
         </div>
@@ -851,7 +872,7 @@ That is, the image suggests that
       </div>
       <div class="paragraph">
        <p>
-        We have the following theorem about this relation.
+        We have the following theorem about the "has the exact same order as" relation.
        </p>
       </div>
       <div class="sidebarblock">
@@ -861,23 +882,49 @@ That is, the image suggests that
         </div>
         <div class="paragraph">
          <p>
-          The following statements are true for the "has the exact same order as" relationship.
+          For any functions \(f,\) \(g,\) and \(h\) with domain \(\mathbb{R}\) and codomain \(\mathbb{R},\)
          </p>
         </div>
         <div class="paragraph">
          <p>
-          (1) \(f\) has the exact same order as \(f\)
+          (1) \(f\) has the exact same order as \(f,\)
           <br/>
-          (2) If \(f\) has the exact same order as \(g,\) then \(g\) has the exact same order as \(f\).
+          (2) if \(f\) has the exact same order as \(g,\) then \(g\) has the exact same order as \(f,\)
           <br/>
-          (3) If \(f\) has the exact same order as \(g,\) and \(g\) has the exact same order as \(h,\) then \(f\) has the exact same order as \(h.\)
+          (3) if \(f\) has the exact same order as \(g,\) and \(g\) has the exact same order as \(h,\) then \(f\) has the exact same order as \(h.\)
          </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           For statement (1), choose any value \(x_{0}\) that is in the domain of \(f\) and \(A = 1\) and \(B = 1\) as witnesses. Since \[1 \cdot |f(x)| \leq |f(x)| \leq 1 \cdot |f(x)| \text{ for all } x \geq x_0\] must be True, \(f\) has the exact same order as \(f.\) Notice that we could have used other values for the witnesses \(A\) and \(B\) such as \(A = 0.99\) and \(B = 1.01.\)
+           <br/>
+           <br/>
+           For statement (2), assume that \(f\) has the exact same order as \(g,\) so there are positive real number constants \(A,\) \(B,\) and \(x_{0}\) such that \[A|g(x)| \leq |f(x)| \leq B|g(x)| \text{ for all } x  &gt; x_{0}.\] Notice that the extended inequality above can be broken into the two inequalities \[A|g(x)| \leq |f(x)| \text{ and } |f(x)| \leq B|g(x)|\] which are both True for all \(x  &gt; x_{0}.\) The two inequalities can be rewritten as \[|g(x)| \leq \frac{1}{A}|f(x)| \text{ and } \frac{1}{B}|f(x)| \leq |g(x)|\] which shows that \[\frac{1}{B}|f(x)| \leq |g(x)| \leq \frac{1}{A}|f(x)| \text{ for all } x  &gt; x_{0}.\] The last extended inequality above shows that \(g\) has the exact same order as \(f.\)
+           <br/>
+           <br/>
+           For statement (3), assume both that \(f\) has the exact same order as \(g\) and that \(g\) has the exact same order as \(h.\) This means that there are positive real number constants \(A,\) \(B,\) and \(x_{0}\) such that \[A|g(x)| \leq |f(x)| \leq B|g(x)| \text{ for all } x  &gt; x_{0}\] and also positive real number constants \(C,\) \(D,\) and \(x_{1}\) such that \[C|h(x)| \leq |g(x)| \leq D|h(x)| \text{ for all } x  &gt; x_{1}.\] By breaking up the extended inequalities, then doing some algebra and recombining inequalities, you can get
+
+\[AC|h(x)| \leq A|g(x)| \leq |f(x)| \text{ and } |f(x)| \leq B|g(x)| \leq BD|h(x)|\] which are True for all pass:[\(x &gt; max(x_{0}, x_{1}).\)] So 
+\[AC|h(x)| \leq |f(x)| \leq BD|h(x)| \text{ for all } x &gt; max(x_{0}, x_{1})\] which shows that \(f\) has the exact same order as \(h,\) witnessed by the constants \(AC,\) \(BD,\) and \(max(x_{0}, x_{1}).\)
+          </div>
+         </div>
         </div>
        </div>
       </div>
       <div class="paragraph">
        <p>
-        These three properties let you conclude that the "has the exact same order as" relationship partitions the set \(\{ f \, | \, f \text{ is a function with domain and codomain } \mathbb{R} \}\) into disjoint sets. That is, if we define \(\Theta(g)\) as the set \[ \Theta(g) = \{ f \, | \, f \text{ has the exact same order as } g \} \] then every function with domain and codomain \(\mathbb{R}\) is an element of at least one of the \(\Theta(g)\) (since \(g\) is an element of \(\Theta(g)\)), and for any two functions \(g\) and \(h,\) the sets \(\Theta(g)\) and \(\Theta(h)\) must either be equal or have empty intersection.
+        These three properties let you conclude that the "has the exact same order as"
+relation is an equivalence relation, so
+the relation
+partitions the set \(S = \{ f \, | \, f \text{ is a function with domain and codomain } \mathbb{R} \}\) into disjoint sets.
+For each function \(g \in S\) we can define \(\Theta(g)\) to be the equivalence class \[ \Theta(g) = \{ f \, | \, f \text{ has the exact same order as } g \} \]
+Every function with domain and codomain \(\mathbb{R}\) is an element of at least one of the \(\Theta(g)\)
+and for any two functions \(g\) and \(h,\) the sets \(\Theta(g)\) and \(\Theta(h)\) must either be equal or have empty intersection.
+For example, the earlier example shows that \(\Theta(x + \sin x)\) and \(\Theta(x)\) are the same set, so we can say that the function \(f(x) = x + \sin x\) is of linear order.
        </p>
       </div>
       <div class="admonitionblock caution">
@@ -949,7 +996,7 @@ That is, the image suggests that
            </em>
            )
           </span>
-          is just too hideous a notation to use…​ so do not ever, ever use it!
+          is just too hideous a notation to use…​ so please do not ever, ever use it!
          </td>
         </tr>
        </table>
@@ -1022,377 +1069,344 @@ That is, the image suggests that
          O
         </em>
         is typically used to analyze the worst case complexity of an algorithm.
-If, for example, \(n\) is the size of the input data, then big
+If, for example, \(n\) is the size of the input, then big
         <em>
          O
         </em>
-        really only cares about what happens when your input data size \(n\) becomes arbitrarily large and not quite as interested in when the input is small.  Mathematically, we want to speak of complexity in the asymptotic sense, when \(n\) is arbitrarily large. In this asymptotic sense of large \(n\), we may ignore constants.
+        really only cares about what happens in the "worst-case" when \(n\) becomes arbitrarily large.  Mathematically, we want to consider time complexity in this asymptotic sense, when \(n\) is arbitrarily large, so may ignore constants.
 That we can ignore constants will make sense after discussing how
 limits, borrowed from continuous mathematics (that is, calculus), can be used to compare the rates of growth of two different functions.
        </p>
       </div>
-      <div class="paragraph">
-       <p>
-        The size of the input complexities ordered from smallest to largest:
-       </p>
-      </div>
-      <div class="ulist">
-       <ul>
-        <li>
-         <p>
-          Constant Complexity: \(O(1)\)
-         </p>
-        </li>
-        <li>
-         <p>
-          Logarithmic Complexity: \(O(\log (n))\),
-         </p>
-        </li>
-        <li>
-         <p>
-          Radical complexity : \(O(\sqrt{n})\)
-         </p>
-        </li>
-        <li>
-         <p>
-          Linear Complexity: \(O(n)\)
-         </p>
-        </li>
-        <li>
-         <p>
-          Linearithmic Complexity: \(O(n\log (n))\),
-         </p>
-        </li>
-        <li>
-         <p>
-          Quadratic complexity: \(O(n^2)\)
-         </p>
-        </li>
-        <li>
-         <p>
-          Cubic complexity: \(O(n^3)\),
-         </p>
-        </li>
-        <li>
-         <p>
-          Exponential complexity: \(O(b^n)\), \( b &gt; 1\)
-         </p>
-        </li>
-        <li>
-         <p>
-          Factorial complexity: \( O(n!)\)
-         </p>
-        </li>
-       </ul>
-      </div>
-      <div class="paragraph">
-       <p>
-        To understand the sizes of input complexities, we will look at the graphs of functions; it is  easier to consider these functions as ones that are defined for any
-        <em>
-         real value
-        </em>
-        input instead of just the natural numbers. This will also allow us to use continuous mathematics (that is, calculus) to analyze and compare the growth of different functions.
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        Radical growth is larger than logarithmic growth:
-       </p>
-      </div>
-      <div class="openblock float-group">
-       <div class="content">
-        <div class="imageblock left text-left">
-         <div class="content">
-          <img alt="geometricsequence" height="500" src="images/radicalgrowth.png" width="500"/>
+      <div class="sect3">
+       <h4 id="_common_complexities_to_consider">
+        12.3.1. Common Complexities To Consider
+       </h4>
+       <div class="paragraph">
+        <p>
+         The size of the input complexities most commonly used, ordered from smallest to largest, are as follows.
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Constant Complexity: \(O(1)\)
+          </p>
+         </li>
+         <li>
+          <p>
+           Logarithmic Complexity: \(O(\log (n))\),
+          </p>
+         </li>
+         <li>
+          <p>
+           Radical complexity : \(O(\sqrt{n})\)
+          </p>
+         </li>
+         <li>
+          <p>
+           Linear Complexity: \(O(n)\)
+          </p>
+         </li>
+         <li>
+          <p>
+           Linearithmic Complexity: \(O(n\log (n))\),
+          </p>
+         </li>
+         <li>
+          <p>
+           Quadratic complexity: \(O(n^2)\)
+          </p>
+         </li>
+         <li>
+          <p>
+           Cubic complexity: \(O(n^3)\),
+          </p>
+         </li>
+         <li>
+          <p>
+           Exponential complexity: \(O(b^n)\), \( b &gt; 1\)
+          </p>
+         </li>
+         <li>
+          <p>
+           Factorial complexity: \( O(n!)\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         To understand the sizes of input complexities, we will look at the graphs of functions; it is  easier to consider these functions as ones that are defined for any
+         <em>
+          real value
+         </em>
+         input instead of just the natural numbers. This will also allow us to use continuous mathematics (that is, calculus) to analyze and compare the growth of different functions.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Radical growth is larger than logarithmic growth:
+        </p>
+       </div>
+       <div class="openblock float-group">
+        <div class="content">
+         <div class="imageblock left text-left">
+          <div class="content">
+           <img alt="geometricsequence" height="500" src="images/radicalgrowth.png" width="500"/>
+          </div>
          </div>
         </div>
        </div>
-      </div>
-      <div class="admonitionblock note">
-       <table>
-        <tr>
-         <td class="icon">
-          <i class="fa icon-note" title="Note">
-          </i>
-         </td>
-         <td class="content">
-          In the preceding graph, we’ve used \(\text{Log}[x\)] to label the graph of a logarithmic function without stating the base for the logarithm: Is this the function \(y = log_{2}(x)\), \(y = log_{10}(x)\), \(y = ln(x) =  log_{e}(x)\), or a logarithm to some other base? For the purposes of studying growth of functions, it does not matter which of these logarithms we use: You may recall that one of the properties of logarithms states that for two different positive constant bases \(a\) and \(b\) we must have \(log_{a}(x) = log_{a}(b) \cdot log_{b}(x)\), where \(log_{a}(b)\) is also a constant. As stated earlier, we may ignore constants when considering the growth of functions.
-         </td>
-        </tr>
-       </table>
-      </div>
-      <div class="paragraph">
-       <p>
-        Polynomial growth is larger than radical  growth:
-       </p>
-      </div>
-      <div class="openblock float-group">
-       <div class="content">
-        <div class="imageblock left text-left">
-         <div class="content">
-          <img alt="geometricsequence" height="500" src="images/polynomialgrowth.png" width="500"/>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           In the preceding graph, we’ve used \(\text{Log}[x\)] to label the graph of a logarithmic function without stating the base for the logarithm: Is this the function \(y = log_{2}(x)\), \(y = log_{10}(x)\), \(y = ln(x) =  log_{e}(x)\), or a logarithm to some other base? For the purposes of studying growth of functions, it does not matter which of these logarithms we use: You may recall that one of the properties of logarithms states that for two different positive constant bases \(a\) and \(b\) we must have \(log_{a}(x) = log_{a}(b) \cdot log_{b}(x)\), where \(log_{a}(b)\) is also a constant. As stated earlier, we may ignore constants when considering the growth of functions.
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="paragraph">
+        <p>
+         Polynomial growth is larger than radical  growth:
+        </p>
+       </div>
+       <div class="openblock float-group">
+        <div class="content">
+         <div class="imageblock left text-left">
+          <div class="content">
+           <img alt="geometricsequence" height="500" src="images/polynomialgrowth.png" width="500"/>
+          </div>
          </div>
         </div>
        </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        Exponential growth is larger than polynomial growth:
-       </p>
-      </div>
-      <div class="openblock float-group">
-       <div class="content">
-        <div class="imageblock left text-left">
-         <div class="content">
-          <img alt="geometricsequence" height="500" src="images/exponentialgrowth.png" width="500"/>
+       <div class="paragraph">
+        <p>
+         Exponential growth is larger than polynomial growth:
+        </p>
+       </div>
+       <div class="openblock float-group">
+        <div class="content">
+         <div class="imageblock left text-left">
+          <div class="content">
+           <img alt="geometricsequence" height="500" src="images/exponentialgrowth.png" width="500"/>
+          </div>
          </div>
         </div>
        </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        Factorial growth is larger than exponential growth:
-       </p>
-      </div>
-      <div class="openblock float-group">
-       <div class="content">
-        <div class="imageblock left text-left">
-         <div class="content">
-          <img alt="geometricsequence" height="500" src="images/factorialgrowth.png" width="500"/>
+       <div class="paragraph">
+        <p>
+         Factorial growth is larger than exponential growth:
+        </p>
+       </div>
+       <div class="openblock float-group">
+        <div class="content">
+         <div class="imageblock left text-left">
+          <div class="content">
+           <img alt="geometricsequence" height="500" src="images/factorialgrowth.png" width="500"/>
+          </div>
          </div>
         </div>
        </div>
-      </div>
-      <div class="admonitionblock note">
-       <table>
-        <tr>
-         <td class="icon">
-          <i class="fa icon-note" title="Note">
-          </i>
-         </td>
-         <td class="content">
-          In the preceding graph, we’ve used \(x!\)
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           In the preceding graph, we’ve used \(x!\)
 to label the graph of the function \(y = \Gamma(x+1)\)
 , where \(\Gamma\) is the
-          <em>
-           Gamma function
-          </em>
-          which is
+           <em>
+            Gamma function
+           </em>
+           which is
 defined and continuous for all nonnegative real numbers.
 That is, \(n! = \Gamma(n+1)\) for every \(n \in \mathbb{N}\).
 Further study of the Gamma function is beyond the scope of this textbook.
-         </td>
-        </tr>
-       </table>
-      </div>
-      <div class="paragraph">
-       <p>
-        Using the graphical analysis of the growth of typical functions
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="paragraph">
+        <p>
+         Using the graphical analysis of the growth of typical functions
 we have the following growth ordering, also presented graphically on a logarithmic scale graph.
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="title">
-         Ordering of Basic Functions by Growth
-        </div>
-        <div class="stemblock">
-         <div class="content">
-          \$1,\log \ ⁡n, root(3)(n),  sqrt n , n, n^2, n^3,2^n,3^n,n!, n^n\$
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Ordering of Basic Functions by Growth
          </div>
-        </div>
-        <div class="openblock float-group">
-         <div class="content">
-          <div class="imageblock left text-left">
-           <div class="content">
-            <img alt="geometricsequence" height="500" src="images/growthorder.png" width="500"/>
+         <div class="stemblock">
+          <div class="content">
+           \$1,\log \ ⁡n, root(3)(n),  sqrt n , n, n^2, n^3,2^n,3^n,n!, n^n\$
+          </div>
+         </div>
+         <div class="openblock float-group">
+          <div class="content">
+           <div class="imageblock left text-left">
+            <div class="content">
+             <img alt="geometricsequence" height="500" src="images/growthorder.png" width="500"/>
+            </div>
            </div>
           </div>
          </div>
         </div>
        </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        The asymptotic behavior for large \(n\) should be determined by the most dominant term in the function for large \(n\). For example, \(f(x)=x^{3} + 2x^{2}-2x\) for large \(x\), is dominated by the term \(x^3\). In this case we want to state that \(O(f(x))=x^3\). For example \(f(1000) =1.001998×10^9≈ 1×10^9 =1000^3\). For large \(x\), \(f(x) ≈x^3\)  or asymptotically, \(f(x)\) behaves as \(x^3\) for large \(x\). We say \(O(f(x))=x^3\) for \(f(x)=x^3 +2x^2-2x\).
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        Likewise we want to say that if \(c\) is a constant that \(c \cdot f(x)\), and \(f(x)\) have the same asymptotic behavior for large \(n\), or \(O(c \cdot f(x))=O(f(x))\).
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        Motivated by these we formally define the
-        <em>
-         Big O
-        </em>
-        notation.
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="title">
-         <em>
-          Big
-         </em>
-         \(O\) notation
-        </div>
-        <div class="paragraph">
-         <p>
-          Suppose \(f\) and \(g\) are real valued functions from \(f(x):\mathbb{R}→\mathbb{R}\),
-we say \(f(x)\) is
-          <strong>
-           Big \(O\)
-          </strong>
-          of \(g(x)\), written
-"\(f(x)\) is \(O(g(x))\)", if there exists
-positive integers \(A\) and \(n\), so that \(|f(x)| \leq A|g(x)|\) whenever \(x  &gt; n\).
-         </p>
-        </div>
+       <div class="paragraph">
+        <p>
+         The asymptotic behavior for large \(n\) should be determined by the most dominant term in the function for large \(n\). For example, \(f(x)=x^{3} + 2x^{2}-2x\) for large \(x\), is dominated by the term \(x^3\). In this case we want to state that \(O(f(x))=x^3\). For example \(f(1000) =1.001998×10^9≈ 1×10^9 =1000^3\). For large \(x\), \(f(x) ≈x^3\)  or asymptotically, \(f(x)\) behaves as \(x^3\) for large \(x\). We say \(O(f(x))=x^3\) for \(f(x)=x^3 +2x^2-2x\).
+        </p>
        </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        To determine if a function \(f(x)\) is \(O(g(x))\) amounts to
-identifying the positive constants \(A\) and \(n\), (sometimes called witnesses).
-That is, we must find the factor \( A\)  and the point \( k \) for which \( f(x)  \leq A g(x)\), whenever \( x &gt; k.\)
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 1
+       <div class="paragraph">
+        <p>
+         Likewise we want to say that if \(c\) is a constant that \(c \cdot f(x)\), and \(f(x)\) have the same asymptotic behavior for large \(n\), or \(O(c \cdot f(x))=O(f(x))\).
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 1
+          </div>
+          <p>
+           Show that \(f\left(x\right)=2x^2 +4x\) is \(O(x^2)\)
+          </p>
          </div>
-         <p>
-          Show that \(f\left(x\right)=2x^2 +4x\) is \(O(x^2)\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <div class="title">
-          Solution
-         </div>
-         <p>
-          While intuitively we may understand that
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           While intuitively we may understand that
 the dominant term for large \(x\) is \(x^2\) so that \(f(x) = O\left(x^2\right)\),
 we show this formally by producing as witnesses \(A=3\) and \(n =4\) with
 reference to the following graph.
-         </p>
-        </div>
-        <div class="openblock float-group">
-         <div class="content">
-          <div class="imageblock left text-left">
-           <div class="content">
-            <img alt="geometricsequence" height="750" src="images/witnessexample.png" width="750"/>
+          </p>
+         </div>
+         <div class="openblock float-group">
+          <div class="content">
+           <div class="imageblock left text-left">
+            <div class="content">
+             <img alt="geometricsequence" height="750" src="images/witnessexample.png" width="750"/>
+            </div>
            </div>
           </div>
          </div>
         </div>
        </div>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 2
-         </div>
-         <p>
-          Show that \(f(x) =2x^3 +3x\) is \(O(x^3)\), with \(A=3\) and \(n=2\). Support
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 2
+          </div>
+          <p>
+           Show that \(f(x) =2x^3 +3x\) is \(O(x^3)\), with \(A=3\) and \(n=2\). Support
 your answer graphically.
-         </p>
-        </div>
-        <div class="paragraph">
-         <div class="title">
-          Solution
+          </p>
          </div>
-         <p>
-          Notice that \( x^3 &gt; 3x\) when \( x  \geq 2\). This means \(2x^3 +x^3 &gt;  2x^3 +3x \) when \(x &gt;2 \).
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           Notice that \( x^3 &gt; 3x\) when \( x  \geq 2\). This means \(2x^3 +x^3 &gt;  2x^3 +3x \) when \(x &gt;2 \).
 In other words \( 3x^3 &gt; 2x^3 +3x\) whenever \( x&gt;2\), confirming \(A=3\) and \(n=2\) as witnesses, and supported by the
 following graph.
-         </p>
-        </div>
-        <div class="openblock float-group">
-         <div class="content">
-          <div class="imageblock left text-left">
-           <div class="content">
-            <img alt="geometricsequence" height="750" src="images/cubic_big_o_example.png" width="750"/>
+          </p>
+         </div>
+         <div class="openblock float-group">
+          <div class="content">
+           <div class="imageblock left text-left">
+            <div class="content">
+             <img alt="geometricsequence" height="750" src="images/cubic_big_o_example.png" width="750"/>
+            </div>
            </div>
           </div>
          </div>
         </div>
        </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        To show that a function \( f(x)\) is not \(O(g(x))\), means that no \(A\) can scale
+       <div class="paragraph">
+        <p>
+         To show that a function \( f(x)\) is not \(O(g(x))\), means that no \(A\) can scale
 \(g(x)\) so that \( Ag(x)  \geq  f(x)\) for \(x\) large enough as in the following example.
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 3
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 3
+          </div>
+          <p>
+           Show that \( f(x) = x^2\) is not \(  O( \sqrt{x})\).
+          </p>
          </div>
-         <p>
-          Show that \( f(x) = x^2\) is not \(  O( \sqrt{x})\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <div class="title">
-          Solution
-         </div>
-         <p>
-          Consider the graphs of \( \sqrt{x}\), \( 2 \sqrt{x}\), \( 3\sqrt{x}\), and the graph of \(x^2\).
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           Consider the graphs of \( \sqrt{x}\), \( 2 \sqrt{x}\), \( 3\sqrt{x}\), and the graph of \(x^2\).
 Notice that eventually, or for \(x\) large enough, \(x^2\) is larger than any \(A \sqrt{x}\)
 as in the figure below
-         </p>
-        </div>
-        <div class="openblock float-group">
-         <div class="content">
-          <div class="imageblock left text-left">
-           <div class="content">
-            <img alt="geometricsequence" height="750" src="images/not_big_o.png" width="750"/>
+          </p>
+         </div>
+         <div class="openblock float-group">
+          <div class="content">
+           <div class="imageblock left text-left">
+            <div class="content">
+             <img alt="geometricsequence" height="750" src="images/not_big_o.png" width="750"/>
+            </div>
            </div>
           </div>
          </div>
-        </div>
-        <div class="paragraph">
-         <p>
-          Suppose \(A&gt;1\) is  given and
-          <u>
-           fixed
-          </u>
-          ,
+         <div class="paragraph">
+          <p>
+           Suppose \(A&gt;1\) is  given and
+           <u>
+            fixed
+           </u>
+           ,
 then if \( f(x) = x^2\) is
 \( O(g(x))=O( \sqrt{x})\) ,  there is a corresponding \(n\), also
-          <u>
-           fixed
-          </u>
-          ,
+           <u>
+            fixed
+           </u>
+           ,
 for which \(A  \sqrt{x}  \geq x^2\) whenever \(x&gt;n\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          We solve the inequality \(A  \sqrt{x}  ≥ x^2\) by dividing both sides by \(\sqrt{x}  =x^{1/2}\), to obtain, \(A  \sqrt{x}  ≥ x^{3/2}\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          But \(A\) is fixed and cannot be greater than all  arbitrarily large \( x^{3/2}\). Hence no such \(n\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           We solve the inequality \(A  \sqrt{x}  ≥ x^2\) by dividing both sides by \(\sqrt{x}  =x^{1/2}\), to obtain, \(A  \sqrt{x}  ≥ x^{3/2}\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           But \(A\) is fixed and cannot be greater than all  arbitrarily large \( x^{3/2}\). Hence no such \(n\)
 can
 exist for a given fixed \(A\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          For example, consider \(g(x)=A  \sqrt{x}\) and \( f(x) =x^2 \),
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           For example, consider \(g(x)=A  \sqrt{x}\) and \( f(x) =x^2 \),
 when \( x= A^2\) we obtain \( g(A^2) = A  \sqrt{(A^2)}= A^2\) and \( f(A^2) = {\left ( {A}^2 \right )}^2\) and
 \( f(A^2)= A^4 &gt; A^2 = g(A^2) \) when \(A&gt;1\).
-         </p>
+          </p>
+         </div>
         </div>
        </div>
       </div>

@@ -732,6 +732,8 @@ include::python_tutor.adoc[]
 ****
 // MKD functions ends
 
+// MKD Apr 9 2025 - changes to previous example, unused at this time 
+//https://pythontutor.com/render.html#code=def%20mePlusMe%28x%29%3A%0A%20%20%20%20%23return%20str%28x%2Bx%29%2B%22%20is%20of%20type%20%22%2Bstr%28type%28x%29%29%0A%20%20%20%20return%20%22type%28%22%2Bstr%28x%29%2B%22%29%20equals%20%22%2Bstr%28type%28x%29%29%2B%22,%20so%20x%2Bx%20equals%20%22%2Bstr%28x%2Bx%29%0Aprint%28mePlusMe%285%29%29%0Aprint%28mePlusMe%28%225%22%29%29%0Aprint%28mePlusMe%28%5B5%5D%29%29%0Aprint%28mePlusMe%285.0%29%29&cumulative=false&curInstr=17&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 
 
 // MKD sequences begins
