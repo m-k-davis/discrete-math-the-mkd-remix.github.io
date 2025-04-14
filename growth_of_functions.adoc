@@ -451,7 +451,16 @@ image::images/growthorder.png[geometricsequence,500,500]
 --
 ****
 
-The asymptotic behavior for large $n$ should be determined by the most dominant term in the function for large $n$. For example, $f(x)=x^{3} + 2x^{2}-2x$ for large $x$, is dominated by the term $x^3$. In this case we want to state that $O(f(x))=x^3$. For example $f(1000) =1.001998×10^9≈ 1×10^9 =1000^3$. For large $x$, $f(x) ≈x^3$  or asymptotically, $f(x)$ behaves as $x^3$ for large $x$. We say $O(f(x))=x^3$ for $f(x)=x^3 +2x^2-2x$.
+The asymptotic behavior for large $n$ should be determined by the most dominant term in the function for large $n$. For example, $f(x)=x^{3} + 2x^{2}-2x$ for large $x$, is dominated by the term $x^3$. In this case we want to state that 
+// MKD Apr 14 2025 bis
+//$O(f(x))=x^3$. 
+$f(x)=O(x^3)$. 
+For example $f(1000) =1.001998×10^9≈ 1×10^9 =1000^3$. For large $x$, $f(x) ≈x^3$  or asymptotically, $f(x)$ behaves as $x^3$ for large $x$. 
+// MKD Apr 14 2025 bis
+//We say 
+We write $f(x)=O(x^3),$ 
+//for $f(x)=x^3 +2x^2-2x$ 
+that is, $x^3 +2x^2-2x=O(x^3).$
 
 Likewise we want to say that if $c$ is a constant that $c \cdot f(x)$, and $f(x)$ have the same asymptotic behavior for large $n$, or $O(c \cdot f(x))=O(f(x))$.
 
