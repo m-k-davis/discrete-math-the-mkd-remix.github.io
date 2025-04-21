@@ -727,7 +727,7 @@ $x \cdot log (x)$
 can be used to define differentiable functions on the interval 
 $(0,\, \infty)$. We changed the variable from $x$ to $n$ to stress 
 that we are treating the variable as a real number in this example. 
-Also, we will assume that $log (x)$ is the natural logarithm; as mentioned earlier, any other base for the logarithm results in a constant multiple fo the natural logarithm and will not effect the Big-$O$ computations.
+Also, we will assume that $log (x)$ is the natural logarithm; as mentioned earlier, any other base for the logarithm results in a constant multiple of the natural logarithm and will not effect the Big-$O$ computations.
 
 Let $f(x) = 100,000 x + x \cdot log (x)$ and 
 $g(x) = x \cdot log (x)$. It is easy to see that 

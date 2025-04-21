@@ -3,7 +3,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on January 23, 2025._
+_This chapter was last updated on April 21, 2025._
 
 
 // MKD start topics lists
@@ -191,11 +191,18 @@ Key terms and concepts covered in this chapter:
 ** Undirected graphs
 ** Directed graphs
 ** Weighted graphs
+* Creating new graphs from old graphs
+*** Subgraphs
+*** Unions and intersections of graphs
 * Graph isomorphism
 //MSF-Discrete_2023	7. Graphs: basic definitions
-* Eulerian and Hamiltonian circuits
-* traveling sales person
-* graph coloring
+* Graph coloring
+* Connectivity of graphs
+** Eulerian circuits
+** Hamiltonian circuits
+** Shortest-path problems 
+***	Dijkstra's algorithm
+*** Traveling Salesperson Problem (TSP)
 
 
 == Introduction and Basic Definitions
@@ -205,20 +212,22 @@ Key terms and concepts covered in this chapter:
 
 A graph consists of a set of *vertices*  (also called *nodes*) and a set of *edges,* 
 where each edge  
-connects either two different vertices or a vertex to itself. 
+connects either two different vertices or one vertex to itself. 
 
-* For each edge, its *endpoints* are the vertices that it connects. The edge is said to be incident with each endpoint, and to connect the endpoints.
+* For each edge, its *endpoints* are the vertices that it connects. The edge is said to be *incident* with each endpoint, and to connect the endpoints.
 * If an edge has only one endpoint, it is called a *loop.* 
-* An *isolated vertex* is a vertex that is not an endpoint of any edge.
-* If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a *multigraph.*
+* If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a *multigraph.* Two edges that have the same endpoints are called *parallel* edges.
 // MKD - can a multigraph contain ANY loops???
+* Two vertices are *adjacent* if they are the endpoints of at least one edge. Adjacent vertices are also called *neighbors.*
+* The *degree* of a vertex $v$ is the number of edges in the graph $G$ containing the vertex $v.$
+* An *isolated vertex* is a vertex that is not an endpoint of any edge.
 * A *simple graph* is a graph that has no loops and does not have two or more edges that connect the same endpoints.
 //If there are no loops and no two edges connect the same endpoints, the graph is called *simple.* 
 
 // MKD add additional terms after May 24, 2024 (also add to the example): 
 //		adjacent, neighbor, neighborhood, parallel edges
 
-Graphs discussed in this textbook are assumed to be simple unless stated otherwise.
+//Graphs discussed in this textbook are assumed to be simple unless stated otherwise.
 
 ****
 .Example {counter:graphex} 
@@ -263,22 +272,19 @@ This graph is not simple because (1) it contains a loop and (2) it has a pair of
 
 //It is possible to write a formal definition of graphs in terms of set //theory, but it is common to use a drawing as in the preceding example when //there are small numbers of vertices and edges. 
 
-In the next section, we will _define_ graphs in terms of set theory, 
-but it is more useful to _represent_ a graph using either a drawing as in the preceding example, or a list or a matrix as described later in this chapter.
+//In the next section, we will _define_ graphs in terms of set theory, 
+//but it is more useful to _represent_ a graph using either a drawing as in the preceding example, or a list or a matrix as described later in this chapter.
 
 // MKD define digraphs in separate section
 
 
+////
 == Undirected Graphs
 
 In this section, we will assume that graphs must have undirected edges, but could have loops and/or *parallel edges* (that is, multiple edges with the same endpoints.)
 
 #NOTICE: No updates will be made to the "Undirected Graphs" section before Dec. 20, 2024.# Please skip to the next section, "Simple Graphs."
-
-// MKD move handshake here
-
-
-// MKD Nov 4 2024: Need to reinstate "Representing graphs." sections
+////
 
 
 == Simple Graphs
@@ -286,7 +292,13 @@ In this section, we will assume that graphs must have undirected edges, but coul
 
 // MKD - probably need to keep this formal definition
 
-Recall that in a simple graph, there are no loops and no two edges can connect the same endpoints. This means that each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of "simple graph". This formal definition can be useful if you need to implement a simple graph in code.
+//Recall that in a simple graph, there are 
+A *simple graph* is a graph that has no loops and no parallel edges (that is, no two edges can connect the same endpoints.) 
+//can connect the same endpoints. 
+This means that each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of "simple graph". This formal definition can be useful if you need to implement a simple graph in code.
+#Graphs discussed in this textbook are assumed to be simple unless stated otherwise.#
+
+=== A Formal Definition
 
 A *simple graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a set $V$ of objects called *vertices* (also called *nodes*) and a set $E$ of objects called *edges*.
 An edge $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where the vertices $x$ and $y$ are two different elements of $V$. The two vertices $x$ and $y$ in the edge $e=\left\{x,y\right\}$ are said to be *adjacent* or *connected* or *neighbors*, and $x$ and $y$ are called the *endpoints* of the edge $e$. 
@@ -317,8 +329,7 @@ image::images/graph1.png[]
 
 
 
-The *degree* of a vertex $v \in V$, denoted $d(v)$, is the number of edges in the graph $G$
-containing the vertex $v$.
+//The *degree* of a vertex $v \in V$, denoted $d(v)$, is the number of edges in the graph $G$ containing the vertex $v$.
 
 ****
 .Example {counter:graphex}
@@ -363,9 +374,15 @@ A useful consequence of this to keep in mind is that the sum of the degrees of a
 ====
 
 
-=== Simple Directed Graphs
+== Directed Graphs
 
-A *directed graph* (or *digraph*) is a graph in which the edges are directed from one vertex to another vertex.
+// MKD Apr 20 2025 
+
+The main focus of this chapter will be undirected simple graphs, but we will briefly discuss directed graphs in this section. 
+
+A *directed graph* (or *digraph*) is a graph in which the edges are directed from one vertex to another vertex. Each edge has an *initial vertex* $u$ and a *terminal index* $v;$ the edge is drawn as an arrow pointing from $u$ to $v.$ 
+
+The *out-degree* of a vertex $w$ is the number of edges that have $w$ as the initial index. The *in-degree* of a vertex $w$ is the number of edges that have $W$ as the terminal index.
 
 
 ****
@@ -398,7 +415,7 @@ Each directed edge has for its initial vertex the loser and for its terminal edg
 
 
 
-=== Directed Graphs
+=== Simple Directed Graphs
 
 
 We can give a formal set-theoretic definition of simple directed graph as well. To indicate the directed edges, ordered pairs of vertices are used instead of 2-element sets.
@@ -413,6 +430,7 @@ A *directed edge* $e\in\ E$ is an ordered pair of the form $e=\left(x,y\right)$,
 
 // MKD - insert the analog of Handshake :
 // sum of in-degrees = sum of out-degrees = number of directed edges
+
 
 
 == Examples of Simple Graphs
@@ -668,119 +686,6 @@ latexmath:[
 
 ****
 
-
-
-
-== Connectivity, Eulerian Graphs, and Hamiltonian Graphs
-//== Paths and Circuits 
-
-
-////
-A *path* of length $n$ from $u$ to $v,$ where $n$ is a positive integer, in 
-//an undirected graph 
-a simple graph 
-is a sequence of edges $e_{1}, e_{2}, \ldots , e_{n}$ of the graph such that e1 = (x0, x1), e2 = (x1, x2), ..., en = (xn-1, xn), wherex0 =uandxn =v.Wecanalsodenotethispathbyits vertex sequence x0, x1, ..., xn
-////
-
-//In this section you will study the ways you can move from node to node along the edges of a graph. 
-
-A *walk* on a graph $G=\left(V,E\right)$ is a finite, non-empty, alternating sequence of vertices and edges of the form, $v_0e_1v_1e_2\ldots e_nv_n$, with vertices $v_i\in V$ and edges $e_i\in E$. 
-
-We will focus on simple graphs. For simple graphs, there is at most one edge joining adjacent vertices, so we can omit the edges from the sequence and instead write $v_0v_1\ldots v_n.$
-
-* A *trail* is a walk that does not repeat an edge. That is, all edges in a trail are distinct.
-
-* A *path* is a trail that does not repeat a vertex.
-
-* The *distance* between two vertices, $u$ and $v$, denoted $d(u,v)$, is the number of edges in a shortest path connecting them.
-
-* A *cycle* is a non-empty trail in which the only repeating vertices are the beginning and ending vertices, $v_0=v_n$.
-
-****
-.Example {counter:graphex} - Trails, Paths, and Cycles
-
-In the graphs below the first shows a trail $CFDBFE$.
-It is not a path since the vertex $F$ is repeated.
-The second shows a path $CADFB$, and the third a cycle $CADFC$. Also note the following
-distances, $d(A,D)=1$, while $d(A,F)=2$, and $d(A,E)=3$.
-
-image::images/graph9.png[]
-
-****
-
-
-A graph is *connected* if there is a path from each vertex to every other vertex.
-
-****
-.Example {counter:graphex} - A graph that is not connected
-
-The graph $G$ below is not connected since, as just one example, there is no path from vertex $a$ to vertex $e.$
-
-image::images/graph10.png[]
-
-$G$ has adjacency matrix
-
-latexmath:[
-\left(\begin{matrix}0&1&1&0&0\\1&0&1&0&0\\1&1&0&0&0\\0&0&0&0&1\\0&0&0&1&0\\\end{matrix}\right).
-]
-****
-
-
-//=== Eulerian paths and circuits
-
-=== Eulerian Graphs
-
-//Informally an  *Eulerian graph* is one in which there is a closed (beginning and ending with the same vertex) trail that includes all edges. To define this precisely, we use the idea of an Eulerian trail.
-
-An *Euler path* on a graph is a path that uses each edge of the graph exactly once. 
-
-An *Euler circuit* (also called an *Eulerian trail*) is a closed trail containing each edge of the graph $G$ exactly once and returning to the start vertex. A graph with an Euler circuit is considered *Eulerian* or is said to be an *Eulerian graph*.
-
-
-In the following, the first graph is Eulerian. The sequence of edges $e_1 e_2 e_3 e_4 e_5 e_6 e_7$ describes an Euler circuit. 
-The second graph is not an Eulerian graph. Convince yourself of this fact by  looking at all necessary trails or closed trails.
-
-//image::images/graph11.png[]
-image::imagesMKD/graph11_MKD.png[]
-
-
-The following are useful
-characterizations of graphs with Euler circuits and Euler paths and are due to Leonhard Euler
-
-.Theorem on Euler Circuits and Euler Paths
-
-****
-.. A finite connected graph has an Euler circuit if and only if each vertex has even degree.
-.. A finite connected graph has an Euler path if and only if it has at most two vertices with odd degree.
-****
-
-//=== Hamiltonian paths and circuits
-
-=== Hamiltonian Graphs
-
-A cycle in a graph $G$, is said to be a *Hamiltonian cycle* if every vertex,
-except for the starting and ending vertex, is visited exactly once.
-
-A graph is *Hamiltonian*, or said to be a *Hamiltonian graph*, if it contains a Hamiltonian cycle.
-
-
-The following graph is Hamiltonian and shows a Hamiltonian cycle $ABCDA$, highlighted, while
-the second graph is not Hamiltonian.
-
-image::images/graph12.png[]
-
-
-
-
-While we have the Euler Theorem to tell us which graphs are Eulerian or not, there are no comparable simple criteria to determine if graphs are Hamiltonian or not. We do have the following sufficient
-criterion due to Paul Dirac.
-
-.Theorem (Dirac) on Hamiltonian graphs
-****
-A simple graph, with $n≥3$ vertices, is Hamiltonian if every vertex $v$ has degree $d(v)\geq \frac{n}{2}$.
-
-****
-
 // MKD new section Nov 17 2024
 == Creating New Graphs From Old Graphs
 
@@ -934,6 +839,189 @@ Look for rows and columns in the different matrices that are identical. The orde
 ****
 
 //It is immediately clear by looking at the graph (drawing) on the left that the graph consists of a single cycle, and by looking at the graph (drawing) in the middle that the graph is bipartite; neither of these properties is immediately obvious if you only had the graph (drawing) on the right. 
+
+== Graph Coloring 
+
+//In some contexts, it can be useful to partition either the set of vertices of a graph or the set of edges of a graph into disjoint subsets. An easy way to indicate which subset of the partition an element belongs to in a drawing of a graph is to use different colors. 
+//In some contexts, it can be useful to assign "colors" to each of the vertices (or instead, each of the edges) of a graph. In this way, the set of all vertices (or the set of all edges) is partitioned into disjoint subsets, and the colors make it easy to see interpret the partitioning when the graph is drawn. + 
+//[small]#Note: It is usual to refer to this partitioning as "using different colors," but you could instead just assign labels like "group 1," "group 2," and so on to each vertex (or edge.)#
+
+//In some contexts, it can be useful to assign "colors" to each of the vertices of a graph. In this way, the set of all vertices is partitioned into disjoint subsets based on their colors, and the colors make it easy to see and interpret the partitioning when the graph is drawn. + 
+//[small]#Note: It is usual to refer to this partitioning as "coloring" but you could instead assign labels like "group 1," "group 2," and so on to each vertex.#
+
+//For example, a graph may be drawn with each vertex having one of the colors red, blue, or green to indicate that the vertex set has been partitioned into three disjoint subsets. In most applications, the two endpoints of an edge will have different colors. 
+// MKD show "four color map" problem image here?
+
+In some contexts, it can be useful to partition either the set of vertices or the set of edges of a graph into disjoint subsets to make it easier to understand the graph and the network it represents. This act of partitioning is usually referred to as "coloring" since using different colors can make it easy to see and interpret the properties of the partition when the graph is drawn. 
+//[small]#Note:# 
+//It is usual to refer to this partitioning as "coloring" but 
+Notice that you could instead create the partition by assigning labels like "group 1," "group 2," and so on, to each vertex (or edge.)
+//, but the use of color.
+
+//image::imagesMKD/Petersen_graph_3-coloring_MKD.png[Petersen_graph_3-coloring.svg,469,457,float="right",align="center"] 
+image::imagesMKD/Petersen_graph_3-coloring_MKD.png[Petersen_graph_3-coloring.svg,141,139,float="right",align="center"] 
+For example, the image shows a graph called the Petersen graph with its vertex set partitioned into 3 subsets so that each edge's endpoints are in two different subsets of the partition (That is, each edge's endpoints have different colors.) + 
+[small]#Image credit: link:https://commons.wikimedia.org/wiki/File:Petersen_graph_3-coloring.svg["Petersen_graph_3-coloring.svg"] by Д.Ильин. The copyright holder of this work has released this work into the public domain. This applies worldwide.#
+
+
+The next example discusses an application of vertex coloring.
+
+****
+.Example {counter:graphex} - Redrawing a Map as a Graph
+
+The following image represents a "map" showing four countries; the blue region represents one country (not a body of water) that is surrounded by three other countries.
+
+//image::imagesMKD/MapsAndGraph.png[MapsAndGraph.png,1200,620,float="right",align="center"]
+image::imagesMKD/MapsAndGraph.png[MapsAndGraph.png,400,306,align="center"]
+
+//In the image, the shape on the left represents a map of four differently-colored regions. If you need to solve a problem that only cares about adjacent regions, the 
+The map can be represented as a graph with vertices colored to match the regions, as shown on the right. If it helps you to connect the graph to the map, imagine that each vertex represents a capital city of the corresponding country.
+
+This way of representing a map was used to prove the  link:https://en.wikipedia.org/wiki/Four_color_theorem[Four Color Theorem] which states, roughly, that  
+
+====
+.Four Color Theorem  
+Any map of countries that can be drawn in a plane such that + 
+(1) every country has a color and + 
+(2) no two adjacent countries have the same color + 
+requires at most four different colors. + 
+[small]#In this context "two adjacent countries" share a border that is not just a single point.#
+
+====
+
+The link:https://celebratio.org/Haken_W/article/794/[first proof of the theorem] was announced in 1976, and a corrected version of the first proof was published in 1989 after some errors were fixed (Yes, professional mathematicians do make mistakes!) 
+//The proof was considered controversial by many mathematicians at the time: There were nearly two thousand cases that needed to be checked, so a computer was used to check many of the cases. 
+The proof was considered controversial by many mathematicians at the time because it was the first major computer-assisted proof: Over one thousand five hundred different cases needed to be checked! 
+
+****
+
+//In another application, we could instead color edges, where say, each edge is drawn using either black or orange to indicate that the set of edges has been partitioned into two disjoint subsets. 
+
+//You could instead color each of the edges of a graph. The colors are really just a way of labeling each of the edges so that the set of all edges has been partitioned into disjoint subsets. 
+
+//image::imagesMKD/198px-K44_arboricity.svg.png[198px-K44_arboricity.png,198,198,align="center"] + 
+//image::imagesMKD/MapsAndGraph.png[198px-K44_arboricity.svg,198,198,align="center"] + 
+
+//namely the red forest, blue forest, and green forest. (
+//image::imagesMKD/K44_arboricity_MKD.png[198px-K44_arboricity.svg,99,99,float="right",align="center"] 
+image::imagesMKD/K44_arboricity_MKD.png[198px-K44_arboricity.svg,147,147,float="right",align="center"] 
+In other contexts, it is more appropriate to use edge coloring. That is, each edge of the graph is assigned a color so that the set of edges is partitioned into disjoint subsets. 
+For example, the graph in the image shows that the complete bipartite graph $K_{4,4}$ can be partitioned as a union of 3 disjoint graphs called *forests* (Forests are defined later in this textbook, in the link:./trees.html[Trees] chapter.) + 
+[small]#Image credit: link:https://commons.wikimedia.org/wiki/File:K44_arboricity.svg["K44 arboricity.svg"] by David Eppstein. The copyright holder of this work has released this work into the public domain. This applies worldwide.#
+
+
+
+
+== Connectivity, Eulerian Graphs, and Hamiltonian Graphs
+//== Paths and Circuits 
+
+
+////
+A *path* of length $n$ from $u$ to $v,$ where $n$ is a positive integer, in 
+//an undirected graph 
+a simple graph 
+is a sequence of edges $e_{1}, e_{2}, \ldots , e_{n}$ of the graph such that e1 = (x0, x1), e2 = (x1, x2), ..., en = (xn-1, xn), wherex0 =uandxn =v.Wecanalsodenotethispathbyits vertex sequence x0, x1, ..., xn
+////
+
+//In this section you will study the ways you can move from node to node along the edges of a graph. 
+
+A *walk* on a graph $G=\left(V,E\right)$ is a finite, non-empty, alternating sequence of vertices and edges of the form, $v_0e_1v_1e_2\ldots e_nv_n$, with vertices $v_i\in V$ and edges $e_i\in E$. 
+
+We will focus on simple graphs. For simple graphs, there is at most one edge joining adjacent vertices, so we can omit the edges from the sequence and instead write $v_0v_1\ldots v_n.$
+
+* A *trail* is a walk that does not repeat an edge. That is, all edges in a trail are distinct.
+
+* A *path* is a trail that does not repeat a vertex.
+
+* The *distance* between two vertices, $u$ and $v$, denoted $d(u,v)$, is the number of edges in a shortest path connecting them.
+
+* A *cycle* is a non-empty trail in which the only repeating vertices are the beginning and ending vertices, $v_0=v_n$.
+
+****
+.Example {counter:graphex} - Trails, Paths, and Cycles
+
+In the graphs below the first shows a trail $CFDBFE$.
+It is not a path since the vertex $F$ is repeated.
+The second shows a path $CADFB$, and the third a cycle $CADFC$. Also note the following
+distances, $d(A,D)=1$, while $d(A,F)=2$, and $d(A,E)=3$.
+
+image::images/graph9.png[]
+
+****
+
+
+A graph is *connected* if there is a path from each vertex to every other vertex.
+
+****
+.Example {counter:graphex} - A graph that is not connected
+
+The graph $G$ below is not connected since, as just one example, there is no path from vertex $a$ to vertex $e.$
+
+image::images/graph10.png[]
+
+$G$ has adjacency matrix
+
+latexmath:[
+\left(\begin{matrix}0&1&1&0&0\\1&0&1&0&0\\1&1&0&0&0\\0&0&0&0&1\\0&0&0&1&0\\\end{matrix}\right).
+]
+****
+
+
+//=== Eulerian paths and circuits
+
+=== Eulerian Graphs
+
+//Informally an  *Eulerian graph* is one in which there is a closed (beginning and ending with the same vertex) trail that includes all edges. To define this precisely, we use the idea of an Eulerian trail.
+
+An *Euler path* on a graph is a path that uses each edge of the graph exactly once. 
+
+An *Euler circuit* (also called an *Eulerian trail*) is a closed trail containing each edge of the graph $G$ exactly once and returning to the start vertex. A graph with an Euler circuit is considered *Eulerian* or is said to be an *Eulerian graph*.
+
+
+In the following, the first graph is Eulerian. The sequence of edges $e_1 e_2 e_3 e_4 e_5 e_6 e_7$ describes an Euler circuit. 
+The second graph is not an Eulerian graph. Convince yourself of this fact by  looking at all necessary trails or closed trails.
+
+//image::images/graph11.png[]
+image::imagesMKD/graph11_MKD.png[]
+
+
+The following are useful
+characterizations of graphs with Euler circuits and Euler paths and are due to Leonhard Euler
+
+.Theorem on Euler Circuits and Euler Paths
+
+****
+.. A finite connected graph has an Euler circuit if and only if each vertex has even degree.
+.. A finite connected graph has an Euler path if and only if it has at most two vertices with odd degree.
+****
+
+//=== Hamiltonian paths and circuits
+
+=== Hamiltonian Graphs
+
+A cycle in a graph $G$, is said to be a *Hamiltonian cycle* if every vertex,
+except for the starting and ending vertex, is visited exactly once.
+
+A graph is *Hamiltonian*, or said to be a *Hamiltonian graph*, if it contains a Hamiltonian cycle.
+
+
+The following graph is Hamiltonian and shows a Hamiltonian cycle $ABCDA$, highlighted, while
+the second graph is not Hamiltonian.
+
+image::images/graph12.png[]
+
+
+
+
+While we have the Euler Theorem to tell us which graphs are Eulerian or not, there are no comparable simple criteria to determine if graphs are Hamiltonian or not. We do have the following sufficient
+criterion due to Paul Dirac.
+
+.Theorem (Dirac) on Hamiltonian graphs
+****
+A simple graph, with $n≥3$ vertices, is Hamiltonian if every vertex $v$ has degree $d(v)\geq \frac{n}{2}$.
+
+****
+
 
 
 == Finding A Shortest Path: Dijkstra's Algorithm

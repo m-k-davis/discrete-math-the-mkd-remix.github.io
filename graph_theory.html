@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on January 23, 2025.
+        This chapter was last updated on April 21, 2025.
        </em>
       </p>
      </div>
@@ -654,23 +654,70 @@ $(document).on('page:load', ready2);
        </li>
        <li>
         <p>
+         Creating new graphs from old graphs
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Subgraphs
+           </p>
+          </li>
+          <li>
+           <p>
+            Unions and intersections of graphs
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
          Graph isomorphism
         </p>
        </li>
        <li>
         <p>
-         Eulerian and Hamiltonian circuits
+         Graph coloring
         </p>
        </li>
        <li>
         <p>
-         traveling sales person
+         Connectivity of graphs
         </p>
-       </li>
-       <li>
-        <p>
-         graph coloring
-        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Eulerian circuits
+           </p>
+          </li>
+          <li>
+           <p>
+            Hamiltonian circuits
+           </p>
+          </li>
+          <li>
+           <p>
+            Shortest-path problems
+           </p>
+           <div class="ulist">
+            <ul>
+             <li>
+              <p>
+               Dijkstra’s algorithm
+              </p>
+             </li>
+             <li>
+              <p>
+               Traveling Salesperson Problem (TSP)
+              </p>
+             </li>
+            </ul>
+           </div>
+          </li>
+         </ul>
+        </div>
        </li>
       </ul>
      </div>
@@ -693,7 +740,7 @@ $(document).on('page:load', ready2);
          edges,
         </strong>
         where each edge
-connects either two different vertices or a vertex to itself.
+connects either two different vertices or one vertex to itself.
        </p>
       </div>
       <div class="ulist">
@@ -704,7 +751,11 @@ connects either two different vertices or a vertex to itself.
           <strong>
            endpoints
           </strong>
-          are the vertices that it connects. The edge is said to be incident with each endpoint, and to connect the endpoints.
+          are the vertices that it connects. The edge is said to be
+          <strong>
+           incident
+          </strong>
+          with each endpoint, and to connect the endpoints.
          </p>
         </li>
         <li>
@@ -713,6 +764,40 @@ connects either two different vertices or a vertex to itself.
           <strong>
            loop.
           </strong>
+         </p>
+        </li>
+        <li>
+         <p>
+          If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a
+          <strong>
+           multigraph.
+          </strong>
+          Two edges that have the same endpoints are called
+          <strong>
+           parallel
+          </strong>
+          edges.
+         </p>
+        </li>
+        <li>
+         <p>
+          Two vertices are
+          <strong>
+           adjacent
+          </strong>
+          if they are the endpoints of at least one edge. Adjacent vertices are also called
+          <strong>
+           neighbors.
+          </strong>
+         </p>
+        </li>
+        <li>
+         <p>
+          The
+          <strong>
+           degree
+          </strong>
+          of a vertex \(v\) is the number of edges in the graph \(G\) containing the vertex \(v.\)
          </p>
         </li>
         <li>
@@ -726,14 +811,6 @@ connects either two different vertices or a vertex to itself.
         </li>
         <li>
          <p>
-          If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a
-          <strong>
-           multigraph.
-          </strong>
-         </p>
-        </li>
-        <li>
-         <p>
           A
           <strong>
            simple graph
@@ -742,11 +819,6 @@ connects either two different vertices or a vertex to itself.
          </p>
         </li>
        </ul>
-      </div>
-      <div class="paragraph">
-       <p>
-        Graphs discussed in this textbook are assumed to be simple unless stated otherwise.
-       </p>
       </div>
       <div class="sidebarblock">
        <div class="content">
@@ -820,243 +892,82 @@ However, there are some graphs which cannot be drawn in 2 dimensions without som
         </div>
        </div>
       </div>
-      <div class="paragraph">
-       <p>
-        In the next section, we will
-        <em>
-         define
-        </em>
-        graphs in terms of set theory,
-but it is more useful to
-        <em>
-         represent
-        </em>
-        a graph using either a drawing as in the preceding example, or a list or a matrix as described later in this chapter.
-       </p>
-      </div>
-     </div>
-     <div class="sect2">
-      <h3 id="_undirected_graphs">
-       14.2. Undirected Graphs
-      </h3>
-      <div class="paragraph">
-       <p>
-        In this section, we will assume that graphs must have undirected edges, but could have loops and/or
-        <strong>
-         parallel edges
-        </strong>
-        (that is, multiple edges with the same endpoints.)
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        <mark>
-         NOTICE: No updates will be made to the "Undirected Graphs" section before Dec. 20, 2024.
-        </mark>
-        Please skip to the next section, "Simple Graphs."
-       </p>
-      </div>
      </div>
      <div class="sect2">
       <h3 id="_simple_graphs">
-       14.3. Simple Graphs
+       14.2. Simple Graphs
       </h3>
-      <div class="paragraph">
-       <p>
-        Recall that in a simple graph, there are no loops and no two edges can connect the same endpoints. This means that each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of "simple graph". This formal definition can be useful if you need to implement a simple graph in code.
-       </p>
-      </div>
       <div class="paragraph">
        <p>
         A
         <strong>
          simple graph
         </strong>
-        \(G=\left(V,\ E\right)\) is an ordered pair consisting of a set \(V\) of objects called
-        <strong>
-         vertices
-        </strong>
-        (also called
-        <strong>
-         nodes
-        </strong>
-        ) and a set \(E\) of objects called
-        <strong>
-         edges
-        </strong>
-        .
-An edge \(e\in\ E\) is a set of the form \(e=\left\{x,y\right\}\), where the vertices \(x\) and \(y\) are two different elements of \(V\). The two vertices \(x\) and \(y\) in the edge \(e=\left\{x,y\right\}\) are said to be
-        <strong>
-         adjacent
-        </strong>
-        or
-        <strong>
-         connected
-        </strong>
-        or
-        <strong>
-         neighbors
-        </strong>
-        , and \(x\) and \(y\) are called the
-        <strong>
-         endpoints
-        </strong>
-        of the edge \(e\).
+        is a graph that has no loops and no parallel edges (that is, no two edges can connect the same endpoints.)
+This means that each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of "simple graph". This formal definition can be useful if you need to implement a simple graph in code.
+        <mark>
+         Graphs discussed in this textbook are assumed to be simple unless stated otherwise.
+        </mark>
        </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 2 - a simple graph.
-         </div>
-         <p>
-          The graph shown has vertex set
-\(\left\{A,\ B,\ C,\ D,\ E,\ F\right\}\) and
-edge set
-\( \{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}.\)
-         </p>
-        </div>
-        <div class="imageblock">
-         <div class="content">
-          <img alt="graph1" src="images/graph1.png"/>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        The
-        <strong>
-         degree
-        </strong>
-        of a vertex \(v \in V\), denoted \(d(v)\), is the number of edges in the graph \(G\)
-containing the vertex \(v\).
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 3
-         </div>
-         <p>
-          The degrees of each of the vertices in the undirected graph \(G\)  with vertex set
-\(V=\{A,B,C,D,E,F,G\}\) and edge set \(E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,G\}\)
-are,
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(d\left(A\right)=2\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(d\left(B\right)=2\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(d\left(C\right)=2\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(d\left(D\right)=3\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(d\left(E\right)=0\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(d\left(F\right)=4\)
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(d\left(G\right)=1\)
-         </p>
-        </div>
-       </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        Notice that the sum of all the degrees
-\(d\left(A\right)+\ d\left(B\right)\ +\ d\left(C\right)+\ \ d\left(D\right)\ \ +d\left(E\right)+\ d\left(F\right) + d\left(G\right)=14\), which is
-is twice the number of edges, \(2 \cdot \left|E\right|=7\).
-In fact, this is true for any undirected graph with finitely many edges as long as any loops are counted twice.
-This result is called the Handshaking Theorem. A formal proof of the Handshaking Lemma can be written using mathematical induction on the predicate
-\(P(n):\) "If graph \(G\) has \(n\) edges, then the sum of the degrees of the vertices of \(G\) is equal to \(2n.\)"
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="title">
-         Handshaking Theorem
-        </div>
-        <div class="paragraph">
-         <p>
-          The sum of the degrees of the vertices of a graph \(G=\left(V,\ E\right)\) is equal to twice the number of edges
-in \(G\). That is, \(\displaystyle \sum_{v\in V}{d\left(v\right)=2\ \left|E\right|}\).
-         </p>
-        </div>
-       </div>
-      </div>
-      <div class="admonitionblock note">
-       <table>
-        <tr>
-         <td class="icon">
-          <i class="fa icon-note" title="Note">
-          </i>
-         </td>
-         <td class="content">
-          <div class="paragraph">
-           <p>
-            A useful consequence of this to keep in mind is that the sum of the degrees of a graph is always even.
-           </p>
-          </div>
-         </td>
-        </tr>
-       </table>
       </div>
       <div class="sect3">
-       <h4 id="_simple_directed_graphs">
-        14.3.1. Simple Directed Graphs
+       <h4 id="_a_formal_definition">
+        14.2.1. A Formal Definition
        </h4>
        <div class="paragraph">
         <p>
          A
          <strong>
-          directed graph
+          simple graph
          </strong>
-         (or
+         \(G=\left(V,\ E\right)\) is an ordered pair consisting of a set \(V\) of objects called
          <strong>
-          digraph
+          vertices
          </strong>
-         ) is a graph in which the edges are directed from one vertex to another vertex.
+         (also called
+         <strong>
+          nodes
+         </strong>
+         ) and a set \(E\) of objects called
+         <strong>
+          edges
+         </strong>
+         .
+An edge \(e\in\ E\) is a set of the form \(e=\left\{x,y\right\}\), where the vertices \(x\) and \(y\) are two different elements of \(V\). The two vertices \(x\) and \(y\) in the edge \(e=\left\{x,y\right\}\) are said to be
+         <strong>
+          adjacent
+         </strong>
+         or
+         <strong>
+          connected
+         </strong>
+         or
+         <strong>
+          neighbors
+         </strong>
+         , and \(x\) and \(y\) are called the
+         <strong>
+          endpoints
+         </strong>
+         of the edge \(e\).
         </p>
        </div>
        <div class="sidebarblock">
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 4 - A directed graph.
+           Example 2 - a simple graph.
           </div>
           <p>
-           The graph \(G=(V,E)\) with vertex set
-\(V=\{A,B,C,D,E,F\}\)  and
+           The graph shown has vertex set
+\(\left\{A,\ B,\ C,\ D,\ E,\ F\right\}\) and
 edge set
-\(E=\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}\).
-The first coordinate of each edge is the initial vertex and the second coordinate is the terminal vertex.
+\( \{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}.\)
           </p>
          </div>
          <div class="imageblock">
           <div class="content">
-           <img alt="graph2" src="images/graph2.png"/>
+           <img alt="graph1" src="images/graph1.png"/>
           </div>
          </div>
         </div>
@@ -1065,32 +976,186 @@ The first coordinate of each edge is the initial vertex and the second coordinat
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 5 - The game "rock, paper, scissors"
+           Example 3
           </div>
           <p>
-           The graph \(G=(V,E)\) with vertex set
-\(V = \{ \text{"rock", "paper", "scissors"} \}\)  and
-edge set
-\(E = \{ \text{("rock", "paper"), ("paper", "scissors"), ("scissors", "rock")} \}\)
-can be used to represent the game "rock, paper, scissors."
+           The degrees of each of the vertices in the undirected graph \(G\)  with vertex set
+\(V=\{A,B,C,D,E,F,G\}\) and edge set \(E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,G\}\)
+are,
           </p>
-         </div>
-         <div class="imageblock">
-          <div class="content">
-           <img alt="rock paper scissors digraph" src="imagesMKD/rock_paper_scissors_digraph.png"/>
-          </div>
          </div>
          <div class="paragraph">
           <p>
-           Each directed edge has for its initial vertex the loser and for its terminal edge the winner.
+           \(d\left(A\right)=2\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(d\left(B\right)=2\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(d\left(C\right)=2\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(d\left(D\right)=3\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(d\left(E\right)=0\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(d\left(F\right)=4\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(d\left(G\right)=1\)
           </p>
          </div>
         </div>
        </div>
+       <div class="paragraph">
+        <p>
+         Notice that the sum of all the degrees
+\(d\left(A\right)+\ d\left(B\right)\ +\ d\left(C\right)+\ \ d\left(D\right)\ \ +d\left(E\right)+\ d\left(F\right) + d\left(G\right)=14\), which is
+is twice the number of edges, \(2 \cdot \left|E\right|=7\).
+In fact, this is true for any undirected graph with finitely many edges as long as any loops are counted twice.
+This result is called the Handshaking Theorem. A formal proof of the Handshaking Lemma can be written using mathematical induction on the predicate
+\(P(n):\) "If graph \(G\) has \(n\) edges, then the sum of the degrees of the vertices of \(G\) is equal to \(2n.\)"
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Handshaking Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           The sum of the degrees of the vertices of a graph \(G=\left(V,\ E\right)\) is equal to twice the number of edges
+in \(G\). That is, \(\displaystyle \sum_{v\in V}{d\left(v\right)=2\ \left|E\right|}\).
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           <div class="paragraph">
+            <p>
+             A useful consequence of this to keep in mind is that the sum of the degrees of a graph is always even.
+            </p>
+           </div>
+          </td>
+         </tr>
+        </table>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_directed_graphs">
+       14.3. Directed Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        The main focus of this chapter will be undirected simple graphs, but we will briefly discuss directed graphs in this section.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         directed graph
+        </strong>
+        (or
+        <strong>
+         digraph
+        </strong>
+        ) is a graph in which the edges are directed from one vertex to another vertex. Each edge has an
+        <strong>
+         initial vertex
+        </strong>
+        \(u\) and a
+        <strong>
+         terminal index
+        </strong>
+        \(v;\) the edge is drawn as an arrow pointing from \(u\) to \(v.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         out-degree
+        </strong>
+        of a vertex \(w\) is the number of edges that have \(w\) as the initial index. The
+        <strong>
+         in-degree
+        </strong>
+        of a vertex \(w\) is the number of edges that have \(W\) as the terminal index.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 4 - A directed graph.
+         </div>
+         <p>
+          The graph \(G=(V,E)\) with vertex set
+\(V=\{A,B,C,D,E,F\}\)  and
+edge set
+\(E=\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}\).
+The first coordinate of each edge is the initial vertex and the second coordinate is the terminal vertex.
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph2" src="images/graph2.png"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 5 - The game "rock, paper, scissors"
+         </div>
+         <p>
+          The graph \(G=(V,E)\) with vertex set
+\(V = \{ \text{"rock", "paper", "scissors"} \}\)  and
+edge set
+\(E = \{ \text{("rock", "paper"), ("paper", "scissors"), ("scissors", "rock")} \}\)
+can be used to represent the game "rock, paper, scissors."
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="rock paper scissors digraph" src="imagesMKD/rock_paper_scissors_digraph.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Each directed edge has for its initial vertex the loser and for its terminal edge the winner.
+         </p>
+        </div>
+       </div>
       </div>
       <div class="sect3">
-       <h4 id="_directed_graphs">
-        14.3.2. Directed Graphs
+       <h4 id="_simple_directed_graphs">
+        14.3.1. Simple Directed Graphs
        </h4>
        <div class="paragraph">
         <p>
@@ -1466,255 +1531,8 @@ you place the the weight of the edge in the correct position of the adjacency ma
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_connectivity_eulerian_graphs_and_hamiltonian_graphs">
-       14.7. Connectivity, Eulerian Graphs, and Hamiltonian Graphs
-      </h3>
-      <div class="paragraph">
-       <p>
-        A
-        <strong>
-         walk
-        </strong>
-        on a graph \(G=\left(V,E\right)\) is a finite, non-empty, alternating sequence of vertices and edges of the form, \(v_0e_1v_1e_2\ldots e_nv_n\), with vertices \(v_i\in V\) and edges \(e_i\in E\).
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        We will focus on simple graphs. For simple graphs, there is at most one edge joining adjacent vertices, so we can omit the edges from the sequence and instead write \(v_0v_1\ldots v_n.\)
-       </p>
-      </div>
-      <div class="ulist">
-       <ul>
-        <li>
-         <p>
-          A
-          <strong>
-           trail
-          </strong>
-          is a walk that does not repeat an edge. That is, all edges in a trail are distinct.
-         </p>
-        </li>
-        <li>
-         <p>
-          A
-          <strong>
-           path
-          </strong>
-          is a trail that does not repeat a vertex.
-         </p>
-        </li>
-        <li>
-         <p>
-          The
-          <strong>
-           distance
-          </strong>
-          between two vertices, \(u\) and \(v\), denoted \(d(u,v)\), is the number of edges in a shortest path connecting them.
-         </p>
-        </li>
-        <li>
-         <p>
-          A
-          <strong>
-           cycle
-          </strong>
-          is a non-empty trail in which the only repeating vertices are the beginning and ending vertices, \(v_0=v_n\).
-         </p>
-        </li>
-       </ul>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 8 - Trails, Paths, and Cycles
-         </div>
-         <p>
-          In the graphs below the first shows a trail \(CFDBFE\).
-It is not a path since the vertex \(F\) is repeated.
-The second shows a path \(CADFB\), and the third a cycle \(CADFC\). Also note the following
-distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).
-         </p>
-        </div>
-        <div class="imageblock">
-         <div class="content">
-          <img alt="graph9" src="images/graph9.png"/>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        A graph is
-        <strong>
-         connected
-        </strong>
-        if there is a path from each vertex to every other vertex.
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example 9 - A graph that is not connected
-         </div>
-         <p>
-          The graph \(G\) below is not connected since, as just one example, there is no path from vertex \(a\) to vertex \(e.\)
-         </p>
-        </div>
-        <div class="imageblock">
-         <div class="content">
-          <img alt="graph10" src="images/graph10.png"/>
-         </div>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(G\) has adjacency matrix
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          \(
-\left(\begin{matrix}0&amp;1&amp;1&amp;0&amp;0\\1&amp;0&amp;1&amp;0&amp;0\\1&amp;1&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;1\\0&amp;0&amp;0&amp;1&amp;0\\\end{matrix}\right).
-\)
-         </p>
-        </div>
-       </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_eulerian_graphs">
-        14.7.1. Eulerian Graphs
-       </h4>
-       <div class="paragraph">
-        <p>
-         An
-         <strong>
-          Euler path
-         </strong>
-         on a graph is a path that uses each edge of the graph exactly once.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         An
-         <strong>
-          Euler circuit
-         </strong>
-         (also called an
-         <strong>
-          Eulerian trail
-         </strong>
-         ) is a closed trail containing each edge of the graph \(G\) exactly once and returning to the start vertex. A graph with an Euler circuit is considered
-         <strong>
-          Eulerian
-         </strong>
-         or is said to be an
-         <strong>
-          Eulerian graph
-         </strong>
-         .
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         In the following, the first graph is Eulerian. The sequence of edges \(e_1 e_2 e_3 e_4 e_5 e_6 e_7\) describes an Euler circuit.
-The second graph is not an Eulerian graph. Convince yourself of this fact by  looking at all necessary trails or closed trails.
-        </p>
-       </div>
-       <div class="imageblock">
-        <div class="content">
-         <img alt="graph11 MKD" src="imagesMKD/graph11_MKD.png"/>
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         The following are useful
-characterizations of graphs with Euler circuits and Euler paths and are due to Leonhard Euler
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          Theorem on Euler Circuits and Euler Paths
-         </div>
-         <div class="olist loweralpha">
-          <ol class="loweralpha" type="a">
-           <li>
-            <p>
-             A finite connected graph has an Euler circuit if and only if each vertex has even degree.
-            </p>
-           </li>
-           <li>
-            <p>
-             A finite connected graph has an Euler path if and only if it has at most two vertices with odd degree.
-            </p>
-           </li>
-          </ol>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_hamiltonian_graphs">
-        14.7.2. Hamiltonian Graphs
-       </h4>
-       <div class="paragraph">
-        <p>
-         A cycle in a graph \(G\), is said to be a
-         <strong>
-          Hamiltonian cycle
-         </strong>
-         if every vertex,
-except for the starting and ending vertex, is visited exactly once.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         A graph is
-         <strong>
-          Hamiltonian
-         </strong>
-         , or said to be a
-         <strong>
-          Hamiltonian graph
-         </strong>
-         , if it contains a Hamiltonian cycle.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         The following graph is Hamiltonian and shows a Hamiltonian cycle \(ABCDA\), highlighted, while
-the second graph is not Hamiltonian.
-        </p>
-       </div>
-       <div class="imageblock">
-        <div class="content">
-         <img alt="graph12" src="images/graph12.png"/>
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         While we have the Euler Theorem to tell us which graphs are Eulerian or not, there are no comparable simple criteria to determine if graphs are Hamiltonian or not. We do have the following sufficient
-criterion due to Paul Dirac.
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          Theorem (Dirac) on Hamiltonian graphs
-         </div>
-         <div class="paragraph">
-          <p>
-           A simple graph, with \(n≥3\) vertices, is Hamiltonian if every vertex \(v\) has degree \(d(v)\geq \frac{n}{2}\).
-          </p>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="sect2">
       <h3 id="_creating_new_graphs_from_old_graphs">
-       14.8. Creating New Graphs From Old Graphs
+       14.7. Creating New Graphs From Old Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -1723,7 +1541,7 @@ criterion due to Paul Dirac.
       </div>
       <div class="sect3">
        <h4 id="_subgraphs">
-        14.8.1. Subgraphs
+        14.7.1. Subgraphs
        </h4>
        <div class="paragraph">
         <p>
@@ -1775,7 +1593,7 @@ is called the subgraph
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 10
+           Example 8
           </div>
           <p>
            Below is a graph \(G(V,E)\) and the subgraph obtained by \(V-\{a,d\}\), called the induced subgraph
@@ -1792,7 +1610,7 @@ is called the subgraph
       </div>
       <div class="sect3">
        <h4 id="_unions_and_intersections_of_graphs">
-        14.8.2. Unions and Intersections Of Graphs
+        14.7.2. Unions and Intersections Of Graphs
        </h4>
        <div class="paragraph">
         <p>
@@ -1816,7 +1634,7 @@ is called the subgraph
      </div>
      <div class="sect2">
       <h3 id="_graph_isomorphism">
-       14.9. Graph Isomorphism
+       14.8. Graph Isomorphism
       </h3>
       <div class="paragraph">
        <p>
@@ -1831,7 +1649,7 @@ is called the subgraph
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 11 - The Same Graph Can Be Drawn In More Than One Way
+          Example 9 - The Same Graph Can Be Drawn In More Than One Way
          </div>
          <p>
           Consider the two graphs shown in the image.
@@ -1964,7 +1782,7 @@ different-looking drawings of the
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 12 - Two Graphs That Are Essentially The Same Graph
+          Example 10 - Two Graphs That Are Essentially The Same Graph
          </div>
          <p>
           Consider the two graphs, each with \(4\) vertices and \(6\) edges, shown in the image.
@@ -2009,7 +1827,7 @@ that preserves adjacency (that is, if two vertices in the upper row are endpoint
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 13 - Using Graph Isomorphism
+          Example 11 - Using Graph Isomorphism
          </div>
          <p>
           Using graph isomorphisms can help identify properties of a graph.
@@ -2095,8 +1913,379 @@ that preserves adjacency (that is, if two vertices in the upper row are endpoint
       </div>
      </div>
      <div class="sect2">
+      <h3 id="_graph_coloring">
+       14.9. Graph Coloring
+      </h3>
+      <div class="paragraph">
+       <p>
+        In some contexts, it can be useful to partition either the set of vertices or the set of edges of a graph into disjoint subsets to make it easier to understand the graph and the network it represents. This act of partitioning is usually referred to as "coloring" since using different colors can make it easy to see and interpret the properties of the partition when the graph is drawn.
+Notice that you could instead create the partition by assigning labels like "group 1," "group 2," and so on, to each vertex (or edge.)
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="Petersen_graph_3-coloring.svg" height="139" src="imagesMKD/Petersen_graph_3-coloring_MKD.png" width="141"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        For example, the image shows a graph called the Petersen graph with its vertex set partitioned into 3 subsets so that each edge’s endpoints are in two different subsets of the partition (That is, each edge’s endpoints have different colors.)
+        <br/>
+        <span class="small">
+         Image credit:
+         <a href="https://commons.wikimedia.org/wiki/File:Petersen_graph_3-coloring.svg">
+          "Petersen_graph_3-coloring.svg"
+         </a>
+         by Д.Ильин. The copyright holder of this work has released this work into the public domain. This applies worldwide.
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The next example discusses an application of vertex coloring.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 12 - Redrawing a Map as a Graph
+         </div>
+         <p>
+          The following image represents a "map" showing four countries; the blue region represents one country (not a body of water) that is surrounded by three other countries.
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="MapsAndGraph.png" height="306" src="imagesMKD/MapsAndGraph.png" width="400"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The map can be represented as a graph with vertices colored to match the regions, as shown on the right. If it helps you to connect the graph to the map, imagine that each vertex represents a capital city of the corresponding country.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          This way of representing a map was used to prove the
+          <a href="https://en.wikipedia.org/wiki/Four_color_theorem">
+           Four Color Theorem
+          </a>
+          which states, roughly, that
+         </p>
+        </div>
+        <div class="exampleblock">
+         <div class="content">
+          <div class="paragraph">
+           <div class="title">
+            Four Color Theorem
+           </div>
+           <p>
+            Any map of countries that can be drawn in a plane such that
+            <br/>
+            (1) every country has a color and
+            <br/>
+            (2) no two adjacent countries have the same color
+            <br/>
+            requires at most four different colors.
+            <br/>
+            <span class="small">
+             In this context "two adjacent countries" share a border that is not just a single point.
+            </span>
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The
+          <a href="https://celebratio.org/Haken_W/article/794/">
+           first proof of the theorem
+          </a>
+          was announced in 1976, and a corrected version of the first proof was published in 1989 after some errors were fixed (Yes, professional mathematicians do make mistakes!)
+The proof was considered controversial by many mathematicians at the time because it was the first major computer-assisted proof: Over one thousand five hundred different cases needed to be checked!
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="198px-K44_arboricity.svg" height="147" src="imagesMKD/K44_arboricity_MKD.png" width="147"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        In other contexts, it is more appropriate to use edge coloring. That is, each edge of the graph is assigned a color so that the set of edges is partitioned into disjoint subsets.
+For example, the graph in the image shows that the complete bipartite graph \(K_{4,4}\) can be partitioned as a union of 3 disjoint graphs called
+        <strong>
+         forests
+        </strong>
+        (Forests are defined later in this textbook, in the
+        <a href="./trees.html">
+         Trees
+        </a>
+        chapter.)
+        <br/>
+        <span class="small">
+         Image credit:
+         <a href="https://commons.wikimedia.org/wiki/File:K44_arboricity.svg">
+          "K44 arboricity.svg"
+         </a>
+         by David Eppstein. The copyright holder of this work has released this work into the public domain. This applies worldwide.
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_connectivity_eulerian_graphs_and_hamiltonian_graphs">
+       14.10. Connectivity, Eulerian Graphs, and Hamiltonian Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         walk
+        </strong>
+        on a graph \(G=\left(V,E\right)\) is a finite, non-empty, alternating sequence of vertices and edges of the form, \(v_0e_1v_1e_2\ldots e_nv_n\), with vertices \(v_i\in V\) and edges \(e_i\in E\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We will focus on simple graphs. For simple graphs, there is at most one edge joining adjacent vertices, so we can omit the edges from the sequence and instead write \(v_0v_1\ldots v_n.\)
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          A
+          <strong>
+           trail
+          </strong>
+          is a walk that does not repeat an edge. That is, all edges in a trail are distinct.
+         </p>
+        </li>
+        <li>
+         <p>
+          A
+          <strong>
+           path
+          </strong>
+          is a trail that does not repeat a vertex.
+         </p>
+        </li>
+        <li>
+         <p>
+          The
+          <strong>
+           distance
+          </strong>
+          between two vertices, \(u\) and \(v\), denoted \(d(u,v)\), is the number of edges in a shortest path connecting them.
+         </p>
+        </li>
+        <li>
+         <p>
+          A
+          <strong>
+           cycle
+          </strong>
+          is a non-empty trail in which the only repeating vertices are the beginning and ending vertices, \(v_0=v_n\).
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 13 - Trails, Paths, and Cycles
+         </div>
+         <p>
+          In the graphs below the first shows a trail \(CFDBFE\).
+It is not a path since the vertex \(F\) is repeated.
+The second shows a path \(CADFB\), and the third a cycle \(CADFC\). Also note the following
+distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph9" src="images/graph9.png"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        A graph is
+        <strong>
+         connected
+        </strong>
+        if there is a path from each vertex to every other vertex.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 14 - A graph that is not connected
+         </div>
+         <p>
+          The graph \(G\) below is not connected since, as just one example, there is no path from vertex \(a\) to vertex \(e.\)
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph10" src="images/graph10.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(G\) has adjacency matrix
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(
+\left(\begin{matrix}0&amp;1&amp;1&amp;0&amp;0\\1&amp;0&amp;1&amp;0&amp;0\\1&amp;1&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;1\\0&amp;0&amp;0&amp;1&amp;0\\\end{matrix}\right).
+\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_eulerian_graphs">
+        14.10.1. Eulerian Graphs
+       </h4>
+       <div class="paragraph">
+        <p>
+         An
+         <strong>
+          Euler path
+         </strong>
+         on a graph is a path that uses each edge of the graph exactly once.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         An
+         <strong>
+          Euler circuit
+         </strong>
+         (also called an
+         <strong>
+          Eulerian trail
+         </strong>
+         ) is a closed trail containing each edge of the graph \(G\) exactly once and returning to the start vertex. A graph with an Euler circuit is considered
+         <strong>
+          Eulerian
+         </strong>
+         or is said to be an
+         <strong>
+          Eulerian graph
+         </strong>
+         .
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In the following, the first graph is Eulerian. The sequence of edges \(e_1 e_2 e_3 e_4 e_5 e_6 e_7\) describes an Euler circuit.
+The second graph is not an Eulerian graph. Convince yourself of this fact by  looking at all necessary trails or closed trails.
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="graph11 MKD" src="imagesMKD/graph11_MKD.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         The following are useful
+characterizations of graphs with Euler circuits and Euler paths and are due to Leonhard Euler
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem on Euler Circuits and Euler Paths
+         </div>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             A finite connected graph has an Euler circuit if and only if each vertex has even degree.
+            </p>
+           </li>
+           <li>
+            <p>
+             A finite connected graph has an Euler path if and only if it has at most two vertices with odd degree.
+            </p>
+           </li>
+          </ol>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_hamiltonian_graphs">
+        14.10.2. Hamiltonian Graphs
+       </h4>
+       <div class="paragraph">
+        <p>
+         A cycle in a graph \(G\), is said to be a
+         <strong>
+          Hamiltonian cycle
+         </strong>
+         if every vertex,
+except for the starting and ending vertex, is visited exactly once.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         A graph is
+         <strong>
+          Hamiltonian
+         </strong>
+         , or said to be a
+         <strong>
+          Hamiltonian graph
+         </strong>
+         , if it contains a Hamiltonian cycle.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The following graph is Hamiltonian and shows a Hamiltonian cycle \(ABCDA\), highlighted, while
+the second graph is not Hamiltonian.
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="graph12" src="images/graph12.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         While we have the Euler Theorem to tell us which graphs are Eulerian or not, there are no comparable simple criteria to determine if graphs are Hamiltonian or not. We do have the following sufficient
+criterion due to Paul Dirac.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem (Dirac) on Hamiltonian graphs
+         </div>
+         <div class="paragraph">
+          <p>
+           A simple graph, with \(n≥3\) vertices, is Hamiltonian if every vertex \(v\) has degree \(d(v)\geq \frac{n}{2}\).
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
       <h3 id="_finding_a_shortest_path_dijkstras_algorithm">
-       14.10. Finding A Shortest Path: Dijkstra’s Algorithm
+       14.11. Finding A Shortest Path: Dijkstra’s Algorithm
       </h3>
       <div class="paragraph">
        <p>
@@ -2105,7 +2294,7 @@ that preserves adjacency (that is, if two vertices in the upper row are endpoint
       </div>
       <div class="sect3">
        <h4 id="_traveling_salesperson_problem_tsp">
-        14.10.1. Traveling Salesperson Problem (TSP)
+        14.11.1. Traveling Salesperson Problem (TSP)
        </h4>
        <div class="paragraph">
         <p>
@@ -2116,7 +2305,7 @@ that preserves adjacency (that is, if two vertices in the upper row are endpoint
      </div>
      <div class="sect2">
       <h3 id="_additional_topics_will_be_added_to_this_chapter_soon">
-       14.11. Additional topics will be added to this chapter soon!
+       14.12. Additional topics will be added to this chapter soon!
       </h3>
       <div class="ulist">
        <ul>
