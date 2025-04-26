@@ -3,7 +3,7 @@
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
 _This chapter was last updated on April 14, 2025._ + 
-//[small]#Fixed typos, updated Big-O discussion for the two division algorithms, added Big-O discussion for the Euclidean algorithm, revised  Big-O discussion of Merge Sort.#
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 //// 
 State, Explain, or Calculate complexity in the ideal and in the worst-case scenario for both implementations. [Remembering, Understanding, Applying]

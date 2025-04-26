@@ -2,7 +2,9 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on April 7, 2025._
+
+_This chapter was last updated on April 7, 2025._ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 ////
 PROOFS: MATHEMATICAL INDUCTION (MKD) 
