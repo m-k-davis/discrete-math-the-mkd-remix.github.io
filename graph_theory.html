@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on April 21, 2025.
+        This chapter was last updated on April 28, 2025.
        </em>
       </p>
      </div>
@@ -1877,12 +1877,12 @@ that preserves adjacency (that is, if two vertices in the upper row are endpoint
             <br/>
             <span class="small">
              Note: This textbook does not discuss planar graphs in detail, but it is worth mentioning that it can be proven that neither \(K_{5}\) nor \(K_{3,3}\) is planar. If you’d like to learn more about planar graphs, one source is the section "Planar Graphs" in
-             <a href="https://discrete.openmathbooks.org/dmoi3.html">
+             <a href="https://discrete.openmathbooks.org/dmoi4/sec_gt-planar.html">
               Oscar Levin’s
               <em>
                Discrete Mathematics: An Open Introduction,
               </em>
-              3rd edition.
+              4th edition.
              </a>
             </span>
            </p>
@@ -2037,8 +2037,8 @@ For example, the graph in the image shows that the complete bipartite graph \(K_
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_connectivity_eulerian_graphs_and_hamiltonian_graphs">
-       14.10. Connectivity, Eulerian Graphs, and Hamiltonian Graphs
+      <h3 id="_connectivity_of_undirected_graphs">
+       14.10. Connectivity of Undirected Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -2046,12 +2046,16 @@ For example, the graph in the image shows that the complete bipartite graph \(K_
         <strong>
          walk
         </strong>
-        on a graph \(G=\left(V,E\right)\) is a finite, non-empty, alternating sequence of vertices and edges of the form, \(v_0e_1v_1e_2\ldots e_nv_n\), with vertices \(v_i\in V\) and edges \(e_i\in E\).
+        on a graph \(G=\left(V,E\right)\) is a finite, non-empty, alternating sequence of vertices and edges of the form, \(v_0e_1v_1e_2\ldots e_nv_n\), with vertices \(v_i\in V\) and edges \(e_i\in E\), where for each integer value of \(i \leq n\) the endpoints of \(e_i\) are the vertices \(v_{i-1}\) and \(v_i.\) The integer \(n\) is called the
+        <strong>
+         length
+        </strong>
+        of the walk.
        </p>
       </div>
       <div class="paragraph">
        <p>
-        We will focus on simple graphs. For simple graphs, there is at most one edge joining adjacent vertices, so we can omit the edges from the sequence and instead write \(v_0v_1\ldots v_n.\)
+        If we restrict ourselves to simple undirected graphs, there is at most one edge joining each pair of adjacent vertices, so a walk can be specified simply by listing the sequence of vertices \(v_0v_1\ldots v_n\) (That is, we don’t need to write down the edges.)
        </p>
       </div>
       <div class="ulist">
@@ -2071,16 +2075,15 @@ For example, the graph in the image shows that the complete bipartite graph \(K_
           <strong>
            path
           </strong>
-          is a trail that does not repeat a vertex.
-         </p>
-        </li>
-        <li>
-         <p>
-          The
+          is a trail that does not repeat a vertex (but we allow for the possibility that the initial vertex \(v_0\) and terminal vertex \(v_n\) of the path are the same vertex; When \(v_0=v_n\) the path is called a
           <strong>
-           distance
+           closed path
           </strong>
-          between two vertices, \(u\) and \(v\), denoted \(d(u,v)\), is the number of edges in a shortest path connecting them.
+          or a
+          <strong>
+           circuit.
+          </strong>
+          )
          </p>
         </li>
         <li>
@@ -2089,10 +2092,33 @@ For example, the graph in the image shows that the complete bipartite graph \(K_
           <strong>
            cycle
           </strong>
-          is a non-empty trail in which the only repeating vertices are the beginning and ending vertices, \(v_0=v_n\).
+          is a closed path of length at least 1.
          </p>
         </li>
        </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         distance
+        </strong>
+        \(d(u,v)\) between two vertices \(u\) and \(v\) in a graph \(G\) is the number of edges in a shortest path connecting them, assuming such a path exists.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <span class="small">
+         Note that different textbooks use different terminology for walks, paths, and so on. The Remix uses terminology consistent with
+         <a href="https://www.routledge.com/Handbook-of-Graph-Theory/Gross-Yellen-Zhang/p/book/9781439880180?srsltid=AfmBOoopymlQNVr5rlo05ShK51PGym1Kv1vJ47zHndypkoXdteehcoYw">
+          <em>
+           Handbook of Graph Theory,
+          </em>
+          Second Edition
+         </a>
+         by Gross, Yellin, and Zhang.
+        </span>
+       </p>
       </div>
       <div class="sidebarblock">
        <div class="content">
@@ -2114,13 +2140,18 @@ distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).
         </div>
        </div>
       </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_connected_graphs">
+       14.11. Connected Graphs
+      </h3>
       <div class="paragraph">
        <p>
-        A graph is
+        A graph \(G\) is
         <strong>
          connected
         </strong>
-        if there is a path from each vertex to every other vertex.
+        if there is a path between any pair of vertices.
        </p>
       </div>
       <div class="sidebarblock">
@@ -2130,7 +2161,7 @@ distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).
           Example 14 - A graph that is not connected
          </div>
          <p>
-          The graph \(G\) below is not connected since, as just one example, there is no path from vertex \(a\) to vertex \(e.\)
+          The graph \(G\) below is not connected since, as just one example, there is no path between vertex \(a\) and vertex \(e.\)
          </p>
         </div>
         <div class="imageblock">
@@ -2152,160 +2183,183 @@ distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).
         </div>
        </div>
       </div>
-      <div class="sect3">
-       <h4 id="_eulerian_graphs">
-        14.10.1. Eulerian Graphs
-       </h4>
-       <div class="paragraph">
-        <p>
-         An
-         <strong>
-          Euler path
-         </strong>
-         on a graph is a path that uses each edge of the graph exactly once.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         An
-         <strong>
-          Euler circuit
-         </strong>
-         (also called an
-         <strong>
-          Eulerian trail
-         </strong>
-         ) is a closed trail containing each edge of the graph \(G\) exactly once and returning to the start vertex. A graph with an Euler circuit is considered
-         <strong>
-          Eulerian
-         </strong>
-         or is said to be an
-         <strong>
-          Eulerian graph
-         </strong>
-         .
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         In the following, the first graph is Eulerian. The sequence of edges \(e_1 e_2 e_3 e_4 e_5 e_6 e_7\) describes an Euler circuit.
+      <div class="paragraph">
+       <p>
+        In the previous example, the graph \(G\) can be treated as a union of two connected subgraphs, called the
+        <strong>
+         connected components
+        </strong>
+        of \(G.\) It can be proven by mathematical induction that any simple undirected graph that has a finite number of vertices can be written as a union of a finite number of connected components.
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_eulerian_graphs">
+       14.12. Eulerian Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        An
+        <strong>
+         Euler path
+        </strong>
+        on a graph is a path that uses each edge of the graph exactly once.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        An
+        <strong>
+         Euler circuit
+        </strong>
+        (also called an
+        <strong>
+         Eulerian trail
+        </strong>
+        ) is a closed trail containing each edge of the graph \(G\) exactly once and returning to the start vertex. A graph with an Euler circuit is called
+        <strong>
+         Eulerian
+        </strong>
+        or is said to be an
+        <strong>
+         Eulerian graph
+        </strong>
+        .
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        In the following, the first graph is Eulerian. The sequence of edges \(e_1 e_2 e_3 e_4 e_5 e_6 e_7\) describes an Euler circuit (Notice that some vertices are visited multiple times; it is the edges that must appear exactly once in an Euler path.)
 The second graph is not an Eulerian graph. Convince yourself of this fact by  looking at all necessary trails or closed trails.
-        </p>
+       </p>
+      </div>
+      <div class="imageblock">
+       <div class="content">
+        <img alt="graph11 MKD" src="imagesMKD/graph11_MKD.png"/>
        </div>
-       <div class="imageblock">
-        <div class="content">
-         <img alt="graph11 MKD" src="imagesMKD/graph11_MKD.png"/>
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         The following are useful
+      </div>
+      <div class="paragraph">
+       <p>
+        The following are useful
 characterizations of graphs with Euler circuits and Euler paths and are due to Leonhard Euler
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          Theorem on Euler Circuits and Euler Paths
-         </div>
-         <div class="olist loweralpha">
-          <ol class="loweralpha" type="a">
-           <li>
-            <p>
-             A finite connected graph has an Euler circuit if and only if each vertex has even degree.
-            </p>
-           </li>
-           <li>
-            <p>
-             A finite connected graph has an Euler path if and only if it has at most two vertices with odd degree.
-            </p>
-           </li>
-          </ol>
-         </div>
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem on Euler Circuits and Euler Paths
+        </div>
+        <div class="olist loweralpha">
+         <ol class="loweralpha" type="a">
+          <li>
+           <p>
+            A finite connected graph has an Euler circuit if and only if each vertex has even degree.
+           </p>
+          </li>
+          <li>
+           <p>
+            A finite connected graph has an Euler path if and only if it has at most two vertices with odd degree.
+           </p>
+          </li>
+         </ol>
         </div>
        </div>
       </div>
-      <div class="sect3">
-       <h4 id="_hamiltonian_graphs">
-        14.10.2. Hamiltonian Graphs
-       </h4>
-       <div class="paragraph">
-        <p>
-         A cycle in a graph \(G\), is said to be a
-         <strong>
-          Hamiltonian cycle
-         </strong>
-         if every vertex,
+      <div class="paragraph">
+       <p>
+        Euler solved a famous problem about the
+        <a href="https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg#Euler’s_analysis">
+         seven bridges of Königsberg
+        </a>
+        by representing the problem as a graph (with parallel edges.)
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_hamiltonian_graphs">
+       14.13. Hamiltonian Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        A cycle in a graph \(G\), is called a
+        <strong>
+         Hamiltonian cycle
+        </strong>
+        if every vertex,
 except for the starting and ending vertex, is visited exactly once.
-        </p>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A graph is
+        <strong>
+         Hamiltonian
+        </strong>
+        , or said to be a
+        <strong>
+         Hamiltonian graph
+        </strong>
+        , if it contains a Hamiltonian cycle.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following graph is Hamiltonian and shows a Hamiltonian cycle \(ABCDA\), highlighted (Notice that some edges are used multiple times; it is the vertices, starting and ending vertex, that must appear exactly once in an Hamiltonian path.)
+The second graph is not Hamiltonian.
+       </p>
+      </div>
+      <div class="imageblock">
+       <div class="content">
+        <img alt="graph12" src="images/graph12.png"/>
        </div>
-       <div class="paragraph">
-        <p>
-         A graph is
-         <strong>
-          Hamiltonian
-         </strong>
-         , or said to be a
-         <strong>
-          Hamiltonian graph
-         </strong>
-         , if it contains a Hamiltonian cycle.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         The following graph is Hamiltonian and shows a Hamiltonian cycle \(ABCDA\), highlighted, while
-the second graph is not Hamiltonian.
-        </p>
-       </div>
-       <div class="imageblock">
-        <div class="content">
-         <img alt="graph12" src="images/graph12.png"/>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem (Dirac) on Hamiltonian graphs
         </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         While we have the Euler Theorem to tell us which graphs are Eulerian or not, there are no comparable simple criteria to determine if graphs are Hamiltonian or not. We do have the following sufficient
-criterion due to Paul Dirac.
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          Theorem (Dirac) on Hamiltonian graphs
-         </div>
-         <div class="paragraph">
-          <p>
-           A simple graph, with \(n≥3\) vertices, is Hamiltonian if every vertex \(v\) has degree \(d(v)\geq \frac{n}{2}\).
-          </p>
-         </div>
+        <div class="paragraph">
+         <p>
+          A simple graph, with \(n≥3\) vertices, is Hamiltonian if every vertex \(v\) has degree \(d(v)\geq \frac{n}{2}\).
+         </p>
         </div>
        </div>
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_finding_a_shortest_path_dijkstras_algorithm">
-       14.11. Finding A Shortest Path: Dijkstra’s Algorithm
+      <h3 id="_finding_a_shortest_path_in_a_weighted_graph_dijkstras_algorithm">
+       14.14. Finding A Shortest Path in a Weighted Graph: Dijkstra’s Algorithm
       </h3>
       <div class="paragraph">
        <p>
-        COMING SOON!
+        In some applications of graph theory, you need to find a "shortest path" between two vertices of a weighted graph. In the context, shortest may mean "of least distance" but could mean "of least cost" or something else, depending on what the edge weights represent.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        This
+        <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">
+         webpage
+        </a>
+        has a good animation that illustrates Dijkstra’s algorithm.
        </p>
       </div>
       <div class="sect3">
-       <h4 id="_traveling_salesperson_problem_tsp">
-        14.11.1. Traveling Salesperson Problem (TSP)
+       <h4 id="_the_traveling_salesperson_problem_tsp">
+        14.14.1. The Traveling Salesperson Problem (TSP)
        </h4>
        <div class="paragraph">
         <p>
-         COMING SOON!
+         A traveling salesperson needs to visit a number of cities and then return to the starting point.To save time and energy, the salesperson wants to determine the shortest path for the trip.
+You can represent the cities and the distances between them by a weighted, complete, undirected graph.
+The problem then is to find a cycle of minimum total weight that visits each vertex exactly one.
         </p>
        </div>
       </div>
      </div>
      <div class="sect2">
       <h3 id="_additional_topics_will_be_added_to_this_chapter_soon">
-       14.12. Additional topics will be added to this chapter soon!
+       14.15. Additional topics will be added to this chapter soon!
       </h3>
       <div class="ulist">
        <ul>

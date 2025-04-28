@@ -539,8 +539,9 @@ You may want to use some addition and/or subtraction as well as the multiplicati
 // MOVE TO FUNCTIONS AND/OR COUNTING
 ** The *Pigeonhole Principle* states that if $n$ is a positive integer and $n+1$ objects are going to be assigned to $n$ categories then one of the categories must be assigned at least 2 of the objects. 
 //Click https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPigeons.jpg[here] to see a _popular photoshopped image_ that illustrates this principle.
-Click https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPigeons.jpg[here, window=_blank] to see a commonly-used _photoshopped_ image that illustrates this principle.
+Click link:https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPigeons.jpg[here, window=_blank] to see a commonly-used photoshopped image that illustrates this principle.
 // MKD could also use a picture here of the standard blobs-and-arrow function representation, with one set having four objects and the other three.
+//_photoshopped_ 
 // MKD pigeonhole principle ends
 
 
@@ -1160,7 +1161,7 @@ A related example is inequality, $s \neq t.$
 //image::imagesMKD/GraphWithSixNodes.png[GraphWithSixNodes,419,232,float="right",align="center"]
 //image::imagesMKD/GraphTheoryForSHv2_cropped.png[GraphTheoryForSHv2_cropped,737,515,float="right",align="center"]
 //image::imagesMKD/GraphTheoryForSHv2_cropped.png[GraphTheoryForSHv2_cropped,367,208,float="right",align="center"]
-* [[vertex-edge-graphs]] A *graph* is a mathematical object that consists of *vertices* (also called *nodes*) that are connected by *edges.* Graphs are often represented by drawings like the ones shown in the following examples, but you can also represent a graph in other ways that are easier and more efficient to use in code; this will be discussed in the link:./graphs.html[Graphs]chapter. + 
+* [[vertex-edge-graphs]] A *graph* is a mathematical object that consists of *vertices* (also called *nodes*) that are connected by *edges.* Graphs are often represented by drawings like the ones shown in the following examples, but you can also represent a graph in other ways that are easier and more efficient to use in code; this will be discussed in the link:./graph_theory.html[Graphs]chapter. + 
  + 
 The drawing of a graph is not treated like a geometric polygon: The only two points "on an edge" are the edge's endpoints. Edges are just connectors between vertices and points that are not indicated as endpoints of an edge are ignored. Also, in a drawing of a graph, the lengths of edges and the straightness or curvedness of edges are not important, just the connections between the edges' endpoints. + 
 
