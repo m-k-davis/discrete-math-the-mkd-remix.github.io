@@ -3,7 +3,8 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on April 28, 2025._
+_This chapter was last updated on May 3, 2025._ + 
+_Inserted a version of Dijkstra's algorithm for a minimal-weight path between two given vertices._
 
 
 // MKD start topics lists
@@ -1040,7 +1041,85 @@ A simple graph, with $n≥3$ vertices, is Hamiltonian if every vertex $v$ has de
 
 In some applications of graph theory, you need to find a "shortest path" between two vertices of a weighted graph. In the context, shortest may mean "of least distance" but could mean "of least cost" or something else, depending on what the edge weights represent. 
 
-This link:https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm[webpage] has a good animation that illustrates Dijkstra's algorithm.
+//Here is a description of the algorithm, based on link:https://link.springer.com/article/10.1007/BF01386390[Dijkstra's paper] published in 1959. + 
+//[small]#The paper is also available in the ACM Digital Library at link:https://dl.acm.org/doi/10.1145/3544585.3544600[this link.]#
+
+Edsger Dijkstra published a link:https://link.springer.com/article/10.1007/BF01386390[paper] in 1959 that describes an algorithm for finding the path of "minimum total weight" between two given vertices of a simple connected graph with weighted undirected edges. + 
+[small]#Dijkstra's original paper is also available in the ACM Digital Library at link:https://dl.acm.org/doi/10.1145/3544585.3544600[this link.]#
+
+Here is a description of the algorithm, based on Dijkstra's original. 
+//** Task: Given two vertices $P$ and $Q$ in a connected simple graph that has finitely many vertices and weighted undirected edges, find a path between $P$ and $Q$ that has the minimum possible sum of weights.
+
+//In this algorithm, we assume that the graph has finitely many vertices, is connected, simple, and has weighted undirected edges. 
+
+////
+** Task: Given two vertices $P$ and $Q,$ find a path between the two vertices that has the minimum possible sum of weights.
+//** Input: A list of the vertices and a list of the weighted edges.
+** Input: A list of all vertices of the graph, and a list of all weighted edges of the graph.
+// + [small]#For example, an adjacency matrix for the graph could be given#
+** Steps:  
+. Define lists $A$ and $B$ and initialize both as the empty list. + 
+We will append a vertex $v$ to list $A$ when the minimum-weight path between $P$ and $v$ has been found. + 
+We will append a vertex to list $B$ if it is not in $A$ but it is adjacent to a vertex in $A$ (The next vertex that will be appended to list $A$ will come from list $B.$) + 
+(Notice that some vertices may be in neither list $A$ nor list $B.$)
+. Define lists $I$ and $J$ and initialize both as the empty list. + 
+We will append an edge $e$ to list $I$ if it belongs to a minimum-weight path between $P$ and some vertex in list $A.$ + 
+We will append an edge to list $J$ if if is not already in list $I$ but one of its endpoints is in list $A$ (The next edge that will be appended to list $I$ will come from list $J.$)+ 
+(Notice that some edges may be in neither list $I$ nor list $J.$)
+. Append vertex $P$ to list $A.$ 
+// There is a "zero-length weighted path" between $P$ and itself; there are no edges in this "path" - we simply stay at vertex $P.$
+. While vertex $Q$ has not been appended to list $A,$
+//To start with, all nodes are in set C and all branches are in set III. We now transfer node P to set A and from then onwards repeatedly perform the following steps.
+//[lowerroman]
+.. Let $v$ represent the last vertex appended to list $A$. 
+//.. For each edge that connects $v$ to a vertex that is not in list $A$
+//... For each edge that connects $v$ to a vertex $w$ that is not in list $A$
+... For each vertex $w$ that is not in list $A$ but is connected to $v$  
+.... If $w$ is in list $B$ 
+.....	If the edge connecting $v$ and $w$ gives rise to a path from $P$ to $w$ that has weight less than the known path that uses the corresponding edge in list $J$
+...... replace the edge in set $J$ with this edge. 
+.... Else (in case $w$ is not in either list $A$ or list $B$) 
+..... Append vertex $w$ to list $B$ and append the new edge to list $J$
+.. Append the vertex $w$ in list $B$ that has the minimal-weight path to the starting vertex $P$ to list $A$ and remove it from list $B$
+.. Append the edge in list $J$ that has $w$ as one of its endpoints to list $I$ and remove that edge from list $J.$
+//Step 2. Every node in set B can be connected to node P in only one way if we restrict ourselves to branches from set I and one from set II. In this sense each node in set B has a distance from node P: the node with minimum distance from P is transferred from set B to set A, and the corresponding branch is trans- ferred from set II to set I. We then return to step 1 and repeat the process until node Q is transferred to set A. Then the solution has been found.
+//.. 
+//.. Go to step 3. (That is, loop.)
+** Output: The list $I$ of edges and the sum of the weights of the edges in list $I.$
+////
+
+//** Task: Given two vertices $a$ and $z,$ find a path between the two vertices that has the minimum possible sum of weights.
+** Task: Given two vertices $a$ and $z,$ find the edges of a path between the two vertices that has the minimum possible sum of weights.
+** Input: The list $V$ of all vertices of the graph, and the list $E$ of all weighted edges of the graph. + 
+[small]#For example, an adjacency matrix for the graph could be given.#
+** Steps:  
+. Define lists $V_{chosen},$ $V_{candidates},$ $E_{chosen},$ and $E_{candidates}.$ + 
+Initialize each of the four lists to the empty list. + 
+. Append vertex $a$ to the end of $V_{chosen}.$ 
+. While vertex $z$ has not been appended to $V_{chosen}$
+.. Set $v$ to the last vertex appended to $V_{chosen}.$ 
+.. For each vertex $w$ that is not in $V_{chosen}$ but is connected to vertex $v$  
+... If $w$ is in $V_{candidates}$ 
+//....	If the edge $e$ that connects $v$ and $w$ gives rise to a path from $a$ to $w$ that has weight less than the known path that uses the corresponding edge in list $E_{candidates}$ 
+....	If the edge $e$ that connects $v$ and $w$ is part of a path between $a$ and $w$ that has total weight less than the weight of the known path that uses the corresponding edge in list $E_{candidates},$ remove that edge from $E_{candidates}$ and append $e$ to $E_{candidates}.$ 
+... Otherwise, $w$ is in neither list $V_{chosen}$ nor list $V_{candidates},$ so append vertex $w$ to the end of $V_{candidates}$ and append the edge $e$ that connects $v$ and $w$ to the end of $E_{candidates}.$
+.. After exiting the "for" loop, 
+... find the vertex $w$ in list $V_{candidates}$ that has the minimal-weight path to the starting vertex $a$ and append $w$ to the end of $V_{chosen},$ and remove $w$ from $V_{candidates},$ and 
+... append the edge in $E_{candidates}$ that has $w$ as one of its endpoints to the end of $E_{chosen}$ and remove that edge from $E_{candidates}.$
+//** Output: The list $E_{chosen}$ of edges and the sum of the weights of the edges in list $E_{chosen}.$ 
+** Output: The list $E_{chosen}$ of weighted edges.
+
+Notice that the list $E_{chosen}$ is constructed so that it contains edges for only one possible path between $a$ and $z,$ and that path must be a minimal-weight path. 
+//That path can now be constructed by "connecting the dots."
+
+//Notice that, in the algorithm, we append a vertex $v$ to $V_{chosen}$ when the minimum-weight path between $P$ and $v$ has been found, and append a vertex to $V_{candidates}$ if it is adjacent to a vertex $V_{chosen}$ but is not already in $V_{chosen}.$ Likewise, we append an edge $e$ to $E_{chosen}$ if it belongs to a minimum-weight path between $P$ and some vertex in $V_{chosen},$ and append an edge to $E_{candidates}$ if if is not already in list $E_{chosen},$ but one of its endpoints is in $V_{chosen}$ and the edge could be part of a minimal-weight path. 
+
+Also notice if the loop condition is changed to "while there is a vertex that is not in $V_{chosen}$" then the algorithm's output $E_{chosen}$ will find the edges needed for a possible minimal-weight path between vertex $a$ and any other vertex in the graph. 
+
+Question: What change would be needed to the input if you had a graph with unweighted edges and needed to find a path between $a$ to $z$ that uses the smallest number of edges possible? 
+
+
+This link:https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm[Wikipedia page] has some animations that illustrate an alternate implementation of Dijkstra's algorithm.
 
 
 //=== Traveling Salesperson Problem (TSP)
