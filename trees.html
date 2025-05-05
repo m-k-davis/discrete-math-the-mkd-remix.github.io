@@ -612,7 +612,7 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on January 16, 2025.
+        This chapter was last updated on May 5, 2025.
        </em>
       </p>
      </div>
@@ -622,9 +622,8 @@ $(document).on('page:load', ready2);
        <strong>
         tree
        </strong>
-       is a connected graph that contains no simple circuits.
-Trees are used to model decisions, to sort data, and
-to optimize networks.
+       is a connected simple graph that contains no cycles.
+Trees are used to model decisions, to sort data, and to optimize networks.
       </p>
      </div>
      <div class="paragraph">
@@ -686,11 +685,20 @@ to optimize networks.
       </h3>
       <div class="paragraph">
        <p>
+        Recall that a simple graph has no loops and no parallel edges, that is, no edge connects a vertex to itself, and no two edges can connect the same pair of vertices. In a simple graph, each edge is determined by its two vertices.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
         A
         <strong>
          tree
         </strong>
-        is a simple graph \(T\) that is connected and has no cycles (that is, there is no trail in \(T\) that starts and ends at the same vertex.)
+        is an undirected simple graph that is connected and has no cycles, which you may recall are paths that start and end at the same vertex. Some sources use the term
+        <strong>
+         acyclic
+        </strong>
+        to mean "has no cycles."
        </p>
       </div>
       <div class="paragraph">
@@ -709,7 +717,16 @@ to optimize networks.
       </div>
       <div class="paragraph">
        <p>
-        The image shows a forest composed of \(3\) trees. Notice that for any two vertices in one of the trees, there is only one simple path that joins the vertices. This is True for every tree.
+        The image shows a forest composed of three trees.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that if you choose any pair of vertices in one of the trees in the image, there is only one path that joins that pair of vertices. In fact, this property is True for
+        <em>
+         any
+        </em>
+        tree.
        </p>
       </div>
       <div class="sidebarblock">
@@ -719,7 +736,12 @@ to optimize networks.
         </div>
         <div class="paragraph">
          <p>
-          A graph \(G\) is a tree if and only for every pair of vertices of \(G\) there is exactly one trail between the vertices.
+          Suppose that \(G\) is a undirected simple graph.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(G\) is a tree if and only for every pair of vertices of \(G\) there is exactly one path between the vertices.
          </p>
         </div>
         <div class="openblock proof">
@@ -733,13 +755,48 @@ to optimize networks.
         </div>
         <div class="paragraph">
          <p>
-          First, we’ll assume that \(G\) is a tree and prove by contradiction that for any pair of vertices of \(G\) there is exactly one trail between the vertices. Suppose that \(G\) is a tree, then \(G\) is connected so for every pair of vertices there is a least one trail joining the vertices. Now suppose that for some pair of vertices \(u\) and \(v\) there are two (or more) trails between \(u\) and \(v\) - then we can go from \(u\) to \(v\) along one trail and go back to \(u\) along another trail; this means that there is a cycle in \(G,\) but since \(G\) is a tree, it has no cycles. We have gotten a contradiction, so there can be no pair of vertices that are joined by two (or more) trails so there is exactly one path joining any pair of vertices of the tree.
+          First, assume that \(G\) is a tree; we will prove, using proof by contradiction, that for every pair of vertices of \(G\) there is
+          <em>
+           exactly one
+          </em>
+          path between the vertices. By assumption, \(G\) is connected and for every pair of vertices in \(G\) there is a least one path joining those two vertices, so we only need to show that there cannot be two different paths that connect the same pair of vertices. So suppose that for some pair of vertices \(u\) and \(v\) there are two different paths between \(u\) and \(v,\) then we can start to go from \(u\) to \(v\) along a first path and then "turn around" and go back to \(u\) along a second path. This means that there must be a cycle in \(G\) that starts and ends at \(u.\)
+          <br/>
+         </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Why must there be a cycle?
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           <span class="small">
+            If we can go all the way from \(u\) to \(v\) along the first path and then go all the way back, in reverse order, from \(v\) to \(u\) along the second path without repeating any edges or vertices (except \(u\)) then we have found a cycle that starts and ends at \(u.\)
+            <br/>
+            If the two paths have some common edges or vertices, we can use only part of each path to create a cycle that does not repeat any edges or vertices. To do this, write the first path as \(v_{0}v_{1}...v_{n-1}v_{n}\) where \(u = v_{0}\) and \(v = v_{n}\) and let \(j\) stand for the smallest positive index such that vertex \(v_{j}\) appears in
+            <em>
+             both
+            </em>
+            the first and second paths. Now create a cycle by using the beginning of the first path to go from \(u\) to \(v_{j}\) and then using the beginning part of the second path that goes from \(u\) to \(v_j\), but in reverse order, to go back from \(v_{j}\) to \(u.\) Notice that the index \(j\) is chosen so that that no edge or vertex (except \(u\) and \(v_j\)) that we use can belong to both of these shorter paths from \(u\) to \(v_{j},\) so no edges are repeated when we use this path to go from \(u\) back to \(u\) -  we have created a cycle.
+           </span>
+           <br/>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          To continue with the proof by contradiction, we’ve shown that there is a cycle in \(G,\) but this contradicts the assumption that \(G\) is a tree that has no cycles. This means that the assumption "there is a pair of vertices in \(G\) that are connected by two different paths" must be False. We have proven that for any pair of vertices in \(G\) there is
+          <em>
+           exactly one
+          </em>
+          path joining that pair of vertices.
          </p>
         </div>
         <div class="paragraph">
          <p>
-          Secondly, we’ll assume that for every pair of vertices of \(G\) there is exactly one trail between the vertices and prove by contradiction that \(G\) must be a tree.
-Notice that \(G\) is connected since for any pair of vertices there is (exactly) one trail that joins them. If \(G\) has no cycles then it is a tree, so in order to get a contradiction we assume that \(G\) does have a cycle \(v_{0}v_{1} \cdots v_{n-1}v_{n}\) where \(v_{0} = v_{n}\) but all the other vertices are not repeated in the cycle.  Choose a value of \(k\) so that \(0 &lt; k &lt; n\) to create two different trails \(v_{0} \cdots v_{k}\) and \(v_{k} \cdots v_{n}.\) After reversing the order of vertices in the second trail, we now have two different trail between the vertices \(v_{0}\) and \(v_{k}\) which contradicts the assumption that for every pair of vertices of \(G\) there is exactly one trail between the vertices. This proves that \(G\) cannot have a cycle, and since we already proved that \(G\) is connected, we can conclude that \(G\) is a tree.
+          Secondly, assume that for every pair of vertices of \(G\) there is exactly one path between the vertices. We will prove, using proof by contradiction, that \(G\) must be a tree. By assumption, \(G\) is connected because for any pair of vertices there is a path between those vertices, so we only need to prove that \(G\) has no cycles.
+So suppose that \(G\) does have a cycle \(v_{0}v_{1} \cdots v_{n-1}v_{n}\) where \(v_{0} = v_{n}\) (that is, \(v_{0}\) and \(v_{n}\) are the same vertex, but no other vertex is repeated in the cycle.)
+Notice that, because \(G\) is a simple graph, the integer \(n\) must be greater than or equal to 3, so
+we have two different trails, \(v_{0}v_{1}\) and \(v_{1} \cdots v_{n},\) between \(v_0\) and \(v_1\) (Recall that \(v_{0}\) and \(v_{n}\) are the same vertex.) Now reverse the order of vertices in the second path to get two different paths between the vertices \(v_{0}\) and \(v_{1}\) - but we assumed that for every pair of vertices of \(G\) there is exactly one trail between those vertices. We have gotten a contradiction, which means that \(G\) cannot have a cycle. Therefore, \(G\) is connected and has no cycles, which by definition means that \(G\) is a tree.
          </p>
         </div>
         <div class="paragraph">
@@ -748,6 +805,11 @@ Notice that \(G\) is connected since for any pair of vertices there is (exactly)
          </p>
         </div>
        </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Here is another characterization of trees.
+       </p>
       </div>
       <div class="sidebarblock">
        <div class="content">
@@ -775,7 +837,7 @@ Notice that \(G\) is connected since for any pair of vertices there is (exactly)
         </div>
         <div class="paragraph">
          <p>
-          Let \(P(n)\) be the predicate "If a tree has \(n\) vertices then the tree has \(n-1\) edges." We will prove that \((\forall n \in \mathbb{N}_{&gt;0})P(n)\) is True.
+          Let \(P(n)\) be the predicate \[P(n): \text{If a tree has } n \text{ vertices  then the tree has } n-1 \text{ edges.}\] We will prove that the proposition \((\forall n \in \mathbb{N}_{&gt;0})P(n)\) is True.
          </p>
         </div>
         <div class="paragraph">
@@ -785,7 +847,8 @@ Notice that \(G\) is connected since for any pair of vertices there is (exactly)
           </strong>
           \(P(1)\) is True since a tree that has \(1\) vertex has \(0\) edges (otherwise, the edge would have to be a loop, but trees are simple graphs that don’t have loops.)
           <br/>
-          We can also prove that \(P(2)\) is True in case the proof of \(P(1)\) feels unsatisfying. If a tree has \(2\) vertices, then there is \(1\) edge between those two vertices; since a tree is a simple graph, it cannot have either loops or parallel edges, so the tree mus have exactly \(1\) edge. This proves that \(P(2)\) is True.
+          We can also prove that \(P(2)\) is True in case the proof of \(P(1)\) feels unsatisfying.
+If a tree has \(2\) vertices, then since a tree is a connected simple graph, the \(2\) vertices must be connected by a path, and since a tree cannot have parallel edges, the vertices are the endpoints of exactly \(1\) edge. This proves that \(P(2)\) is True.
          </p>
         </div>
         <div class="paragraph">
@@ -808,7 +871,9 @@ Notice that \(G\) is connected since for any pair of vertices there is (exactly)
         <div class="paragraph">
          <p>
           Assume that \(P(k)\) is True for the positive integer \(k,\) that is, if a tree has \(k\) vertices then the tree has \(k-1\) edges.
-We can assume \(k \geq 2\) since the cases when \(k \in \{ 1, 2 \}\) were proved in the Basis Step. Suppose that we have a tree \(T\) that has \(k+1\) vertices; we will prove that the tree must have \(k\) edges. Let \(v\) be a vertex of \(T\) such that the degree of \(v\) is \(1\) - such a vertex must exist because the tree \(T\) has no cycles. Remove \(v\) and the edge that has \(v\) as an endpoint to obtain the subgraph \(T-v,\) and notice that for every pair of vertices of \(T-v\) there is exactly one trail between the vertices. Using the previous theorem, \(T-v\) is a tree with \(k\) vertices, and the induction hypothesis allows us to conclude that \(T-v\) has \(k-1\) edges. We now reinsert vertex \(v\) and the edge that was removed to obtain a tree that has \(k+1\) vertices and \(k\) edges. Therefore, \(P(k+1)\) is True, too. This proves that \(P(k) \rightarrow P(k+1)\).
+We can assume \(k \geq 2\) since the cases when \(k \in \{ 1, 2 \}\) were proved in the Basis Step. Suppose that we have a tree \(T\) that has \(k+1\) vertices; we will prove that the tree must have \(k\) edges.
+First, there must be at least one vertex \(v\) in \(T\) such that the degree of \(v\) is \(1:\) If every vertex had at least degree \(2,\) then we could find a cycle in \(T\) which cannot be True since \(T\) is a tree.
+Remove one vertex \(v\) that has degree \(1\) along with the edge that has \(v\) as an endpoint to obtain the subgraph \(T-v.\) Notice that for every pair of vertices of \(T-v\) there is exactly one trail between the vertices, so from the previous theorem, \(T-v\) is a tree. Also, \(T-v\) has \(k\) vertices because we removed only \(v,\) and we can apply the Induction Hypothesis to conclude that \(T-v\) has \(k-1\) edges. Now reinsert vertex \(v\) and the edge that was removed to obtain the tree \(T\) that has \(k+1\) vertices and \(k\) edges. Therefore, if \(P(k)\) is True then \(P(k+1)\) is True, too. That is, \(P(k) \rightarrow P(k+1)\).
          </p>
         </div>
         <div class="paragraph">
@@ -839,7 +904,7 @@ for all positive integers \(n,\) if a tree has \(n\) vertices then the tree has 
       <div class="paragraph">
        <p>
         <mark>
-         Students in CSC 230 Fall 2024 should refer to the slide decks posted in
+         Students in CSC 230 Spring 2025 can refer to the slide decks (from Spring 2024) that are posted in
          <a href="https://sfsu.instructure.com/">
           Canvas.
          </a>
