@@ -4,7 +4,8 @@
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
 _This chapter was last updated on May 3, 2025._ + 
-_Inserted a version of Dijkstra's algorithm for a minimal-weight path between two given vertices._
+_Inserted a version of Dijkstra's algorithm for a minimal-weight path between two given vertices._ + 
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 // MKD start topics lists
