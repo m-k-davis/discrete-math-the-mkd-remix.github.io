@@ -2,8 +2,8 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on May 5, 2025._
-//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+_This chapter was last updated on May 7, 2025._
+[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 // MKD start topics lists
@@ -198,7 +198,7 @@ Q.E.D.
 
 
 //#Students in CSC 230 Fall 2024 should refer to the slide decks posted in link:https://sfsu.instructure.com/[Canvas.]#
-#Students in CSC 230 Spring 2025 can refer to the slide decks (from Spring 2024) that are posted in link:https://sfsu.instructure.com/[Canvas.]#
+#Students in CSC 230 Spring 2025 can refer to the slide decks (from Spring 2024 and Fall 2024) that are posted in link:https://sfsu.instructure.com/[Canvas.]#
 
 
 * Spanning Trees and Spanning Forests
