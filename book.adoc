@@ -121,6 +121,8 @@ include::appendix_pyintro.adoc[]
 
 include::appendix_pysyntax.adoc[]
 
+include::appendix_for_instructors.adoc[]
+
 :leveloffset: -1
 
 [.float-group]

@@ -1,12 +1,16 @@
 = Graphs
 //= Graph Theory
 
+//“”
+
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on May 3, 2025._ + 
-_Inserted a version of Dijkstra's algorithm for a minimal-weight path between two given vertices._ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+_This chapter was last updated on July 15, 2025._ + 
+//_Inserted a version of Dijkstra's algorithm for a minimal-weight path between two given vertices._ + 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
+// MKD May 12 2025 
+//	Insert the Konigsberg vs Kaliningrad bridges problem
 
 // MKD start topics lists
 ////
@@ -184,7 +188,10 @@ graph coloring;
 
 // ****  MKD content starts here  ****
 
-Graphs are discrete mathematical structures that have many applications in a diversity of fields including chemistry, network analysis, algorithms, and social sciences.
+//Graphs are discrete mathematical structures that have many applications in a diversity of fields including chemistry, network analysis, algorithms, and social sciences.
+// MKD June 28 2025 rewrite
+Graphs are discrete mathematical structures used to represent connections between individual 
+Graphs have applications in fields such as chemistry, network analysis, computing algorithms, and social sciences.
 
 
 Key terms and concepts covered in this chapter:
@@ -207,29 +214,54 @@ Key terms and concepts covered in this chapter:
 *** Traveling Salesperson Problem (TSP)
 
 
-== Introduction and Basic Definitions
+//== Introduction and Basic Definitions
+// MKD retitled section Jun 28 2025
+//== Introduction, Definitions, and Terminology
+== Introduction and Definitions
+
+//In this section we introduce terminology that will be used throughout the chapter. + 
+//[small]#Note that different textbooks use different terminology for walks, paths, and so on. The Remix uses terminology consistent with link:https://www.routledge.com/Handbook-of-Graph-Theory/Gross-Yellen-Zhang/p/book/9781439880180?srsltid=AfmBOoopymlQNVr5rlo05ShK51PGym1Kv1vJ47zHndypkoXdteehcoYw[_Handbook of Graph Theory,_ Second Edition] by Gross, Yellin, and Zhang.#
+
 
 //MKD rewrite of first paragraph
 //A *graph* $G=\left(V,\ E\right)$ is a structure consisting of a set of objects called vertices $V$ and a set of objects called edges $E$. An *edge* $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where $x,y\in\ V$. That is, an edge is a set of vertices. We call the vertices $x$ and $y$ the *endpoints* of the edge $E$. In the case where $x = y$, we call the edge a *loop* since the edge connects the one endpoint to itself.
 
-A graph consists of a set of *vertices*  (also called *nodes*) and a set of *edges,* 
-where each edge  
+A graph consists of a set of *vertices* and a set of *edges.* 
+//where e
+Each edge 
 connects either two different vertices or one vertex to itself. 
+//either connects two different vertices or connects one vertex to itself. 
+//In some contexts or applications, the vertices are called *nodes.* 
+Vertices are sometimes called *nodes.* 
 
-* For each edge, its *endpoints* are the vertices that it connects. The edge is said to be *incident* with each endpoint, and to connect the endpoints.
-* If an edge has only one endpoint, it is called a *loop.* 
-* If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a *multigraph.* Two edges that have the same endpoints are called *parallel* edges.
-// MKD - can a multigraph contain ANY loops???
+* For each edge, its *endpoints* are the two vertices that it connects (but notice that the “endpoints” may be the same vertex.) The edge is said to be *incident* with each of its endpoints.
+//, 
+//and to connect the endpoints. 
+//and the endpoints are said to be *connected* by the edge.
+//* An edge that has only one endpoint is called a *loop.* 
+* An edge that connects one vertex to itself is called a *loop.* 
+//* Two or more edges can connect the same endpoints (or endpoint if the edges are loops.) 
+* Two edges that have the same endpoints are called *parallel* edges. 
+
 * Two vertices are *adjacent* if they are the endpoints of at least one edge. Adjacent vertices are also called *neighbors.*
-* The *degree* of a vertex $v$ is the number of edges in the graph $G$ containing the vertex $v.$
-* An *isolated vertex* is a vertex that is not an endpoint of any edge.
-* A *simple graph* is a graph that has no loops and does not have two or more edges that connect the same endpoints.
+// MKD redefined degree Jun 28 2025
+//* The *degree* of a vertex $v$ is the number of edges in the graph $G$ containing the vertex $v.$
+* The *degree* of a vertex $v$ is the number of times the vertex occurs as an endpoint for all the edges in the graph. 
+//$G$ containing the vertex $v.$
+* An *isolated vertex* is a vertex that is not an endpoint of any edge. That is, an isolated vertex is the same as a vertex that has degree 0.
+
+* A graph is called a *multigraph* if there are parallel edges in the graph. 
+// MKD - can a multigraph contain ANY loops???
+//* A *simple graph* is a graph that has no loops and does not have two or more edges that connect the same endpoints.
+* A *simple graph* is a graph that has no loops and no parallel edges.
 //If there are no loops and no two edges connect the same endpoints, the graph is called *simple.* 
 
 // MKD add additional terms after May 24, 2024 (also add to the example): 
 //		adjacent, neighbor, neighborhood, parallel edges
 
 //Graphs discussed in this textbook are assumed to be simple unless stated otherwise.
+
+The following example illustrates many of these definitions. 
 
 ****
 .Example {counter:graphex} 
@@ -239,35 +271,62 @@ connects either two different vertices or one vertex to itself.
 //The graph shown has vertex set $\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
 //edge set $\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ 
 
-The graph shown has 7 vertices 
+The graph shown has 
+//7 
+8 
+vertices 
 // set $\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ 
 and 7 edges.
 // set $\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ 
 
-image::imagesMKD/graphMKD1.png[]
+// MKD June 28 2025 and July 10 2025
+In this drawing, the vertices are represented by points that are labeled by capital letters, and the edges are represented by the line segments and arcs that connect two vertices. 
+
+image::imagesMKD/graphMKD1rev.png[]
+//image::imagesMKD/graphMKD1.png[]
 //image::imagesMKD/graph1withAddedLoopAndComponents_MultigraphVersion.png[]
 //image::imagesMKD/graph1withAddedLoopAndComponents.png[]
 //image::images/graph1.png[]
 
-This is _one graph_ that is made up of three separate _connected components_ (Connectivity will be defined in detail later in the chapter, but is introduced informally here). 
-
+//This is _one graph_ that is made up of three separate _connected components_ (Connectivity will be defined in detail later in the chapter, but is introduced informally here). 
+////
 * One connected component contains the vertices $A$ and $C$ and two edges that connect them.  
 * A second connected component contains the vertices $B$, $D$, $E$, and $F$ and the edges that are incident to those vertices. 
 * A third connected component contains the single isolated vertex $G$ and no edges.
+* A fourth connected component contains the single isolated vertex $H$ and no edges.
+////
  
-In the second connected component, 
-the graph is drawn so that 
+//In the second connected component, 
+The graph is drawn so that 
 the edge with endpoints $B$ and $F$ and 
 the edge with endpoints $D$ and $E$ 
-cross, but the point of intersection is ignored 
-because it is not a vertex. 
+are represented by two line segments that intersect, but the point of intersection is ignored in the graph because it is not a vertex. 
 //We could redraw this graph with $E$ to the left of $D$ so that the two edges do not cross; 
-We could redraw this graph so that the two edges do not cross; for example, we could move $E$ inside the triangle. 
+We could redraw this graph so that the two edges do not cross; for example, we could move $E$ inside the triangle that has vertices $B,$ $D,$ and $F.$ 
 However, there are some graphs which cannot be drawn in 2 dimensions without some edge crossings.
 
-This graph is a multigraph because there are multiple edges that connect the pair of vertices $\{A,C\}$.
+There is a loop: The edge that has $D$ as both of its endpoints.
 
-This graph is not simple because (1) it contains a loop and (2) it has a pair of vertices that are connected by two different edges.
+There are parallel edges that connect the vertices $A$ and $C,$ so this graph is a multigraph. 
+
+Vertex $G$ is an isolated vertex - it is not an endpoint of any edge. 
+Vertex $H$ is also an isolated vertex.
+
+This graph is a multigraph because there are multiple edges 
+//that connect the pair of vertices $\{A,C\}$.
+that connect the pair of vertices $A$ and $C.$
+
+This graph is not a simple graph: It contains a loop, and it has at least one pair of parallel edges.
+
+[env.question]
+--
+For this graph, which vertex has the greatest degree? Which vertex has the least degree?
+--
+
+[click.hint]
+--
+Recall that the degree of a vertex is the number of times that vertex occurs as an endpoint (and that a loop has two endpoints that are the same vertex.)
+--
 
 
 ****
@@ -278,6 +337,81 @@ This graph is not simple because (1) it contains a loop and (2) it has a pair of
 //but it is more useful to _represent_ a graph using either a drawing as in the preceding example, or a list or a matrix as described later in this chapter.
 
 // MKD define digraphs in separate section
+
+//MKD June 29 2025 
+Notice that in the example and definitions given so far, we've assumed that each edge is undirected: An edge represents a connection between its endpoints but does not indicate a direction of travel from one endpoint to the other endpoint. However, in some applications it is useful for a graph to use only *directed edges* that point from one endpoint to the other endpoint. A graph that has only directed edges is called a *digraph,* which is short for *directed graph.* 
+//This chapter focuses on undirected graphs.
+
+Most graphs discussed in this chapter will be (undirected) simple graphs, that is, graphs with no loops and no parallel edges.
+
+
+// MKD moved a copy here and revised, July 10 2025 
+== The Handshaking Lemma
+
+This section describes a property of _every_ undirected graph. 
+
+Recall that the degree of a vertex of a graph is the number of times the vertex occurs as an endpoint for all the edges in the graph. 
+Keep in mind that the vertex of a loop counts twice because that vertex occurs as “both endpoints” of the loop.
+//[small]#Notice that the vertex of a loop counts twice because that vertex is “both endpoints” of the loop.#
+
+****
+.Example {counter:graphex}
+
+Consider again the graph that was drawn in the previous example. 
+
+image::imagesMKD/graphMKD1rev.png[]
+
+The degrees of each of the vertices in this graph are listed in the table.
+
+// MKD July 10 2025 inserted table of in- and out-degrees
+[cols="<1e,>1e",width=30%",align="center",options="header"]
+|===
+^| *Vertex*     ^| *Degree* 
+^| A ^| 2  
+^| B ^| 2  
+^| C ^| 2  
+^| D ^| 5  
+^| E ^| 1  
+^| F ^| 2  
+^| G ^| 0  
+^| H ^| 0  
+|===
+
+****
+
+Notice that the sum of the degrees of all the vertices is $14$, which is equal to twice the number of edges, $2 \cdot 7.$ 
+
+In fact, for any undirected graph with finitely many edges, the sum of the degrees of all vertices is equal to twice the number of edges (recalling that a loop's endpoint will be counted twice.) 
+//This 
+//result 
+//is called the Handshaking Theorem; a formal proof can be written using mathematical induction on the predicate 
+//$P(n):$ "If graph $G$ has $n$ edges, then the sum of the degrees of all vertices of $G$ is equal to $2n.$"
+
+
+.The Handshaking Lemma
+****
+
+The sum of the degrees of the vertices of a graph 
+//$G=\left(V,\ E\right)$ 
+is equal to twice the number of edges 
+of the graph. 
+//in $G$. That is, $\displaystyle \sum_{v\in V}{d\left(v\right)=2\ \left|E\right|}$.
+
+[click.Proof]
+--
+This is an exercise for you. 
+Use mathematical induction on the predicate + 
+$P(n):$ “If a graph has $n$ edges, then the sum of the degrees of all vertices of the graph is equal to $2n.$”
+--
+
+****
+
+//$P(n):$ “If graph $G$ has $n$ edges, then the sum of the degrees of all vertices of $G$ is equal to $2n.$”
+
+[NOTE]
+====
+A useful consequence of the Handshaking Lemma is that the sum of the degrees of a graph must be even.
+====
 
 
 ////
@@ -294,16 +428,26 @@ In this section, we will assume that graphs must have undirected edges, but coul
 
 // MKD - probably need to keep this formal definition
 
-//Recall that in a simple graph, there are 
-A *simple graph* is a graph that has no loops and no parallel edges (that is, no two edges can connect the same endpoints.) 
+Recall that in a simple graph, there are 
+//A *simple graph* is a graph that has 
+no loops and no parallel edges 
+//(that is, no two edges can connect the same endpoints.) 
+(that is, you cannot have two different edges that connect the same pair of endpoints.) 
 //can connect the same endpoints. 
-This means that each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of "simple graph". This formal definition can be useful if you need to implement a simple graph in code.
+This means that for a simple graph, each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of “simple graph.” 
+// This formal definition can be useful if you need to implement a simple graph in code.
 #Graphs discussed in this textbook are assumed to be simple unless stated otherwise.#
 
-=== A Formal Definition
+=== A Formal Definition of Simple Graph
 
-A *simple graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a set $V$ of objects called *vertices* (also called *nodes*) and a set $E$ of objects called *edges*.
-An edge $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where the vertices $x$ and $y$ are two different elements of $V$. The two vertices $x$ and $y$ in the edge $e=\left\{x,y\right\}$ are said to be *adjacent* or *connected* or *neighbors*, and $x$ and $y$ are called the *endpoints* of the edge $e$. 
+// MKD added Jun 28 2025 
+This subsection presents a formal set-theoretic definition of simple graphs.
+
+//A *simple graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a set $V$ of objects called *vertices* (also called *nodes*) and a set $E$ of objects called *edges*.
+//An edge $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where the vertices $x$ and $y$ are two different elements of $V$. The two vertices $x$ and $y$ in the edge $e=\left\{x,y\right\}$ are said to be *adjacent* or *connected* or *neighbors*, and $x$ and $y$ are called the *endpoints* of the edge $e$. 
+// MKD Jun 28 2025 rewrite
+A *simple graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a nonempty set $V$ and a (possibly empty) set $E,$ where each element of $E$ must be of the form $\left\{x,y\right\}$, where $x$ and $y$ are two different elements of $V.$
+The elements in set $V$ are called the *vertices* (or *nodes*) of the graph. The elements in set $E$ are called the *edges* of the graph. 
 
 //The graph in the previous example has vertex set 
 //$\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
@@ -311,13 +455,14 @@ An edge $e\in\ E$ is a set of the form $e=\left\{x,y\right\}$, where the vertice
 //$\{\{A,C\},\{D\},\{B,D\}\{B,F\},\{D,F\}\}.$ Note that the graph is not a //simple graph because there is a loop that has endpoint $D$.
 
 
+[[simple_graph_example]]
 ****
-.Example {counter:graphex} - a simple graph.
+.Example {counter:graphex} - A simple graph.
 
 The graph shown has vertex set 
 $\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
 edge set 
-$ \{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}.$
+$ \{\{A,C\},\{A,D\},\{B,D\},\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}.$
 
 // MKD - relabel graph so that E is not both the Edge set and vertex E???
 
@@ -330,14 +475,26 @@ image::images/graph1.png[]
 // MKD create a python code sample for the example; maybe replace the one introduced immediately above by the one in the earlier simple graph example. 
 
 
+// MKD moved a copy of this section immediately after "Definitions and Terminology"
+////
+// MKD added Jun 28 2025 
+== The Handshaking Lemma
+
+In this section we examine a property of all undirected graphs. 
+
+Recall that the degree of a vertex of a graph is the number of times the vertex occurs as an endpoint for all the edges in the graph. + 
+[small]#Notice that the vertex of a loop counts twice because that vertex is “both endpoints” of the loop.#
+
 
 //The *degree* of a vertex $v \in V$, denoted $d(v)$, is the number of edges in the graph $G$ containing the vertex $v$.
 
+// MKD revised example July 10 2025 to match previous example
 ****
 .Example {counter:graphex}
 
+////
 The degrees of each of the vertices in the undirected graph $G$  with vertex set
-$V=\{A,B,C,D,E,F,G\}$ and edge set $E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,G\}$
+$V=\{A,B,C,D,E,F,G\}$ and edge set $E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,G\}\}$
 are,
 
 $d\left(A\right)=2$
@@ -353,15 +510,38 @@ $d\left(E\right)=0$
 $d\left(F\right)=4$
 
 $d\left(G\right)=1$
+////
+
+The degrees of each of the vertices in the graph with vertex set
+$\{A,B,C,D,E,F\}$ and edge set $\{\{A,C\},\{A,D\},\{B,D\},\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}$
+are 
+shown in the table
+
+// MKD July 10 2025 inserted table of in- and out-degrees
+[cols="<1e,>1e",width=45%",align="center",options="header"]
+|===
+^| *Vertex*     ^| *Degree* 
+^| A | 2  
+^| B | 2  
+^| C | 2  
+^| D | 3  
+^| E | 1  
+^| F | 4  
+|===
 
 ****
 
-Notice that the sum of all the degrees
-$d\left(A\right)+\ d\left(B\right)\ +\ d\left(C\right)+\ \ d\left(D\right)\ \ +d\left(E\right)+\ d\left(F\right) + d\left(G\right)=14$, which is 
-is twice the number of edges, $2 \cdot \left|E\right|=7$.
-In fact, this is true for any undirected graph with finitely many edges as long as any loops are counted twice. 
-This result is called the Handshaking Theorem. A formal proof of the Handshaking Lemma can be written using mathematical induction on the predicate 
-$P(n):$ "If graph $G$ has $n$ edges, then the sum of the degrees of the vertices of $G$ is equal to $2n.$"
+//Notice that the sum of all the degrees
+//$d\left(A\right)+\ d\left(B\right)\ +\ d\left(C\right)+\ d\left(D\right)\ +d\left(E\right)+\ d\left(F\right) + d\left(G\right)=14$, which is 
+//is equal to twice the number of edges, that is, $2 \cdot 7$.
+//$2 \cdot \left|E\right|=7$.
+
+Notice that, in the preceding example, the sum of the degrees of all the vertices is $14$, which is equal to twice the number of edges, that is, $2 \cdot 7.$ 
+
+In fact, for any undirected graph with finitely many edges, the sum of the degrees of all vertices is equal to twice the number of edges (recalling that a loop's endpoint will be counted twice.) This 
+//result 
+is called the Handshaking Theorem; a formal proof can be written using mathematical induction on the predicate 
+$P(n):$ "If graph $G$ has $n$ edges, then the sum of the degrees of all vertices of $G$ is equal to $2n.$"
 
 
 .Handshaking Theorem
@@ -374,7 +554,7 @@ in $G$. That is, $\displaystyle \sum_{v\in V}{d\left(v\right)=2\ \left|E\right|}
 ====
 A useful consequence of this to keep in mind is that the sum of the degrees of a graph is always even.
 ====
-
+////
 
 == Directed Graphs
 
@@ -386,19 +566,42 @@ A *directed graph* (or *digraph*) is a graph in which the edges are directed fro
 
 The *out-degree* of a vertex $w$ is the number of edges that have $w$ as the initial index. The *in-degree* of a vertex $w$ is the number of edges that have $W$ as the terminal index.
 
-
+// MKD revised example July 10 2025
+[[underlying_graph]]
 ****
 .Example {counter:graphex} - A directed graph.
 
-The graph $G=(V,E)$ with vertex set 
-$V=\{A,B,C,D,E,F\}$  and 
+The graph 
+//$G=(V,E)$ with 
+shown has 
+vertex set 
+//$V=\{A,B,C,D,E,F\}$  
+$\{A,B,C,D,E,F\}$ and 
 edge set
-$E=\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}$. 
+//$E=\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}$. 
+$\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}$. 
 The first coordinate of each edge is the initial vertex and the second coordinate is the terminal vertex.
 
 image::images/graph2.png[]
 
+////
+// MKD July 10 2025 inserted table of in- and out-degrees
+[cols="<1e,>1e,>1e",width=45%",align="center",options="header"]
+|===
+^| *Vertex*     ^| *In-degree*     ^| *Out-degree* 
+^| A | 1  | 1
+^| B | 1  | 1
+^| C | 1  | 1
+^| D | 1  | 2
+^| E | 0  | 1
+^| F | 3  | 1
+|===
+////
+
+Notice that the directed edges of this graph connect the same endpoints as the undirected edges of the graph in link:./graph_theory.html#simple_graph_example[this earlier example.] The undirected graph is referred to as the *underlying graph* of the directed graph.
+
 ****
+
 
 ****
 .Example {counter:graphex} - The game "rock, paper, scissors"
@@ -417,13 +620,13 @@ Each directed edge has for its initial vertex the loser and for its terminal edg
 
 
 
-=== Simple Directed Graphs
+=== Simple Directed Graphs: A Formal Definition 
 
 
 We can give a formal set-theoretic definition of simple directed graph as well. To indicate the directed edges, ordered pairs of vertices are used instead of 2-element sets.
 
-A *simple directed graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a set $V$ of objects called *vertices* (or *nodes*) and a set $E$ of objects called *edges*.
-A *directed edge* $e\in\ E$ is an ordered pair of the form $e=\left(x,y\right)$, where the vertices $x$ and $y$ are two different elements of $V$. Vertex $x$ is the *initial vertex* of $e$ and vertex $y$  is the *terminal vertex* of edge $e$. 
+A *simple directed graph* $G=\left(V,\ E\right)$ is an ordered pair consisting of a set $V$ of objects called *vertices* (or *nodes*) and a set $E$ of objects called *directed edges.* 
+Each directed edge $e\in\ E$ is an ordered pair of the form $e=\left(x,y\right)$, where $x$ and $y$ are two different vertices in set $V.$ For the directed edge $e=\left(x,y\right),$ $x$ is the *initial vertex* of $e$ and $y$ is the *terminal vertex* of edge $e$. 
 
 //The graph in the previous example has vertex set 
 //$\left\{A,\ B,\ C,\ D,\ E,\ F\right\}$ and 
@@ -698,7 +901,7 @@ Given a set of one or more graphs, there are several ways to create new graphs u
 
 //A graph $H=(V_1,E_1)$ is said to be a *subgraph* of the graph $G=(V,\ E)$ if $V_1\subseteq V$ and $E_1\subseteq E$. 
 // MKD Nov 17 2024
-Given a simple graph $G,$ you can form a *subgraph* $H$ by choosing a subset of the vertices of $G$ along with a subset of the edges of $G$ such that each edge has endpoints in the set of vertices you chose. That is, $H$ is a subgraph of $G$ if $H$ is a graph such that every vertex of $H$ is a vertex of $G$ and every edge of $H$ is a vertex of $G.$ + 
+Given a simple graph $G,$ you can form a *subgraph* $H$ by choosing a subset of the vertices of $G$ along with a subset of the edges of $G$ such that each edge has endpoints in the set of vertices you chose. That is, $H$ is a subgraph of $G$ if $H$ is a graph such that every vertex of $H$ is a vertex of $G$ and every edge of $H$ is an edge of $G.$ + 
 [small]#More formally, $H = (V_{H}, E_{H})$ is a subgraph of $G = (V,E)$ if and only if all three of the following statements are True: $V_{H} \subseteq V,$ $E_{H} \subseteq E,$ and for every edge $e \in E_{H}$ the endpoints of $e$ are in $V_{H}.$#
 
 
@@ -943,8 +1146,7 @@ If we restrict ourselves to simple undirected graphs, there is at most one edge 
 The *distance* $d(u,v)$ between two vertices $u$ and $v$ in a graph $G$ is the number of edges in a shortest path connecting them, assuming such a path exists.
 
 
-[small]#Note that different textbooks use different terminology for walks, paths, and so on. The Remix uses terminology consistent with 
-link:https://www.routledge.com/Handbook-of-Graph-Theory/Gross-Yellen-Zhang/p/book/9781439880180?srsltid=AfmBOoopymlQNVr5rlo05ShK51PGym1Kv1vJ47zHndypkoXdteehcoYw[_Handbook of Graph Theory,_ Second Edition] by Gross, Yellin, and Zhang.#
+//[small]#Note that different textbooks use different terminology for walks, paths, and so on. The Remix uses terminology consistent with link:https://www.routledge.com/Handbook-of-Graph-Theory/Gross-Yellen-Zhang/p/book/9781439880180?srsltid=AfmBOoopymlQNVr5rlo05ShK51PGym1Kv1vJ47zHndypkoXdteehcoYw[_Handbook of Graph Theory,_ Second Edition] by Gross, Yellin, and Zhang.#
 
 
 ****
@@ -1091,18 +1293,19 @@ We will append an edge to list $J$ if if is not already in list $I$ but one of i
 
 //** Task: Given two vertices $a$ and $z,$ find a path between the two vertices that has the minimum possible sum of weights.
 ** Task: Given two vertices $a$ and $z,$ find the edges of a path between the two vertices that has the minimum possible sum of weights.
-** Input: The list $V$ of all vertices of the graph, and the list $E$ of all weighted edges of the graph. + 
-[small]#For example, an adjacency matrix for the graph could be given.#
+** Input: The list $V$ of all vertices of the graph, with the two vertices $a$ and $z$ specified, and the list $E$ of all weighted edges of the graph. + 
+[small]#For example, the input could be an adjacency matrix for the graph, with the first row of the matrix corresponding to $a$ and the last row corresponding to $z$.#
 ** Steps:  
-. Define lists $V_{chosen},$ $V_{candidates},$ $E_{chosen},$ and $E_{candidates}.$ + 
-Initialize each of the four lists to the empty list. + 
+. Define four lists $V_{chosen},$ $V_{candidates},$ $E_{chosen},$ and $E_{candidates},$ and initialize each list as an empty list. + 
 . Append vertex $a$ to the end of $V_{chosen}.$ 
 . While vertex $z$ has not been appended to $V_{chosen}$
 .. Set $v$ to the last vertex appended to $V_{chosen}.$ 
-.. For each vertex $w$ that is not in $V_{chosen}$ but is connected to vertex $v$  
+// MKD Jun 29 2025 changed "connected" to "adjacent" below
+.. For each vertex $w$ that is not in $V_{chosen}$ but is adjacent to vertex $v$  
 ... If $w$ is in $V_{candidates}$ 
 //....	If the edge $e$ that connects $v$ and $w$ gives rise to a path from $a$ to $w$ that has weight less than the known path that uses the corresponding edge in list $E_{candidates}$ 
-....	If the edge $e$ that connects $v$ and $w$ is part of a path between $a$ and $w$ that has total weight less than the weight of the known path that uses the corresponding edge in list $E_{candidates},$ remove that edge from $E_{candidates}$ and append $e$ to $E_{candidates}.$ 
+//....	If 
+and the edge $e$ that connects $v$ and $w$ is part of a path between $a$ and $w$ that has total weight less than the weight of the known path that uses the corresponding edge in list $E_{candidates},$ remove that edge from $E_{candidates}$ and append $e$ to $E_{candidates}.$ 
 ... Otherwise, $w$ is in neither list $V_{chosen}$ nor list $V_{candidates},$ so append vertex $w$ to the end of $V_{candidates}$ and append the edge $e$ that connects $v$ and $w$ to the end of $E_{candidates}.$
 .. After exiting the "for" loop, 
 ... find the vertex $w$ in list $V_{candidates}$ that has the minimal-weight path to the starting vertex $a$ and append $w$ to the end of $V_{chosen},$ and remove $w$ from $V_{candidates},$ and 
@@ -1124,19 +1327,22 @@ This link:https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm[Wikipedia page] h
 
 
 //=== Traveling Salesperson Problem (TSP)
-=== The Traveling Salesperson Problem (TSP)
+== The Traveling Salesperson Problem (TSP)
 
-A traveling salesperson needs to visit a number of cities and then return to the starting point.To save time and energy, the salesperson wants to determine the shortest path for the trip.
+// MKD June 30 2025 
+// https://optimization.cbe.cornell.edu/index.php?title=Traveling_salesman_problem
 
-You can represent the cities and the distances between them by a weighted, complete, undirected graph.
-The problem then is to find a cycle of minimum total weight that visits each vertex exactly one.
+//A traveling salesperson needs to visit a number of cities and then return to the starting point. To save time and energy, the salesperson wants to determine the shortest path for the trip. 
 
-Notice that there are $\frac{1}{2}(n-1)!$ different cycles for the specified starting point (division by 2 represents that we could reverse the cycle.) 
+The Traveling Salesperson Problem (TSP) can be stated as “A traveling salesperson needs to start in the home city, visit each of a number of other cities, and then return to the home city. What path should the salesperson take so that the total distance traveled is the least possible?”
 
-At present, there is no algorithm with polynomial worst-case time complexity to solve the TSP.
+The TSP can be modeled using a graph. If there are $n$ cities, you can represent each city as a vertex of the complete graph $K_{n}$ and assign to each edge a weight equal to the distance between the cities at the endpoints. The TSP is solved by finding a Hamiltonian cycle of minimum total weight that visits each vertex exactly one.
+
+Notice that if you choose a vertex (city) as the starting and ending point, then there are $\frac{1}{2}(n-1)!$ different Hamiltonian cycles (The division by 2 represents that you could reverse the direction of the cycle without changing the total distance traveled.) 
+
+The brute-force solution examines every possible path and has time complexity $O(n!),$ which is infeasible for even relatively small values of $n.$ At present, there is no algorithm with polynomial worst-case time complexity that solves the TSP.
 
  
-
 ////
 Application: The Traveling Salesman Problem
 • The traveling salesman problem is one of the classical problems in computer science.
@@ -1169,11 +1375,14 @@ However, this number includes identical cycles that were constructed in opposite
 
 //* Graph Coloring
 
-* Traveling Salesperson Problem (TSP)
+//* Traveling Salesperson Problem (TSP)
 
-* Algorithms for Graphs
-* Shortest-path algorithms (Dijkstra’s and Floyd’s algorithms)
+//* Algorithms for Graphs
+//* Shortest-path algorithms (Dijkstra’s and Floyd’s algorithms)
+
 * Transitive closure (Floyd’s algorithm)
+//https://dl.acm.org/doi/10.1145/367766.368168
+
 * Topological sort
 
 MORE TO COME!

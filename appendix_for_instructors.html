@@ -600,789 +600,136 @@ $(document).on('page:load', ready2);
     </div>
    </div>
    <div class="sect1">
-    <h2 id="_counting_arithmetic_techniques">
-     2. Counting: Arithmetic Techniques
+    <h2 id="_appendix_for_instructors">
+     20. Appendix: For Instructors
     </h2>
     <div class="sectionbody">
      <div class="paragraph">
       <p>
+       <mark>
+        <strong>
+         CAUTION
+        </strong>
+        - CHAPTER UNDER CONSTRUCTION!
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
        <em>
-        This chapter was last updated on February 2, 2025.
+        This chapter was last updated on July 15, 2025.
        </em>
        <br/>
-       <span class="small">
-        Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.
-       </span>
       </p>
      </div>
      <div class="paragraph">
       <p>
-       You probably learned how to count objects one by one when you were a child. You may have counted up to 5 on the fingers on one hand, or up to 10 on the fingers of two hands, or up to 20 on fingers and toes - that is, you paired the objects (fingers and/or toes) with number names to create a one-to-one correspondence. You may have counted all the way up to 100.
+       In this appendix, the remixer shares some ideas that other instructors may find useful.
       </p>
-     </div>
-     <div class="paragraph">
-      <p>
-       However, many problems in computer science or mathematics require you to count the number of elements in sets that contain millions of elements, or billions of elements, or even more elements, so counting one by one is inefficient or impossible. Starting with this chapter, and continuing later in the
-       <a href="./set_theory.html">
-        Set Theory
-       </a>
-       and
-       <a href="./counting_binomial.html">
-        Counting: Permutations and Combinations
-       </a>
-       chapters, you will study ways to quickly and efficiently count the number of elements of any set no matter the size of the set.
-      </p>
-     </div>
-     <div class="paragraph">
-      <p>
-       Key terms and concepts covered in this chapter:
-      </p>
-     </div>
-     <div class="ulist">
-      <ul>
-       <li>
-        <p>
-         Counting arguments
-        </p>
-        <div class="ulist">
-         <ul>
-          <li>
-           <p>
-            Sum Rule
-           </p>
-          </li>
-          <li>
-           <p>
-            Product Rule
-           </p>
-          </li>
-          <li>
-           <p>
-            Division Rule (also called the Rule Of Quotient)
-           </p>
-          </li>
-          <li>
-           <p>
-            Subtraction Rule (also called the Principle of Inclusion-Exclusion for two sets)
-           </p>
-          </li>
-         </ul>
-        </div>
-       </li>
-       <li>
-        <p>
-         The pigeonhole principle
-        </p>
-       </li>
-      </ul>
      </div>
      <div class="sect2">
-      <h3 id="_some_foundational_counting_principles">
-       2.1. Some Foundational Counting Principles
+      <h3 id="_incorporating_lessons_from_the_discrete_mathematics_project">
+       20.1. Incorporating Lessons from the Discrete Mathematics Project
       </h3>
       <div class="paragraph">
        <p>
-        Each of the four arithmetic operations corresponds to a rule we can use to count quickly.
-       </p>
-      </div>
-      <div class="sect3">
-       <h4 id="_the_sum_rule">
-        2.1.1. The Sum Rule
-       </h4>
-       <div class="paragraph">
-        <p>
-         The
-         <strong>
-          sum rule,
-         </strong>
-         also called the
-         <strong>
-          addition principle
-         </strong>
-         or the
-         <strong>
-          rule of sum,
-         </strong>
-         describes the number of possible choices of one element from a union of two sets that share no common elements (Such sets are called
-         <strong>
-          disjoint sets
-         </strong>
-         ).
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          The Sum Rule
-         </div>
-         <div class="paragraph">
-          <p>
-           Suppose that we have a procedure that consists of completing one step, and that the step can be chosen from either a first set of
-           <em>
-            j
-           </em>
-           possible ways to complete the step or from a second set of
-           <em>
-            k
-           </em>
-           possible ways to complete the step, and that no way of completing the step is in both the first and second sets. Then there are \(j+k\) ways to complete the procedure.
-          </p>
-         </div>
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         This is called the sum rule for counting because it involves adding to find a total. The sum rule can also be extended to more than two sets, as long as every pair of the sets have no elements in common.
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="paragraph">
-          <div class="title">
-           Example 1
-          </div>
-          <p>
-           A student in a Capstone course can choose a project from three different professors. The professors have 3, 7, and 4 possible projects, and no project is on more than one professor’s list. How many possible projects can the student choose?
-          </p>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           Solution
-          </div>
-          <p>
-           The student can pick out a project by choosing from the first professor, the second professor, or the third professor. Since no project is on more than
-one list, the sum rules says that there are \(3 + 7 + 4 = 14\) projects to choose from.
-          </p>
-         </div>
-         <div class="imageblock right text-center">
-          <div class="content">
-           <img alt="set-of-playing-card_CROPPED" height="131" src="imagesMKD/set-of-playing-card_CROPPED.png" width="277"/>
-          </div>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           You Try
-          </div>
-          <p>
-           A card
-will be
-drawn from a
-           <a href="https://en.wikipedia.org/wiki/Standard_52-card_deck">
-            standard 52-card deck.
-           </a>
-           <br/>
-           How many ways can the card be an even number or a king?
-           <br/>
-           <span class="small">
-            Image credit: This is a cropped version of
-            <a href="https://www.publicdomainpictures.net/en/view-image.php?image=65772&amp;picture=set-of-playing-card">
-             "Set Of Playing Card"
-            </a>
-            . George Hodan has released this “Set Of Playing Card” image under Public Domain license
-            <a href="http://creativecommons.org/publicdomain/zero/1.0/">
-             (CC0 Public Domain)
-            </a>
-            .
-           </span>
-          </p>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_the_subtraction_rule">
-        2.1.2. The Subtraction Rule
-       </h4>
-       <div class="paragraph">
-        <p>
-         The
-         <strong>
-          subtraction rule
-         </strong>
-         describes the number of possible choices of one element from a union of two sets that
-         <em>
-          do
-         </em>
-         share one or more common elements.
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          The Subtraction Rule
-         </div>
-         <div class="paragraph">
-          <p>
-           Suppose that we have a procedure that consists of completing one step, and that the step can be chosen from either a first set of
-           <em>
-            j
-           </em>
-           possible ways to complete the step or from a second set of
-           <em>
-            k
-           </em>
-           possible ways to complete the step, but that there are
-           <em>
-            m
-           </em>
-           possible ways of completing the step that are in both the first and second sets. Then there are \(j+k-m\) ways to complete the procedure.
-          </p>
-         </div>
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         The subtraction rule is a special case of the
-         <strong>
-          inclusion-exclusion principle
-         </strong>
-         that involves only two sets. The inclusion-exclusion principle is discussed in more detail in the
-         <a href="./set_theory.html">
-          Set Theory
-         </a>
-         and
-         <a href="./">
-          Proofs: Mathematical Induction
-         </a>
-         chapters.
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="paragraph">
-          <div class="title">
-           Example 2
-          </div>
-          <p>
-           In a group of students, 17 are enrolled in discrete mathematics, 13 are enrolled in probability, and 6 are enrolled in both discrete mathematics and probability.
-           <br/>
-           How many students are in the group?
-          </p>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           Solution
-          </div>
-          <p>
-           There are 17 students enrolled in discrete mathematics, but 6 of these students are enrolled in both discrete mathematics and probability. Likewise, there are 13 enrolled in probability, but 6 of these students are enrolled in both discrete mathematics and probability.
-           <br/>
-           If we applied the addition rule by computing \(17+13 = 30\), this counts the 6 students who are enrolled in both discrete mathematics and probability
-           <em>
-            twice,
-           </em>
-           once as a student enrolled in discrete mathematics and then again as a student enrolled in probability. We can repair the count by subtracting 6 from the sum of 17 and 13; this will count each of the students exactly once. That is, the number of students in the group is \(17+13-6=24.\)
-           <br/>
-           <span class="small">
-            Alternative solution
-            <br/>
-            First form three sets that have no students in common: Subtract 6 from each of 17 and 13 to find that there are \(17-6=11\) students in the set of students who are are enrolled in discrete mathematics but not probability, \(13-6=7\) students in the set of students who are enrolled in probability but not discrete mathematics, and 6 students in the set of students who are enrolled in both discrete mathematics and probability. Notice that the Sum Rule can be used because no student can be in two (or more) of the sets: There are \((17-6)+(13-6)+6 = 24\) students, which is the correct count.
-            <br/>
-            Also note that \((17-6)+(13-6)+6 = 17+(-6)+13+(-6)+6 = 17 + 13 -6 =24,\) which is the computation used in first solution.
-           </span>
-          </p>
-         </div>
-        </div>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="paragraph">
-          <div class="title">
-           Example 3
-          </div>
-          <p>
-           A tech company has 200 applicants for a position. Of the applicants, 150 were computer science majors, 43 were business majors, and 25 were double majors in both computer science and business.
-           <br/>
-           How many applicants did not major in either computer science or business?
-          </p>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           Solution
-          </div>
-          <p>
-           By the subtraction rule, there are \(150 + 43 - 25 = 168\) applicants that majored in computer science or business (or both). The number of applicants who did not major in either computer science or business is \(200 - 168 = 32.\)
-          </p>
-         </div>
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         <strong>
-          Video Example
-         </strong>
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         The following video example features
-Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
-        </p>
-       </div>
-       <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_axn9cnwt&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_ng802csp" title="Kaltura Player" webkitallowfullscreen="" width="700">
-       </iframe>
-       <div class="paragraph">
-        <p>
-         <span class="small">
-          Notice that Dr. Roberts uses a Venn diagram to represent the sets in this video. Venn diagrams are covered in the
-          <a href="./set_theory.html">
-           Set Theory
-          </a>
-          chapter of the Remix.
-         </span>
-        </p>
-       </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_the_product_rule">
-        2.1.3. The Product Rule
-       </h4>
-       <div class="paragraph">
-        <p>
-         The
-         <strong>
-          product rule,
-         </strong>
-         also called the
-         <strong>
-          multiplication principle
-         </strong>
-         or the
-         <strong>
-          rule of product,
-         </strong>
-         describes the number of possible choices of two successive elements where the first element comes from one set and the second from another set (which could be the same set as the first set).
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         To find the total number of outcomes for two or more successive events where both events must occur, multiply the number of outcomes for each event together.  For instance, if you want to find the number of outcomes possible when you roll a die and toss a coin, you could use the product rule. It is important to note that the events must be independent, meaning one doesn’t effect the other.
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          The Product Rule
-         </div>
-         <div class="paragraph">
-          <p>
-           Suppose that we have a procedure that consists of completing two steps, that there are
-           <em>
-            k
-           </em>
-           possible ways to complete the first step, and for each possible way of completing the first step, there are
-           <em>
-            m
-           </em>
-           possible ways to complete the second step. Then there are
-           <em>
-            k⋅m
-           </em>
-           ways to complete the procedure.
-          </p>
-         </div>
-        </div>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="paragraph">
-          <div class="title">
-           Example 4
-          </div>
-          <p>
-           Suppose there are 27 computers in a computer center and each computer has 15 ports. How many different ways are there to choose a specific port?
-          </p>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           Solution
-          </div>
-          <p>
-           Choosing a port means you first choose a computer and then a port on that computer. Since there are 27 computers and 15 ways to choose a port on a computer,
-there are \((27)(15) = 405\) ways to choose a port.
-          </p>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           You Try
-          </div>
-          <p>
-           How many functions are there from a set \(A\) with \(m\) elements to a set \(B\) with \(n\) elements?
-           <br/>
-           Click on "Hint" to reveal the hidden text.
-          </p>
-         </div>
-         <div class="openblock click">
-          <div class="title">
-           Hint
-          </div>
-          <div class="content">
-           <div class="click_oblique">
-            Try working out an example where \(m\) and \(n\) are small natural numbers. For example, how many functions are there from the set \(\{ 1, 2, 3, 4 \}\) to the set \(\{ \text{"red"},\,\text{"green"},\,\text{"blue"} \}\)?
-           </div>
-          </div>
-         </div>
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         <strong>
-          Video Example
-         </strong>
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         The following video example features
-Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="openblock">
-          <div class="title">
-           Example 5
-          </div>
-          <div class="content">
-          </div>
-         </div>
-         <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_nv3yif36&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_uy3482xl" title="Kaltura Player" webkitallowfullscreen="" width="700">
-         </iframe>
-        </div>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="paragraph">
-          <div class="title">
-           Example 6
-          </div>
-          <p>
-           You can use more than one of the rules to solve a problem.
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           How many bitstrings of length four start with 1 or end with 00?
-          </p>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           Solution
-          </div>
-          <p>
-           First, a bitstring of length four that starts with 1 will be of the form \(1~*~*~*\), where there are two choices for each \(*\), either 0 or 1. Use the product rule to compute that there are \((1)(2)(2)(2) = 2^3 = 8\) bitstrings of this form.
-           <br/>
-           <br/>
-           Secondly, a bitstring of length four that ends with 00 will be of the form \(*~*~0~0\), so there are \((2)(2)(1)(1) = 2^2 = 4\) bitstrings of this form.
-           <br/>
-           <br/>
-           Thirdly,
-a bitstring of length four that starts with 1 and ends with 00 will be of the form \(1~*~0~0\), so there are \((1)(2)(1)(1) = 2\) bitstrings of this form.
-           <br/>
-           <br/>
-           Now use the subtraction rule to compute the number of bitstrings of length four that start with 1 or end with 00 (or both): \(8 + 4 - 2 =10.\)
-          </p>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           You Try
-          </div>
-          <p>
-           If a card is drawn from a standard 52-card deck, how many ways can the card be black or a face card (that is, either a Jack or a Queen or a King)?
-          </p>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="sect3">
-       <h4 id="_the_division_rule">
-        2.1.4. The Division Rule
-       </h4>
-       <div class="paragraph">
-        <p>
-         This rule is used when there are \(n\) ways to complete a procedure, but
-each of those ways is equivalent to \(d\) ways (including the way itself.) That is, every possible outcome of the procedure can be done in \(d\) different ways
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          The Division Rule
-         </div>
-         <div class="paragraph">
-          <p>
-           Suppose that we have a procedure that can be completed in
-           <em>
-            n
-           </em>
-           possible ways, but that for each way of completing the procedure there are
-           <em>
-            d
-           </em>
-           possible ways with the same outcome. Then there are \(\frac{n}{d}\) ways to complete the procedure.
-          </p>
-         </div>
-        </div>
-       </div>
-       <div class="paragraph">
-        <p>
-         The next example uses both the product and division rules.
-        </p>
-       </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="imageblock right text-center">
-          <div class="content">
-           <img alt="DivisionRuleCircularTableImage" height="154" src="imagesMKD/DivisionRuleCircularTableImage.png" width="152"/>
-          </div>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           Example 7
-          </div>
-          <p>
-           Four students will sit around a circular table, but two seatings are  considered "not different" whenever each student has the same left neighbor and right neighbor. How many different seatings are there?
-          </p>
-         </div>
-         <div class="paragraph">
-          <div class="title">
-           Solution
-          </div>
-          <p>
-           First use the product rule to find that there are (4)(3)(2)(1) = 24 possible ways for the 4 students to sit (For example, there are 4 choices for the "North," then 3 choices remaining for the "East," then 2 choices remaining for the "South," and 1 choice remaining for the "West.") Next, notice that if all the students shifted one chair to the left once, twice, or thrice, they would all have the same neighbors that they originally had. This means that for
-           <em>
-            each
-           </em>
-           of the 24 ways the students can sit, 4 of those ways are not considered different.
-           <br/>
-           Therefore, there are \(\frac{24}{4}\) or 6 different seatings.
-          </p>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="sect2">
-      <h3 id="_the_pigeonhole_principle">
-       2.2. The Pigeonhole Principle
-      </h3>
-      <div class="paragraph">
-       <p>
-        A suprising number of counting problems can be solved with the so-called pigeonhole principle.
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="title">
-         Pigeonhole Principle
-        </div>
-        <div class="paragraph">
-         <p>
-          If \(k+1\) pigeons are roosting in \(k\) pigeonholes then at least one pigeonhole must contain more than one pigeon.
-          <br/>
-          <br/>
-          <span class="small">
-           NOTE: The Pigeonhole Principle is often attributed to Peter Gustav Lejeune Dirichlet, who called it the
-           <em>
-            Schubfachprinzip.
-           </em>
-           The remixer is willing to speculate that this principle has been known for at least as long as humans have
-           <a href="https://en.wikipedia.org/wiki/Pigeon_keeping">
-            kept birds such as pigeons.
-           </a>
-          </span>
-         </p>
-        </div>
-       </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        Click
-        <a href="https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPigeons.jpg">
-         here
+        Here is how I, the remixer, have tried to use the “team-worthy” activity-based lesson materials developed by the
+        <a href="https://sites.google.com/view/discrete-math-project-pilot/home">
+         Discrete Mathematics Project
         </a>
-        to see a
-        <em>
-         photoshopped image
-        </em>
-        that illustrates this principle.
+        in the course that I teach using the Remix.
        </p>
       </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="paragraph">
-         <div class="title">
-          Example
-         </div>
-         <p>
-          In a group of 367 people at least two will have the same birthday because there are only 366 possible birthdays (counting February 29).
-         </p>
-        </div>
-        <div class="paragraph">
-         <div class="title">
-          You Try
-         </div>
-         <p>
-          How many people, with English names, must be in a room for at least two of the people to have first names that starts with the same letter?
-         </p>
-        </div>
-       </div>
+      <div class="paragraph">
+       <p>
+        It appears that one of the purposes of these lessons is to have each student play one specific role (either Documenter, Reporter, Facilitator, or Questioner) for their team during each lesson. The aim is to give students the experience of being assigned such a role, which may happen in their professional lives.
+       </p>
       </div>
-     </div>
-     <div class="sect2">
-      <h3 id="_exercises">
-       2.3. Exercises
-      </h3>
-      <div class="olist arabic">
-       <ol class="arabic">
-        <li>
-         <p>
-          There are 67 mathematics majors and 124 computer science majors at a college. There is no student who is both a mathematics major and a computer science major.
-         </p>
-         <div class="olist loweralpha">
-          <ol class="loweralpha" type="a">
-           <li>
-            <p>
-             In how many ways can two representatives be picked so that one is a mathematics major and one is a computer science major?
-            </p>
-           </li>
-           <li>
-            <p>
-             In how many ways can one representative be picked who is either a mathematics major or a computer science major?
-            </p>
-           </li>
-          </ol>
-         </div>
-        </li>
-        <li>
-         <p>
-          A multiple-choice test contains 20 questions, and each question has four choices.
-         </p>
-         <div class="olist loweralpha">
-          <ol class="loweralpha" type="a">
-           <li>
-            <p>
-             In how many ways can a student answer all of the questions on the test if each question must be answered?
-            </p>
-           </li>
-           <li>
-            <p>
-             In how many ways can a student answer all of the questions if the student is allowed to not answer one or more questions?
-            </p>
-           </li>
-          </ol>
-         </div>
-        </li>
-        <li>
-         <p>
-          How many different three-letter initials, using uppercase English letters, are there?
-         </p>
-        </li>
-        <li>
-         <p>
-          How many different three-letter initials, using uppercase English letters, end with "R"?
-         </p>
-        </li>
-        <li>
-         <p>
-          How many bit strings are there of length five?
-         </p>
-        </li>
-        <li>
-         <p>
-          How many bit strings are there of length five that begin and end with 1?
-         </p>
-        </li>
-        <li>
-         <p>
-          How many bit strings are there of length less than \(n\), where \(n\) is a positive integer, that start and end with 1?
-         </p>
-        </li>
-        <li>
-         <p>
-          How many license plates can be made using three digits followed by four uppercase English letters if:
-         </p>
-         <div class="olist loweralpha">
-          <ol class="loweralpha" type="a">
-           <li>
-            <p>
-             Digits and letters can be repeated?
-            </p>
-           </li>
-           <li>
-            <p>
-             Digits and letters cannot be repeated?
-            </p>
-           </li>
-          </ol>
-         </div>
-        </li>
-        <li>
-         <p>
-          Each student in a Discrete Mathematics class is a mathematics major, a computer science major, or a double major in both mathematics and computer science. If the class has 5 mathematics majors (including double majors), 23 computer science majors (including double majors), and 7 double majors, how many students are in the class?
-         </p>
-        </li>
-        <li>
-         <p>
-          Suppose a computer system requires a password of length no less than 7 and no more than 10 characters, and each character must be an English lowercase
-letter, an English uppercase letter, a digit, or one of six special characters (*, &gt;, &lt;, !, +, =).
-         </p>
-         <div class="olist loweralpha">
-          <ol class="loweralpha" type="a">
-           <li>
-            <p>
-             How many different passwords are available?
-            </p>
-           </li>
-           <li>
-            <p>
-             Suppose a hacker can check a potential password once every nanosecond (1 nanosecond is \(1 \times 10^{-9}\) seconds). How long will it take the hacker
-to check every potential password?
-            </p>
-           </li>
-          </ol>
-         </div>
-        </li>
-        <li>
-         <p>
-          Suppose that there are 29 students in a class, all of whose last names use only English letters. Explain why at least 2 students in the class have last names that begin with the same letter.
-         </p>
-        </li>
-        <li>
-         <p>
-          Show that in any set of 5 integers, there are at least two of them that have the same remainder when divided by 4.
-         </p>
-        </li>
-        <li>
-         <p>
-          A bag contains 8 red balls and 7 blue balls.
-         </p>
-         <div class="olist loweralpha">
-          <ol class="loweralpha" type="a">
-           <li>
-            <p>
-             How many balls must be chosen to be sure of choosing 3 of the same color?
-            </p>
-           </li>
-           <li>
-            <p>
-             How many must be chosen to be sure of choosing 3 red balls?
-            </p>
-           </li>
-          </ol>
-         </div>
-        </li>
-        <li>
-         <p>
-          Someone cleaning out their attic finds a box containing 12 rock CDs and 12 country CDs. What is the minimum number of CDs they can take out to guarantee at least
-one of each type?
-         </p>
-        </li>
-        <li>
-         <p>
-          Give an argument that there are at least two people in California  with the same number of hairs on their head.
-         </p>
-        </li>
-       </ol>
+      <div class="paragraph">
+       <p>
+        The order of the lessons in the list below reflects how the remixer has used them throughout a one-semester course.
+       </p>
+      </div>
+      <div class="hdlist">
+       <table>
+        <tr>
+         <td class="hdlist1">
+          Introduction to Teamworthy Tasks (Lesson 1)
+         </td>
+         <td class="hdlist2">
+          <p>
+           This lesson involves counting arguments and seems to have been designed as an accessible entry point for all students.
+           <br/>
+           However, in my experience, when teams are formed some students in each team may know how to solve the problems already while others may not, which can lead to the team members dropping out of the roles they are assigned to play during the activity and instead focusing on “getting the answers.” It may be worth considering using another activity with content that is more likely to be unfamiliar to almost all students, I may swap the content of this one with Handshake (That is, use the introductory materials about team-worthy tasks, but replace the activity content with Handshake lesson’s content).
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Handshake Lemma (Lesson 3)
+         </td>
+         <td class="hdlist2">
+          <p>
+           This lesson can be used to introduce the concept of conjecture, lay the groundwork for proof, and provide a nonarithmetic/nonalgebraic example of using mathematical induction that can be referred to later when induction is formally introduced. The graph theory content needed by students is minimal and can be learned just-in-time, so this lesson can be used very early in the course. NOTE: It may be important to mention to students that this activity does not involve literally shaking the hands of other people. A possible extension to this could be to use directed edges.
+Also, using this lesson as the first one in a semester may have an advantage over the counting problems included in the Introduction to Teamworthy Tasks lesson: The graph theory content is likely to be unfamiliar to most students so that team members may be more likely to adhere to their specific team roles.
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Logic (Lesson 5)
+         </td>
+         <td class="hdlist2">
+          <p>
+           This lesson focuses on using rules of inference to  make a valid argument, and analyzing invalid arguments (e.g., ones that include a converse or inverse error.) Some teams may try to use AI to solve the problem, which often brings up the opportunity to talk about common logical fallacies, i.e., the converse error and the inverse error.
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Algorithms (Lesson 7, Algorithms and Recursion)
+         </td>
+         <td class="hdlist2">
+          <p>
+           This lesson introduces algorithms and their analysis using recurrence relations (or recursively-defined functions,) and the comparison of the linear search and binary search algorithms for sorted lists. I use it to introduce recursion and recurrence relations, the need to follow an algorithm step-by-step. I use this several weeks before formally introducing the search algorithms and the discussion of complexity and analysis of algorithms.
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Binomial (Lesson 2, also called Binomial/Number Triangle)
+         </td>
+         <td class="hdlist2">
+          <p>
+           I do this lesson after recurrence relations to try to focus on the relationships in the number triangle.
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Induction (Lesson 6)
+         </td>
+         <td class="hdlist2">
+          <p>
+           This activity works well with trios of teams completeing each others proofs.
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Ramsey (Lesson 4, Ramsey/Dot game)
+         </td>
+         <td class="hdlist2">
+          <p>
+           I use this as the final activity, typiclly with only 3 students per team. The content involves graph edge colorings, presented as a game, which I find makes this lesson highly engaging. At this point in the semester, students are used to working in their team roles so their engagement does not lead them to abandon those roles.
+          </p>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="openblock float-group">
+       <div class="content">
+       </div>
       </div>
      </div>
     </div>

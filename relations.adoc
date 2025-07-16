@@ -478,7 +478,7 @@ partial order $R$ on $S$ that has the additional property $(\forall x \in S)(\fo
 
 A *well-ordering* of a set $S$ is a total ordering $R$ on $S$ that has the additional property that every nonempty subset of $S$ contains a least element with respect to the order relation.
 
-
+[[well_ordering_axiom_for_natural_numbers]]
 .Axiom 
 ****
 The relation $\leq$ on the set $\mathbb{N}$ of natural numbers is a well-ordering.

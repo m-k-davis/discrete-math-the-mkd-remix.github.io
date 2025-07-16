@@ -475,7 +475,8 @@ $(document).on('page:load', ready2);
 </head>
 
 
-<body class="book toc2 toc-left">
+<!-- body class="book toc2 toc-left" -->
+<body class="book toc2 toc-left" style="background-color:#999999;">
 <div id="header">
 <h1>Discrete Math - The MKD Remix</h1>
 <div class="details">
@@ -504,7 +505,6 @@ $(document).on('page:load', ready2);
 <li><a href="#_appendix_library_of_functions">17. Appendix: Library of Functions</a></li>
 <li><a href="#_appendix_an_introduction_to_python">18. Appendix: An Introduction to Python</a></li>
 <li><a href="#_appendix_python_syntax_examples">19. Appendix: Python Syntax Examples</a></li>
-<li><a href="#_appendix_for_instructors">20. Appendix: For Instructors</a></li>
 </ul>
 </div>
 </div>
@@ -522,10 +522,23 @@ $(document).on('page:load', ready2);
 <h2 id="_about_this_text">About this text</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
+<p><em>This revision of the book was last updated on May 21, 2025.</em><br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<mark>This is an old revision of the Remix. The current revision can be viewed <a href=./index.html>here.</a></mark><br>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on June 19, 2025.</em><br></p>
+<p><em>This chapter was last updated on February 2, 2025.</em><br>
+<em>Revised subsection "Partial list of changes made (or to be made) to the Remix" after reordering the chapters for the Spring 2024 semester.</em></p>
 </div>
 <div class="paragraph">
 <p>This work, "Discrete Math - The MKD Remix" by <a href=https://github.com/m-k-davis/>Mark Kelly Davis,</a> is adapted from <a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> by <a href=https://www.ggc.edu/directory/mohamed-jamaloodeen>Mohamed Jamaloodeen,</a> <a href=https://www.ggc.edu/directory/katherine-pinzon>Kathy Pinzon,</a> <a href=https://www.ggc.edu/directory/daniel-pragel>Daniel Pragel,</a> <a href=https://www.ggc.edu/directory/joshua-roberts>Joshua Roberts,</a> and <a href=https://www.ggc.edu/directory/sebastien-siva>Sebastien Siva.</a> <a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> is used under <a href=https://creativecommons.org/licenses/by-nc/4.0/>CC BY-NC 4.0</a>. All files for <a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> are available at its associated <a href=https://github.com/ggc-discrete-math/ggc-discrete-math.github.io>GitHub repository</a>.</p>
@@ -545,9 +558,7 @@ by Mark Kelly Davis.</p>
 <td class="content">
 If you were a student in my course during the Spring 2024 semester, the version of the book you used can be found <a href=./book_Apr2024.html>here.</a><br>
 <br>
-If you were a student in one of my courses during the Fall 2024 semester, the version of the book you used can be found <a href=./book_Dec2024.html>here.</a><br>
-<br>
-If you were a student in one of my courses during the Spring 2025 semester, the version of the book you used can be found <a href=./book_May2025.html>here.</a>
+If you were a student in one of my courses during the Fall 2024 semester, the version of the book you used can be found <a href=./book_Dec2024.html>here.</a>
 </td>
 </tr>
 </table>
@@ -589,14 +600,6 @@ If you were a student in one of my courses during the Spring 2025 semester, the 
 <ul>
 <li>
 <p>use terminology, definitions, notation, and symbols that align with commonly-used textbooks such as Kenneth H. Rosen&#8217;s <a href=https://www.mheducation.com/highered/product/discrete-mathematics-applications-rosen/M9781259676512.html><em>Discrete Mathematics and Its Applications,</em> 8th Edition.</a></p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>incorporate
-activity-based lesson materials developed by the <a href=https://sites.google.com/view/discrete-math-project-pilot/home>Discrete Mathematics Project.</a></p>
 </li>
 </ul>
 </div>
@@ -727,7 +730,8 @@ introduced into each of the new chapters.</p>
 <h2 id="_introducing_discrete_mathematics">1. Introducing Discrete Mathematics</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This chapter was last updated on July 9, 2025.</em><br></p>
+<p><em>This chapter was last updated on January 30, 2025.</em><br>
+<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
 </div>
 <div class="paragraph">
 <p>Welcome to the Remix! I hope this textbook provides you an opportunity for a stimulating and intellectually enjoyable learning experience.</p>
@@ -1356,8 +1360,8 @@ but it is much more common to list the terms of the sequence in order:  "Thumb,"
 Notice that Java arrays and Python lists are implementations of the mathematical concept of a finite sequence where the domain is the set of \(i\) values \(\{0, 1, \ldots , n \}\) for some natural number \(n.\)<br>
 <br>
 An <strong>infinite sequence</strong> is a sequence that is not a finite sequence, that is, the there are infinitely many \(i\) values that make sense as inputs for the sequence. For example the sequence \[ \text{isOdd}_{i} = \begin{cases}
-\text{1} &amp; \text{ if } i \text{ is odd} \\
-\text{0} &amp; \text{ if } i \text{ is even} \\
+\text{1} &amp; \text{ if } n \text{ is odd} \\
+\text{0} &amp; \text{ if } n \text{ is even} \\
 \end{cases}  \] is an infinite sequence with domain the integers that has only two output values.</p>
 </li>
 </ul>
@@ -1515,9 +1519,7 @@ In mathematics, we are usually most interested in analyzing and verifying propos
 <p>A <strong>predicate</strong> is an incomplete proposition that contains one or more variables that need to be filled in to complete the proposition.
 One example of a predicate is "My major is \(\rule{12mm}{.5pt}\)." Notice that this becomes a proposition once the blank, which represents the variable in this case, has been filled in.<br>
 Another example of a predicate is "The positive integers <em>m</em> and <em>n</em> are  prime numbers." Again, this becomes a proposition once values are substituted for the two variables.<br>
-In this textbook, predicates will often be written in a way similar to functions:
-+
-\[ P(m, n) : \text{"The positive integers } m \text{ and } n \text{ are prime numbers."} \]
+In this textbook, predicates will often be written in a way similar to functions: \[ P(m, n) = \text{"The positive integers } m \text{ and } n \text{ are prime numbers."} \]
 Notice that the output of the predicate is a <em>statement</em> but the output does not tell us whether the statement is True or False - think of this like a programmer: The return value is a string, not a Boolean.<br>
 Two predicates are <strong>equivalent</strong> if for every possible substitution for the variables, the statement produced by the first predicate is true if and only if the statement produced by the second predicate is true.</p>
 </li>
@@ -1528,7 +1530,6 @@ Two predicates are <strong>equivalent</strong> if for every possible substitutio
 <li>
 <p>An <strong>algorithm</strong> is a finite sequence of
 commands and statements that describe a process for completing a task.<br>
-It&#8217;s likely that you have learned how to perform many algorithms in your previous mathematics education, but in this textbook (and in computer science in general) it is more important that you learn how to analyze and compare algorithms. <br>
 One example is the following (correct but inefficient) algorithm for division of positive integers.</p>
 <div class="ulist">
 <ul>
@@ -10427,7 +10428,7 @@ Recursion
 <div class="paragraph">
 <p>In the next example, we describe how to construct rooted trees, a type of graph.</p>
 </div>
-<div id="rooted_trees" class="sidebarblock">
+<div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <div class="title">Example 8 - Rooted Trees</div>
@@ -12041,7 +12042,7 @@ partial order \(R\) on \(S\) that has the additional property \((\forall x \in S
 <div class="paragraph">
 <p>A <strong>well-ordering</strong> of a set \(S\) is a total ordering \(R\) on \(S\) that has the additional property that every nonempty subset of \(S\) contains a least element with respect to the order relation.</p>
 </div>
-<div id="well_ordering_axiom_for_natural_numbers" class="sidebarblock">
+<div class="sidebarblock">
 <div class="content">
 <div class="title">Axiom</div>
 <div class="paragraph">
@@ -14636,7 +14637,8 @@ words what it means that \( f(x)\) is <span class="underline">not</span> \( O(g(
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on April 14, 2025.</em><br></p>
+<p><em>This chapter was last updated on April 14, 2025.</em><br>
+<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
 </div>
 <div class="paragraph">
 <p>An <strong>algorithm</strong> is a step-by-step process, defined by a set of
@@ -15383,11 +15385,12 @@ multiply to find that the complexity of Merge Sort is \(O(n \log{n})\).</p>
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on July 15, 2025.</em><br></p>
+<p><em>This chapter was last updated on May 3, 2025.</em><br>
+<em>Inserted a version of Dijkstra&#8217;s algorithm for a minimal-weight path between two given vertices.</em><br>
+<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
 </div>
 <div class="paragraph">
-<p>Graphs are discrete mathematical structures used to represent connections between individual
-Graphs have applications in fields such as chemistry, network analysis, computing algorithms, and social sciences.</p>
+<p>Graphs are discrete mathematical structures that have many applications in a diversity of fields including chemistry, network analysis, algorithms, and social sciences.</p>
 </div>
 <div class="paragraph">
 <p>Key terms and concepts covered in this chapter:</p>
@@ -15458,249 +15461,105 @@ Graphs have applications in fields such as chemistry, network analysis, computin
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_introduction_and_definitions">14.1. Introduction and Definitions</h3>
+<h3 id="_introduction_and_basic_definitions">14.1. Introduction and Basic Definitions</h3>
 <div class="paragraph">
-<p>A graph consists of a set of <strong>vertices</strong> and a set of <strong>edges.</strong>
-Each edge
-connects either two different vertices or one vertex to itself.
-Vertices are sometimes called <strong>nodes.</strong></p>
+<p>A graph consists of a set of <strong>vertices</strong>  (also called <strong>nodes</strong>) and a set of <strong>edges,</strong>
+where each edge
+connects either two different vertices or one vertex to itself.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>For each edge, its <strong>endpoints</strong> are the two vertices that it connects (but notice that the “endpoints” may be the same vertex.) The edge is said to be <strong>incident</strong> with each of its endpoints.</p>
+<p>For each edge, its <strong>endpoints</strong> are the vertices that it connects. The edge is said to be <strong>incident</strong> with each endpoint, and to connect the endpoints.</p>
 </li>
 <li>
-<p>An edge that connects one vertex to itself is called a <strong>loop.</strong></p>
+<p>If an edge has only one endpoint, it is called a <strong>loop.</strong></p>
 </li>
 <li>
-<p>Two edges that have the same endpoints are called <strong>parallel</strong> edges.</p>
+<p>If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a <strong>multigraph.</strong> Two edges that have the same endpoints are called <strong>parallel</strong> edges.</p>
 </li>
 <li>
 <p>Two vertices are <strong>adjacent</strong> if they are the endpoints of at least one edge. Adjacent vertices are also called <strong>neighbors.</strong></p>
 </li>
 <li>
-<p>The <strong>degree</strong> of a vertex \(v\) is the number of times the vertex occurs as an endpoint for all the edges in the graph.</p>
+<p>The <strong>degree</strong> of a vertex \(v\) is the number of edges in the graph \(G\) containing the vertex \(v.\)</p>
 </li>
 <li>
-<p>An <strong>isolated vertex</strong> is a vertex that is not an endpoint of any edge. That is, an isolated vertex is the same as a vertex that has degree 0.</p>
+<p>An <strong>isolated vertex</strong> is a vertex that is not an endpoint of any edge.</p>
 </li>
 <li>
-<p>A graph is called a <strong>multigraph</strong> if there are parallel edges in the graph.</p>
-</li>
-<li>
-<p>A <strong>simple graph</strong> is a graph that has no loops and no parallel edges.</p>
+<p>A <strong>simple graph</strong> is a graph that has no loops and does not have two or more edges that connect the same endpoints.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The following example illustrates many of these definitions.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <div class="title">Example 1</div>
-<p>The graph shown has
-8
-vertices
+<p>The graph shown has 7 vertices
 and 7 edges.</p>
-</div>
-<div class="paragraph">
-<p>In this drawing, the vertices are represented by points that are labeled by capital letters, and the edges are represented by the line segments and arcs that connect two vertices.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="imagesMKD/graphMKD1rev.png" alt="graphMKD1rev">
+<img src="imagesMKD/graphMKD1.png" alt="graphMKD1">
 </div>
 </div>
 <div class="paragraph">
-<p>The graph is drawn so that
+<p>This is <em>one graph</em> that is made up of three separate <em>connected components</em> (Connectivity will be defined in detail later in the chapter, but is introduced informally here).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One connected component contains the vertices \(A\) and \(C\) and two edges that connect them.</p>
+</li>
+<li>
+<p>A second connected component contains the vertices \(B\), \(D\), \(E\), and \(F\) and the edges that are incident to those vertices.</p>
+</li>
+<li>
+<p>A third connected component contains the single isolated vertex \(G\) and no edges.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the second connected component,
+the graph is drawn so that
 the edge with endpoints \(B\) and \(F\) and
 the edge with endpoints \(D\) and \(E\)
-are represented by two line segments that intersect, but the point of intersection is ignored in the graph because it is not a vertex.
-We could redraw this graph so that the two edges do not cross; for example, we could move \(E\) inside the triangle that has vertices \(B,\) \(D,\) and \(F.\)
+cross, but the point of intersection is ignored
+because it is not a vertex.
+We could redraw this graph so that the two edges do not cross; for example, we could move \(E\) inside the triangle.
 However, there are some graphs which cannot be drawn in 2 dimensions without some edge crossings.</p>
 </div>
 <div class="paragraph">
-<p>There is a loop: The edge that has \(D\) as both of its endpoints.</p>
+<p>This graph is a multigraph because there are multiple edges that connect the pair of vertices \(\{A,C\}\).</p>
 </div>
 <div class="paragraph">
-<p>There are parallel edges that connect the vertices \(A\) and \(C,\) so this graph is a multigraph.</p>
-</div>
-<div class="paragraph">
-<p>Vertex \(G\) is an isolated vertex - it is not an endpoint of any edge.
-Vertex \(H\) is also an isolated vertex.</p>
-</div>
-<div class="paragraph">
-<p>This graph is a multigraph because there are multiple edges
-that connect the pair of vertices \(A\) and \(C.\)</p>
-</div>
-<div class="paragraph">
-<p>This graph is not a simple graph: It contains a loop, and it has at least one pair of parallel edges.</p>
-</div>
-<div class="openblock question">
-<div class="title">Question</div>
-<div class="content">
-<div class='click_oblique'>
-For this graph, which vertex has the greatest degree? Which vertex has the least degree?
+<p>This graph is not simple because (1) it contains a loop and (2) it has a pair of vertices that are connected by two different edges.</p>
 </div>
 </div>
-</div>
-<div class="openblock click">
-<div class="title">Hint</div>
-<div class="content">
-<div class='click_oblique'>
-Recall that the degree of a vertex is the number of times that vertex occurs as an endpoint (and that a loop has two endpoints that are the same vertex.)
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Notice that in the example and definitions given so far, we&#8217;ve assumed that each edge is undirected: An edge represents a connection between its endpoints but does not indicate a direction of travel from one endpoint to the other endpoint. However, in some applications it is useful for a graph to use only <strong>directed edges</strong> that point from one endpoint to the other endpoint. A graph that has only directed edges is called a <strong>digraph,</strong> which is short for <strong>directed graph.</strong></p>
-</div>
-<div class="paragraph">
-<p>Most graphs discussed in this chapter will be (undirected) simple graphs, that is, graphs with no loops and no parallel edges.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_handshaking_lemma">14.2. The Handshaking Lemma</h3>
+<h3 id="_simple_graphs">14.2. Simple Graphs</h3>
 <div class="paragraph">
-<p>This section describes a property of <em>every</em> undirected graph.</p>
-</div>
-<div class="paragraph">
-<p>Recall that the degree of a vertex of a graph is the number of times the vertex occurs as an endpoint for all the edges in the graph.
-Keep in mind that the vertex of a loop counts twice because that vertex occurs as “both endpoints” of the loop.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<div class="title">Example 2</div>
-<p>Consider again the graph that was drawn in the previous example.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="imagesMKD/graphMKD1rev.png" alt="graphMKD1rev">
-</div>
-</div>
-<div class="paragraph">
-<p>The degrees of each of the vertices in this graph are listed in the table.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 30%;">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-top"><strong>Vertex</strong></th>
-<th class="tableblock halign-center valign-top"><strong>Degree</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>A</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>2</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>B</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>2</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>C</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>2</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>D</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>5</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>E</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>1</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>F</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>2</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>G</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>0</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>H</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>0</em></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="paragraph">
-<p>Notice that the sum of the degrees of all the vertices is \(14\), which is equal to twice the number of edges, \(2 \cdot 7.\)</p>
-</div>
-<div class="paragraph">
-<p>In fact, for any undirected graph with finitely many edges, the sum of the degrees of all vertices is equal to twice the number of edges (recalling that a loop&#8217;s endpoint will be counted twice.)</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">The Handshaking Lemma</div>
-<div class="paragraph">
-<p>The sum of the degrees of the vertices of a graph
-is equal to twice the number of edges
-of the graph.</p>
-</div>
-<div class="openblock click">
-<div class="title">Proof</div>
-<div class="content">
-<div class='click_oblique'>
-This is an exercise for you.
-Use mathematical induction on the predicate<br>
-\(P(n):\) “If a graph has \(n\) edges, then the sum of the degrees of all vertices of the graph is equal to \(2n.\)”
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>A useful consequence of the Handshaking Lemma is that the sum of the degrees of a graph must be even.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_simple_graphs">14.3. Simple Graphs</h3>
-<div class="paragraph">
-<p>Recall that in a simple graph, there are
-no loops and no parallel edges
-(that is, you cannot have two different edges that connect the same pair of endpoints.)
-This means that for a simple graph, each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of “simple graph.”
+<p>A <strong>simple graph</strong> is a graph that has no loops and no parallel edges (that is, no two edges can connect the same endpoints.)
+This means that each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of "simple graph". This formal definition can be useful if you need to implement a simple graph in code.
 <mark>Graphs discussed in this textbook are assumed to be simple unless stated otherwise.</mark></p>
 </div>
 <div class="sect3">
-<h4 id="_a_formal_definition_of_simple_graph">14.3.1. A Formal Definition of Simple Graph</h4>
+<h4 id="_a_formal_definition">14.2.1. A Formal Definition</h4>
 <div class="paragraph">
-<p>This subsection presents a formal set-theoretic definition of simple graphs.</p>
+<p>A <strong>simple graph</strong> \(G=\left(V,\ E\right)\) is an ordered pair consisting of a set \(V\) of objects called <strong>vertices</strong> (also called <strong>nodes</strong>) and a set \(E\) of objects called <strong>edges</strong>.
+An edge \(e\in\ E\) is a set of the form \(e=\left\{x,y\right\}\), where the vertices \(x\) and \(y\) are two different elements of \(V\). The two vertices \(x\) and \(y\) in the edge \(e=\left\{x,y\right\}\) are said to be <strong>adjacent</strong> or <strong>connected</strong> or <strong>neighbors</strong>, and \(x\) and \(y\) are called the <strong>endpoints</strong> of the edge \(e\).</p>
 </div>
-<div class="paragraph">
-<p>A <strong>simple graph</strong> \(G=\left(V,\ E\right)\) is an ordered pair consisting of a nonempty set \(V\) and a (possibly empty) set \(E,\) where each element of \(E\) must be of the form \(\left\{x,y\right\}\), where \(x\) and \(y\) are two different elements of \(V.\)
-The elements in set \(V\) are called the <strong>vertices</strong> (or <strong>nodes</strong>) of the graph. The elements in set \(E\) are called the <strong>edges</strong> of the graph.</p>
-</div>
-<div id="simple_graph_example" class="sidebarblock">
+<div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 3 - A simple graph.</div>
+<div class="title">Example 2 - a simple graph.</div>
 <p>The graph shown has vertex set
 \(\left\{A,\ B,\ C,\ D,\ E,\ F\right\}\) and
 edge set
-\( \{\{A,C\},\{A,D\},\{B,D\},\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}.\)</p>
+\( \{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}.\)</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -15709,9 +15568,12 @@ edge set
 </div>
 </div>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
+<div class="title">Example 3</div>
 <p>The degrees of each of the vertices in the undirected graph \(G\)  with vertex set
-\(V=\{A,B,C,D,E,F,G\}\) and edge set \(E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,G\}\}\)
+\(V=\{A,B,C,D,E,F,G\}\) and edge set \(E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,G\}\)
 are,</p>
 </div>
 <div class="paragraph">
@@ -15737,8 +15599,41 @@ are,</p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Notice that the sum of all the degrees
+\(d\left(A\right)+\ d\left(B\right)\ +\ d\left(C\right)+\ \ d\left(D\right)\ \ +d\left(E\right)+\ d\left(F\right) + d\left(G\right)=14\), which is
+is twice the number of edges, \(2 \cdot \left|E\right|=7\).
+In fact, this is true for any undirected graph with finitely many edges as long as any loops are counted twice.
+This result is called the Handshaking Theorem. A formal proof of the Handshaking Lemma can be written using mathematical induction on the predicate
+\(P(n):\) "If graph \(G\) has \(n\) edges, then the sum of the degrees of the vertices of \(G\) is equal to \(2n.\)"</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Handshaking Theorem</div>
+<div class="paragraph">
+<p>The sum of the degrees of the vertices of a graph \(G=\left(V,\ E\right)\) is equal to twice the number of edges
+in \(G\). That is, \(\displaystyle \sum_{v\in V}{d\left(v\right)=2\ \left|E\right|}\).</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A useful consequence of this to keep in mind is that the sum of the degrees of a graph is always even.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="_directed_graphs">14.4. Directed Graphs</h3>
+<h3 id="_directed_graphs">14.3. Directed Graphs</h3>
 <div class="paragraph">
 <p>The main focus of this chapter will be undirected simple graphs, but we will briefly discuss directed graphs in this section.</p>
 </div>
@@ -15748,25 +15643,20 @@ are,</p>
 <div class="paragraph">
 <p>The <strong>out-degree</strong> of a vertex \(w\) is the number of edges that have \(w\) as the initial index. The <strong>in-degree</strong> of a vertex \(w\) is the number of edges that have \(W\) as the terminal index.</p>
 </div>
-<div id="underlying_graph" class="sidebarblock">
+<div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <div class="title">Example 4 - A directed graph.</div>
-<p>The graph
-shown has
-vertex set
-\(\{A,B,C,D,E,F\}\) and
+<p>The graph \(G=(V,E)\) with vertex set
+\(V=\{A,B,C,D,E,F\}\)  and
 edge set
-\(\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}\).
+\(E=\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}\).
 The first coordinate of each edge is the initial vertex and the second coordinate is the terminal vertex.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/graph2.png" alt="graph2">
 </div>
-</div>
-<div class="paragraph">
-<p>Notice that the directed edges of this graph connect the same endpoints as the undirected edges of the graph in <a href=./graph_theory.html#simple_graph_example>this earlier example.</a> The undirected graph is referred to as the <strong>underlying graph</strong> of the directed graph.</p>
 </div>
 </div>
 </div>
@@ -15791,18 +15681,18 @@ can be used to represent the game "rock, paper, scissors."</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_simple_directed_graphs_a_formal_definition">14.4.1. Simple Directed Graphs: A Formal Definition</h4>
+<h4 id="_simple_directed_graphs">14.3.1. Simple Directed Graphs</h4>
 <div class="paragraph">
 <p>We can give a formal set-theoretic definition of simple directed graph as well. To indicate the directed edges, ordered pairs of vertices are used instead of 2-element sets.</p>
 </div>
 <div class="paragraph">
-<p>A <strong>simple directed graph</strong> \(G=\left(V,\ E\right)\) is an ordered pair consisting of a set \(V\) of objects called <strong>vertices</strong> (or <strong>nodes</strong>) and a set \(E\) of objects called <strong>directed edges.</strong>
-Each directed edge \(e\in\ E\) is an ordered pair of the form \(e=\left(x,y\right)\), where \(x\) and \(y\) are two different vertices in set \(V.\) For the directed edge \(e=\left(x,y\right),\) \(x\) is the <strong>initial vertex</strong> of \(e\) and \(y\) is the <strong>terminal vertex</strong> of edge \(e\).</p>
+<p>A <strong>simple directed graph</strong> \(G=\left(V,\ E\right)\) is an ordered pair consisting of a set \(V\) of objects called <strong>vertices</strong> (or <strong>nodes</strong>) and a set \(E\) of objects called <strong>edges</strong>.
+A <strong>directed edge</strong> \(e\in\ E\) is an ordered pair of the form \(e=\left(x,y\right)\), where the vertices \(x\) and \(y\) are two different elements of \(V\). Vertex \(x\) is the <strong>initial vertex</strong> of \(e\) and vertex \(y\)  is the <strong>terminal vertex</strong> of edge \(e\).</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_examples_of_simple_graphs">14.5. Examples of Simple Graphs</h3>
+<h3 id="_examples_of_simple_graphs">14.4. Examples of Simple Graphs</h3>
 <div class="paragraph">
 <p>In this section presents several classes of graphs.</p>
 </div>
@@ -15841,7 +15731,7 @@ Notice that \(K_{2,3}\) has an additional property: <em>Every</em> pair of verti
 </div>
 </div>
 <div class="sect2">
-<h3 id="_representing_simple_graphs">14.6. Representing Simple Graphs</h3>
+<h3 id="_representing_simple_graphs">14.5. Representing Simple Graphs</h3>
 <div class="paragraph">
 <p>In addition to the vertex-edge drawing, a simple graph can be represented in other ways that are more useful for computing.</p>
 </div>
@@ -15925,7 +15815,7 @@ If vertices \(u\) and \(v\) are adjacent (that is, connected by some edge), then
 </div>
 </div>
 <div class="sect2">
-<h3 id="_weighted_graphs">14.7. Weighted Graphs</h3>
+<h3 id="_weighted_graphs">14.6. Weighted Graphs</h3>
 <div class="paragraph">
 <p>In some applications, each edge of a graph has a <strong>weight,</strong> which is some nonnegative number. The weight could represent the physical distance between the two endpoint nodes, or could represent the cost to travel or transmit data between the endpoint nodes.</p>
 </div>
@@ -15954,14 +15844,14 @@ you place the the weight of the edge in the correct position of the adjacency ma
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_new_graphs_from_old_graphs">14.8. Creating New Graphs From Old Graphs</h3>
+<h3 id="_creating_new_graphs_from_old_graphs">14.7. Creating New Graphs From Old Graphs</h3>
 <div class="paragraph">
 <p>Given a set of one or more graphs, there are several ways to create new graphs using the graphs in the set.</p>
 </div>
 <div class="sect3">
-<h4 id="_subgraphs">14.8.1. Subgraphs</h4>
+<h4 id="_subgraphs">14.7.1. Subgraphs</h4>
 <div class="paragraph">
-<p>Given a simple graph \(G,\) you can form a <strong>subgraph</strong> \(H\) by choosing a subset of the vertices of \(G\) along with a subset of the edges of \(G\) such that each edge has endpoints in the set of vertices you chose. That is, \(H\) is a subgraph of \(G\) if \(H\) is a graph such that every vertex of \(H\) is a vertex of \(G\) and every edge of \(H\) is an edge of \(G.\)<br>
+<p>Given a simple graph \(G,\) you can form a <strong>subgraph</strong> \(H\) by choosing a subset of the vertices of \(G\) along with a subset of the edges of \(G\) such that each edge has endpoints in the set of vertices you chose. That is, \(H\) is a subgraph of \(G\) if \(H\) is a graph such that every vertex of \(H\) is a vertex of \(G\) and every edge of \(H\) is a vertex of \(G.\)<br>
 <span class="small">More formally, \(H = (V_{H}, E_{H})\) is a subgraph of \(G = (V,E)\) if and only if all three of the following statements are True: \(V_{H} \subseteq V,\) \(E_{H} \subseteq E,\) and for every edge \(e \in E_{H}\) the endpoints of \(e\) are in \(V_{H}.\)</span></p>
 </div>
 <div class="paragraph">
@@ -15999,7 +15889,7 @@ is called the subgraph <strong>induced</strong> by removing those vertices.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_unions_and_intersections_of_graphs">14.8.2. Unions and Intersections Of Graphs</h4>
+<h4 id="_unions_and_intersections_of_graphs">14.7.2. Unions and Intersections Of Graphs</h4>
 <div class="paragraph">
 <p>Given two simple graphs \(G_{1}\) and \(G_{2}\), you can form the <strong>union</strong> of the graphs by taking the union of the two sets of vertices to get a new set of vertices, and taking the union of the two sets of edges to get a new set of edges. Notice that any edge that is in both graphs will only appear once in the new graph because you took the union of the sets of edges, that is, you can&#8217;t create parallel edges by forming the union.</p>
 </div>
@@ -16009,7 +15899,7 @@ is called the subgraph <strong>induced</strong> by removing those vertices.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_graph_isomorphism">14.9. Graph Isomorphism</h3>
+<h3 id="_graph_isomorphism">14.8. Graph Isomorphism</h3>
 <div class="paragraph">
 <p>Recall that a graph is determined by its set of vertices and how those vertices are connected by edges, but <span class="underline">not</span> the drawing you use to represent the graph.</p>
 </div>
@@ -16150,7 +16040,7 @@ Look for rows and columns in the different matrices that are identical. The orde
 </div>
 </div>
 <div class="sect2">
-<h3 id="_graph_coloring">14.10. Graph Coloring</h3>
+<h3 id="_graph_coloring">14.9. Graph Coloring</h3>
 <div class="paragraph">
 <p>In some contexts, it can be useful to partition either the set of vertices or the set of edges of a graph into disjoint subsets to make it easier to understand the graph and the network it represents. This act of partitioning is usually referred to as "coloring" since using different colors can make it easy to see and interpret the properties of the partition when the graph is drawn.
 Notice that you could instead create the partition by assigning labels like "group 1," "group 2," and so on, to each vertex (or edge.)</p>
@@ -16214,7 +16104,7 @@ For example, the graph in the image shows that the complete bipartite graph \(K_
 </div>
 </div>
 <div class="sect2">
-<h3 id="_connectivity_of_undirected_graphs">14.11. Connectivity of Undirected Graphs</h3>
+<h3 id="_connectivity_of_undirected_graphs">14.10. Connectivity of Undirected Graphs</h3>
 <div class="paragraph">
 <p>A <strong>walk</strong> on a graph \(G=\left(V,E\right)\) is a finite, non-empty, alternating sequence of vertices and edges of the form, \(v_0e_1v_1e_2\ldots e_nv_n\), with vertices \(v_i\in V\) and edges \(e_i\in E\), where for each integer value of \(i \leq n\) the endpoints of \(e_i\) are the vertices \(v_{i-1}\) and \(v_i.\) The integer \(n\) is called the <strong>length</strong> of the walk.</p>
 </div>
@@ -16237,6 +16127,10 @@ For example, the graph in the image shows that the complete bipartite graph \(K_
 <div class="paragraph">
 <p>The <strong>distance</strong> \(d(u,v)\) between two vertices \(u\) and \(v\) in a graph \(G\) is the number of edges in a shortest path connecting them, assuming such a path exists.</p>
 </div>
+<div class="paragraph">
+<p><span class="small">Note that different textbooks use different terminology for walks, paths, and so on. The Remix uses terminology consistent with
+<a href=https://www.routledge.com/Handbook-of-Graph-Theory/Gross-Yellen-Zhang/p/book/9781439880180?srsltid=AfmBOoopymlQNVr5rlo05ShK51PGym1Kv1vJ47zHndypkoXdteehcoYw><em>Handbook of Graph Theory,</em> Second Edition</a> by Gross, Yellin, and Zhang.</span></p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -16255,7 +16149,7 @@ distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_connected_graphs">14.12. Connected Graphs</h3>
+<h3 id="_connected_graphs">14.11. Connected Graphs</h3>
 <div class="paragraph">
 <p>A graph \(G\) is <strong>connected</strong> if there is a path between any pair of vertices.</p>
 </div>
@@ -16285,7 +16179,7 @@ distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_eulerian_graphs">14.13. Eulerian Graphs</h3>
+<h3 id="_eulerian_graphs">14.12. Eulerian Graphs</h3>
 <div class="paragraph">
 <p>An <strong>Euler path</strong> on a graph is a path that uses each edge of the graph exactly once.</p>
 </div>
@@ -16325,7 +16219,7 @@ characterizations of graphs with Euler circuits and Euler paths and are due to L
 </div>
 </div>
 <div class="sect2">
-<h3 id="_hamiltonian_graphs">14.14. Hamiltonian Graphs</h3>
+<h3 id="_hamiltonian_graphs">14.13. Hamiltonian Graphs</h3>
 <div class="paragraph">
 <p>A cycle in a graph \(G\), is called a <strong>Hamiltonian cycle</strong> if every vertex,
 except for the starting and ending vertex, is visited exactly once.</p>
@@ -16352,7 +16246,7 @@ The second graph is not Hamiltonian.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_finding_a_shortest_path_in_a_weighted_graph_dijkstras_algorithm">14.15. Finding A Shortest Path in a Weighted Graph: Dijkstra&#8217;s Algorithm</h3>
+<h3 id="_finding_a_shortest_path_in_a_weighted_graph_dijkstras_algorithm">14.14. Finding A Shortest Path in a Weighted Graph: Dijkstra&#8217;s Algorithm</h3>
 <div class="paragraph">
 <p>In some applications of graph theory, you need to find a "shortest path" between two vertices of a weighted graph. In the context, shortest may mean "of least distance" but could mean "of least cost" or something else, depending on what the edge weights represent.</p>
 </div>
@@ -16369,15 +16263,16 @@ The second graph is not Hamiltonian.</p>
 <p>Task: Given two vertices \(a\) and \(z,\) find the edges of a path between the two vertices that has the minimum possible sum of weights.</p>
 </li>
 <li>
-<p>Input: The list \(V\) of all vertices of the graph, with the two vertices \(a\) and \(z\) specified, and the list \(E\) of all weighted edges of the graph.<br>
-<span class="small">For example, the input could be an adjacency matrix for the graph, with the first row of the matrix corresponding to \(a\) and the last row corresponding to \(z\).</span></p>
+<p>Input: The list \(V\) of all vertices of the graph, and the list \(E\) of all weighted edges of the graph.<br>
+<span class="small">For example, an adjacency matrix for the graph could be given.</span></p>
 </li>
 <li>
 <p>Steps:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Define four lists \(V_{chosen},\) \(V_{candidates},\) \(E_{chosen},\) and \(E_{candidates},\) and initialize each list as an empty list.<br></p>
+<p>Define lists \(V_{chosen},\) \(V_{candidates},\) \(E_{chosen},\) and \(E_{candidates}.\)<br>
+Initialize each of the four lists to the empty list.<br></p>
 </li>
 <li>
 <p>Append vertex \(a\) to the end of \(V_{chosen}.\)</p>
@@ -16390,12 +16285,18 @@ The second graph is not Hamiltonian.</p>
 <p>Set \(v\) to the last vertex appended to \(V_{chosen}.\)</p>
 </li>
 <li>
-<p>For each vertex \(w\) that is not in \(V_{chosen}\) but is adjacent to vertex \(v\)</p>
+<p>For each vertex \(w\) that is not in \(V_{chosen}\) but is connected to vertex \(v\)</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
-<p>If \(w\) is in \(V_{candidates}\)
-and the edge \(e\) that connects \(v\) and \(w\) is part of a path between \(a\) and \(w\) that has total weight less than the weight of the known path that uses the corresponding edge in list \(E_{candidates},\) remove that edge from \(E_{candidates}\) and append \(e\) to \(E_{candidates}.\)</p>
+<p>If \(w\) is in \(V_{candidates}\)</p>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p>If the edge \(e\) that connects \(v\) and \(w\) is part of a path between \(a\) and \(w\) that has total weight less than the weight of the known path that uses the corresponding edge in list \(E_{candidates},\) remove that edge from \(E_{candidates}\) and append \(e\) to \(E_{candidates}.\)</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>Otherwise, \(w\) is in neither list \(V_{chosen}\) nor list \(V_{candidates},\) so append vertex \(w\) to the end of \(V_{candidates}\) and append the edge \(e\) that connects \(v\) and \(w\) to the end of \(E_{candidates}.\)</p>
@@ -16439,26 +16340,36 @@ and the edge \(e\) that connects \(v\) and \(w\) is part of a path between \(a\)
 <div class="paragraph">
 <p>This <a href=https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm>Wikipedia page</a> has some animations that illustrate an alternate implementation of Dijkstra&#8217;s algorithm.</p>
 </div>
+<div class="sect3">
+<h4 id="_the_traveling_salesperson_problem_tsp">14.14.1. The Traveling Salesperson Problem (TSP)</h4>
+<div class="paragraph">
+<p>A traveling salesperson needs to visit a number of cities and then return to the starting point.To save time and energy, the salesperson wants to determine the shortest path for the trip.</p>
+</div>
+<div class="paragraph">
+<p>You can represent the cities and the distances between them by a weighted, complete, undirected graph.
+The problem then is to find a cycle of minimum total weight that visits each vertex exactly one.</p>
+</div>
+<div class="paragraph">
+<p>Notice that there are \(\frac{1}{2}(n-1)!\) different cycles for the specified starting point (division by 2 represents that we could reverse the cycle.)</p>
+</div>
+<div class="paragraph">
+<p>At present, there is no algorithm with polynomial worst-case time complexity to solve the TSP.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_the_traveling_salesperson_problem_tsp">14.16. The Traveling Salesperson Problem (TSP)</h3>
-<div class="paragraph">
-<p>The Traveling Salesperson Problem (TSP) can be stated as “A traveling salesperson needs to start in the home city, visit each of a number of other cities, and then return to the home city. What path should the salesperson take so that the total distance traveled is the least possible?”</p>
-</div>
-<div class="paragraph">
-<p>The TSP can be modeled using a graph. If there are \(n\) cities, you can represent each city as a vertex of the complete graph \(K_{n}\) and assign to each edge a weight equal to the distance between the cities at the endpoints. The TSP is solved by finding a Hamiltonian cycle of minimum total weight that visits each vertex exactly one.</p>
-</div>
-<div class="paragraph">
-<p>Notice that if you choose a vertex (city) as the starting and ending point, then there are \(\frac{1}{2}(n-1)!\) different Hamiltonian cycles (The division by 2 represents that you could reverse the direction of the cycle without changing the total distance traveled.)</p>
-</div>
-<div class="paragraph">
-<p>The brute-force solution examines every possible path and has time complexity \(O(n!),\) which is infeasible for even relatively small values of \(n.\) At present, there is no algorithm with polynomial worst-case time complexity that solves the TSP.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_additional_topics_will_be_added_to_this_chapter_soon">14.17. Additional topics will be added to this chapter soon!</h3>
+<h3 id="_additional_topics_will_be_added_to_this_chapter_soon">14.15. Additional topics will be added to this chapter soon!</h3>
 <div class="ulist">
 <ul>
+<li>
+<p>Traveling Salesperson Problem (TSP)</p>
+</li>
+<li>
+<p>Algorithms for Graphs</p>
+</li>
+<li>
+<p>Shortest-path algorithms (Dijkstra’s and Floyd’s algorithms)</p>
+</li>
 <li>
 <p>Transitive closure (Floyd’s algorithm)</p>
 </li>
@@ -16480,7 +16391,8 @@ and the edge \(e\) that connects \(v\) and \(w\) is part of a path between \(a\)
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on July 15, 2025.</em><br></p>
+<p><em>This chapter was last updated on May 7, 2025.</em><br>
+<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
 </div>
 <div class="paragraph">
 <p>A <strong>tree</strong> is a connected simple graph that contains no cycles.
@@ -16496,59 +16408,41 @@ Trees are used to model decisions, to sort data, and to optimize networks.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Definition of “tree” and “forest”</p>
+<p>Properties</p>
 </li>
 <li>
-<p>Properties of trees</p>
+<p>trees (binary, spanning)</p>
+</li>
+<li>
+<p>expression trees</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Traversal strategies</p>
+</li>
+<li>
+<p>Spanning trees/forests</p>
 </li>
 <li>
 <p>Spanning trees</p>
 </li>
 <li>
-<p>Binary trees</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Traversal strategies</p>
-</li>
-<li>
-<p>Expression trees</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<p>tree traversals</p>
 </li>
 </ul>
 </div>
 <div class="sect2">
 <h3 id="_definitions_examples_and_properties_of_trees_and_forests">15.1. Definitions, Examples, and Properties of Trees and Forests</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-In this chapter, all graphs are assumed to be undirected (that is, have no directed edges) unless stated otherwise.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Recall that a simple graph has no loops and no parallel edges, that is, no edge connects a vertex to itself, and no two edges can connect the same pair of vertices. In a simple graph, each edge is determined by its two vertices.</p>
 </div>
 <div class="paragraph">
-<p>Recall that a simple graph has no loops and no parallel edges.</p>
+<p>A <strong>tree</strong> is an undirected simple graph that is connected and has no cycles, which you may recall are paths that start and end at the same vertex. Some sources use the term <strong>acyclic</strong> to mean "has no cycles."</p>
 </div>
 <div class="paragraph">
-<p>Also, recall that a cycle in a graph is a path that starts and ends at the same vertex.</p>
-</div>
-<div class="paragraph">
-<p>A <strong>tree</strong> is
-a
-simple graph that is connected and has no cycles. Some sources use the term <strong>acyclic</strong> to mean "has no cycles."</p>
-</div>
-<div class="paragraph">
-<p>A <strong>forest</strong> is the union of several trees. In other words, a forest is a simple graph that has one or more connected components, where each connected component is a tree.</p>
+<p>A <strong>forest</strong> is the union of several trees. A forest is a simple graph that has one or more connected components, where each connected component is a tree.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -16565,17 +16459,10 @@ simple graph that is connected and has no cycles. Some sources use the term <str
 <div class="content">
 <div class="title">Theorem</div>
 <div class="paragraph">
-<p>Suppose that \(G\) is a simple graph. The following statements are logically equivalent.</p>
+<p>Suppose that \(G\) is a undirected simple graph.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>\(G\) is a tree.</p>
-</li>
-<li>
-<p>\(G\) is a simple graph such that for each pair of vertices of \(G\) there is exactly one path between the vertices.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>\(G\) is a tree if and only for every pair of vertices of \(G\) there is exactly one path between the vertices.</p>
 </div>
 <div class="openblock proof">
 <div class="title">Proof</div>
@@ -16585,7 +16472,7 @@ simple graph that is connected and has no cycles. Some sources use the term <str
 </div>
 </div>
 <div class="paragraph">
-<p>First, assume that \(G\) is a tree; we will prove, using proof by contradiction, that for every pair of vertices of \(G\) there is <em>exactly one</em> path between the vertices. By assumption, \(G\) is connected and for every pair of vertices in \(G\) there is <em>at least one</em> path joining those two vertices, so we only need to show that there cannot be two different paths that connect the same pair of vertices. To work toward a contradiction, let&#8217;s suppose that for some pair of vertices \(u\) and \(v\) there are two different paths between \(u\) and \(v;\) then we can start to go from \(u\) to \(v\) along a first path and then “turn around and go back” to \(u\) along a second path. This means that there must be a cycle in \(G\) that starts and ends at \(u.\)<br></p>
+<p>First, assume that \(G\) is a tree; we will prove, using proof by contradiction, that for every pair of vertices of \(G\) there is <em>exactly one</em> path between the vertices. By assumption, \(G\) is connected and for every pair of vertices in \(G\) there is a least one path joining those two vertices, so we only need to show that there cannot be two different paths that connect the same pair of vertices. So suppose that for some pair of vertices \(u\) and \(v\) there are two different paths between \(u\) and \(v,\) then we can start to go from \(u\) to \(v\) along a first path and then "turn around" and go back to \(u\) along a second path. This means that there must be a cycle in \(G\) that starts and ends at \(u.\)<br></p>
 </div>
 <div class="openblock click">
 <div class="title">Why must there be a cycle?</div>
@@ -16600,28 +16487,10 @@ If the two paths have some common edges or vertices, we can use only part of eac
 <p>To continue with the proof by contradiction, we&#8217;ve shown that there is a cycle in \(G,\) but this contradicts the assumption that \(G\) is a tree that has no cycles. This means that the assumption "there is a pair of vertices in \(G\) that are connected by two different paths" must be False. We have proven that for any pair of vertices in \(G\) there is <em>exactly one</em> path joining that pair of vertices.</p>
 </div>
 <div class="paragraph">
-<p>Secondly, assume that
-\(G\) is a simple graph and that
-for every pair of vertices of \(G\) there is exactly one path between the vertices. We will prove, using proof by contradiction, that \(G\) must be a tree. By assumption, \(G\) is connected because for any pair of vertices there is a path between those vertices, so we only need to prove that \(G\) has no cycles.
-To reach a contradiction, let&#8217;s suppose that \(G\) does have a cycle
-of the form
-\(v_{0}v_{1} \cdots v_{n-1}v_{n}\) where \(v_{0} = v_{n}\) (that is, \(v_{0}\) and \(v_{n}\) are the same vertex, but no other vertex is repeated in the cycle.)
-Notice that, because \(G\) is a simple graph, the integer \(n\) must be greater than or equal to 3.<br></p>
-</div>
-<div class="openblock click">
-<div class="title">Why must n be greater than or equal to 3?</div>
-<div class="content">
-<div class='click_oblique'>
-<span class="small">Notice that \(n\) must be positive since there are at least two vertices in the path.<br>
-If \(n=1\) then the cycle is \(v_{0}v_{1}\) where \(v_{0} = v_{1},\) but this cycle consists of a single loop, which contradicts that \(G\) is a simple graph that has no loops.<br>
-If \(n=2\) then the cycle is \(v_{0}v_{1}v_{2}\) where \(v_{0} = v_{2},\) but this cycle would use the same edge twice which contradicts the definition of a cycle.<br>
-This shows that \(n \geq 3.\)</span><br>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>This means that
-we have two different paths, \(v_{0}v_{1}\) and \(v_{1} \cdots v_{n},\) between \(v_0\) and \(v_1\) (because \(v_{0}\) and \(v_{n}\) are the same vertex.) Now we can reverse the order of vertices in the second path to get two different paths between the vertices \(v_{0}\) and \(v_{1}\) - but we assumed that for every pair of vertices of \(G\) there is exactly one path between those vertices. We have derived a contradiction, which means that \(G\) cannot have a cycle. Therefore, \(G\) is connected and has no cycles, which is the definition of a tree, so \(G\) is a tree.</p>
+<p>Secondly, assume that for every pair of vertices of \(G\) there is exactly one path between the vertices. We will prove, using proof by contradiction, that \(G\) must be a tree. By assumption, \(G\) is connected because for any pair of vertices there is a path between those vertices, so we only need to prove that \(G\) has no cycles.
+So suppose that \(G\) does have a cycle \(v_{0}v_{1} \cdots v_{n-1}v_{n}\) where \(v_{0} = v_{n}\) (that is, \(v_{0}\) and \(v_{n}\) are the same vertex, but no other vertex is repeated in the cycle.)
+Notice that, because \(G\) is a simple graph, the integer \(n\) must be greater than or equal to 3, so
+we have two different trails, \(v_{0}v_{1}\) and \(v_{1} \cdots v_{n},\) between \(v_0\) and \(v_1\) (Recall that \(v_{0}\) and \(v_{n}\) are the same vertex.) Now reverse the order of vertices in the second path to get two different paths between the vertices \(v_{0}\) and \(v_{1}\) - but we assumed that for every pair of vertices of \(G\) there is exactly one trail between those vertices. We have gotten a contradiction, which means that \(G\) cannot have a cycle. Therefore, \(G\) is connected and has no cycles, which by definition means that \(G\) is a tree.</p>
 </div>
 <div class="paragraph">
 <p>Q.E.D.</p>
@@ -16665,8 +16534,7 @@ If a tree has \(2\) vertices, then since a tree is a connected simple graph, the
 <p>Assume that \(P(k)\) is True for the positive integer \(k,\) that is, if a tree has \(k\) vertices then the tree has \(k-1\) edges.
 We can assume \(k \geq 2\) since the cases when \(k \in \{ 1, 2 \}\) were proved in the Basis Step. Suppose that we have a tree \(T\) that has \(k+1\) vertices; we will prove that the tree must have \(k\) edges.
 First, there must be at least one vertex \(v\) in \(T\) such that the degree of \(v\) is \(1:\) If every vertex had at least degree \(2,\) then we could find a cycle in \(T\) which cannot be True since \(T\) is a tree.
-Remove one vertex \(v\) that has degree \(1\) along with the edge that has \(v\) as an endpoint to obtain the subgraph \(T-v.\)
-Notice that for every pair of vertices of \(T-v\) there is exactly one path between the vertices, and applying the previous theorem shows that \(T-v\) is a tree. Also, \(T-v\) has \(k\) vertices because we removed only \(v,\) so we can apply the Induction Hypothesis to conclude that \(T-v\) has \(k-1\) edges. Now, reinsert vertex \(v\) and the edge that was removed to obtain the tree \(T\) that has \(k+1\) vertices and \(k\) edges. Therefore, if \(P(k)\) is True then \(P(k+1)\) is True, too. That is, \(P(k) \rightarrow P(k+1)\).</p>
+Remove one vertex \(v\) that has degree \(1\) along with the edge that has \(v\) as an endpoint to obtain the subgraph \(T-v.\) Notice that for every pair of vertices of \(T-v\) there is exactly one trail between the vertices, so from the previous theorem, \(T-v\) is a tree. Also, \(T-v\) has \(k\) vertices because we removed only \(v,\) and we can apply the Induction Hypothesis to conclude that \(T-v\) has \(k-1\) edges. Now reinsert vertex \(v\) and the edge that was removed to obtain the tree \(T\) that has \(k+1\) vertices and \(k\) edges. Therefore, if \(P(k)\) is True then \(P(k+1)\) is True, too. That is, \(P(k) \rightarrow P(k+1)\).</p>
 </div>
 <div class="paragraph">
 <p><strong>Conclusion Step:</strong> We have proven both the Basis Step and the Induction Step. Therefore, we can use <em>universal generalization</em> to conclude that
@@ -16679,465 +16547,41 @@ for all positive integers \(n,\) if a tree has \(n\) vertices then the tree has 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spanning_trees_and_spanning_forests">15.2. Spanning Trees and Spanning Forests</h3>
+<h3 id="_additional_topics">15.2. Additional Topics</h3>
 <div class="paragraph">
-<p>Recall that a subgraph of a graph \(G\) is a graph \(H\) such that every vertex of \(H\) is a vertex of \(G\) and every edge of \(H\) is a edge of \(G\) (with both endpoints in the vertex set of \(H.\))</p>
-</div>
-<div class="paragraph">
-<p>A <strong>subtree</strong> of a graph \(G\) is a subgraph of \(G\) that is also a tree.
-Likewise, a <strong>subforest</strong> of \(G\) is a subgraph of \(G\) that is also a forest.</p>
-</div>
-<div class="paragraph">
-<p>A <strong>spanning tree</strong> of a graph \(G\) is a subgraph of \(G\) that is a tree that includes all the vertices of \(G.\)
-Likewise, a <strong>spanning forest</strong> of a graph \(G\) is a subgraph of \(G\) that is a forest that includes all the vertices of \(G.\)</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="imagesMKD/three_spanning_trees.png" alt="three_spanning_trees" width="439" height="354">
-</div>
-</div>
-<div class="paragraph">
-<p>The image shows the graph \(K_{4}\) along with three spanning trees.</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="imagesMKD/not_spanning_trees.png" alt="not_spanning_trees" width="325" height="380">
-</div>
-</div>
-<div class="paragraph">
-<p>The image shows the graph \(K_{4}\) along with a subgraph that is a subtree that is not a spanning tree, and also a subgraph that is a spanning forest.</p>
-</div>
-<div class="paragraph">
-<p>Spanning trees are used to solve problems that involve simplifying or optimizing networks. You can learn more about some of the applications of spanning trees at this  <a href=https://en.wikipedia.org/wiki/Spanning_tree#Applications>Wikipedia page.</a></p>
-</div>
-<div class="paragraph">
-<p>The following subsection presents one such application.</p>
-</div>
-<div class="sect3">
-<h4 id="_minimal_weight_spanning_trees_in_weighted_graphs">15.2.1. Minimal-Weight Spanning Trees in Weighted Graphs</h4>
-<div class="paragraph">
-<p>In some applications of graphs with weighted edges, you may need to find a spanning tree that has the minimal total weight possible, that is, a spanning tree with sum of edge weights less than or equal to the corresponding sum for any other spanning tree.
-Such a spanning tree is referred to as a <strong>minimal-weight spanning tree.</strong><br>
-<span class="small">Note: Many textbooks and sources use the term <strong>minimum length spanning tree</strong> because the use of these spanning trees historically arose in problems that involved physical distances between nodes of a network. Other sources use the term <strong>minimum spanning tree,</strong> abbreviated as <strong>MST.</strong></span></p>
-</div>
-<div class="paragraph">
-<p>As an example, the image shows a weighted graph along with all three possible spanning trees. The minimal-weight spanning tree, with total weight 6, is drawn on the lower left.</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="imagesMKD/graph5_MKDrevMST01.png" alt="graph5_MKDrevMST01" width="757" height="353">
-</div>
-</div>
-<div class="paragraph">
-<p>Notice that for the graph in the image, it was both easy and efficient to use “brute force” to look at <em>all</em> of the spanning trees and compute <em>all</em> of the sums of weights for those spanning trees.
-For weighted graphs that have many more vertices and/or edges, you will need to use a more efficient problem-solving strategy. This textbook discusses one such strategy, Kruskal&#8217;s algorithm, in detail.</p>
-</div>
-<div class="sect4">
-<h5 id="_kruskals_algorithm">Kruskal&#8217;s Algorithm</h5>
-<div class="paragraph">
-<p>Joseph Kruskal published a <a href=https://www.jstor.org/stable/2033241>paper</a> in 1956 that describes an algorithm for constructing “the shortest spanning subtree” of a connected simple graph (Kruskal assumed that the graph has only finitely-many edges, and that each edge has a positive weight which represents the distance between its endpoints.)</p>
+<p><mark>Students in CSC 230 Spring 2025 can refer to the slide decks (from Spring 2024 and Fall 2024) that are posted in <a href=https://sfsu.instructure.com/>Canvas.</a></mark></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Task: Given a connected graph \(G = (V,E)\) with weighted edges, construct a spanning tree of \(G\) that has the minimal possible sum of weights.</p>
-</li>
-<li>
-<p>Input: The list \(E\) of all weighted edges of the graph.</p>
-</li>
-<li>
-<p>Steps:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Sort the list of edges \(E\) so that each edge \(e_{k}\) in the list has a weight that is less than or equal to the next edge \(e_{k+1}\) in the list.</p>
-</li>
-<li>
-<p>Define the list \(E_{chosen}\) and initialize it as an empty list.</p>
-</li>
-<li>
-<p>Set integer index variable \(i\) to 0.</p>
-</li>
-<li>
-<p>While \(i\) is less than \(|E|,\) the number of edges</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>If it is impossible to form a cycle using edge \(e_{i}\) along with some (or all) of the edges in list \(E_{chosen}\)</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>Append \(e_{i}\) to \(E_{chosen}\)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Increment \(i\) by 1</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Output: The list \(E_{chosen}\) of weighted edges.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Notice that the output list \(E_{chosen}\) was constructed so that its edges cannot be used to form a cycle in the graph \(G.\) Also, since the graph \(G\) is assumed to be connected, every vertex will be the endpoint of at least one edge in \(E_{chosen},\) so that the graph with vertex set \(V\) and edge set \(E_{chosen}\) will be a spanning tree of \(G.\)</p>
-</div>
-<div class="paragraph">
-<p>Also notice that
-the condition for the while loop can be changed to “while \(|E_{chosen}| < |V| - 1\)” since a spanning tree must have one fewer edges than vertices.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<div class="title">Example 1 - An example of using Kruskal&#8217;s algorithm</div>
-<p>The image shows a drawing of a simple weighted graph along with all three possible spanning trees.</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="imagesMKD/graph5_MKDrevMST01.png" alt="graph5_MKDrevMST01" width="757" height="353">
-</div>
-</div>
-<div class="paragraph">
-<p>The minimal-weight spanning tree, with total weight 6, is drawn on the lower left.</p>
-</div>
-<div class="paragraph">
-<p>Let&#8217;s trace through the steps of Kruskal&#8217;s algorithm to examine how this minimal-weight spanning tree is constructed. The following table represents the input to the algorithm: A list of all the edges of the graph, along with their corresponding weights.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 30%;">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-top"><strong>Edge</strong></th>
-<th class="tableblock halign-center valign-top"><strong>Weight</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>{c, d}</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>1</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>{a, b}</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>2</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>{b, c}</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>3</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>{a, c}</em></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>5</em></p></td>
-</tr>
-</tbody>
-</table>
+<p>Spanning Trees and Spanning Forests</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Steps:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Sort the list of edges of the graph in order of increasing weight (This has already been done in the table shown.)</p>
-</li>
-<li>
-<p>Set \(E_{chosen}\) to the empty list.</p>
-</li>
-<li>
-<p>Set the index \(i\) to 0.</p>
-</li>
-<li>
-<p>Enter the while loop.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">\(i=0\)</dt>
-<dd>
-<p>\(i\) is less than 4, and it is impossible to form a cycle using \(\{c, d\}\) alone,<br>
-so set \(E_{chosen}\) to \([\{c, d\}\)] and set \(i\) to 1.</p>
-</dd>
-<dt class="hdlist1">\(i=1\)</dt>
-<dd>
-<p>\(i\) is less than 4, and it is impossible to form a cycle using \(\{a, b\}\) along with the edge in \(E_{chosen} = [\{c, d\}\)]<br>
-so set \(E_{chosen}\) to \([\{c, d\} , \{a, b\}\)] and set \(i\) to 2.</p>
-</dd>
-<dt class="hdlist1">\(i=2\)</dt>
-<dd>
-<p>\(i\) is less than 4, and it is impossible to form a cycle using \(\{b, c\}\) along with the edges in \(E_{chosen} = [\{c, d\} , \{a, b\}\)]<br>
-so set \(E_{chosen}\) to \([\{c, d\} , \{a, b\}, \{b, c\}\)] and set \(i\) to 3.</p>
-</dd>
-<dt class="hdlist1">\(i=3\)</dt>
-<dd>
-<p>\(i\) is less than 4, but it <em>is possible</em> to form a cycle using \(\{a, c\}\) along with the edges in \(E_{chosen} = [\{c, d\} , \{a, b\}, \{b, c\}\)] <br>
-so make no change to \(E_{chosen}\) and set \(i\) to 4.</p>
-</dd>
-<dt class="hdlist1">\(i=4\)</dt>
-<dd>
-<p>Since \(i\) is not less than 4, exit the while loop.</p>
-</dd>
-</dl>
-</div>
-</li>
-</ol>
-</div>
+<p>Kruskal’s Algorithm</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>The output is \(E_{chosen} = [\{c, d\} , \{a, b\}, \{b, c\}\)] which is the list of edges used in the spanning tree drawn on the lower left of the image. That is, in at least this one case, the algorithm does construct a minimal-weight spanning tree.</p>
-</div>
-<div class="openblock question">
-<div class="title">Question</div>
-<div class="content">
-<div class='click_oblique'>
-How could you validate Kruskal&#8217;s algorithm?<br>
-That is, how could you prove that Kruskal&#8217;s algorithm must construct a minimal-weight spanning tree for any input graph that is connected and has finitely-many weighted edges?
-</div>
-</div>
-</div>
-<div class="openblock click">
-<div class="title">Hint</div>
-<div class="content">
-<div class='click_oblique'>
-Try to create a predicate that you could prove True for all natural numbers by using mathematical induction.
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Here is an exercise for you to try.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<div class="title">Check Your Understanding</div>
-<p>Use Kruskal&#8217;s algorithm to find the minimal-weight spanning tree for the following graph.</p>
-</div>
-<div class="imageblock right text-center">
-<div class="content">
-<img src="imagesMKD/K10-US-airports.png" alt="K10-US-airports" width="225" height="207">
-</div>
-</div>
-<div class="paragraph">
-<p>The image shows a graph with vertices representing ten of the busiest airports, by total cargo throughput, in the United States of America. Each vertex is labeled with the International Air Transport Association code for one of the airports, and
-each edge represents the route between the two airports at the endpoints.
-<br>
-<span class="small">Image credit: Remixer-created derivative of original work  <a href=https://commons.wikimedia.org/wiki/File:9-simplex_graph.png>"9-simplex graph.png"</a>. The original work has been released into the public domain by its author, Tomruen at English Wikipedia. This applies worldwide.</span></p>
-</div>
-<div class="paragraph">
-<p>This table lists each edge with its corresponding weight.</p>
-</div>
-<iframe src="./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt"></iframe>
-<div class="paragraph">
-<p><span class="small">You can download the table as a <a href=./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt>tab-delimited text file</a> to import the data into a spreadsheet app to sort the list.</span></p>
-</div>
-<div class="paragraph">
-<p>You also can view the graph
-as a map of the routes between the airports
-at Markus Englund&#8217;s  <a href=https://www.greatcirclemap.com/?color=%23E2B124&amp;label=iata&amp;routes=ANC-CVG%0AANC-IND%0AANC-JFK%0AANC-LAX%0AANC-MEM%0AANC-MIA%0AANC-ONT%0AANC-ORD%0AANC-SDF%0A%0ACVG-IND%0ACVG-JFK%0ACVG-LAX%0ACVG-MEM%0ACVG-MIA%0ACVG-ONT%0ACVG-ORD%0ACVG-SDF%0A%0AIND-JFK%0AIND-LAX%0AIND-MEM%0AIND-MIA%0AIND-ONT%0AIND-ORD%0AIND-SDF%0A%0AJFK-LAX%0AJFK-MEM%0AJFK-MIA%0AJFK-ONT%0AJFK-ORD%0AJFK-SDF%0A%0ALAX-MEM%0ALAX-MIA%0ALAX-ONT%0ALAX-ORD%0ALAX-SDF%0A%0AMEM-MIA%0AMEM-ONT%0AMEM-ORD%0AMEM-SDF%0A%0AMIA-ONT%0AMIA-ORD%0AMIA-SDF%0A%0AONT-ORD%0AONT-SDF%0A%0AORD-SDF%0A>Great Circle Map</a> website.</p>
-</div>
-<div class="paragraph">
-<p>Try to work this out on your own, then confirm that you correctly found the minimal-weight spanning tree by clicking to see the answer below.</p>
-</div>
-<div class="openblock click">
-<div class="title">Answer</div>
-<div class="content">
-<div class='click_oblique'>
-
-The image shows the edges of the minimal-weight spanning tree in orange.
-
-<span class="image right"><img src="imagesMKD/K10-US-airports-spanning-tree.png" alt="K10-US-airports-spanning-tree" width="225" height="207"></span><br>
-<span class="small">Image credit: Remixer-created derivative of original work  <a href=https://commons.wikimedia.org/wiki/File:9-simplex_graph.png>"9-simplex graph.png"</a>. The original work has been released into the public domain by its author, Tomruen at English Wikipedia. This applies worldwide.</span><br>
-<br>
-The table lists the edges of the minimal-weight spanning tree.
-+
-<iframe src="./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024_spanning_tree.txt"></iframe>
-+
-<br>
-A map view of the minimal-weight spanning tree can be seen at the <a href=https://www.greatcirclemap.com/?color=%23ED8744&amp;label=iata&amp;routes=LAX-ONT%0ACVG-SDF%0ACVG-IND%0AIND-ORD%0AMEM-SDF%0ACVG-JFK%0AMEM-MIA%0AMEM-ONT%0AANC-LAX%0A>Great Circle Map</a> website.
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_other_algorithms_for_minimal_weight_spanning_trees">Other Algorithms for Minimal-Weight Spanning Trees</h5>
-<div class="paragraph">
-<p>Among the
-other algorithms that can be used to find a minimal-weight spanning tree
-are
-<a href=https://en.wikipedia.org/wiki/Bor%C5%AFvka%27s_algorithm>Borůvka&#8217;s algorithm</a> and <a href=https://en.wikipedia.org/wiki/Prim%27s_algorithm>Prim&#8217;s algorithm</a> (also known as the DJP algorithm.) You can learn more about these and other algorithms and their history starting with this section of the  <a href=https://en.wikipedia.org/wiki/Minimum_spanning_tree#Classic_algorithms>Wikipedia page</a> about MSTs, as well as the section  <a href=https://www.appliedcombinatorics.org/book/s_graphalgorithms_historical-notes.html>Historical Notes</a> from <em>Applied Combinatorics</em> by Keller and Trotter.</p>
-</div>
-<div class="paragraph">
-<p>In 2002, Pettie and Ramachandran published a <a href=https://dl.acm.org/doi/10.1145/505241.505243>paper</a> for an optimal minimum spanning tree algorithm.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_rooted_trees_section_under_construction">15.3. Rooted Trees <mark>SECTION UNDER CONSTRUCTION!</mark></h3>
-<div class="paragraph">
-<p>The set of <strong>rooted trees</strong> is defined recursively as follows.</p>
-</div>
-<div class="hdlist">
-<table>
-<tr>
-<td class="hdlist1">
-Basis Step
-</td>
-<td class="hdlist2">
-<p>A single vertex <em>r</em> is a rooted tree.
-The vertex <em>r</em> is called the <strong>root node</strong> of this rooted tree.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Recursion
-</td>
-<td class="hdlist2">
-<p>Suppose that you have already constructed <em>n</em> rooted trees \(T_{1}, \, \ldots \, T_{n}\) where <em>n</em> is a positive integer and for each positive integer \(i \leq n,\) the root node of \(T_{i}\) is the vertex \(r_{i}.\)<br>
-If both of the propositions<br>
-	(1) No vertex is in more than one of \(T_{1}, \, \ldots \, T_{n}.\)<br>
-	(2) No edge has endpoints in two of \(T_{1}, \, \ldots \, T_{n}.\)<br>
-are True, then you can construct a new rooted tree by first creating a new root node <em>r</em> that is not a vertex of any of the rooted trees \(T_{1}, \, \ldots \, T_{n}\) and then creating <em>n</em> new edges, with one edge between <em>r</em> and each of the old root nodes \(r_{1}, \, \ldots \, r_{n}\) (which are now the root nodes of subtrees.)</p>
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="imagesMKD/RootedTreeRecursionV2.png" alt="RootedTreeRecursionV2" width="590" height="234">
-</div>
-</div>
-<div class="paragraph">
-<p>The image shows the basis step and represents, in part, the results of the first and second
-uses of the recursion step.
-Rooted trees are usually drawn so that the root node appears at the top of the tree.</p>
-</div>
-<div class="paragraph">
-<p>Notice that any one particular rooted tree you want to construct requires only finitely many uses of the recursion step.
-However, infinitely-many rooted trees are constructed at each use of the recursion step.
-Also, infinitely-many uses of the recursion step are needed to construct <em>all possible</em> rooted trees.</p>
-</div>
-<div class="paragraph">
-<p>Much, but not all, of the terminology used with rooted trees is borrowed from “family trees.”</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The new root node \(r\) added in the recursion step is called the <strong>parent</strong> of the old root nodes \(r_{1}, \, \ldots \, r_{n},\)
-and
-each of the old root nodes \(r_{1}, \, \ldots \, r_{n}\) is a <strong>child</strong> of \(r.\) The nodes \(r_{1}, \, \ldots \, r_{n}\) collectively are called the <strong>children</strong> of \(r.\)</p>
 </li>
 <li>
-<p>Two or more vertices with the same parent are called <strong>siblings.</strong></p>
-</li>
-<li>
-<p>A node that has no children is called a <strong>leaf.</strong></p>
-</li>
-<li>
-<p>A node that has one or more children is called an <strong>internal node.</strong></p>
-</li>
-<li>
-<p>The <strong>depth</strong> of node \(v\) in a rooted tree is the length of the shortest path from the root node \(r\) to the node \(v.\) This is also called the <strong>level</strong> of the node $v.*<br>
-<span class="small">We will prove later in this chapter that there is exactly one path between \(r\) and \(v.\)</span></p>
-</li>
-<li>
-<p>A <strong>level</strong> of a rooted tree is the set of all nodes at the same depth. For example, level 1 is the set of all the child nodes of the root node. Level 0 is the set containing only the root node.</p>
-</li>
-<li>
-<p>The <strong>height</strong> of a rooted tree is the maximum of the depths of all the nodes in the rooted tree.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>As mentioned earlier,
-rooted trees are usually drawn with the root node at the top of the tree,
-so each edge can be viewed as “pointing away” from the root node, from a parent node down into a child node&#8217;s subtree.<br>
-<span class="small">Note: In fact, many sources define rooted trees to be <em>directed graphs</em> by using directed edges in the recursion step, replacing the phrase “with one edge between <em>r</em> and each of the old root nodes” by the phrase “with one directed edge from <em>r</em> to each of the old root nodes” so that each of the \(n\) new edges is a directed edge with the new root node \(r\) as its initial vertex and one of the old root nodes \(r_{i}\) as its terminal vertex. However, even if the rooted tree is defined using directed edges, the rooted tree is usually drawn as if the edges are undirected, since drawing the root at the top of tree makes it clear which way the edges should be directed.
-Each rooted tree as defined in this textbook corresponds to <a href=./graph_theory.html#underlying_graph>the underlying graph</a> of a directed-edge rooted tree.</span></p>
-</div>
-<div class="paragraph">
-<p>The next lemma shows that the set of rooted trees is essentially the same as the set of trees that have a finite number of vertices.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="olist arabic">
-<div class="title">Lemma</div>
-<ol class="arabic">
-<li>
-<p>If \(G\) is a rooted tree, then \(G\) is a tree that has finitely many vertices.</p>
-</li>
-<li>
-<p>If \(G\) is a tree that has finitely many vertices, then \(G\) can be constructed as a rooted tree.</p>
-</li>
-</ol>
-</div>
-<div class="openblock click">
-<div class="title">Proof outline</div>
-<div class="content">
-<div class='click_oblique'>
-First, suppose that \(G\) is a rooted tree.
-Use strong induction on the number of recursion steps needed to construct the rooted tree to prove that \(G\) must be a simple graph such that for each pair of vertices, there is exactly one path between the vertices.
-In more detail, there is only one path between two vertices of a rooted tree that was constructed using the recursion step only one time: All paths must pass through the root node. For the induction step, any path of a rooted tree constructed using the recursion step \(k+1\) times will either pass through the new root node or one of the subtree&#8217;s root node (and the induction hypothesis applies to each of the subtrees since they were constructed using fewer than \(k+1\) applications of the recursion step.)
-Now use the theorem from the first section of the chapter to conclude that \(G\) must be a tree, that is, \(G\) must be a connected simple graph with no cycles.
-That \(G\) must have finitely many vertices follows from the recursive definition of “rooted tree” since at most finitely many vertices are introduced each time the recursion step is used.<br>
-<br>
-Secondly, suppose that \(G\) is a tree
-that has finitely many vertices.
-Use strong induction on the number of vertices to prove that \(G\) can be constructed as a rooted tree (with undirected edges.)
-In more detail, choose any vertex \(r\) of \(G\) to be the root node, then remove \(r\) and any edges incident to \(r\) to create a forest of subtrees \(T_{1}, \, \ldots \, T_{n}\) where \(n\) is the number of trees in the forest.
-Since each of the subtrees is either a single vertex (which is the basis case for rooted trees) or a tree that contains fewer vertices than \(G,\) we can apply the induction hypothesis to each of the subtrees to show that the subtree can be constructed as a rooted tree. Now apply the recursion step in the definition of rooted trees to reconnect the root nodes of \(T_{1}, \, \ldots \, T_{n}\) to \(r\) using the edges that had been removed. This shows that \(G\) can be constructed as a rooted tree.
-It is important to note that, if the direction of the edges matters, you will get a different rooted tree if you choose a different root node (that is, the implied directions of edges will be different even though the underlying undirected graphs will be isomorphic copies of \(G.\))
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_binary_trees_section_under_construction">15.4. Binary Trees <mark>SECTION UNDER CONSTRUCTION!</mark></h3>
-<div class="paragraph">
-<p>For any positive integer \(m,\) an <strong>m-ary tree</strong> is defined to be a rooted tree in which each internal node has at most \(m\) children.</p>
-</div>
-<div class="paragraph">
-<p>A <strong>binary tree</strong> is a 2-ary tree, or more simply, a rooted tree in which each internal node has at most two children. In a binary tree, the root node is the parent of at most two subtrees \(T_{1},\) called the <strong>left subtree,</strong> and \(T_{2},\) called the <strong>right subtree.</strong> Notice that it is allowable for either subtree to be absent (that is, empty).<br>
-<span class="small">Note: Some sources allow for a binary tree to have no vertices or edges. Mathematically speaking, this “empty binary tree” is not a rooted tree since it has no root node. In computer science, an empty binary tree is useful for implementing binary trees as data structures since an empty binary subtree can be represented by a null pointer. As an example, a leaf node can be recognized as one whose left child and right child pointers are both null vectors.</span></p>
-</div>
-<div class="paragraph">
-<p>Here is some additional terminology for binary trees.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A binary tree is a <strong>full binary tree</strong> if
-all internal nodes have exactly two children.</p>
-</li>
-<li>
-<p>A binary tree is a <strong>complete binary tree</strong> if
-is one where every level, except possibly the last, is filled and
-all nodes in the last level are as far left as possible.<br>
-<span class="small">Note that a complete binary tree is not a complete graph. Mathematicians and computer scientists recycle certain words like “complete.”</span></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_additional_topics_to_be_added_later">15.5. Additional Topics To Be Added Later</h3>
+<p>Binary Trees</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Tree Traversal Strategies</p>
+</li>
+<li>
+<p>Expression Trees</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Algorithms for Binary search trees</p>
 <div class="ulist">
 <ul>
 <li>
@@ -17145,9 +16589,6 @@ all nodes in the last level are as far left as possible.<br>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Expression Trees</p>
 </li>
 </ul>
 </div>
@@ -18462,97 +17903,9 @@ for val in numbers:
 </td></tr></table></code></pre>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_appendix_for_instructors">20. Appendix: For Instructors</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
-</div>
-<div class="paragraph">
-<p><em>This chapter was last updated on July 15, 2025.</em><br></p>
-</div>
-<div class="paragraph">
-<p>In this appendix, the remixer shares some ideas that other instructors may find useful.</p>
-</div>
-<div class="sect2">
-<h3 id="_incorporating_lessons_from_the_discrete_mathematics_project">20.1. Incorporating Lessons from the Discrete Mathematics Project</h3>
-<div class="paragraph">
-<p>Here is how I, the remixer, have tried to use the “team-worthy” activity-based lesson materials developed by the <a href=https://sites.google.com/view/discrete-math-project-pilot/home>Discrete Mathematics Project</a> in the course that I teach using the Remix.</p>
-</div>
-<div class="paragraph">
-<p>It appears that one of the purposes of these lessons is to have each student play one specific role (either Documenter, Reporter, Facilitator, or Questioner) for their team during each lesson. The aim is to give students the experience of being assigned such a role, which may happen in their professional lives.</p>
-</div>
-<div class="paragraph">
-<p>The order of the lessons in the list below reflects how the remixer has used them throughout a one-semester course.</p>
-</div>
-<div class="hdlist">
-<table>
-<tr>
-<td class="hdlist1">
-Introduction to Teamworthy Tasks (Lesson 1)
-</td>
-<td class="hdlist2">
-<p>This lesson involves counting arguments and seems to have been designed as an accessible entry point for all students.<br>
-However, in my experience, when teams are formed some students in each team may know how to solve the problems already while others may not, which can lead to the team members dropping out of the roles they are assigned to play during the activity and instead focusing on “getting the answers.” It may be worth considering using another activity with content that is more likely to be unfamiliar to almost all students, I may swap the content of this one with Handshake (That is, use the introductory materials about team-worthy tasks, but replace the activity content with Handshake lesson&#8217;s content).</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Handshake Lemma (Lesson 3)
-</td>
-<td class="hdlist2">
-<p>This lesson can be used to introduce the concept of conjecture, lay the groundwork for proof, and provide a nonarithmetic/nonalgebraic example of using mathematical induction that can be referred to later when induction is formally introduced. The graph theory content needed by students is minimal and can be learned just-in-time, so this lesson can be used very early in the course. NOTE: It may be important to mention to students that this activity does not involve literally shaking the hands of other people. A possible extension to this could be to use directed edges.
-Also, using this lesson as the first one in a semester may have an advantage over the counting problems included in the Introduction to Teamworthy Tasks lesson: The graph theory content is likely to be unfamiliar to most students so that team members may be more likely to adhere to their specific team roles.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Logic (Lesson 5)
-</td>
-<td class="hdlist2">
-<p>This lesson focuses on using rules of inference to  make a valid argument, and analyzing invalid arguments (e.g., ones that include a converse or inverse error.) Some teams may try to use AI to solve the problem, which often brings up the opportunity to talk about common logical fallacies, i.e., the converse error and the inverse error.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Algorithms (Lesson 7, Algorithms and Recursion)
-</td>
-<td class="hdlist2">
-<p>This lesson introduces algorithms and their analysis using recurrence relations (or recursively-defined functions,) and the comparison of the linear search and binary search algorithms for sorted lists. I use it to introduce recursion and recurrence relations, the need to follow an algorithm step-by-step. I use this several weeks before formally introducing the search algorithms and the discussion of complexity and analysis of algorithms.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Binomial (Lesson 2, also called Binomial/Number Triangle)
-</td>
-<td class="hdlist2">
-<p>I do this lesson after recurrence relations to try to focus on the relationships in the number triangle.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Induction (Lesson 6)
-</td>
-<td class="hdlist2">
-<p>This activity works well with trios of teams completeing each others proofs.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Ramsey (Lesson 4, Ramsey/Dot game)
-</td>
-<td class="hdlist2">
-<p>I use this as the final activity, typiclly with only 3 students per team. The content involves graph edge colorings, presented as a game, which I find makes this lesson highly engaging. At this point in the semester, students are used to working in their team roles so their engagement does not lead them to abandon those roles.</p>
-</td>
-</tr>
-</table>
-</div>
 <div class="openblock float-group">
 <div class="content">
 
-</div>
 </div>
 </div>
 </div>

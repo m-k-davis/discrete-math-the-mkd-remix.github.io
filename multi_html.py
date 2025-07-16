@@ -32,7 +32,7 @@ os.system("/opt/homebrew/Cellar/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/asciidoctor-
 #MKD Jan 26 2025 order 
 #chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'number_bases.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'growth_of_functions.adoc', 'counting_binomial.adoc', 'induction.adoc', 'algorithms.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
 #MKD Feb 2 2025 order 
-chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'number_bases.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'counting_binomial.adoc', 'induction.adoc', 'growth_of_functions.adoc', 'algorithms.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'number_bases.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'counting_binomial.adoc', 'induction.adoc', 'growth_of_functions.adoc', 'algorithms.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc', 'appendix_for_instructors.adoc']
 
 chap_htmls = [f.replace('.adoc', '.html') for f in chap_adocs]
 

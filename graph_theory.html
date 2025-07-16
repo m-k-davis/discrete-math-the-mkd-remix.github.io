@@ -582,6 +582,11 @@ $(document).on('page:load', ready2);
        19. Appendix: Python Syntax Examples
       </a>
      </li>
+     <li>
+      <a href="appendix_for_instructors.html#_appendix_for_instructors">
+       20. Appendix: For Instructors
+      </a>
+     </li>
     </ul>
    </div>
   </div>
@@ -612,21 +617,15 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on May 3, 2025.
+        This chapter was last updated on July 15, 2025.
        </em>
        <br/>
-       <em>
-        Inserted a version of Dijkstra’s algorithm for a minimal-weight path between two given vertices.
-       </em>
-       <br/>
-       <span class="small">
-        Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.
-       </span>
       </p>
      </div>
      <div class="paragraph">
       <p>
-       Graphs are discrete mathematical structures that have many applications in a diversity of fields including chemistry, network analysis, algorithms, and social sciences.
+       Graphs are discrete mathematical structures used to represent connections between individual
+Graphs have applications in fields such as chemistry, network analysis, computing algorithms, and social sciences.
       </p>
      </div>
      <div class="paragraph">
@@ -730,8 +729,8 @@ $(document).on('page:load', ready2);
       </ul>
      </div>
      <div class="sect2">
-      <h3 id="_introduction_and_basic_definitions">
-       14.1. Introduction and Basic Definitions
+      <h3 id="_introduction_and_definitions">
+       14.1. Introduction and Definitions
       </h3>
       <div class="paragraph">
        <p>
@@ -739,16 +738,16 @@ $(document).on('page:load', ready2);
         <strong>
          vertices
         </strong>
-        (also called
+        and a set of
         <strong>
-         nodes
+         edges.
         </strong>
-        ) and a set of
-        <strong>
-         edges,
-        </strong>
-        where each edge
+        Each edge
 connects either two different vertices or one vertex to itself.
+Vertices are sometimes called
+        <strong>
+         nodes.
+        </strong>
        </p>
       </div>
       <div class="ulist">
@@ -759,16 +758,16 @@ connects either two different vertices or one vertex to itself.
           <strong>
            endpoints
           </strong>
-          are the vertices that it connects. The edge is said to be
+          are the two vertices that it connects (but notice that the “endpoints” may be the same vertex.) The edge is said to be
           <strong>
            incident
           </strong>
-          with each endpoint, and to connect the endpoints.
+          with each of its endpoints.
          </p>
         </li>
         <li>
          <p>
-          If an edge has only one endpoint, it is called a
+          An edge that connects one vertex to itself is called a
           <strong>
            loop.
           </strong>
@@ -776,10 +775,6 @@ connects either two different vertices or one vertex to itself.
         </li>
         <li>
          <p>
-          If two or more edges connect the same endpoints (or endpoint if the edges are loops), the graph is called a
-          <strong>
-           multigraph.
-          </strong>
           Two edges that have the same endpoints are called
           <strong>
            parallel
@@ -805,7 +800,7 @@ connects either two different vertices or one vertex to itself.
           <strong>
            degree
           </strong>
-          of a vertex \(v\) is the number of edges in the graph \(G\) containing the vertex \(v.\)
+          of a vertex \(v\) is the number of times the vertex occurs as an endpoint for all the edges in the graph.
          </p>
         </li>
         <li>
@@ -814,7 +809,16 @@ connects either two different vertices or one vertex to itself.
           <strong>
            isolated vertex
           </strong>
-          is a vertex that is not an endpoint of any edge.
+          is a vertex that is not an endpoint of any edge. That is, an isolated vertex is the same as a vertex that has degree 0.
+         </p>
+        </li>
+        <li>
+         <p>
+          A graph is called a
+          <strong>
+           multigraph
+          </strong>
+          if there are parallel edges in the graph.
          </p>
         </li>
         <li>
@@ -823,10 +827,15 @@ connects either two different vertices or one vertex to itself.
           <strong>
            simple graph
           </strong>
-          is a graph that has no loops and does not have two or more edges that connect the same endpoints.
+          is a graph that has no loops and no parallel edges.
          </p>
         </li>
        </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following example illustrates many of these definitions.
+       </p>
       </div>
       <div class="sidebarblock">
        <div class="content">
@@ -835,142 +844,406 @@ connects either two different vertices or one vertex to itself.
           Example 1
          </div>
          <p>
-          The graph shown has 7 vertices
+          The graph shown has
+8
+vertices
 and 7 edges.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In this drawing, the vertices are represented by points that are labeled by capital letters, and the edges are represented by the line segments and arcs that connect two vertices.
          </p>
         </div>
         <div class="imageblock">
          <div class="content">
-          <img alt="graphMKD1" src="imagesMKD/graphMKD1.png"/>
+          <img alt="graphMKD1rev" src="imagesMKD/graphMKD1rev.png"/>
          </div>
         </div>
         <div class="paragraph">
          <p>
-          This is
-          <em>
-           one graph
-          </em>
-          that is made up of three separate
-          <em>
-           connected components
-          </em>
-          (Connectivity will be defined in detail later in the chapter, but is introduced informally here).
-         </p>
-        </div>
-        <div class="ulist">
-         <ul>
-          <li>
-           <p>
-            One connected component contains the vertices \(A\) and \(C\) and two edges that connect them.
-           </p>
-          </li>
-          <li>
-           <p>
-            A second connected component contains the vertices \(B\), \(D\), \(E\), and \(F\) and the edges that are incident to those vertices.
-           </p>
-          </li>
-          <li>
-           <p>
-            A third connected component contains the single isolated vertex \(G\) and no edges.
-           </p>
-          </li>
-         </ul>
-        </div>
-        <div class="paragraph">
-         <p>
-          In the second connected component,
-the graph is drawn so that
+          The graph is drawn so that
 the edge with endpoints \(B\) and \(F\) and
 the edge with endpoints \(D\) and \(E\)
-cross, but the point of intersection is ignored
-because it is not a vertex.
-We could redraw this graph so that the two edges do not cross; for example, we could move \(E\) inside the triangle.
+are represented by two line segments that intersect, but the point of intersection is ignored in the graph because it is not a vertex.
+We could redraw this graph so that the two edges do not cross; for example, we could move \(E\) inside the triangle that has vertices \(B,\) \(D,\) and \(F.\)
 However, there are some graphs which cannot be drawn in 2 dimensions without some edge crossings.
          </p>
         </div>
         <div class="paragraph">
          <p>
-          This graph is a multigraph because there are multiple edges that connect the pair of vertices \(\{A,C\}\).
+          There is a loop: The edge that has \(D\) as both of its endpoints.
          </p>
         </div>
         <div class="paragraph">
          <p>
-          This graph is not simple because (1) it contains a loop and (2) it has a pair of vertices that are connected by two different edges.
+          There are parallel edges that connect the vertices \(A\) and \(C,\) so this graph is a multigraph.
          </p>
         </div>
+        <div class="paragraph">
+         <p>
+          Vertex \(G\) is an isolated vertex - it is not an endpoint of any edge.
+Vertex \(H\) is also an isolated vertex.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          This graph is a multigraph because there are multiple edges
+that connect the pair of vertices \(A\) and \(C.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          This graph is not a simple graph: It contains a loop, and it has at least one pair of parallel edges.
+         </p>
+        </div>
+        <div class="openblock question">
+         <div class="title">
+          Question
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           For this graph, which vertex has the greatest degree? Which vertex has the least degree?
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Recall that the degree of a vertex is the number of times that vertex occurs as an endpoint (and that a loop has two endpoints that are the same vertex.)
+          </div>
+         </div>
+        </div>
        </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that in the example and definitions given so far, we’ve assumed that each edge is undirected: An edge represents a connection between its endpoints but does not indicate a direction of travel from one endpoint to the other endpoint. However, in some applications it is useful for a graph to use only
+        <strong>
+         directed edges
+        </strong>
+        that point from one endpoint to the other endpoint. A graph that has only directed edges is called a
+        <strong>
+         digraph,
+        </strong>
+        which is short for
+        <strong>
+         directed graph.
+        </strong>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Most graphs discussed in this chapter will be (undirected) simple graphs, that is, graphs with no loops and no parallel edges.
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_handshaking_lemma">
+       14.2. The Handshaking Lemma
+      </h3>
+      <div class="paragraph">
+       <p>
+        This section describes a property of
+        <em>
+         every
+        </em>
+        undirected graph.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Recall that the degree of a vertex of a graph is the number of times the vertex occurs as an endpoint for all the edges in the graph.
+Keep in mind that the vertex of a loop counts twice because that vertex occurs as “both endpoints” of the loop.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 2
+         </div>
+         <p>
+          Consider again the graph that was drawn in the previous example.
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graphMKD1rev" src="imagesMKD/graphMKD1rev.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The degrees of each of the vertices in this graph are listed in the table.
+         </p>
+        </div>
+        <table class="tableblock frame-all grid-all" style="width: 30%;">
+         <colgroup>
+          <col style="width: 50%;"/>
+          <col style="width: 50%;"/>
+         </colgroup>
+         <thead>
+          <tr>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Vertex
+            </strong>
+           </th>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Degree
+            </strong>
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              A
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              2
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              B
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              2
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              C
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              2
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              D
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              5
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              E
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              1
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              F
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              2
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              G
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              0
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              H
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              0
+             </em>
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that the sum of the degrees of all the vertices is \(14\), which is equal to twice the number of edges, \(2 \cdot 7.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        In fact, for any undirected graph with finitely many edges, the sum of the degrees of all vertices is equal to twice the number of edges (recalling that a loop’s endpoint will be counted twice.)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         The Handshaking Lemma
+        </div>
+        <div class="paragraph">
+         <p>
+          The sum of the degrees of the vertices of a graph
+is equal to twice the number of edges
+of the graph.
+         </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           This is an exercise for you.
+Use mathematical induction on the predicate
+           <br/>
+           \(P(n):\) “If a graph has \(n\) edges, then the sum of the degrees of all vertices of the graph is equal to \(2n.\)”
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            A useful consequence of the Handshaking Lemma is that the sum of the degrees of a graph must be even.
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
       </div>
      </div>
      <div class="sect2">
       <h3 id="_simple_graphs">
-       14.2. Simple Graphs
+       14.3. Simple Graphs
       </h3>
       <div class="paragraph">
        <p>
-        A
-        <strong>
-         simple graph
-        </strong>
-        is a graph that has no loops and no parallel edges (that is, no two edges can connect the same endpoints.)
-This means that each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of "simple graph". This formal definition can be useful if you need to implement a simple graph in code.
+        Recall that in a simple graph, there are
+no loops and no parallel edges
+(that is, you cannot have two different edges that connect the same pair of endpoints.)
+This means that for a simple graph, each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of “simple graph.”
         <mark>
          Graphs discussed in this textbook are assumed to be simple unless stated otherwise.
         </mark>
        </p>
       </div>
       <div class="sect3">
-       <h4 id="_a_formal_definition">
-        14.2.1. A Formal Definition
+       <h4 id="_a_formal_definition_of_simple_graph">
+        14.3.1. A Formal Definition of Simple Graph
        </h4>
+       <div class="paragraph">
+        <p>
+         This subsection presents a formal set-theoretic definition of simple graphs.
+        </p>
+       </div>
        <div class="paragraph">
         <p>
          A
          <strong>
           simple graph
          </strong>
-         \(G=\left(V,\ E\right)\) is an ordered pair consisting of a set \(V\) of objects called
+         \(G=\left(V,\ E\right)\) is an ordered pair consisting of a nonempty set \(V\) and a (possibly empty) set \(E,\) where each element of \(E\) must be of the form \(\left\{x,y\right\}\), where \(x\) and \(y\) are two different elements of \(V.\)
+The elements in set \(V\) are called the
          <strong>
           vertices
          </strong>
-         (also called
+         (or
          <strong>
           nodes
          </strong>
-         ) and a set \(E\) of objects called
+         ) of the graph. The elements in set \(E\) are called the
          <strong>
           edges
          </strong>
-         .
-An edge \(e\in\ E\) is a set of the form \(e=\left\{x,y\right\}\), where the vertices \(x\) and \(y\) are two different elements of \(V\). The two vertices \(x\) and \(y\) in the edge \(e=\left\{x,y\right\}\) are said to be
-         <strong>
-          adjacent
-         </strong>
-         or
-         <strong>
-          connected
-         </strong>
-         or
-         <strong>
-          neighbors
-         </strong>
-         , and \(x\) and \(y\) are called the
-         <strong>
-          endpoints
-         </strong>
-         of the edge \(e\).
+         of the graph.
         </p>
        </div>
-       <div class="sidebarblock">
+       <div class="sidebarblock" id="simple_graph_example">
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 2 - a simple graph.
+           Example 3 - A simple graph.
           </div>
           <p>
            The graph shown has vertex set
 \(\left\{A,\ B,\ C,\ D,\ E,\ F\right\}\) and
 edge set
-\( \{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}.\)
+\( \{\{A,C\},\{A,D\},\{B,D\},\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}.\)
           </p>
          </div>
          <div class="imageblock">
@@ -980,100 +1253,53 @@ edge set
          </div>
         </div>
        </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="paragraph">
-          <div class="title">
-           Example 3
-          </div>
-          <p>
-           The degrees of each of the vertices in the undirected graph \(G\)  with vertex set
-\(V=\{A,B,C,D,E,F,G\}\) and edge set \(E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,G\}\)
+       <div class="paragraph">
+        <p>
+         The degrees of each of the vertices in the undirected graph \(G\)  with vertex set
+\(V=\{A,B,C,D,E,F,G\}\) and edge set \(E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,G\}\}\)
 are,
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(d\left(A\right)=2\)
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(d\left(B\right)=2\)
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(d\left(C\right)=2\)
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(d\left(D\right)=3\)
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(d\left(E\right)=0\)
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(d\left(F\right)=4\)
-          </p>
-         </div>
-         <div class="paragraph">
-          <p>
-           \(d\left(G\right)=1\)
-          </p>
-         </div>
-        </div>
+        </p>
        </div>
        <div class="paragraph">
         <p>
-         Notice that the sum of all the degrees
-\(d\left(A\right)+\ d\left(B\right)\ +\ d\left(C\right)+\ \ d\left(D\right)\ \ +d\left(E\right)+\ d\left(F\right) + d\left(G\right)=14\), which is
-is twice the number of edges, \(2 \cdot \left|E\right|=7\).
-In fact, this is true for any undirected graph with finitely many edges as long as any loops are counted twice.
-This result is called the Handshaking Theorem. A formal proof of the Handshaking Lemma can be written using mathematical induction on the predicate
-\(P(n):\) "If graph \(G\) has \(n\) edges, then the sum of the degrees of the vertices of \(G\) is equal to \(2n.\)"
+         \(d\left(A\right)=2\)
         </p>
        </div>
-       <div class="sidebarblock">
-        <div class="content">
-         <div class="title">
-          Handshaking Theorem
-         </div>
-         <div class="paragraph">
-          <p>
-           The sum of the degrees of the vertices of a graph \(G=\left(V,\ E\right)\) is equal to twice the number of edges
-in \(G\). That is, \(\displaystyle \sum_{v\in V}{d\left(v\right)=2\ \left|E\right|}\).
-          </p>
-         </div>
-        </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(B\right)=2\)
+        </p>
        </div>
-       <div class="admonitionblock note">
-        <table>
-         <tr>
-          <td class="icon">
-           <i class="fa icon-note" title="Note">
-           </i>
-          </td>
-          <td class="content">
-           <div class="paragraph">
-            <p>
-             A useful consequence of this to keep in mind is that the sum of the degrees of a graph is always even.
-            </p>
-           </div>
-          </td>
-         </tr>
-        </table>
+       <div class="paragraph">
+        <p>
+         \(d\left(C\right)=2\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(D\right)=3\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(E\right)=0\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(F\right)=4\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(G\right)=1\)
+        </p>
        </div>
       </div>
      </div>
      <div class="sect2">
       <h3 id="_directed_graphs">
-       14.3. Directed Graphs
+       14.4. Directed Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -1114,17 +1340,19 @@ in \(G\). That is, \(\displaystyle \sum_{v\in V}{d\left(v\right)=2\ \left|E\righ
         of a vertex \(w\) is the number of edges that have \(W\) as the terminal index.
        </p>
       </div>
-      <div class="sidebarblock">
+      <div class="sidebarblock" id="underlying_graph">
        <div class="content">
         <div class="paragraph">
          <div class="title">
           Example 4 - A directed graph.
          </div>
          <p>
-          The graph \(G=(V,E)\) with vertex set
-\(V=\{A,B,C,D,E,F\}\)  and
+          The graph
+shown has
+vertex set
+\(\{A,B,C,D,E,F\}\) and
 edge set
-\(E=\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}\).
+\(\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}\).
 The first coordinate of each edge is the initial vertex and the second coordinate is the terminal vertex.
          </p>
         </div>
@@ -1132,6 +1360,19 @@ The first coordinate of each edge is the initial vertex and the second coordinat
          <div class="content">
           <img alt="graph2" src="images/graph2.png"/>
          </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that the directed edges of this graph connect the same endpoints as the undirected edges of the graph in
+          <a href="./graph_theory.html#simple_graph_example">
+           this earlier example.
+          </a>
+          The undirected graph is referred to as the
+          <strong>
+           underlying graph
+          </strong>
+          of the directed graph.
+         </p>
         </div>
        </div>
       </div>
@@ -1162,8 +1403,8 @@ can be used to represent the game "rock, paper, scissors."
        </div>
       </div>
       <div class="sect3">
-       <h4 id="_simple_directed_graphs">
-        14.3.1. Simple Directed Graphs
+       <h4 id="_simple_directed_graphs_a_formal_definition">
+        14.4.1. Simple Directed Graphs: A Formal Definition
        </h4>
        <div class="paragraph">
         <p>
@@ -1186,18 +1427,13 @@ can be used to represent the game "rock, paper, scissors."
          </strong>
          ) and a set \(E\) of objects called
          <strong>
-          edges
+          directed edges.
          </strong>
-         .
-A
-         <strong>
-          directed edge
-         </strong>
-         \(e\in\ E\) is an ordered pair of the form \(e=\left(x,y\right)\), where the vertices \(x\) and \(y\) are two different elements of \(V\). Vertex \(x\) is the
+         Each directed edge \(e\in\ E\) is an ordered pair of the form \(e=\left(x,y\right)\), where \(x\) and \(y\) are two different vertices in set \(V.\) For the directed edge \(e=\left(x,y\right),\) \(x\) is the
          <strong>
           initial vertex
          </strong>
-         of \(e\) and vertex \(y\)  is the
+         of \(e\) and \(y\) is the
          <strong>
           terminal vertex
          </strong>
@@ -1208,7 +1444,7 @@ A
      </div>
      <div class="sect2">
       <h3 id="_examples_of_simple_graphs">
-       14.4. Examples of Simple Graphs
+       14.5. Examples of Simple Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -1294,7 +1530,7 @@ Notice that \(K_{2,3}\) has an additional property:
      </div>
      <div class="sect2">
       <h3 id="_representing_simple_graphs">
-       14.5. Representing Simple Graphs
+       14.6. Representing Simple Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -1495,7 +1731,7 @@ If vertices \(u\) and \(v\) are adjacent (that is, connected by some edge), then
      </div>
      <div class="sect2">
       <h3 id="_weighted_graphs">
-       14.6. Weighted Graphs
+       14.7. Weighted Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -1540,7 +1776,7 @@ you place the the weight of the edge in the correct position of the adjacency ma
      </div>
      <div class="sect2">
       <h3 id="_creating_new_graphs_from_old_graphs">
-       14.7. Creating New Graphs From Old Graphs
+       14.8. Creating New Graphs From Old Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -1549,7 +1785,7 @@ you place the the weight of the edge in the correct position of the adjacency ma
       </div>
       <div class="sect3">
        <h4 id="_subgraphs">
-        14.7.1. Subgraphs
+        14.8.1. Subgraphs
        </h4>
        <div class="paragraph">
         <p>
@@ -1557,7 +1793,7 @@ you place the the weight of the edge in the correct position of the adjacency ma
          <strong>
           subgraph
          </strong>
-         \(H\) by choosing a subset of the vertices of \(G\) along with a subset of the edges of \(G\) such that each edge has endpoints in the set of vertices you chose. That is, \(H\) is a subgraph of \(G\) if \(H\) is a graph such that every vertex of \(H\) is a vertex of \(G\) and every edge of \(H\) is a vertex of \(G.\)
+         \(H\) by choosing a subset of the vertices of \(G\) along with a subset of the edges of \(G\) such that each edge has endpoints in the set of vertices you chose. That is, \(H\) is a subgraph of \(G\) if \(H\) is a graph such that every vertex of \(H\) is a vertex of \(G\) and every edge of \(H\) is an edge of \(G.\)
          <br/>
          <span class="small">
           More formally, \(H = (V_{H}, E_{H})\) is a subgraph of \(G = (V,E)\) if and only if all three of the following statements are True: \(V_{H} \subseteq V,\) \(E_{H} \subseteq E,\) and for every edge \(e \in E_{H}\) the endpoints of \(e\) are in \(V_{H}.\)
@@ -1618,7 +1854,7 @@ is called the subgraph
       </div>
       <div class="sect3">
        <h4 id="_unions_and_intersections_of_graphs">
-        14.7.2. Unions and Intersections Of Graphs
+        14.8.2. Unions and Intersections Of Graphs
        </h4>
        <div class="paragraph">
         <p>
@@ -1642,7 +1878,7 @@ is called the subgraph
      </div>
      <div class="sect2">
       <h3 id="_graph_isomorphism">
-       14.8. Graph Isomorphism
+       14.9. Graph Isomorphism
       </h3>
       <div class="paragraph">
        <p>
@@ -1922,7 +2158,7 @@ that preserves adjacency (that is, if two vertices in the upper row are endpoint
      </div>
      <div class="sect2">
       <h3 id="_graph_coloring">
-       14.9. Graph Coloring
+       14.10. Graph Coloring
       </h3>
       <div class="paragraph">
        <p>
@@ -2046,7 +2282,7 @@ For example, the graph in the image shows that the complete bipartite graph \(K_
      </div>
      <div class="sect2">
       <h3 id="_connectivity_of_undirected_graphs">
-       14.10. Connectivity of Undirected Graphs
+       14.11. Connectivity of Undirected Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -2114,20 +2350,6 @@ For example, the graph in the image shows that the complete bipartite graph \(K_
         \(d(u,v)\) between two vertices \(u\) and \(v\) in a graph \(G\) is the number of edges in a shortest path connecting them, assuming such a path exists.
        </p>
       </div>
-      <div class="paragraph">
-       <p>
-        <span class="small">
-         Note that different textbooks use different terminology for walks, paths, and so on. The Remix uses terminology consistent with
-         <a href="https://www.routledge.com/Handbook-of-Graph-Theory/Gross-Yellen-Zhang/p/book/9781439880180?srsltid=AfmBOoopymlQNVr5rlo05ShK51PGym1Kv1vJ47zHndypkoXdteehcoYw">
-          <em>
-           Handbook of Graph Theory,
-          </em>
-          Second Edition
-         </a>
-         by Gross, Yellin, and Zhang.
-        </span>
-       </p>
-      </div>
       <div class="sidebarblock">
        <div class="content">
         <div class="paragraph">
@@ -2151,7 +2373,7 @@ distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).
      </div>
      <div class="sect2">
       <h3 id="_connected_graphs">
-       14.11. Connected Graphs
+       14.12. Connected Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -2203,7 +2425,7 @@ distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).
      </div>
      <div class="sect2">
       <h3 id="_eulerian_graphs">
-       14.12. Eulerian Graphs
+       14.13. Eulerian Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -2285,7 +2507,7 @@ characterizations of graphs with Euler circuits and Euler paths and are due to L
      </div>
      <div class="sect2">
       <h3 id="_hamiltonian_graphs">
-       14.13. Hamiltonian Graphs
+       14.14. Hamiltonian Graphs
       </h3>
       <div class="paragraph">
        <p>
@@ -2336,7 +2558,7 @@ The second graph is not Hamiltonian.
      </div>
      <div class="sect2">
       <h3 id="_finding_a_shortest_path_in_a_weighted_graph_dijkstras_algorithm">
-       14.14. Finding A Shortest Path in a Weighted Graph: Dijkstra’s Algorithm
+       14.15. Finding A Shortest Path in a Weighted Graph: Dijkstra’s Algorithm
       </h3>
       <div class="paragraph">
        <p>
@@ -2373,10 +2595,10 @@ The second graph is not Hamiltonian.
         </li>
         <li>
          <p>
-          Input: The list \(V\) of all vertices of the graph, and the list \(E\) of all weighted edges of the graph.
+          Input: The list \(V\) of all vertices of the graph, with the two vertices \(a\) and \(z\) specified, and the list \(E\) of all weighted edges of the graph.
           <br/>
           <span class="small">
-           For example, an adjacency matrix for the graph could be given.
+           For example, the input could be an adjacency matrix for the graph, with the first row of the matrix corresponding to \(a\) and the last row corresponding to \(z\).
           </span>
          </p>
         </li>
@@ -2388,9 +2610,7 @@ The second graph is not Hamiltonian.
           <ol class="arabic">
            <li>
             <p>
-             Define lists \(V_{chosen},\) \(V_{candidates},\) \(E_{chosen},\) and \(E_{candidates}.\)
-             <br/>
-             Initialize each of the four lists to the empty list.
+             Define four lists \(V_{chosen},\) \(V_{candidates},\) \(E_{chosen},\) and \(E_{candidates},\) and initialize each list as an empty list.
              <br/>
             </p>
            </li>
@@ -2412,23 +2632,15 @@ The second graph is not Hamiltonian.
               </li>
               <li>
                <p>
-                For each vertex \(w\) that is not in \(V_{chosen}\) but is connected to vertex \(v\)
+                For each vertex \(w\) that is not in \(V_{chosen}\) but is adjacent to vertex \(v\)
                </p>
                <div class="olist lowerroman">
                 <ol class="lowerroman" type="i">
                  <li>
                   <p>
                    If \(w\) is in \(V_{candidates}\)
+and the edge \(e\) that connects \(v\) and \(w\) is part of a path between \(a\) and \(w\) that has total weight less than the weight of the known path that uses the corresponding edge in list \(E_{candidates},\) remove that edge from \(E_{candidates}\) and append \(e\) to \(E_{candidates}.\)
                   </p>
-                  <div class="olist upperalpha">
-                   <ol class="upperalpha" type="A">
-                    <li>
-                     <p>
-                      If the edge \(e\) that connects \(v\) and \(w\) is part of a path between \(a\) and \(w\) that has total weight less than the weight of the known path that uses the corresponding edge in list \(E_{candidates},\) remove that edge from \(E_{candidates}\) and append \(e\) to \(E_{candidates}.\)
-                     </p>
-                    </li>
-                   </ol>
-                  </div>
                  </li>
                  <li>
                   <p>
@@ -2494,54 +2706,38 @@ The second graph is not Hamiltonian.
         has some animations that illustrate an alternate implementation of Dijkstra’s algorithm.
        </p>
       </div>
-      <div class="sect3">
-       <h4 id="_the_traveling_salesperson_problem_tsp">
-        14.14.1. The Traveling Salesperson Problem (TSP)
-       </h4>
-       <div class="paragraph">
-        <p>
-         A traveling salesperson needs to visit a number of cities and then return to the starting point.To save time and energy, the salesperson wants to determine the shortest path for the trip.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         You can represent the cities and the distances between them by a weighted, complete, undirected graph.
-The problem then is to find a cycle of minimum total weight that visits each vertex exactly one.
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         Notice that there are \(\frac{1}{2}(n-1)!\) different cycles for the specified starting point (division by 2 represents that we could reverse the cycle.)
-        </p>
-       </div>
-       <div class="paragraph">
-        <p>
-         At present, there is no algorithm with polynomial worst-case time complexity to solve the TSP.
-        </p>
-       </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_traveling_salesperson_problem_tsp">
+       14.16. The Traveling Salesperson Problem (TSP)
+      </h3>
+      <div class="paragraph">
+       <p>
+        The Traveling Salesperson Problem (TSP) can be stated as “A traveling salesperson needs to start in the home city, visit each of a number of other cities, and then return to the home city. What path should the salesperson take so that the total distance traveled is the least possible?”
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The TSP can be modeled using a graph. If there are \(n\) cities, you can represent each city as a vertex of the complete graph \(K_{n}\) and assign to each edge a weight equal to the distance between the cities at the endpoints. The TSP is solved by finding a Hamiltonian cycle of minimum total weight that visits each vertex exactly one.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that if you choose a vertex (city) as the starting and ending point, then there are \(\frac{1}{2}(n-1)!\) different Hamiltonian cycles (The division by 2 represents that you could reverse the direction of the cycle without changing the total distance traveled.)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The brute-force solution examines every possible path and has time complexity \(O(n!),\) which is infeasible for even relatively small values of \(n.\) At present, there is no algorithm with polynomial worst-case time complexity that solves the TSP.
+       </p>
       </div>
      </div>
      <div class="sect2">
       <h3 id="_additional_topics_will_be_added_to_this_chapter_soon">
-       14.15. Additional topics will be added to this chapter soon!
+       14.17. Additional topics will be added to this chapter soon!
       </h3>
       <div class="ulist">
        <ul>
-        <li>
-         <p>
-          Traveling Salesperson Problem (TSP)
-         </p>
-        </li>
-        <li>
-         <p>
-          Algorithms for Graphs
-         </p>
-        </li>
-        <li>
-         <p>
-          Shortest-path algorithms (Dijkstra’s and Floyd’s algorithms)
-         </p>
-        </li>
         <li>
          <p>
           Transitive closure (Floyd’s algorithm)

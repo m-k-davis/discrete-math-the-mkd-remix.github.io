@@ -582,6 +582,11 @@ $(document).on('page:load', ready2);
        19. Appendix: Python Syntax Examples
       </a>
      </li>
+     <li>
+      <a href="appendix_for_instructors.html#_appendix_for_instructors">
+       20. Appendix: For Instructors
+      </a>
+     </li>
     </ul>
    </div>
   </div>
@@ -612,11 +617,9 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on May 7, 2025.
+        This chapter was last updated on July 15, 2025.
        </em>
-       <span class="small">
-        Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.
-       </span>
+       <br/>
       </p>
      </div>
      <div class="paragraph">
@@ -644,41 +647,40 @@ Trees are used to model decisions, to sort data, and to optimize networks.
          <ul>
           <li>
            <p>
-            Properties
+            Definition of “tree” and “forest”
            </p>
           </li>
           <li>
            <p>
-            trees (binary, spanning)
+            Properties of trees
            </p>
           </li>
           <li>
            <p>
-            expression trees
+            Spanning trees
            </p>
+          </li>
+          <li>
+           <p>
+            Binary trees
+           </p>
+           <div class="ulist">
+            <ul>
+             <li>
+              <p>
+               Traversal strategies
+              </p>
+             </li>
+             <li>
+              <p>
+               Expression trees
+              </p>
+             </li>
+            </ul>
+           </div>
           </li>
          </ul>
         </div>
-       </li>
-       <li>
-        <p>
-         Traversal strategies
-        </p>
-       </li>
-       <li>
-        <p>
-         Spanning trees/forests
-        </p>
-       </li>
-       <li>
-        <p>
-         Spanning trees
-        </p>
-       </li>
-       <li>
-        <p>
-         tree traversals
-        </p>
        </li>
       </ul>
      </div>
@@ -686,9 +688,27 @@ Trees are used to model decisions, to sort data, and to optimize networks.
       <h3 id="_definitions_examples_and_properties_of_trees_and_forests">
        15.1. Definitions, Examples, and Properties of Trees and Forests
       </h3>
+      <div class="admonitionblock important">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-important" title="Important">
+          </i>
+         </td>
+         <td class="content">
+          In this chapter, all graphs are assumed to be undirected (that is, have no directed edges) unless stated otherwise.
+         </td>
+        </tr>
+       </table>
+      </div>
       <div class="paragraph">
        <p>
-        Recall that a simple graph has no loops and no parallel edges, that is, no edge connects a vertex to itself, and no two edges can connect the same pair of vertices. In a simple graph, each edge is determined by its two vertices.
+        Recall that a simple graph has no loops and no parallel edges.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Also, recall that a cycle in a graph is a path that starts and ends at the same vertex.
        </p>
       </div>
       <div class="paragraph">
@@ -697,7 +717,9 @@ Trees are used to model decisions, to sort data, and to optimize networks.
         <strong>
          tree
         </strong>
-        is an undirected simple graph that is connected and has no cycles, which you may recall are paths that start and end at the same vertex. Some sources use the term
+        is
+a
+simple graph that is connected and has no cycles. Some sources use the term
         <strong>
          acyclic
         </strong>
@@ -710,7 +732,7 @@ Trees are used to model decisions, to sort data, and to optimize networks.
         <strong>
          forest
         </strong>
-        is the union of several trees. A forest is a simple graph that has one or more connected components, where each connected component is a tree.
+        is the union of several trees. In other words, a forest is a simple graph that has one or more connected components, where each connected component is a tree.
        </p>
       </div>
       <div class="imageblock text-center">
@@ -739,13 +761,22 @@ Trees are used to model decisions, to sort data, and to optimize networks.
         </div>
         <div class="paragraph">
          <p>
-          Suppose that \(G\) is a undirected simple graph.
+          Suppose that \(G\) is a simple graph. The following statements are logically equivalent.
          </p>
         </div>
-        <div class="paragraph">
-         <p>
-          \(G\) is a tree if and only for every pair of vertices of \(G\) there is exactly one path between the vertices.
-         </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            \(G\) is a tree.
+           </p>
+          </li>
+          <li>
+           <p>
+            \(G\) is a simple graph such that for each pair of vertices of \(G\) there is exactly one path between the vertices.
+           </p>
+          </li>
+         </ul>
         </div>
         <div class="openblock proof">
          <div class="title">
@@ -762,7 +793,11 @@ Trees are used to model decisions, to sort data, and to optimize networks.
           <em>
            exactly one
           </em>
-          path between the vertices. By assumption, \(G\) is connected and for every pair of vertices in \(G\) there is a least one path joining those two vertices, so we only need to show that there cannot be two different paths that connect the same pair of vertices. So suppose that for some pair of vertices \(u\) and \(v\) there are two different paths between \(u\) and \(v,\) then we can start to go from \(u\) to \(v\) along a first path and then "turn around" and go back to \(u\) along a second path. This means that there must be a cycle in \(G\) that starts and ends at \(u.\)
+          path between the vertices. By assumption, \(G\) is connected and for every pair of vertices in \(G\) there is
+          <em>
+           at least one
+          </em>
+          path joining those two vertices, so we only need to show that there cannot be two different paths that connect the same pair of vertices. To work toward a contradiction, let’s suppose that for some pair of vertices \(u\) and \(v\) there are two different paths between \(u\) and \(v;\) then we can start to go from \(u\) to \(v\) along a first path and then “turn around and go back” to \(u\) along a second path. This means that there must be a cycle in \(G\) that starts and ends at \(u.\)
           <br/>
          </p>
         </div>
@@ -796,10 +831,39 @@ Trees are used to model decisions, to sort data, and to optimize networks.
         </div>
         <div class="paragraph">
          <p>
-          Secondly, assume that for every pair of vertices of \(G\) there is exactly one path between the vertices. We will prove, using proof by contradiction, that \(G\) must be a tree. By assumption, \(G\) is connected because for any pair of vertices there is a path between those vertices, so we only need to prove that \(G\) has no cycles.
-So suppose that \(G\) does have a cycle \(v_{0}v_{1} \cdots v_{n-1}v_{n}\) where \(v_{0} = v_{n}\) (that is, \(v_{0}\) and \(v_{n}\) are the same vertex, but no other vertex is repeated in the cycle.)
-Notice that, because \(G\) is a simple graph, the integer \(n\) must be greater than or equal to 3, so
-we have two different trails, \(v_{0}v_{1}\) and \(v_{1} \cdots v_{n},\) between \(v_0\) and \(v_1\) (Recall that \(v_{0}\) and \(v_{n}\) are the same vertex.) Now reverse the order of vertices in the second path to get two different paths between the vertices \(v_{0}\) and \(v_{1}\) - but we assumed that for every pair of vertices of \(G\) there is exactly one trail between those vertices. We have gotten a contradiction, which means that \(G\) cannot have a cycle. Therefore, \(G\) is connected and has no cycles, which by definition means that \(G\) is a tree.
+          Secondly, assume that
+\(G\) is a simple graph and that
+for every pair of vertices of \(G\) there is exactly one path between the vertices. We will prove, using proof by contradiction, that \(G\) must be a tree. By assumption, \(G\) is connected because for any pair of vertices there is a path between those vertices, so we only need to prove that \(G\) has no cycles.
+To reach a contradiction, let’s suppose that \(G\) does have a cycle
+of the form
+\(v_{0}v_{1} \cdots v_{n-1}v_{n}\) where \(v_{0} = v_{n}\) (that is, \(v_{0}\) and \(v_{n}\) are the same vertex, but no other vertex is repeated in the cycle.)
+Notice that, because \(G\) is a simple graph, the integer \(n\) must be greater than or equal to 3.
+          <br/>
+         </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Why must n be greater than or equal to 3?
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           <span class="small">
+            Notice that \(n\) must be positive since there are at least two vertices in the path.
+            <br/>
+            If \(n=1\) then the cycle is \(v_{0}v_{1}\) where \(v_{0} = v_{1},\) but this cycle consists of a single loop, which contradicts that \(G\) is a simple graph that has no loops.
+            <br/>
+            If \(n=2\) then the cycle is \(v_{0}v_{1}v_{2}\) where \(v_{0} = v_{2},\) but this cycle would use the same edge twice which contradicts the definition of a cycle.
+            <br/>
+            This shows that \(n \geq 3.\)
+           </span>
+           <br/>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          This means that
+we have two different paths, \(v_{0}v_{1}\) and \(v_{1} \cdots v_{n},\) between \(v_0\) and \(v_1\) (because \(v_{0}\) and \(v_{n}\) are the same vertex.) Now we can reverse the order of vertices in the second path to get two different paths between the vertices \(v_{0}\) and \(v_{1}\) - but we assumed that for every pair of vertices of \(G\) there is exactly one path between those vertices. We have derived a contradiction, which means that \(G\) cannot have a cycle. Therefore, \(G\) is connected and has no cycles, which is the definition of a tree, so \(G\) is a tree.
          </p>
         </div>
         <div class="paragraph">
@@ -876,7 +940,8 @@ If a tree has \(2\) vertices, then since a tree is a connected simple graph, the
           Assume that \(P(k)\) is True for the positive integer \(k,\) that is, if a tree has \(k\) vertices then the tree has \(k-1\) edges.
 We can assume \(k \geq 2\) since the cases when \(k \in \{ 1, 2 \}\) were proved in the Basis Step. Suppose that we have a tree \(T\) that has \(k+1\) vertices; we will prove that the tree must have \(k\) edges.
 First, there must be at least one vertex \(v\) in \(T\) such that the degree of \(v\) is \(1:\) If every vertex had at least degree \(2,\) then we could find a cycle in \(T\) which cannot be True since \(T\) is a tree.
-Remove one vertex \(v\) that has degree \(1\) along with the edge that has \(v\) as an endpoint to obtain the subgraph \(T-v.\) Notice that for every pair of vertices of \(T-v\) there is exactly one trail between the vertices, so from the previous theorem, \(T-v\) is a tree. Also, \(T-v\) has \(k\) vertices because we removed only \(v,\) and we can apply the Induction Hypothesis to conclude that \(T-v\) has \(k-1\) edges. Now reinsert vertex \(v\) and the edge that was removed to obtain the tree \(T\) that has \(k+1\) vertices and \(k\) edges. Therefore, if \(P(k)\) is True then \(P(k+1)\) is True, too. That is, \(P(k) \rightarrow P(k+1)\).
+Remove one vertex \(v\) that has degree \(1\) along with the edge that has \(v\) as an endpoint to obtain the subgraph \(T-v.\)
+Notice that for every pair of vertices of \(T-v\) there is exactly one path between the vertices, and applying the previous theorem shows that \(T-v\) is a tree. Also, \(T-v\) has \(k\) vertices because we removed only \(v,\) so we can apply the Induction Hypothesis to conclude that \(T-v\) has \(k-1\) edges. Now, reinsert vertex \(v\) and the edge that was removed to obtain the tree \(T\) that has \(k+1\) vertices and \(k\) edges. Therefore, if \(P(k)\) is True then \(P(k+1)\) is True, too. That is, \(P(k) \rightarrow P(k+1)\).
          </p>
         </div>
         <div class="paragraph">
@@ -901,61 +966,948 @@ for all positive integers \(n,\) if a tree has \(n\) vertices then the tree has 
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_additional_topics">
-       15.2. Additional Topics
+      <h3 id="_spanning_trees_and_spanning_forests">
+       15.2. Spanning Trees and Spanning Forests
       </h3>
       <div class="paragraph">
        <p>
-        <mark>
-         Students in CSC 230 Spring 2025 can refer to the slide decks (from Spring 2024 and Fall 2024) that are posted in
-         <a href="https://sfsu.instructure.com/">
-          Canvas.
-         </a>
-        </mark>
+        Recall that a subgraph of a graph \(G\) is a graph \(H\) such that every vertex of \(H\) is a vertex of \(G\) and every edge of \(H\) is a edge of \(G\) (with both endpoints in the vertex set of \(H.\))
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         subtree
+        </strong>
+        of a graph \(G\) is a subgraph of \(G\) that is also a tree.
+Likewise, a
+        <strong>
+         subforest
+        </strong>
+        of \(G\) is a subgraph of \(G\) that is also a forest.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         spanning tree
+        </strong>
+        of a graph \(G\) is a subgraph of \(G\) that is a tree that includes all the vertices of \(G.\)
+Likewise, a
+        <strong>
+         spanning forest
+        </strong>
+        of a graph \(G\) is a subgraph of \(G\) that is a forest that includes all the vertices of \(G.\)
+       </p>
+      </div>
+      <div class="imageblock text-center">
+       <div class="content">
+        <img alt="three_spanning_trees" height="354" src="imagesMKD/three_spanning_trees.png" width="439"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The image shows the graph \(K_{4}\) along with three spanning trees.
+       </p>
+      </div>
+      <div class="imageblock text-center">
+       <div class="content">
+        <img alt="not_spanning_trees" height="380" src="imagesMKD/not_spanning_trees.png" width="325"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The image shows the graph \(K_{4}\) along with a subgraph that is a subtree that is not a spanning tree, and also a subgraph that is a spanning forest.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Spanning trees are used to solve problems that involve simplifying or optimizing networks. You can learn more about some of the applications of spanning trees at this
+        <a href="https://en.wikipedia.org/wiki/Spanning_tree#Applications">
+         Wikipedia page.
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following subsection presents one such application.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_minimal_weight_spanning_trees_in_weighted_graphs">
+        15.2.1. Minimal-Weight Spanning Trees in Weighted Graphs
+       </h4>
+       <div class="paragraph">
+        <p>
+         In some applications of graphs with weighted edges, you may need to find a spanning tree that has the minimal total weight possible, that is, a spanning tree with sum of edge weights less than or equal to the corresponding sum for any other spanning tree.
+Such a spanning tree is referred to as a
+         <strong>
+          minimal-weight spanning tree.
+         </strong>
+         <br/>
+         <span class="small">
+          Note: Many textbooks and sources use the term
+          <strong>
+           minimum length spanning tree
+          </strong>
+          because the use of these spanning trees historically arose in problems that involved physical distances between nodes of a network. Other sources use the term
+          <strong>
+           minimum spanning tree,
+          </strong>
+          abbreviated as
+          <strong>
+           MST.
+          </strong>
+         </span>
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         As an example, the image shows a weighted graph along with all three possible spanning trees. The minimal-weight spanning tree, with total weight 6, is drawn on the lower left.
+        </p>
+       </div>
+       <div class="imageblock text-center">
+        <div class="content">
+         <img alt="graph5_MKDrevMST01" height="353" src="imagesMKD/graph5_MKDrevMST01.png" width="757"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Notice that for the graph in the image, it was both easy and efficient to use “brute force” to look at
+         <em>
+          all
+         </em>
+         of the spanning trees and compute
+         <em>
+          all
+         </em>
+         of the sums of weights for those spanning trees.
+For weighted graphs that have many more vertices and/or edges, you will need to use a more efficient problem-solving strategy. This textbook discusses one such strategy, Kruskal’s algorithm, in detail.
+        </p>
+       </div>
+       <div class="sect4">
+        <h5 id="_kruskals_algorithm">
+         Kruskal’s Algorithm
+        </h5>
+        <div class="paragraph">
+         <p>
+          Joseph Kruskal published a
+          <a href="https://www.jstor.org/stable/2033241">
+           paper
+          </a>
+          in 1956 that describes an algorithm for constructing “the shortest spanning subtree” of a connected simple graph (Kruskal assumed that the graph has only finitely-many edges, and that each edge has a positive weight which represents the distance between its endpoints.)
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Task: Given a connected graph \(G = (V,E)\) with weighted edges, construct a spanning tree of \(G\) that has the minimal possible sum of weights.
+           </p>
+          </li>
+          <li>
+           <p>
+            Input: The list \(E\) of all weighted edges of the graph.
+           </p>
+          </li>
+          <li>
+           <p>
+            Steps:
+           </p>
+           <div class="olist arabic">
+            <ol class="arabic">
+             <li>
+              <p>
+               Sort the list of edges \(E\) so that each edge \(e_{k}\) in the list has a weight that is less than or equal to the next edge \(e_{k+1}\) in the list.
+              </p>
+             </li>
+             <li>
+              <p>
+               Define the list \(E_{chosen}\) and initialize it as an empty list.
+              </p>
+             </li>
+             <li>
+              <p>
+               Set integer index variable \(i\) to 0.
+              </p>
+             </li>
+             <li>
+              <p>
+               While \(i\) is less than \(|E|,\) the number of edges
+              </p>
+              <div class="olist loweralpha">
+               <ol class="loweralpha" type="a">
+                <li>
+                 <p>
+                  If it is impossible to form a cycle using edge \(e_{i}\) along with some (or all) of the edges in list \(E_{chosen}\)
+                 </p>
+                 <div class="olist lowerroman">
+                  <ol class="lowerroman" type="i">
+                   <li>
+                    <p>
+                     Append \(e_{i}\) to \(E_{chosen}\)
+                    </p>
+                   </li>
+                  </ol>
+                 </div>
+                </li>
+                <li>
+                 <p>
+                  Increment \(i\) by 1
+                 </p>
+                </li>
+               </ol>
+              </div>
+             </li>
+            </ol>
+           </div>
+          </li>
+          <li>
+           <p>
+            Output: The list \(E_{chosen}\) of weighted edges.
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that the output list \(E_{chosen}\) was constructed so that its edges cannot be used to form a cycle in the graph \(G.\) Also, since the graph \(G\) is assumed to be connected, every vertex will be the endpoint of at least one edge in \(E_{chosen},\) so that the graph with vertex set \(V\) and edge set \(E_{chosen}\) will be a spanning tree of \(G.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Also notice that
+the condition for the while loop can be changed to “while \(|E_{chosen}| &lt; |V| - 1\)” since a spanning tree must have one fewer edges than vertices.
+         </p>
+        </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="paragraph">
+           <div class="title">
+            Example 1 - An example of using Kruskal’s algorithm
+           </div>
+           <p>
+            The image shows a drawing of a simple weighted graph along with all three possible spanning trees.
+           </p>
+          </div>
+          <div class="imageblock text-center">
+           <div class="content">
+            <img alt="graph5_MKDrevMST01" height="353" src="imagesMKD/graph5_MKDrevMST01.png" width="757"/>
+           </div>
+          </div>
+          <div class="paragraph">
+           <p>
+            The minimal-weight spanning tree, with total weight 6, is drawn on the lower left.
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            Let’s trace through the steps of Kruskal’s algorithm to examine how this minimal-weight spanning tree is constructed. The following table represents the input to the algorithm: A list of all the edges of the graph, along with their corresponding weights.
+           </p>
+          </div>
+          <table class="tableblock frame-all grid-all" style="width: 30%;">
+           <colgroup>
+            <col style="width: 50%;"/>
+            <col style="width: 50%;"/>
+           </colgroup>
+           <thead>
+            <tr>
+             <th class="tableblock halign-center valign-top">
+              <strong>
+               Edge
+              </strong>
+             </th>
+             <th class="tableblock halign-center valign-top">
+              <strong>
+               Weight
+              </strong>
+             </th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td class="tableblock halign-center valign-top">
+              <p class="tableblock">
+               <em>
+                {c, d}
+               </em>
+              </p>
+             </td>
+             <td class="tableblock halign-center valign-top">
+              <p class="tableblock">
+               <em>
+                1
+               </em>
+              </p>
+             </td>
+            </tr>
+            <tr>
+             <td class="tableblock halign-center valign-top">
+              <p class="tableblock">
+               <em>
+                {a, b}
+               </em>
+              </p>
+             </td>
+             <td class="tableblock halign-center valign-top">
+              <p class="tableblock">
+               <em>
+                2
+               </em>
+              </p>
+             </td>
+            </tr>
+            <tr>
+             <td class="tableblock halign-center valign-top">
+              <p class="tableblock">
+               <em>
+                {b, c}
+               </em>
+              </p>
+             </td>
+             <td class="tableblock halign-center valign-top">
+              <p class="tableblock">
+               <em>
+                3
+               </em>
+              </p>
+             </td>
+            </tr>
+            <tr>
+             <td class="tableblock halign-center valign-top">
+              <p class="tableblock">
+               <em>
+                {a, c}
+               </em>
+              </p>
+             </td>
+             <td class="tableblock halign-center valign-top">
+              <p class="tableblock">
+               <em>
+                5
+               </em>
+              </p>
+             </td>
+            </tr>
+           </tbody>
+          </table>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              Steps:
+             </p>
+             <div class="olist arabic">
+              <ol class="arabic">
+               <li>
+                <p>
+                 Sort the list of edges of the graph in order of increasing weight (This has already been done in the table shown.)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Set \(E_{chosen}\) to the empty list.
+                </p>
+               </li>
+               <li>
+                <p>
+                 Set the index \(i\) to 0.
+                </p>
+               </li>
+               <li>
+                <p>
+                 Enter the while loop.
+                </p>
+                <div class="dlist">
+                 <dl>
+                  <dt class="hdlist1">
+                   \(i=0\)
+                  </dt>
+                  <dd>
+                   <p>
+                    \(i\) is less than 4, and it is impossible to form a cycle using \(\{c, d\}\) alone,
+                    <br/>
+                    so set \(E_{chosen}\) to \([\{c, d\}\)] and set \(i\) to 1.
+                   </p>
+                  </dd>
+                  <dt class="hdlist1">
+                   \(i=1\)
+                  </dt>
+                  <dd>
+                   <p>
+                    \(i\) is less than 4, and it is impossible to form a cycle using \(\{a, b\}\) along with the edge in \(E_{chosen} = [\{c, d\}\)]
+                    <br/>
+                    so set \(E_{chosen}\) to \([\{c, d\} , \{a, b\}\)] and set \(i\) to 2.
+                   </p>
+                  </dd>
+                  <dt class="hdlist1">
+                   \(i=2\)
+                  </dt>
+                  <dd>
+                   <p>
+                    \(i\) is less than 4, and it is impossible to form a cycle using \(\{b, c\}\) along with the edges in \(E_{chosen} = [\{c, d\} , \{a, b\}\)]
+                    <br/>
+                    so set \(E_{chosen}\) to \([\{c, d\} , \{a, b\}, \{b, c\}\)] and set \(i\) to 3.
+                   </p>
+                  </dd>
+                  <dt class="hdlist1">
+                   \(i=3\)
+                  </dt>
+                  <dd>
+                   <p>
+                    \(i\) is less than 4, but it
+                    <em>
+                     is possible
+                    </em>
+                    to form a cycle using \(\{a, c\}\) along with the edges in \(E_{chosen} = [\{c, d\} , \{a, b\}, \{b, c\}\)]
+                    <br/>
+                    so make no change to \(E_{chosen}\) and set \(i\) to 4.
+                   </p>
+                  </dd>
+                  <dt class="hdlist1">
+                   \(i=4\)
+                  </dt>
+                  <dd>
+                   <p>
+                    Since \(i\) is not less than 4, exit the while loop.
+                   </p>
+                  </dd>
+                 </dl>
+                </div>
+               </li>
+              </ol>
+             </div>
+            </li>
+           </ul>
+          </div>
+          <div class="paragraph">
+           <p>
+            The output is \(E_{chosen} = [\{c, d\} , \{a, b\}, \{b, c\}\)] which is the list of edges used in the spanning tree drawn on the lower left of the image. That is, in at least this one case, the algorithm does construct a minimal-weight spanning tree.
+           </p>
+          </div>
+          <div class="openblock question">
+           <div class="title">
+            Question
+           </div>
+           <div class="content">
+            <div class="click_oblique">
+             How could you validate Kruskal’s algorithm?
+             <br/>
+             That is, how could you prove that Kruskal’s algorithm must construct a minimal-weight spanning tree for any input graph that is connected and has finitely-many weighted edges?
+            </div>
+           </div>
+          </div>
+          <div class="openblock click">
+           <div class="title">
+            Hint
+           </div>
+           <div class="content">
+            <div class="click_oblique">
+             Try to create a predicate that you could prove True for all natural numbers by using mathematical induction.
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Here is an exercise for you to try.
+         </p>
+        </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="paragraph">
+           <div class="title">
+            Check Your Understanding
+           </div>
+           <p>
+            Use Kruskal’s algorithm to find the minimal-weight spanning tree for the following graph.
+           </p>
+          </div>
+          <div class="imageblock right text-center">
+           <div class="content">
+            <img alt="K10-US-airports" height="207" src="imagesMKD/K10-US-airports.png" width="225"/>
+           </div>
+          </div>
+          <div class="paragraph">
+           <p>
+            The image shows a graph with vertices representing ten of the busiest airports, by total cargo throughput, in the United States of America. Each vertex is labeled with the International Air Transport Association code for one of the airports, and
+each edge represents the route between the two airports at the endpoints.
+            <br/>
+            <span class="small">
+             Image credit: Remixer-created derivative of original work
+             <a href="https://commons.wikimedia.org/wiki/File:9-simplex_graph.png">
+              "9-simplex graph.png"
+             </a>
+             . The original work has been released into the public domain by its author, Tomruen at English Wikipedia. This applies worldwide.
+            </span>
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            This table lists each edge with its corresponding weight.
+           </p>
+          </div>
+          <iframe src="./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt">
+          </iframe>
+          <div class="paragraph">
+           <p>
+            <span class="small">
+             You can download the table as a
+             <a href="./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt">
+              tab-delimited text file
+             </a>
+             to import the data into a spreadsheet app to sort the list.
+            </span>
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            You also can view the graph
+as a map of the routes between the airports
+at Markus Englund’s
+            <a href="https://www.greatcirclemap.com/?color=%23E2B124&amp;label=iata&amp;routes=ANC-CVG%0AANC-IND%0AANC-JFK%0AANC-LAX%0AANC-MEM%0AANC-MIA%0AANC-ONT%0AANC-ORD%0AANC-SDF%0A%0ACVG-IND%0ACVG-JFK%0ACVG-LAX%0ACVG-MEM%0ACVG-MIA%0ACVG-ONT%0ACVG-ORD%0ACVG-SDF%0A%0AIND-JFK%0AIND-LAX%0AIND-MEM%0AIND-MIA%0AIND-ONT%0AIND-ORD%0AIND-SDF%0A%0AJFK-LAX%0AJFK-MEM%0AJFK-MIA%0AJFK-ONT%0AJFK-ORD%0AJFK-SDF%0A%0ALAX-MEM%0ALAX-MIA%0ALAX-ONT%0ALAX-ORD%0ALAX-SDF%0A%0AMEM-MIA%0AMEM-ONT%0AMEM-ORD%0AMEM-SDF%0A%0AMIA-ONT%0AMIA-ORD%0AMIA-SDF%0A%0AONT-ORD%0AONT-SDF%0A%0AORD-SDF%0A">
+             Great Circle Map
+            </a>
+            website.
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            Try to work this out on your own, then confirm that you correctly found the minimal-weight spanning tree by clicking to see the answer below.
+           </p>
+          </div>
+          <div class="openblock click">
+           <div class="title">
+            Answer
+           </div>
+           <div class="content">
+            <div class="click_oblique">
+             The image shows the edges of the minimal-weight spanning tree in orange.
+             <span class="image right">
+              <img alt="K10-US-airports-spanning-tree" height="207" src="imagesMKD/K10-US-airports-spanning-tree.png" width="225"/>
+             </span>
+             <br/>
+             <span class="small">
+              Image credit: Remixer-created derivative of original work
+              <a href="https://commons.wikimedia.org/wiki/File:9-simplex_graph.png">
+               "9-simplex graph.png"
+              </a>
+              . The original work has been released into the public domain by its author, Tomruen at English Wikipedia. This applies worldwide.
+             </span>
+             <br/>
+             <br/>
+             The table lists the edges of the minimal-weight spanning tree.
++
+             <iframe src="./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024_spanning_tree.txt">
+             </iframe>
+             +
+             <br/>
+             A map view of the minimal-weight spanning tree can be seen at the
+             <a href="https://www.greatcirclemap.com/?color=%23ED8744&amp;label=iata&amp;routes=LAX-ONT%0ACVG-SDF%0ACVG-IND%0AIND-ORD%0AMEM-SDF%0ACVG-JFK%0AMEM-MIA%0AMEM-ONT%0AANC-LAX%0A">
+              Great Circle Map
+             </a>
+             website.
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="sect4">
+        <h5 id="_other_algorithms_for_minimal_weight_spanning_trees">
+         Other Algorithms for Minimal-Weight Spanning Trees
+        </h5>
+        <div class="paragraph">
+         <p>
+          Among the
+other algorithms that can be used to find a minimal-weight spanning tree
+are
+          <a href="https://en.wikipedia.org/wiki/Bor%C5%AFvka%27s_algorithm">
+           Borůvka’s algorithm
+          </a>
+          and
+          <a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">
+           Prim’s algorithm
+          </a>
+          (also known as the DJP algorithm.) You can learn more about these and other algorithms and their history starting with this section of the
+          <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree#Classic_algorithms">
+           Wikipedia page
+          </a>
+          about MSTs, as well as the section
+          <a href="https://www.appliedcombinatorics.org/book/s_graphalgorithms_historical-notes.html">
+           Historical Notes
+          </a>
+          from
+          <em>
+           Applied Combinatorics
+          </em>
+          by Keller and Trotter.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In 2002, Pettie and Ramachandran published a
+          <a href="https://dl.acm.org/doi/10.1145/505241.505243">
+           paper
+          </a>
+          for an optimal minimum spanning tree algorithm.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_rooted_trees_section_under_construction">
+       15.3. Rooted Trees
+       <mark>
+        SECTION UNDER CONSTRUCTION!
+       </mark>
+      </h3>
+      <div class="paragraph">
+       <p>
+        The set of
+        <strong>
+         rooted trees
+        </strong>
+        is defined recursively as follows.
+       </p>
+      </div>
+      <div class="hdlist">
+       <table>
+        <tr>
+         <td class="hdlist1">
+          Basis Step
+         </td>
+         <td class="hdlist2">
+          <p>
+           A single vertex
+           <em>
+            r
+           </em>
+           is a rooted tree.
+The vertex
+           <em>
+            r
+           </em>
+           is called the
+           <strong>
+            root node
+           </strong>
+           of this rooted tree.
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Recursion
+         </td>
+         <td class="hdlist2">
+          <p>
+           Suppose that you have already constructed
+           <em>
+            n
+           </em>
+           rooted trees \(T_{1}, \, \ldots \, T_{n}\) where
+           <em>
+            n
+           </em>
+           is a positive integer and for each positive integer \(i \leq n,\) the root node of \(T_{i}\) is the vertex \(r_{i}.\)
+           <br/>
+           If both of the propositions
+           <br/>
+           (1) No vertex is in more than one of \(T_{1}, \, \ldots \, T_{n}.\)
+           <br/>
+           (2) No edge has endpoints in two of \(T_{1}, \, \ldots \, T_{n}.\)
+           <br/>
+           are True, then you can construct a new rooted tree by first creating a new root node
+           <em>
+            r
+           </em>
+           that is not a vertex of any of the rooted trees \(T_{1}, \, \ldots \, T_{n}\) and then creating
+           <em>
+            n
+           </em>
+           new edges, with one edge between
+           <em>
+            r
+           </em>
+           and each of the old root nodes \(r_{1}, \, \ldots \, r_{n}\) (which are now the root nodes of subtrees.)
+          </p>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="imageblock text-center">
+       <div class="content">
+        <img alt="RootedTreeRecursionV2" height="234" src="imagesMKD/RootedTreeRecursionV2.png" width="590"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The image shows the basis step and represents, in part, the results of the first and second
+uses of the recursion step.
+Rooted trees are usually drawn so that the root node appears at the top of the tree.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that any one particular rooted tree you want to construct requires only finitely many uses of the recursion step.
+However, infinitely-many rooted trees are constructed at each use of the recursion step.
+Also, infinitely-many uses of the recursion step are needed to construct
+        <em>
+         all possible
+        </em>
+        rooted trees.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Much, but not all, of the terminology used with rooted trees is borrowed from “family trees.”
        </p>
       </div>
       <div class="ulist">
        <ul>
         <li>
          <p>
-          Spanning Trees and Spanning Forests
+          The new root node \(r\) added in the recursion step is called the
+          <strong>
+           parent
+          </strong>
+          of the old root nodes \(r_{1}, \, \ldots \, r_{n},\)
+and
+each of the old root nodes \(r_{1}, \, \ldots \, r_{n}\) is a
+          <strong>
+           child
+          </strong>
+          of \(r.\) The nodes \(r_{1}, \, \ldots \, r_{n}\) collectively are called the
+          <strong>
+           children
+          </strong>
+          of \(r.\)
          </p>
-         <div class="ulist">
-          <ul>
-           <li>
-            <p>
-             Kruskal’s Algorithm
-            </p>
-           </li>
-          </ul>
-         </div>
         </li>
         <li>
          <p>
-          Binary Trees
+          Two or more vertices with the same parent are called
+          <strong>
+           siblings.
+          </strong>
          </p>
-         <div class="ulist">
-          <ul>
-           <li>
-            <p>
-             Tree Traversal Strategies
-            </p>
-           </li>
-           <li>
-            <p>
-             Expression Trees
-            </p>
-           </li>
-          </ul>
-         </div>
+        </li>
+        <li>
+         <p>
+          A node that has no children is called a
+          <strong>
+           leaf.
+          </strong>
+         </p>
+        </li>
+        <li>
+         <p>
+          A node that has one or more children is called an
+          <strong>
+           internal node.
+          </strong>
+         </p>
+        </li>
+        <li>
+         <p>
+          The
+          <strong>
+           depth
+          </strong>
+          of node \(v\) in a rooted tree is the length of the shortest path from the root node \(r\) to the node \(v.\) This is also called the
+          <strong>
+           level
+          </strong>
+          of the node $v.*
+          <br/>
+          <span class="small">
+           We will prove later in this chapter that there is exactly one path between \(r\) and \(v.\)
+          </span>
+         </p>
+        </li>
+        <li>
+         <p>
+          A
+          <strong>
+           level
+          </strong>
+          of a rooted tree is the set of all nodes at the same depth. For example, level 1 is the set of all the child nodes of the root node. Level 0 is the set containing only the root node.
+         </p>
+        </li>
+        <li>
+         <p>
+          The
+          <strong>
+           height
+          </strong>
+          of a rooted tree is the maximum of the depths of all the nodes in the rooted tree.
+         </p>
         </li>
        </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        As mentioned earlier,
+rooted trees are usually drawn with the root node at the top of the tree,
+so each edge can be viewed as “pointing away” from the root node, from a parent node down into a child node’s subtree.
+        <br/>
+        <span class="small">
+         Note: In fact, many sources define rooted trees to be
+         <em>
+          directed graphs
+         </em>
+         by using directed edges in the recursion step, replacing the phrase “with one edge between
+         <em>
+          r
+         </em>
+         and each of the old root nodes” by the phrase “with one directed edge from
+         <em>
+          r
+         </em>
+         to each of the old root nodes” so that each of the \(n\) new edges is a directed edge with the new root node \(r\) as its initial vertex and one of the old root nodes \(r_{i}\) as its terminal vertex. However, even if the rooted tree is defined using directed edges, the rooted tree is usually drawn as if the edges are undirected, since drawing the root at the top of tree makes it clear which way the edges should be directed.
+Each rooted tree as defined in this textbook corresponds to
+         <a href="./graph_theory.html#underlying_graph">
+          the underlying graph
+         </a>
+         of a directed-edge rooted tree.
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The next lemma shows that the set of rooted trees is essentially the same as the set of trees that have a finite number of vertices.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="olist arabic">
+         <div class="title">
+          Lemma
+         </div>
+         <ol class="arabic">
+          <li>
+           <p>
+            If \(G\) is a rooted tree, then \(G\) is a tree that has finitely many vertices.
+           </p>
+          </li>
+          <li>
+           <p>
+            If \(G\) is a tree that has finitely many vertices, then \(G\) can be constructed as a rooted tree.
+           </p>
+          </li>
+         </ol>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Proof outline
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           First, suppose that \(G\) is a rooted tree.
+Use strong induction on the number of recursion steps needed to construct the rooted tree to prove that \(G\) must be a simple graph such that for each pair of vertices, there is exactly one path between the vertices.
+In more detail, there is only one path between two vertices of a rooted tree that was constructed using the recursion step only one time: All paths must pass through the root node. For the induction step, any path of a rooted tree constructed using the recursion step \(k+1\) times will either pass through the new root node or one of the subtree’s root node (and the induction hypothesis applies to each of the subtrees since they were constructed using fewer than \(k+1\) applications of the recursion step.)
+Now use the theorem from the first section of the chapter to conclude that \(G\) must be a tree, that is, \(G\) must be a connected simple graph with no cycles.
+That \(G\) must have finitely many vertices follows from the recursive definition of “rooted tree” since at most finitely many vertices are introduced each time the recursion step is used.
+           <br/>
+           <br/>
+           Secondly, suppose that \(G\) is a tree
+that has finitely many vertices.
+Use strong induction on the number of vertices to prove that \(G\) can be constructed as a rooted tree (with undirected edges.)
+In more detail, choose any vertex \(r\) of \(G\) to be the root node, then remove \(r\) and any edges incident to \(r\) to create a forest of subtrees \(T_{1}, \, \ldots \, T_{n}\) where \(n\) is the number of trees in the forest.
+Since each of the subtrees is either a single vertex (which is the basis case for rooted trees) or a tree that contains fewer vertices than \(G,\) we can apply the induction hypothesis to each of the subtrees to show that the subtree can be constructed as a rooted tree. Now apply the recursion step in the definition of rooted trees to reconnect the root nodes of \(T_{1}, \, \ldots \, T_{n}\) to \(r\) using the edges that had been removed. This shows that \(G\) can be constructed as a rooted tree.
+It is important to note that, if the direction of the edges matters, you will get a different rooted tree if you choose a different root node (that is, the implied directions of edges will be different even though the underlying undirected graphs will be isomorphic copies of \(G.\))
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_binary_trees_section_under_construction">
+       15.4. Binary Trees
+       <mark>
+        SECTION UNDER CONSTRUCTION!
+       </mark>
+      </h3>
+      <div class="paragraph">
+       <p>
+        For any positive integer \(m,\) an
+        <strong>
+         m-ary tree
+        </strong>
+        is defined to be a rooted tree in which each internal node has at most \(m\) children.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         binary tree
+        </strong>
+        is a 2-ary tree, or more simply, a rooted tree in which each internal node has at most two children. In a binary tree, the root node is the parent of at most two subtrees \(T_{1},\) called the
+        <strong>
+         left subtree,
+        </strong>
+        and \(T_{2},\) called the
+        <strong>
+         right subtree.
+        </strong>
+        Notice that it is allowable for either subtree to be absent (that is, empty).
+        <br/>
+        <span class="small">
+         Note: Some sources allow for a binary tree to have no vertices or edges. Mathematically speaking, this “empty binary tree” is not a rooted tree since it has no root node. In computer science, an empty binary tree is useful for implementing binary trees as data structures since an empty binary subtree can be represented by a null pointer. As an example, a leaf node can be recognized as one whose left child and right child pointers are both null vectors.
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Here is some additional terminology for binary trees.
+       </p>
       </div>
       <div class="ulist">
        <ul>
         <li>
          <p>
-          Algorithms for Binary search trees
+          A binary tree is a
+          <strong>
+           full binary tree
+          </strong>
+          if
+all internal nodes have exactly two children.
+         </p>
+        </li>
+        <li>
+         <p>
+          A binary tree is a
+          <strong>
+           complete binary tree
+          </strong>
+          if
+is one where every level, except possibly the last, is filled and
+all nodes in the last level are as far left as possible.
+          <br/>
+          <span class="small">
+           Note that a complete binary tree is not a complete graph. Mathematicians and computer scientists recycle certain words like “complete.”
+          </span>
+         </p>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_additional_topics_to_be_added_later">
+       15.5. Additional Topics To Be Added Later
+      </h3>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Tree Traversal Strategies
          </p>
          <div class="ulist">
           <ul>
@@ -966,6 +1918,11 @@ for all positive integers \(n,\) if a tree has \(n\) vertices then the tree has 
            </li>
           </ul>
          </div>
+        </li>
+        <li>
+         <p>
+          Expression Trees
+         </p>
         </li>
        </ul>
       </div>

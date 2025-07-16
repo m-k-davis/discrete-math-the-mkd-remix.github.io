@@ -513,7 +513,7 @@ Recursion:: We can construct new well-formed formulae from already-constructed w
 
 
 In the next example, we describe how to construct rooted trees, a type of graph.
-
+[[rooted_trees]]
 ****
 .Example {counter:indrecexample} - Rooted Trees
 

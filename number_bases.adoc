@@ -120,6 +120,8 @@ In everyday life, it is common to treat numbers and numerals as if they are the 
 // MKD Apr 01 2025
 //counter:numextally 5
 
+// MKD Jun 24 2025 see https://en.wikipedia.org/wiki/Maya_script#Numerical_system
+
 ****
 .Example {counter:numex} -  Numerals, Numbers, and Digits
 --

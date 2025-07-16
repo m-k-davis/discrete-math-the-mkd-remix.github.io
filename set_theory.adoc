@@ -586,6 +586,7 @@ For the power set of $A,$ to choose a subset of $A$ you must decide for each of 
 
 // MKD Jan 26 2025 moved Venn diagrams before Cardinality
 // Feb 2 2025 moved after Cardinality of Finite Sets
+// Jun 24 2025 TODO - state explicitly that the circles in a Venn diagram are not in general used as "geometric" shapes where area or circumference are important - the circles simply separate the elements "inside" the set from the other elements that are "outside".
 == Venn Diagrams
 
 A *Venn diagram,* named after the English mathematician John Venn,  consists of one or more circles, with each circular region representing a set. An example can be seen link:https://en.wikipedia.org/wiki/Venn_diagram#/media/File:Venn_diagram_gr_la_ru.svg[here.]

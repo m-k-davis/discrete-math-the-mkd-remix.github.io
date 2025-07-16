@@ -4,7 +4,7 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on July 15, 2025._ + 
+_This chapter was last updated on July 11, 2025._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
@@ -233,53 +233,47 @@ image::imagesMKD/three_spanning_trees.png[three_spanning_trees,439,354,align="ce
 
 The image shows the graph $K_{4}$ along with three spanning trees.
 
+
 //image::imagesMKD/not_spanning_trees.png[not_spanning_trees,650,761,align="center"] 
 image::imagesMKD/not_spanning_trees.png[not_spanning_trees,325,380,align="center"] 
 
 The image shows the graph $K_{4}$ along with a subgraph that is a subtree that is not a spanning tree, and also a subgraph that is a spanning forest.
 
-Spanning trees are used to solve problems that involve simplifying or optimizing networks. You can learn more about some of the applications of spanning trees at this  link:https://en.wikipedia.org/wiki/Spanning_tree#Applications[Wikipedia page.] 
-
-The following subsection presents one such application.
 
 //=== Kruskal’s Algorithm
 //=== Finding A Minimal Cost Spanning Tree in a Weighted Graph: Kruskal's Algorithm 
-//=== Finding A Minimal-Weight Spanning Tree in a Weighted Graph: Kruskal's Algorithm 
-=== Minimal-Weight Spanning Trees in Weighted Graphs
+=== Finding A Minimal-Weight Spanning Tree in a Weighted Graph: Kruskal's Algorithm 
 
-In some applications of graphs with weighted edges, you may need to find a spanning tree that has the minimal total weight possible, that is, a spanning tree with sum of edge weights less than or equal to the corresponding sum for any other spanning tree. 
-//The weights may represent the distance between two nodes in a network, but could represent some other quantity such as cost. 
-//This textbook will refer to such a spanning tree as a *minimal-weight spanning tree.* + 
-Such a spanning tree is referred to as a *minimal-weight spanning tree.* + 
-//[small]#Other sources use terms such as *minimum length spanning tree* and *minimum spanning tree* (MST) instead.#
-//[small]#Note: Historically, many of these applications involved physical distances between the nodes of a network, so many textbooks and sources use the term *minimum length spanning tree.* Other sources use the term *minimum spanning tree* (MST.)#
-[small]#Note: Many textbooks and sources use the term *minimum length spanning tree* because the use of these spanning trees historically arose in problems that involved physical distances between nodes of a network. Other sources use the term *minimum spanning tree,* abbreviated as *MST.*#
+Joseph Kruskal published a link:https://www.jstor.org/stable/2033241[paper] in 1956 that describes an algorithm for constructing “the shortest spanning subtree” of a connected simple graph, assuming that the each edge has a positive weight that represents the distance between its endpoints. However, since the weights can represent a quantity other than distance, e.g., cost, this textbook will refer to the tree that is constructed as a *minimal-weight spanning tree,* that is, a spanning tree with sum of edge weights less than or equal to the corresponding sum for any other spanning tree.
 
-As an example, the image shows a weighted graph along with all three possible spanning trees. The minimal-weight spanning tree, with total weight 6, is drawn on the lower left. 
+//Here is a description of the algorithm, based on Kruskal's original. 
+Notice that this construction assumes that the graph is connected and has finitely-many weighted edges, with each weight being a positive number.
 
-//image::imagesMKD/graph5_MKDrevMST01.png[graph5_MKDrevMST01,1515,707,float="right",align="center"]
-//image::imagesMKD/graph5_MKDrevMST01.png[graph5_MKDrevMST01,379,177,align="center"]
-//image::imagesMKD/graph5_MKDrevMST01.png[graph5_MKDrevMST01,505,236,align="center"]
-image::imagesMKD/graph5_MKDrevMST01.png[graph5_MKDrevMST01,757,353,align="center"]
+////
+** Task: Given a graph $G=(V,E)$ with weighted edges, construct a spanning tree that has the minimal possible sum of weights.
+//** Input: The list $V$ of all vertices of the graph, with the two vertices $a$ and $z$ specified, and the list $E$ of all weighted edges of the graph. + 
+//[small]#For example, the input could be an adjacency matrix for the graph, with the first row of the matrix corresponding to $a$ and the last row corresponding to $z$.#
+** Input: The list $E$ of all weighted edges of the graph. 
+** Steps:  
+. Define the lists $E_{chosen}$ and $E_{candidates},$ and initialize each list as an empty list. 
+. Copy the list $E$ to $E_{candidates}.$ 
+. Sort the list $E_{candidates}$ so that each edge $e_{k}$ in the list has a weight that is greater than or equal to the next edge $e_{k+1}$ in the list. 
+. While list $E_{candidates}$ is not empty
+.. Set $e$ to the last element in $E_{candidates}$
+//.. If the set of edges $E_{chosen} \cup \{ e \}$ does not contain a cycle 
+.. If it is impossible to form a cycle using edge $e$ along with some (or all) of the edges in list $E_{chosen}$
+... Append $e$ to $E_{chosen}$
+.. Remove edge $e$ from the list $E_{candidates}.$  
+** Output: The list $E_{chosen}$ of weighted edges.
 
-Notice that for the graph in the image, it was both easy and efficient to use “brute force” to look at _all_ of the spanning trees and compute _all_ of the sums of weights for those spanning trees. 
-//However, there are several algorithms that can be used in cases where the 
-For weighted graphs that have many more vertices and/or edges, you will need to use a more efficient problem-solving strategy. This textbook discusses one such strategy, Kruskal's algorithm, in detail.
-//, but there are other algorithms as well. 
-
-==== Kruskal's Algorithm 
-
-//Joseph Kruskal published a link:https://www.jstor.org/stable/2033241[paper] in 1956 that describes an algorithm for constructing “the shortest spanning subtree” of a connected simple graph, assuming that the each edge has a positive weight that represents the distance between its endpoints. 
-//However, since the weights can represent a quantity other than distance, e.g., cost, this textbook will refer to the tree that is constructed as a *minimal-weight spanning tree,* that is, a spanning tree with sum of edge weights less than or equal to the corresponding sum for any other spanning tree. + 
-//[small]#Some sources use the term *minimum spanning tree* (MST) instead.#
-
-Joseph Kruskal published a link:https://www.jstor.org/stable/2033241[paper] in 1956 that describes an algorithm for constructing “the shortest spanning subtree” of a connected simple graph (Kruskal assumed that the graph has only finitely-many edges, and that each edge has a positive weight which represents the distance between its endpoints.)
+Notice that the list $E_{chosen}$ is constructed so that the edges it contains cannot be used to form a cycle. Also, because the graph is assumed to be connected, every vertex will be the endpoint of at least one edge in $E_{chosen},$ so that the graph with . 
+////
 
 ** Task: Given a connected graph $G = (V,E)$ with weighted edges, construct a spanning tree of $G$ that has the minimal possible sum of weights.
 ** Input: The list $E$ of all weighted edges of the graph. 
 ** Steps:  
 . Sort the list of edges $E$ so that each edge $e_{k}$ in the list has a weight that is less than or equal to the next edge $e_{k+1}$ in the list. 
-. Define the list $E_{chosen}$ and initialize it as an empty list. 
+. Define the list $E_{chosen}$ and initialize it list as an empty list. 
 . Set integer index variable $i$ to 0.
 . While $i$ is less than $|E|,$ the number of edges
 .. If it is impossible to form a cycle using edge $e_{i}$ along with some (or all) of the edges in list $E_{chosen}$
@@ -347,7 +341,90 @@ Try to create a predicate that you could prove True for all natural numbers by u
 
 ****
 
-Here is an exercise for you to try.
+Here is another example.
+
+****
+.Example {counter:treeex} - Seven Busy Airports
+
+
+//https://www.greatcirclemap.com/?routes=ATL-BOG%0AATL-CAI%0AATL-CAN%0AATL-DXB%0AATL-LHR%0AATL-SYD%0ABOG-CAI%0ABOG-CAN%0ABOG-DXB%0ABOG-LHR%0ABOG-SYD%0ACAI-CAN%0ACAI-DXB%0ACAI-LHR%0ACAI-SYD%0ACAN-DXB%0ACAN-LHR%0ACAN-SYD%0ADXB-LHR%0ADXB-SYD%0ALHR-SYD
+
+Consider the complete graph on the seven vertices $\{ ATL, BOG, CAI, CAN, DXB, LHR, SYD \}.$ Each vertex is labeled using the International Air Transport Association code for one of the busiest airports in the world. 
+
+Each edge represents the air route between two of the airports, and has a weight which is the shortest distance, in kilometers, between those two airports.
+//All of the edges are listed in the table below, along with the distance, in kilometers, between the two airports.
+
+[cols="<1e,>1e",width=30%",align="center",options="header"]
+|===
+^| *Edge*     ^| *Weight* 
+^| {ATL, BOG} >| 3376
+^| {ATL, CAI} >| 10256
+^| {ATL, CAN} >| 13421
+^| {ATL, DXB} >| 12230
+^| {ATL, LHR} >| 6776
+^| {ATL, SYD} >| 14942
+^| {BOG, CAI} >| 11237
+^| {BOG, CAN} >| 16794
+^| {BOG, DXB} >| 13645
+^| {BOG, LHR} >| 8473
+^| {BOG, SYD} >| 14336
+^| {CAI, CAN} >| 8005
+^| {CAI, DXB} >| 2419
+^| {CAI, LHR} >| 3536
+^| {CAI, SYD} >| 14403
+^| {CAN, DXB} >| 5837
+^| {CAN, LHR} >| 9513
+^| {CAN, SYD} >| 7507
+^| {DXB, LHR} >| 5505
+^| {DXB, SYD} >| 12039
+^| {LHR, SYD} >| 17016
+|===
+
+////
+// MKD July 8 2025 - sorted table
+[cols="<1e,>1e",width=30%",align="center",options="header"]
+|===
+^| {CAI, DXB} >| 2419
+^| {ATL, BOG} >| 3376
+^| {CAI, LHR} >| 3536
+^| {DXB, LHR} >| 5505
+^| {CAN, DXB} >| 5837
+^| {ATL, LHR} >| 6776
+^| {CAN, SYD} >| 7507
+^| {CAI, CAN} >| 8005
+^| {BOG, LHR} >| 8473
+^| {CAN, LHR} >| 9513
+^| {ATL, CAI} >| 10256
+^| {BOG, CAI} >| 11237
+^| {DXB, SYD} >| 12039
+^| {ATL, DXB} >| 12230
+^| {ATL, CAN} >| 13421
+^| {BOG, DXB} >| 13645
+^| {BOG, SYD} >| 14336
+^| {CAI, SYD} >| 14403
+^| {ATL, SYD} >| 14942
+^| {BOG, CAN} >| 16794
+^| {LHR, SYD} >| 17016
+|===
+
+
+Kruskal's algorithm constructs the following set of edges with total weight 29451 kilometers.
+
+[cols="<1e,>1e",width=30%",align="center",options="header"]
+|===
+^| {CAI, DXB} >| 2419
+^| {ATL, BOG} >| 3376
+^| {CAI, LHR} >| 3536
+^| {CAN, DXB} >| 5837
+^| {ATL, LHR} >| 6776
+^| {CAN, SYD} >| 7507
+|===
+
+
+////
+
+****
+
 
 // MKD JULY 9 2025
 //https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States#Busiest_U.S._airports_by_total_cargo_throughput
@@ -358,268 +435,111 @@ Here is an exercise for you to try.
 //.You Try
 .Check Your Understanding
 
-Use Kruskal's algorithm to find the minimal-weight spanning tree for the following graph. 
+Find the minimal-weight spanning tree for the following graph. 
 
 //image::imagesMKD/K10-US-airports.png[K10-US-airports,901,827,float="right",align="center"]
 //image::imagesMKD/K10-US-airports.png[K10-US-airports,300,276,float="right",align="center"]
 image::imagesMKD/K10-US-airports.png[K10-US-airports,225,207,float="right",align="center"]
-//This drawing of the complete graph $K_{10}$ has vertices labeled with the International Air Transport Association codes of ten of the busiest airports, by total cargo throughput, in the United States of America. 
-//The vertices of the complete graph $K_{10}$ have been labeled with the International Air Transport Association codes of ten of the busiest airports, by total cargo throughput, in the United States of America. 
-The image shows a graph with vertices representing ten of the busiest airports, by total cargo throughput, in the United States of America. Each vertex is labeled with the International Air Transport Association code for one of the airports, and 
-each edge represents the route between the two airports at the endpoints. 
+This drawing of the complete graph $K_{10}$ has vertices labeled with the International Air Transport Association codes of ten of the busiest airports, by total cargo throughput, in the United States of America. 
  + 
-[small]#Image credit: Remixer-created derivative of original work  link:https://commons.wikimedia.org/wiki/File:9-simplex_graph.png["9-simplex graph.png"]. The original work has been released into the public domain by its author, Tomruen at English Wikipedia. This applies worldwide.#
+[small]#Image credit: Remixer-created derivative of original work  link:https://commons.wikimedia.org/wiki/File:9-simplex_graph.png["9-simplex graph.png"]. The original work "9-simplex graph.png" has been released into the public domain by its author, Tomruen at English Wikipedia. This applies worldwide.#
 
 //The weight of each edge, which is the distance in kilometers between the endpoints, are listed in the table. 
 //The table of edges and their weights is given below. 
-//Each edge represents the route between the two airports that label the endpoints. The table lists each edge with its corresponding weight, which is the distance between the two airports, in kilometers.
-
-//Each vertex represents one of the airports, and 
-//each edge represents the route between the two airports at the endpoints. 
-//The weight of each edge is the distance, in kilometers, between the two airports. 
-This table lists each edge with its corresponding weight.
+The table lists each edge with its corresponding weight, which is the distance between the two endpoints, in kilometers.
 
 ++++
 <iframe src="./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt"></iframe>
 ++++ 
-//[small]#You can download the table as a link:./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt[tab-delimited text file] so you can sort the list in a spreadsheet.#
-[small]#You can download the table as a link:./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt[tab-delimited text file] to import the data into a spreadsheet app to sort the list.#
+[small]#You can download the table as a link:./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt[tab-delimited text file] so you can sort the list in a spreadsheet.#
 
-//https://ethercalc.net/n50a2eholw
+This graph can be viewed in more geographically accurate form at Markus Englund's  link:https://www.greatcirclemap.com/?color=%23ED8744&label=iata&routes=ANC-CVG%0AANC-IND%0AANC-JFK%0AANC-LAX%0AANC-MEM%0AANC-MIA%0AANC-ONT%0AANC-ORD%0AANC-SDF%0A%0ACVG-IND%0ACVG-JFK%0ACVG-LAX%0ACVG-MEM%0ACVG-MIA%0ACVG-ONT%0ACVG-ORD%0ACVG-SDF%0A%0AIND-JFK%0AIND-LAX%0AIND-MEM%0AIND-MIA%0AIND-ONT%0AIND-ORD%0AIND-SDF%0A%0AJFK-LAX%0AJFK-MEM%0AJFK-MIA%0AJFK-ONT%0AJFK-ORD%0AJFK-SDF%0A%0ALAX-MEM%0ALAX-MIA%0ALAX-ONT%0ALAX-ORD%0ALAX-SDF%0A%0AMEM-MIA%0AMEM-ONT%0AMEM-ORD%0AMEM-SDF%0A%0AMIA-ONT%0AMIA-ORD%0AMIA-SDF%0A%0AONT-ORD%0AONT-SDF%0A%0AORD-SDF%0A[Great Circle Map] website.
 
-You also can view the graph 
-//This 
-//$K_{10}$ 
-//graph can be viewed 
-//in a more geographically-appropriate form 
-as a map of the routes between the airports 
-at Markus Englund's  link:https://www.greatcirclemap.com/?color=%23E2B124&label=iata&routes=ANC-CVG%0AANC-IND%0AANC-JFK%0AANC-LAX%0AANC-MEM%0AANC-MIA%0AANC-ONT%0AANC-ORD%0AANC-SDF%0A%0ACVG-IND%0ACVG-JFK%0ACVG-LAX%0ACVG-MEM%0ACVG-MIA%0ACVG-ONT%0ACVG-ORD%0ACVG-SDF%0A%0AIND-JFK%0AIND-LAX%0AIND-MEM%0AIND-MIA%0AIND-ONT%0AIND-ORD%0AIND-SDF%0A%0AJFK-LAX%0AJFK-MEM%0AJFK-MIA%0AJFK-ONT%0AJFK-ORD%0AJFK-SDF%0A%0ALAX-MEM%0ALAX-MIA%0ALAX-ONT%0ALAX-ORD%0ALAX-SDF%0A%0AMEM-MIA%0AMEM-ONT%0AMEM-ORD%0AMEM-SDF%0A%0AMIA-ONT%0AMIA-ORD%0AMIA-SDF%0A%0AONT-ORD%0AONT-SDF%0A%0AORD-SDF%0A[Great Circle Map] website.
 
-//Use Kruskal's algorithm to find the minimal-weight spanning tree for this graph. 
+////
+// MKD July 11 2025 test
+[click.Reveal.table.of.weights]
+--
+The table data can be downloaded as a link:./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt[tab-delimited text file.]   
+[format=tsv,cols="^20,>15e",width=35%",align="center",options="header"]
+|===
+include::imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt[]
+|===
+--
+////
 
-//Try to work this out for yourself, before revealing the answer. 
-//You can click to see the answer below. 
-//,.
-Try to work this out on your own, then confirm that you correctly found the minimal-weight spanning tree by clicking to see the answer below.
+
+// MKD July 12 2025 ALTER THIS 
+[click.FIX.ME!]
+--
+The image shows these edges in orange. + 
+ +  
+image:imagesMKD/K10-US-airports-spanning-tree.png[K10-US-airports-spanning-tree,300,276,float="right",align="center"] 
+Let's suppose that we had such a one-to-one correspondence. 
+As shown in the image, we could represent the one-to-one correspondence by a sequence $S_0 , S_1 , S_2 , \ldots$ of subsets of $\mathbb{N},$ which is what the elements of $\mathcal{P}(\mathbb{N})$ are. In the one-to-one correspondence, _every subset_ of $\mathbb{N}$ (that is, _every element_ of $\mathcal{P}(\mathbb{N})$) appears as one of the $S_{n}$ in the sequence: Every subset has been paired with a natural number and every natural number has been paired with a subset. + 
+ +  
+[small]#Image credit: Remixer-created derivative of original work  link:https://commons.wikimedia.org/wiki/File:9-simplex_graph.png["9-simplex graph.png"]. The original work "9-simplex graph.png" has been released into the public domain by its author, Tomruen at English Wikipedia. This applies worldwide.#
+
+Another view of the spanning tree is can be displayed at this link:https://www.greatcirclemap.com/?color=%23ED8744&label=iata&routes=LAX-ONT%0ACVG-SDF%0ACVG-IND%0AIND-ORD%0AMEM-SDF%0ACVG-JFK%0AMEM-MIA%0AMEM-ONT%0AANC-LAX%0A[link.] 
+--
+
+++++
+<iframe src="./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024.txt"></iframe>
+++++
 
 [click.Answer]
 --
-
-The image shows the edges of the minimal-weight spanning tree in orange.
-
-image:imagesMKD/K10-US-airports-spanning-tree.png[K10-US-airports-spanning-tree,225,207,float="right",align="center"] + 
-[small]#Image credit: Remixer-created derivative of original work  link:https://commons.wikimedia.org/wiki/File:9-simplex_graph.png["9-simplex graph.png"]. The original work has been released into the public domain by its author, Tomruen at English Wikipedia. This applies worldwide.# + 
+The spanning tree uses the edges shown in the table. 
+//[cols="<1e,<4e",width=25%",align="center",options="header"]
+[cols="<1e,>1e",width=30%",align="center",options="header"]
+|===
+^| *Edge*     ^| *Weight (km)* 
+^| {LAX, ONT} | 76
+^| {CVG, SDF} | 134
+^| {CVG, IND} | 159
+^| {IND, ORD} | 286
+^| {MEM, SDF} | 514
+^| {CVG, JFK} | 948
+^| {MEM, MIA} | 1383
+^| {MEM, ONT} | 2530
+^| {ANC, LAX} | 3774
+|===
+The image shows these edges in orange. + 
  + 
-The table lists the edges of the minimal-weight spanning tree. 
-++++
-<iframe src="./imagesMKD/10_busiest_US_airports_by_total_cargo_throughput_2024_spanning_tree.txt"></iframe>
-++++ 
+image::imagesMKD/K10-US-airports-spanning-tree.png[K10-US-airports-spanning-tree,300,276,float="right",align="center"] 
+The spanning tree for the graph $K_{10}$ with vertices labeled with the International Air Transport Association codes of ten of the busiest airports, by total cargo throughput, in the United States of America. 
  + 
-A map view of the minimal-weight spanning tree can be seen at the link:https://www.greatcirclemap.com/?color=%23ED8744&label=iata&routes=LAX-ONT%0ACVG-SDF%0ACVG-IND%0AIND-ORD%0AMEM-SDF%0ACVG-JFK%0AMEM-MIA%0AMEM-ONT%0AANC-LAX%0A[Great Circle Map] website. 
+[small]#Image credit: Remixer-created derivative of original work  link:https://commons.wikimedia.org/wiki/File:9-simplex_graph.png["9-simplex graph.png"]. The original work "9-simplex graph.png" has been released into the public domain by its author, Tomruen at English Wikipedia. This applies worldwide.#
+
+Another view of the spanning tree is can be displayed at this link:https://www.greatcirclemap.com/?color=%23ED8744&label=iata&routes=LAX-ONT%0ACVG-SDF%0ACVG-IND%0AIND-ORD%0AMEM-SDF%0ACVG-JFK%0AMEM-MIA%0AMEM-ONT%0AANC-LAX%0A[link.]
 --
+
 
 ****
 
-//Another view of 
-//A map view of 
-//the minimal-weight spanning tree can be 
-//displayed at the  
-//seen at the 
-
-==== Other Algorithms for Minimal-Weight Spanning Trees 
-
-//It is important to note that 
-//There are many 
-//Two 
-Among the 
-other algorithms that can be used to find a minimal-weight spanning tree 
-//, such as 
-are 
-link:https://en.wikipedia.org/wiki/Bor%C5%AFvka%27s_algorithm[Borůvka's algorithm] and link:https://en.wikipedia.org/wiki/Prim%27s_algorithm[Prim's algorithm] (also known as the DJP algorithm.) You can learn more about these and other algorithms and their history starting with this section of the  link:https://en.wikipedia.org/wiki/Minimum_spanning_tree#Classic_algorithms[Wikipedia page] about MSTs, as well as the section  link:https://www.appliedcombinatorics.org/book/s_graphalgorithms_historical-notes.html[Historical Notes] from _Applied Combinatorics_ by Keller and Trotter. 
-
-In 2002, Pettie and Ramachandran published a link:https://dl.acm.org/doi/10.1145/505241.505243[paper] for an optimal minimum spanning tree algorithm. 
-//The paper is also available at link:https://www.cs.utexas.edu/~vlr/papers/jacm02.pdf[Dr. Ramachandran's web page.] 
-
-== Rooted Trees #SECTION UNDER CONSTRUCTION!#
-
-//Recall the following recursive definition that appears in the link:./recursion.html#rooted_trees[Recursion] chapter.
-
-The set of *rooted trees* is defined recursively as follows. 
-//+ 
-//[small]#This definition is a minor revision to the one that appeared in the link:./recursion.html#rooted_trees[Recursion] chapter.#
-
-[horizontal]
-Basis Step:: A single vertex _r_ is a rooted tree.
-The vertex _r_ is called the *root node* of this rooted tree. 
-//This vertex is also called the *root* of the rooted tree. 
-Recursion:: Suppose that you have already constructed _n_ rooted trees $T_{1}, \, \ldots \, T_{n}$ where _n_ is a positive integer and for each positive integer $i \leq n,$ the root node of $T_{i}$ is the vertex $r_{i}.$ +  
-If both of the propositions + 
-	(1) No vertex is in more than one of $T_{1}, \, \ldots \, T_{n}.$ + 
-	(2) No edge has endpoints in two of $T_{1}, \, \ldots \, T_{n}.$ + 
-are True, then you can construct a new rooted tree by first creating a new root node _r_ that is not a vertex of any of the rooted trees $T_{1}, \, \ldots \, T_{n}$ and then creating _n_ new edges, with one edge between _r_ and each of the old root nodes $r_{1}, \, \ldots \, r_{n}$ (which are now the root nodes of subtrees.)
-
-image::imagesMKD/RootedTreeRecursionV2.png[RootedTreeRecursionV2,590,234,align="center"] 
-The image shows the basis step and represents, in part, the results of the first and second 
-uses of the recursion step. 
-Rooted trees are usually drawn so that the root node appears at the top of the tree. 
-
-Notice that any one particular rooted tree you want to construct requires only finitely many uses of the recursion step. 
-However, infinitely-many rooted trees are constructed at each use of the recursion step. 
-Also, infinitely-many uses of the recursion step are needed to construct _all possible_ rooted trees. 
-
-// DEFINE parent, child, etc. here 
-//In the recursion step, 
-//Here are some terms that are used in the context of rooted trees.  
-Much, but not all, of the terminology used with rooted trees is borrowed from “family trees.”
-
-* The new root node $r$ added in the recursion step is called the *parent* of the old root nodes $r_{1}, \, \ldots \, r_{n},$ 
-and 
-//* 
-each of the old root nodes $r_{1}, \, \ldots \, r_{n}$ is a *child* of $r.$ The nodes $r_{1}, \, \ldots \, r_{n}$ collectively are called the *children* of $r.$ 
-* Two or more vertices with the same parent are called *siblings.* 
-* A node that has no children is called a *leaf.* 
-* A node that has one or more children is called an *internal node.* 
-* The *depth* of node $v$ in a rooted tree is the length of the shortest path from the root node $r$ to the node $v.$ This is also called the *level* of the node $v.* + 
-[small]#We will prove later in this chapter that there is exactly one path between $r$ and $v.$#
-//* For each positive integer $k$ that is less than or equal to the height of the rooted tree, *level $k$* is the set of all nodes that are at depth $k.$ 
-* A *level* of a rooted tree is the set of all nodes at the same depth. For example, level 1 is the set of all the child nodes of the root node. Level 0 is the set containing only the root node. 
-* The *height* of a rooted tree is the maximum of the depths of all the nodes in the rooted tree. 
- 
-//Rooted trees are usually drawn with the root node at the top of the tree, and the edges can be viewed as “pointing away” from the root node, down into the subtree. + 
-As mentioned earlier, 
-rooted trees are usually drawn with the root node at the top of the tree, 
-so each edge can be viewed as “pointing away” from the root node, from a parent node down into a child node's subtree. + 
-[small]#Note: In fact, many sources define rooted trees to be _directed graphs_ by using directed edges in the recursion step, replacing the phrase “with one edge between _r_ and each of the old root nodes” by the phrase “with one directed edge from _r_ to each of the old root nodes” so that each of the $n$ new edges is a directed edge with the new root node $r$ as its initial vertex and one of the old root nodes $r_{i}$ as its terminal vertex. However, even if the rooted tree is defined using directed edges, the rooted tree is usually drawn as if the edges are undirected, since drawing the root at the top of tree makes it clear which way the edges should be directed.  
-//; this means that the directed edges of a rooted tree will always “point away” from its root node.  
-//In this textbook, the rooted tree is defined to be the corresponding link:./graph_theory.html#underlying_graph[underlying graph] of the directed rooted tree. 
-Each rooted tree as defined in this textbook corresponds to link:./graph_theory.html#underlying_graph[the underlying graph] of a directed-edge rooted tree.# 
-
-//so that the new root node $r$ is the initial vertex of each of the new directed edge, with each of the old root nodes $r_{i}$ being a terminal vertex; this means that the directed edges of a rooted tree will always “point away” from its root node.
-
-//In most applications, you can use the underlying undirected tree instead of the roooted tree with directed edges.  
-//. no vertex is in more than one of $T_{1}, \, \ldots \, T_{n}$ and  
-//. no edge has endpoints in two of $T_{1}, \, \ldots \, T_{n}$ 
-//=== Rooted Trees As Directed Graphs 
 
 
-//=== Rooted Trees Are The Same As Trees
-//Although rooted trees are defined differently than trees, these two classes of graphs are identical (as long as we assume that a graph has only finitely many vertices.)
-The next lemma shows that the set of rooted trees is essentially the same as the set of trees that have a finite number of vertices.
 
-****
-.Lemma 
-
-//Let $G$ be a graph that has finitely many vertices and edges. 
-
-. If $G$ is a rooted tree, then $G$ is a tree that has finitely many vertices.
-. If $G$ is a tree that has finitely many vertices, then $G$ can be constructed as a rooted tree.
-
-[click.proof.outline]
---
-First, suppose that $G$ is a rooted tree. 
-Use strong induction on the number of recursion steps needed to construct the rooted tree to prove that $G$ must be a simple graph such that for each pair of vertices, there is exactly one path between the vertices. 
-In more detail, there is only one path between two vertices of a rooted tree that was constructed using the recursion step only one time: All paths must pass through the root node. For the induction step, any path of a rooted tree constructed using the recursion step $k+1$ times will either pass through the new root node or one of the subtree's root node (and the induction hypothesis applies to each of the subtrees since they were constructed using fewer than $k+1$ applications of the recursion step.) 
-Now use the theorem from the first section of the chapter to conclude that $G$ must be a tree, that is, $G$ must be a connected simple graph with no cycles. 
-That $G$ must have finitely many vertices follows from the recursive definition of “rooted tree” since at most finitely many vertices are introduced each time the recursion step is used. + 
- + 
-Secondly, suppose that $G$ is a tree 
-that has finitely many vertices. 
-Use strong induction on the number of vertices to prove that $G$ can be constructed as a rooted tree (with undirected edges.) 
-In more detail, choose any vertex $r$ of $G$ to be the root node, then remove $r$ and any edges incident to $r$ to create a forest of subtrees $T_{1}, \, \ldots \, T_{n}$ where $n$ is the number of trees in the forest. 
-Since each of the subtrees is either a single vertex (which is the basis case for rooted trees) or a tree that contains fewer vertices than $G,$ we can apply the induction hypothesis to each of the subtrees to show that the subtree can be constructed as a rooted tree. Now apply the recursion step in the definition of rooted trees to reconnect the root nodes of $T_{1}, \, \ldots \, T_{n}$ to $r$ using the edges that had been removed. This shows that $G$ can be constructed as a rooted tree.
-It is important to note that, if the direction of the edges matters, you will get a different rooted tree if you choose a different root node (that is, the implied directions of edges will be different even though the underlying undirected graphs will be isomorphic copies of $G.$)
---
-
-****
-
-//Suppose that $G$ is a rooted tree. To show that $G$ is a tree, 
-//To show that every rooted tree is a tree, 
-// To show that $G$ is a rooted tree 
-//(or the underlying graph of a directed rooted tree), 
-// Repeat this process for each of the subtrees until you have reached subtrees that consist of single vertices (This must occur since we remove at least one vertex and one edge at each step of the process, based on the link:./relations.html#well_ordering_axiom_for_natural_numbers[Well-Ordering Axiom] for the set of natural numbers). Now, reverse the process to  reconstruct $G$ using the basis and recursion steps in the definition of rooted trees. Thus, any tree is a rooted tree.
-//To prove the “only if” direction, 
-// Essentially, this is an application the Addition Rule - the union of finitely many (disjoint) sets is also a finite set. The rule is applied once for each use of the recursion step
-//To prove the “if” direction, 
-//, that is, a single tree can be made into many different rooted trees.
-
-// Applications
-// 	Family trees - genetics.
-//	Hierarchical file systems - computers
-//	Decision trees - analyzing and solving problems
-//	Expression trees - represent Boolean or algebraic expressions
-//	Counting problems - also used for computing probabilities
-// 	others???
-
- 
-== Binary Trees #SECTION UNDER CONSTRUCTION!# 
-// ** Algorithms for Binary search trees
-
-//Binary trees are An important type of rooted tree used in computer science is the *binary tree.*
-
-For any positive integer $m,$ an *m-ary tree* is defined to be a rooted tree in which each internal node has at most $m$ children. 
-
-A *binary tree* is a 2-ary tree, or more simply, a rooted tree in which each internal node has at most two children. In a binary tree, the root node is the parent of at most two subtrees $T_{1},$ called the *left subtree,* and $T_{2},$ called the *right subtree.* Notice that it is allowable for either subtree to be absent (that is, empty). + 
-[small]#Note: Some sources allow for a binary tree to have no vertices or edges. Mathematically speaking, this “empty binary tree” is not a rooted tree since it has no root node. In computer science, an empty binary tree is useful for implementing binary trees as data structures since an empty binary subtree can be represented by a null pointer. As an example, a leaf node can be recognized as one whose left child and right child pointers are both null vectors.# 
-// MKD July 15 2025 - also see https://xlinux.nist.gov/dads/HTML/tree.html
-
-
-// MKD an image with an absent subtree would be good here!
-
-Here is some additional terminology for binary trees. 
-
-* A binary tree is a *full binary tree* if 
-//NOTE: Rosen's, Bender&Williamson's definitions only requires two children, nothing about same depth.
-//[arabic]
-//.. 
-all internal nodes have exactly two children.
-// and 
-//.. all leaves have the same depth. 
-* A binary tree is a *complete binary tree* if 
-is one where every level, except possibly the last, is filled and 
-all nodes in the last level are as far left as possible. + 
-[small]#Note that a complete binary tree is not a complete graph. Mathematicians and computer scientists recycle certain words like “complete.”#
-// MKD need to clarify what a "level" is
-
-// MKD again, images for full and/or complete binary trees would be good here!
-
-
-////
-Binary Search Trees
-				
-* Used for efficient searching of sorted data.
-* Constructed where each vertex is assigned a key so that the key of a vertex is greater than the keys of all vertices in its left subtree and less than the keys of all vertices in its right subtree. 
-* A binary search tree of height $h$ is *balanced* if all leaves are at levels h or h − 1. For a balanced binary search tree, locating or inserting an item requires no more than ⌈log(n + 1)⌉ comparisons, where n is the number of items.
-* Rebalancing algorithms can be used to optimize a binary search tree when new items are inserted.	
-////
-
-
-////
-== Tree Traversal Algorithms #SECTION UNDER CONSTRUCTION!# 
-
-Tree traversal algorithms are used to visit each node of a rooted tree. There are three common algorithms used to traverse a rooted tree. The names refer to the order in which the root node is visited compared to the subtree nodes.
-
-* Preorder traversal visits internal nodes before leaves. This algorithm is used to make copies of binary search trees.
-* Inorder traversal of a binary search tree visits the nodes in ascending order of their key values, corresponding to a sorted list of the data in a binary tree.
-* Postorder traversal is used when leaves must be explored before internal nodes. It is used for deleting a tree because all vertices below the root of a subtree will be removed before the root of the subtree.
-////
-		
-
-== Additional Topics To Be Added Later
+== Additional Topics 
 // in this chapter will include:
 
 
 //#Students in CSC 230 Fall 2024 should refer to the slide decks posted in link:https://sfsu.instructure.com/[Canvas.]#
-//#Students in CSC 230 Spring 2025 can refer to the slide decks (from Spring 2024 and Fall 2024) that are posted in link:https://sfsu.instructure.com/[Canvas.]#
+#Students in CSC 230 Spring 2025 can refer to the slide decks (from Spring 2024 and Fall 2024) that are posted in link:https://sfsu.instructure.com/[Canvas.]#
 
-		
+
+* Binary Trees
+
 ** Tree Traversal Strategies
-
-*** Algorithms for Depth- and breadth-first traversals
-
+		
 ** Expression Trees
 
 //* Algorithms
 
+** Algorithms for Binary search trees
+
+*** Algorithms for Depth- and breadth-first traversals
+		
 //*** Algorithms for Minimum spanning tree (Prim’s algorithm)
 
 

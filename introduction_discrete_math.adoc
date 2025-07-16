@@ -1,9 +1,12 @@
 = Introducing Discrete Mathematics
 
-_This chapter was last updated on January 30, 2025._ + 
+//“”
+
+
+_This chapter was last updated on July 9, 2025._ + 
 //(added some topics to the list of links in section 1.4)_ + 
 //discussion of continuous mathematics and structures in 2.1)._
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 // MKD various sources
 //	https://cacm.acm.org/opinion/lets-not-dumb-down-the-history-of-computer-science/ 
@@ -778,9 +781,10 @@ but it is much more common to list the terms of the sequence in order:  "Thumb,"
 //As another example, 
 Notice that Java arrays and Python lists are implementations of the mathematical concept of a finite sequence where the domain is the set of $i$ values $\{0, 1, \ldots , n \}$ for some natural number $n.$ + 
  + 
+// MKD July 9 2025 fixed typo in index (changed n to i uniformly)
 An *infinite sequence* is a sequence that is not a finite sequence, that is, the there are infinitely many $i$ values that make sense as inputs for the sequence. For example the sequence \[ \text{isOdd}_{i} = \begin{cases}
-\text{1} & \text{ if } n \text{ is odd} \\
-\text{0} & \text{ if } n \text{ is even} \\
+\text{1} & \text{ if } i \text{ is odd} \\
+\text{0} & \text{ if } i \text{ is even} \\
 \end{cases}  \] is an infinite sequence with domain the integers that has only two output values. 
 // MKD sequences ends
 
@@ -945,7 +949,10 @@ Two statements are *equivalent* if the first must be true when the second one is
 * A *predicate* is an incomplete proposition that contains one or more variables that need to be filled in to complete the proposition. 
 One example of a predicate is "My major is $\rule{12mm}{.5pt}$." Notice that this becomes a proposition once the blank, which represents the variable in this case, has been filled in. + 
 Another example of a predicate is "The positive integers _m_ and _n_ are  prime numbers." Again, this becomes a proposition once values are substituted for the two variables. + 
-In this textbook, predicates will often be written in a way similar to functions: \[ P(m, n) = \text{"The positive integers } m \text{ and } n \text{ are prime numbers."} \]
+In this textbook, predicates will often be written in a way similar to functions: 
+// MKD changed = to : July 11 2025
+//\[ P(m, n) = \text{"The positive integers } m \text{ and } n \text{ are prime numbers."} \]
+\[ P(m, n) : \text{"The positive integers } m \text{ and } n \text{ are prime numbers."} \]
 Notice that the output of the predicate is a _statement_ but the output does not tell us whether the statement is True or False - think of this like a programmer: The return value is a string, not a Boolean. + 
 Two predicates are *equivalent* if for every possible substitution for the variables, the statement produced by the first predicate is true if and only if the statement produced by the second predicate is true. 
 //AND the second must be true when the first one is true. 
@@ -957,12 +964,18 @@ Two predicates are *equivalent* if for every possible substitution for the varia
 [[informal_algorithm_definition]]
 * An *algorithm* is a finite sequence of 
 commands and statements that describe a process for completing a task. + 
+// MKD inserted new sentence July 9 2025 
+It's likely that you have learned how to perform many algorithms in your previous mathematics education, but in this textbook (and in computer science in general) it is more important that you learn how to analyze and compare algorithms.  + 
 One example is the following (correct but inefficient) algorithm for division of positive integers. 
 // MKD: Need to also set this up as a traditional long division problem, 
 // 	either LaTeX or images, and explaining how when done by hand 
 //	we group by multiples of ten or a power of ten, etc.
 //	E.g., the "step" 205 = 20*7 + 65 looks like "20 - 14" 
 //		because we've shifted so that the rightmost column is tens
+// Jun 24 2025 - Also, give a "real-world" example for 
+//	13 ÷ 3 = 4 R 1 (e.g., 13 pens, with groups of 3 distributed into cups on a table 
+// Jun 25 2025 - make it clear that the point is to learn how to ANALYZE algorithms, not just do them mechanically.
+// = 
 ** Task: Given two positive integers _a_ and _b,_ 
 //with $a \geq b$, 
 compute the quotient _q_ and remainder _r_ so that + 
@@ -985,6 +998,25 @@ $a = q \cdot b + r$ and $0 \leq r < b.$
 // (so $0 \leq r < b$).
 //keeping count of the number of times _a_ has been subtracted, until you get a number _r_ that satisfies $b > r >= 0$. The number of times _a_ was subtracted from _a_ is _q_.
 //** Output: Positive integer quotient _q_ and natural number remainder _r_. 
+
+// MKD July 11 2025 need to enter 2nd algorithm - long division in decimal notation
+////
+** Task: Given two positive integers _a_ and _b,_ compute the quotient _q_ and remainder _r_ so that + 
+$a = q \cdot b + r$ and $0 \leq r < b.$
+** Input: Two positive integers _a_ and _b_ 
+//with $a \geq b$
+** Steps:  
+. Set _r_ equal to _a_ and set _q_ equal to 0.
+. If _r_ is greater than or equal to _b_ 
+[lowerroman]
+.. set _r_ equal to _r - b_
+.. add 1 to _q_
+. If _r_ is greater than or equal to _b_ then repeat step 2
+** Output: Integers _q_ and _r_ such that both $a = q \cdot b + r$ and $0 \leq r < b.$
+*** _q_ is the quotient, that is, the number of times each of the two assignments under step 2 was executed. 
+*** _r_ is the remainder, that is, the result of the last execution of step 2, so $r = a - q \cdot b.$
+////
+
 
 :pt_code_height: 500
 :pt_rawinput: false
