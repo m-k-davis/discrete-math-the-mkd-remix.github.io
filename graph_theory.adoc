@@ -562,9 +562,9 @@ A useful consequence of this to keep in mind is that the sum of the degrees of a
 
 The main focus of this chapter will be undirected simple graphs, but we will briefly discuss directed graphs in this section. 
 
-A *directed graph* (or *digraph*) is a graph in which the edges are directed from one vertex to another vertex. Each edge has an *initial vertex* $u$ and a *terminal index* $v;$ the edge is drawn as an arrow pointing from $u$ to $v.$ 
+A *directed graph* (or *digraph*) is a graph in which the edges are directed from one vertex to another vertex. Each edge has an *initial vertex* $u$ and a *terminal vertex* $v;$ the edge is drawn as an arrow pointing from $u$ to $v.$ 
 
-The *out-degree* of a vertex $w$ is the number of edges that have $w$ as the initial index. The *in-degree* of a vertex $w$ is the number of edges that have $W$ as the terminal index.
+The *out-degree* of a vertex $w$ is the number of edges that have $w$ as the initial vertex. The *in-degree* of a vertex $w$ is the number of edges that have $W$ as the terminal vertex.
 
 // MKD revised example July 10 2025
 [[underlying_graph]]

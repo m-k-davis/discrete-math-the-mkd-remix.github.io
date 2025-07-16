@@ -236,7 +236,11 @@ The image shows the graph $K_{4}$ along with three spanning trees.
 //image::imagesMKD/not_spanning_trees.png[not_spanning_trees,650,761,align="center"] 
 image::imagesMKD/not_spanning_trees.png[not_spanning_trees,325,380,align="center"] 
 
+// MKD July 16 2025 - create real-world scenario of four airports: iland hooper from DABC and back, hub at A and all flights not to final desitnatin A must transfer, and a different island hopper
+
 The image shows the graph $K_{4}$ along with a subgraph that is a subtree that is not a spanning tree, and also a subgraph that is a spanning forest.
+
+// MKD July 16 2025 - tie back to four airport scenario: island hopper never visits C, and no connects between AandB and CandD (two separate countries that are not friendly?)
 
 Spanning trees are used to solve problems that involve simplifying or optimizing networks. You can learn more about some of the applications of spanning trees at this  link:https://en.wikipedia.org/wiki/Spanning_tree#Applications[Wikipedia page.] 
 

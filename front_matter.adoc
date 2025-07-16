@@ -27,6 +27,20 @@ The remixer's goal is to adapt the original https://ggc-discrete-math.github.io/
 
 // MKD add that OER stands for "open educational resource"?
 
+
+
+=== Use of materials from the Discrete Mathematics Project
+
+
+// MKD moved up July 16 2025
+//* incorporate 
+//the “team-worthy” lessons 
+The Remix is designed to work with the 
+activity-based lesson materials developed by the https://sites.google.com/view/discrete-math-project-pilot/home[Discrete Mathematics Project (DMP.)] See the link:./appendix_for_instructors.html[Appendix: For Instructors] for information on how the remixer uses these lessons with the text. 
+
+
+=== Alignment To Standards
+
 The remixer's intent is that the Remix: 
 
 //* include topics listed for the following courses: 
@@ -86,6 +100,10 @@ https://dl.acm.org/doi/pdf/10.1145/2534860
 // MKD more on standards ends
 ////
 
+=== Other Considerations in the Remix
+
+In addition to using activity based lessons and aligning to the standards, the Remix aims to:
+
 * use terminology, definitions, notation, and symbols that align with commonly-used textbooks such as Kenneth H. Rosen's https://www.mheducation.com/highered/product/discrete-mathematics-applications-rosen/M9781259676512.html[_Discrete Mathematics and Its Applications,_ 8th Edition.]
 // MKD needs a proper citation here
 
@@ -101,10 +119,12 @@ for many of the topics
 // MKD needs public link & citation - available by end of January 2025?
 ////
 
+////
+// MKD moved up July 16 2025
 * incorporate 
 //the “team-worthy” lessons 
 activity-based lesson materials developed by the https://sites.google.com/view/discrete-math-project-pilot/home[Discrete Mathematics Project.]
-
+////
 
 //* organizes the content in “chunks” for ease of reading and digestion of new ideas
 //* give learners the ability to start learning new content based on what the learners likely know already, then move toward building a formal understanding (e.g., pointing out that the set of odd integers and the set of even integers are the two equivalence classes corresponding to a relation, and that the rules for adding and multiplying odd and/or even numbers is an example of modular arithmetic.) 
