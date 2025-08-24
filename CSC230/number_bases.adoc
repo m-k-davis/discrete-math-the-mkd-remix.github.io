@@ -1,0 +1,1035 @@
+= Number Bases
+
+////
+Mac OSX
+
+    Alt + ] produces an opening single curly quote ( ' )
+    Alt + Shift + ] produces a closing single curly quote ( ' )
+    Alt + [ produces an opening double curly quote ( “ )
+    Alt + Shift + [ produces a closing double curly quote ( ” )
+‘
+’
+Feb 11, 2013
+
+How to Use Curly Quotes on Mac OSX and Windows
+chrisbracco.com
+https://chrisbracco.com › curly-quotes
+////
+
+//#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+
+include::LinkToPublic.adoc[] 
+
+
+_This chapter was last updated on April 1, 2025._ + 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
+
+// MKD example code, not sure where to use it yet
+//https://pythontutor.com/render.html#code=x%20%3D%204%0Aprint%28x%29%0Ax%20%3D%200b0101%0Aprint%28x%29%0Ax%20%3D%200O6%0Aprint%28x%29%0Ax%20%3D%200x07%0Aprint%28x%29&cumulative=false&curInstr=8&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+// MKD another code sample - gotta love seventeen
+//https://pythontutor.com/render.html#code=L%20%3D%20%5B%2017,%200b10001,%200o21,%200x11%20%5D%0Aprint%28L%29&cumulative=false&curInstr=1&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+// MKD and every base is base-10
+//https://pythontutor.com/render.html#code=L%20%3D%20%5B%2010,%200b10,%200o10,%200x10%20%5D%0Aprint%28L%29&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// MKD March 22 2025 
+//https://pythontutor.com/render.html#code=x%20%3D%204%0Aprint%28x%29%0Ax%20%3D%200b0101%0Aprint%28x%29%0Ax%20%3D%200O6%0Aprint%28x%29%0Ax%20%3D%200x07%0Aprint%28x%29%0As%20%3D%200b010%20%2B%200o10%20%2B%200x10%0Aprint%28s,%20bin%28s%29,oct%28s%29,hex%28s%29%29&cumulative=false&curInstr=10&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// MKD March 22 2025 - find digitValues 
+//https://pythontutor.com/render.html#code=a%20%3D%2063%20%2313%0Ab%20%3D%205%20%232%0Adivisor%20%3D%201%0AplaceValues%20%3D%20%5B%5D%0Awhile%20a%20%3E%20divisor%3A%0A%20%20%20%20placeValues.insert%280,%20divisor%29%0A%20%20%20%20divisor%20*%3D%20b%0Aprint%28placeValues%29%0Ar%20%3D%20a%0AdigitValues%20%3D%20%5B%5D%0Afor%20n%20in%20placeValues%3A%0A%20%20%20%20q%20%3D%200%0A%20%20%20%20while%20r%20%3E%20n%3A%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20-%20n%0A%20%20%20%20%20%20%20%20q%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%23%20there%20is%20a%20bug%20here!!!%0A%20%20%20%20digitValues.insert%28-1,%20q%29%0Aprint%28digitValues%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+//MKD Rhind Papyrus doubling method of multiplication
+//https://mathshistory.st-andrews.ac.uk/HistTopics/Egyptian_papyri/
+// and code for it
+// https://pythontutor.com/render.html#code=a%20%3D%2041%0Ab%20%3D%2059%0Apowers%20%3D%20%5B1%5D%20%23%20zeroth%20power%20of%202%0Apartial_sums%20%3D%20%5Bb%5D%0Apower_of_2%20%3D%202%0Awhile%20%28power_of_2%20%3C%20a%29%3A%0A%20%20%20%20powers.insert%280,power_of_2%29%0A%20%20%20%20temp%20%3D%20partial_sums%5B0%5D%0A%20%20%20%20partial_sums.insert%280,temp%20%2B%20temp%29%0A%20%20%20%20power_of_2%20%3D%202*power_of_2%0Aa_bits%20%3D%5B0%5D*len%28powers%29%0Atemp%20%3D%20a%0Afor%20i%20in%20range%280,len%28powers%29%29%3A%0A%20%20%20%20if%20%28temp-powers%5Bi%5D%29%20%3E%3D%200%3A%0A%20%20%20%20%20%20%20%20a_bits%5Bi%5D%20%3D%201%0A%20%20%20%20%20%20%20%20temp%20%3D%20temp-powers%5Bi%5D%0A%20%20%20%20%23else%3A%0A%20%20%20%20%23%20%20%20%20a_bits.insert%280,%200%29%0Aproduct%20%3D%200%0Afor%20i%20in%20range%280,len%28powers%29%29%3A%0A%20%20%20%20if%20a_bits%5Bi%5D%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20product%20%2B%3D%20partial_sums%5Bi%5D%0Aprint%28a,%22times%22,b,%22equals%22,product%29&cumulative=false&curInstr=70&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+// and code for binary bitstring 
+//https://pythontutor.com/render.html#code=a%20%3D%2041%0Atemp%20%3D%20a%0Abits%20%3D%20%22%22%0Awhile%28temp%20%3E0%29%3A%0A%20%20%20%20bits%20%3D%20str%28temp%252%29%20%2B%20bits%0A%20%20%20%20temp%20%3D%20%28temp%20%3E%3E%201%29&cumulative=false&curInstr=22&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+//MKD musings: 1*1=0+1, 2*1=0+1+1 (we always add TO zero)
+//	205, not "2 5" or "25" to indicate "0 tens"
+//	compare {}. "", and 0
+
+////
+NUMBER BASES (MKD)
+	NUMBER THEORY (GGC10) but MKD will move divisibility (algorithms) and modular arithmetic (relations?) content to other chapters, possibly as asynchronous content
+	ACM CCECC Number bases	
+		binary, 
+		hexadecimal 
+		(MKD: octal; use example of *nix file permissions)
+		
+AUG 2024 update on topics
+ACM_CCECC_2005/Number bases	binary, hexadecimal
+
+NUMBER BASES - January 2025 
+ACM_CCECC_2005/Number bases	binary, hexadecimal
+
+Also for jokes https://math.stackexchange.com/questions/166869/is-10-a-magical-number-or-i-am-missing-something
+		
+////
+
+// MKD - here is the start of this chapter's content
+
+It's likely that you learned how to represent positive integers using 
+//*decimal notation* and  
+the *base-ten place-value system* when you were young. 
+This system uses ten symbols, the *Hindu-Arabic numerals*  
+‘0’, 
+‘1’, 
+‘2’, 
+‘3’, 
+‘4’, 
+‘5’, 
+‘6’, 
+‘7’, 
+‘8’, and
+‘9’, 
+to represent _any_ natural number.
+
+//You may know that computers use base-two (binary) instead of base-ten (decimal), but what exactly does that mean? Computers store and manipulate data using sequences of bits (‘0’ and ‘1’), so it often is much more natural to express numbers in base-two instead of base-ten.
+
+In the base-ten place-value system that uses *decimal* notation, each natural number is represented by a numeral which is a string of one or more of the ten Hindu-Arabic digits. 
+//Examples are "5," "15," or "135." 
+However, in some computer science contexts, it is more useful to represent natural numbers in a place-value system that uses a different *number base* such as *binary* (base-two), *octal* (base-eight), or *hexadecimal* (base-sixteen). 
+//As you may already know, computer arithmetic is based on binary, which is base-two; 
+//Thinking of numbers represented by numerals in these systems can help you to develop much more efficient algorithms and to recognize when certain numerals could be interpreted as encoding multiple pieces of information.
+Using or thinking about numbers represented by numerals in these other systems can help you develop more efficient algorithms and recognize when certain numerals can be interpreted as encodings of multiple pieces of information.
+
+
+In this chapter, you will learn how to represent natural numbers using place-value systems with bases other than ten. 
+
+Key terms and concepts covered in this chapter:
+
+* Number bases
+** binary
+** hexadecimal
+** octal
+** decimal
+
+
+//MKD new section - in progress
+==  Numbers, Numerals, and Digits
+
+In everyday life, it is common to treat numbers and numerals as if they are the same. However, it is important in this chapter to distinguish these concepts.
+
+//: A _number_ is an idea or mental concept and is not the same as its representations by _numerals._ 
+
+//In summary: 
+
+* A *number* is an abstract idea or mental concept of a count, a measure, a rank in an ordering, etc.. 
+* A *numeral* is a word, phrase, symbol, or string of symbols that is used to represent a number. 
+* A *digit* is a single symbol that represents a number. A digit is a numeral, but multiple digits can be combined to create other numerals. For example, each of the ten Hindu-Arabic numerals is a digit that represents a natural number that is less than ten, and multiple Hindu-Arabic numerals can be combined to create numerals that represent numbers that are greater than or equal to ten. + 
+[small]#NOTE: The word "digit" comes from the Latin word _digitus_ which means "finger" or "toe."# 
+
+//but in this chapter, the word "digit" will be used for any base $b.$#  
+// MKD Apr 01 2025
+//counter:numextally 5
+
+// MKD Jun 24 2025 see https://en.wikipedia.org/wiki/Maya_script#Numerical_system
+
+****
+.Example {counter:numex} -  Numerals, Numbers, and Digits
+--
+--
+
+Consider the following words: 
+
+* "five", 
+* "cinco", 
+* "خمسة" ("khamsa"), 
+* "पाँच" ("paanch"), 
+* "五" ("wǔ"). 
+
+These words, taken from different languages, are examples of _numerals,_ words that represent a _number._ In fact, all those numerals represent the same number, but no one of the numerals _is_ the number. The number itself is an abstract idea that can be referred to using any of those numerals. 
+// . A number is an abstraction. 
+// noun, just like "blue" or "beauty" or "justice".
+//Is ❤️ an actual heart? Is it "love"?
+
+In the same way, 
+
+* the Roman "Ⅴ", 
+* the Braille "⠼⠑", 
+* the Coptic Epact "𐋥",
+//Arabic-Indic 
+* the Eastern Arabic "٥", 
+* the Western Arabic "5". 
+//* tally marks {counter:numextally}
+
+are other ways of representing the same number that the 
+//word "five" represents.
+words above represent.
+
+[click.Semiotics]
+--
+In semiotics, the study of signs, symbols, and signification, the number is a *sign,* made up of the *signified* mental concept and the *signifier* (the numeral.) 
+Further discussion is beyond the scope of this textbook, and beyond the remixer's expertise! Here is a link:http://visual-memory.co.uk/daniel//Documents/S4B/semiotic.html[link] if you want to learn more about semiotics.
+--
+
+[click.This.is.not.a.pipe!]
+--
+Read link:https://en.wikipedia.org/wiki/The_Treachery_of_Images[this Wikipedia article] and pay attention to the quote from the artist, René Magritte.
+--
+
+****
+
+//https://www.cs.princeton.edu/~chazelle/courses/BIB/semio2.htm
+//http://visual-memory.co.uk/daniel//Documents/S4B/semiotic.html
+
+
+////
+[click.Art.break:.This.is.NOT.a.pipe.and.I.am.NOT.a.cat!]
+--
+Read link:https://en.wikipedia.org/wiki/The_Treachery_of_Images[this Wikipedia article] and pay attention to the quote from the artist, René Magritte. Also visit this link:https://link.springer.com/article/10.1007/s11606-010-1581-9[webpage] to see how very different fields of work can influence each other! + 
+And you may already be familiar with link:https://en.wikipedia.org/wiki/Zoom_Cat_Lawyer[this one.]
+--
+////
+
+////
+//In the same way that we can use 
+//multiple 
+many different 
+words to represent a single number, 
+//so can 
+we use a place-value numeral system with a positive integer base _b_ that is different than ten 
+// other than base-ten 
+to represent a number.
+////
+
+// MKD Apr 01 2025 
+//It's likely that you are very familiar with using *decimal* notation (base-ten place-value system) to represent natural numbers: 
+//Each natural number can be represented by a numeral that is a string of one or more of the ten Hindu-Arabic digits, such as "5," "15," or "135." 
+//In this chapter, you will learn how to use a place-value numeral system with a positive integer base _b_ that is different than ten to represent a natural numbers.
+//MKD - moved from Introduction chapter; it fits better here
+//* 
+//In everyday life we use *base-ten Hindu-Arabic place-value notation* to represent the natural numbers. 
+// and integers (as well as real numbers.) 
+//However, 
+//in Computer Science applications 
+
+////
+In the base-ten place-value system that uses *decimal* notation, each natural number is represented by a numeral which is a string of one or more of the ten Hindu-Arabic digits. 
+//Examples are "5," "15," or "135." 
+However, in some computer science contexts, it is more useful to represent natural numbers in a place-value system that uses a different *number base* such as *binary* (base-two), *octal* (base-eight), or *hexadecimal* (base-sixteen). 
+//As you may already know, computer arithmetic is based on binary, which is base-two; 
+Thinking of numbers represented by numerals in these systems can help you to develop much more efficient algorithms and to recognize when certain numerals could be interpreted as encoding multiple pieces of information.
+////
+
+//	MKD may want to refer to //https://math.libretexts.org/Courses/Hartnell_College/Mathematics_for_Elementary_Teachers/03%3A_Counting_and_Numerals/3.01%3A_Numbers_and_Numerals
+
+// MKD humor
+//https://www.reddit.com/r/ExplainTheJoke/comments/1czson4/every_base_is_base_10/?rdt=50955
+// Also joke in chapter 2... "There are 10 kinds of people,..."
+
+// quantity - the concept itself
+//	number - the word that represents the concept
+//	numeral - a symbolic representation of the concept '5', or 'f','i','v','e' that form the word "five"
+// holding up five fingers is a "gestural" represention, 
+// five dots is another representation
+
+
+==  Review Of The Base-Ten Place Value System 
+
+#*It's likely that everything you are about to read in this section is knowledge you've had for many years. The purpose of stating everything so explicitly is to provide an example you can compare with place-value systems that use other bases.*# + 
+
+// MKD changed Hindu-Arabic numerals to digit in bullets 
+A base-ten numeral is a string formed from one or more digits (i.e.,  Hindu-Arabic numerals.) 
+
+* The string is read from left-to-right. 
+* Each digit in the string represents a multiple of a power of the base, ten, depending on the its position in the string. 
+* The rightmost *place* represents a multiple of 1 (which is ten raised to the power zero) and each of the other places represents a multiple of a power of ten that is one greater than the power of ten represented by the place to its right. 
+* Notice that the base itself, the number ten, is represented by the string "10" in this place-value system. The string "10" represents the number described by the phrase "1 ten plus 0 ones". 
+* As an example, the string "101" represents the number described by the phrase "1 hundred plus 0 tens, plus 1 ones," where 1 hundred is the same as ten tens. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \] The expression on the right-hand side of the previous equation is referred to as *expanded form* in school-level mathematics.
+
+//\[ 101 = 1 \cdot 10^{2} + 0 \cdot 10^{1} + 1 \cdot 10^{0} \]
+
+//NOTE 1: The ten Hindu-Arabic numerals are often called *digits.* The word "digit" comes from the Latin word _digitus_ which means "finger" or "toe." +
+
+// MKD link to britannica.com showing evolution of these digits 
+//By placing these numerals into a string that is read from left-to-right, to indicate multiples of descending powers of the base ten. 
+//NOTE 2: History of the Hindu-Arabic numerals: See the image at this link:https://www.britannica.com/topic/Hindu-Arabic-numerals/images-videos[web page] which shows the evolution of the modern Hindu-Arabic numerals from their earlier Brahmi versions. You can learn a lot more about the history of the Hindu-Arabic numerals using the Notes and References sections of this link:https://en.wikipedia.org/wiki/History_of_the_Hindu%E2%80%93Arabic_numeral_system[Wikipedia page.]#
+
+//It's likely that everything stated in the previous paragraph is knowledge you've had for many years. The purpose of stating everything so explicitly is to provide a way of talking about other bases. + 
+[small]#NOTE: The Hindu-Arabic numerals evolved from earlier Brahmi versions. You can look at the image at this link:https://www.britannica.com/topic/Hindu-Arabic-numerals/images-videos[web page] which shows a few steps in this evolution. Also, you can learn more about the history of the Hindu-Arabic numerals from the links in the "Notes" and "References" sections of this link:https://en.wikipedia.org/wiki/History_of_the_Hindu%E2%80%93Arabic_numeral_system[Wikipedia page.]# 
+
+
+//In this chapter, you will learn how to represent natural numbers using place-value systems with bases other than ten. 
+
+//https://www.britannica.com/facts/Hindu-Arabic-numerals#/media/1/31743/85041
+
+
+// MKD start topics list
+////
+
+History of representeing numbers
+	Multiple names: Five, cinco, funf, etc.
+	Place-value notation (e.g, base-ten Hindu-Arabic notation) vs other (e.g., Roman numerals DCLXVI)
+Decimal
+Octal
+Binary 
+Hexadeximal
+other bases
+
+
+
+
+
+//MKD https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2012.00009/full "Pie” in Spanish is a foot.
+
+////
+// MKD end topics list
+
+
+
+
+
+// MKD - moved divisibility and gcd content to induction chapter
+
+=== An Algorithm That Computes The Digits Of A Base-Ten Numeral
+
+////
+//https://tex.stackexchange.com/questions/163636/how-to-get-single-curved-quotation-marks-in-math-mode
+\DeclareMathSymbol{\mlq}{\mathord}{operators}{``} 
+
+\DeclareMathSymbol{\mrq}{\mathord}{operators}{`'} 
+
+\DeclareMathSymbol{\mlqq}{\mathord}{operators}{"5C} 
+
+\DeclareMathSymbol{\mrqq}{\mathord}{operators}{`"}
+
+$\mlq a\mrq$
+
+$\mlqq a\mrqq$
+////
+
+// MKD - BaseTenAlgorithm begins
+In this subsection, an algorithm is presented for computing the digits in the expanded form of a base-ten numeral of the natural number $n.$ This may seem to be a complicated way to do something very simple since we could just _read off_ the digits, but #the important thing to notice about this algorithm is that the role that ten plays can be played by _any_ other positive integer constant greater than one!# This means that this algorithm can be adapted to find the "digits" in the expanded form of a base-$b$ numeral for the number $n$ for _any_ base $b$ we choose.
+
+* Task: Given the natural number _n,_ 
+compute an array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$  so that each of $r_{0}, r_{1}, \ldots , r_{k}$ is represented by a single digit in base-10, and \[ n = r_{k} \cdot 10^{k} + \ldots + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0} \] where $k$ is the greatest natural number such that $10^{k} < n.$
+** Input: The natural number $n$ 
+** Steps: 
+. Set $a$ equal to $n$ 
+. Set $s$ to the empty array (We will append the values $r_{0}, r_{1}, \ldots , r_{k}$ to the array $s$ as we compute them)
+. Divide $a$ by 10 to find natural numbers $q$ and $r$ such that both $a = q \cdot 10 + r$ and $0 \leq r < 10.$ 
+. Append $r$ to the end of array $s.$
+. If $q \neq 0$ 
+.. set $a$ equal to $q$
+.. go to step 3
+. Return the sequence $s.$
+//** Output: Integers _q_ and _r_ where
+** Output: An array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$ where each number is represented by a single digit, and \[ n = r_{k} \cdot 10^{k} + \ldots + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0}.\]
+
+// where each digit is in the set $\{ '0', '1', \ldots, '9' \}$
+//alternatively, set $s$ to be an array full of $n$ zeroes, we will over, but it may still need to grow as we compute the digit
+
+That is, we rewrite $n$ as $r_{0} + 10 \cdot (r_{1} + 10 \cdot (r_{2} + \ldots r_{k-1} + (10 \cdot (r_{k})) \ldots ))$
+
+****
+
+.Example {counter:numex} - Finding The Digits Of A Base-Ten Numeral
+--
+--
+
+The following equations summarize how the preceding algorithm determines the digits in the base-ten expanded form numeral for the number 432. 
+
+\begin{equation}
+\begin{aligned}
+432 {} & = 43 \cdot 10 + 2 & q {} & = 43  & r {} & = 2 & s & = [2] \\ 
+43 {} & = 4 \cdot 10 + 3   & q {} & = 4   & r {} & = 3 & s & = [2, 3] \\ 
+4 {} & = 0 \cdot 10 + 4    & q {} & = 0   & r {} & = 4 & s & = [2, 3, 4] \\ 
+\end{aligned}
+\end{equation}
+
+Notice that the items in $s = [ r_{0}, \, r_{1}, \, r_{2} ]$ are the numbers corresponding to the digits of the numeral $“432”$ in reverse order, so \begin{equation}
+\begin{aligned}
+432 & =  r_{2} \cdot 10^{2} + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0} \\ 
+& =  4 \cdot 10^{2} + 3 \cdot 10^{1} + 2 \cdot 10^{0}
+\end{aligned}
+\end{equation}
+
+//Notice that the algorithm is essentially rewriting $432$ as $2 + 10 \cdot 43 = 2 + 10 \cdot (3 + 10 \cdot 4)).$
+Notice that the algorithm is rewriting $432$ as the sum $2 + 10 \cdot (3 + 10 \cdot 4)).$
+
+****
+
+////
+\begin{equation}
+\begin{aligned}
+\begin{eqnarray}
+432 {} & = 43 \cdot 10 + 2 {} & q = 43, \, r_{0} = 2 {} & s = [2] \\ 
+43 {} & = 4 \cdot 10 + 3 {} & q = 4, \, r_{1} = 3 {} & s = [2, 3] \\ 
+4 {} & = 0 \cdot 10 + 4 {} & q = 0, \, r_{2} = 4 {} & s = [2, 3, 4] \\
+
+
+(a+b) \left( \sum\limits_{i=0}^{k} {k\choose i} a^{k-i} b^{i} \right) {} & = a \left(\sum\limits_{i=0}^{k} {k\choose i} a^{k-i} b^{i} \right)  \\ 
+& = \left( \sum\limits_{i=0}^{k} {k\choose i} a^{k-i} b^{i+1} \right)  \\
+\end{aligned}
+////
+
+
+// MKD - BaseTenAlgorithm ends
+
+
+==  The Base-Two Place Value System (Binary Notation)
+
+//Next, let's describe the base-two (binary) place value system. You will see that much of what is done here can be achieved by simply replacing "ten" by "two" in what was described in the previous section. + 
+This subsection describes the base-two (binary) place value system. You will see that much of what is written here is the result of replacing "ten" by "two" in the description of the base-ten (decimal) system in the previous section. + 
+
+//A base-two numeral is a string formed from one or more digits (i.e., the *binary digits* or *bits* ‘0’ and ‘1’.) 
+A base-two numeral is a string formed from one or more of the two *binary digits* (or *bits*) ‘0’ and ‘1’. 
+
+* The string is read from left-to-right. 
+* Each digit in the string represents a multiple of a power of the base, two, depending on the its position in the string. 
+* The rightmost place represents a multiple of 1 (which is two raised to the power zero) and each of the other places represents a multiple of a power of two that is one greater than the power of two represented by the place to its right. 
+* #Notice that the base itself, the number two, is represented by the string "10" in this place-value system.# The string "10" represents the number described by the phrase "1 two plus 0 ones". 
+* As an example, the string "101" represents the number described by the phrase "1 four plus 0 twos, plus 1 ones," where 1 four is the same as two twos. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Wait... WHAT?!?) }\]  
+//🤯: WHAT!?!?! + 
+//🤓: 
+Yes, this equation, 
+which may appear to be written in the base-ten system,  
+is correct _in the base-two place value system,_ too!  "10" is how the number two is represented in base-two notation!  + 
+[small]#As an analogy, the string "pie" signifies different things in English (a baked dessert) and Spanish (a foot.) You must take care to know which context you are working in!# 
+
+
+[IMPORTANT] 
+====
+
+//To avoid confusion, 
+//that the previous equation could cause, 
+It is traditional to use 
+some extra 
+notation to indicate 
+//that 
+when the strings "10" and "101" 
+//are _base-two_ numerals and 
+[underline]#_are not_# 
+base-ten numerals 
+to avoid confusion. 
+In this textbook, 
+//we will write base-two numerals 
+numerals in any base other than ten 
+will be written 
+between a pair of parentheses followed by a subscript indicating the base. The subscript is written as a _base-ten numeral._ For example, we could rewrite the previous equation as \[(101)_{2} = (1)_2 \cdot (10)_2 \cdot (10)_2 + (0)_2 \cdot (10)_2 + (1)_2 \cdot (1)_2 \]
+//\[(101)_{2} = (1)_{2} \cdot (10)_{2} \cdot (10)_{2} + (0)_{2} \cdot (10)_{2} + (1)_{2} \cdot (1)_{2} \] 
+which translates into base-ten as $5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.$ We can also write $5 = (101)_2$ which is a way of saying that the base-ten numeral and the base-two numeral signify the same number. + [small]#NOTE: 
+The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used... and we don't need to use the parentheses or subscripts if we are already working in base-ten.#
+//This also allows us to write "base-10" to mean "the usual decimal base" and to write "base"+ 
+====
+
+
+[NOTE]
+====
+//[IMPORTANT] 
+//====
+//We tend to NOT use the subscript on base-ten numerals because that system is the most common one. Also notice that the subscripts are written _using base-ten numerals._  
+//Privilege 
+// + 
+
+The parentheses and subscript are not necessary if it is clear from the context that a numeral is not a base-ten numeral. For example, \[ \text{chmod 755 hello.txt} \] 
+is a Unix/Linux command that changes the file permission bits (read, write, execute) of the file "hello.txt" for the file's owner, the file's group, and any other user. In this example, the string "755" is not a base-10 numeral, but is in *octal (base-eight).* Octal will be discussed later in the chapter. No subscript is used in the Unix/Linux command because it is _natural_ to an experienced user of that operating system to use octal in the context. + 
+// MKD Apr 01 2025
+[small]#In fact, the octal numeral "755" is used here as an encoding of three bitstrings, where each bitstring is of length 3; this idea is discussed in a later subsection of this chapter.#
+//The reason we use base-ten numerals as subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used. BUT WE DON'T HAVE TO IF THE CONTEXT IS CLEAR... of if we want to tell jokes like 
+
+Also, we can omit the parentheses and subscripts if we want to tell a couple of "jokes:"
+
+* link:https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf["There are 10 types of people in the world… those that understand binary and those that don’t.”]
+
+* link:https://math.stackexchange.com/questions/166869/is-10-a-magical-number-or-i-am-missing-something["Every base is base 10."]
+
+
+====
+
+
+//You are ready now to learn how to convert base-ten numerals to base-two numerals.
+You are ready now to learn how to represent numbers using base-two numerals.
+
+
+=== An Algorithm That Computes The Digits Of A Base-Two Numeral
+
+// MKD - BinaryAlgorithm begins
+In this subsection, an algorithm is presented for computing the digits in the expanded form of a base-two numeral of the natural number $n.$ This algorithm has been adapted from the one stated for base-ten in the previous section. #Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.#
+
+* Task: Given the natural number _n,_ 
+compute an array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$  so that each of $r_{0}, r_{1}, \ldots , r_{k}$ is represented by a single digit in base-2, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \] where $k$ is the greatest natural number such that $2^{k} < n.$
+** Input: The natural number $n$ 
+** Steps: 
+. Set $a$ equal to $n$ 
+. Set $s$ to the empty array (We will append the values $r_{0}, r_{1}, \ldots , r_{k}$ to the array $s$ as we compute them)
+. Divide $a$ by 2 to find natural numbers $q$ and $r$ such that both $a = q \cdot 2 + r$ and $0 \leq r < 2.$ 
+. Append $r$ to the end of array $s.$
+. If $q \neq 0$ 
+.. set $a$ equal to $q$
+.. go to step 3
+. Return the sequence $s.$
+//** Output: Integers _q_ and _r_ where
+** Output: An array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$ where each number is represented by a single digit, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0}.\]
+
+//That is, we rewrite $n$ as $r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))$
+That is, the algorithm rewrites $n$ as $r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))$
+
+****
+
+.Example {counter:numex} - Finding The Digits Of A Base-Two Numeral (Binary Notation)
+--
+--
+
+The following equations summarize how the preceding algorithm determines the digits in the base-two expanded form numeral for the number 13. 
+
+\begin{equation}
+\begin{aligned}
+13 {} & = 6 \cdot 2 + 1 & q {} & = 6  & r {} & = 1 & s & = [1] \\ 
+6 {} & = 3 \cdot 2 + 0   & q {} & = 3   & r {} & = 0 & s & = [1, 0] \\ 
+3 {} & = 1 \cdot 2 + 1   & q {} & = 1   & r {} & = 1 & s & = [1, 0, 1] \\ 
+1 {} & = 0 \cdot 2 + 1    & q {} & = 0   & r {} & = 1 & s & = [1, 0, 1, 1] \\ 
+\end{aligned}
+\end{equation}
+
+Notice that the items in $s = [ r_{0}, \, r_{1}, \, r_{2} , \, r_{3} ]$ are the numbers (in base-ten notation) corresponding to the digits of the numeral $“(1101)_2”$ in reverse order, so \begin{equation}
+\begin{aligned}
+13 & =  r_{3} \cdot 2^{3} +  r_{2} \cdot 2^{2} + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \\ 
+& =  1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 2 \cdot 2^{0}
+\end{aligned}
+\end{equation}
+
+The algorithm 
+//lets us \rewrite $13$ as $1 + 2 \cdot 6 = 1 + 2 \cdot (0 + 2 \cdot 3) = 1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).$ + 
+rewrites $13$ as $1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).$ + 
+Again, notice that the items in the array $[1, 0, 1, 1]$ are listed in reverse order, so  
+//You can also write 
+$13 = (1101)_2$ 
+//to indicate that 
+where the base-ten numeral and the base-two numeral represent the same number, thirteen. 
+
+****
+
+// MKD - BinaryAlgorithm ends
+
+Here is a link:https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf[link] to an alternate method of finding the base-two numeral for a number.
+
+If you made it to this sentence without skipping any of the discussion above, congratulations! If you did skip some of the discussion, go back and try your best to understand what the algorithm in the previous example is computing: The array $s$ holds the digits, in reverse order of the binary notation for the number $n.$ Compare what is done in this algorithm to the one for base-ten in the previous section... they are computing the digits for a numeral, but in different bases. If you can understand this algorithm, you will likely understand the rest of the chapter.
+
+
+
+==  The Base-$b$ Place Value System
+
+//We can now describe the base-$b$ place value system for any natural number $b>1.$ 
+//If you understand how to find the binary expansion as discussed in the previous subsection, 
+If you made it here, you are ready to learn how to find, given any natural number $n,$ the numeral that represents $n$ in the base-$b$ place value system (It is assumed that the base $b$ is a natural number greater than or equal to 2.) You can compare the algorithm and example in this subsection to the ones in the preceding subsections for base-ten and base-two.
+
+A base-$b$ numeral is a string formed from one or more digits out of a set that contains $b$ symbols, where each symbol is called a "base-$b$ digit."
+
+* The string is read from left-to-right. 
+* Each digit in the string represents a multiple of a power of the base, $b,$ depending on the its position in the string. 
+* The rightmost place represents a multiple of 1 (which is $b$ raised to the power zero) and each of the other places represents a multiple of a power of $b$ that is one greater than the power of $b$ represented by the place to its right. 
+* #Notice that the base itself, the number $b,$ is represented by the string "10" in the base-$b$ place value system.# The string "10" represents the number described by the phrase "1 $b$ plus 0 ones". 
+* As an example, the string "101" represents the number described by the phrase "1 _b-_squared plus 0 _b_, plus 1 ones." That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Again?!?) }\]  
+//🤓: 
+Yes, this equation is correct, too, _in the base-b place value system!_  
+
+//We can use a pair of parentheses followed by the subscript $b$ to indicate the base, where $b$ is written as a _base-ten numeral._ For example, we could rewrite the previous equation as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \] 
+To avoid confusion, you can enclose each numeral in a pair of parentheses followed by the subscript $b$ to indicate the base, where $b$ is written as a _base-ten numeral._ For example, 
+//we could rewrite 
+the previous equation 
+can be written as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \] 
+which translates into base-ten as $b^2 + 1 = 1 \cdot b \cdot b + 0 \cdot b + 1 \cdot 1.$ 
+
+=== An Algorithm That Computes The Digits Of A Base-$b$ Numeral
+
+// MKD - BasebAlgorithm begins
+This is an adaptation of the algorithm presented earlier for base-two.  #Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.#
+
+* Task: Given the natural number _n,_ and positive integer constant $b > 1$
+compute an array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$ so that each of $r_{0}, r_{1}, \ldots , r_{k}$ 
+//is 
+can be represented by a single digit in base-$b$, and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0} \] where $k$ is the greatest natural number such that $b^{k} < n.$
+** Input: The natural number $n$ 
+** Steps: 
+. Set $a$ equal to $n$ 
+. Set $s$ to the empty array (We will append the values $r_{0}, r_{1}, \ldots , r_{k}$ to the array $s$ as we compute them)
+. Divide $a$ by $b$ to find natural numbers $q$ and $r$ such that both $a = q \cdot b + r$ and $0 \leq r < b.$ 
+. Append $r$ to the end of array $s.$
+. If $q \neq 0$ 
+.. set $a$ equal to $q$
+.. go to step 3
+. Return the sequence $s.$
+//** Output: Integers _q_ and _r_ where
+** Output: An array of natural numbers $s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} ]$ where each number is represented by a 
+//single digit, 
+single digit in base-$b,$ 
+and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0}.\]
+
+//That is, we rewrite 
+The algorithm rewrites $n$ as $r_{0} + b \cdot (r_{1} + b \cdot (r_{2} + \ldots r_{k-1} + (b \cdot (r_{k})) \ldots )).$ The result 
+$s$ contains the numbers 
+//is the digits that allows us to 
+that let you write $n$ 
+//as $(r_{k}\ldots r_{1}r_{0})_b$ 
+in base-$b$ notation.
+
+
+=== Octal Notation (Base-8)
+
+****
+
+.Example {counter:numex} - Finding The Digits Of A Base-8 Numeral (Octal Notation)
+--
+--
+
+The following equations summarize how to determine the digits in the base-8 expanded form numeral for the number 100.
+
+Note that for base-8 we use the eight digits 
+‘0’, 
+‘1’, 
+‘2’, 
+‘3’, 
+‘4’, 
+‘5’, 
+‘6’, and 
+‘7’.
+ 
+
+\begin{equation}
+\begin{aligned}
+100 {} & = 12 \cdot 8 + 4 & q {} & = 12  & r {} & = 4 & s & = [4] \\ 
+12 {} & = 1 \cdot 8 + 4   & q {} & = 1   & r {} & = 4 & s & = [4, 4] \\ 
+1 {} & = 0 \cdot 8 + 1    & q {} & = 0   & r {} & = 1 & s & = [4, 4, 1] \\ 
+\end{aligned}
+\end{equation}
+
+Notice that $s = [ 4, \, 4, \, 1 ]$ are the numbers (in base-ten notation) corresponding to the base-8 digits of the numeral $“(144)_8”$ in reverse order. You can verify that $100 = 1 \cdot 8^{2} + 4 \cdot 8^{1} + 4  \cdot 8^{0}.$ This means that $100 = (144)_8.$ 
+
+****
+
+
+=== Hexadecimal Notation (Base-16)
+
+****
+
+.Example {counter:numex} - Finding The Digits Of A Base-16 Numeral (Hexadecimal Notation)
+--
+--
+
+The following equations summarize how to determine the digits in the base-16 expanded form numeral for the number 500.
+
+Note that for base-16, we need sixteen digits! It is traditional to use the ten Hindu-Arabic numerals followed by the first six uppercase English letters as the digits: 
+‘0’, 
+‘1’, 
+‘2’, 
+‘3’, 
+‘4’, 
+‘5’, 
+‘6’,  
+‘7’, 
+‘8’, 
+‘9’, 
+‘A’, 
+‘B’, 
+‘C’, 
+‘D’, 
+‘E’, and 
+‘F’. 
+So 
+$10 = (A)_{16},$ 
+$11 = (B)_{16},$ 
+$12 = (C)_{16},$ 
+$13 = (D)_{16},$ 
+$14 = (E)_{16},$ and  
+$15 = (F)_{16}.$ + 
+[small]#Note: Some programming languages like Python use the lowercase letters 'a' through 'f' instead of the uppercase letters.#
+
+//We will store the remainders in the array $s$ using base-ten notation, and then change to hexadecimal digits when write the base-16 numeral for 500. 
+The remainders stored in the array $s$ are represented in base-ten notation, and will need to be replaced by the corresponding hexadecimal digits in the base-16 numeral for 500. 
+
+\begin{equation}
+\begin{aligned}
+500 {} & = 31 \cdot 16 + 4 & q {} & = 31  & r {} & = 4 & s & = [4] \\ 
+31 {} & = 1 \cdot 16 + 15   & q {} & = 1   & r {} & = 15 & s & = [4, 15] \\ 
+1 {} & = 0 \cdot 16 + 1    & q {} & = 0   & r {} & = 1 & s & = [4, 15, 1] \\ 
+\end{aligned}
+\end{equation}
+
+As before, we have $500 = 1 \cdot 16^{2} + 15 \cdot 16^{1} + 4 \cdot 16^{0},$ which you can verify is true.  
+//The digits in the base-16 numeral are, in correct order, $(1)_{16},$ $(F)_{16},$ and $(4)_{16},$ where the numeral 
+To write the base-16 numeral for 500, you need to replace "15" in base-ten  by $(F)_{16}.$ So $500 = (1F4)_{16}.$ 
+
+****
+
+// MKD - BasebAlgorithm ends
+
+
+
+////
+
+== Integer Representations
+
+
+//In everyday life, we use the base-ten place value system. For example, we write the string "302" to stand for the number 
+//that is the sum $300 + 3$ 
+//or more formally as 
+//$3 \cdot 10^{2} + 0 \cdot 10^{1} + 2 \cdot 10^{0}$ (This is sometimes referred to as *expanded form* in school-level mathematics.)
+
+There is nothing special about the number 10 here, though. We can use any positive integer as the *base* of a place value system.
+
+//MKD copied from earlier section, changing "ten" to "b"
+Suppose that $b$ is an integer constant that is greater than 1. You can represent _any_ natural number using the *base_-b_ place-value system* as follows. 
+Start by choosing a set of _digits_ that will represent the natural numbers starting at zero and stopping at $b-1$. 
+Next, you can form a string using one or more of these digits. 
+Each digit in the string represents a multiple of a power of the base, $b,$ depending on the its position in the string. 
+This string is read from left-to-right with the rightmost position representing a multiple of 1 (which is $b^{0}$) and each of the other positions representing the next highest power of $b.$ 
+
+As an example, if $b$ is the integer eight, then we will use the digits 
+'0', 
+'1', 
+'2', 
+'3', 
+'4', 
+'5', 
+'6', and 
+'7' in the $base-eight place value system* (also called *octal* notation.)  
+In this system, the string "302" represents the number described by the phrase "3 sixty-fours, plus 0 eights, plus 2 ones," where 1 sixty-four is the same as eight eights. Notice that the base itself, the number eight, is represented by the string "10" in this place-value system. The string "10" represents the number described by the phrase "1 eight plus 0 ones". + 
+ + 
+To avoid confusion with the much more common base-ten string "302", we can write $(302)_{8}$ as the numeral in the octal system. Notice that 
+$(302)_{8} = 3 \cdot 8^{2} + 0 \cdot 8^{1} + 2 \cdot 8^{0} = 3(64)+ 2 = 194,$ that is, $(302)_{8} = (194)_{10}.$ 
+
+[IMPORTANT] 
+====
+We tend to NOT use the subscript on base-ten numerals because that system is the most common one. Also notice that the subscripts are written _using base-ten numerals._  
+//Privilege 
+The use of subscript is not necessary if the context is clear. For example, \[ chmod 755 hello.txt \] 
+is a Unix/Linux command that changes file permission bits (read, write, execute) for a file's owner, the file's group, and any other user. In this example, the string "755" is #octal# not decimal. Notice that no subscript or prefix like "o" is used - it is _natural_ to use octal in this context. 
+//The reason we use base-ten numerals as subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used. BUT WE DON'T HAVE TO IF THE CONTEXT IS CLEAR... of if we want to tell jokes like 
+
+* "There are 10 kinds of people in this world — those who understand binary and those who don’t." 
+
+* (the alien base 4 joke) https://old.reddit.com/r/mathmemes/comments/jy745a/all_bases_are_base_10/ and https://math.stackexchange.com/questions/166869/is-10-a-magical-number-or-i-am-missing-something
+
+* "Every base is base 10."
+
+
+====
+
+////
+
+
+=== A Theorem (To Be Proven Later)
+
+We can summarize what the algorithm does as a *mathematical theorem,* though technically at this point, it's only a *conjecture,* an educated guess based on a few cases that seem to indicate that the algorithm will always work. You will learn a technique that will prove the theorem by validating the algorithm for all choices of natural numbers $n$ and $b>1$ in the link:./induction.html[Proofs: Mathematical Induction ] chapter.
+
+.Theorem
+****
+Let $b$ be an integer greater than 1. Any positive integer $n$ can be expressed uniquely in the form \[n = r\_kb^k + r\_{k - 1}b^{k-1} + \cdots + r\_1b^1 + r\_0b^0,\]where $k$ is a nonnegative integer, $r\_0,r\_1,\dots,r\_k$ are nonnegative integers less than $b,$ and $r\_k \neq 0.$
+
+****
+////
+[click.MKD_INCOMPLETE_Proof]
+--
+Fix the value of _b_ as a constant integer greater than 1, then use strong mathematical induction on _n_. + 
+//Notice that for the base _b,_ 
+//the natural number zero corresponds to $k = 0$ and $a\_0 = 0,$ and 
+//the natural number one corresponds to $k = 0$ and $a\_0 = 1;$ and in fact 
+Notice that for any positive integer _n_ that is less than _b,_ the number _n_ can be written as $n = a\_0b^0,$ which corresponds to $k = 0$ and $a\_0$ is less than _b._ + 
+Also, $b = a\_1b^1 + a\_0b^0,$ where $k = 0$ and $a\_0$ is less than _b._ + = n,$ and that
+_b_ itself corresponds to $k = 1,$ $a\_1 = 1,$ and $a\_0 = 0;$ this provides the basis for the induction. + 
+For the induction step, assume that $n > b$ and that all integers less than $n$ can be written in the form described. In particular, \[n-1 = a\_kb^k + a\_{k - 1}b^{k-1} + \cdots + a\_1b^1 + a\_0b^0,\]where $k$ is a nonnegative integer, $a\_0,a\_1,\dots,a\_k$ are nonnegative integers less than $b,$ and $a\_k \neq 0.$ If $a\_0 + 1$ is less than _b_, we can simply add 1 to both sides to get \[n = a\_kb^k + a\_{k - 1}b^{k-1} + \cdots + a\_1b^1 + (a\_0 + 1)b^0.\] On the other hand, if $a\_0 + 1 = b,$ then we would need to worry about carrying from the ones place, so instead we can subtract _b_ from _n_ to get a positive number $n - b$ that can \_0$ INCOMPLETE
+--
+////
+
+//Let $b$ be an integer greater than 1 and let $n$ be a positive integer. The representation of $n$ in the above theorem is referred to as the *base $b$ expansion of $n$*. We refer to $a\_k,a\_{k-1},\dots,a\_0,a\_1$ as *digits*. We represent the base $b$ expansion of $n$ using the following notation: \[(a\_ka\_{k-1}\dots a\_1a\_0)\_b.\]
+
+
+== Converting From Base-$b$ to Base-Ten
+
+// MKD adds
+//In this section we show how to rewrite a base-$b$ numeral in base-ten.
+In this section you will learn how to rewrite a base-$b$ numeral in base-ten.
+
+//The base-ten numeral of a positive integer is referred to as the *decimal  expansion*. 
+
+//When expressing the decimal expansion of a positive integer, we typically omit the subscript 10.
+
+//MKD adds 
+//Notice that the subscript _b_ in this notation is written using the _base-ten_ decimal expansion for _b._
+
+
+****
+.Example {counter:numex}
+What is the decimal expansion of the positive integer with base 7 expansion $(1063)\_7$?
+
+.Solution
+
+We have
+
+[env.equationalign]
+--
+(1063)\_7 &= 1 \cdot 7^3 + 0 \cdot 7^2 + 6\cdot 7^1 + 3 \cdot 7^0\\
+&=1 \cdot 343 + 0 \cdot 49 + 6 \cdot 7 + 3 \cdot 1\\
+&= 343 + 0 + 42 + 3\\
+&= 388.
+--
+****
+
+Several common bases used in computer science are base $2$, base $8$, and base $16$, which are referred to as *binary*, *octal*, and *hexadecimal*, respectively. Binary digits are often referred to as *bits*. Note that, when finding the hexadecimal expansion of a positive integer, in addition to the usual digits $0$ through $9,$ we require an additional 6 digits. We will represent these by the letters $\mathrm{A}$ through $\mathrm{F}$, where $(\mathrm{A})\_{16} = 10,$ $(\mathrm{B})\_{16} = 11,$ $(\mathrm{C})\_{16} = 12,$ $(\mathrm{D})\_{16} = 13,$ $(\mathrm{E})\_{16} = 14,$ and $(\mathrm{F})\_{16} = 15.$
+
+****
+.Example {counter:numex} - Hexadecimal expansion
+Find the decimal expansion of the positive integer whose hexadecimal expansion is $(5\mathrm{B}\mathrm{F})\_{16}.$
+
+.Solution
+We have
+[env.equationalign]
+--
+(5\mathrm{B}\mathrm{F})\_{16} &= 5\cdot 16^2 + 11 \cdot 16^1 + 15 \cdot 16^0\\
+&= 5\cdot 256 + 11 \cdot 16 + 15 \cdot 1\\
+&= 1280 + 176 + 15\\
+&= 1471.
+--
+****
+
+== Base Conversion Among Binary, Octal, and Hexadecimal
+
+////
+Let $b$ be an integer greater than $1$ and let $n$ be a positive integer. In order to find the base $b$ expansion of $n,$ we can use the following algorithm. First, we use the division algorithm to find integers $q\_0$ and $a\_0,$ with $0 \leq a_0 < b,$ such that \[n = bq\_0 + a\_0.\]Then, if $q\_0 \neq 0,$ we again use the division algorithm to find integers $q\_1$ and $a\_1,$ with $0 \leq a\_1 < b,$ such that \[q\_0 = bq\_1 + a\_1.\] Then, if $q\_1 \neq 0,$ we again use the division algorithm to find integers $q\_2$ and $a\_2,$ with $0 \leq a\_2 < b,$ such that \[q\_1 = bq\_2 + a\_2.\]We continue this process until we obtain a quotient of $0$; that is, until, for some positive integer $k,$ we have $q\_k = 0.$ Then, we have \[n = (a\_ka\_{k-1}\dots a\_1a\_0)\_b.\]
+
+****
+.Example {counter:numex} - Base Conversion Algorithm
+Find the base $6$ expansion for $2235$.
+
+.Solution
+
+We have
+
+[env.equationalign]
+--
+2235 &= 6\cdot 372 + 3,\\
+372 &= 6 \cdot 62 + 0,\\
+62 &= 6 \cdot 10 + 2,\\
+10 &= 6\cdot 1 + 4,\\
+1 &= 6 \cdot 0 + 1.
+--
+
+Since we have reached a quotient of $0$, we are finished. Thus, we see that \[2235 = (14203)\_6.\]
+****
+////
+
+
+//MKD added
+One of the ways that octal (base-eight) and hexadecimal (base-sixteen) are used in computer science is to abbreviate long bitstrings. The following examples will show how this is done.
+
+Suppose 
+//we want 
+you need to convert 
+//the positive integer $n$ 
+a numeral 
+from hexadecimal to binary. One method would be to first convert 
+//from
+//$n$ 
+from hexadecimal to decimal, and then 
+convert the result from decimal to binary. However, 
+//we can also take advantage of the fact 
+it is much more efficient to notice that since 
+//that $2^4 = 16.$ 
+$2^4 = 16,$ 
+//This implies that we 
+you can express each hexadecimal digit 
+//of $(n)\_{16}$ uniquely 
+as a block of 4 bits 
+(that is, a link:./introduction_discrete_math.html#informal_bitstring_definition[_bitstring_] of length 4) 
+as follows:
+[latexmath]
++++++++++++++++++++++++++++++++++++++++++
+\begin{array}{llll}
+(0)_{16} = (0000)_2 & (1)_{16} = (0001)_{2}& (2)_{16} = (0010)_2 & (3)_{16} = (0011)_2 \\
+(4)_{16} = (0100)_2& (5)_{16} = (0101)_2& (6)_{16} = (0110)_2 & (7)_{16} = (0111)_2\\
+(8)_{16} = (1000)_2& (9)_{16} = (1001)_2& (\mathrm{A})_{16} = (1010)_2& (\mathrm{B})_{16} = (1011)_2\\
+(\mathrm{C})_{16} = (1100)_2& (\mathrm{D})_{16} = (1101)_2& (\mathrm{E})_{16} = (1110)_2&  (\mathrm{F})_{16} = (1111)_2.
+\end{array}
++++++++++++++++++++++++++++++++++++++++++
+//We then concatenate our blocks, removing any leading zeros if necessary.
+You can then concatenate the blocks, and remove any leading zeros if you need to. 
+
+
+****
+.Example {counter:numex} - Hexadecimal to Binary Conversion
+Find the binary expansion of $(4\mathrm{C}\mathrm{A}7)\_{16}.$
+
+.Solution
+//We have the following:
+//There are four blocks of 4 bits:
+Each hexadecimal digit can be replaced by a block of 4 bits:
+[latexmath]
++++++++++++++++++++++++++++++++++++++++++
+\begin{array}{llll}
+(4)_{16} = (0100)_2 & (\mathrm{C})_{16} = (1100)_2 & (\mathrm{A})_{16} = (1010)_2 & (7)_{16} = (0111)_2.
+\end{array}
++++++++++++++++++++++++++++++++++++++++++
+//Thus, we see that \[(4\mathrm{C}\mathrm{A}7)\_{16} = (100110010100111)\_{2}.\]
+
+This means that you can write either \[(4\mathrm{C}\mathrm{A}7)\_{16} = (0100110010100111)\_{2}\] or, if the leading zero is not needed, \[(4\mathrm{C}\mathrm{A}7)\_{16} = (100110010100111)\_{2}.\] [small]#Why wouldn't you always delete leading zeroes? Notice that a bitstring of length 4 can be used to encode a sequence of "Yes/No" or "True/False" answers. As an example, since $(6)_{16} = (0110)_2,$ the hexadecimal digit $(6)_{16}$ can be used to encode the sequence of 4 answers "No, Yes, Yes, No" to a Yes/No survey, and in this context the leftmost bit should be kept to make it clear that the answer to the first question was "No" (as opposed to the sequence "Yes, Yes, No, blank" where the fourth question was not answered.)#
+
+****
+
+To convert 
+//$n$ 
+a numeral from binary to hexadecimal, 
+//we simply 
+first 
+break up 
+//$(n)_2$ 
+the binary notation into blocks of 4 
+//binary digits, 
+bits, 
+adding a suitable number of
+leading zeros if necessary. 
+//We 
+Next, convert each block of 4 bits to 
+a hexadecimal digit 
+//s 
+and concatenate 
+//our 
+the results, removing any leading
+zeros if necessary.
+
+****
+.Example {counter:numex} - Binary to Hexadecimal Conversion
+Find the hexadecimal expansion of $(110 1011 1111)_2.$
+
+.Solution
+//We have the following blocks of 4 bits:
+The are three blocks of 4 bits: \[0110,\ 1011,\ 1111.\]
+Since $(0110)\_2 = (6)\_{16},$ $(1011)\_2 = (\mathrm{B})\_{16},$ and $(1111)\_2 = (\mathrm{F})\_{16},$ \[(11010111111)\_{2} = (6\mathrm{B}\mathrm{F})\_{16}.\]
+
+//we see that 
+****
+
+A similar method can be used to convert between octal and binary. 
+//We can take advantage of the fact
+//that $2^3 = 8.$ This implies that we can express each octal digit of $(n)\_{8}$ uniquely as a block of 3 bits as
+//follows:
+Since $2^3 = 8,$ each octal digit can be written uniquely as a block of 3 bits as follows:
+[latexmath]
++++++++++++++++++++++++++++++++++++++++++
+\begin{array}{llll}
+(0)_{8} = (000)_2 & (1)_{8} = (001)_{2}& (2)_{8} = (010)_2 & (3)_{8} = (011)_2 \\
+(4)_{8} = (100)_2& (5)_{8} = (101)_2& (6)_{8} = (110)_2 & (7)_{8} = (111)_2.
+\end{array}
++++++++++++++++++++++++++++++++++++++++++
+We then concatenate  blocks, removing any leading zeros if necessary.
+
+
+
+Also, the following table can be used to covert quickly between decimal, hexadecimal, octal, and binary in a similar way.
+
+*Conversion table for different bases*
+
+|===
+| *Decimal*     | 0 | 1 |  2 |  3 |  4  |  5  |  6  |  7  |   8  |   9  |  10  |  11  |  12  |  13  |  14  |  15
+| *Hexadecimal* | 0 | 1 |  2 |  3 |  4  |  5  |  6  |  7  |   8  |   9  |   A  |   B  |   C  |   D  |   E  |   F
+| *Octal*     | 0 | 1 |  2 |  3 |  4  |  5  |  6  |  7  |  10  |  11  |  12  |  13  |  14  |  15  |  16  |  17
+| *Binary*      | 0 | 1 | 10 | 11 | 100 | 101 | 110 | 111 | 1000 | 1001 | 1010 | 1011 | 1100 | 1101 | 1110 | 1111
+|===
+
+// image::images/baseconverstion.png[baseconverstion, 1000, 1000]
+
+////
+// MKD March 28 2025 
+
+== Base Representations in Python
+
+By default, integers of type `int` in Python are defined using the base-ten decimal representation. The code below shows how to define integers using binary, octal, or hexadecimal instead, and also how to convert an integer between any two of decimal, binary, octal, or hexadecimal.
+
+
+//https://pythontutor.com/render.html#code=x%20%3D%2013%0A%23print%28x,%22%3D%22,bin%28x%29%29%0A%23print%28x,%22%3D%22,oct%28x%29%29%0A%23print%28x,%22%3D%22,hex%28x%29%29%0Aprint%28%22The%20number%20with%20decimal%20representation%22,x,%22is%20represented%20by%22%29%0A%23print%28%22%5CtBinary%20%20%20%20%20%3A%22,bin%28x%29%29%0A%23print%28%22%5CtOctal%20%20%20%20%20%20%3A%22,oct%28x%29%29%0A%23print%28%22%5CtHexadecimal%3A%22,hex%28x%29%29%0Aprint%28%22%20%20%22,%20bin%28x%29,%20%22in%20binary,%22%29%0Aprint%28%22%20%20%22,%20oct%28x%29,%20%22in%20octal,%20and%22%29%0Aprint%28%22%20%20%22,%20hex%28x%29,%20%22in%20hexadecimal.%22%29&cumulative=false&curInstr=5&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+//https://pythontutor.com/render.html#code=def%20convert_base_10_2_8_16%28n%29%3A%0A%20%20%20%20print%28%22The%20number%20with%20decimal%20representation%22,n,%22is%20represented%20by%22%29%0A%20%20%20%20print%28%22%20%20%22,%20bin%28n%29,%20%22in%20binary,%22%29%0A%20%20%20%20print%28%22%20%20%22,%20oct%28n%29,%20%22in%20octal,%20and%22%29%0A%20%20%20%20print%28%22%20%20%22,%20hex%28n%29,%20%22in%20hexadecimal.%22%29%0A%0Ax%20%3D%2013%0A%23print%28x,%22%3D%22,bin%28x%29%29%0A%23print%28x,%22%3D%22,oct%28x%29%29%0A%23print%28x,%22%3D%22,hex%28x%29%29%0Aprint%28%22The%20number%20with%20decimal%20representation%22,x,%22is%20represented%20by%22%29%0A%23print%28%22%5CtBinary%20%20%20%20%20%3A%22,bin%28x%29%29%0A%23print%28%22%5CtOctal%20%20%20%20%20%20%3A%22,oct%28x%29%29%0A%23print%28%22%5CtHexadecimal%3A%22,hex%28x%29%29%0Aprint%28%22%20%20%22,%20bin%28x%29,%20%22in%20binary,%22%29%0Aprint%28%22%20%20%22,%20oct%28x%29,%20%22in%20octal,%20and%22%29%0Aprint%28%22%20%20%22,%20hex%28x%29,%20%22in%20hexadecimal.%22%29%0Ay%20%3D%200xFACE%0Aprint%28y%29%0Aconvert_base_10_2_8_16%28y%29&cumulative=false&curInstr=15&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+//https://pythontutor.com/render.html#code=def%20convert_base_10_2_8_16%28n%29%3A%0A%20%20%20%20print%28%22The%20number%22,n,%22in%20decimal%20%28base-ten%29%20is%20represented%20by%22%29%0A%20%20%20%20print%28%22%20%20%22,%20bin%28n%29,%20%22in%20binary,%22%29%0A%20%20%20%20print%28%22%20%20%22,%20oct%28n%29,%20%22in%20octal,%20and%22%29%0A%20%20%20%20print%28%22%20%20%22,%20hex%28n%29,%20%22in%20hexadecimal.%22%29%0A%0Ax%20%3D%2013%0Aconvert_base_10_2_8_16%28x%29%0Ay%20%3D%200xface%20%23y%20defined%20using%20hexadecimal%20notation%0Aconvert_base_10_2_8_16%28y%29&cumulative=false&curInstr=17&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+:pt_code_height: 550
+:pt_rawinput: false
+:pt_code: //def%20convert_base_10_2_8_16%28n%29%3A%0A%20%20%20%20print%28%22The%20number%22,n,%22in%20decimal%20%28base-ten%29%20is%20represented%20by%22%29%0A%20%20%20%20print%28%22%20%20%22,%20bin%28n%29,%20%22in%20binary,%22%29%0A%20%20%20%20print%28%22%20%20%22,%20oct%28n%29,%20%22in%20octal,%20and%22%29%0A%20%20%20%20print%28%22%20%20%22,%20hex%28n%29,%20%22in%20hexadecimal.%22%29%0A%0Ax%20%3D%2013%0Aconvert_base_10_2_8_16%28x%29%0Ay%20%3D%200xface%20%23y%20defined%20using%20hexadecimal%20notation%0Aconvert_base_10_2_8_16%28y%29%0A
+:pt_code: def%20convert_base_10_2_8_16%28n%29%3A%0A%20%20%20%20print%28%22The%20number%22,n,%22in%20decimal%20%28base-ten%29%20is%20represented%20by%22%29%0A%20%20%20%20print%28%22%20%20%22,%20bin%28n%29,%20%22in%20binary,%22%29%0A%20%20%20%20print%28%22%20%20%22,%20oct%28n%29,%20%22in%20octal,%20and%22%29%0A%20%20%20%20print%28%22%20%20%22,%20hex%28n%29,%20%22in%20hexadecimal.%22%29%0A%0Aw%20%3D%2013%0Aconvert_base_10_2_8_16%28w%29%0Ax%20%3D%200b10110%20%23x%20defined%20using%20binary%20notation%0Aconvert_base_10_2_8_16%28x%29%0Ay%20%3D%200o732%20%23y%20defined%20using%20octal%20notation%0Aconvert_base_10_2_8_16%28y%29%0Az%20%3D%200xface%20%23z%20defined%20using%20hexadecimal%20notation%0Aconvert_base_10_2_8_16%28z%29
+****
+.Example {counter:numex} - Converting Bases in Python
+--
+--
+
+Notice in the Python code that `print` function defaults to base-ten.
+
+To step through the code, click on the "Next" button. 
+
+include::python_tutor.adoc[]	
+
+****
+////
+
+== Exercises
+
+////
+// MKD move first three exercises to Induction or Relations chapter
+. Calculate
+.. $325 \ \mathbf{div}\ 7$ and $325 \ \mathbf{mod}\ 7$
+
+.. $1,135 \ \mathbf{div}\ 12$ and $1,135 \ \mathbf{mod}\ 12$
+
+.. $25,378 \ \mathbf{div}\ 3$ and $25,378 \ \mathbf{mod}\ 3$
+
+.. $-568 \ \mathbf{div}\ 5$ and $-568 \ \mathbf{mod}\ 5$
+
+.. $-2357 \ \mathbf{div}\ 6$ and $-2357 \ \mathbf{mod}\ 6$
+
+
+. Calculate
+.. $75 +_{\mathbf{11}}\ 63$ and $75 \times_{\mathbf{11}}\ 63$
+
+
+.. $194 +_\mathbf{8}\ 879$ and $194 \times_{\mathbf{8}}\ 879$
+
+
+. Find addition and  multiplication tables for
+
+.. 	 $\mathbb{Z}_8$
+.. 	 $\mathbb{Z}_{10}$
+
+. Use the Euclidean Algorithm, showing all calculations, to find the following:
+
+.. $gcd\left(136,248\right)$ and    $lcm\left(136,248\right)$
+
+.. $gcd\left(1659,245\right)$ and    $lcm\left(1659,245\right)$
+
+// MKD move first three exercises to Induction or Relations chapter
+////
+
+. Convert to decimal (base 10)
+
+..  $(10262)_7$
+..  $(30A8)_{16}$
+..  $(1000010001100)_2$
+..  $({12307)}_{60}$
+
+
+. Convert $\left(2039\right)_{10}$ from decimal (base 10) to
+
+..  base 7
+..  binary
+..  hexadecimal (base 16)
+..  octal (base 8)
+
+. Convert $\left(2599\right)_{10}$ from decimal to
+
+..  base 5
+..  binary
+..  hexadecimal
+..  base 3
+
+. Convert the following hexadecimal numerals to binary numerals
+
+.. $\left(6F203\right)_{16}$
+.. $\left(3FA20C45\right)_{16}$
+.. $\left(FACE\right)_{16}$
+
+
+. Convert the following binary numerals to hexadecimal numerals
+
+.. $\left(1111100111010101101\right)_2$
+.. $\left(\ 10001111101011\right)_2$
+.. $\left(1100101011111110\right)_2$
+

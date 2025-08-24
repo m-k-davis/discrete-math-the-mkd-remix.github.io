@@ -1,0 +1,4043 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Asciidoctor 1.5.8" name="generator"/>
+  <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
+  <title>
+   Discrete Math - The MKD Remix (CSC230 Version)
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
+  <style>
+   /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Uncomment @import statement below to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock pre.nowrap,.literalblock pre.nowrap pre,.listingblock pre.nowrap,.listingblock pre.nowrap pre{white-space:pre;word-wrap:normal}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #dddddf}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd){background:#f8f8f7}
+table.stripes-none tr,table.stripes-odd tr:nth-of-type(even){background:none}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <style>
+   .click .title { color: blue; }
+  .click {margin-top: 0.5em; margin-bottom: 0.5em;}
+  .openblock { margin-top: 1em; margin-bottom: 1em; }
+  .openblock>.box>.content { margin-top:1em;margin-bottom: 1em;margin-left:3em;margin-right:4em; }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript">
+  </script>
+  <script>
+   var ready2;
+
+ready2 = function() {
+
+    $(document).ready(function(){
+
+        $('.openblock.click').click( function()  { $(this).find('.content').slideToggle('200'); } )
+        $('.openblock.click').find('.content').hide()
+
+
+        $('.listingblock.click').click( function()  { $(this).find('.content').slideToggle('200') }  )
+        $('.listingblock.click').find('.content').hide()
+
+    });
+
+}
+
+
+
+
+$(document).ready(ready2);
+$(document).on('page:load', ready2);
+  </script>
+ </head>
+ <body class="book toc2 toc-left">
+  <div id="header">
+   <h1>
+    Discrete Math - The MKD Remix (CSC230 Version)
+   </h1>
+   <div class="details">
+    <span class="author" id="author">
+     A Work In Progress by Mark Kelly Davis
+    </span>
+    <br/>
+   </div>
+   <div class="toc2" id="toc">
+    <div id="toctitle">
+     Table of Contents
+    </div>
+    <ul class="sectlevel1">
+     <li>
+      <a href="index.html#_about_this_text">
+       About this text
+      </a>
+     </li>
+     <li>
+      <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
+       1. Introducing Discrete Mathematics
+      </a>
+     </li>
+     <li>
+      <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
+       2. Counting: Arithmetic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="set_theory.html#_set_theory">
+       3. Set Theory
+      </a>
+     </li>
+     <li>
+      <a href="logic.html#_logic">
+       4. Logic
+      </a>
+     </li>
+     <li>
+      <a href="proofs.html#_proofs_basic_techniques">
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
+      </a>
+     </li>
+     <li>
+      <a href="recursion.html#_sequences_and_recursion">
+       7. Sequences and Recursion
+      </a>
+     </li>
+     <li>
+      <a href="functions.html#_functions">
+       8. Functions
+      </a>
+     </li>
+     <li>
+      <a href="relations.html#_relations">
+       9. Relations
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       10. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       11. Proofs: Mathematical Induction
+      </a>
+     </li>
+     <li>
+      <a href="growth_of_functions.html#_rates_of_growth_of_functions">
+       12. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="algorithms.html#_algorithms_and_their_analysis">
+       13. Algorithms and Their Analysis
+      </a>
+     </li>
+     <li>
+      <a href="graph_theory.html#_graphs">
+       14. Graphs
+      </a>
+     </li>
+     <li>
+      <a href="trees.html#_trees">
+       15. Trees
+      </a>
+     </li>
+     <li>
+      <a href="appendix_math.html#_appendix_on_demand_math_resources">
+       16. Appendix: On-Demand Math Resources
+      </a>
+     </li>
+     <li>
+      <a href="appendix_library.html#_appendix_library_of_functions">
+       17. Appendix: Library of Functions
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
+       18. Appendix: An Introduction to Python
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
+       19. Appendix: Python Syntax Examples
+      </a>
+     </li>
+     <li>
+      <a href="appendix_for_instructors.html#_appendix_for_instructors">
+       20. Appendix: For Instructors
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div id="content">
+   <div id="preamble">
+    <div class="sectionbody">
+     <div class="openblock float-group">
+      <div class="content">
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="sect1">
+    <h2 id="_introducing_discrete_mathematics">
+     1. Introducing Discrete Mathematics
+    </h2>
+    <div class="sectionbody">
+     <div class="paragraph">
+      <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for
+        <a href="../index.html">
+         the “public version”
+        </a>
+        of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       <em>
+        This chapter was last updated on July 9, 2025.
+       </em>
+       <br/>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Welcome to the Remix! I hope this textbook provides you an opportunity for a stimulating and intellectually enjoyable learning experience.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Mathematics is one of human civilization’s greatest tools: It involves pattern noticing, collecting, comparing, counting, generalizing, formalizing, and abstracting. The development of mathematics is a continuing work that spans at least 5,000 years and many different peoples and cultures. This development will continue long after you and I are gone - never forget that we are living during an era that will be someone else’s Ancient History!
+      </p>
+     </div>
+     <div class="sect2">
+      <h3 id="_what_is_discrete_mathematics">
+       1.1. What is "Discrete Mathematics"?
+      </h3>
+      <div class="paragraph">
+       <p>
+        There seems to be no universally agreed-upon definition of "discrete mathematics," but I will describe to you my understanding of what the phrase "discrete mathematics" means.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Discrete mathematics is the mathematics people use to study and understand structures that are built from individual objects in a way that the individual objects can still be treated as separate from one another within the structure. In such a structure, the individual objects can be put into categories and counted; it makes sense to ask questions like "What is the next object in the structure after this one?" or "Which other objects are the closest to this one?" (where "closest" could refer to physical distance or could mean most similar in color or size) or "How many objects in the structure have a certain property?" Discrete mathematics is a collection of tools that can be used to answer these kind of questions.
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="Vintage Stone And Brick Wall" height="205" src="imagesMKD/vintage-stone-and-brick-wall.jpg" width="320"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        As an example, consider a wall, a structure built from individual stones and bricks, part of which is shown in the image.
+The
+individual
+objects in the structure are
+the stones and bricks. You can still identify individual objects even though they were combined to build the larger structure, and can classify
+an
+individual object
+by type (either stone or brick) or by color or by the how close to the top of the wall the object
+is. You can try to count the total number of individual objects, and you can count the number of individual objects that are next to any one object you choose. The wall is a (non-mathematical) example of a
+        <strong>
+         discrete structure.
+        </strong>
+        <br/>
+        <span class="small">
+         Image credit:
+         <a href="https://www.publicdomainpictures.net/en/view-image.php?image=87806&amp;picture=vintage-stone-and-brick-wall">
+          "Vintage Stone And Brick Wall"
+         </a>
+         by Paul Brennan. The image is dedicated to the public domain under
+         <a href="http://creativecommons.org/publicdomain/zero/1.0/">
+          CC0
+         </a>
+         .
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Here are two more examples of discrete structures.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          A family of humans can be treated as a discrete structure.
+          <br/>
+          The humans in a family are seen as individuals who can be distinguished from one another. Questions like "Which humans are siblings of this human?" and "Which humans are parents of this human?" and "How many children does this human have?" make sense.
+         </p>
+        </li>
+        <li>
+         <p>
+          The set of integers, in the usual order, as represented on a number line is a discrete structure.
+          <br/>
+          It makes sense to ask questions like "What is the next integer after -2?" or "What are the integers that are closest to -2?" for this structure.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that in these examples, the individual objects are of a different nature than the entire structure: Individual bricks and stones aren’t considered a wall, individual humans aren’t considered a family, and individual integers are not a collection of integers.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        So what kind of structure is not discrete?
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="Water Glass" height="212" src="imagesMKD/water-glass-13525637587gp.jpg" width="320"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Consider the water in the glass shown in the image. The water in the glass
+        <em>
+         is
+        </em>
+        a structure, but for most of human history it has not been seen as made up of objects that are of a different nature than the structure. That is, many generations of humans have recognized the difference between a wall and the individual stones and bricks that make up the wall, but likely have perceived water as being made up of…​ water. This is why humans tend to use
+        <em>
+         measurement of quantities
+        </em>
+        of water, using units such as fluid ounces or milliliters.
+In our current era,
+we humans understand that the water is built from molecules,
+which are of a different nature than the water
+"structure,"
+but because the molecules are so tiny, numerous, and densely distributed throughout the structure, we humans (except perhaps some scientists and engineers)
+still use measurement instead of counting and ignore the individual molecules.
+For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10
+        <sup>
+         24
+        </sup>
+        molecules of water." Notice that the measurement units used do not correspond in any natural way to individual molecules or groupings of individual molecules (unless, perhaps, you are a scientist or engineer.)
+        <br/>
+        Also, notice that the glass container itself is another structure in which the individual molecules tend to be ignored.
+        <br/>
+        <span class="small">
+         Image credit:
+         <a href="https://www.publicdomainpictures.net/en/view-image.php?image=27533&amp;picture=water-glass">
+          "Water Glass"
+         </a>
+         by Peter Griffin. The image is dedicated to the public domain under
+         <a href="http://creativecommons.org/publicdomain/zero/1.0/">
+          CC0
+         </a>
+         .
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Humans use
+        <strong>
+         continuous mathematics
+        </strong>
+        like calculus to study a structure that is built from objects that are densely distributed throughout the structure. For such a structure, measurement and approximation is more appropriate than counting.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          The set of real numbers, in the usual order, as represented on a number line is NOT a discrete structure.
+          <br/>
+          It does NOT makes sense to ask about "the next real number after \(\pi\) on the number line" because if we think
+          <em>
+           c
+          </em>
+          is "the next real number after \(\pi\) on the number line" then we can compute the number \(c_{1} = \frac{c+\pi}{2},\) which is the midpoint of the interval with endpoints \(\pi\) and
+          <em>
+           c,
+          </em>
+          so \(c_{1}\) is closer to \(\pi\) than
+          <em>
+           c
+          </em>
+          is, which means \(c_{1}\) is a
+          <em>
+           better candidate
+          </em>
+          for "the next real number after \(\pi\) on the number line" than
+          <em>
+           c
+          </em>
+          … so the concept "the next real number after \(\pi\) on the number line" does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to \(\pi\) over and over again. Likewise, "the real numbers that are closest to \(\pi\)" do not exist.
+          <br/>
+          Instead, it makes sense to talk about "the real numbers that differ from \(\pi\) by less than \(\epsilon\)" where \(\epsilon\) is some positive real number  (The symbol \(\epsilon\) is  the Greek letter "epsilon".) By choosing \(\epsilon\) as small as we like, we can describe the real numbers that are as close to \(\pi\) as needed to use as approximations to \(\pi.\) This is why and how limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line.
+          <br/>
+          <span class="small">
+           Note 1: You could use any other real number instead of \(\pi\) in the discussion above because the argument will still be valid. For example, "the next real number after \(-2\) on the number line" and "the real numbers that are closest to \(-2\) on the number line" do not exist since you can choose numbers that get closer and closer to \(-2\) such as \(-1,\) \(-1.5,\) \(-1.75,\) and so on.
+           <br/>
+           Note 2: The technique used to justify that "the next real number after \(\pi\) on the number line" does not exist is called
+           <strong>
+            proof by contradiction
+           </strong>
+           and will be discussed along with other techniques in the
+           <a href="./proofs.html">
+            Proofs: Basic Techniques
+           </a>
+           chapter of this textbook.
+           <br/>
+           Note 3: Is \(\pi\) really on the number line? Click
+           <a href="https://www.youtube.com/watch?v=PFf9d7U2tVA&amp;t=282s">
+            here
+           </a>
+           to view an artist’s explanation about where \(\pi\) lies on the number line. Be warned that some of what this artist says (about history, about \(\pi\) being equal to 3.14) is not correct, but the visualization still may be helpful to you.
+           <br/>
+           Note 4: FYI, the set of real numbers is called
+           <strong>
+            the continuum
+           </strong>
+           in advanced mathematics courses.
+          </span>
+         </p>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_to_the_student_some_things_to_know_before_you_begin">
+       1.2. To The Student: Some Things To Know Before You Begin
+      </h3>
+      <div class="paragraph">
+       <p>
+        Here are some things to orient you.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_how_to_use_this_textbook">
+        1.2.1. How To Use This textbook
+       </h4>
+       <div class="paragraph">
+        <p>
+         The Remix is designed to build on your previous knowledge, and then build new knowledge and understanding by visiting the topics over and over again. In the next subsection, the basis of foundational mathematical ideas are discussed. You are encouraged to read through
+         <span class="underline">
+          <em>
+           all
+          </em>
+         </span>
+         of those foundational topics and to work through the Questions and Challenges.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         There are two analogies that I, the remixer, like to use here:
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Think of the course presented in the Remix as a language course.
+           <br/>
+           You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then "forgetting" that content later, but still succeed in the course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.
+          </p>
+         </li>
+         <li>
+          <p>
+           Think of the course presented in the Remix as exercising at a gym.
+           <br/>
+           You will build your strength and awareness about your abilities by working out. It may be tempting to watch others "demonstrate" how to do certain exercises and then choose not to do them yourself, but you are selling yourself short. A physical trainer usually knows already what they are capable of doing, so it is no compliment if you tell them "Wow, you’re really strong"…​ the trainer’s goal is to get you to say "Wow,
+           <span class="underline">
+            <strong>
+             I’m
+            </strong>
+           </span>
+           starting to get really strong!"
+          </p>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_foundations">
+        1.2.2. Foundations
+       </h4>
+       <div class="paragraph">
+        <p>
+         Learning discrete mathematics requires putting together old ideas in new ways and adding new ideas to your mix.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         This subsection highlights some of the ideas you will need to work with in order to get the most out of this textbook. Also, you’ll find opportunities here to practice with the built-in tools that are part of the textbook.
+Some of these ideas may be old for you, but others will probably be new. To use this textbook effectively, you’ll need to be able to work with each of these ideas with relative ease. If a few of these ideas are brand new to you, that is fine: All of these ideas will be discussed again, much more formally and in greater detail, later in the textbook.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         I encourage you to read
+         <em>
+          all
+         </em>
+         of the topics discussed below. Don’t skip anything, even if it looks "old" because there may be some new ways of understanding the old ideas that are introduced and that will be used later in the course.
+        </p>
+       </div>
+       <div class="ulist" id="informal_set_definition">
+        <ul>
+         <li>
+          <p>
+           A
+           <strong>
+            set
+           </strong>
+           is an unordered collection of zero or more objects.
+You can think of a set as a list of the names of the objects included, but we do not care about the order of the names in the list and we do not care if the list contains duplicate names.
+           <br/>
+           <br/>
+           An example is the set of the names of the additive primary colors of light which can be written as \[\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}\]
+which contains exactly three elements: "blue", "green", and "red." It does not matter that "red" appears twice, and it does not matter that the order of the colors in the list "blue", "green", and "red" is different from the order used in the previous set notation. We could define the
+           <em>
+            same
+           </em>
+           set with any other list that contains the same three elements, for example, \(\{ \text{"green"},\,\text{"red"},\,\text{"blue"} \}.\)
+           <br/>
+           <br/>
+           As you will see in the
+           <a href="./set_theory.html">
+            Set Theory
+           </a>
+           chapter, it is common practice to use uppercase English letters to stand for sets; this is similar to how lowercase letters are used as variables or constants in algebra. For example, you could write \[P = \{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}\] which allows you to refer to the set as
+           <em>
+            P
+           </em>
+           instead of needing to read the list of elements every time you want to talk about the set. This is like using the Greek letter π instead of needing to read off the first few digits of the non-repeating decimal expansion 3.14159265359… every time you refer to that number.
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              NOTE 1:
+In mathematics, a set like
+\(P,\) that is, \(\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}\)
+is treated as a
+              <em>
+               constant,
+              </em>
+              so you cannot remove elements or insert new elements once a set has been defined and described.
+As an example, if you wanted to insert
+the name "white" into the set, you would need to define
+a
+              <em>
+               new
+              </em>
+              set \[ C = \{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"},\,\text{"white"} \}\]
+that contains four elements by appending "white" to the list used to define the old set
+              <em>
+               P.
+              </em>
+             </p>
+            </li>
+            <li>
+             <p>
+              NOTE 2:
+             </p>
+             <div class="ulist">
+              <ul>
+               <li>
+                <p>
+                 One way of creating a new set from two other sets is to form the
+                 <strong>
+                  union
+                 </strong>
+                 of the two sets. The union of two sets is formed by
+                 <em>
+                  joining
+                 </em>
+                 the sets.
+                 <br/>
+                 For example, If \(P = \{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}\) and \(T = \{ \text{"yellow"},\,\text{"red"},\,\text{"blue"} \}\), then the union of the two sets is \(\{  \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"}, \, \text{"yellow"},\,\text{"red"},\,\text{"blue"} \},\) the set that contains the colors that are in at least one of the sets \(P\) and \(T.\)
+                 <br/>
+                </p>
+               </li>
+               <li>
+                <p>
+                 Another way of creating a new set from two other sets is to form the
+                 <strong>
+                  intersection
+                 </strong>
+                 of the two sets. The intersection is the
+                 <em>
+                  meeting
+                 </em>
+                 of the two sets.
+                 <br/>
+                 For example, If \(P = \{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \}\) and \(T = \{ \text{"yellow"},\,\text{"red"},\,\text{"blue"} \}\), then the intersection of the two sets is \(\{ \text{"red"},\,\text{"blue"} \},\) the set that contains the colors that are in both of the sets \(P\) and \(T.\)
+                 <br/>
+                 Likewise, if \(S = \{ \text{"yellow"},\,\text{"cyan"},\,\text{"magenta"} \},\) the set of additive secondary colors, then the intersection of \(P\) and \(S\) is the set \(\{  \},\) the set that contains zero elements. We call the set \(\{  \}\) the
+                 <strong>
+                  empty set.
+                 </strong>
+                </p>
+               </li>
+              </ul>
+             </div>
+            </li>
+            <li>
+             <p>
+              NOTE 3: We can define a
+              <strong>
+               subset
+              </strong>
+              of any set by selecting zero or more of the members of the set. For example, \(\{ \text{"green"},\,\text{"blue"} \}\) and \(\{ \text{"green"} \}\) are subsets of
+\(\{ \text{"red"},\,\text{"green"},\,\text{"blue"},\,\text{"red"} \},\)
+and so is \(\{  \},\) the empty set.
+             </p>
+            </li>
+            <li>
+             <p>
+              NOTE 4: A set can also be defined by a property instead of a list. This will be explained in the
+              <a href="./set_theory.html">
+               Set Theory
+              </a>
+              chapter.
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_one_to_one_correspondence_definition">
+        <ul>
+         <li>
+          <p>
+           A
+           <strong>
+            one-to-one correspondence
+           </strong>
+           between two sets
+           <em>
+            A
+           </em>
+           and
+           <em>
+            B
+           </em>
+           is a pairing of each member of the set
+           <em>
+            A
+           </em>
+           with exactly one member of set
+           <em>
+            B,
+           </em>
+           and each member of set
+           <em>
+            B
+           </em>
+           with exactly one member of set
+           <em>
+            A.
+           </em>
+           <br/>
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Examples - One-To-One Correspondences
+          </div>
+          <p>
+           As a first example, the one-to-one correspondence between
+the set of uppercase English letters and the set of lowercase English letters is represented in the image. You can choose each letter in the upper row and follow the arrow down to the corresponding lowercase letter that it is paired with.
+          </p>
+         </div>
+         <div class="imageblock text-center">
+          <div class="content">
+           <img alt="UpperLowerOneToOneCorrV3" src="imagesMKD/UpperLowerOneToOneCorrV3.png"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that you could choose any lowercase letter in the image and follow the arrow up to its corresponding uppercase letter. This shows that the one-to-one correspondence
+is invertible in the sense that there is a second one-to-one correspondence that can "undo" what the first one-to-one correspondence does.
+This is why the arrows in the image point in both directions: It is natural to interpret the arrow as meaning "change case" in either direction.
+           <br/>
+           <span class="small">
+            In fact, the image for the one-to-one correspondence actually represents two
+            <a href="./introduction_discrete_math.html#informal_function_definition">
+             functions
+            </a>
+            : The first function is the uppercase-to-lowercase conversion that uses only the down arrows, and the second function lowercase-to-uppercase conversion that uses only the up arrows.
+           </span>
+          </p>
+         </div>
+         <div class="imageblock right text-center" id="informal_rock_paper_scissors">
+          <div class="content">
+           <img alt="THE_GAME_OF_KEN_derivative_v3" height="330" src="imagesMKD/THE_GAME_OF_KEN_derivative_v3.png" width="384"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           As a second example, consider the game
+           <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors">
+            "rock, paper, scissors."
+           </a>
+           The image represents the one-to-one correspondence that pairs each element of the set \(\{ \text{"rock"},\,\text{"paper"},\,\text{"scissors"} \}\) with the element of the same set that it loses to.
+           <br/>
+           <span class="small">
+            Image credit: Remixer-created derivative of original work
+            <a href="https://commons.wikimedia.org/wiki/File:THE_GAME_OF_KEN._(1910)_-_illustration_-_page_315.png">
+             "THE_GAME_OF_KEN.
+             <em>
+              (1910)
+             </em>
+             -
+             <em>
+              illustration
+             </em>
+             -_page_315.png"
+            </a>
+            . According to Japanese Copyright Law (June 1, 2018 grant) the copyright on the original work has expired and is as such public domain. Also, the original work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1930.
+           </span>
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           For this one-to-one correspondence, it makes more sense to use arrows that point in only one direction.
+In the image, all the arrows point to the winner, so each arrow can be read as "loses to," for example "rock loses to paper".
+           <br/>
+           <span class="small">
+            Note 1: A one-to-one correspondence between a set and itself is called a
+            <strong>
+             permutation.
+            </strong>
+            You will see the term "permutation" again, used with a related but different meaning, in the
+            <a href="./counting_binomial.html">
+             Counting: Permutations and Combinations
+            </a>
+            chapter.
+            <br/>
+            Note 2: "Rock, paper, scissors" is a modern form of a very old game that appears to date back at least 1,800 years to China during the time of the Han dynasty. You can learn more about the history of "rock, paper, scissors" and other intrasitive games at this
+            <a href="https://en.wikipedia.org/wiki/Rock_paper_scissorsl#History">
+             Wikipedia link
+            </a>
+            . The image used in the Remix is derived from one that appears in a
+            <a href="https://www.gutenberg.org/cache/epub/65870/pg65870-images.html#CHAPTER_XXII">
+             book
+            </a>
+            published in 1910 that describes the Japanese game stone-
+            <em>
+             ken
+            </em>
+            or
+            <em>
+             jan-ken.
+            </em>
+           </span>
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="ulist" id="informal_natural_numbers_definition">
+        <ul>
+         <li>
+          <p>
+           <mark>
+            A
+            <strong>
+             natural number
+            </strong>
+            is one of the
+            <em>
+             nonnegative integers
+            </em>
+            .
+           </mark>
+           The letter \(\mathbb{N}\) denotes the set of natural numbers, that is, \[\mathbb{N} = \{ 0,\,1,\,2,\,3,\,\ldots \}\] where the three dots are used because we cannot write down the
+entire
+list of natural numbers.
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              NOTE: We almost always use the base-ten (decimal) place-value system to represent natural numbers, but later in this textbook you will see that there are
+              <a href="./number_bases.html">
+               other number base systems
+              </a>
+              such as the base-two (binary) place-value system, that are useful in some contexts.
+             </p>
+            </li>
+            <li>
+             <p>
+              WARNING: The definition of natural numbers used in this textbook is an
+              <a href="https://www.iso.org/obp/ui/#iso:std:iso:80000:-2:ed-2:v2:en">
+               ISO standard,
+              </a>
+              but be aware that other textbooks and sources may use the  "nonstandard" definition that the natural numbers are the positive integers. In this textbook, the set of natural numbers ALWAYS include zero as well as the positive integers, which is the standard definition.
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Starting at 0
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Welcome to your first opportunity to use PythonTutor in this textbook!
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           The idea that it is "natural" to start counting from 0 may be familiar to you from coding: Both Java arrays and Python lists are indexed starting at 0.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice in the Python code below that the initial item in list L is the string "Discrete" at index 0, not index 1.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           To step through the code, click on the "Next" button.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=%23%20L%20is%20a%20Python%20list%20object%20with%202%20items.%20Both%20items%20are%20str%20objects%20%28that%20is,%20strings%29.%0AL%20%3D%20%5B%22Discrete%22,%20%22Mathematics%22%5D%0Aprint%28L%5B1%5D%29%0A%23%20Oops!%20We%20skipped%20%22Discrete%22!%0Aprint%28L.index%28%22Discrete%22%29%29%0Aprint%28L%5B0%5D%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=%23%20L%20is%20a%20Python%20list%20object%20with%202%20items.%20Both%20items%20are%20str%20objects%20%28that%20is,%20strings%29.%0AL%20%3D%20%5B%22Discrete%22,%20%22Mathematics%22%5D%0Aprint%28L%5B1%5D%29%0A%23%20Oops!%20We%20skipped%20%22Discrete%22!%0Aprint%28L.index%28%22Discrete%22%29%29%0Aprint%28L%5B0%5D%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="imageblock right text-center" id="informal_finite_set_definition">
+        <div class="content">
+         <img alt="FingersToNumerals" height="109" src="imagesMKD/FingersToNumerals.png" width="375"/>
+        </div>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           A set is called a
+           <strong>
+            finite set
+           </strong>
+           if either the set is empty or there is a one-to-one correspondence between the set and \(\{1, 2, \ldots , n \}\) for some positive integer \(n.\) For example, the image represents how a child may "count up to 5" by pairing fingers with the numbers in \(\{1, 2, \ldots , 5 \}.\)
+           <br/>
+           A set that is not a finite set is called an
+           <strong>
+            infinite set.
+           </strong>
+           Both finite and infinite sets will be discussed in more detail in the
+           <a href="./set_theory.html">
+            Set Theory
+           </a>
+           chapter.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_counting_definition">
+        <ul>
+         <li>
+          <p>
+           You may be surprised to see
+           <a href="./counting_arithmetic.html">
+            Counting
+           </a>
+           listed as a topic in a university-level course because you probably learned to count by putting physical objects (like fingers) into a one-to-one correspondence with number words such as "one, two, three, four, five" when you were a young child. That way of counting one by one is fine for small sets, but the counting techniques discussed in this textbook let you count the number of elements in very large
+finite
+sets quickly.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - The Multiplication Principle
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The
+           <strong>
+            multiplication principle,
+           </strong>
+           also called the
+           <strong>
+            product rule,
+           </strong>
+           is the following statement.
+          </p>
+         </div>
+         <div class="verseblock">
+          <pre class="content">Suppose that we have a procedure that consists of completing two steps, that there are <em>k</em> possible ways to complete the first step, and for each possible way of completing the first step, there are <em>m</em> possible ways to complete the second step. Then there are <em>k⋅m</em> ways to complete the procedure.</pre>
+         </div>
+         <div class="paragraph">
+          <p>
+           As an example, the number of possible strings of 2 characters
+with the first character being one of the 26 uppercase English letters and  second character being one of the 10 Hindu-Arabic numerals is 260 = 26⋅10.
+          </p>
+         </div>
+         <div class="imageblock text-center">
+          <div class="content">
+           <img alt="MultRuleExampleCropped" src="imagesMKD/MultRuleExampleCropped.png"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           In this case, 26 and 10 are small integers so you can list all possibilities by arranging them in a table as shown in the image. What is important to notice is that this same technique (multiplying
+           <em>
+            k
+           </em>
+           and
+           <em>
+            m
+           </em>
+           ) will work for much larger values of
+           <em>
+            k
+           </em>
+           and
+           <em>
+            m,
+           </em>
+           when creating such a table may be either not helpful or impossible.
+          </p>
+         </div>
+         <div class="openblock challenge">
+          <div class="title">
+           Challenge
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Suppose that a U. S. state uses passenger vehicle license plate numbers that are 7 characters long, where the first character is one of the 9 nonzero  Hindu-Arabic numerals, the second, third, and fourth characters are uppercase English letters, and the fifth, sixth, and seventh characters are  Hindu-Arabic numerals. How many different possible passenger vehicle license plate numbers can the state create?
+            <br/>
+            <br/>
+            Click on "Hint," "Another challenge," and "One last challenge" to reveal the hidden text.
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            You can apply the multiplication rule more than once if the procedure you are trying to complete requires more than two steps.
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Another challenge
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            The previous challenge was a bit simplified. In fact, the state places additional restrictions on the characters. To avoid confusing "0" with "O" or "Q", and "1" with "I", the state does not allow "O", "Q", and "I" as the second or fourth character on the license plate. With that change, how many different possible passenger vehicle license plate numbers can the state create?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            You can still apply the multiplication rule more than once to answer this challenge question.
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           One last challenge
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Both of the previous challenges were simplified. In fact, in addition to the restrictions on "O", "Q", and "I," the state does not use
+1SWD000 through 1TZZ999,
+1WAA000 through 1YZZ999,
+strings whose first four characters are 1UAA through 1VZZ,
+1ZZA through 1ZZZ, or 3ZZA through 3ZZG
+for its passenger vehicle license plate numbers.
+            <br/>
+            With these additional restrictions, how many different possible passenger vehicle license plate numbers can the state create?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            You may want to use some addition and/or subtraction as well as the multiplication rule.
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           The
+           <strong>
+            Pigeonhole Principle
+           </strong>
+           states that if \(n\) is a positive integer and \(n+1\) objects are going to be assigned to \(n\) categories then one of the categories must be assigned at least 2 of the objects.
+Click
+           <a href="https://en.wikipedia.org/wiki/Pigeonhole_principle#/media/File:TooManyPigeons.jpg">
+            here
+           </a>
+           to see a commonly-used photoshopped image that illustrates this principle.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_function_definition">
+        <ul>
+         <li>
+          <p>
+           A
+           <strong>
+            function from set
+            <em>
+             D
+            </em>
+            to set
+            <em>
+             C
+            </em>
+           </strong>
+           is a rule that assigns to each element in
+           <em>
+            D
+           </em>
+           (that is, to each input value) exactly one output value from
+           <em>
+            C.
+           </em>
+           We also say each input value is
+           <strong>
+            mapped
+           </strong>
+           to the output value. A much more formal definition will be given in the
+           <a href="./functions.html">
+            Functions
+           </a>
+           chapter of the textbook, but for now it is enough to understand functions in this way.
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              The rule may be represented by a mathematical equation, a verbal description, a table of paired values, a plot of points, … or even code 😎!
+             </p>
+            </li>
+            <li>
+             <p>
+              The set
+              <em>
+               D
+              </em>
+              of all input values is called the
+              <strong>
+               domain
+              </strong>
+              of the function.
+             </p>
+            </li>
+            <li>
+             <p>
+              The set
+              <em>
+               C
+              </em>
+              that contains the output values is called the
+              <strong>
+               codomain
+              </strong>
+              of the function.
+             </p>
+            </li>
+            <li>
+             <p>
+              The
+              <strong>
+               range
+              </strong>
+              of the function is the set that contains
+              <em>
+               only
+              </em>
+              the output values and no other elements. The range is always a subset of the codomain
+              <em>
+               C,
+              </em>
+              but may not contain every element of
+              <em>
+               C
+              </em>
+              . That is, some elements of
+              <em>
+               C
+              </em>
+              may not be outputs for the function. It is often important to distinguish the range from the codomain; this is discussed in detail in the
+              <a href="./functions.html">
+               Functions
+              </a>
+              chapter.
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Examples - Functions
+          </div>
+          <p>
+           Here are some examples of functions with their rules, domains, codomains, and ranges.
+          </p>
+         </div>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             Any one-to-one correspondence between two sets
+             <em>
+              A
+             </em>
+             and
+             <em>
+              B
+             </em>
+             can be viewed as a function \(f\) from
+             <em>
+              A
+             </em>
+             to
+             <em>
+              B
+             </em>
+             .
+            </p>
+            <div class="ulist">
+             <ul>
+              <li>
+               <p>
+                The rule for \(f\) is given by the pairing of elements in
+                <em>
+                 A
+                </em>
+                with elements in
+                <em>
+                 B.
+                </em>
+               </p>
+              </li>
+              <li>
+               <p>
+                The domain of \(f\) is the set
+                <em>
+                 A.
+                </em>
+               </p>
+              </li>
+              <li>
+               <p>
+                The codomain of \(f\) is the set
+                <em>
+                 B.
+                </em>
+               </p>
+              </li>
+              <li>
+               <p>
+                The range of \(f\) is the set
+                <em>
+                 B,
+                </em>
+                too, because every element in
+                <em>
+                 B
+                </em>
+                is paired with an element in
+                <em>
+                 A
+                </em>
+                by the one-to-one correspondence.
+                <br/>
+                <br/>
+                Notice that the one-to-one correspondence can be used to define another function
+                <em>
+                 g
+                </em>
+                from
+                <em>
+                 B
+                </em>
+                to
+                <em>
+                 A
+                </em>
+                with domain
+                <em>
+                 B,
+                </em>
+                codomain
+                <em>
+                 A,
+                </em>
+                range
+                <em>
+                 A,
+                </em>
+                and rule given by the pairing of elements in
+                <em>
+                 B
+                </em>
+                with elements in
+                <em>
+                 A.
+                </em>
+                The two functions \(f\) and
+                <em>
+                 g
+                </em>
+                are called
+                <strong>
+                 inverse functions
+                </strong>
+                because \(f\) and
+                <em>
+                 g
+                </em>
+                "invert" or "undo" each other. Inverse functions will be discussed in more detail in the
+                <a href="./functions.html">
+                 Functions
+                </a>
+                chapter.
+               </p>
+              </li>
+             </ul>
+            </div>
+           </li>
+          </ul>
+         </div>
+         <div class="ulist" id="informal_floor_and_ceiling_definition">
+          <ul>
+           <li>
+            <p>
+             The
+             <strong>
+              floor of
+              <em>
+               x
+              </em>
+              ,
+             </strong>
+             \(\lfloor x \rfloor,\) and the
+             <strong>
+              ceiling of
+              <em>
+               x
+              </em>
+              ,
+             </strong>
+             \(\lceil x \rceil,\) are two functions defined for all real numbers as follows:
+            </p>
+            <div class="ulist">
+             <ul>
+              <li>
+               <p>
+                \(\lfloor x \rfloor\) is the greatest integer less than or equal to
+                <em>
+                 x.
+                </em>
+                For example, \(\lfloor -1.5 \rfloor = -2\) and \(\lfloor 6.3 \rfloor = 6\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(\lceil x \rceil\) is the least integer less than or equal to
+                <em>
+                 x.
+                </em>
+                For example, \(\lceil -1.5 \rceil = -1\)  and \(\lceil 6.3 \rceil = 7\)
+               </p>
+              </li>
+              <li>
+               <p>
+                The domain of both the floor and ceiling functions is the set of all real numbers, \(\mathbb{R}.\)
+               </p>
+              </li>
+              <li>
+               <p>
+                The range of both the floor and ceiling functions is the set of all integers, \(\mathbb{Z}\) (NOTE: The German word for "numbers" is
+                <em>
+                 Zahlen,
+                </em>
+                which is why the letter \(\mathbb{Z}\) is used for the integers.)
+               </p>
+              </li>
+              <li>
+               <p>
+                The codomain of these two functions can be chosen depending on the context.  If we only need to consider output values we could choose the codomain to be the same set as the range, \(\mathbb{Z},\) but if we want to plot these two functions in the
+                <em>
+                 xy
+                </em>
+                coordinate plane we would choose the codomain to be the set of real numbers, \(\mathbb{R}.\) This is discussed in the
+                <a href="./functions.html">
+                 Functions
+                </a>
+                chapter.
+                <br/>
+                <br/>
+                The floor and ceiling functions are discussed in more detail in
+                <a href="./appendix_library.html#_appendix_library_of_functions">
+                 Appendix: Library of Functions.
+                </a>
+               </p>
+              </li>
+             </ul>
+            </div>
+           </li>
+          </ul>
+         </div>
+         <div class="imageblock right text-center">
+          <div class="content">
+           <img alt="ListAsFunction" height="144" src="imagesMKD/ListAsFunction.png" width="256"/>
+          </div>
+         </div>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             In Python, a list can be used to represent a function with inputs the valid integer indices for the list and outputs the values stored in the list.
+In an earlier example, we defined list L to be ["Discrete", "Mathematics"] and then evaluated L[0] and L[1] to access the strings stored in the list.
+             <br/>
+             <span class="small">
+              Note for programmers: In reality, the items in the list are
+              <em>
+               references
+              </em>
+              to objects that implement the two strings. That is, the list items are neither the strings nor the objects that implement strings but references to those objects, which are located elsewhere in memory.
+             </span>
+            </p>
+           </li>
+           <li>
+            <p>
+             The rule "Return the first character of the input Unicode string."
+            </p>
+            <div class="ulist">
+             <ul>
+              <li>
+               <p>
+                The domain is the set of all strings of length greater than or equal to 1 that contain Unicode characters.
+               </p>
+              </li>
+              <li>
+               <p>
+                The range is the set of all Unicode characters.
+               </p>
+              </li>
+              <li>
+               <p>
+                We would need to decide what the codomain should be in this context: It could be the same as the range, or we could use the larger set of all strings that contain Unicode characters (including the empty string "".)
+               </p>
+              </li>
+             </ul>
+            </div>
+           </li>
+           <li>
+            <p>
+             \(f(x) = x^{2}\) from the set of real numbers to the set of real numbers.
+            </p>
+            <div class="ulist">
+             <ul>
+              <li>
+               <p>
+                The domain and codomain are both the set of real numbers.
+               </p>
+              </li>
+              <li>
+               <p>
+                The range is the set of nonnegative real numbers.
+               </p>
+              </li>
+             </ul>
+            </div>
+           </li>
+           <li>
+            <p>
+             \(g(x,\,y) = xy + y\) where
+             <em>
+              x
+             </em>
+             and
+             <em>
+              y
+             </em>
+             are real numbers.
+            </p>
+            <div class="ulist">
+             <ul>
+              <li>
+               <p>
+                The domain is the set of ordered pairs of real numbers.
+               </p>
+              </li>
+              <li>
+               <p>
+                The range is the set of all real numbers. The codomain is the same as the range.
+               </p>
+              </li>
+             </ul>
+            </div>
+           </li>
+           <li>
+            <p>
+             See the
+             <a href="./appendix_library.html#_appendix_library_of_functions">
+              Appendix: Library of Functions
+             </a>
+             for other functions you should be familiar with.
+            </p>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Functions
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below shows two functions that are user-defined in Python.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Click on the "Next" button to step through the code.
+          </p>
+         </div>
+         <iframe frameborder="5" height="550" src="https://pythontutor.com/iframe-embed.html#code=def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E0%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20%22%22%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Adef%20constantChatbot%28userInput%29%3A%0A%20%20%20%20return%20%22Hello!%22%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0Aprint%28constantChatbot%28%22Hi.%22%29%29%0Aprint%28constantChatbot%28%22Can%20you%20code%20in%20Python%3F%22%29%29%0Aprint%28constantChatbot%28%22So,%20'No'%3F%22%29%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=550" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20getFirstChar%28theString%29%3A%0A%20%20%20%20if%20len%28theString%29%3E0%3A%0A%20%20%20%20%20%20%20%20return%20theString%5B0%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20%22%22%0Adef%20squareMe%28theNumber%29%3A%0A%20%20%20%20return%20theNumber**2%0Adef%20constantChatbot%28userInput%29%3A%0A%20%20%20%20return%20%22Hello!%22%0Aprint%28getFirstChar%28%22This%20is%20a%20string.%22%29%29%0Aprint%28squareMe%289%29%29%0Aprint%28constantChatbot%28%22Hi.%22%29%29%0Aprint%28constantChatbot%28%22Can%20you%20code%20in%20Python%3F%22%29%29%0Aprint%28constantChatbot%28%22So,%20'No'%3F%22%29%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Here is another example.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Functions and Data Types
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           What do you get when you "add" a Python object to itself?
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Note that the answer depends on the object’s data type.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Click on the "Next" button to step through the code.
+          </p>
+         </div>
+         <iframe frameborder="5" height="400" src="https://pythontutor.com/iframe-embed.html#code=def%20mePlusMe%28x%29%3A%0A%20%20%20%20return%20x%2Bx%0Aprint%28mePlusMe%285%29%29%0Aprint%28mePlusMe%28%225%22%29%29%0Aprint%28mePlusMe%28%5B5%5D%29%29%0Aprint%28mePlusMe%285.0%29%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=400" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20mePlusMe%28x%29%3A%0A%20%20%20%20return%20x%2Bx%0Aprint%28mePlusMe%285%29%29%0Aprint%28mePlusMe%28%225%22%29%29%0Aprint%28mePlusMe%28%5B5%5D%29%29%0Aprint%28mePlusMe%285.0%29%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="ulist" id="informal_sequence_definition">
+        <ul>
+         <li>
+          <p>
+           A
+           <strong>
+            sequence
+           </strong>
+           is a function from the natural numbers, or a
+subset of the natural numbers, into another set (e.g., the natural numbers, or the real numbers, or a nonnumerical set.)
+For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for every natural number } i \] which describes the sequence of positive odd integers \(a_{0} = 1,\) \(a_{1} = 3,\) \(a_{2} = 5,\) and so on.
+           <br/>
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              NOTE 1: It is common to use
+              <em>
+               i
+              </em>
+              as a variable in sequence notation because
+              <em>
+               i
+              </em>
+              is the initial letter of the word
+              <strong>
+               index.
+              </strong>
+              This
+              <em>
+               i
+              </em>
+              has nothing to do with the complex number \(\sqrt{-1}.\) Mathematicians recycle and reuse letters!
+             </p>
+            </li>
+            <li>
+             <p>
+              NOTE 2: It is traditional to write the input variable for a sequence as a subscript instead of putting it between parentheses. In the preceding example, \(a_{i} = 2i+1\) has the same meaning as \(a(i) = 2i+1\).
+             </p>
+            </li>
+            <li>
+             <p>
+              NOTE 3: The output values of a sequence are called
+              <strong>
+               terms.
+              </strong>
+              For example, the 0th term of the sequence is \(a_{0} = 1,\) the 1st term of the sequence is \(a_{1} = 3,\) and so on.
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="imageblock right text-center">
+        <div class="content">
+         <img alt="NumeralsToFingersFunction" height="109" src="imagesMKD/NumeralsToFingersFunction.png" width="375"/>
+        </div>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           A
+           <strong>
+            finite sequence
+           </strong>
+           is a sequence that is defined for only a finite subset of \(\mathbb{N}.\) That is, the set of input \(i\) values that make sense for the sequence is a finite set.
+           <br/>
+           For example, a child counting up to five on the fingers of one hand is defining the sequence called \(\textit{fingers}_{i}\) that is represented by the image.
+           <br/>
+           <span class="small">
+            Technically, the sequence \(\textit{fingers}_{i}\) shown in the image is the
+            <em>
+             inverse
+            </em>
+            of the child’s actual counting sequence. Because the child assigns to each finger "input" exactly one number "output," the arrows would point up from a finger to the corresponding number.
+           </span>
+           <br/>
+           <br/>
+           The sequence \(\textit{fingers}_{i}\) can be written, formally, as
+\begin{equation}
+\begin{aligned}
+\textit{fingers}_{1} {} &amp; = \text{"Thumb"} \\
+\textit{fingers}_{2} {} &amp; = \text{"Index Finger"} \\
+\textit{fingers}_{3} {} &amp; = \text{"Middle Finger"} \\
+\textit{fingers}_{4} {} &amp; = \text{"Ring Finger"} \\
+\textit{fingers}_{5} {} &amp; = \text{"Pinky Finger"} \\
+\end{aligned}
+\end{equation}
+but it is much more common to list the terms of the sequence in order:  "Thumb," "Index Finger," "Middle Finger," "Ring Finger," "Pinky Finger."
+           <br/>
+           <br/>
+           Notice that Java arrays and Python lists are implementations of the mathematical concept of a finite sequence where the domain is the set of \(i\) values \(\{0, 1, \ldots , n \}\) for some natural number \(n.\)
+           <br/>
+           <br/>
+           An
+           <strong>
+            infinite sequence
+           </strong>
+           is a sequence that is not a finite sequence, that is, the there are infinitely many \(i\) values that make sense as inputs for the sequence. For example the sequence \[ \text{isOdd}_{i} = \begin{cases}
+\text{1} &amp; \text{ if } i \text{ is odd} \\
+\text{0} &amp; \text{ if } i \text{ is even} \\
+\end{cases}  \] is an infinite sequence with domain the integers that has only two output values.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_bitstring_definition">
+        <ul>
+         <li>
+          <p>
+           A
+           <strong>
+            bitstring
+           </strong>
+           is a finite sequence of
+the
+           <strong>
+            bits
+           </strong>
+           0 and 1. Bitstrings are written as a string of 0s and 1s without spaces or commas between the terms of the sequence; for example, 01101011 is a bitstring of length 8. Bitstrings can be used to represent a sequence of answers to "Yes-No" or "True-False" questions, with "1" representing "Yes" or "True" and "0" representing "No" or "False."  Bitstrings can also be used to represent numbers in
+           <em>
+            binary notation,
+           </em>
+           which will be discussed in the
+           <a href="./number_bases.html">
+            Number Bases
+           </a>
+           chapter.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_summation_notation_definition">
+        <ul>
+         <li>
+          <p>
+           <strong>
+            Summation notation
+           </strong>
+           is a "shortcut" used to abbreviate a sum of a finite sequence of numbers, called
+           <strong>
+            addends,
+           </strong>
+           when the sequence contains a large number of addends.
+           <br/>
+           As an example, the sum \(1+3+5+7+9+11+13+15+17+19\) is abbreviated as \(\sum\limits_{i=0}^{9}(2i+1)\).
+           <br/>
+           As another example, the sum of the first \(500\) positive odd integers,
+\(1+3+5+\ldots+995+997+999\), is abbreviated as  \(\sum\limits_{i=0}^{499}(2i+1)\).
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              NOTE 1: The variable
+              <em>
+               i
+              </em>
+              used in
+summation notation
+is called the
+              <strong>
+               index of summation
+              </strong>
+              and the symbol \(\sum\) is the capital Greek letter "sigma." To compute the value of the sum, you generate the sequence of addends by substituting each integer value, starting with the lower limit written below the sigma and stopping at the upper limit written above the sigma, for
+              <em>
+               i
+              </em>
+              into the algebraic expression or function written to the right of sigma, then find the sum of all the numbers in the sequence.
+             </p>
+            </li>
+            <li>
+             <p>
+              NOTE 2: "Infinite sums," more properly called
+              <strong>
+               infinite series,
+              </strong>
+              are not discussed in the Remix. The sum of an infinite series is defined as the limit of its sequence of partial (finite) sums, and "limits" is a topic from continuous mathematics, not discrete mathematics.
+              <br/>
+              <span class="small">
+               Another use of infinite sum notation is to represent the
+               <strong>
+                generating function
+               </strong>
+               of a sequence, which is discussed in some discrete mathematics textbooks but not in the Remix. If you want to learn about generating functions, you can read about them in Oscar Levin’s
+               <a href="https://discrete.openmathbooks.org/dmoi4/sec_addtops-genfun.html">
+                <em>
+                 Discrete Mathematics: An Open Introduction,
+                </em>
+                4th edition
+               </a>
+               .
+              </span>
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_recursion_definition">
+        <ul>
+         <li>
+          <p>
+           <strong>
+            Recursion
+           </strong>
+           is a process that defines an object, or computes a value, or describes the construction of an object or set of objects, using steps that refer to one or more previously completed steps.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - A Recursively-Defined Function
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           In this example, a Python function is defined recursively. The function takes any natural number input
+           <em>
+            n
+           </em>
+           (represented as an
+           <code>
+            int
+           </code>
+           in Python) and returns a value that we claim is \(5^n\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Click on the "Next" button to step through the code.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that each time the loop executes, a new instance of the function is created.
+          </p>
+         </div>
+         <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=def%20power_of_five%28n%29%3A%20%0A%20%20%20%20if%20type%28n%29%20!%3D%20int%3A%0A%20%20%20%20%20%20%20%20raise%20TypeError%28%22positive%20integer%20exponent%20n%20expected.%22%29%0A%20%20%20%20elif%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20ValueError%28%22positive%20integer%20exponent%20n%20expected.%22%29%0A%20%20%20%20elif%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%205*power_of_five%28n-1%29%0A%20%20%20%20%0Aprint%28power_of_five%283%29%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20power_of_five%28n%29%3A%20%0A%20%20%20%20if%20type%28n%29%20!%3D%20int%3A%0A%20%20%20%20%20%20%20%20raise%20TypeError%28%22positive%20integer%20exponent%20n%20expected.%22%29%0A%20%20%20%20elif%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20ValueError%28%22positive%20integer%20exponent%20n%20expected.%22%29%0A%20%20%20%20elif%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%205*power_of_five%28n-1%29%0A%20%20%20%20%0Aprint%28power_of_five%283%29%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+         <div class="paragraph">
+          <p>
+           Later in the textbook, you will be able to
+           <em>
+            prove
+           </em>
+           that the
+           <code>
+            power_of_5
+           </code>
+           function must return \(5^n\) for every natural number input
+           <em>
+            n
+           </em>
+           using a proof technique called
+           <a href="./induction.html">
+            <strong>
+             mathematical induction.
+            </strong>
+           </a>
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="ulist" id="informal_recurrence_relation_definition">
+        <ul>
+         <li>
+          <p>
+           <strong>
+            Recurrence relations
+           </strong>
+           consist of one or more equations that define a sequence or a function with domain \(\mathbb{N}.\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Examples - Recurrence Relations
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The following examples show how to define a sequence from \(\mathbb{N}\) to \(\mathbb{N}\) using recursion. Notice that for each of the sequences we can compute the output value corresponding to any input value by repeatedly using the recurrence that relates a term to its preceding term in the sequence.
+          </p>
+         </div>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             \(b_{0} = 3\) and \(b_{i+1} = b_{i} + 2\) for all natural numbers
+             <em>
+              i.
+             </em>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(c_{0} = 3\) and \(c_{i+1} = 2 c_{i}\) for all natural numbers
+             <em>
+              i.
+             </em>
+            </p>
+           </li>
+          </ul>
+         </div>
+         <div class="paragraph">
+          <p>
+           As an example, we can use the recurrence relations to compute  \(b_{1}\) and \(c_{1}\) as follows.
+
+\[b_{1} = b_{0} + 2 = 3 + 2 = 5\]
+
+\[c_{1} = 2 c_{0} = 2 \cdot 3 = 6\]
+          </p>
+         </div>
+         <div class="openblock challenge">
+          <div class="title">
+           Challenge
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            A
+            <strong>
+             closed form
+            </strong>
+            for a sequence is a formula that lets you find the value of any term of the sequence by computing directly with the index
+            <em>
+             i.
+            </em>
+            In an earlier example, we had a sequence defined by the closed form \(a_{i} = 2i+1\) for every natural number
+            <em>
+             i:
+            </em>
+            You can compute any term of the sequence by substituting directly a natural number value for the index
+            <em>
+             i
+            </em>
+            into the closed form, for example, \(a_{8} = 2 \cdot 8+1 = 17.\)
+            <br/>
+            <br/>
+            The challenge is to find closed forms for the two sequences in this example.
+            <br/>
+            <br/>
+            Use the following steps.
+            <br/>
+            <br/>
+            First, make a table of values that shows the value \(i_,\) \(b_{i},\) and \(c_{i},\) for each natural number
+            <em>
+             i
+            </em>
+            that is less than or equal to 8.
+            <br/>
+            <br/>
+            Secondly, make a conjecture (that is, a guess based on the values in the table) for the closed forms of the two sequences.
+            <br/>
+            <br/>
+            Thirdly, verify that the conjectured closed forms give the correct results for each of the natural numbers
+            <em>
+             i
+            </em>
+            that is less than or equal to 8. Notice that this does not show that the closed forms are correct for much larger natural number values for
+            <em>
+             i
+            </em>
+            such as 100 or 1,000,000. A method for validating the closed form for
+            <em>
+             all
+            </em>
+            natural numbers
+            <em>
+             i
+            </em>
+            will be introduced in the
+            <a href="./induction.html">
+             Proofs: Mathematical Induction
+            </a>
+            chapter.
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Look for patterns in the numbers in the table of values you made.
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Help!
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            You may want to review arithmetic sequences and geometric sequences
+            <a href="./appendix_math.html">
+             here.
+            </a>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="ulist" id="informal_proposition_definition">
+        <ul>
+         <li>
+          <p>
+           In English, there are four types of sentences, depending on what is being communicated: statements (or declarative sentences), commands, exclamations, and questions.
+A
+           <strong>
+            proposition
+           </strong>
+           is a statement that declares a fact that is either True or False (but not both!)
+In mathematics, we are usually most interested in analyzing and verifying propositions.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_predicate_definition">
+        <ul>
+         <li>
+          <p>
+           A
+           <strong>
+            predicate
+           </strong>
+           is an incomplete proposition that contains one or more variables that need to be filled in to complete the proposition.
+One example of a predicate is "My major is \(\rule{12mm}{.5pt}\)." Notice that this becomes a proposition once the blank, which represents the variable in this case, has been filled in.
+           <br/>
+           Another example of a predicate is "The positive integers
+           <em>
+            m
+           </em>
+           and
+           <em>
+            n
+           </em>
+           are  prime numbers." Again, this becomes a proposition once values are substituted for the two variables.
+           <br/>
+           In this textbook, predicates will often be written in a way similar to functions:
++
+\[ P(m, n) : \text{"The positive integers } m \text{ and } n \text{ are prime numbers."} \]
+Notice that the output of the predicate is a
+           <em>
+            statement
+           </em>
+           but the output does not tell us whether the statement is True or False - think of this like a programmer: The return value is a string, not a Boolean.
+           <br/>
+           Two predicates are
+           <strong>
+            equivalent
+           </strong>
+           if for every possible substitution for the variables, the statement produced by the first predicate is true if and only if the statement produced by the second predicate is true.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_algorithm_definition">
+        <ul>
+         <li>
+          <p>
+           An
+           <strong>
+            algorithm
+           </strong>
+           is a finite sequence of
+commands and statements that describe a process for completing a task.
+           <br/>
+           It’s likely that you have learned how to perform many algorithms in your previous mathematics education, but in this textbook (and in computer science in general) it is more important that you learn how to analyze and compare algorithms.
+           <br/>
+           One example is the following (correct but inefficient) algorithm for division of positive integers.
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              Task: Given two positive integers
+              <em>
+               a
+              </em>
+              and
+              <em>
+               b,
+              </em>
+              compute the quotient
+              <em>
+               q
+              </em>
+              and remainder
+              <em>
+               r
+              </em>
+              so that
+              <br/>
+              \(a = q \cdot b + r\) and \(0 \leq r &lt; b.\)
+             </p>
+            </li>
+            <li>
+             <p>
+              Input: Two positive integers
+              <em>
+               a
+              </em>
+              and
+              <em>
+               b
+              </em>
+             </p>
+            </li>
+            <li>
+             <p>
+              Steps:
+             </p>
+             <div class="olist arabic">
+              <ol class="arabic">
+               <li>
+                <p>
+                 Set
+                 <em>
+                  r
+                 </em>
+                 equal to
+                 <em>
+                  a
+                 </em>
+                 and set
+                 <em>
+                  q
+                 </em>
+                 equal to 0.
+                </p>
+               </li>
+               <li>
+                <p>
+                 If
+                 <em>
+                  r
+                 </em>
+                 is greater than or equal to
+                 <em>
+                  b
+                 </em>
+                </p>
+                <div class="olist lowerroman">
+                 <ol class="lowerroman" type="i">
+                  <li>
+                   <p>
+                    set
+                    <em>
+                     r
+                    </em>
+                    equal to
+                    <em>
+                     r - b
+                    </em>
+                   </p>
+                  </li>
+                  <li>
+                   <p>
+                    add 1 to
+                    <em>
+                     q
+                    </em>
+                   </p>
+                  </li>
+                 </ol>
+                </div>
+               </li>
+               <li>
+                <p>
+                 If
+                 <em>
+                  r
+                 </em>
+                 is greater than or equal to
+                 <em>
+                  b
+                 </em>
+                 then repeat step 2
+                </p>
+               </li>
+              </ol>
+             </div>
+            </li>
+            <li>
+             <p>
+              Output: Integers
+              <em>
+               q
+              </em>
+              and
+              <em>
+               r
+              </em>
+              such that both \(a = q \cdot b + r\) and \(0 \leq r &lt; b.\)
+             </p>
+             <div class="ulist">
+              <ul>
+               <li>
+                <p>
+                 <em>
+                  q
+                 </em>
+                 is the quotient, that is, the number of times each of the two assignments under step 2 was executed.
+                </p>
+               </li>
+               <li>
+                <p>
+                 <em>
+                  r
+                 </em>
+                 is the remainder, that is, the result of the last execution of step 2, so \(r = a - q \cdot b.\)
+                </p>
+               </li>
+              </ul>
+             </div>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Division of Integers by Repeated Subtraction
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below implements integer division for
+           <em>
+            positive
+           </em>
+           integers
+           <em>
+            a
+           </em>
+           and
+           <em>
+            b.
+           </em>
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Click on the "Next" button to step through the code.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that each time the loop executes,
+the code prints an equation that shows that
+           <em>
+            a
+           </em>
+           is the sum of a whole number times
+           <em>
+            b
+           </em>
+           and a remainder
+           <em>
+            r.
+           </em>
+           The loop terminates when we compute a value for the remainder
+           <em>
+            r
+           </em>
+           that is both less than
+           <em>
+            b
+           </em>
+           and greater than or equal to 0.
+          </p>
+         </div>
+         <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%2013%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%20not%20%28%20b%3Er%20and%20r%3E%3D0%20%29%3A%0A%20%20%20%20q%20%3D%20q%20%2B%201%0A%20%20%20%20r%20%3D%20r%20-%20b%0A%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=a%20%3D%2013%0Ab%20%3D%203%0A%23%20Initialize%20output%20variables%20and%20run%20the%20loop%0Aq%20%3D%200%0Ar%20%3D%20a%0Aprint%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%0Awhile%20not%20%28%20b%3Er%20and%20r%3E%3D0%20%29%3A%0A%20%20%20%20q%20%3D%20q%20%2B%201%0A%20%20%20%20r%20%3D%20r%20-%20b%0A%20%20%20%20print%28a,%22%3D%22,q,%22*%22,b,%22%2B%22,r%29%20%23%20intermediate%20result%0Aprint%28%22Dividing%22,a,%22by%22,b,%22gives%20quotient%22,q,%22and%20remainder%22,str%28r%29%2B'.'%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+         <div class="openblock question">
+          <div class="title">
+           Question
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            In the code, \(a = 13\) and \(b=3.\) How many times does the block of code within the loop execute?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            You can answer this by stepping through the code using the "Next" button.
+           </div>
+          </div>
+         </div>
+         <div class="openblock question">
+          <div class="title">
+           Question
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            How many times does the block of code within the loop execute if \(a = 13\) and \(b=6?\) If \(a = 13\) and \(b=9?\)
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            You can answer this by editing the code, changing the value of
+            <em>
+             b,
+            </em>
+            and stepping through the code using the "Next" button.
+           </div>
+          </div>
+         </div>
+         <div class="openblock question">
+          <div class="title">
+           Question
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            In the code suppose that \(a = 13\) and that \(b\) can be assigned
+            <em>
+             any
+            </em>
+            positive integer value that is less than or equal to 13.
+Let’s say that the
+            <strong>
+             worst-case behavior
+            </strong>
+            for inputs of the form \((13, \, b)\) is the maximum number of executions of the block of code within the loop that occurs for one of these inputs. What value(s) of
+            <em>
+             b
+            </em>
+            correspond to the worst-case behavior, that is, what value(s) of
+            <em>
+             b
+            </em>
+            correspond to the maximum number of executions of the block of code within the loop for all inputs of the form \((13, \, b)\) where
+            <em>
+             b
+            </em>
+            is a positive integer value that is less than or equal to 13?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            You could answer this by editing the code, changing the value of
+            <em>
+             b
+            </em>
+            to values other than 3, and stepping through the code using the "Next" button. BUT, it may be faster if you use reasoning about the value(s) of
+            <em>
+             b
+            </em>
+            instead.
+           </div>
+          </div>
+         </div>
+         <div class="openblock question">
+          <div class="title">
+           Question
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            How many times does the block of code within the loop execute if \(a = 130\) and \(b=3?\) If \(a = 299\) and \(b=3?\)
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            You can answer this by editing the code, changing the value of
+            <em>
+             a,
+            </em>
+            and stepping through the code using the "Next" button. BUT, it may be faster if you use reasoning about the value(s) of
+            <em>
+             a
+            </em>
+            instead.
+           </div>
+          </div>
+         </div>
+         <div class="openblock challenge">
+          <div class="title">
+           Challenge
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Now suppose that, in the code, the ordered pair \((a, \, b)\) of variables can be assigned
+            <em>
+             any ordered pair of positive integer values
+            </em>
+            with
+            <em>
+             a
+            </em>
+            greater than or equal to
+            <em>
+             b.
+            </em>
+            Find a formula for a
+            <strong>
+             worst-case complexity function
+            </strong>
+            \(W(a)\) that assigns to each positive integer input
+            <em>
+             a
+            </em>
+            the output that is the maximum number of executions of the block of code within the loop for
+            <em>
+             all
+            </em>
+            positive integer pairs \((a, \, b).\)
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Try to form a conjecture by editing the code, changing the value of
+            <em>
+             a
+            </em>
+            and then holding
+            <em>
+             a
+            </em>
+            constant while using various values of
+            <em>
+             b
+            </em>
+            that are less than or equal to
+            <em>
+             a,
+            </em>
+            then stepping through the code using the "Next" button. Refer back to your answers to the previous questions, too.
+           </div>
+          </div>
+         </div>
+         <div class="openblock challenge">
+          <div class="title">
+           Challenge
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            The algorithm implemented in the code is correct but not very efficient. You probably learned how to do division by hand in elementary or middle school. Use your knowledge of how to do division by hand to (1) change the Python code to be more efficient (and still correct!) then (2) determine the worst-case behavior as the maximum number of times the block of code within the loop will execute, in terms of the variables
+            <em>
+             a
+            </em>
+            and/or
+            <em>
+             b
+            </em>
+            with
+            <em>
+             a
+            </em>
+            greater than or equal to
+            <em>
+             b.
+            </em>
+           </div>
+          </div>
+         </div>
+         <div class="openblock challenge">
+          <div class="title">
+           Challenge
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            For
+            <em>
+             any
+            </em>
+            integer
+            <em>
+             a
+            </em>
+            and any positive integer
+            <em>
+             b,
+            </em>
+            we can compute integers
+            <em>
+             q
+            </em>
+            and
+            <em>
+             r
+            </em>
+            so that both \(a = q \cdot b + r\) and \(0 \leq r &lt; b.\)
+What changes are needed to the algorithm to compute
+            <em>
+             q
+            </em>
+            and
+            <em>
+             r
+            </em>
+            correctly if
+            <em>
+             a
+            </em>
+            is zero or negative?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Consider what changes are needed to the loop condition and the computations within the loop. Use the print statements to help you see what changes are needed.
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Based on the case \(b=2\) in the division algorithm discussed above (and the Challenge), every integer
+           <em>
+            a
+           </em>
+           can be written in the form \(a = q \cdot 2 + r\) where
+           <em>
+            q
+           </em>
+           is an integer and \(0 \leq r &lt; 2.\) The integer
+           <em>
+            a
+           </em>
+           is
+           <strong>
+            even
+           </strong>
+           if \(r=0\) and is
+           <strong>
+            odd
+           </strong>
+           if \(r=1.\) So we have a precise formal way of understanding and discussing odd and even integers - this may seem unnecessary (or even completely silly), but as you continue reading this textbook you will see that precise formal definitions and descriptions are useful when you need either to justify that certain statements are true or to validate that certain processes always produce correct and expected results.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Suppose that \(a\) and \(b\) are integers, which could be positive or negative or zero. The integer
+           <em>
+            b
+           </em>
+           is called a
+           <strong>
+            factor
+           </strong>
+           of
+           <em>
+            a
+           </em>
+           (or
+           <strong>
+            divisor
+           </strong>
+           of
+           <em>
+            a
+           </em>
+           ), and
+           <em>
+            a
+           </em>
+           is called a
+           <strong>
+            multiple
+           </strong>
+           of
+           <em>
+            b
+           </em>
+           if
+\(a = q \cdot b\) for some integer
+           <em>
+            q.
+           </em>
+           For example, 2 is a factor of 10, and 10 is a multiple of 2,
+because \(10 = 5 \cdot 2.\) As another example, \(-2\) is a factor of 10, and 10 is a multiple of \(-2\) because \(10 = (-5) \cdot (-2).\)
+          </p>
+         </li>
+         <li>
+          <p>
+           A positive integer
+           <em>
+            n
+           </em>
+           that is greater than 1 is called
+           <strong>
+            prime
+           </strong>
+           if the only positive integer factors of
+           <em>
+            n
+           </em>
+           are 1 and
+           <em>
+            n
+           </em>
+           itself, and is called
+           <strong>
+            composite
+           </strong>
+           otherwise. For example, 2 is prime since its set of positive integer factors is \(\{ 1,\,2 \}\), but 6 is composite since its set of positive integer factors is \(\{ 1,\,2,\,3,\,6 \}\).
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              NOTE:
+              <mark>
+               The integer 1 is considered neither prime nor composite.
+              </mark>
+              The reason for this is beyond the scope of this textbook but would be discussed in a more advanced math course in
+              <em>
+               ring theory
+              </em>
+              .
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Two integers
+           <em>
+            a
+           </em>
+           and
+           <em>
+            b
+           </em>
+           are called
+           <strong>
+            relatively prime
+           </strong>
+           if the only common positive integer factor of
+           <em>
+            a
+           </em>
+           and
+           <em>
+            b
+           </em>
+           is 1; this is equaivalent to stating that the two integers do not share any prime factors. For example, 10 and 21 are relatively prime integers.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_relation_definition">
+        <ul>
+         <li>
+          <p>
+           A
+           <strong>
+            relation
+           </strong>
+           on the sets
+           <em>
+            A
+           </em>
+           and
+           <em>
+            B
+           </em>
+           is an association between elements from set
+           <em>
+            A
+           </em>
+           and set
+           <em>
+            B
+           </em>
+           ;
+           <em>
+            A
+           </em>
+           and
+           <em>
+            B
+           </em>
+           are often the same set. Relations will be defined much more formally and precisely in the
+           <a href="./relations.html">
+            Relations
+           </a>
+           chapter of the textbook.
+           <br/>
+           Here are some examples of relations:
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              The ordering relation "is less than," \(x &lt; y,\) for real numbers
+              <em>
+               x
+              </em>
+              and
+              <em>
+               y.
+              </em>
+              So \(3 &lt; 4\) but \(5 \nless 4.\) The slash through the "&lt;" symbol means that "5 is not related to 4" in the way we want.
+              <br/>
+              The orderings \(&gt;\), \(\geq\), and \(\leq\) are also examples of relations.
+             </p>
+            </li>
+            <li>
+             <p>
+              The equality relation \(s=t\) for any elements
+              <em>
+               s
+              </em>
+              and
+              <em>
+               t
+              </em>
+              of the same set
+              <em>
+               A.
+              </em>
+              <br/>
+              A related example is inequality, \(s \neq t.\)
+             </p>
+            </li>
+            <li>
+             <p>
+              The divisibility relation
+              <em>
+               "a
+              </em>
+              is a divisor of
+              <em>
+               b"
+              </em>
+              (or "
+              <em>
+               a
+              </em>
+              divides
+              <em>
+               b
+              </em>
+              ") for integers
+              <em>
+               a
+              </em>
+              and
+              <em>
+               b;
+              </em>
+              this is sometimes written as \(a \mid b.\) So for example, \(2 \mid 4\) but \(3 \nmid 4.\)
+             </p>
+            </li>
+            <li>
+             <p>
+              For two integers
+              <em>
+               a
+              </em>
+              and
+              <em>
+               b,
+              </em>
+              we say that
+              <em>
+               "a
+              </em>
+              has the same parity as
+              <em>
+               b"
+              </em>
+              if either both
+              <em>
+               a
+              </em>
+              and
+              <em>
+               b
+              </em>
+              are odd or both
+              <em>
+               a
+              </em>
+              and
+              <em>
+               b
+              </em>
+              are even.
+             </p>
+            </li>
+            <li>
+             <p>
+              Any function \(f\) with domain
+              <em>
+               A
+              </em>
+              and codomain
+              <em>
+               B
+              </em>
+              is a relation since the function associates each element
+              <em>
+               a
+              </em>
+              in
+              <em>
+               A
+              </em>
+              with exactly one element
+              <em>
+               b
+              </em>
+              of
+              <em>
+               B
+              </em>
+              , namely \(b = f(a)\).
+             </p>
+            </li>
+            <li>
+             <p>
+              A relation can also involve more than two sets. As an example, imagine a database of records that has three fields: a student’s name, a student’s college identification number, and the student’s major. The database can be viewed as a set
+              <em>
+               R
+              </em>
+              of ordered triples. So, for example, if a student named Chris Garcia has identification number 900123001 and is a Computer Science major, the set
+              <em>
+               R
+              </em>
+              would contain as an element the ordered triple ("Chris Garcia", 900123001, "Computer Science").
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="ulist" id="informal_graph_definition">
+        <ul>
+         <li>
+          <p>
+           <a id="vertex-edge-graphs">
+           </a>
+           A
+           <strong>
+            graph
+           </strong>
+           is a mathematical object that consists of
+           <strong>
+            vertices
+           </strong>
+           (also called
+           <strong>
+            nodes
+           </strong>
+           ) that are connected by
+           <strong>
+            edges.
+           </strong>
+           Graphs are often represented by drawings like the ones shown in the following examples, but you can also represent a graph in other ways that are easier and more efficient to use in code; this will be discussed in the
+           <a href="./graph_theory.html">
+            Graphs
+           </a>
+           chapter.
+           <br/>
+           <br/>
+           The drawing of a graph is not treated like a geometric polygon: The only two points "on an edge" are the edge’s endpoints. Edges are just connectors between vertices and points that are not indicated as endpoints of an edge are ignored. Also, in a drawing of a graph, the lengths of edges and the straightness or curvedness of edges are not important, just the connections between the edges' endpoints.
+           <br/>
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           Some high school-level textbooks use the term
+           <strong>
+            vertex-edge graph
+           </strong>
+           to distinguish this type of graph from graphs (that is, plots of points in the \(xy\)-plane) for equations, functions, or statistical data.
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example - Two Drawings of One Graph
+          </div>
+          <p>
+           Keep in mind that a graph is NOT the same as a
+           <em>
+            drawing
+           </em>
+           of the graph. In fact, a graph can usually be drawn in many different ways that may look very different. What is important is
+the connections, represented by the edges, between pairs of vertices.
+          </p>
+         </div>
+         <div class="imageblock right text-center">
+          <div class="content">
+           <img alt="Isomorphism2av2notComplete" height="147" src="imagesMKD/Isomorphism2av2notComplete.png" width="290"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           In the image, two different drawings are shown for the same graph.
+Notice that in each drawing, the connections between pairs of vertices are the same: The only pair of vertices that is
+           <span class="underline">
+            not
+           </span>
+           connected by an edge is \(\{ C, D \}.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Also notice that there is no vertex drawn where the two edges cross in the 1st drawing on the left, so this graph has 4 exactly vertices: \(A,\) \(B,\) \(C,\) and \(D.\)
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example - A Network Of Students
+          </div>
+          <p>
+           A graph can represent relationships between pairs of people.
+          </p>
+         </div>
+         <div class="imageblock right text-center">
+          <div class="content">
+           <img alt="GraphWithSevenNodesv2" height="155" src="imagesMKD/GraphWithSevenNodesv2.png" width="280"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Here is a graph that represents whether pairs of students are enrolled in at least one class together. Each of the 7 vertices represents a student, and each of the 7 edges represents a pair of students who are enrolled in a class together.
+The graph indicates that Adil and Elias are enrolled in at least one class together and that Elias and Maya are enrolled in at least one class together.
+           <br/>
+          </p>
+         </div>
+         <div class="openblock question">
+          <div class="title">
+           Question
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Are all three of the students Adil, Elias, and Maya enrolled in at least one class together?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Two students are enrolled in at least one class together if and only if there is an edge connecting the vertices labeled by the two students' names.
+           </div>
+          </div>
+         </div>
+         <div class="openblock question">
+          <div class="title">
+           Question
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Are all three of the students Sofia, Elias, and Jun enrolled in at least one class together?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Can you imagine two different scenarios, one where the answer is "Yes" and another where the answer is "No"?
+           </div>
+          </div>
+         </div>
+         <div class="openblock question">
+          <div class="title">
+           Question
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            The vertex for Li has
+            <strong>
+             degree
+            </strong>
+            2 because it occurs as an endpoint of an edge 2 times. Can you determine how many classes Li is enrolled in from the graph?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Remember that an edge indicates that the pair of students at the endpoints are enrolled in at least one class together.
+           </div>
+          </div>
+         </div>
+         <div class="openblock question">
+          <div class="title">
+           Question
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Chris is represented by an
+            <strong>
+             isolated vertex
+            </strong>
+            that is not the endpoint of any edge (so that vertex has degree 0.) Does this mean that Chris is enrolled only in Independent Studies classes with no other students?
+           </div>
+          </div>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Hint
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Think carefully about what an edge represents in this graph.
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Examples - Complete Graphs and Star Graphs
+          </div>
+          <p>
+           Here are some other examples of graphs.
+          </p>
+         </div>
+         <div class="imageblock right text-center">
+          <div class="content">
+           <img alt="KompletGraphOn4Vertices" height="81" src="imagesMKD/KompletGraphOn4Vertices.png" width="81"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           A
+           <strong>
+            complete graph
+           </strong>
+           is a graph in which every pair of distinct vertices are the endpoints of exactly one edge. The image shows the complete graph on 4 vertices. Notice that two edges appear to "intersect" but there is no vertex drawn where the edges cross, so these edges do not have any points in common - as stated above, an edge contains only its endpoints.
+          </p>
+         </div>
+         <div class="imageblock right text-center">
+          <div class="content">
+           <img alt="StarGraphOn6Vertices" height="88" src="imagesMKD/StarGraphOn6Vertices.png" width="92"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           A
+           <strong>
+            star graph
+           </strong>
+           is a graph that has one central vertex that is one of the  endpoints of every edge in the graph. The image shows the star graph on 6 vertices. The star graph is one example of a
+           <strong>
+            tree,
+           </strong>
+           a graph in which for every pair of distinct vertices there is exactly one path of edges that can be used to connect the vertices. Some of the many applications of trees in computer science will be discussed in the
+           <a href="./trees.html">
+            Trees
+           </a>
+           chapter.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         The design of this book is to introduce each concept informally, as was done for the preceding foundational ideas, then notice properties and patterns, generalize from what has been noticed, and formalize the ideas to prepare for even deeper analysis.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         And congratulations if you read through
+         <em>
+          all
+         </em>
+         of those foundational mathematical ideas in this subsection and worked through
+         <em>
+          all
+         </em>
+         the Questions and Challenges! If you compare the list of ideas to the Table of Contents, you will see that you have touched on
+         <em>
+          every one of the topics
+         </em>
+         that will be discussed in this textbook!
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_on_demand_math_resources_and_library_of_functions_appendices">
+        1.2.3. On-Demand Math Resources and Library Of Functions Appendices
+       </h4>
+       <div class="paragraph">
+        <p>
+         Two appendices to this textbook contain additional mathematics that you may need to review as you work your way through the textbook.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_do_i_need_to_know_how_to_program_in_python">
+        1.2.4. Do I Need To Know How To Program In Python?
+       </h4>
+       <div class="paragraph">
+        <p>
+         You are NOT expected to know the Python programming language before you start this course.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         As you’ve seen above, this textbook contains Python code snippets that are designed to aid your understanding of the mathematical concepts.
+It is NOT one of the goals of this textbook to teach you Python, but instead
+         <em>
+          "just enough Python"
+         </em>
+         to be able to examine, run, and alter the existing code snippets.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The appendices
+"An Introduction to Python" and "Python Syntax Examples" cover most of the  basic concepts you will need from the Python programming language.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_applications_of_discrete_mathematics">
+       1.3. Applications of Discrete Mathematics
+      </h3>
+      <div class="paragraph">
+       <p>
+        Remixer’s Note: This section is taken from the original
+        <a href="https://ggc-discrete-math.github.io/index.html">
+         “Discrete Math”
+        </a>
+        book, with only a few minor edits.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Discrete mathematics is applied in many areas including the physical, engineering, and increasingly,
+the social sciences.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_applications_to_applied_mathematics">
+        1.3.1. Applications to Applied Mathematics
+       </h4>
+       <div class="paragraph">
+        <p>
+         Most  problems that involve computational methods,
+need to be solved using computers.  Rather than solve for the
+temperature map of an entire planar region, we solve for
+the temperature using a discrete set of mesh or grid of points on a
+representative subset of the planar region.
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="temperature distribution" src="images/temperature_distribution.png"/>
+        </div>
+        <div class="title">
+         Figure 1. Continuous temperature profile versus discrete meshed representation on computer
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_applications_to_information_technology_and_computer_science">
+        1.3.2. Applications to Information Technology and Computer Science
+       </h4>
+       <div class="paragraph">
+        <p>
+         Discrete mathematics is needed for computer science as
+information and data is  stored digitally. Digitally
+represented data is inherently discrete and is processed
+using discrete methods.  For example a course grid discrete
+representation of the 2-d temperature distribution from the plate above
+could be:
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(
+\left(\begin{matrix}1&amp;1&amp;1\\2&amp;4&amp;8\\3&amp;9&amp;27\\4&amp;16&amp;64\\5&amp;25&amp;125\\\end{matrix}\right)
+\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         A voter registry may have voters in a database accessible from a list:
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(
+\left(\begin{matrix}John\ Smith\\Raheem\ Johnson\\.\\.\\.\\Sarah\ Muller\\\end{matrix}\right)
+\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Which may need to be accessed and sorted, say geographically or alphabetically.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_applications_to_data_science">
+        1.3.3. Applications to Data Science
+       </h4>
+       <div class="paragraph">
+        <p>
+         Data science solutions to many problems use machine learning algorithms that
+are inherently discrete in nature. The information that needs processing is discrete,
+as are
+the basic problems in data science such as classification or clustering problems. In particular
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Information consisting of data sets is represented using various data
+structures including graphical structures such as trees.
+Data science methods and algorithms involve procedures that
+manipulate these graphical structures to, for example, networks,
+classification trees, and decision trees.
+          </p>
+         </li>
+         <li>
+          <p>
+           Classification problems are discrete in nature.
+Classifying tumors as malignant or as benign involves trying to predict
+if a variable \(Y\) that we can think of as taking on two values either \(0\) or \(1\)
+either malignant or benign. There are various
+algorithms used in  classification problems, such as the binary tumor
+classification, including methods from probability.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="classification" src="images/classification.png"/>
+        </div>
+        <div class="title">
+         Figure 2. Binary classification algorithm ("1" malignant, "0" benign)
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_applications_to_engineering">
+        1.3.4. Applications to Engineering
+       </h4>
+       <div class="paragraph">
+        <p>
+         Digital signal processing involves taking a video,
+audio, or other signal like temperature, pressure,
+position and velocity, which is continuous, digitizing it and then
+processing the digital signal mathematically.
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="signal processing" src="images/signal_processing.png"/>
+        </div>
+        <div class="title">
+         Figure 3. Continous vs discrete time signal
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_applications_of_combinatorics">
+        1.3.5. Applications of Combinatorics
+       </h4>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Combinatorics
+         </strong>
+         involves in part the study of counting the number
+of objects, satisfying a specified condition, from sets of
+variable size. Enumeration and combinatorics is important in many
+areas and examples including:
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Calculating the number of steps an algorithm needs to
+process a data set of variable size \(𝑛\). This problem is called the
+computational cost  of the algorithm as a function of \(𝑛\).
+          </p>
+         </li>
+         <li>
+          <p>
+           Calculating the possible number of codes in a cryptographic code system
+          </p>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_applications_of_graph_theory">
+        1.3.6. Applications of Graph Theory
+       </h4>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Graph theory
+         </strong>
+         , which is the study of structures constructed with nodes
+and the edges joining them, has applications in many fields including,
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           <em>
+            Chemistry
+           </em>
+           -
+representing molecular bonding and structure
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="molecular bonding" src="images/molecular_bonding.png"/>
+        </div>
+        <div class="title">
+         Figure 4. Graph theory and molecular bonding
+        </div>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           <em>
+            Information technology and computer science
+           </em>
+           - ranking pages on the internet,
+with pages considered as nodes and page links as edges.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="page ranking" src="images/page_ranking.png"/>
+        </div>
+        <div class="title">
+         Figure 5. Page ranks using a graph theory model.
+        </div>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           <em>
+            Industrial engineering and network optimization
+           </em>
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              Traffic routes (computer, internet, air, highway, subway systems)
+can be represented with stations as nodes and connections as edges.
+             </p>
+            </li>
+            <li>
+             <p>
+              Often we are interested in finding an optimal path in a network such as in the following example,
+finding the shortest tour over a series of towns on a map.
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         An example of the shortest tour problem, is shown below,
+using a software solution.
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="shortest tour" src="images/shortest_tour.png"/>
+        </div>
+        <div class="title">
+         Figure 6. Using software like Mathematica to solve a network optimization problem such as finding the shortest tour.
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_applications_of_probability_and_statistics">
+        1.3.7. Applications of Probability and Statistics
+       </h4>
+       <div class="paragraph">
+        <p>
+         Many probability assignments are based on counting and combinatorial methods.
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           If we assume that the likelihood of rain is the same on any day
+in the month of September, we might be interested in the probability that
+it rains on \(0\) days, it rains on exactly \(1\) day, exactly \(2\) days, etc.
+Such probability assignments are called discrete distributions,
+by contrast with continuous distributions like the bell curve.
+          </p>
+         </li>
+         <li>
+          <p>
+           Also probability and statistical techniques are often used in data science.
+The binary classification problem, of say classifying a tumor as
+malignant or benign, uses a statistical modeling technique, called
+regression, specifically logistic regression to determine the strength
+of the relationship between the independent variable, and dependent
+heterogeneity variable. In the tumor grading example the independent
+variable would be \((x_1,x_2 )\) (elastic heterogeneity, nonlinear elasticity),
+and the dependent variable would be \(Y\), classified as \(0\), or \(1\),
+ (malignant or benign).
+          </p>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_applications_to_social_sciences">
+        1.3.8. Applications to Social Sciences
+       </h4>
+       <div class="paragraph">
+        <p>
+         Discrete mathematical techniques are important in understanding  and
+analyzing social networks including social media networks.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The mathematics of voting is a
+thriving area of study, including mathematically analyzing
+the gerrymandering of congressional districts to favor and/or
+disfavor competing political parties.  The following example illustrates some of
+the fundamental ideas related to gerrymandering.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example—​Mathematics and Voting
+          </div>
+          <p>
+           Consider a fictitious state made up of \(10\) congressional districts
+with \(7\) thousand voters in each district. To win a district a party
+(Green or Blue) needs to win \(4\) thousand or more votes.
+Consider the following two districting map scenarios.
+In each scenario, the blue party earns \(28\) thousand votes, and
+the green party earns \(42\) thousand votes. In scenario \(A\), the blue party
+wins \(2\) out of \(10\) districts, but in scenario \(B\) it wins \(7\)  out of \(10\) districts.
+          </p>
+         </div>
+         <div class="imageblock">
+          <div class="content">
+           <img alt="gerrymandering" src="images/gerrymandering.png"/>
+          </div>
+          <div class="title">
+           Figure 7. Gerrymandering example with two equivalent votes
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_links_to_the_informal_definitions_in_this_chapter">
+       1.4. Links to the Informal Definitions in this Chapter
+      </h3>
+      <div class="paragraph" id="links_to_informal_definitions">
+       <p>
+        For your reference in the future, here are direct links to most of the bullet points in the list of foundational ideas discussed in this section.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_set_definition">
+         Sets
+        </a>
+        , including subsets, the empty set, unions of sets, and intersections of sets
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_one_to_one_correspondence_definition">
+         One-to-one correspondence
+        </a>
+        , including the example "rock, paper, scissors"
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_natural_numbers_definition">
+         Natural Numbers
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_finite_set_definition">
+         Finite and infinite sets
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_counting_definition">
+         Counting
+        </a>
+        , including the Multiplication Principle and Pigeonhole Principle
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_function_definition">
+         Functions
+        </a>
+        , including domain, codomain, range, inverse function, and the floor and ceiling functions \(\lfloor x \rfloor\) and \(\lceil x \rceil\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_sequence_definition">
+         Sequences
+        </a>
+        , including index and terms
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_bitstring_definition">
+         Bitstrings
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_summation_notation_definition">
+         Summation Notation
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_recursion_definition">
+         Recursion
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_recurrence_relation_definition">
+         Recurrence Relations
+        </a>
+        , including closed forms
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_proposition_definition">
+         Propositions
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_predicate_definition">
+         Predicates
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_algorithm_definition">
+         Algorithms
+        </a>
+        , including the Division Algorithm
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_relation_definition">
+         Relations
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <a href="./introduction_discrete_math.html#informal_graph_definition">
+         Graphs and trees
+        </a>
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { extensions: ["mhchem.js"] }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML">
+  </script>
+ </body>
+</html>

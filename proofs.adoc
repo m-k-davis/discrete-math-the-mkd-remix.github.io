@@ -2,7 +2,10 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on February 25, 2025_ + 
+include::LinkToPrivate.adoc[] 
+
+_This chapter was last updated on August 18, 2025_ + 
+_Removed statement that universal generalization is used in proofs by mathematical induction._ + 
 [small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
@@ -680,7 +683,7 @@ Universal generalization states that, from the premise that $P(x)$ is True for e
 //$(P(c) \text{ for every } c \in U) \rightarrow (\forall x \in U) P(x).$ 
 ****
 
-You will see later in the textbook that universal generalization is applied in _every_ proof that uses the link:./induction.html[mathematical induction] proof technique.
+//You will see later in the textbook that universal generalization is applied in _every_ proof that uses the link:./induction.html[mathematical induction] proof technique.
 
 === Rules of Inference for Existentially-Quantified Predicates
 

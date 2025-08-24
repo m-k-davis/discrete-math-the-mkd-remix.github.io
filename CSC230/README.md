@@ -1,0 +1,51 @@
+# Discrete Mathematics - The MKD Remix
+
+This textbook, "Discrete Mathematics - The MKD Remix", is a work in progress.
+
+This work, "Discrete Mathematics - The MKD Remix", by 
+[Mark Kelly Davis](https://github.com/m-k-davis/), 
+is adapted from 
+[“Discrete Math”](https://ggc-discrete-math.github.io/index.html), 
+by 
+[Mohamed Jamaloodeen](https://www.ggc.edu/directory/mohamed-jamaloodeen), 
+[Kathy Pinzon](https://www.ggc.edu/directory/katherine-pinzon), 
+[Daniel Pragel](https://www.ggc.edu/directory/daniel-pragel), 
+[Joshua Roberts](https://www.ggc.edu/directory/joshua-roberts), and 
+[Sebastien Siva](https://www.ggc.edu/directory/sebastien-siva). 
+
+[“Discrete Math”](https://ggc-discrete-math.github.io/index.html) is used under 
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). All files for [“Discrete Math”](https://ggc-discrete-math.github.io/index.html) are available at its associated [GitHub repository](https://github.com/ggc-discrete-math/ggc-discrete-math.github.io). 
+
+This work, "Discrete Mathematics - The MKD Remix", 
+is licensed under 
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 
+by Mark Kelly Davis.
+
+<!-- 
+# Instructional Materials for the original “Discrete Math" book
+- [Textbook (by chapter)](https://ggc-discrete-math.github.io/)
+- [Full textbook (all on one page)](https://ggc-discrete-math.github.io/book.html)
+- [Guided notes on select chapters](https://github.com/ggc-discrete-math/ggc-discrete-math.github.io/tree/main/guided-notes)
+- [Pre-Built Edfinity Homework Assignments](https://edfinity.com/products/6029c68aa18e9800377eaace)
+- [Python Syntax Sheet](https://github.com/ggc-discrete-math/ggc-discrete-math.github.io/blob/main/guided-notes/PythonSyntaxExamples.pdf)
+- [Jupyter Notebook (in Google Colab) about Floats in Python](https://colab.research.google.com/drive/1UWRqFD2ZUdueV6cfhmXFypbzKh0hTLU_?usp=sharing)
+- [Jupyter Notebook (in Google Colab) about Sets in Python](https://colab.research.google.com/drive/1Kq1Xko2v3O-LONDCfkgsU5dNcGbw4iUG?usp=sharing)
+- [Lecture Videos YouTube playlist](https://www.youtube.com/playlist?list=PL8rEwockjR-q9Vc95u1loJrHK7QKfcnZw)
+- [Example Videos YouTube playlist](https://youtube.com/playlist?list=PLAwz5xi38-_GjL8PHWujb2pzM8Ti4wteT)
+- [Desmos Activities](https://teacher.desmos.com/collection/6017090953e3c90bd91f54e8)
+- [Quizizz Collection](https://quizizz.com/collection/60329dd8c68533001b3eeba3?fromBrowserLoad=true)
+- ['Stone Bucket' programming application](https://ggc-discrete-math.github.io/Apps/StoneBucket/)
+- [Counting in different bases application](https://ggc-discrete-math.github.io/Apps/BinCounter/)
+- ['Silly Sort' algorithm application](https://ggc-discrete-math.github.io/Apps/SillySort/)
+- [Venn Diagram Coloring application](https://ggc-discrete-math.github.io/Apps/VennDiag/)
+
+**Errors & Comments**  
+To report any errors, or if you have questions or comments, please use the form at [this link](https://forms.office.com/Pages/ResponsePage.aspx?id=21KVzwpmkUqb1mXCMA-cscUcLDJuuLtGtmN7hxi3Vs9URFcyMDhSWTBZWkxIVzlZRjJVVzVXUThZVS4u).
+
+**Funding**  
+The writing of the book was funded by an Affordable Learning Georgia Textbook Transformation Grant. The supplementary materials were funded by an Affordable Learning Georgia Continuous Improvement Grant.
+
+**License:**  
+![Creative Commons License](https://github.com/ggc-discrete-math/ggc-discrete-math.github.io/blob/main/images/CC.png)  
+The instructional materials found here are licensed under [Creative Commons Attribution License v4.0 Attribution-NonCommercial](https://creativecommons.org/licenses/by-nc/4.0/) (CC BY-NC).
+ -->

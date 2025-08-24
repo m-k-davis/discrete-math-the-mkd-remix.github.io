@@ -5,6 +5,9 @@
 //= Appendix 2: Python Syntax Examples
 = Appendix: Python Syntax Examples
 
+include::LinkToPrivate.adoc[] 
+
+
 [.small]
 [source,python,numbered]
 ----

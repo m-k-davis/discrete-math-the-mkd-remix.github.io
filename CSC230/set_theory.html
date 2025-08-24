@@ -1,0 +1,3855 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Asciidoctor 1.5.8" name="generator"/>
+  <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
+  <title>
+   Discrete Math - The MKD Remix (CSC230 Version)
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
+  <style>
+   /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Uncomment @import statement below to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock pre.nowrap,.literalblock pre.nowrap pre,.listingblock pre.nowrap,.listingblock pre.nowrap pre{white-space:pre;word-wrap:normal}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #dddddf}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd){background:#f8f8f7}
+table.stripes-none tr,table.stripes-odd tr:nth-of-type(even){background:none}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <style>
+   .click .title { color: blue; }
+  .click {margin-top: 0.5em; margin-bottom: 0.5em;}
+  .openblock { margin-top: 1em; margin-bottom: 1em; }
+  .openblock>.box>.content { margin-top:1em;margin-bottom: 1em;margin-left:3em;margin-right:4em; }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript">
+  </script>
+  <script>
+   var ready2;
+
+ready2 = function() {
+
+    $(document).ready(function(){
+
+        $('.openblock.click').click( function()  { $(this).find('.content').slideToggle('200'); } )
+        $('.openblock.click').find('.content').hide()
+
+
+        $('.listingblock.click').click( function()  { $(this).find('.content').slideToggle('200') }  )
+        $('.listingblock.click').find('.content').hide()
+
+    });
+
+}
+
+
+
+
+$(document).ready(ready2);
+$(document).on('page:load', ready2);
+  </script>
+ </head>
+ <body class="book toc2 toc-left">
+  <div id="header">
+   <h1>
+    Discrete Math - The MKD Remix (CSC230 Version)
+   </h1>
+   <div class="details">
+    <span class="author" id="author">
+     A Work In Progress by Mark Kelly Davis
+    </span>
+    <br/>
+   </div>
+   <div class="toc2" id="toc">
+    <div id="toctitle">
+     Table of Contents
+    </div>
+    <ul class="sectlevel1">
+     <li>
+      <a href="index.html#_about_this_text">
+       About this text
+      </a>
+     </li>
+     <li>
+      <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
+       1. Introducing Discrete Mathematics
+      </a>
+     </li>
+     <li>
+      <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
+       2. Counting: Arithmetic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="set_theory.html#_set_theory">
+       3. Set Theory
+      </a>
+     </li>
+     <li>
+      <a href="logic.html#_logic">
+       4. Logic
+      </a>
+     </li>
+     <li>
+      <a href="proofs.html#_proofs_basic_techniques">
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
+      </a>
+     </li>
+     <li>
+      <a href="recursion.html#_sequences_and_recursion">
+       7. Sequences and Recursion
+      </a>
+     </li>
+     <li>
+      <a href="functions.html#_functions">
+       8. Functions
+      </a>
+     </li>
+     <li>
+      <a href="relations.html#_relations">
+       9. Relations
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       10. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       11. Proofs: Mathematical Induction
+      </a>
+     </li>
+     <li>
+      <a href="growth_of_functions.html#_rates_of_growth_of_functions">
+       12. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="algorithms.html#_algorithms_and_their_analysis">
+       13. Algorithms and Their Analysis
+      </a>
+     </li>
+     <li>
+      <a href="graph_theory.html#_graphs">
+       14. Graphs
+      </a>
+     </li>
+     <li>
+      <a href="trees.html#_trees">
+       15. Trees
+      </a>
+     </li>
+     <li>
+      <a href="appendix_math.html#_appendix_on_demand_math_resources">
+       16. Appendix: On-Demand Math Resources
+      </a>
+     </li>
+     <li>
+      <a href="appendix_library.html#_appendix_library_of_functions">
+       17. Appendix: Library of Functions
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
+       18. Appendix: An Introduction to Python
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
+       19. Appendix: Python Syntax Examples
+      </a>
+     </li>
+     <li>
+      <a href="appendix_for_instructors.html#_appendix_for_instructors">
+       20. Appendix: For Instructors
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div id="content">
+   <div id="preamble">
+    <div class="sectionbody">
+     <div class="openblock float-group">
+      <div class="content">
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="sect1">
+    <h2 id="_set_theory">
+     3. Set Theory
+    </h2>
+    <div class="sectionbody">
+     <div class="paragraph">
+      <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for
+        <a href="../index.html">
+         the “public version”
+        </a>
+        of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       <em>
+        This chapter was last updated on February 10, 2025.
+       </em>
+       <br/>
+       <span class="small">
+        Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.
+       </span>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Set theory, along with logic, is
+       <span class="underline">
+        the
+       </span>
+       foundation of mathematics in our time. In earlier eras, people tried to use arithmetic (e.g., counting and whole numbers) and geometry (e.g., measurement of lengths, areas, and volumes along with geometric constructions) as the foundations of all mathematics. However, over the last two centuries, mathematicians gained new understandings of issues with these traditional foundations which led them to seek a new, firmer foundation. For now, that firmer foundation uses set theory: The study of collections of objects and how those collections can be combined, associated, and themselves added to other collections.
+       <br/>
+       <span class="small">
+        NOTE: If you want to dig much more deeply into what the issues with using arithmetic or geometry as the foundation of mathematics are, you can start with this
+        <a href="https://en.wikipedia.org/wiki/Foundations_of_mathematics#Foundational_crisis">
+         Wikipedia page
+        </a>
+        which includes a a brief description of the "foundational crisis of mathematics."
+       </span>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Key terms and concepts covered in this chapter:
+      </p>
+     </div>
+     <div class="ulist">
+      <ul>
+       <li>
+        <p>
+         Sets
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Subsets of a set
+           </p>
+          </li>
+          <li>
+           <p>
+            The empty set
+           </p>
+          </li>
+          <li>
+           <p>
+            The power set of a set
+           </p>
+          </li>
+          <li>
+           <p>
+            Cartesian products
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         Venn diagrams
+        </p>
+       </li>
+       <li>
+        <p>
+         Cardinality and countability of finite and infinite sets
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Set cardinality and counting
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         Operations with sets: Union, intersection, complement, and others
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            DeMorgan’s laws
+           </p>
+          </li>
+          <li>
+           <p>
+            Inclusion-exclusion principle
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+      </ul>
+     </div>
+     <div class="sect2">
+      <h3 id="_sets">
+       3.1. Sets
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         set
+        </strong>
+        is an unordered collection of objects, called
+        <strong>
+         elements
+        </strong>
+        or
+        <strong>
+         members
+        </strong>
+        . A set is said to
+        <strong>
+         contain
+        </strong>
+        its elements.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        If \(x\) is an element of the set \(S,\) then we write \(x \in S\). If \(x\) is not an element of the set \(S\), then we write \(x \not\in S\). For example, if \(S\) is the set of names of states in the United States of America, then “New York” is an element of \(S\) and “Ontario” is not an element of \(S,\) that is \[ \text{“New York”} \in S \text{ and } \text{“Ontario”} \not\in S. \] As another example, if \(E\) is the set of even integers, then \(2 \in E\) and \(3 \not\in E.\)
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_describing_a_set_the_roster_method">
+        3.1.1. Describing A Set: The Roster Method
+       </h4>
+       <div class="paragraph">
+        <p>
+         One way of describing a set is the
+         <strong>
+          roster method:
+         </strong>
+         List all the elements of the set between curly braces.
+For example, \[A = \{1,-2,0,1,-3\} \] is the set whose elements are \(-3,\) \(-2,\) \(0,\) and \(1.\)
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Notice that the set \(A\) contains exactly \(4\) elements, even though the element \(1\) appears twice in the roster - duplicate entries do not matter.
+          </p>
+         </li>
+         <li>
+          <p>
+           Also, the order of the elements in the list does not matter. That is, \(\{-3,-2,0,1 \}\) and \(\{0, 1,-2,-3\}\) are two more ways of describing the same set \(A.\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 1 - Checking Set Membership in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below checks to see if \(5\) and \(0\) are elements of the set \(A = \{1,-2,0,1,-3\}.\) Since \(5 \not\in A\) and \(0 \in A,\) the code prints False followed by True.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Aprint%285%20in%20A%29%0Aprint%280%20in%20A%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Aprint%285%20in%20A%29%0Aprint%280%20in%20A%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 2 - Listing the Elements of a Set in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below lists all of the elements of the set \(A = \{1,-2,0,1,-3\}.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that 1 appears in the set once even though it appears in the roster twice.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Afor%20x%20in%20A%3A%0A%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0Afor%20x%20in%20A%3A%0A%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="admonitionblock warning">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-warning" title="Warning">
+           </i>
+          </td>
+          <td class="content">
+           <div class="paragraph">
+            <p>
+             <strong>
+              A WARNING ABOUT THE PYTHON EXAMPLES INVOLVING SETS
+             </strong>
+             : The mathematical set \(A = \{1,-2,0,1,-3\}\) is a constant - you cannot change the set by removing elements or inserting new elements. However, Python objects of type
+             <em>
+              set
+             </em>
+             are mutable so it is possible to remove elements or insert new elements, as shown in the following code example.
+             <mark>
+              The mathematically correct implementation of sets in Python uses objects of type
+              <em>
+               frozenset
+              </em>
+             </mark>
+             because objects of type
+             <em>
+              frozenset
+             </em>
+             are immutable, just like mathematical sets. But there are advantages to using type
+             <em>
+              set
+             </em>
+             instead of
+             <em>
+              frozenset
+             </em>
+             : The roster method notation can be used to initialize or print a Python
+             <em>
+              set
+             </em>
+             , but cannot be used with a Python
+             <em>
+              frozenset
+             </em>
+             : You must call the
+             <em>
+              frozenset
+             </em>
+             constructor to create and initialize a
+             <em>
+              frozenset
+             </em>
+             . The authors of the original
+             <a href="https://ggc-discrete-math.github.io/index.html">
+              “Discrete Math”
+             </a>
+             chose to use Python
+             <em>
+              sets
+             </em>
+             instead of
+             <em>
+              frozensets
+             </em>
+             in the code examples; the author of this remix made the same choice.
+            </p>
+           </div>
+           <div class="sidebarblock">
+            <div class="content">
+             <div class="openblock">
+              <div class="title">
+               WARNING: Python Sets Are Mutable, Mathematical Sets Are "Frozen"
+              </div>
+              <div class="content">
+              </div>
+             </div>
+             <div class="paragraph">
+              <p>
+               The
+               <span class="underline">
+                mathematical
+               </span>
+               set \(A\) does not allow removals or insertions, but the
+               <span class="underline">
+                Python
+               </span>
+               set \(A\) does. The frozenset \(F\) is a more faithful implementation of the mathematical set \(A\), but notice that the symbolism for Python sets more closely matches the symbolism used for mathematical sets.
+              </p>
+             </div>
+             <iframe frameborder="5" height="400" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%20%23%20A%20is%20mutable%0AF%20%3D%20frozenset%28A%29%20%23%20F%20is%20immutable%0Aprint%28'A%20%3D',A%29%0AA.add%288%29%20%20%20%20%20%20%20%20%20%0AA.remove%281%29%20%20%20%20%20%20%0Aprint%28'A%20%3D',A%29%20%20%20%23%20A%20has%20been%20changed%0A%23%20F.add%288%29%20%20%20%20%20%20%20%23%20raises%20an%20AttributeError%0A%23%20F.remove%281%29%20%20%20%20%23%20raises%20an%20AttributeError%0Aprint%28'F%20%3D',F%29%20%20%20%23%20F%20cannot%20be%20changed&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=400" width="100%">
+             </iframe>
+             <div style="text-align: right;">
+              <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%20%23%20A%20is%20mutable%0AF%20%3D%20frozenset%28A%29%20%23%20F%20is%20immutable%0Aprint%28'A%20%3D',A%29%0AA.add%288%29%20%20%20%20%20%20%20%20%20%0AA.remove%281%29%20%20%20%20%20%20%0Aprint%28'A%20%3D',A%29%20%20%20%23%20A%20has%20been%20changed%0A%23%20F.add%288%29%20%20%20%20%20%20%20%23%20raises%20an%20AttributeError%0A%23%20F.remove%281%29%20%20%20%20%23%20raises%20an%20AttributeError%0Aprint%28'F%20%3D',F%29%20%20%20%23%20F%20cannot%20be%20changed&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+               Edit in PythonTutor
+              </a>
+             </div>
+            </div>
+           </div>
+          </td>
+         </tr>
+        </table>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_describing_a_set_set_builder_notation">
+        3.1.2. Describing A Set: Set Builder Notation
+       </h4>
+       <div class="paragraph">
+        <p>
+         Another way of describing a set is the use of
+         <strong>
+          set builder
+         </strong>
+         notation. We write a set as \[\{x \in D : P(x)\}.\] This is the set of all elements \(x\) from a domain \(D\) that satisfy the
+         <a href="./introduction_discrete_math.html#informal_predicate_definition">
+          predicate
+         </a>
+         \(P(x).\)
+We can use either the colon \(:\) or the vertical bar \(|\) as the separator in this notation. For example, \(\{ x \in \mathbb{N} \, | \, x^{2} \leq 50 \}\) is the set of natural numbers that are less than \(\sqrt{50}.\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Yet another way of describing a set is to use a function or an algebraic expression, as in \[\{ f(x) : x \in D \}.\]This is the set of all values \(f(x)\) for \(x\) in the domain \(D\). For example, \(\{ 2n : n \in \mathbb{N} \}\) is the set of the even natural numbers. Again, we can use either the colon \(:\) or the vertical bar \(|\) as the separator.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 3 - Set Builder Notation in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The set \(\{x \in D: P(x)\}\) can be expressed in Python as {for x in D if P(x)}. For example, the code below defines the set \(B\) as the set of positive elements of the set \(A = \{1,-2,0,1,-3\}.\)
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0AB%20%3D%20%7Bx%20for%20x%20in%20A%20if%20x%20%3E%200%7D%0Aprint%28B%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B1,-2,0,1,-3%7D%0AB%20%3D%20%7Bx%20for%20x%20in%20A%20if%20x%20%3E%200%7D%0Aprint%28B%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_describing_a_set_special_sets_of_numbers">
+        3.1.3. Describing A Set: Special Sets Of Numbers
+       </h4>
+       <div class="paragraph">
+        <p>
+         You may already be familiar with the following sets of numbers, which are listed here for reference.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Special sets of numbers
+         </div>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             \(\mathbb{N} = \{0, 1, 2, 3,...\}\), the set of natural numbers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{Z} = \{...,-2, -1, 0, 1, 2,...\}\) , the set of integers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{Z}^+ = \{1, 2, 3,...\}\), the set of positive integers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{Q} = \left\{\left.\frac{a}{b}\right|a\in \mathbb{Z},b\in \mathbb{Z},b\neq 0\right\}\), the set of rational numbers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{Q}^+\), the set of positive rational numbers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{R}\), the set of real numbers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{R}^+\), the set of positive real numbers
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{C} = \{a+bi : a\in \mathbb{R},b\in \mathbb{R},b\neq 0,i^{2}=-1\}\), the set of complex numbers.
+             <br/>
+            </p>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Other special sets will be defined as needed.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_describing_a_set_switching_between_representations">
+        3.1.4. Describing A Set: Switching Between Representations
+       </h4>
+       <div class="paragraph">
+        <p>
+         A set can usually be described in more than one way, as shown in the following example.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 4 - Switching between representations
+          </div>
+          <p>
+           Consider the following set: \[\{x \in \mathbb{Z} : -2 \leq x &lt; 4\}.\] This is the set of all integers \(x\) such that \(-2\) is less than or equal \(x\) and \(x\) is less than 4. Using the roster method, this set can be written as \[\{-2,-1,0,1,2,3\}.\]
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           Match each set described using set builder notation in parts (a) through (f) with the same set described using the roster method in parts (A) through (F).
+          </p>
+         </div>
+         <div class="olist loweralpha">
+          <ol class="loweralpha">
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : x^2 = 1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : x^3 = 1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : |x| \leq 2\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : x^2 &lt; 4\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : x &lt; |x|\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{Z} : (x + 1)^2 = x^2 + 2x + 1\}\)
+            </p>
+           </li>
+          </ol>
+         </div>
+         <div class="olist upperalpha">
+          <ol class="upperalpha">
+           <li>
+            <p>
+             \(\{-1,0,1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{\dots, -3,-2,-1,0,1,2,3,\dots\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{\dots, -3,-2,-1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{-1,1\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{-2,-1,0,1,2\}\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </div>
+       </div>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           <div class="paragraph">
+            <p>
+             When there are too many elements in a set for us to be able to list each one, we often use ellipses (\(\dots\)) when the pattern is obvious. For example, we have \[\mathbb{Z} = \{\dots,-3,-2,-1,0,1,2,3,\dots\}.\]
+            </p>
+           </div>
+          </td>
+         </tr>
+        </table>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_equality_of_sets">
+       3.2. Equality Of Sets
+      </h3>
+      <div class="paragraph">
+       <p>
+        We say that two sets are
+        <strong>
+         equal
+        </strong>
+        if and only if they contain the same elements.
+When \(A\) and \(B\) are equal sets, we write \(A = B\). When \(A\) and \(B\) are not equal sets, we write \(A \neq B\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The three sets \(\{2,3,5,7\},\) \(\{5,2,7,3\},\) and \(\{x \in \mathbb{N} : x \text{ is prime and } x &lt; 10 \}\) are equal sets because they contain the same elements. In fact, \(\{2,3,5,7\},\) \(\{5,2,7,3\},\) and \(\{x \in \mathbb{N} : x \text{ is prime and } x &lt; 10 \}\) are really just
+        <em>
+         three different descriptions of the same set,
+        </em>
+        in the same way that
+\(1 + 3,\) \(5 - 1,\) and \(2^{2}\) are three different descriptions of the same number, 4.
+The extended equality \[\{2,3,5,7\} = \{5,2,7,3\} = \{x \in \mathbb{N} : x \text{ is prime and } x &lt; 10 \}\] is a true statement for the same reason the extended equality \(1 + 3 = 5 - 1 = 2^{2}\) is a true statement.
+        <br/>
+        <span class="small">
+         Note: You may be used to using the equal sign "=" as if it means "simplifies to" in your previous math experience, but "=" actually means "represents the same thing as."
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_empty_set">
+       3.3. The Empty Set
+      </h3>
+      <div class="paragraph">
+       <p>
+        Consider the set of all natural numbers whose square is equal to 2, described using set builder notation: \(\{x \in \mathbb{N} : x^2 = 2\}.\) If you use the roster method to list all the elements you will get the set \(\{ \}\) because there are no natural numbers whose square is equal to 2!
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The set \(\{ \}\) is called the
+        <strong>
+         empty set,
+        </strong>
+        or the
+        <strong>
+         null set.
+        </strong>
+        The symbol \(\emptyset\) is used to represent the empty set, too, that is, \[ \emptyset = \{ \}. \]
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 5 - Listing the Elements of a Nonempty Set
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          To define the empty set in Python, we must call the constructor set().
+Python interprets the empty curly braces {} as an empty object of type
+          <em>
+           dict
+          </em>
+          , called a dictionary, that is used to represent mappings of key:value pairs.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The function in the code below checks to see if a set is empty. If the set is nonempty, its elements are listed.
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20Elements%28A%29%3A%0A%20%20%20%20if%20A%20%3D%3D%20set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22the%20set%20is%20empty%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20Elements%28A%29%3A%0A%20%20%20%20if%20A%20%3D%3D%20set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22the%20set%20is%20empty%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            It is important to note that \(\{\}\) and \(\emptyset\) are both ways to write the empty set. However, the mathematical set \(\{ \emptyset \}\) is not the empty set because it contains one element, namely the empty set. In general, the set \(A\) is not the same as the set \(\{ A \}.\)
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="admonitionblock tip">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-tip" title="Tip">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            Python Tip: The mathematical set \(\{ \emptyset \}\)
+            <span class="underline">
+             must
+            </span>
+            be implemented as \(\{ \text{frozenset()} \}\), which is the Python
+            <em>
+             set
+            </em>
+            that contains the empty
+            <em>
+             frozenset
+            </em>
+            . In general, anytime we want to implement a mathematical set \(B\) as an element of another mathematical set \(A\) in Python, we need to implement \(B\) as a
+            <em>
+             frozenset
+            </em>
+            in order to be used as an element of the Python set \(A\). This is due to the fact that elements of Python
+            <em>
+             sets
+            </em>
+            must be
+            <em>
+             hashable
+            </em>
+            ; further explanation is beyond the scope of this textbook.
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_subsets_of_a_set">
+       3.4. Subsets of a Set
+      </h3>
+      <div class="paragraph">
+       <p>
+        Suppose \(A\) and \(B\) are two sets, and that every element \(x\) of the set \(A\) is also an element of set \(B.\)  We say that \(A\) is a
+        <strong>
+         subset
+        </strong>
+        of a set \(B,\) and write \(A \subseteq B\). If a set \(C\) is not a subset of \(B,\) we write \(C \not\subseteq B\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        If \(A \subseteq B\) but \(B\) contains at least one element that is not in A, then \(A\) is called a
+        <strong>
+         proper subset
+        </strong>
+        of \(B\), denoted \(A \subset B\). That is, \(A\) is a proper subset of \(B\) if it is a subset of \(B\) but is not equal to \(B.\)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 6
+         </div>
+         <p>
+          Suppose that we have three sets \(R = \{1,5\},\) \(S = \{1,3,5\},\) and \(T = \{1,4,7\}.\)
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            \(R \subseteq S,\) since each element \(x\) of \(R\) also is an element of \(S.\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(R \subset S\) since \(3\) is an element of \(S\) but is not an element of \(R.\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(S \not\subseteq T\) since \(3\) is an element of \(S\) but is not an element of \(T.\) Likewise, \(T \not\subseteq S\) since \(4\) is an element of \(t\) but is not an element of \(S.\)
+           </p>
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          For any set \(A\) \[\emptyset \subseteq A\] \[A \subseteq A\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For any sets \(A\) and \(B\) \[ A = B \text{ if and only if both } A \subseteq B \text{ and } B \subseteq A\]
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 7 - Subsets in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          In Python, we can check whether a set \(A\) is a subset of a set \(B\) in one of the following ways:
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          A.issubset(B)
+          <br/>
+          A &lt;= B.
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B2,4,6,8,10,12%7D%0AB%20%3D%20%7B4,8,12%7D%0Aprint%28A.issubset%28B%29%29%0Aprint%28B%20%3C%3D%20A%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B2,4,6,8,10,12%7D%0AB%20%3D%20%7B4,8,12%7D%0Aprint%28A.issubset%28B%29%29%0Aprint%28B%20%3C%3D%20A%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_power_set_of_a_set">
+       3.5. The Power Set of a Set
+      </h3>
+      <div class="paragraph">
+       <p>
+        Given a set \(A,\) we can define a new set by collecting together all subsets of \(A\). This new set is called the
+        <strong>
+         power set
+        </strong>
+        of \(A.\) The power set of \(A\) is denoted by \(\mathcal{P}(A).\) That is, \[ \mathcal{P}(A) = \{ B \, | \, B \subseteq A \}. \]
+Notice that \(\mathcal{P}(A)\) is a set whose elements are themselves sets.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 8 -  The Power Set Of A Set
+         </div>
+         <p>
+          Suppose that \(A = \{0,1,2\},\) then \[\mathcal{P}(A) = \{\emptyset, \{ 0 \}, \{ 1 \}, \{ 2 \}, \{0,1\}, \{0,2\}, \{1,2\}, \{0,1,2\}\}.\] Notice that the empty set is an element of \(\mathcal{P}(A)\) along with all the other subsets of \(A.\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The empty set has only one subset, namely itself. Thus, we see that \[\mathcal{P}(\emptyset) = \{\emptyset\}.\]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can also find the power set of a power set. For example, we have the following:
+       </p>
+      </div>
+      <div class="openblock equationalign">
+       <div class="content">
+        <table class="equation_table_style">
+         <tr class="equation_row_style">
+          <td ;="" class="equation_content_style">
+           \[\begin{split}
+\mathcal{P}(\{ 3 \}) &amp;= \{\emptyset, \{ 3 \}\},\\
+\\
+\mathcal{P}(\mathcal{P}(\{ 3 \}) &amp;= \mathcal{P}(\{\emptyset, \{ 3 \})\\
+&amp;= \{\emptyset, \{\emptyset\}, \{ \{ 3 \} \}, \{\emptyset, \{ 3 \}\}\}.
+\end{split}\]
+          </td>
+         </tr>
+        </table>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_cartesian_products">
+       3.6. Cartesian Products
+      </h3>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         Cartesian product
+        </strong>
+        of two sets \(A\) and \(B\) is the set of
+        <em>
+         ordered pairs
+        </em>
+        defined by,
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(  A\times B=\{(a,b) \, | \, a\in A \text{ and } b\in B)\}\),
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 9
+         </div>
+         <p>
+          Consider the sets, \(B=\{0,1\}\), \(T=\{0,1,2\}\), and, \(C=\{a,\ b,\ c, d\}\).
+Determine how many elements are in each set using the product rule, and verify by writing out each set using the roster method.
+         </p>
+        </div>
+        <div class="olist loweralpha">
+         <ol class="loweralpha" type="a">
+          <li>
+           <p>
+            \(B\ \times\ C\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(C\times B\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(B\ \times\ T\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(B\ \times\ B\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(B\ \times\ B\ \times B\)
+           </p>
+          </li>
+         </ol>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          For the set, \( B\ \times C \), notice that
+this will be all ordered pairs of the form,
+\((a,b)\), with \(a \in B\), and \(b \in C\), giving,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(B\ \times\ C=\{(0,a), (0,b), (0,c), (0,d),(1,a), (1,b), (1,c), (1,d))\}\),
+which has \(2 × 4=8\), elements.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For \(C\ \times\ B\), switch the ordering, for \(B\ \times\ C\), to obtain the set with \(8\),
+elements,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(C\ \times  B=\{(a,0), (b,0), (c,0),(d,0),(a,1), (b,1), (c,1), (d,1)\}\),
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The set \(B \times T\),
+will be all ordered pairs of the form,
+\((a,b)\), with \(a \in B\), and \(b \in T\), giving, the set with \(2 × 3=6\), elements,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(B \times T=\{(0,0),(0,1),(0,2),(1,0),(1,1),(1,2)\}\),
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The set \(B \times B\),
+will be all order pairs  of the form,
+\((a,b)\), with \(a, b \in B\), giving the set with  \(2 × 2=4\), elements,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(B \times T=\{(0,0),(0,1),(1,0),(1,1)\}\),
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Finally the set \(B \times B \times B\), will be the set of all
+ordered triples of the form,
+\((a,b,c)\), with \(a, b, c \in B\), giving the set with  \(2 × 2 × 2=8\), elements,
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(B \times B \times B=\{(0,0,0),(0,0,1),(0,1,0),(0,1,1),(1,0,0),(1,0,1),(1,1,0),(1,1,1)\}\),
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            Cartesian products are created using
+            <em>
+             ordered
+            </em>
+            pairs, so if \(A\) and \(B\) are different sets, then \(A \times B\) is different from \(B \times A\).
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            The Cartesian coordinate systems
+are Cartesian products.
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            The two-dimensional \(xy\)-plane is represented by \(\mathbb{R}^2=\mathbb{R}\times \mathbb{R}=\{(x,y)|x,y\in \mathbb{R}\}\), and, the three-dimensional \(xyz\)-space are represented by \(\mathbb{R}^3=\mathbb{R}\times \mathbb{R}\times \mathbb{R}=\{(x,y,z)|x,y,z\in \mathbb{R}\}\)
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_cardinality_of_sets_finite_sets">
+       3.7. Cardinality Of Sets: Finite Sets
+      </h3>
+      <div class="paragraph">
+       <p>
+        Cardinality is the formalization of the idea of the count of the number of elements in a set.
+        <br/>
+        <span class="small">
+         In this section, we will prefer counting from 1 instead of 0. You will see below why this makes no difference.
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Set \(A\) is called a
+        <strong>
+         finite set
+        </strong>
+        if either
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          \(A\) is the empty set or
+         </p>
+        </li>
+        <li>
+         <p>
+          there is a one-to-one correspondence between \(A\) and the set
+\(\{ i \in \mathbb{N} \, | \, 0 &lt; i \leq n \} = \{1, 2, \ldots , n \}\) for some positive integer \(n.\)
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="imageblock right text-center">
+           <div class="content">
+            <img alt="FingersToNumerals" height="109" src="imagesMKD/FingersToNumerals.png" width="375"/>
+           </div>
+          </div>
+          <div class="paragraph">
+           <p>
+            This definition of "finite set" may seem abstract, but it’s just a formal description of what is likely the way you learned to count when you were young: You matched objects with number names (that is, numerals) as shown in the image.
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="04to15" height="91" src="imagesMKD/04to15.png" width="123"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         cardinality
+        </strong>
+        of a finite set \(A,\) denoted by \(|A|,\) is
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          0 if \(A = \emptyset\) or
+         </p>
+        </li>
+        <li>
+         <p>
+          the value of \(n\) for which there is a one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        For a
+        <em>
+         finite set
+        </em>
+        \(A\) the cardinality \(|A|\) is just the number of elements in the set.
+The image shows that \(|\{0,1,2,3,4\}| = 5.\)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 10 - Cardinality of Finite Sets in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The cardinality of a finite set \(A\) can be computed in Python as follows:
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          len(A)
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B2,3,5,8%7D%0AB%20%3D%20set%28%29%0AC%20%3D%20%7B0%7D%0Aprint%28len%28A%29%29%0Aprint%28len%28B%29%29%0Aprint%28len%28C%29%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B2,3,5,8%7D%0AB%20%3D%20set%28%29%0AC%20%3D%20%7B0%7D%0Aprint%28len%28A%29%29%0Aprint%28len%28B%29%29%0Aprint%28len%28C%29%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 11
+         </div>
+         <p>
+          Suppose that \(A\) and \(B\) are finite sets.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            The cardinality of the Cartesian product \(A × B\) is \(|A × B|=|A| \cdot |B|\).
+           </p>
+          </li>
+          <li>
+           <p>
+            The cardinality of the power set of \(A\) is \(\left|\mathcal{P}(A)\right| = 2^{|A|}.\)
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="openblock Challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Give informal arguments to justify each of the two bulleted statements.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Your arguments can use some of the rules introduced in
+           <a href="./counting_arithmetic.html">
+            Counting: Arithmetic Techniques
+           </a>
+           chapter
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Answer
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           For the Cartesian product, the elements of \(A × B\) are ordered pairs of the form \((x,y)\) where \(x\in A\) and \(y\in B.\) There are \(|A|\) choices for the first coordinate, and for each of those choices there are \(|B|\) choices for the second coordinate. Use the product rule to conclude that there are \(|A| \cdot |B|\) different ways to choose an ordered pair, so that \(|A × B|=|A| \cdot |B|.\)
+           <br/>
+           <br/>
+           For the power set of \(A,\) to choose a subset of \(A\) you must decide for each of the \(|A|\) elements in \(A\) whether to include that element in the subset. There are 2 choices for each element, so using the product rule repeatedly you can conclude that there are \((2)(2)\cdots(2)\) ways to choose a subset, where the number of factors of \(2\) is \(|A|\). So \(\left|\mathcal{P}(A)\right| = 2^{|A|}.\) You can also think of this as counting all possible bitstrings of length \(n,\) where a 1 bit means "include the corresponding element" and a 0 bit means "omit the corresponding element."
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_venn_diagrams">
+       3.8. Venn Diagrams
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         Venn diagram,
+        </strong>
+        named after the English mathematician John Venn,  consists of one or more circles, with each circular region representing a set. An example can be seen
+        <a href="https://en.wikipedia.org/wiki/Venn_diagram#/media/File:Venn_diagram_gr_la_ru.svg">
+         here.
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We write the elements of a set within the circular region that represents the set; anything written outside the circular region is not an element of the set. If an element is written in the overlap of two or more regions, then it is an element of each of the sets.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The circles are often drawn inside a larger rectangle which represents a
+        <strong>
+         universal set
+        </strong>
+        \(U\) that we are focusing on. In the example linked above, the rectangle was omitted because every glyph was an element of at least one of the sets represented by a circular region, but if we introduced addition glyphs like ہ we would need to draw the rectangle because that glyph would need to be written outside
+        <em>
+         all
+        </em>
+        three circular regions.
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="VennVsEulerDiagrams" height="300" src="imagesMKD/VennVsEulerDiagrams.png" width="480"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        In this textbook,
+        <mark>
+         a Venn diagram must show
+         <em>
+          all the possible overlaps
+         </em>
+        </mark>
+        of the sets. This is consistent with
+        <a href="https://doi.org/10.1080/14786448008626877">
+         Venn’s paper from 1880.
+        </a>
+        <br/>
+        That is, you should NOT be able to answer the question "Is
+        <em>
+         x
+        </em>
+        an element of set
+        <em>
+         A?
+        </em>
+        " when
+        <em>
+         x
+        </em>
+        is written in the circular region for a different set,
+        <em>
+         B.
+        </em>
+        In the image, the upper right example shows a Venn diagram because you could write
+        <em>
+         x
+        </em>
+        in the overlap of the two regions or you could write
+        <em>
+         x
+        </em>
+        in the the part of the region for
+        <em>
+         B
+        </em>
+        that is outside the circular region for
+        <em>
+         A.
+        </em>
+        The lower two diagrams are not Venn diagrams: In either one of those, if
+        <em>
+         x
+        </em>
+        is written in the region for set
+        <em>
+         B,
+        </em>
+        it must be true that
+        <em>
+         x
+        </em>
+        is not an element of
+        <em>
+         A
+        </em>
+        (on the lower left) or that
+        <em>
+         x
+        </em>
+        is an element of
+        <em>
+         A
+        </em>
+        (the example on the lower right). Diagrams like the lower two examples will be called
+        <strong>
+         Euler diagrams
+        </strong>
+        in this textbook.
+        <br/>
+        <span class="small">
+         Some sources use the term
+         <em>
+          Venn diagram
+         </em>
+         for all four of the examples shown in the image, but you should always assume when reading this textbook that the lower two are NOT Venn diagrams. Click
+         <a href="https://commons.wikimedia.org/wiki/File:RGB_combination_on_wall.png">
+          here
+         </a>
+         to see the light!
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_set_operations">
+       3.9. Set Operations
+      </h3>
+      <div class="paragraph">
+       <p>
+        We can obtain new sets by performing operations on other sets. When performing set operations, it is often helpful to consider all of our sets as subsets of a
+        <strong>
+         universal set
+        </strong>
+        \(U.\) We can think of the universal set as the set of all of the objects under consideration.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can represent set operations visually using Venn diagrams.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_union">
+        3.9.1. Union
+       </h4>
+       <div class="paragraph">
+        <p>
+         The
+         <strong>
+          union
+         </strong>
+         of the sets \(A\) and \(B\) is the set containing those elements that are in \(A\) or \(B\) or both, and is denoted by \(A \cup B\).
+More formally, \[A \cup B = \{x \in U : x \in A \text{ or } x \in B\}.\]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that "or" is read here as the "inclusive or".
+We have the following Venn Diagram for \(A \cup B\):
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="Union" src="images/Union.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that, for any sets \(A\) and \(B,\) \[A \cup B = B \cup A.\]
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 12
+          </div>
+          <p>
+           If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \cup B = \{1,2,3,4,5,6,7,9\}.\]
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 13 - Union in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           In Python, we can compute the union of sets \(A\) and \(B\) in one of the following ways:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           A.union(B)
+           <br/>
+           A | B
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.union%28B%29%29%0Aprint%28A%20%7C%20B%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.union%28B%29%29%0Aprint%28A%20%7C%20B%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_intersection">
+        3.9.2. Intersection
+       </h4>
+       <div class="paragraph">
+        <p>
+         The
+         <strong>
+          intersection
+         </strong>
+         of the sets \(A\) and \(B\) is the set containing those elements that are in \(A\) and \(B\) and is denoted by \(A \cap B\).
+More formally, \[A \cap B = \{x \in U : x \in A \text{ and } x \in B\}.\]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We have the following Venn Diagram for \(A \cap B\):
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="Intersection" src="images/Intersection.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that, for any sets \(A\) and \(B,\) \[A \cap B = B \cap A.\] If it is the case that \(A \cap B = \emptyset,\) then we say that \(A\) and \(B\) are
+         <strong>
+          disjoint
+         </strong>
+         . In other words, two sets are disjoint if and only if they contain no elements in common.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 14
+          </div>
+          <p>
+           If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \cap B = \{1,3,5\}.\]
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 15 - Intersection in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           In Python, we can compute the intersection of sets \(A\) and \(B\) in one of the following ways:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           A.intersection(B)
+           <br/>
+           A &amp; B
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.intersection%28B%29%29%0Aprint%28A%20%26%20B%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.intersection%28B%29%29%0Aprint%28A%20%26%20B%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_complement">
+        3.9.3. Complement
+       </h4>
+       <div class="paragraph">
+        <p>
+         The
+         <strong>
+          complement
+         </strong>
+         of a set \(A\) is the set of all elements in the universal set \(U\) which are not elements of \(A\) and is denoted by \(\overline{A}.\) More formally, \[\overline{A} = \{x \in U: x \not\in A\}.\]
+Note that other textbooks and internet sources may use different notation for the complement of \(A\), such as \(A'\) and \(A^{c}\), but these all stand for the same set, so that \(\overline{A} = A' = A^{c}\).
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We have the following Venn Diagram for \(\overline{A}\):
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="ComplementA" src="images/ComplementA.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         For any set \(A,\) \[ \overline{\overline{A}} = A \] \[ \overline{A} \cup A = U \] \[ \overline{A} \cap A = \emptyset. \]
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 16
+          </div>
+          <p>
+           Suppose that our universal set is \(U = \{0,1,2,3,4,5,6,7,8,9\},\) the set of all decimal digits. If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[\overline{A} = \{0,7,8,9\}\] and \[\overline{B} = \{0,2,4,6,8\}.\]
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Example 17
+          </div>
+          <p>
+           Suppose that our universal set is \(\mathbb{Z}.\) If we let \(E\) be the set of all even integers, then \(\overline{E}\) is the set of all odd integers.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_other_operations">
+        3.9.4. Other Operations
+       </h4>
+       <div class="paragraph">
+        <p>
+         The three operators complement, intersection, and union are the most commonly used to define subsets of a universal set. You will see why this is so later in the chapter.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         However, there are some other operators you should be familiar with.
+        </p>
+       </div>
+       <div class="sect4">
+        <h5 id="_difference">
+         Difference
+        </h5>
+        <div class="paragraph">
+         <p>
+          The
+          <strong>
+           difference
+          </strong>
+          of the sets \(A\) and \(B\) is the set containing those elements that are in \(A\) but not in \(B\) and is denoted by \(A \setminus B\). Set difference is also denoted by \(A - B\).
+More formally, \[A \setminus B = \{x \in U: x \in A \text{ and } x \not\in B\}.\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We have the following Venn Diagram for \(A \setminus B\):
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="A Subtract B" src="images/A%20Subtract%20B.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Note that, for any sets \(A\) and \(B\), if \(A \neq B,\) then \[A \setminus B \neq B \setminus A.\]
+However, if \(A = B,\) then \(A\setminus B = B \setminus A = \emptyset\).
+         </p>
+        </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="paragraph">
+           <div class="title">
+            Example 18
+           </div>
+           <p>
+            If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \setminus B = \{2,4,6\}\] and \[B \setminus A = \{7,9\}.\]
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="openblock">
+           <div class="title">
+            Example 19 - Difference in Python
+           </div>
+           <div class="content">
+           </div>
+          </div>
+          <div class="paragraph">
+           <p>
+            In Python, we can compute the difference of sets \(A\) and \(B\) in one of the following ways:
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            A.difference(B)
+            <br/>
+            A - B
+           </p>
+          </div>
+          <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.difference%28B%29%29%0Aprint%28B%20-%20A%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+          </iframe>
+          <div style="text-align: right;">
+           <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.difference%28B%29%29%0Aprint%28B%20-%20A%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+            Edit in PythonTutor
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="sect4">
+        <h5 id="_symmetric_difference">
+         Symmetric Difference
+        </h5>
+        <div class="paragraph">
+         <p>
+          The
+          <strong>
+           symmetric difference
+          </strong>
+          of the sets \(A\) and \(B\) is the set containing those elements that are in \(A\) or \(B\) but not both \(A\) and \(B\). It is denoted by \(A \oplus B\) in this textbook,
+but other books and sources may use different notation such as \(A \Delta B\).
+More formally, \[A \oplus B = \{x \in U: (x \in A \text{ and } x \not\in B) \text{ or } (x \in B \text{ and } x \not\in A)\}.\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We have the following Venn Diagram for \(A \oplus B\):
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="A symdif B" src="imagesMKD/A%20symdif%20B.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Note that, for any sets \(A\) and \(B,\) \[A \oplus B = B \oplus A.\]
+         </p>
+        </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="paragraph">
+           <div class="title">
+            Example 20
+           </div>
+           <p>
+            If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \oplus B = \{2,4,6,7,9\}.\]
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="openblock">
+           <div class="title">
+            Example 21 - Symmetric Difference in Python
+           </div>
+           <div class="content">
+           </div>
+          </div>
+          <div class="paragraph">
+           <p>
+            In Python, we can compute the difference of sets \(A\) and \(B\) in one of the following ways:
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            A.symmetric_difference(B)
+            <br/>
+            A ^ B
+           </p>
+          </div>
+          <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.symmetric_difference%28B%29%29%0Aprint%28B%20^%20A%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+          </iframe>
+          <div style="text-align: right;">
+           <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.symmetric_difference%28B%29%29%0Aprint%28B%20^%20A%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+            Edit in PythonTutor
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_multiple_set_operations">
+        3.9.5. Multiple Set Operations
+       </h4>
+       <div class="paragraph">
+        <p>
+         We can also perform more than one set operation on a collection of sets. For example, let \(A,\) \(B,\) and \(C\) be sets and consider the following set: \[(A \setminus B) \cup (C \setminus B).\]This is the set that is obtained by taking the union of the sets \(A \setminus B\) and \(C \setminus B.\) We have \[(A \setminus B) \cup (B \setminus A) = \{x \in U: (x \in A \text{ and } x \not\in B) \text{ or } (x \in C \text{ and } x \not\in B)\}.\]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We have the following Venn Diagram for \((A \setminus B) \cup (C \setminus B)\):
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="AminusBunionCminusB" src="images/AminusBunionCminusB.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that the Venn Diagram also represents \((A \cup C ) \setminus B\). In general, there are multiple ways to describe the result of multiple set operations.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Video Examples
+         </strong>
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The following two video examples feature
+Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Video Example 1
+         </strong>
+        </p>
+       </div>
+       <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_vmm8v9kh&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_cwiqknv4" title="Kaltura Player" webkitallowfullscreen="" width="700">
+       </iframe>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Video Example 2
+         </strong>
+        </p>
+       </div>
+       <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_9p3m4lin&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_pcesgshn" title="Kaltura Player" webkitallowfullscreen="" width="700">
+       </iframe>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           Draw Venn Diagrams for each of these combinations of the sets \(A\), \(B\), and \(C\).
+          </p>
+         </div>
+         <div class="olist arabic">
+          <ol class="arabic">
+           <li>
+            <p>
+             \(A \cap (B \cup C)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \((A \cap B) \cup C\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \((\overline{A} \cap \overline{C}) \cup B\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \((B \cup C) \setminus A\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_set_identities">
+       3.10. Set Identities
+      </h3>
+      <div class="paragraph">
+       <p>
+        Here is a collection of additional properties of the operations on sets. Each of these can be verified by drawing two Venn diagrams, one that represents the left-hand side of the equation and another that represents the right-hand side of the equation and showing that the resulting shadings of the Venn diagrams are the same.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Note that it is traditional to focus on complement, union, and intersection as the three primary set operations because the other operations such as difference and symmetric difference can be written in terms of those three primary operations, for example,
+\(A \setminus B = A \cap \overline{B}\) and
+\(A \oplus B = (A \cap \overline{B}) \cup (\overline{A} \cap B)\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Associative laws:
+
+\[ A ∪ (B ∪ C) = (A ∪ B) ∪ C \]
+
+\[ A ∩ (B ∩ C) = (A ∩ B) ∩ C \]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Distributive laws:
+
+\[ A ∪ (B ∩ C) = (A ∪ B) ∩(A ∪ C) \]
+
+\[ A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) \]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        De Morgan’s laws:
+
+\[ \overline{A \cup B} = \overline{A} \cap \overline{B} \]
+
+\[ \overline{A \cap B} = \overline{A} \cup \overline{B} \]
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_operator_precedence_order_of_operations">
+        3.10.1. Operator Precedence (Order Of Operations)
+       </h4>
+       <div class="paragraph">
+        <p>
+         To ensure that we can properly interpret an expression involving multiple set operations, we can either use parentheses or rely on
+         <em>
+          operator precedence
+         </em>
+         .
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         When an expression for sets involves parentheses, complementation, intersection, and union, we start by evaluating all expressions enclosed in parentheses from left to right, then all complementations from left to right, then all intersections from left to right, and finally all unions from left to right. (Set difference and symmetric difference were left out of this discussion because there does not seem to be a standard definition for where they fit in! But, as shown earlier, those two operations can be rewritten in terms of complementation, union, and intersection.)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         For example, the expression \(\overline{A} \cup B \cap C\) represents the same set as \((\overline{A}) \cup (B \cap C)\). Parentheses must be used if you want to represent a different set such as \((\overline{A} \cup B) \cap C\).
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         This is the same way arithmetic expressions like \(-3 + 5 \cdot 2\) are evaluated: The value of \(-3 + 5 \cdot 2\) is \((-3) + (5 \cdot 2) = 7\),
+         <strong>
+          not
+         </strong>
+         \((-3 + 5) \cdot 2 = 4\).
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_venn_diagrams_partitions_and_bitstrings">
+       3.11. Venn Diagrams, Partitions, and Bitstrings
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         partition
+        </strong>
+        of a set \(U\) is a set of subsets of \(U\) such that each element \(x \in U\) is a member of exactly one of the subsets in the partition.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        As an example you already know, one partition of the set of integers \(\mathbb{Z}\) is the set of subsets \[\{ \text{the set of even integers}, \text{the set of odd integers} \}\] Notice that every integer \(n\) belongs to exactly one of the two elements of this set.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        As another example, for any subset \(A \subseteq U\) you have a partition of \(U\) into the 2 sets that are elements of \[\{ A,\,\overline{A} \}\] Note that each element of \(U\) must be in exactly one of the subsets \(A\) and \(\overline{A}\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        For two subsets \(A\) and \(B\) of a universal set \(U\), consider the Venn diagram of \(A\) and \(B\). Notice that, by considering all possible intersections of these two sets and their complements, \(U\) is partitioned into 4 subsets, namely, the 4 elements of \[\{ \overline{A} \cap \overline{B},\, \overline{A} \cap B,\,A \cap \overline{B},\,A \cap B \}\] We can refer to each of these 4 subsets by using bitstrings of length 2 as follows:
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          The leftmost bit is 1 if an element of the subset is an element of \(A\), and is 0 if an element of the subset is not an element of \(A\).
+         </p>
+        </li>
+        <li>
+         <p>
+          The rightmost bit is 1 if an element of the subset is an element of \(B\), and is 0 if an element of the subset is not an element of \(B\).
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        For example, in the following Venn diagram, the subset \(A \cap \overline{B}\) is labeled with the bitstring \(10\) because an element of \(A \cap \overline{B}\) is an element of \(A\) and not an element of \(B\).
+       </p>
+      </div>
+      <div class="imageblock">
+       <div class="content">
+        <img alt="ABbitstrings" src="imagesMKD/ABbitstrings.png"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        If you had instead three subsets \(A\), \(B\), and \(C\) of the universal set \(U,\) you could partition the universe \(U\) into 8 subsets. In detail, if you have an element \(x \in U\), either \(x \in A\) or \(x \not\in A\), and for each of those possibilities, either \(x \in B\) or \(x \not\in B\), and for each of those possibilities, either \(x \in C\) or \(x \not\in C\). We can apply (twice) the
+        <em>
+         multiplication principle
+        </em>
+        that was first mentioned in chapter 2 to show that there are \(2 \cdot 2 \cdot 2\) possible subsets determined by the Venn diagrams of the 3 sets \(A\), \(B\), and \(C\). Using bitstrings of length 3, we can label these 8 subsets as shown.
+       </p>
+      </div>
+      <div class="imageblock">
+       <div class="content">
+        <img alt="ABCbitstrings" src="imagesMKD/ABCbitstrings.png"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        For an integer \(n &gt; 3\), the Venn diagram is less useful for representing the partitioning of the universe created by \(n\) subsets, but we can still reason that there ought to be \(2^{n}\) subsets in the partition, where each of the subsets can be described by a unique bitstring of length \(n\) (We will be able give a formal mathematical proof of this for every positive integer \(n\) later in the textbook after we’ve discussed mathematical induction.)
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_disjunctive_normal_form_set_version">
+        3.11.1. Disjunctive Normal Form (Set Version)
+       </h4>
+       <div class="paragraph">
+        <p>
+         Suppose you have three sets \(A\), \(B\), and \(C\), and have partitioned the universe \(U\) into the 8 subsets as discussed above. A subset of \(U\) that corresponds to any shading of the Venn diagram can be
+written as a union of intersections of three sets, with one set chosen from each of the pairs \(\{ A,\,\overline{A} \}\), \(\{ B,\,\overline{B} \}\), and \(\{ C,\,\overline{C} \}\).
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="ABC DNF EXAMPLE" src="imagesMKD/ABC_DNF_EXAMPLE.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         As an example, consider the set shown in the image, which has 4 of the 8 regions of the Venn diagram shaded:
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           \(\overline{A} \cap \overline{B} \cap \overline{C}\) which is the region outside of all three sets,
+          </p>
+         </li>
+         <li>
+          <p>
+           \(A \cap \overline{B} \cap \overline{C},\) the region in set \(A\) but in neither \(B\) nor \(C,\)
+          </p>
+         </li>
+         <li>
+          <p>
+           \(\overline{A} \cap B \cap \overline{C},\) the region in set \(B\) but in neither \(A\) nor \(C,\)
+          </p>
+         </li>
+         <li>
+          <p>
+           \(\overline{A} \cap B \cap C,\) the region in both \(B\) and \(C\) but not in \(A.\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         Write the union of these 4 subsets to create an expression that describes the entire shaded region. \[(\overline{A} \cap \overline{B} \cap \overline{C}) \cup (A \cap \overline{B} \cap \overline{C}) \cup (\overline{A} \cap B \cap \overline{C}) \cup (\overline{A} \cap B \cap C)\]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         This type of expression is called a
+         <strong>
+          disjunctive normal form
+         </strong>
+         (or DNF) for the set that it represents. We will see an analog of these in a different context in the chapter on Logic.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The advantage of using the DNF is that you can write out an expression for the shaded subset using a simple algorithm.
+The DNF may be neither the shortest possible expression nor the most easily understood expression for the shaded part of the Venn diagram, but the DNF is a
+         <span class="underline">
+          <em>
+           correct
+          </em>
+         </span>
+         expression for the shaded subset.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_principle_of_inclusion_exclusion_pie">
+       3.12. The Principle Of Inclusion-Exclusion (PIE)
+      </h3>
+      <div class="paragraph">
+       <p>
+        In certain application problems, we want to compute the cardinality \(|A \cup B|\) of the union of two given finite sets \(A\) and \(B\). It is tempting to simply add \(|A|\) and \(|B|\), but as the Venn diagram below shows, each element of the intersection \(|A \cap B|\) will be counted
+        <em>
+         twice
+        </em>
+        , once for each bit that is \(1\), if we do so.
+       </p>
+      </div>
+      <div class="imageblock">
+       <div class="content">
+        <img alt="ABbitstrings" src="imagesMKD/ABbitstrings.png"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The correct relationship between \(|A \cup B|\), \(|A|\), and \(|B|\) is given by \[ |A \cup B| = |A| + |B| -  |A \cap B|. \]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Another way to see that this is the correct relationship is to use the partition
+\(\{ \overline{A} \cap \overline{B},\, \overline{A} \cap B,\,A \cap \overline{B},\,A \cap B \}\) to write
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(| A | = | A \cap \overline{B} | + | A \cap B |\),
+        <br/>
+        \(| B | = | \overline{A} \cap B | + | A \cap B |\), and
+        <br/>
+        \(| A \cup B | = | A \cap \overline{B} | + | A \cap B | + | \overline{A} \cap B |\), so
+        <br/>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \(| A | + | B | = | A \cap \overline{B} | + | A \cap B | + | \overline{A} \cap B | + | A \cap B | = | A \cup B | + | A \cap B |\).
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 22
+         </div>
+         <p>
+          Consider the set \(U = \{ n \in \mathbb{N} : 1 \leq n \leq 60 \}\). How many elements of \(U\) are divisible by either 2 or 3 or both? How many elements of \(U\) are divisible by neither 2 nor 3?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Let \(A\) stand for the subset of \(U\) that consists of multiples of 2, and
+let \(B\) stand for the subset of \(U\) that consists of multiples of 3.
+It’s not too difficult to see that
+\(|A| = \frac{60}{2} = 30\) and \(|B| = \frac{60}{3} = 20\).
+Also, \(A \cap B\) must be the subset of \(U\) that consists of multiples of 6, so \(| A \cap B | = \frac{60}{6} = 10\).
+(If these computations don’t make sense to you, just start counting off the pattern \(1,\,2,\,3,\,4,\,5,\,6,\,\ldots\) and notice that every 2nd number is divisible by 2, every 3rd number is divisible by 3, and every 6th number is divisible by both 2 and 3.)
+Now apply the Principle Of Inclusion-Exclusion to find the number of integers in \(U\) that are divisible by either 2 or 3 or both:
+\(|A \cup B| = |A| + |B| -  |A \cap B| = 30 + 20 - 10 = 40\).
+There are 40 integers in \(U\) that are divisible by either 2 or 3 or both,
+so there are \(60 - 40 = 20\) integers in \(U\) that are divisible by neither 2 nor 3.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        If we want to compute the cardinality \(|A \cup B \cup C|\) of the union of three given finite sets \(A\), \(B\), and \(C\), we can again look at the Venn diagram of the partition of \(U\) into 8 sets to see that some of the intersections  will be counted
+        <em>
+         one
+        </em>
+        ,
+        <em>
+         two
+        </em>
+        , or
+        <em>
+         three
+        </em>
+        times, once for each bit that is \(1\).
+       </p>
+      </div>
+      <div class="imageblock">
+       <div class="content">
+        <img alt="ABCbitstrings" src="imagesMKD/ABCbitstrings.png"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can derive the following formula in much that same way that we did above; in fact, we can just apply the formula we found for two sets to \(| (A \cup B) \cup C |\) and use some of the set identities to help simplify the formula. \[ |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|. \]
+       </p>
+      </div>
+      <div class="openblock click">
+       <div class="title">
+        Show me all the steps!
+       </div>
+       <div class="content">
+        <div class="click_oblique">
+         \begin{equation}
+\begin{aligned}
+| A \cup B \cup C | {} &amp; = | (A \cup B) \cup C | \\
+&amp; = |A \cup B| + |C| - |(A \cup B) \cap C| \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - |(A \cup B) \cap C| \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - |(A \cap C) \cup (B \cap C)| \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - (|A \cap C| + |B \cap C| - |(A \cap C) \cap (B \cap C)|) \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - (|A \cap C| + |B \cap C| - |A \cap C \cap B \cap C|) \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - (|A \cap C| + |B \cap C| - |A \cap B \cap C|) \\
+&amp; = (|A| + |B| -  |A \cap B|) + |C| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \\
+&amp; = |A| + |B| -  |A \cap B| + |C| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \\
+&amp; = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \\
+\end{aligned}
+\end{equation}
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 23
+         </div>
+         <p>
+          Consider the set \(U = \{ n \in \mathbb{N} : 1 \leq n \leq 60 \}\) as in the previous example. How many elements of \(U\) are divisible by at least one of 2, 3, or 5?? How many elements of \(U\) are divisible by none of 2, 3, or 5?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          As in the previous example,
+let \(A\) stand for the subset of \(U\) that consists of multiples of 2,
+let \(B\) stand for the subset of \(U\) that consists of multiples of 3, and
+now let \(C\) stand for the subset of \(U\) that consists of multiples of 5.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We have
+\(|A| = \frac{60}{2} = 30\),
+\(|B| = \frac{60}{3} = 20\),
+\(|C| = \frac{60}{5} = 12\),
+\(|A \cap B| = \frac{60}{6} = 10\),
+\(|A \cap C| = \frac{60}{10} = 6\),
+\(|B \cap C| = \frac{60}{15} = 4\),
+and
+\(|A \cap B \cap C| = \frac{60}{30} = 2\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Apply Principle Of Inclusion-Exclusion to find the number of integers in \(U\) that are divisible by at least one of 2, 3, or 5:
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(|A \cup B \cup C| = 30 + 20 + 12 - 10 - 6 - 4 + 1 = 44\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          There are 44 integers in \(U\) that are divisible by at least one of 2, 3, or 5, and there are \(60 - 44 = 16\) integers in \(U\) that are divisible by none of 2, 3, or 5.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_cardinality_of_sets_infinite_sets">
+       3.13. Cardinality Of Sets: Infinite Sets
+      </h3>
+      <div class="paragraph">
+       <p>
+        Set \(A\) is called an
+        <strong>
+         infinite set
+        </strong>
+        if it not a finite set.
+That is, \(A\) is not the empty set, and for every positive integer \(n\) there is no one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Intuitively an infinite set \(A\) is at least as big as the set of positive integers. You may think that \(A\)
+        <em>
+         must
+        </em>
+        have the same size as the set of  positive integers, but cardinality is a much more …​ "interesting" concept for infinite sets, as you will see.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        First, we will say that two infinite sets \(A\) and \(B\) have the same cardinality if and only if there is a one-to-one correspondence between the two sets. As an example, the set of positive integers and the set of negative integers have the same cardinality since each nonzero integer \(n\) can be paired with its additive inverse, \(-n.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        For finite sets, if \(A\) is a proper subset of \(B\) then it must be true that
+the cardinality of \(A\) is not the same as the cardinality of \(B.\) This fails spectacularly for infinite sets as the next few examples show.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 24 - The Natural Numbers and The Positive Integers
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="NtoNstar" height="98" src="imagesMKD/NtoNstar.png" width="291"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The image shows that there is a one-to-one correspondence between the natural numbers and the positive integers, so these two sets have the same cardinality. But this isn’t so bad, we only have one more number in the set of natural numbers, which is why we can just shift every thing over by 1 in the image.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that this example also suggests why it really does not matter whether we start counting from 1 or 0…​ we can always "reindex" the counting if necessary.
+         </p>
+        </div>
+        <div class="openblock Challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Write a formula for the function that represents the one-to-one correspondence between the natural numbers and the positive integers.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           The function is a linear function. If you don’t remember how to find the equation of a linear function, see
+           <a href="./appendix_math.html">
+            this appendix.
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 25 - The Natural Numbers and The Integers
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="ZtoN" height="93" src="imagesMKD/ZtoN.png" width="309"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The image shows that there is a one-to-one correspondence between the set of all integers and the natural numbers.
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="NtoZ" height="98" src="imagesMKD/NtoZ.png" width="331"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The image shows the inverse of the one-to-one correspondence above, which is a one-to-one correspondence between the set of natural numbers and the set of integers.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          These two sets have the same cardinality, which may surprise you since "intuitively" it would seem there should be about twice as many integers as natural numbers. However, this example shows that you can double (roughly) the size of an infinite set and get a new set that has the same cardinality.
+         </p>
+        </div>
+        <div class="openblock Challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Write a formula for a function that represents one of the two one-to-one correspondences involving the natural numbers and the integers.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Either function will be defined by two linear expressions. The definition will be of the form \[ f(n) = \begin{cases}
+\text{some linear expression}, &amp; \text{ if } n \geq 0 \\
+\text{some linear expression}, &amp; \text{ if } n &lt; 0 \\
+\end{cases} \]
+or \[ g(n) = \begin{cases}
+\text{some linear expression}, &amp; \text{ if } n \text{ is even} \\
+\text{some linear expression}, &amp; \text{ if } n \text{ is odd} \\
+\end{cases}  \]
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 26 - The Natural Numbers and Ordered Pairs of Natural Numbers
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="Cantor’s_Pairing_Function" height="324" src="imagesMKD/Cantor's_Pairing_Function.svg" width="324"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          This first image, which shows red points plotted in the \(xy\)-plane that have been labeled with natural numbers, suggests a way to define a one-to-one correspondence between the set of ordered pairs of natural numbers, \(\mathbb{N} × \mathbb{N},\) and the set of natural numbers \(\mathbb{N}.\)
+          <br/>
+          <span class="small">
+           Image credit:
+           <a href="https://commons.wikimedia.org/wiki/File:Cantor%27s_Pairing_Function.svg">
+            "Cantor’s Pairing Function"
+           </a>
+           by crh23. The image is dedicated to the public domain under
+           <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">
+            CC0
+           </a>
+           .
+          </span>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <span class="image right">
+           <img alt="PairsToSingles" height="75" src="imagesMKD/PairsToSingles.png" width="480"/>
+          </span>
+          This second image displays the same one-to-one correspondence in tabular form.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In the first image, notice that for each fixed value of the second coordinate \(y \in \mathbb{N},\) the horizontal row of red points of the form \(\{ (x, y) : x \in \mathbb{N} \} = \{ (0, y), (1, y), (2, y), (3, y), \ldots \}\) has the same cardinality as \(\mathbb{N}\) and
+that there is one such row for every natural number \(y \in \mathbb{N}.\) That is, the set of rows has the same cardinality as the set \(\mathbb{N},\) and each of the rows has the same cardinality as \(\mathbb{N}.\)
+There are, in essence, as many copies of \(\mathbb{N}\) (the rows of red points) as there are elements in \(\mathbb{N},\) and these copies are joined together to form the Cartesian product \(\mathbb{N} × \mathbb{N}\)…​ but this set still has the same cardinality as \(\mathbb{N}.\)
+          <br/>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice something else about this example: It shows that each
+          <em>
+           pair of natural numbers
+          </em>
+          can be encoded as a
+          <em>
+           single natural number.
+          </em>
+          In fact, this example can be generalized to show that any element in the set of
+          <em>
+           all finite-length sequences of natural numbers
+          </em>
+          can be encoded uniquely to a natural number (so, for example, the set of all possible finite-length strings of Unicode characters/code points can be encoded to the set of natural numbers, which may or may not be surprising to you.)
+         </p>
+        </div>
+        <div class="openblock Mega-challenge!">
+         <div class="title">
+          Mega-challenge!
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Try to find an algebraic formula for the function \(n = f(x,y)\) that describes the one-to-one correspondence described by the images, then show that the function must map two different inputs (ordered pairs of natural numbers) to two different outputs (natural numbers) and also that
+           <em>
+            every
+           </em>
+           natural number is an output from the function for some input ordered pair of natural numbers.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           It’s possible to write \(f(x,y)\) as a quadratic polynomial in the two variables \(x\) and \(y.\)
+           <br/>
+           <br/>
+           You may want to read about
+           <a href="https://en.wikipedia.org/wiki/Triangular_number">
+            triangular numbers
+           </a>
+           to get an idea of how the mapping of ordered pairs to numbers is being done. In the first image, the red points form a "triangle of infinite height" with a vertex at \((0,0)\) and sides lying along the \(x-\) and \(y-\)axes. "Row 0" of the triangle is the single point \((0,0),\) and "row \(n\)" of the triangle is made up of the red points with natural number coordinates \((x,y)\) that add up to \(n\) (that is, \(x+y = n\).)
+           <br/>
+           <br/>
+           A proof that this mapping of ordered pairs of natural numbers to individual natural numbers is in fact a one-to-one correspondence will be presented later in the textbook.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        So far, every infinite set presented has the same cardinality as \(\mathbb{N}.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Maybe
+        <em>
+         all
+        </em>
+        infinite sets have the same cardinality as \(\mathbb{N}?\) Nope!
+        <br/>
+        <br/>
+        The next theorem shows that \(\mathcal{P}(\mathbb{N})\) cannot have the same cardinality as \(\mathbb{N}\) so there must be at least two "infinities."
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          There is no one-to-one correspondence between \(\mathbb{N}\) and \(\mathcal{P}(\mathbb{N}).\)
+         </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           This proof uses a technique called
+           <a href="https://en.wikipedia.org/wiki/Georg_Cantor">
+            "Cantor’s diagonal argument"
+           </a>
+           and is an example of the proof by contradiction technique that will be discussed later in the
+           <a href="./proofs.html">
+            Proofs: Basic Techniques
+           </a>
+           chapter.
+           <br/>
+           <br/>
+           <span class="image right">
+            <img alt="SeqOfSets" height="164" src="imagesMKD/SeqOfSets.png" width="445"/>
+           </span>
+           Let’s suppose that we had such a one-to-one correspondence.
+As shown in the image, we could represent the one-to-one correspondence by a sequence \(S_0 , S_1 , S_2 , \ldots\) of subsets of \(\mathbb{N},\) which is what the elements of \(\mathcal{P}(\mathbb{N})\) are. In the one-to-one correspondence,
+           <em>
+            every subset
+           </em>
+           of \(\mathbb{N}\) (that is,
+           <em>
+            every element
+           </em>
+           of \(\mathcal{P}(\mathbb{N})\)) appears as one of the \(S_{n}\) in the sequence: Every subset has been paired with a natural number and every natural number has been paired with a subset.
+           <br/>
+           <br/>
+           Next, define a subset \(M \subseteq \mathbb{N}\) as \[M = \{ n \in \mathbb{N} : n \not\in S_n \}\]
+
+That is, \(M\) is defined by the rule that for each natural number \(n,\) we have \(n \in M\) if and only if \(n \not\in S_{n}.\) So, for example, 0 is an element of \(M\) if 0 is not an element of \(S_0,\) but is not an element of \(M\) if 0 is an element of \(S_0.\) Likewise, 1 is an element of \(M\) if 1 is not an element of \(S_1,\) but is not an element of \(M\) if 1 is an element of \(S_1.\) The same is true for each of the natural numbers 2, 3, and so on: The natural number \(n\) is an element of exactly one of the sets \(S_n\) and \(M.\)
+           <br/>
+           <br/>
+           Now we show that \(M\) must be
+           <span class="underline">
+            missing
+           </span>
+           from the sequence \(S_0 , S_1 , S_2 , \ldots\)
+           <br/>
+           \(M\) cannot be \(S_0\) since one of those sets contains 0 and the other one does not. \(M\) cannot be \(S_1\) since one of those sets contains 1 and the other one does not. The same must be true for each of the natural numbers 2, 3, and so on. So, for
+           <em>
+            every natural number
+           </em>
+           \(n,\) \(n\) is an element of exactly one of the two sets \(S_n\) and \(M,\) which means \(M \neq S_n\) is true for
+           <em>
+            every natural number
+           </em>
+           \(n.\) This means that \(M\) cannot be any of the sets in the sequence…​ it is missing!
+           <br/>
+           <br/>
+           We assumed that every subset is listed in the sequence, but just showed that there is some subset that is not listed in the sequence.
+Notice that, even if we tried to use a new sequence (for example, insert \(M\) at position 0 and shift all the other subsets over by adding 1 to their subscripts) the diagonal argument could be used to define another subset that is missing from the new sequence. So,
+           <em>
+            every possible sequence of subsets must be missing at least one subset.
+           </em>
+           <br/>
+           <br/>
+           Therefore, such a one-to-one correspondence cannot exist.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_countable_and_uncountable_sets">
+        3.13.1. Countable and Uncountable Sets
+       </h4>
+       <div class="paragraph">
+        <p>
+         Set \(A\) is called
+         <strong>
+          countable
+         </strong>
+         if
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           \(A\) is a finite set or
+          </p>
+         </li>
+         <li>
+          <p>
+           there is a one-to-one correspondence between \(A\) and \(\mathbb{N}.\) In this case, \(A\) is also called
+           <strong>
+            countably infinite.
+           </strong>
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         Set \(A\) is called
+         <strong>
+          uncountable
+         </strong>
+         if it is not a countable set. That is, \(A\) is infinite and there is no one-to-one correspondence between \(A\) and \(\mathbb{N}.\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Several examples of countably infinite sets were given in the examples in the preceding subsection:
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           The set of positive integers \(\{ i \in \mathbb{N} \, | \, i &gt; 0 \},\)
+          </p>
+         </li>
+         <li>
+          <p>
+           the set of integers \(\mathbb{Z},\) and
+          </p>
+         </li>
+         <li>
+          <p>
+           the set of ordered pairs of natural numbers, \(\mathbb{N} × \mathbb{N}.\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         On the other hand, the theorem in the preceding subsection shows that \(\mathcal{P}(\mathbb{N})\) is an uncountable set.
+        </p>
+       </div>
+       <div class="sect4">
+        <h5 id="_infinite_cardinal_numbers">
+         Infinite Cardinal Numbers
+        </h5>
+        <div class="paragraph">
+         <p>
+          In advanced mathematics, the concept of "infinite cardinal number" is developed and used to represent the sizes of infinite sets. Mathematicians use these infinite cardinal numbers to make sense of cardinalities like \(|\mathbb{N}|\) and \(|\mathcal{P}(\mathbb{N})|.\) It can be proven that \[|\mathbb{Q}| = |\mathbb{N}|\] \[|\mathbb{N}| &lt; |\mathcal{P}(\mathbb{N})|\] \[|\mathcal{P}(\mathbb{N})| = |\mathbb{R}|\] and that \[\text{for any infinite set } A, |A| &lt; |\mathcal{P}(A)|\] which shows that there must be infinitely-many infinite cardinal numbers.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_exercises_2">
+       3.14. Exercises
+      </h3>
+      <div class="paragraph">
+       <p>
+        Remixer’s Note: This section is taken from the original
+        <a href="https://ggc-discrete-math.github.io/index.html">
+         “Discrete Math”
+        </a>
+        book with only minor changes.
+       </p>
+      </div>
+      <div class="olist arabic">
+       <ol class="arabic">
+        <li>
+         <p>
+          Consider as universal set, the set of all \(26\), lowercase letters of the English alphabet,
+\(U=\{a,b,c,…,v,w,x,y,z\}\), and the sets \(A=\{a,b,c,d,e,f,g,h\}\), \(B=\{f,g,h,i,j,k\}\), and \(C=\{x,y,z\}\). For the sets given below:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             List the sets below using roster form, and
+            </p>
+           </li>
+           <li>
+            <p>
+             Draw Venn Diagrams for each of the sets
+            </p>
+            <div class="olist lowerroman">
+             <ol class="lowerroman" type="i">
+              <li>
+               <p>
+                \(A\cup B\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(A\cap B\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(A\cup C\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(A\cap C\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(A \setminus B\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(B \setminus A\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(A \setminus C\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(C \setminus A\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(A\cup C\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(A\cap C\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(\overline{A}\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(\overline{B}\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(\overline{C}\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(\overline{B} \cap \overline{C}\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \( (\overline{A} \cap \overline{B}) \cup (\overline{B} \cap \overline{C})\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Using Venn Diagrams, determine which of the following are equivalent
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(A \setminus (A \setminus B)),\)
+            </p>
+            <div class="paragraph">
+             <p>
+              \(A\cup B,\) and
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              \(A\cap B\)
+             </p>
+            </div>
+           </li>
+           <li>
+            <p>
+             \(A\cup  \overline{A},\)
+            </p>
+            <div class="paragraph">
+             <p>
+              \(A\cap  \overline{A},\)
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              \(U,\) and
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              \(\emptyset\)
+             </p>
+            </div>
+           </li>
+           <li>
+            <p>
+             \(\overline{A}\cap  \overline{B}, \)
+            </p>
+            <div class="paragraph">
+             <p>
+              \(\overline{A\cap B},\)
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              \(\overline{A}\cup  \overline{B},\) and
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              \(\overline{A\cup B}\)
+             </p>
+            </div>
+           </li>
+           <li>
+            <p>
+             \(A\cup (B\cap C),\)
+            </p>
+            <div class="paragraph">
+             <p>
+              \(A\cap (B\cup C),\)
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              \((A\cap B)\cup (A\cap C),\) and
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              \((A\cup B)\cap (A\cup C),\)
+             </p>
+            </div>
+           </li>
+           <li>
+            <p>
+             \(\overline{\overline{A}\cup(C \setminus B) }),\)
+            </p>
+            <div class="paragraph">
+             <p>
+              \(A\cap (B \cup \overline{C}),\) and
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              \(A \setminus (C \setminus B)\)
+             </p>
+            </div>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Write each of the following sets using set builder notation
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(\{\ldots, -9, -7, -5, -3, -2, -1, 1, 3, 5, 7, 9, \ldots \}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{\ldots, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10,\ \ldots \}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{ 1, 2, 3, 4, 5,  6, 7, 8, 9, 10 \}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{ 1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\ldots \right\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{0, 1, 4, 9, 16, 25, 36, 49, \ldots \}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{\ldots,-10,-6, -2, 2, 6, 10, 14, 18, 22, \ldots \}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{ 3, 9, 27, 81, 243,\ldots\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{ 1, 9, 25, 49, 81, \ldots \}\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Write each of the following sets in roster form
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(\{x \in \mathbb{R} : |2x+5|=7\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{10n : n \in \mathbb{N}\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{10n : n \in \mathbb{Z}\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{2^n : n \in \mathbb{N}\right\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{2^n : n \in \mathbb{Z}\right\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{x \in \mathbb{R} : x^2=4\right\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{x \in \mathbb{R} : x^3=64\right\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{x \in \mathbb{Z} : x^2=5\right\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{x \in \mathbb{R} : x^2= -4\right\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{x \in \mathbb{Z} : |x-5|=3\right\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{3n+4 : n \in \mathbb{N}\right\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{3n+4 : n \in \mathbb{Z}\right\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left\{i^n : n \in\mathbb{N}\right\}\), where \(i\) is such that \(i^2=-1\) (the imaginary unit).
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Consider the  sets \(A=\{1, 3, 5, 7, 9, 11, 13, 15, 17\}\), \(B=\{2, 5, 7, 11\}\), and \(C=\{1, 2, 3\}\),
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Determine the cardinalities of following sets,
+            </p>
+            <div class="olist lowerroman">
+             <ol class="lowerroman" type="i">
+              <li>
+               <p>
+                \(|A|\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(|A\cup B|\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(|A\cap C|\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(|\mathcal{P}(A)|\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(|\mathcal{P}(B)|\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(|\mathcal{P}(C)|\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+           <li>
+            <p>
+             Give the following power sets,
+            </p>
+            <div class="olist lowerroman">
+             <ol class="lowerroman" type="i">
+              <li>
+               <p>
+                \(\mathcal{P}(B)\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(\mathcal{P}(C)\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Determine the cardinalities of following sets,
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(\{n \in \mathbb{Z} : |n|\leq 10\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{A,B, \emptyset,\{2,5,6\}\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{\{A,B\},\{\},\{\{2,5,6\}\},\{\{2,5,6\},C\},\{A,B,C\}\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{\{\{A,B\},\emptyset,\{\{2,5,6\},C\},\{A,B,C\}\}\}\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Consider the sets, \(B=\{0, 1\}\), \( S=\{spring, summer, fall, winter\}\), and
+\(C=\{ a, b, c, d,e\}\). For each of the following sets:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Determine the following Cartesian products.
+            </p>
+           </li>
+           <li>
+            <p>
+             Calculate the cardinality of each Cartesian product.
+            </p>
+            <div class="olist lowerroman">
+             <ol class="lowerroman" type="i">
+              <li>
+               <p>
+                \(B \times S\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(S \times B\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(B \times C\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(C \times B\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(B \times B \times B \times B\)
+               </p>
+              </li>
+              <li>
+               <p>
+                \(S  \times B \times B\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Determine the following power sets,
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(\mathcal{P}(\{Alabama, Georgia, Florida, Louisiana\} )\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathcal{P}(\emptyset )\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathcal{P}(\{\emptyset\} )\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathcal{P}(\{Alabama \} )\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathcal{P}(\{Alabama, Georgia, Florida \} )\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathcal{P}(\{\{Alabama, Georgia \}, \{Florida \} \} )\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Write the shaded regions in each of the following Venn diagrams using set notation.
+         </p>
+         <div class="imageblock">
+          <div class="content">
+           <img alt="GGC" height="1000" src="images/venn_exercises.png" width="1000"/>
+          </div>
+         </div>
+        </li>
+        <li>
+         <p>
+          Determine if each of the following are true or false. Explain your reasoning.
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(\{7,4,6,2,11,3,5\}\subseteq \{1,2,3,4,5,6,7,8,9,10,11,12,13\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{1,2,3,4,5,6,7,8,9,10,11,12,13\}\subseteq \{7,4,6,2,11,3,5\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{7,4,6,2,11,3,5\}\subseteq \{7,4,6,2,11,3,5\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{3,8\}\nsubseteq \{7,4,6,2,11,3,5\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \( \{3n+4 : n \in \mathbb{N}\} \nsubseteq \mathbb{Z}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\mathbb{N}\subseteq \mathbb{Z}\subseteq \mathbb{Q}\subseteq \mathbb{R}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{R} : |x|&lt;3\}\subseteq \{x \in \mathbb{R} \, | \, |x|&lt;5\}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\{x \in \mathbb{R} : |x|&gt;3\}\subseteq \{x \in \mathbb{R} \, | \, |x|&gt;5\}\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+       </ol>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { extensions: ["mhchem.js"] }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,2598 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Asciidoctor 1.5.8" name="generator"/>
+  <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
+  <title>
+   Discrete Math - The MKD Remix (CSC230 Version)
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
+  <style>
+   /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Uncomment @import statement below to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock pre.nowrap,.literalblock pre.nowrap pre,.listingblock pre.nowrap,.listingblock pre.nowrap pre{white-space:pre;word-wrap:normal}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #dddddf}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd){background:#f8f8f7}
+table.stripes-none tr,table.stripes-odd tr:nth-of-type(even){background:none}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <style>
+   .click .title { color: blue; }
+  .click {margin-top: 0.5em; margin-bottom: 0.5em;}
+  .openblock { margin-top: 1em; margin-bottom: 1em; }
+  .openblock>.box>.content { margin-top:1em;margin-bottom: 1em;margin-left:3em;margin-right:4em; }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript">
+  </script>
+  <script>
+   var ready2;
+
+ready2 = function() {
+
+    $(document).ready(function(){
+
+        $('.openblock.click').click( function()  { $(this).find('.content').slideToggle('200'); } )
+        $('.openblock.click').find('.content').hide()
+
+
+        $('.listingblock.click').click( function()  { $(this).find('.content').slideToggle('200') }  )
+        $('.listingblock.click').find('.content').hide()
+
+    });
+
+}
+
+
+
+
+$(document).ready(ready2);
+$(document).on('page:load', ready2);
+  </script>
+ </head>
+ <body class="book toc2 toc-left">
+  <div id="header">
+   <h1>
+    Discrete Math - The MKD Remix (CSC230 Version)
+   </h1>
+   <div class="details">
+    <span class="author" id="author">
+     A Work In Progress by Mark Kelly Davis
+    </span>
+    <br/>
+   </div>
+   <div class="toc2" id="toc">
+    <div id="toctitle">
+     Table of Contents
+    </div>
+    <ul class="sectlevel1">
+     <li>
+      <a href="index.html#_about_this_text">
+       About this text
+      </a>
+     </li>
+     <li>
+      <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
+       1. Introducing Discrete Mathematics
+      </a>
+     </li>
+     <li>
+      <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
+       2. Counting: Arithmetic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="set_theory.html#_set_theory">
+       3. Set Theory
+      </a>
+     </li>
+     <li>
+      <a href="logic.html#_logic">
+       4. Logic
+      </a>
+     </li>
+     <li>
+      <a href="proofs.html#_proofs_basic_techniques">
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
+      </a>
+     </li>
+     <li>
+      <a href="recursion.html#_sequences_and_recursion">
+       7. Sequences and Recursion
+      </a>
+     </li>
+     <li>
+      <a href="functions.html#_functions">
+       8. Functions
+      </a>
+     </li>
+     <li>
+      <a href="relations.html#_relations">
+       9. Relations
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       10. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       11. Proofs: Mathematical Induction
+      </a>
+     </li>
+     <li>
+      <a href="growth_of_functions.html#_rates_of_growth_of_functions">
+       12. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="algorithms.html#_algorithms_and_their_analysis">
+       13. Algorithms and Their Analysis
+      </a>
+     </li>
+     <li>
+      <a href="graph_theory.html#_graphs">
+       14. Graphs
+      </a>
+     </li>
+     <li>
+      <a href="trees.html#_trees">
+       15. Trees
+      </a>
+     </li>
+     <li>
+      <a href="appendix_math.html#_appendix_on_demand_math_resources">
+       16. Appendix: On-Demand Math Resources
+      </a>
+     </li>
+     <li>
+      <a href="appendix_library.html#_appendix_library_of_functions">
+       17. Appendix: Library of Functions
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
+       18. Appendix: An Introduction to Python
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
+       19. Appendix: Python Syntax Examples
+      </a>
+     </li>
+     <li>
+      <a href="appendix_for_instructors.html#_appendix_for_instructors">
+       20. Appendix: For Instructors
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div id="content">
+   <div id="preamble">
+    <div class="sectionbody">
+     <div class="openblock float-group">
+      <div class="content">
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="sect1">
+    <h2 id="_number_bases">
+     6. Number Bases
+    </h2>
+    <div class="sectionbody">
+     <div class="paragraph">
+      <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for
+        <a href="../index.html">
+         the “public version”
+        </a>
+        of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       <em>
+        This chapter was last updated on April 1, 2025.
+       </em>
+       <br/>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       It’s likely that you learned how to represent positive integers using
+the
+       <strong>
+        base-ten place-value system
+       </strong>
+       when you were young.
+This system uses ten symbols, the
+       <strong>
+        Hindu-Arabic numerals
+       </strong>
+       ‘0’,
+‘1’,
+‘2’,
+‘3’,
+‘4’,
+‘5’,
+‘6’,
+‘7’,
+‘8’, and
+‘9’,
+to represent
+       <em>
+        any
+       </em>
+       natural number.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       In the base-ten place-value system that uses
+       <strong>
+        decimal
+       </strong>
+       notation, each natural number is represented by a numeral which is a string of one or more of the ten Hindu-Arabic digits.
+However, in some computer science contexts, it is more useful to represent natural numbers in a place-value system that uses a different
+       <strong>
+        number base
+       </strong>
+       such as
+       <strong>
+        binary
+       </strong>
+       (base-two),
+       <strong>
+        octal
+       </strong>
+       (base-eight), or
+       <strong>
+        hexadecimal
+       </strong>
+       (base-sixteen).
+Using or thinking about numbers represented by numerals in these other systems can help you develop more efficient algorithms and recognize when certain numerals can be interpreted as encodings of multiple pieces of information.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       In this chapter, you will learn how to represent natural numbers using place-value systems with bases other than ten.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Key terms and concepts covered in this chapter:
+      </p>
+     </div>
+     <div class="ulist">
+      <ul>
+       <li>
+        <p>
+         Number bases
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            binary
+           </p>
+          </li>
+          <li>
+           <p>
+            hexadecimal
+           </p>
+          </li>
+          <li>
+           <p>
+            octal
+           </p>
+          </li>
+          <li>
+           <p>
+            decimal
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+      </ul>
+     </div>
+     <div class="sect2">
+      <h3 id="_numbers_numerals_and_digits">
+       6.1. Numbers, Numerals, and Digits
+      </h3>
+      <div class="paragraph">
+       <p>
+        In everyday life, it is common to treat numbers and numerals as if they are the same. However, it is important in this chapter to distinguish these concepts.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          A
+          <strong>
+           number
+          </strong>
+          is an abstract idea or mental concept of a count, a measure, a rank in an ordering, etc..
+         </p>
+        </li>
+        <li>
+         <p>
+          A
+          <strong>
+           numeral
+          </strong>
+          is a word, phrase, symbol, or string of symbols that is used to represent a number.
+         </p>
+        </li>
+        <li>
+         <p>
+          A
+          <strong>
+           digit
+          </strong>
+          is a single symbol that represents a number. A digit is a numeral, but multiple digits can be combined to create other numerals. For example, each of the ten Hindu-Arabic numerals is a digit that represents a natural number that is less than ten, and multiple Hindu-Arabic numerals can be combined to create numerals that represent numbers that are greater than or equal to ten.
+          <br/>
+          <span class="small">
+           NOTE: The word "digit" comes from the Latin word
+           <em>
+            digitus
+           </em>
+           which means "finger" or "toe."
+          </span>
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 1 -  Numerals, Numbers, and Digits
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Consider the following words:
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            "five",
+           </p>
+          </li>
+          <li>
+           <p>
+            "cinco",
+           </p>
+          </li>
+          <li>
+           <p>
+            "خمسة" ("khamsa"),
+           </p>
+          </li>
+          <li>
+           <p>
+            "पाँच" ("paanch"),
+           </p>
+          </li>
+          <li>
+           <p>
+            "五" ("wǔ").
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          These words, taken from different languages, are examples of
+          <em>
+           numerals,
+          </em>
+          words that represent a
+          <em>
+           number.
+          </em>
+          In fact, all those numerals represent the same number, but no one of the numerals
+          <em>
+           is
+          </em>
+          the number. The number itself is an abstract idea that can be referred to using any of those numerals.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In the same way,
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            the Roman "Ⅴ",
+           </p>
+          </li>
+          <li>
+           <p>
+            the Braille "⠼⠑",
+           </p>
+          </li>
+          <li>
+           <p>
+            the Coptic Epact "𐋥",
+           </p>
+          </li>
+          <li>
+           <p>
+            the Eastern Arabic "٥",
+           </p>
+          </li>
+          <li>
+           <p>
+            the Western Arabic "5".
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          are other ways of representing the same number that the
+words above represent.
+         </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Semiotics
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           In semiotics, the study of signs, symbols, and signification, the number is a
+           <strong>
+            sign,
+           </strong>
+           made up of the
+           <strong>
+            signified
+           </strong>
+           mental concept and the
+           <strong>
+            signifier
+           </strong>
+           (the numeral.)
+Further discussion is beyond the scope of this textbook, and beyond the remixer’s expertise! Here is a
+           <a href="http://visual-memory.co.uk/daniel//Documents/S4B/semiotic.html">
+            link
+           </a>
+           if you want to learn more about semiotics.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          This is not a pipe!
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Read
+           <a href="https://en.wikipedia.org/wiki/The_Treachery_of_Images">
+            this Wikipedia article
+           </a>
+           and pay attention to the quote from the artist, René Magritte.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_review_of_the_base_ten_place_value_system">
+       6.2. Review Of The Base-Ten Place Value System
+      </h3>
+      <div class="paragraph">
+       <p>
+        <mark>
+         <strong>
+          It’s likely that everything you are about to read in this section is knowledge you’ve had for many years. The purpose of stating everything so explicitly is to provide an example you can compare with place-value systems that use other bases.
+         </strong>
+        </mark>
+        <br/>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A base-ten numeral is a string formed from one or more digits (i.e.,  Hindu-Arabic numerals.)
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          The string is read from left-to-right.
+         </p>
+        </li>
+        <li>
+         <p>
+          Each digit in the string represents a multiple of a power of the base, ten, depending on the its position in the string.
+         </p>
+        </li>
+        <li>
+         <p>
+          The rightmost
+          <strong>
+           place
+          </strong>
+          represents a multiple of 1 (which is ten raised to the power zero) and each of the other places represents a multiple of a power of ten that is one greater than the power of ten represented by the place to its right.
+         </p>
+        </li>
+        <li>
+         <p>
+          Notice that the base itself, the number ten, is represented by the string "10" in this place-value system. The string "10" represents the number described by the phrase "1 ten plus 0 ones".
+         </p>
+        </li>
+        <li>
+         <p>
+          As an example, the string "101" represents the number described by the phrase "1 hundred plus 0 tens, plus 1 ones," where 1 hundred is the same as ten tens. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \] The expression on the right-hand side of the previous equation is referred to as
+          <strong>
+           expanded form
+          </strong>
+          in school-level mathematics.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        <span class="small">
+         NOTE: The Hindu-Arabic numerals evolved from earlier Brahmi versions. You can look at the image at this
+         <a href="https://www.britannica.com/topic/Hindu-Arabic-numerals/images-videos">
+          web page
+         </a>
+         which shows a few steps in this evolution. Also, you can learn more about the history of the Hindu-Arabic numerals from the links in the "Notes" and "References" sections of this
+         <a href="https://en.wikipedia.org/wiki/History_of_the_Hindu%E2%80%93Arabic_numeral_system">
+          Wikipedia page.
+         </a>
+        </span>
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_an_algorithm_that_computes_the_digits_of_a_base_ten_numeral">
+        6.2.1. An Algorithm That Computes The Digits Of A Base-Ten Numeral
+       </h4>
+       <div class="paragraph">
+        <p>
+         In this subsection, an algorithm is presented for computing the digits in the expanded form of a base-ten numeral of the natural number \(n.\) This may seem to be a complicated way to do something very simple since we could just
+         <em>
+          read off
+         </em>
+         the digits, but
+         <mark>
+          the important thing to notice about this algorithm is that the role that ten plays can be played by
+          <em>
+           any
+          </em>
+          other positive integer constant greater than one!
+         </mark>
+         This means that this algorithm can be adapted to find the "digits" in the expanded form of a base-\(b\) numeral for the number \(n\) for
+         <em>
+          any
+         </em>
+         base \(b\) we choose.
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Task: Given the natural number
+           <em>
+            n,
+           </em>
+           compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)]  so that each of \(r_{0}, r_{1}, \ldots , r_{k}\) is represented by a single digit in base-10, and \[ n = r_{k} \cdot 10^{k} + \ldots + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0} \] where \(k\) is the greatest natural number such that \(10^{k} &lt; n.\)
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              Input: The natural number \(n\)
+             </p>
+            </li>
+            <li>
+             <p>
+              Steps:
+             </p>
+             <div class="olist arabic">
+              <ol class="arabic">
+               <li>
+                <p>
+                 Set \(a\) equal to \(n\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Divide \(a\) by 10 to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot 10 + r\) and \(0 \leq r &lt; 10.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Append \(r\) to the end of array \(s.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 If \(q \neq 0\)
+                </p>
+                <div class="olist loweralpha">
+                 <ol class="loweralpha" type="a">
+                  <li>
+                   <p>
+                    set \(a\) equal to \(q\)
+                   </p>
+                  </li>
+                  <li>
+                   <p>
+                    go to step 3
+                   </p>
+                  </li>
+                 </ol>
+                </div>
+               </li>
+               <li>
+                <p>
+                 Return the sequence \(s.\)
+                </p>
+               </li>
+              </ol>
+             </div>
+            </li>
+            <li>
+             <p>
+              Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a single digit, and \[ n = r_{k} \cdot 10^{k} + \ldots + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0}.\]
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         That is, we rewrite \(n\) as \(r_{0} + 10 \cdot (r_{1} + 10 \cdot (r_{2} + \ldots r_{k-1} + (10 \cdot (r_{k})) \ldots ))\)
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 2 - Finding The Digits Of A Base-Ten Numeral
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The following equations summarize how the preceding algorithm determines the digits in the base-ten expanded form numeral for the number 432.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \begin{equation}
+\begin{aligned}
+432 {} &amp; = 43 \cdot 10 + 2 &amp; q {} &amp; = 43  &amp; r {} &amp; = 2 &amp; s &amp; = [2] \\
+43 {} &amp; = 4 \cdot 10 + 3   &amp; q {} &amp; = 4   &amp; r {} &amp; = 3 &amp; s &amp; = [2, 3] \\
+4 {} &amp; = 0 \cdot 10 + 4    &amp; q {} &amp; = 0   &amp; r {} &amp; = 4 &amp; s &amp; = [2, 3, 4] \\
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that the items in \(s = [ r_{0}, \, r_{1}, \, r_{2} \)] are the numbers corresponding to the digits of the numeral \(“432”\) in reverse order, so \begin{equation}
+\begin{aligned}
+432 &amp; =  r_{2} \cdot 10^{2} + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0} \\
+&amp; =  4 \cdot 10^{2} + 3 \cdot 10^{1} + 2 \cdot 10^{0}
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that the algorithm is rewriting \(432\) as the sum \(2 + 10 \cdot (3 + 10 \cdot 4)).\)
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_base_two_place_value_system_binary_notation">
+       6.3. The Base-Two Place Value System (Binary Notation)
+      </h3>
+      <div class="paragraph">
+       <p>
+        This subsection describes the base-two (binary) place value system. You will see that much of what is written here is the result of replacing "ten" by "two" in the description of the base-ten (decimal) system in the previous section.
+        <br/>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A base-two numeral is a string formed from one or more of the two
+        <strong>
+         binary digits
+        </strong>
+        (or
+        <strong>
+         bits
+        </strong>
+        ) ‘0’ and ‘1’.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          The string is read from left-to-right.
+         </p>
+        </li>
+        <li>
+         <p>
+          Each digit in the string represents a multiple of a power of the base, two, depending on the its position in the string.
+         </p>
+        </li>
+        <li>
+         <p>
+          The rightmost place represents a multiple of 1 (which is two raised to the power zero) and each of the other places represents a multiple of a power of two that is one greater than the power of two represented by the place to its right.
+         </p>
+        </li>
+        <li>
+         <p>
+          <mark>
+           Notice that the base itself, the number two, is represented by the string "10" in this place-value system.
+          </mark>
+          The string "10" represents the number described by the phrase "1 two plus 0 ones".
+         </p>
+        </li>
+        <li>
+         <p>
+          As an example, the string "101" represents the number described by the phrase "1 four plus 0 twos, plus 1 ones," where 1 four is the same as two twos. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Wait…​ WHAT?!?) }\]
+Yes, this equation,
+which may appear to be written in the base-ten system,
+is correct
+          <em>
+           in the base-two place value system,
+          </em>
+          too!  "10" is how the number two is represented in base-two notation!
+          <br/>
+          <span class="small">
+           As an analogy, the string "pie" signifies different things in English (a baked dessert) and Spanish (a foot.) You must take care to know which context you are working in!
+          </span>
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="admonitionblock important">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-important" title="Important">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            It is traditional to use
+some extra
+notation to indicate
+when the strings "10" and "101"
+            <span class="underline">
+             <em>
+              are not
+             </em>
+            </span>
+            base-ten numerals
+to avoid confusion.
+In this textbook,
+numerals in any base other than ten
+will be written
+between a pair of parentheses followed by a subscript indicating the base. The subscript is written as a
+            <em>
+             base-ten numeral.
+            </em>
+            For example, we could rewrite the previous equation as \[(101)_{2} = (1)_2 \cdot (10)_2 \cdot (10)_2 + (0)_2 \cdot (10)_2 + (1)_2 \cdot (1)_2 \]
+which translates into base-ten as \(5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.\) We can also write \(5 = (101)_2\) which is a way of saying that the base-ten numeral and the base-two numeral signify the same number. +
+            <span class="small">
+             NOTE:
+The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used…​ and we don’t need to use the parentheses or subscripts if we are already working in base-ten.
+            </span>
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            The parentheses and subscript are not necessary if it is clear from the context that a numeral is not a base-ten numeral. For example, \[ \text{chmod 755 hello.txt} \]
+is a Unix/Linux command that changes the file permission bits (read, write, execute) of the file "hello.txt" for the file’s owner, the file’s group, and any other user. In this example, the string "755" is not a base-10 numeral, but is in
+            <strong>
+             octal (base-eight).
+            </strong>
+            Octal will be discussed later in the chapter. No subscript is used in the Unix/Linux command because it is
+            <em>
+             natural
+            </em>
+            to an experienced user of that operating system to use octal in the context.
+            <br/>
+            <span class="small">
+             In fact, the octal numeral "755" is used here as an encoding of three bitstrings, where each bitstring is of length 3; this idea is discussed in a later subsection of this chapter.
+            </span>
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            Also, we can omit the parentheses and subscripts if we want to tell a couple of "jokes:"
+           </p>
+          </div>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              <a href="https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf">
+               "There are 10 types of people in the world… those that understand binary and those that don’t.”
+              </a>
+             </p>
+            </li>
+            <li>
+             <p>
+              <a href="https://math.stackexchange.com/questions/166869/is-10-a-magical-number-or-i-am-missing-something">
+               "Every base is base 10."
+              </a>
+             </p>
+            </li>
+           </ul>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="paragraph">
+       <p>
+        You are ready now to learn how to represent numbers using base-two numerals.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_an_algorithm_that_computes_the_digits_of_a_base_two_numeral">
+        6.3.1. An Algorithm That Computes The Digits Of A Base-Two Numeral
+       </h4>
+       <div class="paragraph">
+        <p>
+         In this subsection, an algorithm is presented for computing the digits in the expanded form of a base-two numeral of the natural number \(n.\) This algorithm has been adapted from the one stated for base-ten in the previous section.
+         <mark>
+          Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.
+         </mark>
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Task: Given the natural number
+           <em>
+            n,
+           </em>
+           compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)]  so that each of \(r_{0}, r_{1}, \ldots , r_{k}\) is represented by a single digit in base-2, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \] where \(k\) is the greatest natural number such that \(2^{k} &lt; n.\)
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              Input: The natural number \(n\)
+             </p>
+            </li>
+            <li>
+             <p>
+              Steps:
+             </p>
+             <div class="olist arabic">
+              <ol class="arabic">
+               <li>
+                <p>
+                 Set \(a\) equal to \(n\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Divide \(a\) by 2 to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot 2 + r\) and \(0 \leq r &lt; 2.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Append \(r\) to the end of array \(s.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 If \(q \neq 0\)
+                </p>
+                <div class="olist loweralpha">
+                 <ol class="loweralpha" type="a">
+                  <li>
+                   <p>
+                    set \(a\) equal to \(q\)
+                   </p>
+                  </li>
+                  <li>
+                   <p>
+                    go to step 3
+                   </p>
+                  </li>
+                 </ol>
+                </div>
+               </li>
+               <li>
+                <p>
+                 Return the sequence \(s.\)
+                </p>
+               </li>
+              </ol>
+             </div>
+            </li>
+            <li>
+             <p>
+              Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a single digit, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0}.\]
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         That is, the algorithm rewrites \(n\) as \(r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))\)
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 3 - Finding The Digits Of A Base-Two Numeral (Binary Notation)
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The following equations summarize how the preceding algorithm determines the digits in the base-two expanded form numeral for the number 13.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \begin{equation}
+\begin{aligned}
+13 {} &amp; = 6 \cdot 2 + 1 &amp; q {} &amp; = 6  &amp; r {} &amp; = 1 &amp; s &amp; = [1] \\
+6 {} &amp; = 3 \cdot 2 + 0   &amp; q {} &amp; = 3   &amp; r {} &amp; = 0 &amp; s &amp; = [1, 0] \\
+3 {} &amp; = 1 \cdot 2 + 1   &amp; q {} &amp; = 1   &amp; r {} &amp; = 1 &amp; s &amp; = [1, 0, 1] \\
+1 {} &amp; = 0 \cdot 2 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [1, 0, 1, 1] \\
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that the items in \(s = [ r_{0}, \, r_{1}, \, r_{2} , \, r_{3} \)] are the numbers (in base-ten notation) corresponding to the digits of the numeral \(“(1101)_2”\) in reverse order, so \begin{equation}
+\begin{aligned}
+13 &amp; =  r_{3} \cdot 2^{3} +  r_{2} \cdot 2^{2} + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \\
+&amp; =  1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 2 \cdot 2^{0}
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           The algorithm
+rewrites \(13\) as \(1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).\)
+           <br/>
+           Again, notice that the items in the array \([1, 0, 1, 1\)] are listed in reverse order, so
+\(13 = (1101)_2\)
+where the base-ten numeral and the base-two numeral represent the same number, thirteen.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Here is a
+         <a href="https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf">
+          link
+         </a>
+         to an alternate method of finding the base-two numeral for a number.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         If you made it to this sentence without skipping any of the discussion above, congratulations! If you did skip some of the discussion, go back and try your best to understand what the algorithm in the previous example is computing: The array \(s\) holds the digits, in reverse order of the binary notation for the number \(n.\) Compare what is done in this algorithm to the one for base-ten in the previous section…​ they are computing the digits for a numeral, but in different bases. If you can understand this algorithm, you will likely understand the rest of the chapter.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_base_b_place_value_system">
+       6.4. The Base-\(b\) Place Value System
+      </h3>
+      <div class="paragraph">
+       <p>
+        If you made it here, you are ready to learn how to find, given any natural number \(n,\) the numeral that represents \(n\) in the base-\(b\) place value system (It is assumed that the base \(b\) is a natural number greater than or equal to 2.) You can compare the algorithm and example in this subsection to the ones in the preceding subsections for base-ten and base-two.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A base-\(b\) numeral is a string formed from one or more digits out of a set that contains \(b\) symbols, where each symbol is called a "base-\(b\) digit."
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          The string is read from left-to-right.
+         </p>
+        </li>
+        <li>
+         <p>
+          Each digit in the string represents a multiple of a power of the base, \(b,\) depending on the its position in the string.
+         </p>
+        </li>
+        <li>
+         <p>
+          The rightmost place represents a multiple of 1 (which is \(b\) raised to the power zero) and each of the other places represents a multiple of a power of \(b\) that is one greater than the power of \(b\) represented by the place to its right.
+         </p>
+        </li>
+        <li>
+         <p>
+          <mark>
+           Notice that the base itself, the number \(b,\) is represented by the string "10" in the base-\(b\) place value system.
+          </mark>
+          The string "10" represents the number described by the phrase "1 \(b\) plus 0 ones".
+         </p>
+        </li>
+        <li>
+         <p>
+          As an example, the string "101" represents the number described by the phrase "1
+          <em>
+           b-_squared plus 0 _b
+          </em>
+          , plus 1 ones." That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Again?!?) }\]
+Yes, this equation is correct, too,
+          <em>
+           in the base-b place value system!
+          </em>
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        To avoid confusion, you can enclose each numeral in a pair of parentheses followed by the subscript \(b\) to indicate the base, where \(b\) is written as a
+        <em>
+         base-ten numeral.
+        </em>
+        For example,
+the previous equation
+can be written as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \]
+which translates into base-ten as \(b^2 + 1 = 1 \cdot b \cdot b + 0 \cdot b + 1 \cdot 1.\)
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_an_algorithm_that_computes_the_digits_of_a_base_b_numeral">
+        6.4.1. An Algorithm That Computes The Digits Of A Base-\(b\) Numeral
+       </h4>
+       <div class="paragraph">
+        <p>
+         This is an adaptation of the algorithm presented earlier for base-two.
+         <mark>
+          Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.
+         </mark>
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Task: Given the natural number
+           <em>
+            n,
+           </em>
+           and positive integer constant \(b &gt; 1\)
+compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] so that each of \(r_{0}, r_{1}, \ldots , r_{k}\)
+can be represented by a single digit in base-\(b\), and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0} \] where \(k\) is the greatest natural number such that \(b^{k} &lt; n.\)
+          </p>
+          <div class="ulist">
+           <ul>
+            <li>
+             <p>
+              Input: The natural number \(n\)
+             </p>
+            </li>
+            <li>
+             <p>
+              Steps:
+             </p>
+             <div class="olist arabic">
+              <ol class="arabic">
+               <li>
+                <p>
+                 Set \(a\) equal to \(n\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Divide \(a\) by \(b\) to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot b + r\) and \(0 \leq r &lt; b.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 Append \(r\) to the end of array \(s.\)
+                </p>
+               </li>
+               <li>
+                <p>
+                 If \(q \neq 0\)
+                </p>
+                <div class="olist loweralpha">
+                 <ol class="loweralpha" type="a">
+                  <li>
+                   <p>
+                    set \(a\) equal to \(q\)
+                   </p>
+                  </li>
+                  <li>
+                   <p>
+                    go to step 3
+                   </p>
+                  </li>
+                 </ol>
+                </div>
+               </li>
+               <li>
+                <p>
+                 Return the sequence \(s.\)
+                </p>
+               </li>
+              </ol>
+             </div>
+            </li>
+            <li>
+             <p>
+              Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a
+single digit in base-\(b,\)
+and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0}.\]
+             </p>
+            </li>
+           </ul>
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         The algorithm rewrites \(n\) as \(r_{0} + b \cdot (r_{1} + b \cdot (r_{2} + \ldots r_{k-1} + (b \cdot (r_{k})) \ldots )).\) The result
+\(s\) contains the numbers
+that let you write \(n\)
+in base-\(b\) notation.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_octal_notation_base_8">
+        6.4.2. Octal Notation (Base-8)
+       </h4>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 4 - Finding The Digits Of A Base-8 Numeral (Octal Notation)
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The following equations summarize how to determine the digits in the base-8 expanded form numeral for the number 100.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Note that for base-8 we use the eight digits
+‘0’,
+‘1’,
+‘2’,
+‘3’,
+‘4’,
+‘5’,
+‘6’, and
+‘7’.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \begin{equation}
+\begin{aligned}
+100 {} &amp; = 12 \cdot 8 + 4 &amp; q {} &amp; = 12  &amp; r {} &amp; = 4 &amp; s &amp; = [4] \\
+12 {} &amp; = 1 \cdot 8 + 4   &amp; q {} &amp; = 1   &amp; r {} &amp; = 4 &amp; s &amp; = [4, 4] \\
+1 {} &amp; = 0 \cdot 8 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [4, 4, 1] \\
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that \(s = [ 4, \, 4, \, 1 \)] are the numbers (in base-ten notation) corresponding to the base-8 digits of the numeral \(“(144)_8”\) in reverse order. You can verify that \(100 = 1 \cdot 8^{2} + 4 \cdot 8^{1} + 4  \cdot 8^{0}.\) This means that \(100 = (144)_8.\)
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_hexadecimal_notation_base_16">
+        6.4.3. Hexadecimal Notation (Base-16)
+       </h4>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example 5 - Finding The Digits Of A Base-16 Numeral (Hexadecimal Notation)
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The following equations summarize how to determine the digits in the base-16 expanded form numeral for the number 500.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Note that for base-16, we need sixteen digits! It is traditional to use the ten Hindu-Arabic numerals followed by the first six uppercase English letters as the digits:
+‘0’,
+‘1’,
+‘2’,
+‘3’,
+‘4’,
+‘5’,
+‘6’,
+‘7’,
+‘8’,
+‘9’,
+‘A’,
+‘B’,
+‘C’,
+‘D’,
+‘E’, and
+‘F’.
+So
+\(10 = (A)_{16},\)
+\(11 = (B)_{16},\)
+\(12 = (C)_{16},\)
+\(13 = (D)_{16},\)
+\(14 = (E)_{16},\) and
+\(15 = (F)_{16}.\)
+           <br/>
+           <span class="small">
+            Note: Some programming languages like Python use the lowercase letters 'a' through 'f' instead of the uppercase letters.
+           </span>
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           The remainders stored in the array \(s\) are represented in base-ten notation, and will need to be replaced by the corresponding hexadecimal digits in the base-16 numeral for 500.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \begin{equation}
+\begin{aligned}
+500 {} &amp; = 31 \cdot 16 + 4 &amp; q {} &amp; = 31  &amp; r {} &amp; = 4 &amp; s &amp; = [4] \\
+31 {} &amp; = 1 \cdot 16 + 15   &amp; q {} &amp; = 1   &amp; r {} &amp; = 15 &amp; s &amp; = [4, 15] \\
+1 {} &amp; = 0 \cdot 16 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [4, 15, 1] \\
+\end{aligned}
+\end{equation}
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           As before, we have \(500 = 1 \cdot 16^{2} + 15 \cdot 16^{1} + 4 \cdot 16^{0},\) which you can verify is true.
+To write the base-16 numeral for 500, you need to replace "15" in base-ten  by \((F)_{16}.\) So \(500 = (1F4)_{16}.\)
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_a_theorem_to_be_proven_later">
+        6.4.4. A Theorem (To Be Proven Later)
+       </h4>
+       <div class="paragraph">
+        <p>
+         We can summarize what the algorithm does as a
+         <strong>
+          mathematical theorem,
+         </strong>
+         though technically at this point, it’s only a
+         <strong>
+          conjecture,
+         </strong>
+         an educated guess based on a few cases that seem to indicate that the algorithm will always work. You will learn a technique that will prove the theorem by validating the algorithm for all choices of natural numbers \(n\) and \(b&gt;1\) in the
+         <a href="./induction.html">
+          Proofs: Mathematical Induction
+         </a>
+         chapter.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           Let \(b\) be an integer greater than 1. Any positive integer \(n\) can be expressed uniquely in the form \[n = r_kb^k + r_{k - 1}b^{k-1} + \cdots + r_1b^1 + r_0b^0,\]where \(k\) is a nonnegative integer, \(r_0,r_1,\dots,r_k\) are nonnegative integers less than \(b,\) and \(r_k \neq 0.\)
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_converting_from_base_b_to_base_ten">
+       6.5. Converting From Base-\(b\) to Base-Ten
+      </h3>
+      <div class="paragraph">
+       <p>
+        In this section you will learn how to rewrite a base-\(b\) numeral in base-ten.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 6
+         </div>
+         <p>
+          What is the decimal expansion of the positive integer with base 7 expansion \((1063)_7\)?
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          We have
+         </p>
+        </div>
+        <div class="openblock equationalign">
+         <div class="content">
+          <table class="equation_table_style">
+           <tr class="equation_row_style">
+            <td ;="" class="equation_content_style">
+             \[\begin{split}
+(1063)_7 &amp;= 1 \cdot 7^3 + 0 \cdot 7^2 + 6\cdot 7^1 + 3 \cdot 7^0\\
+&amp;=1 \cdot 343 + 0 \cdot 49 + 6 \cdot 7 + 3 \cdot 1\\
+&amp;= 343 + 0 + 42 + 3\\
+&amp;= 388.
+\end{split}\]
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Several common bases used in computer science are base \(2\), base \(8\), and base \(16\), which are referred to as
+        <strong>
+         binary
+        </strong>
+        ,
+        <strong>
+         octal
+        </strong>
+        , and
+        <strong>
+         hexadecimal
+        </strong>
+        , respectively. Binary digits are often referred to as
+        <strong>
+         bits
+        </strong>
+        . Note that, when finding the hexadecimal expansion of a positive integer, in addition to the usual digits \(0\) through \(9,\) we require an additional 6 digits. We will represent these by the letters \(\mathrm{A}\) through \(\mathrm{F}\), where \((\mathrm{A})_{16} = 10,\) \((\mathrm{B})_{16} = 11,\) \((\mathrm{C})_{16} = 12,\) \((\mathrm{D})_{16} = 13,\) \((\mathrm{E})_{16} = 14,\) and \((\mathrm{F})_{16} = 15.\)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 7 - Hexadecimal expansion
+         </div>
+         <p>
+          Find the decimal expansion of the positive integer whose hexadecimal expansion is \((5\mathrm{B}\mathrm{F})_{16}.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          We have
+         </p>
+        </div>
+        <div class="openblock equationalign">
+         <div class="content">
+          <table class="equation_table_style">
+           <tr class="equation_row_style">
+            <td ;="" class="equation_content_style">
+             \[\begin{split}
+(5\mathrm{B}\mathrm{F})_{16} &amp;= 5\cdot 16^2 + 11 \cdot 16^1 + 15 \cdot 16^0\\
+&amp;= 5\cdot 256 + 11 \cdot 16 + 15 \cdot 1\\
+&amp;= 1280 + 176 + 15\\
+&amp;= 1471.
+\end{split}\]
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_base_conversion_among_binary_octal_and_hexadecimal">
+       6.6. Base Conversion Among Binary, Octal, and Hexadecimal
+      </h3>
+      <div class="paragraph">
+       <p>
+        One of the ways that octal (base-eight) and hexadecimal (base-sixteen) are used in computer science is to abbreviate long bitstrings. The following examples will show how this is done.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Suppose
+you need to convert
+a numeral
+from hexadecimal to binary. One method would be to first convert
+from hexadecimal to decimal, and then
+convert the result from decimal to binary. However,
+it is much more efficient to notice that since
+\(2^4 = 16,\)
+you can express each hexadecimal digit
+as a block of 4 bits
+(that is, a
+        <a href="./introduction_discrete_math.html#informal_bitstring_definition">
+         <em>
+          bitstring
+         </em>
+        </a>
+        of length 4)
+as follows:
+       </p>
+      </div>
+      <div class="stemblock">
+       <div class="content">
+        \[\begin{array}{llll}
+(0)_{16} = (0000)_2 &amp; (1)_{16} = (0001)_{2}&amp; (2)_{16} = (0010)_2 &amp; (3)_{16} = (0011)_2 \\
+(4)_{16} = (0100)_2&amp; (5)_{16} = (0101)_2&amp; (6)_{16} = (0110)_2 &amp; (7)_{16} = (0111)_2\\
+(8)_{16} = (1000)_2&amp; (9)_{16} = (1001)_2&amp; (\mathrm{A})_{16} = (1010)_2&amp; (\mathrm{B})_{16} = (1011)_2\\
+(\mathrm{C})_{16} = (1100)_2&amp; (\mathrm{D})_{16} = (1101)_2&amp; (\mathrm{E})_{16} = (1110)_2&amp;  (\mathrm{F})_{16} = (1111)_2.
+\end{array}\]
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        You can then concatenate the blocks, and remove any leading zeros if you need to.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 8 - Hexadecimal to Binary Conversion
+         </div>
+         <p>
+          Find the binary expansion of \((4\mathrm{C}\mathrm{A}7)_{16}.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          Each hexadecimal digit can be replaced by a block of 4 bits:
+         </p>
+        </div>
+        <div class="stemblock">
+         <div class="content">
+          \[\begin{array}{llll}
+(4)_{16} = (0100)_2 &amp; (\mathrm{C})_{16} = (1100)_2 &amp; (\mathrm{A})_{16} = (1010)_2 &amp; (7)_{16} = (0111)_2.
+\end{array}\]
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          This means that you can write either \[(4\mathrm{C}\mathrm{A}7)_{16} = (0100110010100111)_{2}\] or, if the leading zero is not needed, \[(4\mathrm{C}\mathrm{A}7)_{16} = (100110010100111)_{2}.\]
+          <span class="small">
+           Why wouldn’t you always delete leading zeroes? Notice that a bitstring of length 4 can be used to encode a sequence of "Yes/No" or "True/False" answers. As an example, since \((6)_{16} = (0110)_2,\) the hexadecimal digit \((6)_{16}\) can be used to encode the sequence of 4 answers "No, Yes, Yes, No" to a Yes/No survey, and in this context the leftmost bit should be kept to make it clear that the answer to the first question was "No" (as opposed to the sequence "Yes, Yes, No, blank" where the fourth question was not answered.)
+          </span>
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        To convert
+a numeral from binary to hexadecimal,
+first
+break up
+the binary notation into blocks of 4
+bits,
+adding a suitable number of
+leading zeros if necessary.
+Next, convert each block of 4 bits to
+a hexadecimal digit
+and concatenate
+the results, removing any leading
+zeros if necessary.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 9 - Binary to Hexadecimal Conversion
+         </div>
+         <p>
+          Find the hexadecimal expansion of \((110 1011 1111)_2.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          The are three blocks of 4 bits: \[0110,\ 1011,\ 1111.\]
+Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 = (\mathrm{F})_{16},\) \[(11010111111)_{2} = (6\mathrm{B}\mathrm{F})_{16}.\]
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        A similar method can be used to convert between octal and binary.
+Since \(2^3 = 8,\) each octal digit can be written uniquely as a block of 3 bits as follows:
+       </p>
+      </div>
+      <div class="stemblock">
+       <div class="content">
+        \[\begin{array}{llll}
+(0)_{8} = (000)_2 &amp; (1)_{8} = (001)_{2}&amp; (2)_{8} = (010)_2 &amp; (3)_{8} = (011)_2 \\
+(4)_{8} = (100)_2&amp; (5)_{8} = (101)_2&amp; (6)_{8} = (110)_2 &amp; (7)_{8} = (111)_2.
+\end{array}\]
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        We then concatenate  blocks, removing any leading zeros if necessary.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Also, the following table can be used to covert quickly between decimal, hexadecimal, octal, and binary in a similar way.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        <strong>
+         Conversion table for different bases
+        </strong>
+       </p>
+      </div>
+      <table class="tableblock frame-all grid-all stretch">
+       <colgroup>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8823%;"/>
+        <col style="width: 5.8832%;"/>
+       </colgroup>
+       <tbody>
+        <tr>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           <strong>
+            Decimal
+           </strong>
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           0
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           2
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           3
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           4
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           5
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           6
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           7
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           8
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           9
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           10
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           11
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           12
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           13
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           14
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           15
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           <strong>
+            Hexadecimal
+           </strong>
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           0
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           2
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           3
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           4
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           5
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           6
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           7
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           8
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           9
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           A
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           B
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           C
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           D
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           E
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           F
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           <strong>
+            Octal
+           </strong>
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           0
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           2
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           3
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           4
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           5
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           6
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           7
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           10
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           11
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           12
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           13
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           14
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           15
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           16
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           17
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           <strong>
+            Binary
+           </strong>
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           0
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           10
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           11
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           100
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           101
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           110
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           111
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1000
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1001
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1010
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1011
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1100
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1101
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1110
+          </p>
+         </td>
+         <td class="tableblock halign-left valign-top">
+          <p class="tableblock">
+           1111
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="sect2">
+      <h3 id="_exercises_4">
+       6.7. Exercises
+      </h3>
+      <div class="olist arabic">
+       <ol class="arabic">
+        <li>
+         <p>
+          Convert to decimal (base 10)
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \((10262)_7\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \((30A8)_{16}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \((1000010001100)_2\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(({12307)}_{60}\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Convert \(\left(2039\right)_{10}\) from decimal (base 10) to
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             base 7
+            </p>
+           </li>
+           <li>
+            <p>
+             binary
+            </p>
+           </li>
+           <li>
+            <p>
+             hexadecimal (base 16)
+            </p>
+           </li>
+           <li>
+            <p>
+             octal (base 8)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Convert \(\left(2599\right)_{10}\) from decimal to
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             base 5
+            </p>
+           </li>
+           <li>
+            <p>
+             binary
+            </p>
+           </li>
+           <li>
+            <p>
+             hexadecimal
+            </p>
+           </li>
+           <li>
+            <p>
+             base 3
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Convert the following hexadecimal numerals to binary numerals
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(\left(6F203\right)_{16}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left(3FA20C45\right)_{16}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left(FACE\right)_{16}\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Convert the following binary numerals to hexadecimal numerals
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(\left(1111100111010101101\right)_2\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left(\ 10001111101011\right)_2\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\left(1100101011111110\right)_2\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+       </ol>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { extensions: ["mhchem.js"] }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML">
+  </script>
+ </body>
+</html>

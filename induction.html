@@ -7,7 +7,7 @@
   <meta content="Asciidoctor 1.5.8" name="generator"/>
   <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
   <title>
-   Discrete Math - The MKD Remix
+   Discrete Math - The MKD Remix (Public Version)
   </title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
   <style>
@@ -469,7 +469,7 @@ $(document).on('page:load', ready2);
  <body class="book toc2 toc-left">
   <div id="header">
    <h1>
-    Discrete Math - The MKD Remix
+    Discrete Math - The MKD Remix (Public Version)
    </h1>
    <div class="details">
     <span class="author" id="author">
@@ -616,13 +616,35 @@ $(document).on('page:load', ready2);
      </div>
      <div class="paragraph">
       <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are enrolled in the CSC 230 course that I teach at SFSU, you need to use
+        <a href="./CSC230/index.html">
+         the “CSC230 version”
+        </a>
+        of the book, which I will be updating throughout the semester. The version you are looking at now is the “public version” of the book that is only updated between semesters.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
        <em>
-        This chapter was last updated on April 7, 2025.
+        This chapter was last updated on August 23, 2025.
        </em>
        <br/>
-       <span class="small">
-        Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.
-       </span>
+       <em>
+        added note about the Principle of Mathematical Induction and the Well-Ordering Principle
+       </em>
+       <br/>
+       <em>
+        removed references to universal generalization throughout.
+       </em>
+       <br/>
+       <em>
+        restructured discussion of proof by induction and the Principle of Mathematical Induction
+       </em>
       </p>
      </div>
      <div class="paragraph">
@@ -683,7 +705,7 @@ This proof technique will also be used to validate algorithms.
       </h3>
       <div class="paragraph">
        <p>
-        We often encounter an infinite sequence of related propositions, all of which appear to be True. To prove all of the propositions, we might try to write a proof for each individual proposition and then combine all those proofs together as a single infinitely long "proof"…​ but recall from the chapter on
+        We often encounter an infinite sequence of related propositions, all of which appear to be True. To prove all of the propositions, we might try to write a proof for each individual proposition and then combine all those proofs together as a single infinitely-long “proof”… but recall from the chapter on
         <a href="./proofs.html">
          Proofs: Basic Techniques
         </a>
@@ -697,7 +719,7 @@ consists of a
          finite
         </em>
         length.
-As an analogy, imagine you had an "algorithm" that required infinitely many steps to complete its task…​ such an algorithm would not be useful in the real world since it
+As an analogy, imagine you had an “algorithm” that required infinitely-many steps to complete its task… such an algorithm would not be useful in the real world since it
 might
 never complete the task!
        </p>
@@ -800,7 +822,7 @@ Recall that the predicate’s output is a
           Next, consider this second image, which shows how you could change the first image to one that can be used to prove that \(P(5)\) is True.
           <br/>
           <span class="small">
-           It’s easy to show that the proposition \(P(5)\) is True because you can just write out and verify that \(1 + 3 + 5 + 7 + 9 = 25 = 5^{2}.\) The goal here is to relate the proposition \(P(5)\) to the "preceding" proposition \(P(4),\) in a way similar to what was done for sequences of numbers in a
+           It’s easy to show that the proposition \(P(5)\) is True because you can just write out and verify that \(1 + 3 + 5 + 7 + 9 = 25 = 5^{2}.\) The goal here is to relate the truth value of the proposition \(P(5)\) to the truth value of the “preceding proposition” \(P(4),\) in a way similar to how the numerical value of a term of a sequence can be related to the numerical value of the “preceding term” of the sequence using a
            <a href="./recursion.html">
             recurrence relation.
            </a>
@@ -809,7 +831,7 @@ Recall that the predicate’s output is a
         </div>
         <div class="paragraph">
          <p>
-          Notice that the second image shows that, given the square arrangement of disks that has 4 disks along each side, we can construct a square arrangement that has 5 disks along each side by inserting 4 new disks above the top row, 4 new disks in a column to the right of the rightmost column, and 1 new disk in the upper right corner to completes the square arrangement.
+          Notice that the second image shows that, given the square arrangement of disks that has 4 disks along each side, we can construct a square arrangement that has 5 disks along each side by inserting 4 new disks above the top row, 4 new disks in a column to the right of the rightmost column, and 1 new disk in the upper right corner to complete the square arrangement.
          </p>
         </div>
         <div class="paragraph">
@@ -897,11 +919,9 @@ In the following code snippet, the user-defined function
         </div>
         <div class="paragraph">
          <p>
-          Since we can now, in principle, build a proof of \(P(n)\) for any value of \(n \in \mathbb{N}\) that we could choose, we apply the rule of inference
-          <em>
-           universal generalization
-          </em>
-          to conclude that \((\forall \in \mathbb{N})P(n).\) That is, we have proven the proposition \[ \text{"For every positive natural number } n \text{, the sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\]
+          Since we can now, in principle, build a proof of \(P(n)\) for any value of \(n \in \mathbb{N}\) that we could choose,
+we
+conclude that \((\forall \in \mathbb{N})P(n).\) That is, we have proven the proposition \[ \text{"For every positive natural number } n \text{, the sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\]
           <span class="small">
            Another way to look at this is to define \(s(n)\) to be the number of disks in a \(n \times n\) square arrangement of disks. We have shown that \(s(1) = 1\) and that \(s(k+1) = s(k) + 2k + 1\) for every positive natural number value of \(k,\) and have concluded that \(s(n) = n^{2}\) for every positive natural number \(n.\)
           </span>
@@ -916,8 +936,8 @@ In the following code snippet, the user-defined function
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_the_principle_of_mathematical_induction">
-       11.2. The Principle of Mathematical Induction
+      <h3 id="_the_proof_by_mathematical_induction_technique">
+       11.2. The “Proof By Mathematical Induction” Technique
       </h3>
       <div class="paragraph">
        <p>
@@ -936,7 +956,11 @@ In the following code snippet, the user-defined function
          </td>
          <td class="hdlist2">
           <p>
-           Prove the predicate \(P(n)\) is True for some small value of \(n;\) in most but not all cases, you prove either \(P(0)\) or \(P(1)\) (You can also prove \(P(n)\) for other values if it helps you get a feel for what needs to be proven, as was done in "the sum of the first \(n\) consecutive odd natural numbers is the perfect square \(n^{2}\)" in the previous section.)
+           Prove the predicate \(P(n)\) is True for some small value of \(n.\) In most but not all cases, you prove either \(P(0)\) or \(P(1).\)
+           <br/>
+           <span class="small">
+            You can also prove \(P(n)\) for finitely-many other values if it helps you get a feel for what needs to be proven, as was done in “the sum of the first \(n\) consecutive odd natural numbers is the perfect square \(n^{2}\)” in the previous section.
+           </span>
           </p>
          </td>
         </tr>
@@ -956,11 +980,15 @@ In the following code snippet, the user-defined function
            <span class="underline">
             assumed to be True,
            </span>
-           where \(k\) represents an arbitrary natural number. Using
-           <em>
-            modus ponens
-           </em>
-           allows you to infer that \(P(k+1)\) must also be True based on the assumption that \(P(k)\) is True.
+           where \(k\) represents an arbitrary natural number.
+           <br/>
+           <span class="small">
+            By assuming that \(P(k)\) is already True and also proving the conditional statement \(P(k) \rightarrow P(k+1),\) you can use
+            <em>
+             modus ponens
+            </em>
+            to infer that \(P(k+1)\) must also be True: You can “step up” from any natural number to the next largest natural number and maintain the truth value of the predicate.
+           </span>
           </p>
          </td>
         </tr>
@@ -970,11 +998,11 @@ In the following code snippet, the user-defined function
          </td>
          <td class="hdlist2">
           <p>
-           Conclude that \(P(n)\) is True for all natural numbers \(n\) that are greater than or equal to the small(est) value used in the Basis Step. This conclusion uses
-           <em>
-            universal generalization
-           </em>
-           as the rule of inference.
+           Conclude that \(P(n)\) is True for all natural numbers \(n\) that are greater than or equal to the smallest value used in the Basis Step.
+           <br/>
+           <span class="small">
+            Some sources do not list the Conclusion Step as part of a proof by mathematical induction, but the Remix includes it to emphasize that this step must be done to complete the proof.
+           </span>
           </p>
          </td>
         </tr>
@@ -982,23 +1010,9 @@ In the following code snippet, the user-defined function
       </div>
       <div class="paragraph">
        <p>
-        The three steps above are referred to as
-        <strong>
-         "The Principle of Mathematical Induction"
-        </strong>
-        which is often abbreviated as
-        <strong>
-         PMI.
-        </strong>
-        <br/>
-        <span class="small">
-         Some textbooks and sources do not include the Conclusion Step as part of PMI, but the remixer wanted to stress that this step is needed to complete the proof.
-        </span>
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        You can compare the first two steps of PMI to the two steps used in a recursive definition as in the
+        You can compare the first two steps of
+a proof by mathematical induction
+to the two steps used in a recursive definition as in the
         <a href="./recursion.html#definition_of_recursive_definition">
          Sequences and Recursion
         </a>
@@ -1020,14 +1034,17 @@ that \(P(n)\) is true for
         <strong>
          every
         </strong>
-        natural number \(n\) greater than or equal to some some small natural number \(n_{0} \geq 0\). That is, we can conclude that \((\forall n \geq n_{0}) P(n)\) is a True propostion.
+        natural number \(n\) greater than or equal to some some small natural number
+\(b \geq 0\).
        </p>
       </div>
       <div class="paragraph">
        <p>
         As an analogy, imagine we are building a tower using interlocking toy blocks. How tall can the tower be?
 The basis step involves placing a foundation on the ground (either a flat surface for \(n = 0\), or a first block for \(n = 1\)),
-and the induction step justifies that if we have built a tower that has height \(k\) then we can build a tower of height \(k+1\) by placing one more block on the tower. The conclusion step states that we can build a tower that is of any finite height \(n\) (as long as we have \(n\) or more blocks and ignore issues arising from real-world physics!) Note that we never build an infinitely tall tower.
+and the induction step justifies that if we have built a tower that has height \(k\) then we can build a tower of height \(k+1\) by placing one more block on the tower. The conclusion step states that we can build a tower that is of any finite height \(n\) (as long as we have
+enough
+blocks and ignore issues arising from real-world physics!) Note that we never build an infinitely tall tower.
         <br/>
         <span class="small">
          Note: Some textbooks and sources use an "infinite ladder" analogy for mathematical induction, but this is not quite correct. A better analogy is a ladder that can be extended to any finite height you need, but that is always of finite height.
@@ -1036,9 +1053,8 @@ and the induction step justifies that if we have built a tower that has height \
       </div>
       <div class="paragraph">
        <p>
-        As
-an
-example, here is a proof of the Handshake Theorem for
+        Let’s finish this section with an example of using this proof technique.
+Here is a proof of the Handshake Theorem for
         <a href="./introduction_discrete_math.html#informal_graph_definition">
          graphs.
         </a>
@@ -1051,7 +1067,9 @@ example, here is a proof of the Handshake Theorem for
           Example 2 - Proof of the Handshake Theorem
          </div>
          <p>
-          We will prove the following proposition using mathematical induction.
+          We will prove the following proposition using
+proof by
+mathematical induction.
          </p>
         </div>
         <div class="exampleblock">
@@ -1084,7 +1102,7 @@ example, here is a proof of the Handshake Theorem for
          <ul>
           <li>
            <p>
-            We could try using induction on the number of vertices, but notice that we can add an isolated vertex without effecting either the sum of the degrees or the number of edges. This indicates that the number of vertices is not the correct variable to use for a proof by induction.
+            We could try using induction on the number of vertices, but notice that we can add an isolated vertex without affecting either the sum of the degrees or the number of edges. This indicates that the number of vertices is not the correct variable to use for a proof by induction.
            </p>
           </li>
           <li>
@@ -1129,7 +1147,8 @@ but notice that, as above, adding a new vertex \(v\) to the graph
            Basis Step:
           </strong>
           \(P(0)\) is the proposition "The sum of the degrees of the vertices for a graph with \(0\) edges is equal to \(2 \cdot 0.\)"
-since a graph with 0 edges is just a collection of isolated vertices, and each of the isolated vertices has degree 0, the sum of the degrees of the vertices must also be 0, which is 2 times the number of edges. This means that \(P(0)\) is True, and the Basis has been established.
+Notice that a graph with 0 edges is just a collection of isolated vertices, and each of the isolated vertices has degree 0,
+so the sum of the degrees of the vertices must also be 0, which is 2 times the number of edges. This means that \(P(0)\) is True, and the Basis has been established.
          </p>
         </div>
         <div class="paragraph">
@@ -1171,7 +1190,7 @@ since a graph with 0 edges is just a collection of isolated vertices, and each o
             \(e\) is a loop with only one endpoint, in which case the degree of that endpoint increases by 2, so the sum of the degrees of the vertices increases by 2.
             <br/>
             <span class="small">
-             Notice that in either bullet, it does not to matter whether the new edge \(e\) has endpoints that are "new" to the graph or were "old" vertices that were in the graph already.
+             Notice that in either bullet, it does not matter whether the new edge \(e\) has endpoints that are "new" to the graph or were "old" vertices that were in the graph already.
             </span>
            </p>
           </li>
@@ -1187,12 +1206,9 @@ since a graph with 0 edges is just a collection of isolated vertices, and each o
           <strong>
            Conclusion Step:
           </strong>
-          We have proven both the Basis Step and the Induction Step. Therefore, we can use
-          <em>
-           universal generalization
-          </em>
-          to conclude that
-\((\forall n \in \mathbb{N})P(n),\) which translates to "For all natural umber \(n,\) the sum of the degrees of the vertices for a graph with \(n\) edges is equal to \(2 \cdot n.\)"
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+\((\forall n \in \mathbb{N})P(n),\) which translates to "For all natural numbers \(n,\) the sum of the degrees of the vertices for a graph with \(n\) edges is equal to \(2 \cdot n.\)"
          </p>
         </div>
         <div class="paragraph">
@@ -1204,8 +1220,219 @@ since a graph with 0 edges is just a collection of isolated vertices, and each o
       </div>
      </div>
      <div class="sect2">
+      <h3 id="_the_principle_of_mathematical_induction">
+       11.3. The Principle of Mathematical Induction
+      </h3>
+      <div class="paragraph" id="the_principle_of_mathematical_induction_for_natural_numbers">
+       <p>
+        The “proof by mathematical induction” technique is justified by the
+        <strong>
+         Principle of Mathematical Induction,
+        </strong>
+        often abbreviated as
+        <strong>
+         PMI.
+        </strong>
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         The Principle of Mathematical Induction
+        </div>
+        <div class="paragraph">
+         <p>
+          Suppose that \(S\) is a subset of \(\mathbb{N}\) such that
+         </p>
+        </div>
+        <div class="olist arabic">
+         <ol class="arabic">
+          <li>
+           <p>
+            \(0\) is an element of \(S,\) and
+           </p>
+          </li>
+          <li>
+           <p>
+            if \(k\) is an element of \(S,\) then \(k+1\) is an element of \(S,\) too.
+           </p>
+          </li>
+         </ol>
+        </div>
+        <div class="paragraph">
+         <p>
+          Then every natural number is contained in \(S,\) that is, \(S = \mathbb{N}.\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        In the Remix, the Principle of Mathematical Induction is treated as an axiom, a statement that is assumed to be True about the set of natural numbers.
+        <br/>
+        <span class="small">
+         This principle has been used for nearly 2,000 years, but was only formalized by mathematicians about 150 years ago. See the History section, as well as the References, at this
+         <a href="https://en.wikipedia.org/wiki/Mathematical_induction#History">
+          Wikipedia page
+         </a>
+         for more information.
+        </span>
+        <br/>
+       </p>
+      </div>
+      <div class="openblock click">
+       <div class="title">
+        Note to instructors - click to expand
+       </div>
+       <div class="content">
+        <div class="click_oblique">
+         <span class="small">
+          Many textbooks assume either the
+          <a href="./relations.html#well_ordering_principle_for_natural_numbers">
+           Well-Ordering Principle
+          </a>
+          or the
+          <a href="./induction.html#the_principle_of_mathematical_induction_for_natural_numbers">
+           Principle of Mathematical Induction
+          </a>
+          as an axiom, and then prove the other principle using that axiom (and also prove that the two principles are logically equivalent.) As the Remix is designed for students of Computer Science, both principles are simply assumed to be True without proof,
+that is, both principles are treated as axioms.
+This choice should not limit student understanding of how these principles can be applied, and also avoids some highly technical issues that arise in formal mathematical definitions of the set \(\mathbb{N}\) of natural numbers which would most likely only be of concern to Mathematics majors and their instructors. If you
+want to do a deeper mathematical exploration of these technical issues (e.g., differing formulations of the Peano axioms, and first-order versus second-order logic) you may refer to
+          <a href="https://link.springer.com/article/10.1007/s00283-019-09898-4">
+           this article
+          </a>
+          in
+          <em>
+           The Mathematical Intelligencer
+          </em>
+          as well as the subsection “Nonstandard models” of this
+          <a href="https://en.wikipedia.org/wiki/Peano_axioms#Nonstandard_models">
+           Wikipedia  page.
+          </a>
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The Principle of Mathematical Induction may seem like an “obviously True” statement.
+If 0 is in a set, and if for each natural number in the set the next biggest natural number is also in the set, then it would seem that you
+can list all the elements of the set by simply counting up by 1, starting at 0.
+The issue that arises is that you can
+        <em>
+         never stop
+        </em>
+        counting up because there are infinitely many natural numbers! Instead, mathematicians can
+state that they are
+        <em>
+         assuming
+        </em>
+        that the Principle of Mathematical Induction is True without further justification.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        As another example of why PMI is assumed to be True,
+consider the predicate that was used in the first example of this chapter: \[P(k)\text{: "The sum of the first } k \text{ positive odd integers is equal to } k^{2} \text{."}\]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        What a mathematician would
+        <em>
+         really
+        </em>
+        like to do is
+to run
+an infinite loop, like the one shown in the code listing below, to verify that the predicate is True for every natural number greater than or equal to 1.
+       </p>
+      </div>
+      <div class="listingblock">
+       <div class="content">
+        <pre class="highlight"><code class="language-python" data-lang="python">def P(k):
+    return f"\"The sum of the first {k} positive odd integers is {k*k}\""
+
+def addTheOddsForever():
+    sum, k = 1, 1
+    if sum != k*k:
+        print(P(k),"is a False proposition.")
+        return False
+    while True: # loop forever...
+        sum = sum + 2*k + 1
+        k = k + 1
+        if sum != k*k:
+            print(P(k),"is a False proposition.")
+            return False
+    return True
+
+if addTheOddsForever():
+    print("P(n) is a True proposition for each every natural number n.")</code></pre>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        When
+        <code>
+         addTheOddsForever()
+        </code>
+        returns True, the code will have verified the predicate for every positive natural number, but can
+        <code>
+         addTheOddsForever()
+        </code>
+        <em>
+         ever
+        </em>
+        return True?
+The code only exits the loop if the predicate is False for some value of
+        <code>
+         k
+        </code>
+        but will never exit the loop otherwise! We will have to wait forever for the answer (Of course, in reality, we would run out of memory or processing power or time in the universe before that.) However, a timeless being might be able to determine that the algorithm implemented in the code will return True, but this does not help we humans much.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Since the code with the infinite loop cannot verify the predicate for all natural numbers greater than or equal to 1, the mathematician will settle for using the following code sample instead, as long as the variable
+        <code>
+         stop_value
+        </code>
+        can be made
+larger and larger, with no upper bound on how large it can be (Again, this won’t really work due to real-world constraints, but at least it does avoid the infinite loop.)
+       </p>
+      </div>
+      <iframe frameborder="5" height="700" src="https://pythontutor.com/iframe-embed.html#code=def%20P%28k%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bk%7D%20positive%20odd%20integers%20is%20%7Bk*k%7D%5C%22%22%0A%0Adef%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20sum,%20k%20%3D%201,%201%0A%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20while%20k%20%3C%20stop_value%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Astop_value%20%3D%2010%0Aif%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20print%28%22P%28n%29%20is%20a%20True%20proposition%20for%20each%20natural%20number%20n%20%E2%89%A4%20%22%2Bstr%28stop_value%29%2B%22.%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=700" width="100%">
+      </iframe>
+      <div style="text-align: right;">
+       <a href="http://www.pythontutor.com/visualize.html#code=def%20P%28k%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bk%7D%20positive%20odd%20integers%20is%20%7Bk*k%7D%5C%22%22%0A%0Adef%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20sum,%20k%20%3D%201,%201%0A%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20while%20k%20%3C%20stop_value%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Astop_value%20%3D%2010%0Aif%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20print%28%22P%28n%29%20is%20a%20True%20proposition%20for%20each%20natural%20number%20n%20%E2%89%A4%20%22%2Bstr%28stop_value%29%2B%22.%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+        Edit in PythonTutor
+       </a>
+      </div>
+      <div class="paragraph">
+       <p>
+        This code can verify the predicate for all natural numbers starting from 1 up to and including
+        <code>
+         stop_value
+        </code>
+        . The Principle of Mathematical Induction is stating that you can justify that
+the predicate \(P(k)\) is True for all positive natural numbers by instead verifying that
+        <code>
+         addTheOddsRevised(stop_value)
+        </code>
+        will return True for
+        <span class="underline">
+         every possible positive natural number value you could assign to
+         <code>
+          stop_value
+         </code>
+         .
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
       <h3 id="_more_example_proofs_using_mathematical_induction">
-       11.3. More Example Proofs Using Mathematical Induction
+       11.4. More Example Proofs Using Mathematical Induction
       </h3>
       <div class="sidebarblock">
        <div class="content">
@@ -1272,11 +1499,8 @@ since a graph with 0 edges is just a collection of isolated vertices, and each o
           <strong>
            Conclusion Step:
           </strong>
-          We have proven both the Basis Step and the Induction Step. Therefore, we can use
-          <em>
-           universal generalization
-          </em>
-          to conclude that
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
 for all positive integers \(n,\) the \(n\)th positive odd integer is equal to \(2n-1.\)
          </p>
         </div>
@@ -1330,10 +1554,23 @@ If we want to be sure that there are least two addends in the sum, we can use \(
         </div>
         <div class="paragraph">
          <p>
-          Based on the formula for the \(k\text{th}\) positive odd integer, we can rewrite the sum of the first \(k\) positive odd integers \(1+3+...+(2k-1)\) using summation notation as \(\sum\limits_{i=1}^{k}(2i-1)\) and rewrite the predicate \(P(k)\) in algebraic form as \[ P(k): \sum\limits_{i=1}^{k}(2i-1) = k^{2}.\] Note that \(P(k)\) is still a proposition - it is stating that a certain equation holds.
+          Based on the formula for the \(k\text{th}\) positive odd integer, we can rewrite the sum of the first \(k\) positive odd integers
+\(1 + 3+ \ldots + (2k-1)\)
+using summation notation as \(\sum\limits_{i=1}^{k}(2i-1)\) and rewrite the predicate \(P(k)\) in algebraic form as
+either \[ P(k): 1 + 3+ \ldots + (2k-1) = k^{2}\]
+or \[ P(k): \sum\limits_{i=1}^{k}(2i-1) = k^{2}.\] Note that \(P(k)\) is still a predicate
+- it is stating that a certain equation holds.
           <br/>
           <span class="small">
-           A common error is to treat \(P(k),\) when written algebraically, as a function that gives numerical outputs, but this is incorrect. \(P(k)\) is still a predicate that gives propositions as outputs.
+           Note: A common error is to treat a predicate like \(P(k)\) that is written using algebra notation as a function that gives numbers as outputs, but this is incorrect. \(P(k)\) is a predicate that gives
+           <em>
+            propositions
+           </em>
+           as outputs. Recall, as mentioned
+           <a href="./introduction_discrete_math.html#informal_predicate_definition">
+            earlier
+           </a>
+           in the Remix, that you can think of this like a programmer: \(P(k)\) returns a string, not a number and not a Boolean.
           </span>
          </p>
         </div>
@@ -1365,8 +1602,8 @@ for the sum \(\sum\limits_{i=1}^{k}(2i-1)\) based on the induction hypothesis.
         </div>
         <div class="paragraph">
          <p>
-          We have proven that the equation \(1+3+...+(2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}\) implies the equation
-\(1+3+...+(2k-1) + (2k+1) = \sum\limits_{i=1}^{k+1}(2i-1) = (k+1)^{2}\), that is, \(P(k) \rightarrow P(k+1)\).
+          We have proven that the equation \(1 + 3 + \ldots + (2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}\) implies the equation
+\(1 + 3 + \ldots + (2k-1) + (2k+1) = \sum\limits_{i=1}^{k+1}(2i-1) = (k+1)^{2}\), that is, \(P(k) \rightarrow P(k+1)\).
          </p>
         </div>
         <div class="paragraph">
@@ -1374,12 +1611,9 @@ for the sum \(\sum\limits_{i=1}^{k}(2i-1)\) based on the induction hypothesis.
           <strong>
            Conclusion Step:
           </strong>
-          We have proven both the Basis Step and the Induction Step. Therefore, we can use
-          <em>
-           universal generalization
-          </em>
-          to conclude that
-\(1+3+...+(2n-1) = \sum\limits_{i=1}^{n}(2i-1) = n^{2}\) for all positive integers \(n\).
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+\(1 + 3 + \ldots + (2n-1) = \sum\limits_{i=1}^{n}(2i-1) = n^{2}\) for all positive integers \(n\).
          </p>
         </div>
         <div class="paragraph">
@@ -1449,11 +1683,8 @@ for the sum \(\sum\limits_{i=1}^{k}(2i-1)\) based on the induction hypothesis.
           <strong>
            Conclusion Step:
           </strong>
-          We have proven both the Basis Step and the Induction Step. Therefore, we can use
-          <em>
-           universal generalization
-          </em>
-          to conclude that
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
 for all positive integers \(n \geq 4\), \(2^{n} &lt; n!\)
          </p>
         </div>
@@ -1500,7 +1731,12 @@ for all positive integers \(n \geq 4\), \(2^{n} &lt; n!\)
         </div>
         <div class="paragraph">
          <p>
-          What property of the puzzle is used the key feature to proving the Induction Step? You can describe this in words or use an algebraic equation.
+          What property of the puzzle is
+the key feature
+used
+to
+prove
+the Induction Step? You can describe this in words or use an algebraic equation.
          </p>
         </div>
        </div>
@@ -1513,7 +1749,7 @@ for all positive integers \(n \geq 4\), \(2^{n} &lt; n!\)
      </div>
      <div class="sect2">
       <h3 id="_strong_induction">
-       11.4. Strong Induction
+       11.5. Strong Induction
       </h3>
       <div class="paragraph">
        <p>
@@ -1536,7 +1772,7 @@ for all positive integers \(n \geq 4\), \(2^{n} &lt; n!\)
            <em>
             one or more consecutive small values
            </em>
-           of \(n;\) in most but not all cases, you prove both \(P(0)\) and \(P(1).\) You can also prove \(P(n)\) for other values as well if it helps you get a feel for what needs to be proven.
+           of \(n;\) in most but not all cases, you prove both \(P(0)\) and \(P(1).\)
           </p>
          </td>
         </tr>
@@ -1562,11 +1798,7 @@ for all positive integers \(n \geq 4\), \(2^{n} &lt; n!\)
          </td>
          <td class="hdlist2">
           <p>
-           Conclude that \(P(n)\) is True for all natural numbers \(n\) that are greater than or equal to the small(est) value used in the Basis Step. This conclusion uses
-           <em>
-            universal generalization
-           </em>
-           as the rule of inference.
+           Conclude that \(P(n)\) is True for all natural numbers \(n\) that are greater than or equal to the smallest value used in the Basis Step.
           </p>
          </td>
         </tr>
@@ -1679,11 +1911,8 @@ f_{k+1} {} &amp; = f_{k} + f_{k-1} \\
           <strong>
            Conclusion Step:
           </strong>
-          We have proven both the Basis Step and the Induction Step. Therefore, we can use
-          <em>
-           universal generalization
-          </em>
-          to conclude that
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
 for all natural numbers \(n,\) \(f_{n} &lt; \phi^{n}.\)
          </p>
         </div>
@@ -1783,7 +2012,7 @@ for all natural numbers \(n,\) \(f_{n} &lt; \phi^{n}.\)
           </li>
           <li>
            <p>
-            If \(k+1\) is not prime, then there are two integers \(a\) and \(b\) that are both greater than \(1\) such that \(k+1 = ab.\) Notice that both \(a\) and \(b\) must be less than \(k+1\) because if either one were greater than or equal to \(k+1\) then the product \(ab\) would be greater than or equal \(2(k+1).\) Assuming the induction hypothesis, both \(P(a)\) and \(P(b)\) are True, so each of \(a\) and \(b\) is either a prime or a product of two or more primes, which means that the product \(ab\) is a product of at least two primes (if both \(a\) and \(b\) are primes, they are the only two factors of \(k+1,\) otherwise, there will be more than two prime factors of \(k+1.\)) Since \(k+1 = ab\), this proves that \(P(k+1)\) is True in the case when \(k+1\) is a composite number.
+            If \(k+1\) is not prime, then there are two integers \(a\) and \(b\) that are both greater than \(1\) such that \(k+1 = ab.\) Notice that both \(a\) and \(b\) must be less than \(k+1\) because if either one were greater than or equal to \(k+1\) then the product \(ab\) would be greater than or equal to \(2(k+1).\) Assuming the induction hypothesis, both \(P(a)\) and \(P(b)\) are True, so each of \(a\) and \(b\) is either a prime or a product of two or more primes, which means that the product \(ab\) is a product of at least two primes (if both \(a\) and \(b\) are primes, they are the only two factors of \(k+1,\) otherwise, there will be more than two prime factors of \(k+1.\)) Since \(k+1 = ab\), this proves that \(P(k+1)\) is True in the case when \(k+1\) is a composite number.
            </p>
           </li>
          </ol>
@@ -1798,12 +2027,9 @@ for all natural numbers \(n,\) \(f_{n} &lt; \phi^{n}.\)
           <strong>
            Conclusion Step:
           </strong>
-          We have proven both the Basis Step and the Induction Step. Therefore, we can use
-          <em>
-           universal generalization
-          </em>
-          to conclude that
-for all natural numbers \(n &gt; 2,\) \(n\) is either a prime number or a product of two or more prime numbers.
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+for all natural numbers \(n \geq 2,\) \(n\) is either a prime number or a product of two or more prime numbers.
          </p>
         </div>
         <div class="paragraph">
@@ -1816,7 +2042,7 @@ for all natural numbers \(n &gt; 2,\) \(n\) is either a prime number or a produc
      </div>
      <div class="sect2">
       <h3 id="_validating_an_algorithm_using_induction">
-       11.5. Validating An Algorithm Using Induction
+       11.6. Validating An Algorithm Using Induction
       </h3>
       <div class="paragraph">
        <p>
@@ -2102,11 +2328,8 @@ We can assume \(k \geq 1\) since the cases when \(k \in \{ 0, 1 \}\) were proved
           <strong>
            Conclusion Step:
           </strong>
-          We have proven both the Basis Step and the Induction Step. Therefore, we can use
-          <em>
-           universal generalization
-          </em>
-          to conclude that
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
 for all natural numbers \(n,\) if the loop executes \(n\) times then the last nonzero remainder is the g.c.d. of \(a\) and \(b.\) That is, the Euclidean Algorithm correctly computes the g.c.d. of \(a\) and \(b\) no matter how many loop iterations are required to compute the last nonzero remainder.
          </p>
         </div>
@@ -2147,7 +2370,7 @@ then it must be True that both \(f_{n+2} \leq a\) and \(f_{n+1} \leq b.\) A proo
      </div>
      <div class="sect2">
       <h3 id="_exercises_7">
-       11.6. Exercises
+       11.7. Exercises
       </h3>
       <div class="olist arabic">
        <ol class="arabic">

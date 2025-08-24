@@ -5,7 +5,11 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on July 15, 2025._ + 
+include::LinkToPrivate.adoc[] 
+
+
+_This chapter was last updated on Aug 15, 2025._ + 
+_Revised and expanded the discussion of isomorphisms and underlying graphs._
 //_Inserted a version of Dijkstra's algorithm for a minimal-weight path between two given vertices._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
@@ -569,9 +573,13 @@ The *out-degree* of a vertex $w$ is the number of edges that have $w$ as the ini
 // MKD revised example July 10 2025
 [[underlying_graph]]
 ****
-.Example {counter:graphex} - A directed graph.
+// MKD title revised Aug 15 2025 
+//.Example {counter:graphex} - A directed graph.
+.Example {counter:graphex} - A directed graph and its underlying graph.
 
-The graph 
+// MKD Aug 15 2025 
+//The graph 
+The directed graph 
 //$G=(V,E)$ with 
 shown has 
 vertex set 
@@ -957,7 +965,7 @@ image::imagesMKD/Isomorphism2av2.png[Isomorphism2av2,440,232,align="center"]
 
 Notice that these two graphs are 
 //really just two 
-different-looking drawings of the _same graph_ that has vertex set $\{ A, B, C, D\}$ and edge set $\{\{A,B\},\{A,C\},\{A,D\}\{B,C\},\{B,D\},\{C,D\}\}.$ Also, notice that the drawing on the left appeared earlier in the chapter, but with unlabeled vertices: This is a drawing of $K_{4},$ the complete graph on $4$ vertices.  
+different-looking drawings of the _same graph_ that has vertex set $\{ A, B, C, D\}$ and edge set $\{\{A,B\},\{A,C\},\{A,D\},\{B,C\},\{B,D\},\{C,D\}\}.$ Also, notice that the drawing on the left appeared earlier in the chapter, but with unlabeled vertices: Each of the graphs in the image is a drawing of $K_{4},$ the complete graph on $4$ vertices.  
 
 //That these really are the same graph is seen more easily by representing  the graph 
 
@@ -1004,9 +1012,20 @@ image::imagesMKD/K4Isomporphismv1.png[K4Isomporphismv1,186,149,align="center"]
 //Notice that this one-to-one correspondence has the additional property that edges are mapped to corresponding edges. That is, the function $f:\{ A, B, C, D\} \rightarrow \{ W, X, Y, Z\}$ represented in the table has the property that the edge with endpoints $u$ and $v$ is mapped to the edge with endpoints $f(u)$ and $f(v).$ A one-to-one correspondence with this property is called a *graph isomorphism* and the two graphs are said to be *isomorphic.* Informally, you can think of a pair of graphs as isomporphic if one graph can be relabeled and/or reshaped to obtain the other graph.
 
 
-A one-to-one correspondence between the set of vertices of two simple graphs that preserves adjacency is called a *graph isomorphism,* and the two graphs are said to be *isomorphic.* Informally, you can think of two isomorphic graphs as a pair of graphs where one graph can be relabeled and/or reshaped to obtain the other graph (That is, the two graphs are the _same graph_ but have drawings that are labeled and/or shaped differently.)
-
-
+A one-to-one correspondence between the set of vertices of two simple graphs that preserves adjacency is called a *graph isomorphism,* and the two graphs are said to be *isomorphic.* 
+// MKD Aug 12 2005 - inserted next sentence
+That is, two vertices are endpoints of an edge in the first graph if and only if the corresponding vertices are the endpoints of an edge in the second graph. 
+// MKD Aug 12 2005 - revised next sentence
+//Informally, you can think of two isomorphic graphs as a pair of graphs where one graph can be relabeled and/or reshaped to obtain the other graph (That is, the two graphs are the _same graph_ but have drawings that are labeled and/or shaped differently.)
+Informally, you can think of two isomorphic graphs as a pair of graphs where 
+a drawing of 
+one graph can be relabeled and/or reshaped to obtain 
+//the 
+a drawing of the 
+other graph 
+// MKD Aug 12 2005 - revised next sentence
+//(That is, the two graphs are the _same graph_ but have drawings that are labeled and/or shaped differently.)
+(That is, the two graphs are really _the same graph_ but have drawings that are labeled and/or shaped differently.)
 
 
 ****
@@ -1045,6 +1064,33 @@ Look for rows and columns in the different matrices that are identical. The orde
 ****
 
 //It is immediately clear by looking at the graph (drawing) on the left that the graph consists of a single cycle, and by looking at the graph (drawing) in the middle that the graph is bipartite; neither of these properties is immediately obvious if you only had the graph (drawing) on the right. 
+
+[[isomorphisms_that_preserve_attributes]]
+=== Isomorphism of Graphs with Additional Features
+
+As described above, a graph isomorphism is a one-to-one correspondence between the sets of vertices of two graphs that preserves the adjacency relationship between pairs of vertices. 
+//That is, if the two vertices are endpoints of an edge in one graph, then the corresponding vertices must be endpoints of an edge in the other graph (and vice versa). 
+That is, two vertices are endpoints of an edge in one graph if and only if the corresponding vertices are endpoints of an edge in the other graph.
+
+In cases where graphs have additional features beyond the basic adjacency relationship between pairs of vertices, we should only consider two of these “graphs with additional features” to be isomorphic if the additional features are also preserved. + 
+[small]#Note: Some sources use the word “attributes” for these additional features.#
+
+//image::imagesMKD/IsomorphismWeightedGraphsv1.png[IsomorphismWeightedGraphsv1,515,330,align="center"] 
+image::imagesMKD/IsomorphismWeightedGraphsv1.png[IsomorphismWeightedGraphsv1,342,220,align="center"] 
+
+As an example, in the image, the three graphs with vertex sets $\{ F,\,G,\,H \},$ $\{ J,\,K,\,L \},$ and $\{ P,\,Q,\,R \}$ are isomorphic as _graphs_ if we ignore the edge weights.
+// + 
+//[small]#If this is not immediately clear to you, try to find the way to pair up the vertices in $\{ F,\,G,\,H \}$ and $\{ J,\,K,\,L \}$ so that adjacency is preserved, then do the same for the vertices in $\{ F,\,G,\,H \}$ and $\{ P,\,Q,\,R \}.$# 
+//, of the vertices to find the one-to-one correspondences that show that these graphs are isomorphic.
+//, but 
+//However, only the two graphs with vertex sets $\{ F,\,G,\,H \}$ and $\{ J,\,K,\,L \}$ are isomorphic as _weighted graphs_ because the edge weights for the third graph with vertex set $\{ P,\,Q,\,R \}$ do not correspond to the edge weights in the other two graphs.
+Also, the two graphs with vertex sets $\{ F,\,G,\,H \}$ and $\{ J,\,K,\,L \}$ are isomorphic as _weighted graphs_ because there is a one-to-one correspondence between the vertex sets that [underline]#preserves both the adjacency relationships and the corresponding edge weights.# The third graph with vertex set $\{ P,\,Q,\,R \}$ is not isomorphic as a _weighted graph_ to either of the other two weighted graphs because its edge weights cannot be matched with the edge weights in the other weighted graphs.
+
+//because its edge weights cannot correspond to the edge weights in the other weighted graphs.
+    
+//This idea can be extended to graphs with directed edges, and graphs that have vertex coloiring colored 
+//(e.g., directed edges, weighted edges, colored vertices or edges) 
+
 
 == Graph Coloring 
 

@@ -3,6 +3,9 @@
 //“”
 
 
+include::LinkToPrivate.adoc[] 
+
+
 _This chapter was last updated on July 9, 2025._ + 
 //(added some topics to the list of links in section 1.4)_ + 
 //discussion of continuous mathematics and structures in 2.1)._

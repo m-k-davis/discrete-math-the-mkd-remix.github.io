@@ -1,0 +1,1080 @@
+= Sequences and Recursion
+//= Sequences and Recursive Definitions
+
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+
+include::LinkToPublic.adoc[] 
+
+
+_This chapter was last updated on August 24, 2025._ + 
+_Revised the recursive definition of rooted trees to more closely match the definition given in the link:./trees.html[Trees] chapter._ 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+
+// MKD start topic list
+////
+SEQUENCES AND RECURSION 
+	ACM CCECC Introduction to recursion	
+    COMP 152 Basics of Counting
+    COMP 152 Proof Techniques and DS3.
+		recursive definitions of functions
+        Recursive mathematical definitions
+		factorials
+		Fibonacci sequences (MKD: History back to India)
+        Fibonacci numbers
+		other functions and sequences
+		Towers of Hanoi (MKD NEEDS TO ADDRESS - Asynchronous?)
+	2013 changes/additions        
+		[Core-Tier1]
+			Recursive mathematical definitions
+
+AUG 2024 update on topics
+DS2013/Proof Techniques	Recursive mathematical definitions
+DS2008/ProofTechniques	Recursive mathematical definitions
+ACM_CCECC_2005/Introduction to recursion	recursive definitions of functions
+ACM_CCECC_2005/Introduction to recursion	factorials
+
+AUG 2024 update on topics (recurrence relations) 
+	MKD do after Pascal's Triangle? 
+DS2013/Basics of Counting	Solving recurrence relations: An example of a simple recurrence relation, such as Fibonacci numbers
+DS2008/BasicsOfCounting	Fibonacci numbers
+DS2001/Basics of counting	Counting arguments: Fibonacci numbers
+ACM_CCECC_2005/Introduction to recursion	Fibonacci sequences
+DS2013/Basics of Counting	Solving recurrence relations: Other examples, showing a variety of solutions
+DS2008/BasicsOfCounting	Solving recurrence relations
+DS2008/BasicsOfCounting	Common examples
+DS2001/Basics of counting	Solving recurrence relations: Common examples
+DS2008/BasicsOfCounting	The Master theorem
+DS2001/Basics of counting	Solving recurrence relations: The Master theorem
+ACM_CCECC_2005/Introduction to recursion	Towers of Hanoi
+ACM_CCECC_2005/Introduction to recursion	other functions and sequences
+MKD - Towers of Hanoi may be a good asynchronous activity
+
+RECURSION - January 2025 
+DS2013/Proof Techniques	Recursive mathematical definitions
+DS2008/ProofTechniques	Recursive mathematical definitions
+MSF-Discrete_2023	2. Recursive mathematical definitions
+ACM_CCECC_2005/Introduction to recursion	recursive definitions of functions
+ACM_CCECC_2005/Introduction to recursion	factorials
+ACM_CCECC_2005/Introduction to recursion	Fibonacci sequences
+ACM_CCECC_2005/Introduction to recursion	Towers of Hanoi
+ACM_CCECC_2005/Introduction to recursion	other functions and sequences
+
+RECURRENCE RELATIONS (and counting) - January 2025 
+DS2013/Basics of Counting	Solving recurrence relations: An example of a simple recurrence relation, such as Fibonacci numbers
+DS2013/Basics of Counting	Solving recurrence relations: Other examples, showing a variety of solutions
+DS2008/BasicsOfCounting	Arithmetic and geometric progressions
+DS2008/BasicsOfCounting	Fibonacci numbers
+DS2008/BasicsOfCounting	Solving recurrence relations
+DS2008/BasicsOfCounting	Common examples
+DS2008/BasicsOfCounting	The Master theorem
+DS2001/Basics of counting	Counting arguments: Arithmetic and geometric progressions
+DS2001/Basics of counting	Counting arguments: Fibonacci numbers
+DS2001/Basics of counting	Solving recurrence relations: Common examples
+DS2001/Basics of counting	Solving recurrence relations: The Master theorem
+
+(MKD: Is the following list from James Wong's notes???)
+Recursion
+Recursive definition - sequences, functions, sets
+Fibonacci numbers
+Ackermann Function
+ID, C++ identifers (???)
+Recursive Algorithms
+
+For every recursive algorithm, there is an equivalent iterative algorithm.
+• Recursive algorithms are often shorter, more elegant, and easier to understand than their iterative counterparts.
+• However, iterative algorithms may be more efficient in their use of space and time.
+• Recursive definitions that specifies one or more initial terms and rules for determining subsequent terms is called recurrence relation (or equation
+
+Recurrence ealations
+Solivng simple recurrence relations
+	S(n), where S(0)=a, S(n+1)=S(n)+d
+	T(n), where T(0)=a, T(n+1)=r*T(n)
+	
+Informal intro. to divide and conquer strategy
+• Split a problem of size n into a number of instances of the same problem but each with a smaller size
+• Solve smaller problems separately
+• Put the solutions of smaller problems together to solve the original problem
+Example: Binary search of a sorted list (proof of correction uses induction)
+
+
+https://en.wikipedia.org/wiki/Pingala
+
+ALSO
+ 	sequences
+		finite, infinite (e.g., infinite geometric progression)
+		subsequence (MKD: give examples, e.g., odd indexed Fibonacci)
+	summation notation
+		double summation
+
+
+////
+// MKD end topic list
+
+
+//*Sequences* are functions with domain the natural numbers, or a subset of the natural numbers. 
+*Sequences* are functions with domain a nonempty subset of the natural numbers. That is, sequences are 
+ordered 
+lists of objects indexed by some or all of the natural numbers. The indexed objects 
+in the list 
+are called the *terms* of the sequence and may be any kind of object - numbers, sets, functions, strings, steps of a proof, steps of an algorithm, etc.
+
+*Recursion* is a process that you can use to define an object, compute a value, or describe the construction of an object or set of objects, by using a sequence of steps where each step after the initial step refers to one or more previously completed steps.
+
+
+
+Key terms and concepts covered in this chapter:
+
+* Sequences
+* Recursive mathematical definitions
+//* recursive definitions of functions
+** Recursive definitions of sequences and functions
+*** Factorials
+//*** Factorials
+*** Arithmetic and geometric progressions
+*** The Fibonacci sequence (also called the Fibonacci numbers)
+//*** Fibonacci sequences (Fibonacci numbers)
+//** other functions and sequences
+*** Other sequences and functions
+** Recursive definitions of sets of objects (e.g., rooted trees, valid Java identifiers)
+//** Towers of Hanoi
+** The "Towers of Hanoi" game
+* Recurrence relations
+** Solving recurrence relations
+//** Common examples
+//** An example of a simple recurrence relation, such as Fibonacci numbers
+// MKD needs to add the following content
+//** Other examples, showing a variety of solutions
+//** The Master theorem
+
+
+//== Sequences
+//
+//* A *sequence* is a function from the natural numbers, or a 
+//finite 
+//subset of the natural numbers, into another set (e.g., the natural numbers, or the real numbers, or a nonnumerical set.) 
+// like the set of power functions or a set of statements.) 
+//For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for every } i \in \mathbb{N}\] 
+//For example, we can define a sequence by the rule \[a_{i} = 2i+1 \text{ for every natural number } i \] which describes the sequence of positive odd integers $a_{0} = 1,$ $a_{1} = 3,$ $a_{2} = 5,$ and so on.    
+
+
+// MKD March 2 2025 - moved definiton up
+== Sequences
+//=== Sequences
+A *sequence* is a function $s$ from a nonempty subset of the natural numbers $\mathbb{N} = \{ 0, 1, 2, 3 \ldots \}$ to a set $C.$ That is, the domain of the sequence is some set of nonnegative integers, and the codomain can be any set. Each "input" value of $n$ in the domain is called an *index.* 
+//(plural:*indices*) 
+The "outputs" of the sequence are called the *terms* of the sequence, and are usually denoted by $s_{n},$ which 
+//can be 
+is usually 
+used instead of the 
+//usual 
+function notation $s(n),$ but the meaning is the same: The output value that corresponds to the input $n.$ 
+//: A term is one of the output values for the sequence.
+
+
+
+=== Sequences of Numbers
+//== Examples: Sequences of Numbers
+
+
+// MKD March 2 2025 - new text
+Two common ways to describe or define a sequence of numbers are 
+//A sequence of numbers may be defined by either 
+
+* a single formula, called a *closed form* for the sequence, that can be used to compute a term from the value of the index $n,$ or 
+* a recursive rule that includes 
+//** explicit definitions of the first few terms of the sequence, along with 
+** stating the values of the first few terms of the sequence, called the *initial value(s)* of the sequence, and 
+** a *recurrence relation* that describes how the $n$th term of the sequence $a_{n}$ can be computed using one or more terms that have index less than $n.$ 
+//the current value of $n.$ 
+
+//along with an explicit definition of the one or more initial terms of the sequence. 
+
+
+In this subsection, 
+//Here are 
+several examples of sequences of numbers 
+are presented. 
+You may have seen some of these 
+sequences 
+in your previous mathematics experience but others may be new to you.
+
+// MKD: Use closed-form and/or recursive definitions for each of the following
+//	Arithmetic progression, 
+//	geometric progression, 
+//	factorial, 
+
+//=== Sequences
+//A *sequence* is a function from the natural numbers //$\mathbb{N}=1,2,3\ldots$, into a set $A$. The sequence may be denoted $a_n$ for the sequence $a_1,\ a_2,\ldots$. Sometimes the domain of the sequence may be the set of nonnegative numbers, $0,1,2,3\ldots$, in which case $a_n$ would be the sequence $a_0,\ a_1,\ a_2,\ldots$.
+
+//Sequences may be defined using explicit functions or may be defined recursively.
+
+An *arithmetic sequence* is a sequence of numbers generated by a linear expression. 
+
+****
+.Example {counter:indrecexample} - Arithmetic Sequences
+
+Consider the sequence $a_n=3n+1$ defined for all natural numbers $n.$ The first 5 terms of this sequence are shown below.
+
+$a_0=\ 3\left(0\right)+1=1$
+
+$a_1=\ 3\left(1\right)+1=4$
+
+$a_2=3\left(2\right)+1=7$
+
+$a_3=3\left(3\right)+1=10$
+
+$a_4=3\left(4\right)+1=13$
+
+//$a_5=3\left(5\right)+1=16$
+
+//Notice that this sequence can be defined recursively using the *recurrence relation* \[a_0=1$ and $a_n=a_{n-1}+3.\] So
+Notice that this sequence can be defined recursively using 
+//the 
+a 
+recurrence relation
+: \[a_0=1 \text{ and } a_n=a_{n-1}+3 \text{ for } n \in \mathbb{N}_{>0}.\] So
+
+$a_0=1$
+
+$a_1=a_{1-1}+3=a_0+3=1+3=4$
+
+$a_2=a_{2-1}+3=a_1+3=4+3=7$
+
+$a_3=a_{3-1}+3=a_2+3=7+3=10$
+
+$a_4=a_{4-1}+3=a_3+3=10+3=13$
+
+//$a_5=a_{5-1}+3=a_4+3=13+3=16$
+
+Notice that an arithmetic sequence is determined by an initial term and a common difference. The arithmetic sequence $a_n=3n+1$ is the sequence with initial term $a_0=1$ and common difference $d=3$. The general arithmetic sequence is $a_n=c + d\cdot n$ with initial term $c$ and common difference $d.$
+
+
+// MKD this original image shows the graph for 2n+1 instead of 3n+1
+//[.float-group]
+//--
+//[.left.text-left]
+//image::images/arithmeticsequence.png[GGC,1000,1000]
+//--
+****
+
+//Sequences generated by exponential functions as in Example 2 are called *geometric sequences*. Thinking recursively, they are determined by a first term and a common ratio. The geometric sequence $b_n=2\cdot3^n$, is the sequence whose first term is $b_1=6$ and whose common ratio is $r=3$.  As geometric sequences are generated by exponential functions $f\left(x\right)=a\cdot r^n$, the general geometric sequence is $ a_n=a\cdot r^n$, with $r$ being the common ratio.
+
+A *geometric sequence* is a sequence of numbers generated by an exponential expression.
+
+****
+//.Example {counter:indrecexample} - Possible to make a PYTHON TUTOR
+.Example {counter:indrecexample} - Geometric Sequences
+
+Consider the sequence $b_n=2\cdot\ 3^n$ defined for all natural numbers $n.$ The first 5 terms of this sequence are shown below.
+
+//The sequence $b_n=2\cdot\ 3^n$ is the sequence generated by the exponential function $f\left(x\right)=2\cdot3^x$, whose first few terms would be
+
+$b_0=2\cdot\ 3^0=2$
+
+$b_1=2\cdot\ 3^1=6$
+
+$b_2=2\cdot\ 3^2=18$
+
+$b_3=2\cdot\ 3^3=54$
+
+$b_4=2\cdot\ 3^4=162$
+
+//Notice that this sequence can be defined recursively using the recurrence relation
+Notice that this sequence can be defined recursively using 
+//the 
+a 
+recurrence relation
+: \[b_0=2 \text{ and } b_n=3\cdot b_{n-1} \text{ for } n \in \mathbb{N}_{>0}.\] So
+  
+$b_0=2$
+
+$b_1=3\cdot b_{1-1}=3\cdot2=6$
+
+$b_2=3\cdot b_{2-1}=3\cdot6=18$
+
+$b_3=3\cdot b_{3-1}=3\cdot18=54$
+
+$b_4=3\cdot b_{3-1}=3\cdot54=162$
+
+Notice that a geometric sequence is determined by an initial term and a common ratio. The geometric sequence $b_n=2\cdot\ 3^n$ is the sequence with initial term $b_0=2$ and common ratio $r=3$. The general geometric sequence is $b_n=c \cdot r^n$ with initial term $c$ and common ratio $r.$
+
+// MKD
+//[.float-group]
+//--
+//[.left.text-left]
+//image::images/geometricsequence.png[GGC,1000,1000]
+//--
+****
+
+
+
+// MKD March 2 2025 - new text 
+[[definition_of_factorial]]
+The *factorial* is usually defined using a recurrence relation, 
+//though it's not usually called that.
+but with its own notation that does not use a subscript for the index.
+
+****
+.Example {counter:indrecexample} - The Factorial Function
+
+The factorial of a natural number can be treated as a term of a sequence, called the *factorial function.* The commonly-used notation for a term of this sequence is $n!$ and the sequence is defined as \[n! = n \cdot (n-1) \cdots 2 \cdot 1\] with $1! = 1$ and $0! = 1.$
+
+Notice that the factorial can be defined a bit more precisely by using the recurrence relation \[0!=1 \text{ and } n!=n\cdot (n-1)! \text{ for } n \in \mathbb{N}_{>0}.\] So the first few values of the factorial are 
+  
+$0!=1$
+
+$1!=1\cdot (1-1)!=1\cdot1=1$
+
+$2!=2\cdot (2-1)!=2\cdot1=2$
+
+$3!=3\cdot (3-1)!=3\cdot2=6$
+
+$4!=4\cdot (4-1)!=4\cdot6=24$
+
+****
+
+
+
+[[definition_of_fibonacci_numbers]]
+The next sequence is the very famous *Fibonacci numbers,* named for the Italian mathematician Fibonacci who was also known as Leonardo of Pisa. However, this sequence and its properties were known and discussed by Indian poets and mathematicians such as  
+link:https://en.wikipedia.org/wiki/Fibonacci_sequence#History[
+//Acharya 
+Pingala,] link:https://www.sciencedirect.com/science/article/pii/0315086085900217[
+//Acharya 
+Virahanka,] 
+and 
+link:https://www.tandfonline.com/doi/abs/10.1080/10724117.2008.11974752[
+//Acharya 
+Hemachandra] 
+before Fibonacci was born. The sequence became known to Europeans when Fibonacci used the sequence in his 1202 book _Liber Abaci_ to solve a counting problem that involves    link:https://mathcenter.oxford.emory.edu/site/math125/fibonacciRabbits/[breeding pairs of rabbits]  + 
+[small]#The book _Liber Abaci_ ("Book of Calculation") is credited with popularizing the use of the base-ten Hindu-Arabic numeral system in Europe, too.#
+
+****
+.Example {counter:indrecexample} - The Fibonacci Numbers
+--
+--
+//Some sequences, like the *Fibonacci sequence*, are easier to generate recursively.
+//The *Fibonacci sequence* is defined recursively as 
+//$f_1=1$ and $f_2=1$, and $f_n=f_{n-1}+f_{n-2}$.
+
+The *Fibonacci sequence* can be defined recursively as \[f_{0}=0, \, f_{1}=1, \text{ and } f_{n} = f_{n-1} + f_{n-2} \text{ for } n \geq 2.\]
+
+//$f_{2}=f_{2-1}+f_{2-2}=f_{1}+f_{0} = 1+0 =1$
+
+//$f_{3}=f_{3-1}+f_{3-2}=f_{2}+f_{1} = 1+1 =2$
+
+//$f_{4}=f_{4-1}+f_{4-2}=f_{3}+f_{2} = 2+1 =3$
+
+//$f_{5}=f_{5-1}+f_{5-2}=f_{4}+f_{3} = 3+2 =5$
+
+//$f_{6}=f_{6-1}+f_{6-2}=f_{5}+f_{4} = 5+3 =8$
+
+//$f_{7}=f_{7-1}+f_{7-2}=f_{6}+f_{5} = 8+5 =13$
+
+$f_{2} = f_{2-1} + f_{2-2} = f_{1} + f_{0} = 1+0 = 1$
+
+$f_{3} = f_{3-1} + f_{3-2} = f_{2} + f_{1} = 1+1 = 2$
+
+$f_{4} = f_{4-1} + f_{4-2} = f_{3} + f_{2} = 2+1 = 3$
+
+$f_{5} = f_{5-1} + f_{5-2} = f_{4} + f_{3} = 3+2 = 5$
+
+$f_{6} = f_{6-1} + f_{6-2} = f_{5} + f_{4} = 5+3 = 8$
+
+$f_{7} = f_{7-1} + f_{7-2} = f_{6} + f_{5} = 8+5 = 13$
+
+//Later in this chapter we will find a *closed form* for the Fibonacci sequence, that is, a formula that lets us compute $f_{n}$ directly from the index _n_.
+
+[small]#Note: The definition used in this textbook matches the ones used in several textbooks, but be warned that other may use definitions that are slightly different (e.g., some sources state the initial values as  $f_{0}=1$ and $f_{1}=1.$#
+
+****
+
+// MKD old example begins 
+////
+****
+.Example {counter:indrecexample}
+Find the first 6 terms of the sequence $c_k=\frac{1}{k^2}$ generated by the function $f(x)=\frac{1}{x^2}$.
+
+.Solution
+$c_1=f\left(1\right)=\frac{1}{1^2}=1$
+
+$c_2=f\left(2\right)=\frac{1}{2^2}=\frac{1}{4}$
+
+$c_3=f\left(3\right)=\frac{1}{3^2}=\frac{1}{9}$
+
+$c_4=f\left(4\right)=\frac{1}{4^2}=\frac{1}{16}$
+
+$c_5=f\left(5\right)=\frac{1}{5^2}=\frac{1}{25}$
+
+$c_6=f\left(6\right)=\frac{1}{6^2}=\frac{1}{36}$
+
+[.float-group]
+--
+[.left.text-left]
+image::images/hyperharmonicsequence.png[GGC,1000,1000]
+--
+****
+////
+// MKD old example ends 
+
+
+// MKD March 2 2025 - new subsection 
+=== Non-numerical Sequences
+
+As mentioned above, the terms of a sequence can be any object. Here are some examples.
+
+****
+.Example {counter:indrecexample} - A sequence of functions
+
+Consider the sequence $p_{n}(x)$ of functions that are defined for real number inputs $x.$ 
+
+$p_{0}(x) = 1,$ that is, the constant function 1,
+
+$p_{1}(x) = x,$
+
+$p_{2}(x) = x^{2},$  
+
+$p_{3}(x) = x^{3},$ 
+
+and in general, 
+
+$p_{n}(x) = x^{n}.$
+
+This is the sequence of $n$th power functions. The subscript of each of the functions matches the power that the input, $x,$ will be raised to. 
+
+Notice that we can define the sequence recursively by \[p_{0}(x)=1, \, f_{1}=1, \text{ and } p_{n}(x) = x \cdot p_{n-1}(x) \text{ for } n \geq 1.\]
+
+****
+
+The ordered list of steps used in an algorithm is a sequence.
+
+****
+.Example {counter:indrecexample} - An algorithm for long division
+
+** Task: Given two positive integers _a_ and _b,_ 
+//with $a \geq b$, 
+compute the quotient _q_ and remainder _r_ so that + 
+$a = q \cdot b + r$ and $0 \leq r < b.$
+** Input: Two positive integers _a_ and _b_ 
+//with $a \geq b$
+** Steps:  
+[start=0]
+. Get the input values _a_ and _b._
+. Set _r_ equal to _a_ and set _q_ equal to 0.
+. If _r_ is less than _b,_ skip to Step 5. 
+. Set _r_ equal to _r - b_ and add 1 to _q_
+. If _r_ is greater than or equal to _b,_ then repeat Step 3
+. Return the output values _q_ and _r,_ and stop.
+** Output: Integers _q_ and _r_ such that both $a = q \cdot b + r$ and $0 \leq r < b.$
+*** _q_ is the quotient, that is, the number of times 
+//each of the two assignments under 
+Step 3 was executed. 
+*** _r_ is the remainder, that is, the result of the last execution of Step 3 (or Step 1 in cases where Step 3 is never executed.)
+//, so $r = a - q \cdot b.$
+
+****
+
+
+
+== Recursion
+
+//*Recursion* refers to a process that defines an object, computes a value, or describes the construction of an object or set of objects, using steps that refer to one or more previously completed steps.
+
+//=== Recursive Definitions
+
+[[definition_of_recursive_definition]]
+A *recursive definition* of a class of objects consists of two steps.
+
+[horizontal]
+Basis Step:: Specify the foundational (usually, the simplest) objects in the class of objects.
+Recursion:: Describe how to build new objects from one or more already-constructed objects in the class of objects.
+//MKD Recursive Step or Recursion???
+
+
+=== Recursively-Defined Structures
+
+For some mathematical objects, it is easier to describe the construction of the objects using a recursive definition. 
+
+You may recall that well-formed formulae were defined in the link:./logic.html#wff_recursion[Logic] chapter using a recursive definition. We formalize that definition here.
+
+
+
+****
+.Example {counter:indrecexample} - Well-Formed Formulae
+
+The set of well-formed formulas is defined recursively as follows:
+
+[horizontal]
+Basis Step:: A propositional variable is a well-formed formula.
+Recursion:: We can construct new well-formed formulae from already-constructed well-formed formulae as follows. Suppose that $\alpha$ and $\beta$ are already-constructed well-formed formulae. We can construct the following new well-formed formulae: 
+* $\left( \neg \alpha \right)$ 
+* $\left( \alpha \land \beta \right)$ 
+* $\left( \alpha \lor \beta \right)$ 
+* $\left( \alpha \rightarrow \beta \right)$ 
+* $\left( \alpha \leftrightarrow \beta \right)$ 
+
+****
+
+
+In the next example, we describe how to construct rooted trees, a type of graph.
+[[rooted_trees]]
+****
+.Example {counter:indrecexample} - Rooted Trees
+
+A *rooted tree* is a type of graph. Graphs are described informally in the link:./introduction_discrete_math.html#vertex-edge-graphs[Introducing Discrete Mathematics] chapter.
+// MKD Aug 24 2025
+//, and 
+// MKD Aug 12 2025 //will be defined formally in the link:./graph_theory.html[Graphs] chapter.
+//rooted trees are discussed in more detail in the link:./trees.html[Trees] chapter.
+
+The set of rooted trees, is defined recursively as follows.
+//where a rooted tree consists of a set of vertices containing a distinguished vertex called the root, and edges connecting these vertices, can be defined recursively by these steps:
+
+[horizontal]
+Basis Step:: A single vertex _r_ is a rooted tree.
+The vertex _r_ is called the *root node* of this rooted tree. 
+// MKD Aug 12 2025 
+Recursion:: You can construct a new rooted tree from already-constructed rooted trees as follows. Suppose you have a nonempty finite set of “old” rooted trees (that is, already-constructed rooted trees) such that + 
+	(1) no vertex is in more than one of the old rooted trees and + 
+	(2) no edge has endpoints in two different old rooted trees. + 
+To construct the new rooted tree, first create a new vertex $r$ that is not a vertex of any of the old rooted trees, then create new edges, with one new edge 
+from 
+the new root node 
+$r$ 
+to each 
+old 
+root node of one of the old rooted trees. The root node of the new rooted tree is the new vertex $r.$ 
+////
+Recursion:: We can construct a new rooted tree from already-constructed rooted trees as follows. Suppose that for some positive integer _n_ we have _n_ already-constructed rooted trees $T_{1}, \, \ldots \, T_{n}$ where vertex $r_{i}$ is the root of rooted tree $T_{i}$ for positive integers $i \leq n$ such that + 
+	(1) no vertex is in more than one of these rooted trees and + 
+	(2) no edge has endpoints in two of these rooted trees. + 
+We can construct a new rooted tree by first adding a new vertex _r_ that is not a vertex of any of the rooted trees $T_{1}, \, \ldots \, T_{n}$ and then creating new edges from _r_ to each of the already-constructed old root vertices $r_{1}, \, \ldots \, r_{n}.$ The root of the new rooted tree is the vertex _r_ that was added.
+////
+
+//image::imagesMKD/RootedTreeRecursion.png[RootedTreeRecursion,1144,481,float="right",align="center"]
+//image::imagesMKD/RootedTreeRecursion.png[RootedTreeRecursion,572,240,align="center"]
+//image::imagesMKD/RootedTreeRecursionV2.png[RootedTreeRecursionV2,1180,468,align="center"] 
+image::imagesMKD/RootedTreeRecursionV2.png[RootedTreeRecursionV2,590,234,align="center"] 
+The preceding image shows the basis step and represents, in part, the results of the first and second 
+//iterations 
+uses of the recursion step. 
+//; note
+// MKD Aug 12 2025 
+In the image, the new root nodes created at each recursion step appear at the top of the newly-created rooted trees. 
+// MKD Aug 18 2025 
+//“”
+In each rooted tree, edges are treated as if they are directed “down,” away from the new root node; this will be discussed in more detail in the link:./trees.html[Trees] chapter.
+
+  
+Notice that infinitely-many rooted trees are constructed at each use of the recursion step, so we cannot show all the rooted trees produced at any step other than the basis step. Also, we would need to complete infinitely many steps to construct _all possible_ rooted trees, but any one particular rooted tree you want to construct will be produced after only finitely many uses of the recursion step. 
+
+****
+// $T_{1}, \, \ldots \, T_{n}.$ 
+
+
+
+=== Recursively-Defined Functions
+
+A *recursively defined function* has two parts:
+
+* Basis Step: Specify the value of the function at zero
+* Recursion Step: Give a rule for finding its value at an integer from its value at smaller integers.
+
+This is similar to a recurrence relation, but using function notation.
+
+****
+.Example {counter:indrecexample}
+--
+--
+Consider again the Fibonacci numbers, but this time given by a function $f(n)$ where $f(0)=0$, $f(1)=1$ and $f(n)=f(n-1)+f(n-2)$ for integers $n \geq 2.$
+
+Applying the formula gives
+\begin{align*}
+f(2)&=f(1)+f(0)=1+0=1\\
+f(3)&=f(2)+f(1)=1+1=2\\
+f(4)&=f(3)+f(2)=2+1=3\\
+f(5)&=f(4)+f(3)=3+2=5\\
+f(6)&=f(5)+f(4)=5+3=8\\
+\end{align*}
+Thinking of this as a recurrence relation we would write $f_0=0, f_1=1$ and $f_n=f_{n-1}+f_{n-2}$.  Generating the sequence ${0,1,1,2,3,5,8,\ldots}$.
+****
+
+
+////
+// MKD original recursively-defined function begins
+=== Recursively-Defined Functions
+A *recursively defined function* has two parts:
+
+* BASIS STEP: Specify the value of the function at zero
+* RECURSIVE STEP: Give a rule for finding its value at an integer from its value at smaller integers.
+
+This is similar to a recurrence relation, but using function notation.
+////
+// MKD original recursively-defined function begins
+
+
+// MKD March 2 2025 - Moved out of section 1 
+//== Recurrence relations
+== Solving Recurrence Relations
+//=== Solving Recurrence Relations
+
+Recall from earlier in this chapter that a recurrence relation is used to recursively define a sequence of numbers, based on one or more initial conditions, that is, the value(s) of the lowest-indexed term(s). 
+// using a recursive definition. Each number of the sequence
+
+
+////
+We say we have solved a recurrence relation together with the initial conditions when we find an explicit formula
+//,called a *closed form,* 
+(that is, a closed form) 
+for the terms of the sequence.
+////
+
+
+The phrase "solving a recurrence relation" means finding a closed form that defines the same sequence as the recurrence relation. 
+
+////
+****
+.Example {counter:indrecexample}
+--
+--
+Determine whether the sequence ${a_n}$ where $a_n=2^n$ for every nonnegative integer $n$ is a solution of the recurrence
+relation $a_n=2a_{n-1}-a_{n-2}$ for $n=2, 3, 4, \ldots$.
+
+.Solution:
+Using the equation $a_0=2^0=1$, $a_1=2^1=2$, and $a_2=2^2=4$.  Because $a_2=a_1-a_0=2*2-1=3$ and this is not the value of $a_2$, we say that ${a_n}$
+where $a_n=2^n$ is not a solution (or closed formula) for the recurrence relation.
+
+More generally, you can see that the equation $2^n=2 \cdot 2^{n-1}-2^{n-2}$
+is a false statement for any natural number $n.$
+****
+
+We can solve a recurrence relation using *iteration*.
+////
+
+
+****
+.Example {counter:indrecexample}
+--
+--
+Solve the recurrence relation $a_n=a_{n-1}+3$ when $a_1=2$.
+
+.Solution:
+We are looking for a closed formula, so we will successively apply the recurrence relation until we see a pattern.
+\begin{align*}
+a_2&=a_1+3=2+3\\
+a_3&=a_2+3=(2+3)+3 =2+3\cdot 2\\
+a_4&=a_3+3=(2+2\cdot 3)+3=2+3\cdot 3\\
+\vdots\\
+a_n&=a_{n-1}+3=(2+3(n-2))+3=2+3(n-1)\\
+\end{align*}
+So our closed formula is $a_n=2+3(n-1)$.
+
+
+.You Try
+Solve the recurrence relation $b_n=3b_{n-1}$ when $a_1=5$.
+
+****
+
+There are techniques used to solve certain classes of recurrence relations. For now, we will focus on only one case, the class of *second-order linear homogeneous* recurrence relations.
+
+****
+.Example {counter:indrecexample} - Solving a second-order linear homogeneous recurrence relation
+--
+--
+Consider the recurrence relation $a_n= b \cdot a_{n-1} + c \cdot a_{n-2}$ where $b$ and $c$ are constants and the initial values $a_0$ and $a_1$ will be ignored for now.
+
+Notice that you can find at least one solution of the form $a_n = r^{n}$ for a "suitable" nonzero value of $r.$ A "suitable" value of $r$ can be found by stating that you want the following equation to be True for all natural numbers $n \geq 2$ (and showing that such a "suitable" value of $r$ actually exists!) \[ r^{n} = b \cdot r^{n-1} + c \cdot r^{n-2} \] 
+
+This means that $r^{2} = b \cdot r^{1} + c \cdot r^{0}$ or more simply \[r^{2} = b \cdot r + c\] and you can solve for $r$ by factoring or using the quadratic formula. 
+
+Notice that if the quadratic equation has two different solutions, then either one of those values can be used as the value of $r,$ so you've actually found two solutions. In fact, you have found all that you need to find _every_ solution, as described in the specific example below. 
+
+As an example, consider the recurrence relation $a_n= 5 \cdot a_{n-1} - 6 \cdot a_{n-2}.$ Based on the previous argument, $a_n = r^{n}$ is a solution as long as $r^{2} = 5r - 6,$ that is, $r^{2} - 5r + 6 = 0.$ The quadratic equation has two solutions: $r = 2$ ands $r = 3,$ so each of the closed forms $a_n = 2^{n}$ and $a_n = 3^{n}$ describes a solution (but notice that the initial values for $a_1$ are different.) It is not too difficult to see that any constant multiple of either of the two solutions will give another solution; for example, $a_n = (-7) \cdot 2^{n}$ and $a_n = 5 \cdot 3^{n}$ are two more solutions. Also, a sum of any two solutions will still be a solution, so $a_n = (-7) \cdot 2^{n} + 5 \cdot 3^{n}$ is yet another solution. In fact, we will be able to prove in the chapter on link:./induction.html[mathematical induction] that _every_ solution of this recurrence relation is of the general closed form $a_n = \alpha \cdot 2^{n} + \beta \cdot 3^{n}$ where $\alpha$ ("alpha") and $\beta$ ("beta") are constants, which can be adjusted to match any initial values $a_0$ and $a_1$ you want to use: Notice that after substituting 0 for $n$ you get $a_0 = \alpha + \beta,$ and after substituting 1 for $n$ you get $a_1 = 2 \alpha + 3 \beta,$ so you need to solve a system of two linear equations in two unknowns to determine the values of $\alpha$ and $\beta.$
+
+[small]#Note: In the case where the quadratic has only one solution $r$ (that is, $r$ is a "double root"), the general closed form solution is $a_n = (\alpha \cdot n + \beta) \cdot r^{n}$ where $\alpha$ and $\beta$ are constants.#
+
+.You Try
+First, find the general closed form solution for the recurrence relation $b_n=-b_{n-1}+20b_{n-2}.$ Next, find the constants $\alpha$ and $\beta$ if the initial conditions $a_0 =1$ and $a_1=2$ must also be satisfied.
+
+****
+
+
+[[Towers_Of_Hanoi]] 
+== Towers Of Hanoi
+
+//image::imagesMKD/405px-PSM_V26_D464_The_tower_of_hanoi.jpg[The Tower Of Hanoi,405,600,float="right",align="center"]
+//image::imagesMKD/405px-PSM_V26_D464_The_tower_of_hanoi.jpg[The Tower Of Hanoi,243,360,float="right",align="center"]
+image::imagesMKD/405px-PSM_V26_D464_The_tower_of_hanoi.jpg[The Tower Of Hanoi,324,480,float="right",align="center"]
+The *Towers of Hanoi* is a game that was introduced and sold by the French mathematician Édouard Lucas in the 1880s. Lucas stated that the game is link:https://archive.org/details/popularsciencemon26newy/page/448/mode/2up["professedly of Indo-Chinese origin"] but it seems that Lucas invented this story link:https://www.cs.wm.edu/~pkstoc/toh.html[to market the game.] + 
+[small]#Image credit: link:https://commons.wikimedia.org/wiki/File:PSM_V26_D464_The_tower_of_hanoi.jpg["PSM V26 D464 The tower of hanoi.jpg".] This work is in the public domain in its country of origin and other countries and areas where the copyright term is the author's life plus 70 years or fewer.#
+
+// Tonkin (Northern Vietnam) had just become a French protectorate in 1883 when Lucas began to sell the game.
+
+At the start of the game, a set of disks of different radii are stacked on a single peg to form a "tower." The disks are stacked so that the radii of the disks decrease as you move up the stack. There are also two empty pegs.
+//The radius of any disk in the tower is smaller than the radius of any disk that is under it in the tower and larger than the radius of any disk that is above it in the tower. 
+The game is won by moving the stack of disks from the original peg to another peg using the following rules
+
+. Only one disk can be moved at a time. 
+. The disk at the top of a stack can be moved to the top of another stack or on to an empty peg. 
+. A disk can never be placed on top of a disk that has a smaller radius. 
+
+//In this textbook, the Towers of Hanoi will be used to explore several important concepts, namely, recursive algorithms, complexity of algorithms, and recurrence relations.
+// MKD March 3 2025
+The Towers of Hanoi can be used to explore recursive algorithms, complexity of algorithms, and recurrence relations, based on the following questions.
+
+* What is the minimal number of moves needed to win the game when there is 1 disk? 2 disks? 3 disks? $n$ disks?
+* What relationship (if any) is there between the minimal number of moves needed to win an $n$-disk game and the minimal number of moves needed to win an $(n-1)$-disk game?
+
+//  to explain the https://www.cs.wm.edu/~pkstoc/toh.html
+
+
+MORE TO COME!
+// MKD need to do Towers Of Hanoi
+//	https://www.cs.wm.edu/~pkstoc/page_1.html (also page_2.html)
+//	https://en.wikipedia.org/wiki/File:Tower_of_Hanoi_4.gif (animation of 4 disk case)
+//	https://commons.wikimedia.org/wiki/File:Tower_of_Hanoi.gif (3 disks)
+
+//== Validating Identifiers in a Programming Language
+
+////
+//MKD comment out rest begins
+
+****
+.Example {counter:indrecexample}
+
+//AUG 2024 update on topics
+//DS2013/Proof Techniques	Recursive mathematical definitions
+//DS2008/ProofTechniques	Recursive mathematical definitions
+//ACM_CCECC_2005/Introduction to recursion	recursive definitions of functions
+//
+//	Do at least one function using function notation, 
+//		and point out that it is really a sequence
+//	Also: Refer back to wff in link:./logic.html[Logic] chapter.
+
+== Recurrence Relations
+//AUG 2024 update on topics (recurrence relations) 
+//	MKD do after Pascal's Triangle? 
+//ACM_CCECC_2005/Introduction to recursion	factorials
+//DS2013/Basics of Counting	Solving recurrence relations: An example of a simple recurrence relation, such as Fibonacci numbers
+//DS2008/BasicsOfCounting	Fibonacci numbers
+//DS2001/Basics of counting	Counting arguments: Fibonacci numbers
+//ACM_CCECC_2005/Introduction to recursion	Fibonacci sequences
+// MKD: Use recursive definitions for each of the following
+//	Arithmetic progression, 
+//	geometric progression, 
+//	factorial, 
+//	Fibonacci numbers (use Knuth/Rosen definition). 
+
+=== Solving Recurrence Relations 
+//DS2013/Basics of Counting	Solving recurrence relations: Other examples, showing a variety of solutions
+//DS2008/BasicsOfCounting	Solving recurrence relations
+//DS2008/BasicsOfCounting	Common examples
+//DS2001/Basics of counting	Solving recurrence relations: Common examples
+//DS2008/BasicsOfCounting	The Master theorem
+//DS2001/Basics of counting	Solving recurrence relations: The Master theorem
+//ACM_CCECC_2005/Introduction to recursion	Towers of Hanoi
+//ACM_CCECC_2005/Introduction to recursion	other functions and sequences
+//MKD - Towers of Hanoi may be a good asynchronous activity
+//	Arithmetic progression, 
+//	geometric progression, 
+//	General first-order homogeneous, 
+//	General second-order homogeneous
+//	Fibonacci numbers (use Knuth/Rosen definition). 
+// 	Master Theorem type (divide-and-conquer?)
+
+
+//314 but 4comment slashes here
+
+
+== Sequences, Series, and Sigma Notation
+
+
+
+=== Series and Sigma notation
+Given a sequence of numbers $ \left\{a_{n\ }\right\}=\left\{a_1,a_2,a_3,\ldots\right\}$ we are often interested in adding them up.
+
+Adding a sequence of numbers produces what is called a *series*.
+
+$ a_1+a_2+a_3+a_4$ is a finite series with 4 terms, and
+$ a_1+a_2+a_3+\ldots+a_n$ is a finite series up to some finite, but possibly variable number of terms $n$.
+
+By contrast $a_1+a_2+a_3+\ldots$ is used to denote an *infinite series*.
+
+NOTE: There is a shorthand way of writing a series using *sigma*, or *sum notation*, denoted by the $\sum$ symbol.
+
+For example, $a_1+a_2+a_3+a_4=\sum\limits_{i=1}^{4}a_i $
+  which means starting at $i=1$, we add up $a_1$ and then increase $i$ to 2 and add $a_2$, and so on, all the way up to the last one at $i=4$.
+
+$a_1+a_2+a_3+\ldots+a_n=\sum\limits_{i=1}^{n}a_i$
+
+//MKD: Say why we wont use inifinite sums
+The infinite sum is denoted
+$a_1+a_2+a_3+\ldots=\sum\limits_{i=1}^{\ \infty\ }a_i$
+
+****
+.Example {counter:indrecexample}
+Consider ${a_n}=\left\{3n+1\right\}$
+
+$\sum\limits_{i=1}^{4}a_i=a_1+a_2+a_3+a_4$
+
+$=\left(3\times1+1\right)+\left(3\times2+1\right)+\left(3\times3+1\right)+\left(3\times4+1\right)=\sum\limits_{i}^{4}{(3i+1)}$
+
+$ \sum\limits_{i=1}^{n}a_i = a_1+a_2+a_3+\ldots+a_n$
+$=\left(3\times1+1\right)+\left(3\times2+1\right)+\left(3\times3+1\right)+\ldots +\left(3\times n+1\right)=\sum\limits_{i}^{n}{(3i+1)}$
+
+$\sum\limits_{i=1}^{\ \infty\ }a_i=a_1+a_2+a_3+\ldots$
+$=\left(3 \times 1+1\right)+\left(3\times 2+1\right)+\left(3\times 3+1\right)+\ldots\ =\sum\limits_{i=1}^{\ \infty\ }{(3i+1)}$
+****
+
+== Defining Sequences Recursively
+
+A *recurrence relation* for a sequence ${a_n}$ is an equation that expresses $a_n$ in terms of one or more of the previous terms of the sequence, namely
+$a_0, a_1, \dots, a_{n-1}$ for all integers $n$ with $n \ge n_0$, where $n_0$ is a nonnegative integer. The *initial conditions* for such a recurrence relation
+specify the terms that precede the first term where the recurrence relation takes effect.
+
+****
+.Example {counter:indrecexample}
+--
+--
+Let ${a_n}$ be a sequence that sastifies the recurence relation $a_n=a_{n-1}+na_{n-2}+1$ for $n=2, 3,4, \dots$ and suppose that $a_0=1$ and $a_1=2$. Find $a_2, a_3,$ and
+$a_4.$
+
+.Solution:
+\begin{array}{lcl}
+a_2 & = & a_1 + 2a_0 + 1\\
+&=& 2 + 2(1) + 1\\
+a_2 &=& 5
+\end{array}
+
+\begin{array}{lcl}
+a_3 &=& a_2 + 3a_1 + 1\\
+&=& 5 + 3(2) + 1\\
+a_3&=& 12
+\end{array}
+
+\begin{array}{lcl}
+a_4 &=& a_3 + 4a_2 + 1\\
+&=& 12 + 4(5) +1\\
+a_4 &=& 33
+\end{array}
+
+****
+
+
+
+// MKD moved fibonacci from here
+
+== Recursive Algorithms
+
+Algorithms or procedures may invoke other procedures.
+An algorithm that calls itself is said to be a *recursive algorithm*.
+
+One way to think of recursive algorithms, is as algorithms
+which reduce  tasks to  instances of the same task with a smaller number of inputs.
+
+We illustrate with some basic examples.
+The first few examples are intended mainly to introduce the
+concept of recursion and are not necessarily the most efficient or
+intuitive ways to implement the given tasks.  Recursive methods are to be
+contrasted with iterative methods.
+
+=== Recursive Implementation of Factorial
+
+We begin with a recursive method for
+computing $n!$ for integers $n \geq  0$.
+
+Recall that $5!=5\ \times\ 4\ \times\ 3\ \times\ 2\ \times\ 1\ =\ 5\ \times\ 4!$.
+
+In general, we may define $n!$ recursively or inductively as
+
+$0!=1$
+
+$n!\ =\ n\ \cdot\ (n-1)!\ $
+
+An implementation of the factorial procedure is given below.
+
+****
+.Factorial $n!$ in Pseudocode
+
+[%header,cols="1a,1a"]
+|===
+|Recursive
+|Iterative
+
+|[source, pseudocode, subs="normal, verbatim"]
+----
+*procedure* factorial(_n_)
+*begin*
+	*if* _n_ *equals* 0 *then*
+		*return* 1	
+	*else*
+		*return*  n * factorial(n-1)
+	*end if*
+*end*
+----
+|[source, pseudocode, subs="normal, verbatim"]
+----
+*procedure* factorial(_n_)
+*begin*
+	_z_ = 1
+	*for* _i_ = 1 *to* _n_ *do*
+		_z_ = _z_ * _i_
+	*return* _z_
+*end*
+----
+|===
+
+****
+
+:pt_code_height: 375
+:pt_rawinput: false
+:pt_code:    def%20rfactorial%28n%29%3A%0A%20%20%20%20z%3D1%0A%20%20%20%20if%20n%3E1%3A%0A%20%20%20%20%20%20%20%20z%3Dn*rfactorial%28n-1%29%0A%20%20%20%20return%20z%0A%23%20Driver%20code%20to%20test%20above%0AAnswer%3Drfactorial%285%29%0Aprint%28%22n! %20is%3A%22,%20Answer%29%0A
+****
+.Example {counter:algoex} - Recursive Implementation of Factorial Function, $n!$, in Python
+--
+--
+The Python code below implements the factorial function $n!$ recursively.
+
+include::python_tutor.adoc[]
+****
+
+=== Recursive Implementation of the Power Function $b^n$
+
+As another simple example, we consider a recursive implementation of exponentiation $b^n$ with $n$ a nonnegative integer, $b>0$, and $b  \neq 1$.
+
+Consider for example $5^4=5\ {\cdot\ 5}^3$
+Hence we can recursively define exponentiation as
+
+$b^0=1$
+
+$b^n=b\cdot\ b^{n-1}$.
+
+A pseudocode recursive implementation of the power function or exponential function $b^n$ is below.
+
+****
+.Power Function $b^n$ in Pseudocode
+
+[%header,cols="1a,1a"]
+|===
+|Recursive
+|Iterative
+
+|[source, pseudocode, subs="normal, verbatim"]
+----
+*procedure* exponentiation(_b_, _n_)
+*begin*
+	*if* _n_ *equals* 0 *then*
+		*return* 1	
+	*else*
+		*return*  b * exponentiation(n-1)
+	*end if*
+*end*
+----
+|[source, pseudocode, subs="normal, verbatim"]
+----
+*procedure* exponentiation(_b_, _n_)
+*begin*
+	_z_ = 1
+	*for* _i_ = 1 *to* _n_ *do*
+		_z_ = _z_ * _b_
+	*return* _z_
+*end*
+----
+|===
+****
+
+=== Recursively Defined Arithmetic Sequences
+
+Consider the arithmetic sequence, $5, 9, 13, 17,\ldots $, which is an
+arithmetic sequence with first term $a_1=5$ and common difference $d=4$,
+which may be defined recursively as
+
+$a_1=5$
+
+$a_n=4+a_{n-1}$
+
+The general arithmetic sequence with first term $a_1=a$ and common difference $d$
+can be defined recursively,
+
+$a_1=a$
+
+$a_n=d+a_{n-1}$,
+
+and the sequence can be generated recursively using the following pseudocode.
+
+****
+.Recursive implementation of arithmetic sequences with first term $a_1=a$, and common difference $d$.
+[source, pseudocode, subs="normal, verbatim"]
+----
+*procedure* arithmetic(_n_, _a_, _d_)
+*begin*
+	*if* _n_ equals 1 *then*
+		*return* _a_
+	*else*
+		*return* _d_ + arithmetic(_n_ – 1, _a_, _d_)
+*end*
+----
+****
+
+=== Recursive Generation of the Fibonacci sequence
+
+Recall the Fibonacci sequence $1, 1, 2, 3, 5, 8, 13 \ldots $ is defined recursively,
+
+$f_1=1$
+
+$f_2=1$
+
+$f_n=f_{n-1}+f_{n-2}$
+
+We provide a recursive Python implementation to compute the $n^{th}$
+Fibonacci number.
+
+:pt_code_height: 350
+:pt_rawinput: false
+:pt_code:     def%20rfib%28n%29%3A%0A%20%20%20%20if%20n%20%3C%202%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20rfib%28n-1%29%20%2Brfib%28n-2%29%0A%23Driver%20code%20to%20test%20above%0Aans%3D%20rfib%286%29%0Aprint%28%22The%20nth%20Fibonacci%20number%20is%3A%22,%20ans%29%0A
+****
+.Example {counter:algoex} - Recursive Implementation of Fibonacci in Python
+--
+--
+The Python code below uses the recursive relationship $f_n = f_{n-1}+f_{n-2}$, to calculate
+the $n^{th}$ Fibonacci number.
+
+include::python_tutor.adoc[]
+****
+
+
+//MKD merge sort begins
+#MKD - This section should move from the original's induction_recursion.doc to the Remix's algorithms.doc#
+=== The Merge Sort Algorithm
+
+Merge Sort is a recursive sorting algorithm. The general idea is to divide a list of length $n$ into $n$ sublists of length $1$, where a list of length one is considered already sorted. Subsequently, the algorithm repeatedly merges the sublists to make sorted lists until only a single list of length $n$ is remaining. This will be the a sorted list consisting of the elements of the original list.
+
+The picture below illustrates this with a list of length seven.
+[.float-group]
+--
+.Illustration of Merge Sort courtesy of Wikipedia
+[.left.text-center]
+image::images/mergesort.png[GGC,600,600, align="center"]
+--
+
+//MKD https://commons.wikimedia.org/wiki/File:Merge_sort_algorithm_diagram.svg
+// This work has been released into the public domain by its author, VineetKumar at English Wikipedia
+
+
+****
+.Example {counter:algoex} - The Merge Sort Algorithm in Python
+--
+--
+:pt_code_height: 1100
+:pt_rawinput: false
+:pt_code: def%20mergeSort%28A%29%3A%0A%20%20%20%20if%20len%28A%29%20%3E%201%3A%0A%20%20%20%20%20%20%20%20%23finds%20the%20middle%20of%20list%20A%0A%20%20%20%20%20%20%20%20mid%20%3D%20len%28A%29%20//%202%20%0A%20%20%20%20%20%20%20%20%23left%20sublist%20going%20from%20the%20beginning%20to%20the%20middle%0A%20%20%20%20%20%20%20%20L%20%3D%20A%5B%3Amid%5D%20%0A%20%20%20%20%20%20%20%20%23right%20sublist%20going%20from%20the%20middle%20to%20the%20end%0A%20%20%20%20%20%20%20%20R%20%3D%20A%5Bmid%3A%5D%20%0A%20%20%20%20%20%20%20%20%23sorts%20the%20left%20half-list%0A%20%20%20%20%20%20%20%20mergeSort%28L%29%20%0A%20%20%20%20%20%20%20%20%23sorts%20the%20right%20half-list%0A%20%20%20%20%20%20%20%20mergeSort%28R%29%20%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20i%20%3D%20j%20%3D%20k%20%3D%200%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%23following%20code%20merges%20L%20and%20R%20back%20into%20A%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20len%28L%29%20and%20j%20%3C%20len%28R%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20L%5Bi%5D%20%3C%20R%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20A%5Bk%5D%20%3D%20L%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20A%5Bk%5D%20%3D%20R%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%23follwing%20code%20checks%20if%20any%20elements%20are%20left%20out%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20len%28L%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20A%5Bk%5D%20%3D%20L%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20while%20j%20%3C%20len%28R%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20A%5Bk%5D%20%3D%20R%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20return%20A%0A%20%20%20%20%20%20%20%20%0Alist%20%3D%20%5B12,%2011,%2013,%205,%206,%207%5D%0Aprint%28%22The%20sorted%20is%22,%20mergeSort%28list%29%29&
+include::python_tutor.adoc[]
+****
+
+Notice that Merge Sort has complexity $n \log{n}$. The first part of Merge Sort, similar to Binary Search which is $O(\log{n})$, the list is repeatedly
+divides into two halves. The second part of Merge Sort merges $n$ elements which occurs with complexity $n$. Since the algorithm performs the first
+AND the second parts, we multiply to obtain that the complexity is $O(n \log{n})$.
+//MKD merge sort ends 
+
+////
+//MKD comment out rest ends

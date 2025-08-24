@@ -7,7 +7,7 @@
   <meta content="Asciidoctor 1.5.8" name="generator"/>
   <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
   <title>
-   Discrete Math - The MKD Remix
+   Discrete Math - The MKD Remix (Public Version)
   </title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
   <style>
@@ -469,7 +469,7 @@ $(document).on('page:load', ready2);
  <body class="book toc2 toc-left">
   <div id="header">
    <h1>
-    Discrete Math - The MKD Remix
+    Discrete Math - The MKD Remix (Public Version)
    </h1>
    <div class="details">
     <span class="author" id="author">
@@ -616,10 +616,27 @@ $(document).on('page:load', ready2);
      </div>
      <div class="paragraph">
       <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are enrolled in the CSC 230 course that I teach at SFSU, you need to use
+        <a href="./CSC230/index.html">
+         the “CSC230 version”
+        </a>
+        of the book, which I will be updating throughout the semester. The version you are looking at now is the “public version” of the book that is only updated between semesters.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
        <em>
-        This chapter was last updated on July 15, 2025.
+        This chapter was last updated on Aug 15, 2025.
        </em>
        <br/>
+       <em>
+        Revised and expanded the discussion of isomorphisms and underlying graphs.
+       </em>
       </p>
      </div>
      <div class="paragraph">
@@ -1344,10 +1361,10 @@ are,
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 4 - A directed graph.
+          Example 4 - A directed graph and its underlying graph.
          </div>
          <p>
-          The graph
+          The directed graph
 shown has
 vertex set
 \(\{A,B,C,D,E,F\}\) and
@@ -1911,7 +1928,7 @@ different-looking drawings of the
           <em>
            same graph
           </em>
-          that has vertex set \(\{ A, B, C, D\}\) and edge set \(\{\{A,B\},\{A,C\},\{A,D\}\{B,C\},\{B,D\},\{C,D\}\}.\) Also, notice that the drawing on the left appeared earlier in the chapter, but with unlabeled vertices: This is a drawing of \(K_{4},\) the complete graph on \(4\) vertices.
+          that has vertex set \(\{ A, B, C, D\}\) and edge set \(\{\{A,B\},\{A,C\},\{A,D\},\{B,C\},\{B,D\},\{C,D\}\}.\) Also, notice that the drawing on the left appeared earlier in the chapter, but with unlabeled vertices: Each of the graphs in the image is a drawing of \(K_{4},\) the complete graph on \(4\) vertices.
          </p>
         </div>
         <div class="paragraph">
@@ -2060,9 +2077,15 @@ that preserves adjacency (that is, if two vertices in the upper row are endpoint
         <strong>
          isomorphic.
         </strong>
-        Informally, you can think of two isomorphic graphs as a pair of graphs where one graph can be relabeled and/or reshaped to obtain the other graph (That is, the two graphs are the
+        That is, two vertices are endpoints of an edge in the first graph if and only if the corresponding vertices are the endpoints of an edge in the second graph.
+Informally, you can think of two isomorphic graphs as a pair of graphs where
+a drawing of
+one graph can be relabeled and/or reshaped to obtain
+a drawing of the
+other graph
+(That is, the two graphs are really
         <em>
-         same graph
+         the same graph
         </em>
         but have drawings that are labeled and/or shaped differently.)
        </p>
@@ -2153,6 +2176,53 @@ that preserves adjacency (that is, if two vertices in the upper row are endpoint
           </div>
          </div>
         </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="isomorphisms_that_preserve_attributes">
+        14.9.1. Isomorphism of Graphs with Additional Features
+       </h4>
+       <div class="paragraph">
+        <p>
+         As described above, a graph isomorphism is a one-to-one correspondence between the sets of vertices of two graphs that preserves the adjacency relationship between pairs of vertices.
+That is, two vertices are endpoints of an edge in one graph if and only if the corresponding vertices are endpoints of an edge in the other graph.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In cases where graphs have additional features beyond the basic adjacency relationship between pairs of vertices, we should only consider two of these “graphs with additional features” to be isomorphic if the additional features are also preserved.
+         <br/>
+         <span class="small">
+          Note: Some sources use the word “attributes” for these additional features.
+         </span>
+        </p>
+       </div>
+       <div class="imageblock text-center">
+        <div class="content">
+         <img alt="IsomorphismWeightedGraphsv1" height="220" src="imagesMKD/IsomorphismWeightedGraphsv1.png" width="342"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         As an example, in the image, the three graphs with vertex sets \(\{ F,\,G,\,H \},\) \(\{ J,\,K,\,L \},\) and \(\{ P,\,Q,\,R \}\) are isomorphic as
+         <em>
+          graphs
+         </em>
+         if we ignore the edge weights.
+Also, the two graphs with vertex sets \(\{ F,\,G,\,H \}\) and \(\{ J,\,K,\,L \}\) are isomorphic as
+         <em>
+          weighted graphs
+         </em>
+         because there is a one-to-one correspondence between the vertex sets that
+         <span class="underline">
+          preserves both the adjacency relationships and the corresponding edge weights.
+         </span>
+         The third graph with vertex set \(\{ P,\,Q,\,R \}\) is not isomorphic as a
+         <em>
+          weighted graph
+         </em>
+         to either of the other two weighted graphs because its edge weights cannot be matched with the edge weights in the other weighted graphs.
+        </p>
        </div>
       </div>
      </div>

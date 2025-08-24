@@ -1,0 +1,46 @@
+= Appendix: For Instructors
+
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+
+include::LinkToPublic.adoc[] 
+
+_This chapter was last updated on August 24, 2025._ + 
+_made minor wording changes_
+
+//appendix_for_instructors.adoc
+
+In this appendix, the remixer shares some ideas that other instructors may find useful.
+
+== Incorporating Lessons from the Discrete Mathematics Project
+
+Here is how I, the remixer, have tried to use the “team-worthy” activity-based lesson materials developed by the https://sites.google.com/view/discrete-math-project-pilot/home[Discrete Mathematics Project (DMP)] in the course that I teach using the Remix. 
+
+It appears that one of the purposes of these lessons is to have each student play one specific role (either Documenter, Reporter, Facilitator, or Questioner) for their team during each lesson. The aim is to give students the experience of being assigned such a role, which may happen in their professional lives. 
+
+The order of the lessons in the list below reflects how the remixer has used them throughout a one-semester course. 
+
+[horizontal]
+Introduction to Teamworthy Tasks - Counting (DMP Lesson 1):: This lesson involves counting arguments and seems to have been designed as an accessible entry point for all students. + 
+However, in my experience, when teams are formed some students in each team may know how to solve the problems already while others may not, which can lead to the team members dropping out of the roles they are assigned to play during the activity and instead focusing on “getting the answers.” It may be worth considering using another activity with content that is more likely to be unfamiliar to almost all students. I may swap the content of this one with Handshake Lemma (That is, use the introductory materials about team-worthy tasks, but replace the activity content with Handshake lesson's content). 
+Handshake Lemma (DMP Lesson 3):: This lesson can be used to introduce the concept of conjecture, lay the groundwork for proof, and provides a nonarithmetic/nonalgebraic example for proof by mathematical induction that is referred to later when mathematical induction is formally introduced. The graph theory content needed by students is minimal and can be learned just-in-time, so this lesson can be used very early in the course. NOTE: It may be important to mention to students that this activity does not involve literally shaking the hands of other people. A possible extension to this could be to use directed edges. 
+// before any formal discussion of graphs and graph theory, and 
+Also, using this lesson as the first one in a semester may have an advantage over the counting problems included in the Introduction to Teamworthy Tasks lesson: The graph theory content is likely to be unfamiliar to most students so that team members may be more likely to adhere to their specific team roles. 
+//; for that reason , it may work even as the first lesson. 
+Logic & Inference (DMP Lesson 5):: This lesson focuses on using rules of inference to  make a valid argument, and analyzing invalid arguments (e.g., ones that include a converse or inverse error.) Some teams may try to use AI to solve the problem, which often brings up the opportunity to talk about common logical fallacies (i.e., the converse error and the inverse error.) In fact, the lesson includes examples from AI that have made these common errors. 
+Algorithms & Recursive Functions (DMP Lesson 7):: This lesson introduces algorithms and their analysis using recurrence relations and  recursively-defined functions, and the comparison of the linear search and binary search algorithms for sorted lists. I use it to introduce recursion and recurrence relations, and the need to follow an algorithm carefully, step-by-step. I use this several weeks before formally introducing the search algorithms and their complexity analysis. 
+Binomial/Number Triangle (DMP Lesson 2):: I do this lesson after recurrence relations to try to focus on the relationships in the number triangle. Try to stress the reasoning needed to justify Pascal's identity, as many students will focus on "getting the right numbers" instead.
+Mathematical Induction (DMP Lesson 6):: Teams use an assembly-line approach to starting one proof, completing a second proof started by another team, then verifying a third proof completed by the second team. This activity works well with trios of teams completing each other's proofs. In my experience, the student teams find the problems with algebraic equations the easiest (but not very easy at all.) Most undergraduate students have no experience using the kind of nesting arguments needed to work with inequalities. I've tried to use some "visual questions" (say, about properties of star graphs) but the teams would need much more practice with recursive definitions than they've had up to and including this course.  
+Ramsey/Dot Game (DMP Lesson 4):: I use this as the final activity, typically with only 3 students per team. The content involves graph edge colorings, presented as a game. I have found that the game context makes this lesson highly engaging. At this point in the semester, students are used to working in their team roles so this engagement does not lead them to abandon those roles.
+
+////
+. Introduction to Teamworthy Tasks (Lesson 1)
+. Handshake Lemma (Lesson 3)
+. Logic (Lesson 5)
+. Binomial (Lesson 2, also called Binomial/Number Triangle)
+. Algorithms (Lesson 7, Algorithms and Recursion)
+. Induction (Lesson 6)
+. Ramsey (Lesson 4, Ramsey/Dot game)
+////
+
+
+

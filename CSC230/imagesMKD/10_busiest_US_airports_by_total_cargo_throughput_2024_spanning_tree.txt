@@ -1,0 +1,10 @@
+Edge    	Weight (km) 
+{LAX, ONT}	76
+{CVG, SDF}	134
+{CVG, IND}	159
+{IND, ORD}	286
+{MEM, SDF}	514
+{CVG, JFK}	948
+{MEM, MIA}	1383
+{MEM, ONT}	2530
+{ANC, LAX}	3774

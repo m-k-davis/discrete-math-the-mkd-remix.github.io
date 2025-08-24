@@ -1,0 +1,7 @@
+[click.Note.to.instructors.-.Click.To.Expand]
+--
+[small]#Many textbooks assume either the    link:./relations.html#well_ordering_principle_for_natural_numbers[Well-Ordering Principle] or the link:./induction.html#the_principle_of_mathematical_induction_for_natural_numbers[Principle of Mathematical Induction] as an axiom, and then prove the other principle using that axiom (and also prove that the two principles are logically equivalent.) As the Remix is designed for students of Computer Science, both principles are simply assumed to be True without proof, 
+that is, both principles are treated as axioms.  
+This choice should not limit student understanding of how these principles can be applied, and also avoids some highly technical issues that arise in formal mathematical definitions of the set $\mathbb{N}$ of natural numbers which would most likely only be of concern to Mathematics majors and their instructors. If you 
+want to do a deeper mathematical exploration of these technical issues (e.g., differing formulations of the Peano axioms, and first-order versus second-order logic) you may refer to  link:https://link.springer.com/article/10.1007/s00283-019-09898-4[this article] in _The Mathematical Intelligencer_ as well as the subsection “Nonstandard models” of this  link:https://en.wikipedia.org/wiki/Peano_axioms#Nonstandard_models[Wikipedia  page.]#
+--

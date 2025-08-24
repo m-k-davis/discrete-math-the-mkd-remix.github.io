@@ -2,9 +2,12 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on March 11, 2025._ + 
-_added additional example at end of chapter_ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+include::LinkToPrivate.adoc[] 
+
+
+_This chapter was last updated on August 22, 2025._ + 
+_added information to the subsection on the well-ordering of $\mathbb{N}$_ + 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 //COMING SOON!
 
@@ -478,15 +481,82 @@ partial order $R$ on $S$ that has the additional property $(\forall x \in S)(\fo
 
 A *well-ordering* of a set $S$ is a total ordering $R$ on $S$ that has the additional property that every nonempty subset of $S$ contains a least element with respect to the order relation.
 
-[[well_ordering_axiom_for_natural_numbers]]
-.Axiom 
+[[well_ordering_principle_for_natural_numbers]]
+// MKD Aug 19-20 2025 
+One of the most important examples of a well-ordering in mathematics is the relation $\leq$ on the set of natural numbers $\mathbb{N}.$ 
+
+//.Axiom 
+//.Well-Ordering Axiom for $\mathbb{N}$
+//.for.the.Natural.Numbers 
+.The Well-Ordering Principle for $\mathbb{N}$
 ****
-The relation $\leq$ on the set $\mathbb{N}$ of natural numbers is a well-ordering.
+//The relation $\leq$ on the set $\mathbb{N}$ of natural numbers is a well-ordering.
+// MKD Aug 22 2025 
+//That is, every 
+//Every nonempty subset $S \subseteq \mathbb{N}$ has a least element. 
+//That is, 
+If $S$ is a nonempty subset of $\mathbb{N}$ then 
+there is a natural number $m \in S$ such that for every element $x \in S,$ $m \leq x.$
+
 ****
 
-Notice that the above statement is not a theorem... it is an axiom that we assume to be true about the natural numbers!
+// MKD Aug 21 2025 
+//The Well-Ordering Principle is usually assumed as an [.underline]#axiom.# That is, we don't try to prove this principle, but instead assume that the statement is True about the set of natural numbers. + 
+// MKD Aug 22 2025 
+//In the Remix, the Well-Ordering Principle is assumed as an [.underline]#axiom.# That is, we won't try to prove this principle, but will instead assume that the statement is True about the set of natural numbers. + 
+In the Remix, the Well-Ordering Principle is treated as an axiom, a statement that is assumed to be True about the set of natural numbers. + 
+// MKD Aug 19 2025 
+//“”
+// MKD Aug 22 2025 
+//[small]#Note: Many textbooks state and prove that the link:./relations.html#well_ordering_principle_for_natural_numbers[Well-Ordering Principle] and the link:./induction.html#the_principle_of_mathematical_induction_for_natural_numbers[Principle of Mathematical Induction] are logically equivalent. The Remix does not follow this course, due to some link:https://link.springer.com/article/10.1007/s00283-019-09898-4[highly technical issues] concerning the formal mathematical definition of the set $\mathbb{N}$ of natural numbers.#
+
+include::WOPPMI.adoc[]
+
+////
+[click.Note.to.instructors]
+--
+[small]#Many textbooks assume either the    link:./relations.html#well_ordering_principle_for_natural_numbers[Well-Ordering Principle] or the link:./induction.html#the_principle_of_mathematical_induction_for_natural_numbers[Principle of Mathematical Induction] as an axiom, and then prove the other principle using that axiom (and also prove that the two principles are logically equivalent.) As the Remix is designed for students of Computer Science, both principles are simply assumed to be True without proof, 
+that is, both principles are treated as axioms.  
+This choice should not limit student understanding of how these principles can be applied, and also avoids some highly technical issues that arise in formal mathematical definitions of the set $\mathbb{N}$ of natural numbers which would most likely only be of concern to Mathematics majors and their instructors. If you 
+want to do a deeper mathematical exploration of these technical issues (e.g., differing formulations of the Peano axioms, and first-order versus second-order logic) you may refer to  link:https://link.springer.com/article/10.1007/s00283-019-09898-4[this article] in _The Mathematical Intelligencer_ as well as the subsection “Nonstandard models” of this  link:https://en.wikipedia.org/wiki/Peano_axioms#Nonstandard_models[Wikipedia  page.]#
+--
+////
 
 
+//https://en.wikipedia.org/wiki/Peano_axioms#Nonstandard_models
+
+// MKD Aug 22 2025 
+////
+At first glance, the Well-Ordering Principle may seem like an “obviously True” statement. 
+//, but in fact we can only [.underline]#assume# it to be True - we cannot prove it. 
+To understand why we must assume the principle to be True instead of trying to prove it is to understand what “infinity” means. 
+////
+The Well-Ordering Principle may seem like an “obviously True” statement. To understand why mathematicians would make it clear that they are _assuming_ that this principle is True is to understand what “infinity” means. 
+
+* For example, suppose that you are told that a nonempty subset $S$ of $\mathbb{N}$ contains the element 10. A brute-force way to determine the least element of $S$ is to ask a sequence of 10 questions: \[ \text{“Is 0 in $S?,$” “Is 1 in $S?,$” $\ldots$, “Is 9 in $S?$”} \] If the answer is “No” to all 10 of these questions, then 10 itself is the least element in $S$,  otherwise, the least number in $S$ is the first value of $k$ for which the answer to the question “Is $k$ in $S?$” is “Yes.” 
+//determine the least element of $S$ since either the first “yes” answer determines the least element, or 10 itself is the least element if all the answers are “No.” 
+//and know that a certain natural number $n$ is in the set, then we need only //ask at most $n$ questions in the list 
+//“Is 0 in $S?,$” “Is 1 in $S?,$” ..., “Is $n-1$ in $S?$” to determine the least element of $S.$ 
+//For example, if you know 10 is in $S,$ then you can ask at most 10 questions 
+* Now, suppose that it takes 1 nanosecond to ask and answer each question of the form “Is $k$ in $S?$” for each integer $k,$ and suppose that you are given a new set, also called $S,$ and told that the the number you can be sure is in $S$ is $10^{10^{10^{10^{10}}}}$ which is an integer  
+//a natural number that is 
+greater than the number of nanoseconds estimated for our universe to reach its link:https://en.wikipedia.org/wiki/Timeline_of_the_far_future#cite_ref-bignumber2_177-3[final energy state!] If you try to use the brute-force method of asking a sequence of $10^{10^{10^{10^{10}}}}$ questions: \[ \text{“Is 0 in $S?,$” “Is 1 in $S?,$” $\ldots$, “Is $\left( 10^{10^{10^{10^{10}}}}-1 \right)$ in $S?$”} \] 
+// questions, 
+it is possible that the answer to one of the questions is “Yes” but that you would never be able to ask that question before the universe ends. 
+// MKD Aug 21 2025 
+Notice that you can use link:./logic.html[formal logic] to justify that either the answers to all the questions would be “No” or that at least one of the questions would have the answer “Yes” - asking the sequence of questions [.underline]#would# determine the least element in $S$ if you had time to ask enough of the questions, but you (or humanity itself!) may not have that much time. For this reason, mathematicians _assume_ that the least element of $S$ exists (Notice that a “timeless being” could know all the answers.)
+//, but cannot prove that you have a way of determining what that least element is. 
+//That is, you only have a finite amount of time to determine the least element of $S,$ but that may not be enough time.
+//not have an infinite amount of time to determi
+
+//However, suppose instead that we have a set and only know that $10^{10^{10^{10^{10}}}}$ is in the set. Also suppose that it takes 1 nanosecond to ask and answer each of the questions of the form “Is $k$ in $S?$” The problem with using the brute-force question-and-answer method is that  $10^{10^{10^{10^{10}}}}$ is greater than the number of nanoseconds estimated for our universe to reach its link:https://en.wikipedia.org/wiki/Timeline_of_the_far_future#cite_ref-bignumber2_177-3[final energy state!] It is possible that the answer to one of the questions is “yes” but that we would never be able to ask that question before the universe ends.
+// questions to get an answer of “yes.”
+//run out of time to ask the questions before we ever got an answer “yes!”
+
+
+// MKD Aug 20 2025 
+// PMI implies WO but not the converse?
+// https://link.springer.com/article/10.1007/s00283-019-09898-4
 
 == Modular Arithmetic
 

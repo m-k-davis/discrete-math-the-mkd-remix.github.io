@@ -2,6 +2,9 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
+
+include::LinkToPrivate.adoc[] 
+
 _This chapter was last updated on June 19, 2025._ + 
 //_Revised subsection "Partial list of changes made (or to be made) to the Remix" after reordering the chapters for the Spring 2024 semester._
 //#[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#

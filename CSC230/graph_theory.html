@@ -1,0 +1,2850 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Asciidoctor 1.5.8" name="generator"/>
+  <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
+  <title>
+   Discrete Math - The MKD Remix (CSC230 Version)
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
+  <style>
+   /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Uncomment @import statement below to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock pre.nowrap,.literalblock pre.nowrap pre,.listingblock pre.nowrap,.listingblock pre.nowrap pre{white-space:pre;word-wrap:normal}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #dddddf}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd){background:#f8f8f7}
+table.stripes-none tr,table.stripes-odd tr:nth-of-type(even){background:none}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <style>
+   .click .title { color: blue; }
+  .click {margin-top: 0.5em; margin-bottom: 0.5em;}
+  .openblock { margin-top: 1em; margin-bottom: 1em; }
+  .openblock>.box>.content { margin-top:1em;margin-bottom: 1em;margin-left:3em;margin-right:4em; }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript">
+  </script>
+  <script>
+   var ready2;
+
+ready2 = function() {
+
+    $(document).ready(function(){
+
+        $('.openblock.click').click( function()  { $(this).find('.content').slideToggle('200'); } )
+        $('.openblock.click').find('.content').hide()
+
+
+        $('.listingblock.click').click( function()  { $(this).find('.content').slideToggle('200') }  )
+        $('.listingblock.click').find('.content').hide()
+
+    });
+
+}
+
+
+
+
+$(document).ready(ready2);
+$(document).on('page:load', ready2);
+  </script>
+ </head>
+ <body class="book toc2 toc-left">
+  <div id="header">
+   <h1>
+    Discrete Math - The MKD Remix (CSC230 Version)
+   </h1>
+   <div class="details">
+    <span class="author" id="author">
+     A Work In Progress by Mark Kelly Davis
+    </span>
+    <br/>
+   </div>
+   <div class="toc2" id="toc">
+    <div id="toctitle">
+     Table of Contents
+    </div>
+    <ul class="sectlevel1">
+     <li>
+      <a href="index.html#_about_this_text">
+       About this text
+      </a>
+     </li>
+     <li>
+      <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
+       1. Introducing Discrete Mathematics
+      </a>
+     </li>
+     <li>
+      <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
+       2. Counting: Arithmetic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="set_theory.html#_set_theory">
+       3. Set Theory
+      </a>
+     </li>
+     <li>
+      <a href="logic.html#_logic">
+       4. Logic
+      </a>
+     </li>
+     <li>
+      <a href="proofs.html#_proofs_basic_techniques">
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
+      </a>
+     </li>
+     <li>
+      <a href="recursion.html#_sequences_and_recursion">
+       7. Sequences and Recursion
+      </a>
+     </li>
+     <li>
+      <a href="functions.html#_functions">
+       8. Functions
+      </a>
+     </li>
+     <li>
+      <a href="relations.html#_relations">
+       9. Relations
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       10. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       11. Proofs: Mathematical Induction
+      </a>
+     </li>
+     <li>
+      <a href="growth_of_functions.html#_rates_of_growth_of_functions">
+       12. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="algorithms.html#_algorithms_and_their_analysis">
+       13. Algorithms and Their Analysis
+      </a>
+     </li>
+     <li>
+      <a href="graph_theory.html#_graphs">
+       14. Graphs
+      </a>
+     </li>
+     <li>
+      <a href="trees.html#_trees">
+       15. Trees
+      </a>
+     </li>
+     <li>
+      <a href="appendix_math.html#_appendix_on_demand_math_resources">
+       16. Appendix: On-Demand Math Resources
+      </a>
+     </li>
+     <li>
+      <a href="appendix_library.html#_appendix_library_of_functions">
+       17. Appendix: Library of Functions
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
+       18. Appendix: An Introduction to Python
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
+       19. Appendix: Python Syntax Examples
+      </a>
+     </li>
+     <li>
+      <a href="appendix_for_instructors.html#_appendix_for_instructors">
+       20. Appendix: For Instructors
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div id="content">
+   <div id="preamble">
+    <div class="sectionbody">
+     <div class="openblock float-group">
+      <div class="content">
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="sect1">
+    <h2 id="_graphs">
+     14. Graphs
+    </h2>
+    <div class="sectionbody">
+     <div class="paragraph">
+      <p>
+       <mark>
+        <strong>
+         CAUTION
+        </strong>
+        - CHAPTER UNDER CONSTRUCTION!
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for
+        <a href="../index.html">
+         the “public version”
+        </a>
+        of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       <em>
+        This chapter was last updated on Aug 15, 2025.
+       </em>
+       <br/>
+       <em>
+        Revised and expanded the discussion of isomorphisms and underlying graphs.
+       </em>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Graphs are discrete mathematical structures used to represent connections between individual
+Graphs have applications in fields such as chemistry, network analysis, computing algorithms, and social sciences.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Key terms and concepts covered in this chapter:
+      </p>
+     </div>
+     <div class="ulist">
+      <ul>
+       <li>
+        <p>
+         Graphs
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Undirected graphs
+           </p>
+          </li>
+          <li>
+           <p>
+            Directed graphs
+           </p>
+          </li>
+          <li>
+           <p>
+            Weighted graphs
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         Creating new graphs from old graphs
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Subgraphs
+           </p>
+          </li>
+          <li>
+           <p>
+            Unions and intersections of graphs
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         Graph isomorphism
+        </p>
+       </li>
+       <li>
+        <p>
+         Graph coloring
+        </p>
+       </li>
+       <li>
+        <p>
+         Connectivity of graphs
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Eulerian circuits
+           </p>
+          </li>
+          <li>
+           <p>
+            Hamiltonian circuits
+           </p>
+          </li>
+          <li>
+           <p>
+            Shortest-path problems
+           </p>
+           <div class="ulist">
+            <ul>
+             <li>
+              <p>
+               Dijkstra’s algorithm
+              </p>
+             </li>
+             <li>
+              <p>
+               Traveling Salesperson Problem (TSP)
+              </p>
+             </li>
+            </ul>
+           </div>
+          </li>
+         </ul>
+        </div>
+       </li>
+      </ul>
+     </div>
+     <div class="sect2">
+      <h3 id="_introduction_and_definitions">
+       14.1. Introduction and Definitions
+      </h3>
+      <div class="paragraph">
+       <p>
+        A graph consists of a set of
+        <strong>
+         vertices
+        </strong>
+        and a set of
+        <strong>
+         edges.
+        </strong>
+        Each edge
+connects either two different vertices or one vertex to itself.
+Vertices are sometimes called
+        <strong>
+         nodes.
+        </strong>
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          For each edge, its
+          <strong>
+           endpoints
+          </strong>
+          are the two vertices that it connects (but notice that the “endpoints” may be the same vertex.) The edge is said to be
+          <strong>
+           incident
+          </strong>
+          with each of its endpoints.
+         </p>
+        </li>
+        <li>
+         <p>
+          An edge that connects one vertex to itself is called a
+          <strong>
+           loop.
+          </strong>
+         </p>
+        </li>
+        <li>
+         <p>
+          Two edges that have the same endpoints are called
+          <strong>
+           parallel
+          </strong>
+          edges.
+         </p>
+        </li>
+        <li>
+         <p>
+          Two vertices are
+          <strong>
+           adjacent
+          </strong>
+          if they are the endpoints of at least one edge. Adjacent vertices are also called
+          <strong>
+           neighbors.
+          </strong>
+         </p>
+        </li>
+        <li>
+         <p>
+          The
+          <strong>
+           degree
+          </strong>
+          of a vertex \(v\) is the number of times the vertex occurs as an endpoint for all the edges in the graph.
+         </p>
+        </li>
+        <li>
+         <p>
+          An
+          <strong>
+           isolated vertex
+          </strong>
+          is a vertex that is not an endpoint of any edge. That is, an isolated vertex is the same as a vertex that has degree 0.
+         </p>
+        </li>
+        <li>
+         <p>
+          A graph is called a
+          <strong>
+           multigraph
+          </strong>
+          if there are parallel edges in the graph.
+         </p>
+        </li>
+        <li>
+         <p>
+          A
+          <strong>
+           simple graph
+          </strong>
+          is a graph that has no loops and no parallel edges.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following example illustrates many of these definitions.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 1
+         </div>
+         <p>
+          The graph shown has
+8
+vertices
+and 7 edges.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In this drawing, the vertices are represented by points that are labeled by capital letters, and the edges are represented by the line segments and arcs that connect two vertices.
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graphMKD1rev" src="imagesMKD/graphMKD1rev.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The graph is drawn so that
+the edge with endpoints \(B\) and \(F\) and
+the edge with endpoints \(D\) and \(E\)
+are represented by two line segments that intersect, but the point of intersection is ignored in the graph because it is not a vertex.
+We could redraw this graph so that the two edges do not cross; for example, we could move \(E\) inside the triangle that has vertices \(B,\) \(D,\) and \(F.\)
+However, there are some graphs which cannot be drawn in 2 dimensions without some edge crossings.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          There is a loop: The edge that has \(D\) as both of its endpoints.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          There are parallel edges that connect the vertices \(A\) and \(C,\) so this graph is a multigraph.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Vertex \(G\) is an isolated vertex - it is not an endpoint of any edge.
+Vertex \(H\) is also an isolated vertex.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          This graph is a multigraph because there are multiple edges
+that connect the pair of vertices \(A\) and \(C.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          This graph is not a simple graph: It contains a loop, and it has at least one pair of parallel edges.
+         </p>
+        </div>
+        <div class="openblock question">
+         <div class="title">
+          Question
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           For this graph, which vertex has the greatest degree? Which vertex has the least degree?
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Recall that the degree of a vertex is the number of times that vertex occurs as an endpoint (and that a loop has two endpoints that are the same vertex.)
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that in the example and definitions given so far, we’ve assumed that each edge is undirected: An edge represents a connection between its endpoints but does not indicate a direction of travel from one endpoint to the other endpoint. However, in some applications it is useful for a graph to use only
+        <strong>
+         directed edges
+        </strong>
+        that point from one endpoint to the other endpoint. A graph that has only directed edges is called a
+        <strong>
+         digraph,
+        </strong>
+        which is short for
+        <strong>
+         directed graph.
+        </strong>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Most graphs discussed in this chapter will be (undirected) simple graphs, that is, graphs with no loops and no parallel edges.
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_handshaking_lemma">
+       14.2. The Handshaking Lemma
+      </h3>
+      <div class="paragraph">
+       <p>
+        This section describes a property of
+        <em>
+         every
+        </em>
+        undirected graph.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Recall that the degree of a vertex of a graph is the number of times the vertex occurs as an endpoint for all the edges in the graph.
+Keep in mind that the vertex of a loop counts twice because that vertex occurs as “both endpoints” of the loop.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 2
+         </div>
+         <p>
+          Consider again the graph that was drawn in the previous example.
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graphMKD1rev" src="imagesMKD/graphMKD1rev.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The degrees of each of the vertices in this graph are listed in the table.
+         </p>
+        </div>
+        <table class="tableblock frame-all grid-all" style="width: 30%;">
+         <colgroup>
+          <col style="width: 50%;"/>
+          <col style="width: 50%;"/>
+         </colgroup>
+         <thead>
+          <tr>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Vertex
+            </strong>
+           </th>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Degree
+            </strong>
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              A
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              2
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              B
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              2
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              C
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              2
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              D
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              5
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              E
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              1
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              F
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              2
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              G
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              0
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              H
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              0
+             </em>
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that the sum of the degrees of all the vertices is \(14\), which is equal to twice the number of edges, \(2 \cdot 7.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        In fact, for any undirected graph with finitely many edges, the sum of the degrees of all vertices is equal to twice the number of edges (recalling that a loop’s endpoint will be counted twice.)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         The Handshaking Lemma
+        </div>
+        <div class="paragraph">
+         <p>
+          The sum of the degrees of the vertices of a graph
+is equal to twice the number of edges
+of the graph.
+         </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           This is an exercise for you.
+Use mathematical induction on the predicate
+           <br/>
+           \(P(n):\) “If a graph has \(n\) edges, then the sum of the degrees of all vertices of the graph is equal to \(2n.\)”
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            A useful consequence of the Handshaking Lemma is that the sum of the degrees of a graph must be even.
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_simple_graphs">
+       14.3. Simple Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        Recall that in a simple graph, there are
+no loops and no parallel edges
+(that is, you cannot have two different edges that connect the same pair of endpoints.)
+This means that for a simple graph, each edge is determined by its two distinct endpoints. This allows us to give a relatively simple but formal set-theoretic definition of “simple graph.”
+        <mark>
+         Graphs discussed in this textbook are assumed to be simple unless stated otherwise.
+        </mark>
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_a_formal_definition_of_simple_graph">
+        14.3.1. A Formal Definition of Simple Graph
+       </h4>
+       <div class="paragraph">
+        <p>
+         This subsection presents a formal set-theoretic definition of simple graphs.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         A
+         <strong>
+          simple graph
+         </strong>
+         \(G=\left(V,\ E\right)\) is an ordered pair consisting of a nonempty set \(V\) and a (possibly empty) set \(E,\) where each element of \(E\) must be of the form \(\left\{x,y\right\}\), where \(x\) and \(y\) are two different elements of \(V.\)
+The elements in set \(V\) are called the
+         <strong>
+          vertices
+         </strong>
+         (or
+         <strong>
+          nodes
+         </strong>
+         ) of the graph. The elements in set \(E\) are called the
+         <strong>
+          edges
+         </strong>
+         of the graph.
+        </p>
+       </div>
+       <div class="sidebarblock" id="simple_graph_example">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 3 - A simple graph.
+          </div>
+          <p>
+           The graph shown has vertex set
+\(\left\{A,\ B,\ C,\ D,\ E,\ F\right\}\) and
+edge set
+\( \{\{A,C\},\{A,D\},\{B,D\},\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}.\)
+          </p>
+         </div>
+         <div class="imageblock">
+          <div class="content">
+           <img alt="graph1" src="images/graph1.png"/>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         The degrees of each of the vertices in the undirected graph \(G\)  with vertex set
+\(V=\{A,B,C,D,E,F,G\}\) and edge set \(E=\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{F,G\}\}\)
+are,
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(A\right)=2\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(B\right)=2\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(C\right)=2\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(D\right)=3\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(E\right)=0\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(F\right)=4\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(d\left(G\right)=1\)
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_directed_graphs">
+       14.4. Directed Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        The main focus of this chapter will be undirected simple graphs, but we will briefly discuss directed graphs in this section.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         directed graph
+        </strong>
+        (or
+        <strong>
+         digraph
+        </strong>
+        ) is a graph in which the edges are directed from one vertex to another vertex. Each edge has an
+        <strong>
+         initial vertex
+        </strong>
+        \(u\) and a
+        <strong>
+         terminal vertex
+        </strong>
+        \(v;\) the edge is drawn as an arrow pointing from \(u\) to \(v.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         out-degree
+        </strong>
+        of a vertex \(w\) is the number of edges that have \(w\) as the initial vertex. The
+        <strong>
+         in-degree
+        </strong>
+        of a vertex \(w\) is the number of edges that have \(W\) as the terminal vertex.
+       </p>
+      </div>
+      <div class="sidebarblock" id="underlying_graph">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 4 - A directed graph and its underlying graph.
+         </div>
+         <p>
+          The directed graph
+shown has
+vertex set
+\(\{A,B,C,D,E,F\}\) and
+edge set
+\(\{ (A,C),(D,A),(B,D),(F,B),(C,F),(D,F),(F,E) \}\).
+The first coordinate of each edge is the initial vertex and the second coordinate is the terminal vertex.
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph2" src="images/graph2.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that the directed edges of this graph connect the same endpoints as the undirected edges of the graph in
+          <a href="./graph_theory.html#simple_graph_example">
+           this earlier example.
+          </a>
+          The undirected graph is referred to as the
+          <strong>
+           underlying graph
+          </strong>
+          of the directed graph.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 5 - The game "rock, paper, scissors"
+         </div>
+         <p>
+          The graph \(G=(V,E)\) with vertex set
+\(V = \{ \text{"rock", "paper", "scissors"} \}\)  and
+edge set
+\(E = \{ \text{("rock", "paper"), ("paper", "scissors"), ("scissors", "rock")} \}\)
+can be used to represent the game "rock, paper, scissors."
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="rock paper scissors digraph" src="imagesMKD/rock_paper_scissors_digraph.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Each directed edge has for its initial vertex the loser and for its terminal edge the winner.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_simple_directed_graphs_a_formal_definition">
+        14.4.1. Simple Directed Graphs: A Formal Definition
+       </h4>
+       <div class="paragraph">
+        <p>
+         We can give a formal set-theoretic definition of simple directed graph as well. To indicate the directed edges, ordered pairs of vertices are used instead of 2-element sets.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         A
+         <strong>
+          simple directed graph
+         </strong>
+         \(G=\left(V,\ E\right)\) is an ordered pair consisting of a set \(V\) of objects called
+         <strong>
+          vertices
+         </strong>
+         (or
+         <strong>
+          nodes
+         </strong>
+         ) and a set \(E\) of objects called
+         <strong>
+          directed edges.
+         </strong>
+         Each directed edge \(e\in\ E\) is an ordered pair of the form \(e=\left(x,y\right)\), where \(x\) and \(y\) are two different vertices in set \(V.\) For the directed edge \(e=\left(x,y\right),\) \(x\) is the
+         <strong>
+          initial vertex
+         </strong>
+         of \(e\) and \(y\) is the
+         <strong>
+          terminal vertex
+         </strong>
+         of edge \(e\).
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_examples_of_simple_graphs">
+       14.5. Examples of Simple Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        In this section presents several classes of graphs.
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="KompletGraphOn4Vertices" height="80" src="imagesMKD/KompletGraphOn4Vertices.png" width="80"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         complete graph
+        </strong>
+        \(K_n\) is the simple graph with \(n\) vertices such that any two vertices are adjacent, that is, every pair of vertices are the endpoints of an edge.
+The image shows \(K_{4},\) the complete graph on 4 vertices. Click
+        <a href="https://en.wikipedia.org/wiki/Complete_graph#Examples">
+         here
+        </a>
+        to see images of \(K_{n}\) for the positive integers that are less than or equal to \(12.\)
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="nCubesv1" height="165" src="imagesMKD/nCubesv1.png" width="300"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         n-cube
+        </strong>
+        \(Q_{n}\) can be described as the graph that has vertex set consisting of the \(2^{n}\) bitstrings of length \(n,\) and edges such that two vertices are adjacent if and only if the bitstrings differ in exactly one bit position. The image shows the three graphs \(Q_{1},\) \(Q_{2},\) and \(Q_{3};\) these graphs can be used as a way to represent the power sets of sets that have \(1,\) \(2,\) and \(3\) elements, respectively. Notice that \(Q_{2}\) can be drawn as a square and that \(Q_{3}\) can be represented as a cube in \(3\)-dimensional space (or by a drawing of a cube in a \(2\)-dimensional plane.)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         bipartite graph
+        </strong>
+        is a simple graph whose set of vertices can be partitioned into two disjoint nonempty sets
+such that every vertex is in exactly one of the two sets
+and every edge has one endpoint in each of the two sets.
+One way to think of a bipartite graph is that each vertex can be assigned one of two colors so that every edge must connect vertices of different colors.  Notice that \(Q_{1},\) \(Q_{2},\) and \(Q_{3}\) are all examples of bipartite graphs (Question: Is \(Q_{n}\) a bipartite graph for
+        <em>
+         every
+        </em>
+        natural number \(n?\) Why or why not?)
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="3cubev2" height="100" src="imagesMKD/K32v2.png" width="157"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        This image shows the graph \(K_{2,3}\) and is another example of a bipartite graph.
+Notice that \(K_{2,3}\) has an additional property:
+        <em>
+         Every
+        </em>
+        pair of vertices \(\{a, b \}\) with \(a\) in the set of \(2\) "upper" vertices and \(b\) in the set of \(3\) "lower" vertices are the endpoints of an edge. A bipartite graph that has this additional property is called a
+        <strong>
+         complete bipartite graph.
+        </strong>
+        In general, the symbol \(K_{m,n}\) represents the complete bipartite graph that has two disjoint sets of vertices, one of cardinality \(|m|\) and the other of cardinality \(|n|,\) such that every pair of vertices that come from the different sets are joined by an edge. Notice that \(Q_{1} = K_{1,1}\) and \(Q_{2} = K_{2,2}\) are complete bipartite graphs, but that \(Q_{3}\) is not a complete bipartite graph because, for example, there is no edge joining \(000\) and \(111.\)
+        <br/>
+        <span class="small">
+         NOTE: The phrase
+         <em>
+          "complete bipartite"
+         </em>
+         needs to be read as a single term used to indicate that a bipartite graph has all the edges it can possibly have. For example, \(K_{2,3}\) is a bipartite graph such that if you tried to enlarge it by inserting an additional edge into the graph, that edge would join either the \(2\) "upper" vertices, \(2\) of the "lower" vertices, or \(2\) vertices that are already joined; in this sense, \(K_{2,3}\) is "complete" as a bipartite graph. \(K_{2,3}\) is not a "complete graph" in the sense of the earlier example in this section. In fact, since a "complete graph" must contain an edge for every pair of distinct vertices, the only graph that can be both a "complete graph" and a "complete bipartite graph" is \(Q_{1} = K_{2} = K_{1,1}.\) Mathematicians recycle and reuse a lot of words…​ .
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_representing_simple_graphs">
+       14.6. Representing Simple Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        In addition to the vertex-edge drawing, a simple graph can be represented in other ways that are more useful for computing.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        First, recall that if \(u\) is a vertex of a simple graph, then vertex \(v\) is said to be
+        <strong>
+         adjacent to \(u\)
+        </strong>
+        if and only if \(\{u, v \}\) are the endpoints of an edge of the graph.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        One way to represent a simple graph is by using an
+        <strong>
+         adjacency list.
+        </strong>
+        This list can be written as a table, where each row has two columns. In each row, the entry in the first column is a single vertex \(v\) and the entry in the second column is a list of all vertices of the graph that are adjacent to \(v.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Another way to represent a simple graph is by using an
+        <strong>
+         adjacency matrix.
+        </strong>
+        The adjacency matrix of a simple graph
+represents the graph in table form, and contains an entry for each pair of vertices.
+For each vertex of the graph, there is a row and also a column.
+If vertices \(u\) and \(v\) are adjacent (that is, connected by some edge), then the adjacency matrix will contain a \(1\) in the position that corresponds to the row for \(u\) and the column for \(v,\) otherwise the matrix contains a \(0\) at that postion. The next example may help make this more clear.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 6 - Representing A Simple Graph
+         </div>
+         <p>
+          The graph with vertex set
+\(\left\{A,\ B,\ C,\ D,\ E,\ F\right\}\) and edge set
+\(\{\{A,C\},\{A,D\},\{B,D\}\{B,F\},\{C,F\},\{D,F\},\{E,F\}\}\) can be represented by
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          the drawing
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph1" src="images/graph1.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          or the adjacency list
+         </p>
+        </div>
+        <table class="tableblock frame-all grid-all" style="width: 25%;">
+         <colgroup>
+          <col style="width: 20%;"/>
+          <col style="width: 80%;"/>
+         </colgroup>
+         <thead>
+          <tr>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Vertex
+            </strong>
+           </th>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Adjacent Vertices
+            </strong>
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              A
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              C, D
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              B
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              D, F
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              C
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              A, F
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              D
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              A, B, F
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              E
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              F
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              F
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              B, C, D, E
+             </em>
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <div class="paragraph">
+         <p>
+          or the adjacency matrix
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(\mathbf{M}=\left(\begin{matrix}0&amp;0&amp;1&amp;1&amp;0&amp;0\\0&amp;0&amp;0&amp;1&amp;0&amp;1\\1&amp;0&amp;0&amp;0&amp;0&amp;1\\1&amp;1&amp;0&amp;0&amp;0&amp;1\\0&amp;0&amp;0&amp;0&amp;0&amp;1\\0&amp;1&amp;1&amp;1&amp;1&amp;0\\\end{matrix}\right)\)
+          <br/>
+          <span class="small">
+           For example, in matrix \(\mathbf{M}\) the rows, from top to bottom correspond to the vertices \(A,\ B,\ C,\ D,\ E,\ F\) and the columns, from left to right, corespond to vertices \(A,\ B,\ C,\ D,\ E,\ F.\) The values in row 3, which corresponds to vertex \(C\), indicate whether the  vertex for that column is adjacent to \(C.\) If we use the symbol \(M_{r,c}\) to stand for the value in row \(r\) and column \(c,\) then \(M_{3,5} = 0\) because there is no edge in the graph with endpoints \(C\) and \(E,\) and \(M_{3,6} = 1\) because there is an edge in the graph with endpoints \(C\) and \(F\).
+          </span>
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_weighted_graphs">
+       14.7. Weighted Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        In some applications, each edge of a graph has a
+        <strong>
+         weight,
+        </strong>
+        which is some nonnegative number. The weight could represent the physical distance between the two endpoint nodes, or could represent the cost to travel or transmit data between the endpoint nodes.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        You can use an adjacency matrix to describe a weighted graph, but instead of using a \(1\) to represent that there is an edge between two vertices
+you place the the weight of the edge in the correct position of the adjacency matrix, as shown in the following example.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 7 - Weighted Graph
+         </div>
+         <p>
+          Consider the following weighted simple graph
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph5" src="images/graph5.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The adjacency matrix of this weighted graph is
+\(
+\left(\begin{matrix}0&amp;2&amp;5&amp;0\\2&amp;0&amp;3&amp;0\\5&amp;3&amp;0&amp;1\\0&amp;0&amp;1&amp;0\\\end{matrix}\right).
+\)
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_creating_new_graphs_from_old_graphs">
+       14.8. Creating New Graphs From Old Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        Given a set of one or more graphs, there are several ways to create new graphs using the graphs in the set.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_subgraphs">
+        14.8.1. Subgraphs
+       </h4>
+       <div class="paragraph">
+        <p>
+         Given a simple graph \(G,\) you can form a
+         <strong>
+          subgraph
+         </strong>
+         \(H\) by choosing a subset of the vertices of \(G\) along with a subset of the edges of \(G\) such that each edge has endpoints in the set of vertices you chose. That is, \(H\) is a subgraph of \(G\) if \(H\) is a graph such that every vertex of \(H\) is a vertex of \(G\) and every edge of \(H\) is an edge of \(G.\)
+         <br/>
+         <span class="small">
+          More formally, \(H = (V_{H}, E_{H})\) is a subgraph of \(G = (V,E)\) if and only if all three of the following statements are True: \(V_{H} \subseteq V,\) \(E_{H} \subseteq E,\) and for every edge \(e \in E_{H}\) the endpoints of \(e\) are in \(V_{H}.\)
+         </span>
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         If \(v\) is a vertex of \(G,\)
+we denote by
+         <strong>
+          \(G-v\)
+         </strong>
+         ,
+the subgraph obtained from \(G\) by removing the vertex \(v\) along with all edges in \(E\) that have \(v\) as an endpoint.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The image shows
+a graph \(G\), and the subgraph \(G-d\) formed by removing the vertex \(d\).
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="graph7" src="images/graph7.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         In the same way, you can obtain
+a subgraph by removing multiple vertices along with the edges associated with the removed vertices. The subgraph obtained
+is called the subgraph
+         <strong>
+          induced
+         </strong>
+         by removing those vertices.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 8
+          </div>
+          <p>
+           Below is a graph \(G(V,E)\) and the subgraph obtained by \(V-\{a,d\}\), called the induced subgraph
+\(G-\{a,d\}\), with a slight abuse of notation
+          </p>
+         </div>
+         <div class="imageblock">
+          <div class="content">
+           <img alt="graph8" src="images/graph8.png"/>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_unions_and_intersections_of_graphs">
+        14.8.2. Unions and Intersections Of Graphs
+       </h4>
+       <div class="paragraph">
+        <p>
+         Given two simple graphs \(G_{1}\) and \(G_{2}\), you can form the
+         <strong>
+          union
+         </strong>
+         of the graphs by taking the union of the two sets of vertices to get a new set of vertices, and taking the union of the two sets of edges to get a new set of edges. Notice that any edge that is in both graphs will only appear once in the new graph because you took the union of the sets of edges, that is, you can’t create parallel edges by forming the union.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In the same way, you can form the
+         <strong>
+          intersection
+         </strong>
+         of two simple graphs by taking the intersection of the two sets of vertices to get a new set of vertices, and taking the intersection of the two sets of edges to get a new set of edges.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_graph_isomorphism">
+       14.9. Graph Isomorphism
+      </h3>
+      <div class="paragraph">
+       <p>
+        Recall that a graph is determined by its set of vertices and how those vertices are connected by edges, but
+        <span class="underline">
+         not
+        </span>
+        the drawing you use to represent the graph.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 9 - The Same Graph Can Be Drawn In More Than One Way
+         </div>
+         <p>
+          Consider the two graphs shown in the image.
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="Isomorphism2av2" height="232" src="imagesMKD/Isomorphism2av2.png" width="440"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that these two graphs are
+different-looking drawings of the
+          <em>
+           same graph
+          </em>
+          that has vertex set \(\{ A, B, C, D\}\) and edge set \(\{\{A,B\},\{A,C\},\{A,D\},\{B,C\},\{B,D\},\{C,D\}\}.\) Also, notice that the drawing on the left appeared earlier in the chapter, but with unlabeled vertices: Each of the graphs in the image is a drawing of \(K_{4},\) the complete graph on \(4\) vertices.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that using either the adjacency list
+         </p>
+        </div>
+        <table class="tableblock frame-all grid-all" style="width: 25%;">
+         <colgroup>
+          <col style="width: 20%;"/>
+          <col style="width: 80%;"/>
+         </colgroup>
+         <thead>
+          <tr>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Vertex
+            </strong>
+           </th>
+           <th class="tableblock halign-center valign-top">
+            <strong>
+             Adjacent Vertices
+            </strong>
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              A
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              B, C, D
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              B
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              A, C, D
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              C
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              A, B, D
+             </em>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-center valign-top">
+            <p class="tableblock">
+             <em>
+              D
+             </em>
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             <em>
+              A, B, C
+             </em>
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <div class="paragraph">
+         <p>
+          or the adajcency matrix \[\left(\begin{matrix}0&amp;1&amp;1&amp;1\\1&amp;0&amp;1&amp;1\\1&amp;1&amp;0&amp;1\\1&amp;1&amp;1&amp;0\\\end{matrix}\right)\] makes it easier to see that the two drawings represent the exact same graph.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          You can imagine the graph on the right being the result of dragging the vertex \(C\) inside the "triangle" with vertices \(A,\) \(B,\) and \(D.\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Sometimes, different graphs may be essentially the same graph, as in the next example.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 10 - Two Graphs That Are Essentially The Same Graph
+         </div>
+         <p>
+          Consider the two graphs, each with \(4\) vertices and \(6\) edges, shown in the image.
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="Isomorphism2av3" height="232" src="imagesMKD/Isomorphism2av3.png" width="440"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          These graphs are not equal since the graph on the left has vertex set \(\{ A, B, C, D\}\) and the graph on the right has vertex set \(\{ W, X, Y, Z\}.\) However, by comparing the graph on the right to the one on the right in the previous example, you can see that there is a one-to-one correspondence between the two sets of vertices
+that preserves adjacency (that is, if two vertices in the upper row are endpoints of an edge of the graph on the left, then the corresponding vertices in the lower row are endpoints of an edge of the graph on the right.)
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="K4Isomporphismv1" height="149" src="imagesMKD/K4Isomporphismv1.png" width="186"/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        A one-to-one correspondence between the set of vertices of two simple graphs that preserves adjacency is called a
+        <strong>
+         graph isomorphism,
+        </strong>
+        and the two graphs are said to be
+        <strong>
+         isomorphic.
+        </strong>
+        That is, two vertices are endpoints of an edge in the first graph if and only if the corresponding vertices are the endpoints of an edge in the second graph.
+Informally, you can think of two isomorphic graphs as a pair of graphs where
+a drawing of
+one graph can be relabeled and/or reshaped to obtain
+a drawing of the
+other graph
+(That is, the two graphs are really
+        <em>
+         the same graph
+        </em>
+        but have drawings that are labeled and/or shaped differently.)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 11 - Using Graph Isomorphism
+         </div>
+         <p>
+          Using graph isomorphisms can help identify properties of a graph.
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="Isomorphism1av2" height="300" src="imagesMKD/Isomorphism1av2.png" width="690"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The three graphs in the image are isomorphic; it is an exercise for you to write out the one-to-one correspondences.
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          You Try
+         </div>
+         <p>
+          Write out the one-to-one correspondences between the sets of vertices that define the graph isomorphisms.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Once you have shown that the three graphs are isomorphic, you can use the fact that they are different representations of the
+          <em>
+           same
+          </em>
+          graph. For example,
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            It is not immediately clear that the graphs on the left and right are bipartite, but the arrangement of the vertices in the middle graph into "upper" and "lower" rows makes this easy to see.
+           </p>
+          </li>
+          <li>
+           <p>
+            Also, it is not immediately clear that the graph in the middle or the graph on the right is
+            <strong>
+             planar
+            </strong>
+            (that is, the graph can be redrawn in a \(2\)-dimension plane so that no edges cross) but this is obvious for the graph on the left.
+            <br/>
+            <span class="small">
+             Note: This textbook does not discuss planar graphs in detail, but it is worth mentioning that it can be proven that neither \(K_{5}\) nor \(K_{3,3}\) is planar. If you’d like to learn more about planar graphs, one source is the section "Planar Graphs" in
+             <a href="https://discrete.openmathbooks.org/dmoi4/sec_gt-planar.html">
+              Oscar Levin’s
+              <em>
+               Discrete Mathematics: An Open Introduction,
+              </em>
+              4th edition.
+             </a>
+            </span>
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="openblock challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Write out the adjacency matrix for each of the three graphs, using alphabetical order of the vertex labels, then identify a connection between the three adjacency matrices.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Look for rows and columns in the different matrices that are identical. The order of the rows and columns would change if you use non-alphabetical reorderings of vertices that correspond to the graph isomorphisms you wrote for the "You try" exercise above.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="isomorphisms_that_preserve_attributes">
+        14.9.1. Isomorphism of Graphs with Additional Features
+       </h4>
+       <div class="paragraph">
+        <p>
+         As described above, a graph isomorphism is a one-to-one correspondence between the sets of vertices of two graphs that preserves the adjacency relationship between pairs of vertices.
+That is, two vertices are endpoints of an edge in one graph if and only if the corresponding vertices are endpoints of an edge in the other graph.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In cases where graphs have additional features beyond the basic adjacency relationship between pairs of vertices, we should only consider two of these “graphs with additional features” to be isomorphic if the additional features are also preserved.
+         <br/>
+         <span class="small">
+          Note: Some sources use the word “attributes” for these additional features.
+         </span>
+        </p>
+       </div>
+       <div class="imageblock text-center">
+        <div class="content">
+         <img alt="IsomorphismWeightedGraphsv1" height="220" src="imagesMKD/IsomorphismWeightedGraphsv1.png" width="342"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         As an example, in the image, the three graphs with vertex sets \(\{ F,\,G,\,H \},\) \(\{ J,\,K,\,L \},\) and \(\{ P,\,Q,\,R \}\) are isomorphic as
+         <em>
+          graphs
+         </em>
+         if we ignore the edge weights.
+Also, the two graphs with vertex sets \(\{ F,\,G,\,H \}\) and \(\{ J,\,K,\,L \}\) are isomorphic as
+         <em>
+          weighted graphs
+         </em>
+         because there is a one-to-one correspondence between the vertex sets that
+         <span class="underline">
+          preserves both the adjacency relationships and the corresponding edge weights.
+         </span>
+         The third graph with vertex set \(\{ P,\,Q,\,R \}\) is not isomorphic as a
+         <em>
+          weighted graph
+         </em>
+         to either of the other two weighted graphs because its edge weights cannot be matched with the edge weights in the other weighted graphs.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_graph_coloring">
+       14.10. Graph Coloring
+      </h3>
+      <div class="paragraph">
+       <p>
+        In some contexts, it can be useful to partition either the set of vertices or the set of edges of a graph into disjoint subsets to make it easier to understand the graph and the network it represents. This act of partitioning is usually referred to as "coloring" since using different colors can make it easy to see and interpret the properties of the partition when the graph is drawn.
+Notice that you could instead create the partition by assigning labels like "group 1," "group 2," and so on, to each vertex (or edge.)
+       </p>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="Petersen_graph_3-coloring.svg" height="139" src="imagesMKD/Petersen_graph_3-coloring_MKD.png" width="141"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        For example, the image shows a graph called the Petersen graph with its vertex set partitioned into 3 subsets so that each edge’s endpoints are in two different subsets of the partition (That is, each edge’s endpoints have different colors.)
+        <br/>
+        <span class="small">
+         Image credit:
+         <a href="https://commons.wikimedia.org/wiki/File:Petersen_graph_3-coloring.svg">
+          "Petersen_graph_3-coloring.svg"
+         </a>
+         by Д.Ильин. The copyright holder of this work has released this work into the public domain. This applies worldwide.
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The next example discusses an application of vertex coloring.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 12 - Redrawing a Map as a Graph
+         </div>
+         <p>
+          The following image represents a "map" showing four countries; the blue region represents one country (not a body of water) that is surrounded by three other countries.
+         </p>
+        </div>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="MapsAndGraph.png" height="306" src="imagesMKD/MapsAndGraph.png" width="400"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The map can be represented as a graph with vertices colored to match the regions, as shown on the right. If it helps you to connect the graph to the map, imagine that each vertex represents a capital city of the corresponding country.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          This way of representing a map was used to prove the
+          <a href="https://en.wikipedia.org/wiki/Four_color_theorem">
+           Four Color Theorem
+          </a>
+          which states, roughly, that
+         </p>
+        </div>
+        <div class="exampleblock">
+         <div class="content">
+          <div class="paragraph">
+           <div class="title">
+            Four Color Theorem
+           </div>
+           <p>
+            Any map of countries that can be drawn in a plane such that
+            <br/>
+            (1) every country has a color and
+            <br/>
+            (2) no two adjacent countries have the same color
+            <br/>
+            requires at most four different colors.
+            <br/>
+            <span class="small">
+             In this context "two adjacent countries" share a border that is not just a single point.
+            </span>
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The
+          <a href="https://celebratio.org/Haken_W/article/794/">
+           first proof of the theorem
+          </a>
+          was announced in 1976, and a corrected version of the first proof was published in 1989 after some errors were fixed (Yes, professional mathematicians do make mistakes!)
+The proof was considered controversial by many mathematicians at the time because it was the first major computer-assisted proof: Over one thousand five hundred different cases needed to be checked!
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="imageblock right text-center">
+       <div class="content">
+        <img alt="198px-K44_arboricity.svg" height="147" src="imagesMKD/K44_arboricity_MKD.png" width="147"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        In other contexts, it is more appropriate to use edge coloring. That is, each edge of the graph is assigned a color so that the set of edges is partitioned into disjoint subsets.
+For example, the graph in the image shows that the complete bipartite graph \(K_{4,4}\) can be partitioned as a union of 3 disjoint graphs called
+        <strong>
+         forests
+        </strong>
+        (Forests are defined later in this textbook, in the
+        <a href="./trees.html">
+         Trees
+        </a>
+        chapter.)
+        <br/>
+        <span class="small">
+         Image credit:
+         <a href="https://commons.wikimedia.org/wiki/File:K44_arboricity.svg">
+          "K44 arboricity.svg"
+         </a>
+         by David Eppstein. The copyright holder of this work has released this work into the public domain. This applies worldwide.
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_connectivity_of_undirected_graphs">
+       14.11. Connectivity of Undirected Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         walk
+        </strong>
+        on a graph \(G=\left(V,E\right)\) is a finite, non-empty, alternating sequence of vertices and edges of the form, \(v_0e_1v_1e_2\ldots e_nv_n\), with vertices \(v_i\in V\) and edges \(e_i\in E\), where for each integer value of \(i \leq n\) the endpoints of \(e_i\) are the vertices \(v_{i-1}\) and \(v_i.\) The integer \(n\) is called the
+        <strong>
+         length
+        </strong>
+        of the walk.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        If we restrict ourselves to simple undirected graphs, there is at most one edge joining each pair of adjacent vertices, so a walk can be specified simply by listing the sequence of vertices \(v_0v_1\ldots v_n\) (That is, we don’t need to write down the edges.)
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          A
+          <strong>
+           trail
+          </strong>
+          is a walk that does not repeat an edge. That is, all edges in a trail are distinct.
+         </p>
+        </li>
+        <li>
+         <p>
+          A
+          <strong>
+           path
+          </strong>
+          is a trail that does not repeat a vertex (but we allow for the possibility that the initial vertex \(v_0\) and terminal vertex \(v_n\) of the path are the same vertex; When \(v_0=v_n\) the path is called a
+          <strong>
+           closed path
+          </strong>
+          or a
+          <strong>
+           circuit.
+          </strong>
+          )
+         </p>
+        </li>
+        <li>
+         <p>
+          A
+          <strong>
+           cycle
+          </strong>
+          is a closed path of length at least 1.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        The
+        <strong>
+         distance
+        </strong>
+        \(d(u,v)\) between two vertices \(u\) and \(v\) in a graph \(G\) is the number of edges in a shortest path connecting them, assuming such a path exists.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 13 - Trails, Paths, and Cycles
+         </div>
+         <p>
+          In the graphs below the first shows a trail \(CFDBFE\).
+It is not a path since the vertex \(F\) is repeated.
+The second shows a path \(CADFB\), and the third a cycle \(CADFC\). Also note the following
+distances, \(d(A,D)=1\), while \(d(A,F)=2\), and \(d(A,E)=3\).
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph9" src="images/graph9.png"/>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_connected_graphs">
+       14.12. Connected Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        A graph \(G\) is
+        <strong>
+         connected
+        </strong>
+        if there is a path between any pair of vertices.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 14 - A graph that is not connected
+         </div>
+         <p>
+          The graph \(G\) below is not connected since, as just one example, there is no path between vertex \(a\) and vertex \(e.\)
+         </p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img alt="graph10" src="images/graph10.png"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(G\) has adjacency matrix
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(
+\left(\begin{matrix}0&amp;1&amp;1&amp;0&amp;0\\1&amp;0&amp;1&amp;0&amp;0\\1&amp;1&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;1\\0&amp;0&amp;0&amp;1&amp;0\\\end{matrix}\right).
+\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        In the previous example, the graph \(G\) can be treated as a union of two connected subgraphs, called the
+        <strong>
+         connected components
+        </strong>
+        of \(G.\) It can be proven by mathematical induction that any simple undirected graph that has a finite number of vertices can be written as a union of a finite number of connected components.
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_eulerian_graphs">
+       14.13. Eulerian Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        An
+        <strong>
+         Euler path
+        </strong>
+        on a graph is a path that uses each edge of the graph exactly once.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        An
+        <strong>
+         Euler circuit
+        </strong>
+        (also called an
+        <strong>
+         Eulerian trail
+        </strong>
+        ) is a closed trail containing each edge of the graph \(G\) exactly once and returning to the start vertex. A graph with an Euler circuit is called
+        <strong>
+         Eulerian
+        </strong>
+        or is said to be an
+        <strong>
+         Eulerian graph
+        </strong>
+        .
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        In the following, the first graph is Eulerian. The sequence of edges \(e_1 e_2 e_3 e_4 e_5 e_6 e_7\) describes an Euler circuit (Notice that some vertices are visited multiple times; it is the edges that must appear exactly once in an Euler path.)
+The second graph is not an Eulerian graph. Convince yourself of this fact by  looking at all necessary trails or closed trails.
+       </p>
+      </div>
+      <div class="imageblock">
+       <div class="content">
+        <img alt="graph11 MKD" src="imagesMKD/graph11_MKD.png"/>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following are useful
+characterizations of graphs with Euler circuits and Euler paths and are due to Leonhard Euler
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem on Euler Circuits and Euler Paths
+        </div>
+        <div class="olist loweralpha">
+         <ol class="loweralpha" type="a">
+          <li>
+           <p>
+            A finite connected graph has an Euler circuit if and only if each vertex has even degree.
+           </p>
+          </li>
+          <li>
+           <p>
+            A finite connected graph has an Euler path if and only if it has at most two vertices with odd degree.
+           </p>
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Euler solved a famous problem about the
+        <a href="https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg#Euler’s_analysis">
+         seven bridges of Königsberg
+        </a>
+        by representing the problem as a graph (with parallel edges.)
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_hamiltonian_graphs">
+       14.14. Hamiltonian Graphs
+      </h3>
+      <div class="paragraph">
+       <p>
+        A cycle in a graph \(G\), is called a
+        <strong>
+         Hamiltonian cycle
+        </strong>
+        if every vertex,
+except for the starting and ending vertex, is visited exactly once.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A graph is
+        <strong>
+         Hamiltonian
+        </strong>
+        , or said to be a
+        <strong>
+         Hamiltonian graph
+        </strong>
+        , if it contains a Hamiltonian cycle.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following graph is Hamiltonian and shows a Hamiltonian cycle \(ABCDA\), highlighted (Notice that some edges are used multiple times; it is the vertices, starting and ending vertex, that must appear exactly once in an Hamiltonian path.)
+The second graph is not Hamiltonian.
+       </p>
+      </div>
+      <div class="imageblock">
+       <div class="content">
+        <img alt="graph12" src="images/graph12.png"/>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem (Dirac) on Hamiltonian graphs
+        </div>
+        <div class="paragraph">
+         <p>
+          A simple graph, with \(n≥3\) vertices, is Hamiltonian if every vertex \(v\) has degree \(d(v)\geq \frac{n}{2}\).
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_finding_a_shortest_path_in_a_weighted_graph_dijkstras_algorithm">
+       14.15. Finding A Shortest Path in a Weighted Graph: Dijkstra’s Algorithm
+      </h3>
+      <div class="paragraph">
+       <p>
+        In some applications of graph theory, you need to find a "shortest path" between two vertices of a weighted graph. In the context, shortest may mean "of least distance" but could mean "of least cost" or something else, depending on what the edge weights represent.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Edsger Dijkstra published a
+        <a href="https://link.springer.com/article/10.1007/BF01386390">
+         paper
+        </a>
+        in 1959 that describes an algorithm for finding the path of "minimum total weight" between two given vertices of a simple connected graph with weighted undirected edges.
+        <br/>
+        <span class="small">
+         Dijkstra’s original paper is also available in the ACM Digital Library at
+         <a href="https://dl.acm.org/doi/10.1145/3544585.3544600">
+          this link.
+         </a>
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Here is a description of the algorithm, based on Dijkstra’s original.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Task: Given two vertices \(a\) and \(z,\) find the edges of a path between the two vertices that has the minimum possible sum of weights.
+         </p>
+        </li>
+        <li>
+         <p>
+          Input: The list \(V\) of all vertices of the graph, with the two vertices \(a\) and \(z\) specified, and the list \(E\) of all weighted edges of the graph.
+          <br/>
+          <span class="small">
+           For example, the input could be an adjacency matrix for the graph, with the first row of the matrix corresponding to \(a\) and the last row corresponding to \(z\).
+          </span>
+         </p>
+        </li>
+        <li>
+         <p>
+          Steps:
+         </p>
+         <div class="olist arabic">
+          <ol class="arabic">
+           <li>
+            <p>
+             Define four lists \(V_{chosen},\) \(V_{candidates},\) \(E_{chosen},\) and \(E_{candidates},\) and initialize each list as an empty list.
+             <br/>
+            </p>
+           </li>
+           <li>
+            <p>
+             Append vertex \(a\) to the end of \(V_{chosen}.\)
+            </p>
+           </li>
+           <li>
+            <p>
+             While vertex \(z\) has not been appended to \(V_{chosen}\)
+            </p>
+            <div class="olist loweralpha">
+             <ol class="loweralpha" type="a">
+              <li>
+               <p>
+                Set \(v\) to the last vertex appended to \(V_{chosen}.\)
+               </p>
+              </li>
+              <li>
+               <p>
+                For each vertex \(w\) that is not in \(V_{chosen}\) but is adjacent to vertex \(v\)
+               </p>
+               <div class="olist lowerroman">
+                <ol class="lowerroman" type="i">
+                 <li>
+                  <p>
+                   If \(w\) is in \(V_{candidates}\)
+and the edge \(e\) that connects \(v\) and \(w\) is part of a path between \(a\) and \(w\) that has total weight less than the weight of the known path that uses the corresponding edge in list \(E_{candidates},\) remove that edge from \(E_{candidates}\) and append \(e\) to \(E_{candidates}.\)
+                  </p>
+                 </li>
+                 <li>
+                  <p>
+                   Otherwise, \(w\) is in neither list \(V_{chosen}\) nor list \(V_{candidates},\) so append vertex \(w\) to the end of \(V_{candidates}\) and append the edge \(e\) that connects \(v\) and \(w\) to the end of \(E_{candidates}.\)
+                  </p>
+                 </li>
+                </ol>
+               </div>
+              </li>
+              <li>
+               <p>
+                After exiting the "for" loop,
+               </p>
+               <div class="olist lowerroman">
+                <ol class="lowerroman" type="i">
+                 <li>
+                  <p>
+                   find the vertex \(w\) in list \(V_{candidates}\) that has the minimal-weight path to the starting vertex \(a\) and append \(w\) to the end of \(V_{chosen},\) and remove \(w\) from \(V_{candidates},\) and
+                  </p>
+                 </li>
+                 <li>
+                  <p>
+                   append the edge in \(E_{candidates}\) that has \(w\) as one of its endpoints to the end of \(E_{chosen}\) and remove that edge from \(E_{candidates}.\)
+                  </p>
+                 </li>
+                </ol>
+               </div>
+              </li>
+             </ol>
+            </div>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Output: The list \(E_{chosen}\) of weighted edges.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that the list \(E_{chosen}\) is constructed so that it contains edges for only one possible path between \(a\) and \(z,\) and that path must be a minimal-weight path.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Also notice if the loop condition is changed to "while there is a vertex that is not in \(V_{chosen}\)" then the algorithm’s output \(E_{chosen}\) will find the edges needed for a possible minimal-weight path between vertex \(a\) and any other vertex in the graph.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Question: What change would be needed to the input if you had a graph with unweighted edges and needed to find a path between \(a\) to \(z\) that uses the smallest number of edges possible?
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        This
+        <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">
+         Wikipedia page
+        </a>
+        has some animations that illustrate an alternate implementation of Dijkstra’s algorithm.
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_traveling_salesperson_problem_tsp">
+       14.16. The Traveling Salesperson Problem (TSP)
+      </h3>
+      <div class="paragraph">
+       <p>
+        The Traveling Salesperson Problem (TSP) can be stated as “A traveling salesperson needs to start in the home city, visit each of a number of other cities, and then return to the home city. What path should the salesperson take so that the total distance traveled is the least possible?”
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The TSP can be modeled using a graph. If there are \(n\) cities, you can represent each city as a vertex of the complete graph \(K_{n}\) and assign to each edge a weight equal to the distance between the cities at the endpoints. The TSP is solved by finding a Hamiltonian cycle of minimum total weight that visits each vertex exactly one.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that if you choose a vertex (city) as the starting and ending point, then there are \(\frac{1}{2}(n-1)!\) different Hamiltonian cycles (The division by 2 represents that you could reverse the direction of the cycle without changing the total distance traveled.)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The brute-force solution examines every possible path and has time complexity \(O(n!),\) which is infeasible for even relatively small values of \(n.\) At present, there is no algorithm with polynomial worst-case time complexity that solves the TSP.
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_additional_topics_will_be_added_to_this_chapter_soon">
+       14.17. Additional topics will be added to this chapter soon!
+      </h3>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Transitive closure (Floyd’s algorithm)
+         </p>
+        </li>
+        <li>
+         <p>
+          Topological sort
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        MORE TO COME!
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { extensions: ["mhchem.js"] }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML">
+  </script>
+ </body>
+</html>

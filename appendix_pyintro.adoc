@@ -3,6 +3,9 @@
 = Appendix: An Introduction to Python
 
 
+include::LinkToPrivate.adoc[] 
+
+
 
 == Programming Basics
 

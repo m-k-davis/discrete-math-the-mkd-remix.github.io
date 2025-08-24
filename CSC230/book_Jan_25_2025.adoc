@@ -1,0 +1,125 @@
+//= Discrete Math
+//Mohamed Jamaloodeen, Kathy Pinzon, Daniel Pragel, Joshua Roberts, Sebastien Siva
+
+= Discrete Math - The MKD Remix
+A Work In Progress by Mark Kelly Davis
+// MKD inserted doctype
+:doctype: book
+// MKD adjusted chapter numbering NOT WORKING
+:chapter-number: 0
+//:chapter-caption: MYCAPTION
+//:chapter-signifier: MYCHAPTER
+//:chapter-number: 0
+:toc: left
+// MKD set toclevels to 1 if collapsible toc is not working, 3 if it is
+:toclevels: 1
+//:toclevels: 3
+:toc-collapsable:
+// MKD added docinfo - trying to implement collapsible toc
+:docinfo: shared
+// MKD commented out linkcss
+//:linkcss:
+:pygments-style: friendly
+:icons: font
+:linkattrs:
+:sectnums:
+:nofooter:
+// MKD adjusted font-size
+//font-size 12
+
+//['manni', 'igor', 'lovelace', 'xcode', 'vim', 'autumn', 'vs', 'rrt', 'native', 'perldoc', 'borland', 'tango', 'emacs', 'friendly', 'monokai', 'paraiso-dark', 'colorful', 'murphy', 'bw', 'pastie', 'algol_nu', 'paraiso-light', 'trac', 'default', 'algol', 'fruity']
+//To force build.
+[.float-group]
+--
+//[.left.text-left]
+//image::images/GGC_Logo.png[GGC,250,200]
+// MKD may want to insert a new image here - use PD or CC BY-NC 4.0 only
+--
+
+
+// MKD: IMPORTANT - The order of the chapters is determined 
+//					by chap_adocs in multi_html.py, 
+//					not the order listed here
+// MKD as of Jan 22 2025 it appears that the order 
+//		IS determined by the order given in book.adoc
+
+
+:leveloffset: +1
+
+//MKD turn off sectnums
+//:sectnums!:
+
+//MKD turn off chapter numbers (Jan 19 2025)
+:numbered!:
+
+include::front_matter.adoc[]
+
+//MKD turn on sectnums
+//:sectnums:
+
+
+// MKD Jan 19 2025 - would like hack to set this as chapter 0, 
+//		but students may be more accustomed to counting starting at 1
+// MKD turn on chapter numbers (Jan 19 2025)
+:numbered:
+
+
+//MKD Jan 22 2025 order 
+//chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'counting_binomial.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'growth_of_functions.adoc', 'number_bases.adoc', 'algorithms.adoc', 'induction.adoc', 'relations.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
+
+include::introduction_discrete_math.adoc[]
+
+include::counting_arithmetic.adoc[]
+
+include::set_theory.adoc[]
+
+include::counting_binomial.adoc[]
+
+include::logic.adoc[]
+
+include::proofs.adoc[]
+
+include::recursion.adoc[]
+
+include::functions.adoc[]
+
+// MKD renamed adoc file
+//include::growth_functions.adoc[]
+include::growth_of_functions.adoc[]
+
+// MKD - no separate chapter for number theory content
+//include::number_theory.adoc[]
+include::number_bases.adoc[]
+
+include::algorithms.adoc[]
+
+include::induction.adoc[]
+
+include::relations.adoc[]
+
+include::graph_theory.adoc[]
+
+include::trees.adoc[]
+
+// MKD the chapter on probability has not been written, 
+//	and may never be written because that content is no longer 
+//	included in ACM/IEEE-CS/AAAI MSF-Discrete: Discrete Mathematics 
+//	See https://dl.acm.org/doi/pdf/10.1145/3664191#page=187
+//include::probability.adoc[]
+
+include::appendix_math.adoc[]
+
+include::appendix_library.adoc[]
+
+include::appendix_pyintro.adoc[]
+
+include::appendix_pysyntax.adoc[]
+
+:leveloffset: -1
+
+[.float-group]
+--
+//[.right.text-right]
+//image::images/GGC_Logo.png[GGC,250,200]
+// MKD may want to insert a new image here - use PD or CC BY-NC 4.0 only
+--

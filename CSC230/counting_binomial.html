@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Asciidoctor 1.5.8" name="generator"/>
+  <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
+  <title>
+   Discrete Math - The MKD Remix (CSC230 Version)
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
+  <style>
+   /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Uncomment @import statement below to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock pre.nowrap,.literalblock pre.nowrap pre,.listingblock pre.nowrap,.listingblock pre.nowrap pre{white-space:pre;word-wrap:normal}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #dddddf}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd){background:#f8f8f7}
+table.stripes-none tr,table.stripes-odd tr:nth-of-type(even){background:none}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <style>
+   .click .title { color: blue; }
+  .click {margin-top: 0.5em; margin-bottom: 0.5em;}
+  .openblock { margin-top: 1em; margin-bottom: 1em; }
+  .openblock>.box>.content { margin-top:1em;margin-bottom: 1em;margin-left:3em;margin-right:4em; }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript">
+  </script>
+  <script>
+   var ready2;
+
+ready2 = function() {
+
+    $(document).ready(function(){
+
+        $('.openblock.click').click( function()  { $(this).find('.content').slideToggle('200'); } )
+        $('.openblock.click').find('.content').hide()
+
+
+        $('.listingblock.click').click( function()  { $(this).find('.content').slideToggle('200') }  )
+        $('.listingblock.click').find('.content').hide()
+
+    });
+
+}
+
+
+
+
+$(document).ready(ready2);
+$(document).on('page:load', ready2);
+  </script>
+ </head>
+ <body class="book toc2 toc-left">
+  <div id="header">
+   <h1>
+    Discrete Math - The MKD Remix (CSC230 Version)
+   </h1>
+   <div class="details">
+    <span class="author" id="author">
+     A Work In Progress by Mark Kelly Davis
+    </span>
+    <br/>
+   </div>
+   <div class="toc2" id="toc">
+    <div id="toctitle">
+     Table of Contents
+    </div>
+    <ul class="sectlevel1">
+     <li>
+      <a href="index.html#_about_this_text">
+       About this text
+      </a>
+     </li>
+     <li>
+      <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
+       1. Introducing Discrete Mathematics
+      </a>
+     </li>
+     <li>
+      <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
+       2. Counting: Arithmetic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="set_theory.html#_set_theory">
+       3. Set Theory
+      </a>
+     </li>
+     <li>
+      <a href="logic.html#_logic">
+       4. Logic
+      </a>
+     </li>
+     <li>
+      <a href="proofs.html#_proofs_basic_techniques">
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
+      </a>
+     </li>
+     <li>
+      <a href="recursion.html#_sequences_and_recursion">
+       7. Sequences and Recursion
+      </a>
+     </li>
+     <li>
+      <a href="functions.html#_functions">
+       8. Functions
+      </a>
+     </li>
+     <li>
+      <a href="relations.html#_relations">
+       9. Relations
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       10. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       11. Proofs: Mathematical Induction
+      </a>
+     </li>
+     <li>
+      <a href="growth_of_functions.html#_rates_of_growth_of_functions">
+       12. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="algorithms.html#_algorithms_and_their_analysis">
+       13. Algorithms and Their Analysis
+      </a>
+     </li>
+     <li>
+      <a href="graph_theory.html#_graphs">
+       14. Graphs
+      </a>
+     </li>
+     <li>
+      <a href="trees.html#_trees">
+       15. Trees
+      </a>
+     </li>
+     <li>
+      <a href="appendix_math.html#_appendix_on_demand_math_resources">
+       16. Appendix: On-Demand Math Resources
+      </a>
+     </li>
+     <li>
+      <a href="appendix_library.html#_appendix_library_of_functions">
+       17. Appendix: Library of Functions
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
+       18. Appendix: An Introduction to Python
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
+       19. Appendix: Python Syntax Examples
+      </a>
+     </li>
+     <li>
+      <a href="appendix_for_instructors.html#_appendix_for_instructors">
+       20. Appendix: For Instructors
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div id="content">
+   <div id="preamble">
+    <div class="sectionbody">
+     <div class="openblock float-group">
+      <div class="content">
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="sect1">
+    <h2 id="_counting_permutations_and_combinations">
+     10. Counting: Permutations and Combinations
+    </h2>
+    <div class="sectionbody">
+     <div class="paragraph">
+      <p>
+       <mark>
+        <strong>
+         CAUTION
+        </strong>
+        - CHAPTER UNDER CONSTRUCTION!
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for
+        <a href="../index.html">
+         the “public version”
+        </a>
+        of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       <em>
+        This chapter was last updated on March 17, 2025.
+       </em>
+       <br/>
+       <span class="small">
+        Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.
+       </span>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Many problems can be solved by counting the number of possible outcomes when choosing \(r\) elements from a set that contains \(n\) elements, with no repetition allowed (that is, each element can only be counted once). To be clear, this assumes that \(r\) and \(n\) are natural numbers and \(r \leq n.\)
+       <br/>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Some of these problems involve choosing an
+       <em>
+        ordered sequence
+       </em>
+       of \(r\) elements while other problems involve choosing a
+       <em>
+        subset
+       </em>
+       of \(r\) elements.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       This chapter presents techniques for doing this type of counting. These techniques are built on the ones you studied in the
+       <a href="./counting_arithmetic.html">
+        Counting: Arithmetic Techniques
+       </a>
+       chapter.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Key terms and concepts covered in this chapter:
+      </p>
+     </div>
+     <div class="ulist">
+      <ul>
+       <li>
+        <p>
+         Permutations and combinations
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Basic definitions
+           </p>
+          </li>
+          <li>
+           <p>
+            Pascal’s identity
+           </p>
+          </li>
+          <li>
+           <p>
+            The binomial theorem
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         binomials
+        </p>
+       </li>
+      </ul>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_factorial_of_a_number">
+       10.1. The Factorial Of A Number
+      </h3>
+      <div class="paragraph">
+       <p>
+        The factorial is a function defined for all natural numbers as described below.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Definition - The Factorial
+         </div>
+         <p>
+          Given a natural number \(n,\) the function \(n!\) is defined recursively as \[0! = 1\] \[ n! = n \cdot (n-1)! \]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          That is, \[n! = n(n-1)(n-2) \cdots (2)(1)(1).\] This function is called the
+          <strong>
+           factorial of \(n\)
+          </strong>
+          and also
+          <strong>
+           "\(n-\)factorial."
+          </strong>
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_permutations">
+       10.2. Permutations
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         permutation
+        </strong>
+        of a set of elements is an ordered arrangement of the elements without repetition of elements. A permutation may involve every element of the set, or only some of the elements of the set. That is, a permutation is a sequence of elements from the set, where no element can appear more than once in the sequence.
+        <br/>
+        <span class="small">
+         Note: If you studied outside the USA, you may have learned that a permutation must involve
+         <em>
+          every element
+         </em>
+         of the set, and that the term
+         <strong>
+          variation
+         </strong>
+         is used when the arrangment involves only some (but not all) of the elements of the set. In this textbook, all of these are called
+         <strong>
+          permutations.
+         </strong>
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Consider the last four uppercase English letters \(W, X, Y, Z\).
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          \(WXYZ, XWYZ, WXZY\) are permutations of the letters taken four at a time
+         </p>
+        </li>
+        <li>
+         <p>
+          \(XZW, WXY, WXZ\) are permutations of the letters taken three at a time
+         </p>
+        </li>
+        <li>
+         <p>
+          \(WX, WY, ZX\) are permutations of the letters taken two at a time
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        <span class="small">
+         Note: To be more formal, the sequences above could be written as
+         <em>
+          tuples
+         </em>
+         of the form \((W, X, Y, Z),\) \((X, W, Y, Z),\) \((W, X, Z, Y),\) and so on, but the notation used is simpler without the extra symbolic clutter of parentheses and commas.
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that no letter is repeated in a permutation.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        How can you count all the possible permutations of a set? For small sets like the set of the last four uppercase English letters, you could list all the possible permutations of \(W, X, Y, Z\) to determine that there are 24 permutations of the letters taken four at a time,
+24 permutations of the letters taken three at a time,
+and 6 permutations of the letters taken three at a time.
+But what if you wanted to find all the possible permutations of all twenty six uppercase English letters \(A, B, \ldots , W, X, Y, Z\)? It would be very time consuming to write out all possible permutations of, say, the twenty six uppercase English letters taken twenty one at a time, let alone all the other possible permutations. We will develop a technique for doing this kind of counting now.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Definition
+         </div>
+         <p>
+          Given a set of \(n\) elements, an
+          <em>
+           ordered arrangment
+          </em>
+          of \(r \le n\) of
+the elements is called an
+          <strong>
+           \(r\)-permutation
+          </strong>
+          or a
+          <strong>
+           permutation of \(n\) elements taken \(r\) at a time.
+          </strong>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The notation \(P(n,r)\) represents the number of permutations of \(n\) elements taken \(r\) at a time. Note that \(_nP_r\) is another commonly-used notation for this count.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Suppose you have a set that contains \(n\) elements and want to construct a \(2\)-permutation of the elements. There are \(n\) possible choices for the first element, and once that element is chosen, there are \(n-1\) possible choices for the second element. The product rule lets you conclude that there are \(n(n-1)\) ways to choose the two elements, taking into account that the order of the choices matters.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Now we can generalize this argument, informally: Suppose you have a set that contains \(n\) elements and want to construct an \(r\)-permutation, where \(r \le n.\) There are \(n\) possible choices for the first element, \(n-1\) possible choices for the second element, and so on, until we have \(n-(r-1)\) possible choices for the \(r\text{th}\) element. Apply the product rule repeatedly to conclude that there are \( n(n-1)\cdots (n-r+1)\) \(r\)-permutations of the \(n\) elements.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The process in the previous paragraph can also be viewed recursively. Suppose you have a set that contains \(n\) elements and want to construct an \(r\)-permutation, where \(r \le n.\) There are \(n\) possible choices for the first element, and the product rule let’s us conclude that the number of \(r\)-permutations of the \(n\) elements, \(P(n,r),\) is the product of \(n\) and \(P(n-1,r-1).\)
+Noticing that \(P(n-r,0) = 1\) lets us draw the same conclusion as in the previous paragraph:
+There are \(P(n,r) =  n \cdot \left((n-1)\cdots (n-r+1) \right)\) permutations of \(n\) elements taken \(r\) at a time.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          For natural numbers \(r\) and \(n\) with \(r \leq n,\) \[P(n,r) = n(n-1)(n-2) \cdots (n-r+1).\]
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 8 - Permutations of 5 elements taken 3 at a time
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          How many lines of output will be printed by the following code?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          You could trace through the code using the
+          <em>
+           Next
+          </em>
+          button to answer the question, but it would be tedious…​ try using the formula for \(r\)-permutations instead…​ and remember to count the final print statement after the loop, too.
+         </p>
+        </div>
+        <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23Listing%20Permutations%20of%203%20elements%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20!%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20!%3D%20i%20and%20k%20!%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0Aprint%28Counter%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%23Listing%20Permutations%20of%203%20elements%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0A%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20!%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20!%3D%20i%20and%20k%20!%3D%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0Aprint%28Counter%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        <strong>
+         Video Example
+        </strong>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following video example features
+Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
+       </p>
+      </div>
+      <div class="videoblock">
+       <div class="content">
+        <iframe allowfullscreen="" frameborder="0" height="500" src="https://www.youtube.com/embed/tTvaodWc6ic?rel=0" width="700">
+        </iframe>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 9 - Counting Permutations
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The code below calculates the number of permutations given \(n\) and \(r\).  Try to predict the variable names, values, and data types at different steps in the execution. Use the
+          <em>
+           Next
+          </em>
+          button to check your answers.
+         </p>
+        </div>
+        <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23Counting%20Permutations%0A%0Adef%20ProdCount%28n,r%29%3A%0A%20%20%20%20product%20%3D%20n%0A%20%20%20%20k%20%3D%20n-r%0A%20%20%20%20for%20i%20in%20range%28n-r%2B1,%20n%29%3A%0A%20%20%20%20%20%20%20%20product%20%3D%20product*i%0A%20%20%20%20return%20product%0A%20%20%20%20%0Aprint%28ProdCount%285,2%29%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%23Counting%20Permutations%0A%0Adef%20ProdCount%28n,r%29%3A%0A%20%20%20%20product%20%3D%20n%0A%20%20%20%20k%20%3D%20n-r%0A%20%20%20%20for%20i%20in%20range%28n-r%2B1,%20n%29%3A%0A%20%20%20%20%20%20%20%20product%20%3D%20product*i%0A%20%20%20%20return%20product%0A%20%20%20%20%0Aprint%28ProdCount%285,2%29%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="openblock Question">
+         <div class="title">
+          Question
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           How many permutations are there of the twenty six uppercase English letters taken twenty one at a time?
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Edit the code so that it will compute ProdCount(26,21), a relatively "small" natural number…​ "small" meaning that it’s decimal expansion has only 25 digts! 😎
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Here is another way to think about counting the number of permutations of \(n\) elements taken \(r\) at a time: Imagine writing down all possible permutations of \(n\) elements taken \(n\) at a time, that is all possible ordered arrangements of all \(n\) elements. Notice that if we only care about the first \(r\) elements in the list, then there are \(n-r\) elements at the end of the list that we can rearrange in any of \((n-r)!\) ways without changing the order of the the first \(r\) elements. Now apply the division rule from the
+        <a href="./counting_arithmetic.html">
+         Counting: Arithmetic Techniques
+        </a>
+        chapter:
+We have a procedure, ordering all \(n\) elements, that can be completed in \(n!\) possible ways, but for each way of completing this procedure there are \((n-r)!\) possible ways with the same outcome for ordering the first \(r\) elements. The division rule lets you conclude that there are \(\frac{n!}{(n-r)!}\) ways to order the first \(r\) elements.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          For natural numbers \(r\) and \(n\) with \(r \leq n,\) \[P(n,r) = \displaystyle \frac{n!}{(n-r)!}\]
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        <strong>
+         Video Example
+        </strong>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The following video example features
+Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett College.
+       </p>
+      </div>
+      <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_julbjvm6&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_s0uli5zb" title="Kaltura Player" webkitallowfullscreen="" width="700">
+      </iframe>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 10
+         </div>
+         <p>
+          If there are 10 runners in a race, how many different ways can the gold, silver, and bronze medals be awarded?
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          There are 10 elements (the runners) and we are choosing 3 to win medals. So the number of ways they can be awarded is
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(P(10,3) = \displaystyle \frac{10!}{(10-3)!} = \frac{10!}{7!} = 10 \times 9 \times 8 = 720\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Alternatively, we could have used the product rule and noticed that there are 10 ways to award the gold, then there are 9 ways to award the silver,
+then 8 ways to award the brozne.
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          You Try
+         </div>
+         <p>
+          From a group of 100 workers in a union, how many ways can there be a union President, Vice President, and Treasurer?
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 11
+         </div>
+         <p>
+          How many permutations of the digits 0123456789 are there that contain the string 456?
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          We can regard this as a permutation of 8 elements: the string "456" and the other 7 individual digits. These 8 elements can occur in any order, so the number of permutations is
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          \(P(8,8) = 8! = 40320.\)
+         </p>
+        </div>
+        <div class="openblock challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           How many different six-letter words (including nonsense words), can be formed using the letters in "HEROIC" where the vowels must appear together and no letters are repeated?
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           You can regard this a permutation of the 3 consonants and a string of 3 consecutive vowels…​ but notice that the order of the vowels matters.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 12 - Python functions for Factorial and Counting Permutations
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          This code sample illustrates how to use functions in Python’s
+          <code>
+           math
+          </code>
+          module to compute \(n!\) and \(_nP_r.\)
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0An%20%3D%205%0Ar%20%3D%203%0Aprint%28math.factorial%28n%29//math.factorial%28n-r%29%29%0A%23print%28math.perm%28n,r%29%29%20%23Python%203.8%20or%20later&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=import%20math%0An%20%3D%205%0Ar%20%3D%203%0Aprint%28math.factorial%28n%29//math.factorial%28n-r%29%29%0A%23print%28math.perm%28n,r%29%29%20%23Python%203.8%20or%20later&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_combinations">
+       10.3. Combinations
+      </h3>
+      <div class="paragraph">
+       <p>
+        A selection
+of elements from a set of \(n\) elements
+where order
+of selection
+does not matter is called a
+        <strong>
+         combination
+        </strong>
+        .
+Notice that each combination corresponds to a subset of the set of \(n\) elements.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Consider the letters \(W, X, Y, Z\) and choose three at a time where the order does not matter.
+In this case we are selecting a
+        <em>
+         subset
+        </em>
+        of size three instead of a sequence of length three. The sets \(\{ W, X, Y \}\) and \(\{ X, Y, W \}\) are just two ways of describing the same set since the order in which elements of a set are listed does not matter.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          There are four possible ways to choose three letters without regard to order:
+\(\{ W, X, Y \}\),
+\(\{ W, X, Z \}\),
+\(\{ W, Y, Z \}\), and
+\(\{ X, Y, Z \}\).
+         </p>
+        </li>
+        <li>
+         <p>
+          There are six possible ways to choose three letters without regard to order:
+\(\{ W, X \}\),
+\(\{ W, Y \}\),
+\(\{ W, Z \}\),
+\(\{ X, Y \}\),
+\(\{ X, Z \}\), and
+\(\{ Y, Z \}\).
+         </p>
+        </li>
+        <li>
+         <p>
+          There are four possible ways to choose one letter (without regard to order):
+\(\{ Z \}\),
+\(\{ Y \}\),
+\(\{ X \}\), and
+\(\{ W \}\). (Keep reading to find out why this "reversed" ordering of the subsets was used.)
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        This shows that there are
+4 combinations of 4 elements taken 3 at a time,
+6 combinations of 4 elements taken 2 at a time, and
+4 combinations of 4 elements taken 1 at a time.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Definition
+         </div>
+         <p>
+          Given a set of \(n\) elements, an
+          <em>
+           unordered selection
+          </em>
+          of \(r \le n\) of
+the elements is called an
+          <strong>
+           \(r\)-combination
+          </strong>
+          or a
+          <strong>
+           combination of \(n\) elements taken \(r\) at a time.
+          </strong>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The notation \(C(n,r)\) represents the number of combinations of \(n\) elements taken \(r\) at a time. Note that \(_nC_r\) is another commonly-used notation for this count, as is the
+          <strong>
+           binomial coefficient
+          </strong>
+          \(n\choose r\). Any of these notations can read as "\(n\) choose \(r.\)"
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Next, notice that every \(r\)-combination corresponds to \(P(r, r) = r!\) different \(r\)-permutations. That is, to select a \(r\)-permutation we could instead first select a \(r\)-combination without regard to order and then order the \(r\) elements.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        As an example, suppose we have \(n\) elements and want to construct a \(3\)-permutation. We could instead first choose a \(3\)-combination of the elements. There are \(C(n,3)\) possible \(3\)-combinations. Once we have chosen a specific \(3\)-combination, we can reorder the 3 elements
+in \(P(3,3) = 3!\) ways.
+This argument shows that
+\(P(n,3) = C(n,3) \cdot P(3,3) =  C(n,3) \cdot 3!\), so
+\(C(n,3) = \displaystyle \frac{P(n,3)}{3!}\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can generalize this argument for each natural number \(r \leq n\) to arrive at the next theoren.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          \(C(n,r) = \displaystyle \frac{P(n,r)}{r!} = \frac{n!}{r!(n-r)!}\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 13 - Combinations of 5 elements taken 3 at a time
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The code below calculates the number of and lists combinations given \(n\) and \(r\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          How many lines of output will be printed by the following code? Remember to count the final print statement after the loop, too.
+         </p>
+        </div>
+        <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%235%20choose%203%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20%3E%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0Aprint%28Counter%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%235%20choose%203%0A%0ANumbers%20%3D%20%5B1,%202,%203,%204,%205%5D%0ACounter%20%3D%200%0A%0Afor%20i%20in%20Numbers%3A%0A%20%20%20%20for%20j%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20if%20j%20%3E%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20Numbers%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20k%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20print%20%28i,%20j,%20k%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Counter%20%3D%20Counter%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0Aprint%28Counter%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          You try
+         </div>
+         <p>
+          Edit the code to list and count combinations of 5 choose 4.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        <strong>
+         Video Example
+        </strong>
+       </p>
+      </div>
+      <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_q7vdemao&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_kbgw9kgq" title="Kaltura Player" webkitallowfullscreen="" width="700">
+      </iframe>
+      <div class="paragraph">
+       <p>
+        <strong>
+         Video Example
+        </strong>
+       </p>
+      </div>
+      <iframe allow="autoplay *; fullscreen *; encrypted-media *" allowfullscreen="" frameborder="0" height="500" id="kaltura_player" mozallowfullscreen="" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" src="https://cdnapisec.kaltura.com/p/2022371/sp/202237100/embedIframeJs/uiconf_id/31860982/partner_id/2022371?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=0_mwu49tz8&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_azbrfaq2" title="Kaltura Player" webkitallowfullscreen="" width="700">
+      </iframe>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 14
+         </div>
+         <p>
+          How many ways can five cards be dealt from a standard 52-card deck?
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          We are choosing 5 cards from 52 cards and the order does not matter, so \(C(52,5)=\displaystyle \frac{52!}{5!47!}\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 15
+         </div>
+         <p>
+          How many bit strings of length \(n\) contain exactly \(r\) 0s?
+         </p>
+        </div>
+        <div class="paragraph">
+         <div class="title">
+          Solution
+         </div>
+         <p>
+          Choosing the positions of the \(r\) 0s corresponds to the \(r\)-combinations of the set \(\{1, 2, 3, \dots, n\}\). Thus there are exactly
+\(C(n,r)\) such bit strings.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_properties_of_combinations">
+        10.3.1. Properties Of Combinations
+       </h4>
+       <div class="paragraph">
+        <p>
+         In this subsection you will learn about some properties of \(C(n, r)\) and a famous "number triangle;" you will see that the values listed in the triangle coincide with the values of \(C(n,r).\)
+        </p>
+       </div>
+       <div class="sect4">
+        <h5 id="arithmetic_triangle">
+         Pascal’s Triangle
+        </h5>
+        <div class="paragraph">
+         <p>
+          Consider the following number triangle. \[{\displaystyle {\begin{array}{c}1\\1\quad 1\\1\quad 2\quad 1\\1\quad 3\quad 3\quad 1\\1\quad 4\quad 6\quad 4\quad 1\\1\quad 5\quad 10\quad 10\quad 5\quad 1\\1\quad 6\quad 15\quad 20\quad 15\quad 6\quad 1\\1\quad 7\quad 21\quad 35\quad 35\quad 21\quad 7\quad 1\end{array}}}\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We refer to the top row of this triangle as "row 0," and the left side of the triangle as "column 0" (so the columns are actually drawn diagonally.)  Notice that each number that is in row 2 or lower (and not on one of the sides of the triangle) is the sum of the two numbers directly above it in the triangle. For example, in row 5, column 2 row, the number 10 is the sum of the numbers in row 4, column 1 (the number 4) and row 4, column 2 (the number 6.)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          This number triangle is often called "Pascal’s Triangle" after the French mathematician Blaise Pascal who
+          <a href="https://cudl.lib.cam.ac.uk/view/PR-CCB-00013-00024/5">
+           wrote
+          </a>
+          about the triangle in the mid-1600’s A.D.. However, the number triangle was
+          <a href="https://aperiodical.com/2021/12/pascals-triangle-and-its-secrets-introduction/">
+           known for centuries
+          </a>
+          before Pascal lived. You may also want to see the "History" section of this
+          <a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">
+           wikipedia page
+          </a>
+          for additional information.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <mark>
+           <strong>
+            RECOMMENDATION:
+           </strong>
+           The "Binomial" activity can replace the rest of this subsection.
+          </mark>
+         </p>
+        </div>
+       </div>
+       <div class="sect4">
+        <h5 id="_the_numbers_in_the_triangle_are_the_values_of_cnr">
+         The Numbers in the Triangle Are The Values Of \(C(n,r)\)
+        </h5>
+        <div class="paragraph">
+         <p>
+          Notice that \(C(0,0),\) \(C(1,0),\) and \(C(1,1)\) are all equal to 1. These numbers match the values in row 0 and row 1 of the triangle.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Now, consider an alternative way we can compute \(C(n+1,r).\) Imagine we have a set containing \(n+1\) elements, where one of the elements is "special" - in how many ways can we choose \(r\) of the elements? There are two cases: We can choose the "special" element and then choose \(r-1\) other elements from the remaining \(n\) elements, or we can ignore the "special" element and choose \(r\) elements from the remaining \(n\) elements.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          As a specific example, suppose we want to choose 2 elements form the set of letters \(\{ J, K, L, M, N\}\). We could treat \(J\) as a special element. In the first case, we would always choose \(J\) and then choose 1 of the 4 remaining letters; there are \(C(4,1)\) ways to do this. In the second case, we never choose \(J\), and must choose two other letters; there are \(C(4,2)\) ways to do this. In all, there are \(C(5,2)\) ways to choose 2 letters from the set, and  the sum rule from the
+          <a href="./counting_arithmetic.html">
+           Counting: Arithmetic Techniques
+          </a>
+          chapter can be applied to show that \(C(5,2)\) must be equal to \(C(4,1) + C(4,2).\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In the general case of combinations of \(n+1\) elements taken \(r\) at a time, we have the following theorem.
+         </p>
+        </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="title">
+           Theorem - Pascal’s identity
+          </div>
+          <div class="paragraph">
+           <p>
+            For natural numbers \(n\) and \(r\) such that \(r \leq n,\) \[C(n+1,r) = C(n, r-1) + C(n,r)\]
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          This theorem shows that the numbers in each row of the triangle are the same numbers we can compute as \(C(n,r).\) That is, since row 0 and row 1 contain the values for \(C(0,0),\) \(C(1,0),\) and \(C(1,1),\) row 2 must contain the values for \(C(2,0),\) \(C(2,1),\) and \(C(2,2),\) and row 3 must contain the values for \(C(3,0),\) \(C(3,1),\) \(C(3,2),\) and \(C(3,3).\) We can continue this pattern for
+          <em>
+           all
+          </em>
+          rows of the triangle. This is an informal proof that the number triangle is made up of the values of \(C(n,r)\) for all natural numbers \(r\) and \(n\) with \(r \leq n.\)
+         </p>
+        </div>
+       </div>
+       <div class="sect4">
+        <h5 id="_cnr_cnn_r">
+         \(C(n,r) = C(n,n-r)\)
+        </h5>
+        <div class="paragraph">
+         <p>
+          You may recall from an earlier example that there are \(C(4,3) = 4\) possible ways to choose three letters from the set \(\{ W, X, Y, Z \}\) and that there are \(C(4,1) = 4\) possible ways to choose one letter from the set \(\{ W, X, Y, Z \}.\)  The equation \(C(4,3) = C(4,1)\) does not "just happen to be true" but in fact
+          <span class="underline">
+           must be true:
+          </span>
+          Each combination of 4 elements taken 3 at a time corresponds to a combination of 4 elements taken 1 at a time, and vice versa - we can choose 3 of the 4 elements by "throwing out" the 1 element we don’t want to keep. That is, we choose the 3-element subset we care about indirectly by instead choosing the 1-element we do not care about.
+There is a one-to-one correspondence between the subsets that contain 3 letters and the subsets that contain 1 letter: \[\{ W, X, Y \} \text{ corresponds to } \{ Z \}\] \[\{ W, X, Z \} \text{ corresponds to } \{ Y \}\] \[\{ W, Y, Z \} \text{ corresponds to } \{ X \}\] \[\{ X, Y, Z \} \text{ corresponds to } \{ W \}\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In general, there is always a one-to-one correspondence between
+the combinations of \(n\) elements taken \(r\) at a time and the combinations of \(n\) elements taken \(n-r\) at a time: Choosing \(r\) elements for a subset corresponds to choosing the \(n-r\) elements
+to leave out of the subset.
+This is an informal proof of the following theorem.
+         </p>
+        </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="title">
+           Theorem
+          </div>
+          <div class="paragraph">
+           <p>
+            For natural numbers \(n\) and \(r\) such that \(r \leq n,\) \[C(n,r) = C(n,n-r)\]
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Alternatively, this theorem can be proven algebraically using the formula \(C(n,r) = \frac{n!}{r!(n-r)!}.\)
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_binomial_theorem">
+       10.4. The Binomial Theorem
+      </h3>
+      <div class="paragraph">
+       <p>
+        An algebraic expression that is the product of a number and power of zero or more variables is called a
+        <strong>
+         term.
+        </strong>
+        Two terms are called
+        <strong>
+         like terms
+        </strong>
+        if the two terms have the exact same variables and those variables appear with the exact same exponents. For example, \(a,\) \(ab,\) \(5a,\) and \(3a^{2}\) are terms, and \(a\) and \(5a\) are like terms. Like terms can be added to make a new term, for example, \(a + 5a\) is \(6a\) where we’ve used the distributive property of multiplication over addition to write \[ a + 5a = 1a + 5a = (1+5)a = 6a \]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Now consider the product of two algebraic expressions \(a+b\) and \(x+y\) where the variables represent real numbers. We can rewrite \((a+b)(x+y)\) in an expanded form by using the distributive property of multiplication over addition: \[ (a+b)(x+y) = a(x+y) + b(x+y) = ax + ay + bx + by. \]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Another way to view this multiplication is as follows: You need to sum all the possible products you can form by choosing a first factor from the set \(\{ a, \, b \}\) and a second factor from the set \(\{ x, \, y \}.\) Apply the multiplication rule to compute that there must be \((2)(2) = 4\) possible products, namely, \(ax,\) \(ay,\) \(bx,\) and \(by.\) In this way, we can calculate the same result, \[ (a+b)(x+y) = ax + ay + bx + by. \]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        In case both factors are \((a+b)\), we get \[ (a+b)(a+b) = a(a+b) + b(a+b) = aa + ab + ba + bb = a^{2} + 2ab + b^{2}. \]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that the coefficients can be thought of as the number of ways to choose \(b\) for each term during the multiplication: \[  a^{2} + 2ab + b^{2} = C(2,0)a^{2} + C(2,1)ab + C(2,2)b^{2} = {2\choose0}a^{2} + {2\choose1}ab + {2\choose2}b^{2}. \]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Look at the next highest powers:
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \begin{equation}
+\begin{aligned}
+(a+b) \left( a^{2} + 2ab + b^{2} \right) {} &amp; = a \left( a^{2} + 2ab + b^{2} \right) + b \left( a^{2} + 2ab + b^{2} \right)  \\
+&amp; = a^{3} + 2a^{2} b + ab^{2} + a^{2} b + 2ab^{2} + b^{3}  \\
+&amp; = (1)a^{3} + (2+1) a^{2} b + (1+2) ab^{2} +(1) b^{3} \\
+&amp; = a^{3} + 3 a^{2} b + 3 ab^{2} + b^{3}
+\end{aligned}
+\end{equation}
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        \begin{equation}
+\begin{aligned}
+(a+b) \left( a^{3} + 3 a^{2} b + 3 ab^{2} + b^{3} \right) {} &amp; = a \left( a^{3} + 3 a^{2} b + 3 ab^{2} + b^{3} \right) + b \left( a^{3} + 3 a^{2} b + 3 ab^{2} + b^{3} \right)  \\
+&amp; = a^{4} + 3 a^{3} b + 3 a^{2} b^{2} + ab^{3} + a^{3} b + 3 a^{2} b^{2} + 3 ab^{3} + b^{4}  \\
+&amp; = (1)a^{4} + (3 + 1) a^{3} b + (3 + 3) a^{2} b^{2} + (1 + 3) ab^{3} + (1)b^{4} \\
+&amp; = a^{4} + 4 a^{3} b + 6 a^{2} b^{2} + 4 ab^{3} + b^{4}
+\end{aligned}
+\end{equation}
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that the coefficients in the algebraic expansions above are the same numbers that appear in Pascal’s
+        <a href="./counting_binomial#arithmetic_triangle">
+         arithmetic triangle.
+        </a>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We will prove
+in the
+        <a href="./induction.html">
+         Proofs: Mathematical Induction
+        </a>
+        chapter that \[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i}  a^{n-i} b^{i} \] for every natural number \(n.\)
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_exercises_6">
+       10.5. Exercises
+      </h3>
+      <div class="olist arabic">
+       <ol class="arabic">
+        <li>
+         <p>
+          List all the permutations of \(\{1, 2, 3\}\).
+         </p>
+        </li>
+        <li>
+         <p>
+          How many permutations are there of the set \(\{1, a, 2, b, 3, c, 5\}\)?
+         </p>
+        </li>
+        <li>
+         <p>
+          Let \(A=\{a, b, c, d\}\)
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             List all the 3-permutations of \(A\).
+            </p>
+           </li>
+           <li>
+            <p>
+             List all the 3-combinations of \(A\).
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Let \(A=\{a, b, c, d, e\}\)
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             List all the 2-permutations of \(A\).
+            </p>
+           </li>
+           <li>
+            <p>
+             List all the 2-combinations of \(A\).
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Find the value of the following
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             \(P(5,2)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(P(10,8)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(P(14,10)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(P(12,8)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(C(5,2)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(C(10,8)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(C(14,10)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(C(12,8)\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          How many bit strings of length 10 contain:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Exactly five 1s?
+            </p>
+           </li>
+           <li>
+            <p>
+             At most five 1s?
+            </p>
+           </li>
+           <li>
+            <p>
+             At least four 1s?
+            </p>
+           </li>
+           <li>
+            <p>
+             The same number of 0s and 1s?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          How many permutations of the digits \(12345678\) contain:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             The string 284?
+            </p>
+           </li>
+           <li>
+            <p>
+             The string 3581?
+            </p>
+           </li>
+           <li>
+            <p>
+             The string 21 and 57?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          How many ways are there to choose 9 cards from a standard 52 card deck?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many ways can you be dealt a pair in a 5 card hand (2 cards of the same rank and 3 cards of a different rank)?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many ways can you be dealt a full house in a 5 card hand (2 cards of the same rank and 3 cards of the same rank)?
+         </p>
+        </li>
+        <li>
+         <p>
+          How many license plates consist of 4 letters followed by 3 digits if:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Repetition is allowed?
+            </p>
+           </li>
+           <li>
+            <p>
+             Repetition is not allowed?
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Using \(C(n,r) = \displaystyle  \frac{n!}{r!(n-r)!}\), evaluate the terms of this triangular table. Will you need the formula to extend the table to more rows?
+         </p>
+        </li>
+       </ol>
+      </div>
+      <div class="paragraph">
+       <p>
+        \begin{array}{ccccccccccccc}
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;C(0,0)&amp;&amp;&amp;&amp;&amp;&amp;\\
+&amp;&amp;&amp;&amp;&amp;&amp; C(1,0) &amp;&amp; C(1,1) &amp;&amp;&amp;&amp;&amp;\\
+&amp;&amp;&amp;&amp;&amp; C(2,0) &amp;&amp; C(2,1) &amp;&amp; C(2,2) &amp;&amp;&amp;&amp;\\
+&amp;&amp;&amp;&amp; C(3,0) &amp;&amp; C(3,1) &amp;&amp; C(3,2) &amp;&amp; C(3,3) &amp;&amp;&amp;\\
+&amp;&amp;&amp; C(4,0) &amp;&amp; C(4,1) &amp;&amp; C(4,2) &amp;&amp; C(4,3) &amp;&amp; C(4,4) &amp;&amp;\\
+\end{array}
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { extensions: ["mhchem.js"] }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML">
+  </script>
+ </body>
+</html>

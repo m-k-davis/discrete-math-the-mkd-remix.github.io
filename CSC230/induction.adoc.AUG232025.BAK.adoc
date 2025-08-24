@@ -1,0 +1,1746 @@
+= Proofs: Mathematical Induction
+
+#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
+
+
+_This chapter was last updated on August 23, 2025._ + 
+_added note about the Principle of Mathematical Induction and the Well-Ordering Principle 
+_removed references to universal generalization throughout._ + 
+_restructured discussion of proof by induction and the Principle of Mathematical Induction_ 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+
+////
+PROOFS: MATHEMATICAL INDUCTION (MKD) 
+	based on SEQUENCES, RECURSIVE DEFINITIONS, AND INDUCTION (GGC11)
+	ACM CCECC Mathematical induction	
+    COMP 152 Proof Techniques and DS3.
+		examples of mathematical induction
+		strong induction
+        Mathematical induction
+        Strong induction
+        Well orderings
+	ACTIVITY: Induction
+	MKD: Do sum of odd integers as "easy" first example
+	MKD: Prove Euclidean Algorithm and some others as validation
+	MKD: Find a "structural induction" example if possible, too
+	MKD: Fundamental Theorem of Arithmetic using strong induction
+	2013 changes/additions        
+		[Core-Tier1]
+			Induction over natural numbers
+			Structural induction
+			Weak and strong induction (i.e., First and Second Principle of Induction)
+			Recursive mathematical definitions
+	[Core-Tier2]
+			Well orderings
+			
+			
+AUG 2024 update on topics
+Induction over natural numbers
+Mathematical induction
+examples of mathematical induction
+Structural induction
+Weak and strong induction (i.e., First and Second Principle of Induction)
+Strong induction
+Well orderings (MKD: so this chapter comes after Relations)
+
+MATHEMATICAL INDUCTION - January 2025
+DS2013/Proof Techniques	Induction over natural numbers
+DS2013/Proof Techniques	Structural induction
+DS2013/Proof Techniques	Weak and strong induction (i.e., First and Second Principle of Induction)
+DS2013/Proof Techniques	Well orderings [Core-Tier2]
+DS2008/ProofTechniques	Mathematical induction
+DS2008/ProofTechniques	Strong induction
+DS2008/ProofTechniques	Well orderings
+MSF-Discrete_2023	3. Proof techniques (induction, proof by contradiction)
+ACM_CCECC_2005/Mathematical induction	examples of mathematical induction
+ACM_CCECC_2005/Mathematical induction	strong induction
+
+Also maybe Principle of Inclusion and Exclusion (general case)
+		do 3-sets in Set Theory
+		do more general PIE here in Induction. Use bitstrings? 
+
+Prereqisites: Do sequences, primes and factors, fibonacci BEFORE this
+
+Examples to do: Mathematical Induction
+	sum of odd positive integers, 
+	sum of powers of 2, maybe 
+	3 divides 2^{2n}-1, 
+	sum of odd indexed Fibonacci numbers
+	see old examples on slides 19-26)
+	Verification of Euclidean Algorithm for GCD
+	Strong Induction - Fundamental Theorem of Arithmetic		
+	Strong Induction - see only example on slide 28 (recurrence relation)
+		
+Emphasize that 
+	Recursion is about DEFINITION and computation
+	Induction is about VALIDATION and proof
+////
+
+
+//MKD - note that everything ater the "lego block" example may need to be rewritten.
+
+//MKD add discussion of Well-Ordering Principle axion (after the example?)
+//== What is Mathematical Induction?
+
+//MKD other stuff to add
+// "Small" integer is a relative term - consider the sequence of numbers 2, 2^2=4, 2^4=16, 2^16=65536, 2^65536 which is approximately 2 × 10^19728, and 2^(2^65536) which has about 6.031226062630295×10^19727 decimal digits, ... would you like to see other "small" integers?
+// Induction is like verifying that a loop produces the expected output, for example 
+// n = input("Type a positive whole number.")
+// s = 0 
+// for i = 1 to n
+//		s = s + 2i-1
+// print("The sum of the first",n,"odd positive integers is", str(s)+".")
+// #Is s always a perfect square? How can you know for a "small" integer like 2^65536?
+
+
+// MKD: The commonly-used "infinite ladder" analogy is misleading. 
+// This analogy may appear in the original book. 
+// The goal of mathematical induction is to produce a proof of FINITE LENGTH 
+// that shows that a ladder of any specified natural number height $n$ 
+// can be built, and that there is no upper bound on $n$. 
+// That is, a FINITE ladder of any possible height can be built, but not an infinite ladder. 
+// MKD thinks that a better analogy is code that uses a loop. The loop can be executed any FINITE number of times, but cannot truly be an "infinite loop" that never breaks.
+
+
+// MKD March 16 2025 another Python example, may not be useful
+//https://pythontutor.com/render.html#code=def%20verify%28P,%20n%29%3A%0A%20%20%20%20return%20P%28n%29%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20n%20%3C%20n%2B1%0A%23%20initialize%0An%20%3D%200%0Averify%28P,%20n%29%0A%23%20loop%0Astop_here%20%3D%209%0Awhile%20n%20%3C%3D%20stop_here%3A%0A%20%20%20%20n%20%3D%20n%2B1%0A%20%20%20%20verify%28P,%20n%29&cumulative=false&curInstr=99&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+
+// **** MKD start of actual content ****
+
+In this chapter, you will learn how to use the *mathematical induction* proof technique to create a single proof of _infinitely many_ different but related propositions. 
+// using a three-step process, where each of the steps has finite length. 
+This proof technique will also be used to validate algorithms. 
+
+
+
+Key terms and concepts covered in this chapter:
+
+//* Induction over natural numbers
+* Mathematical induction
+** Weak and strong induction (i.e., First and Second Principle of Induction)
+** examples of mathematical induction
+//** Strong induction
+//* Well orderings
+* Well-ordering and Induction
+* Structural induction
+
+//“”
+//…
+
+== Why Is Mathematical Induction Needed?
+
+We often encounter an infinite sequence of related propositions, all of which appear to be True. To prove all of the propositions, we might try to write a proof for each individual proposition and then combine all those proofs together as a single infinitely-long “proof”… but recall from the chapter on link:./proofs.html[Proofs: Basic Techniques] that a proof 
+//is a valid argument that 
+consists of a _finite_ sequence of propositions of _finite_ length. 
+As an analogy, imagine you had an “algorithm” that required infinitely-many steps to complete its task… such an algorithm would not be useful in the real world since it 
+//could 
+might 
+never complete the task!
+
+The next example introduces the ideas we will use to prove an infinite sequence of related propositions.
+
+
+// MKD start of square example
+// MKD Remember to add in Python loop code as an analogy for induction
+//	initialization is the basis step
+//	the loop represents multiple applications of the induction step
+//	the loop executes only a finite number of times, but as many times as needed, and we could store the results if we need to prove the predicate for a larger value.
+
+****
+//.Example {counter:MKDinductionexample} - Why Use Mathematical Induction?
+.Example {counter:MKDinductionexample} - Why Use Mathematical Induction?
+
+Let's examine a conjecture about a certain type of link:https://en.wikipedia.org/wiki/Figurate_number[polygonal number,] namely, square numbers.  
+
+//image::imagesMKD/16_as_sum_of_gnomons_v3.png[Square as sum of gnomons,373,332,float="right",align="center"]
+image::imagesMKD/16_as_sum_of_gnomons_v3.png[Square as sum of gnomons,124,111,float="right",align="center"] 
+Consider the image that shows 16 colored disks arranged as a square. 
+By starting at the lower left corner of the square and grouping disks of the same color, we can count the total number of disks in the figure as follows. 
+\begin{equation}
+\begin{aligned}
+1 {} & = 1^{2} \\ 
+1 + 3 {} & = 4 = 2^{2} \\ 
+1 + 3 + 5 {} & = 9 = 3^{2} \\ 
+1 + 3 + 5 + 7 {} & = 16 = 4^{2} \\ 
+\end{aligned}
+\end{equation}
+
+Notice that the sum of the odd integers on the left-hand side of each equation is equal to the square of the _number_ of odd integers on the left-hand side of the equation. This means that the predicate \[P(n)\text{: "The sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] is a True statement for the natural numbers $n \in \{ 1, 2, 3, 4 \},$ that is, each of the following four propositions is True:
+
+* $P(1)$: "The sum of the first $1$ positive odd integers is equal to $1^{2}$." (I know this is not proper English, but please bear with me!)
+
+* $P(2)$: "The sum of the first $2$ positive odd integers is equal to $2^{2}$."
+
+* $P(3)$: "The sum of the first $3$ positive odd integers is equal to $3^{2}$."
+
+* $P(4)$: "The sum of the first $4$ positive odd integers is equal to $4^{2}$."
+
+
+// MKD: FIX THIS PYTHONTUTOR CODE - IT IS PULLING IN AN EARLIER EXAMPLE
+:pt_code_height: 350
+:pt_rawinput: false
+:pt_code: def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0Afor%20n%20in%20%5B1,2,3,4%5D%3A%0A%20%20%20%20print%28P%28n%29%29
+ 
+
+In the following code snippet, function $P$ implements the predicate used in this example. 
+Recall that the predicate's output is a _proposition_ - the output is just a string of symbols and does not indicate whether the proposition is True or False.
+
+include::python_tutor.adoc[]
+ 
+
+
+//image::imagesMKD/25_as_sum_of_gnomons_v3.png[Square as sum of gnomons,497,454,float="right",align="center"] 
+image::imagesMKD/25_as_sum_of_gnomons_v3.png[Square as sum of gnomons,166,151,float="right",align="center"] 
+Next, consider this second image, which shows how you could change the first image to one that can be used to prove that $P(5)$ is True. + 
+//, based on the assumptiion that $P(4)$ is True. + 
+// MKD Aug 21 2025 
+//[small]#It's easy to show that the proposition $P(5)$ is True because you can just write out and verify that $1 + 3 + 5 + 7 + 9 = 25 = 5^{2}.$ The goal here is to relate the proposition $P(5)$ to the “preceding” proposition $P(4),$ in a way similar to what was done for sequences of numbers in a link:./recursion.html[recurrence relation.]#
+[small]#It's easy to show that the proposition $P(5)$ is True because you can just write out and verify that $1 + 3 + 5 + 7 + 9 = 25 = 5^{2}.$ The goal here is to relate the truth value of the proposition $P(5)$ to the truth value of the “preceding proposition” $P(4),$ in a way similar to how the numerical value of a term of a sequence can be related to the numerical value of the “preceding term” of the sequence using a link:./recursion.html[recurrence relation.]#
+
+//“”
+//…
+
+
+//MKD new October 28 2024
+Notice that the second image shows that, given the square arrangement of disks that has 4 disks along each side, we can construct a square arrangement that has 5 disks along each side by inserting 4 new disks above the top row, 4 new disks in a column to the right of the rightmost column, and 1 new disk in the upper right corner to complete the square arrangement. 
+
+In fact, there is nothing special about the number 4 in the previous paragraph: If $k$ is _any positive natural number_ and we have a $k \times k$ square arrangement of disks, we can enlarge it to a $(k+1) \times (k+1)$ square arrangement of disks by inserting $k$ disks above, $k$ disks to the right, and $1$ disk in the upper right corner of the $k \times k$ square to complete the $(k+1) \times (k+1)$ square. Algebraically, we can account for the total number of disks in the $(k+1) \times (k+1)$ square by writing \[ k^{2} + k + k + 1 = (k+1)^{2} \] which is True for any natural number $k$ (Just simplify the left-hand side and expand the right-hand side of the equation to see that the equation must be True.) 
+
+Based on this second image, we can make a conjecture that $P(n)$ must be True for every positive natural number $n.$ We now need to [underline]#prove# this conjecture. + 
+//[small]#Another way to look at this is to define $s(n)$ to be the number of disks in a $n \times n$ square arrangement of disks. The preceding argument shows that $s(k+1) = s(k) + 2k + 1$ for every positive natural number value of $k.$#
+
+Notice that if we combine the propositions  
+
+. $P(1)$ and $P(2)$ and $P(3)$ and $P(4)$
+//. $P(n)$ is True for some small value of $n$ (In our case, $n = 1.$)
+
+. For all $k \in \mathbb{N},$ $P(k)$ implies $P(k+1).$
+
+then we can 
+//justify that we can 
+build a proof for all the integers up to and including any value of $n \in \mathbb{N}$ that we want. 
+
+For example, to prove $P(1,\!000,\!000),$ we could start by asserting that $P(1)$ is True, then apply the conditional $P(k) \rightarrow P(k+1)$ along with the rule of inference _modus ponens_ $999,\!999$ times to prove that $P(1,\!000,\!000)$ is True. This proof _is_ finite - I never claimed that the proof would be short! 
+// + 
+
+//[small]#
+//You can make 
+As an analogy, 
+think 
+of repeatedly applying _modus ponens_ to the conditional as using a loop in code. We are just repeating the same argument $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$ over and over again as the value of the variable $k$ is incremented by 1 at the end of each 
+loop 
+iteration until we reach the value 
+//of $k+1$ 
+that we want to stop at. 
+//#
+In the following code snippet, the user-defined function `addTheOdds` implements the computations used in this example's argument. Notice how the Basis Step corresponds to validating the loop initialization and how the Induction Step corresponds to validating the output at the end of each loop iteration (assuming that the values were correct at the start of that loop iteration.) You can change the value of $n$ in the code to confirm the truth value of $P(n)$ for any integer you'd like, assuming you have enough time and computing resources.
+
+//MKD march 17 2025 insert code snippet here
+:pt_code_height: 650
+:pt_rawinput: false
+:pt_code: def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20False%0A%20%20%20%20%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%20first,%20increment%20k%20second%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0Adef%20truth_value_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29%29%0A%23print%28P%28n%29,%22is%20a%22,truth_value_of_P%28n%29,%22proposition.%22%29
+
+// MKD Apr 5 2025 update #1 to code
+//https://pythontutor.com/render.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20True%0A%20%20%20%20%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20sum_as_string%20%3D%20%221%22%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20%23if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum,%22%5CtValidation%3A%22,sum,%22%3D%22,str%28k%29%2B%22%5Cu00b2%22%29%0A%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum,%22%5Cn%5CtValidation%3A%22,sum_as_string,%22%3D%22,str%28k%29%2B%22%5Cu00b2%22%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%20first,%20increment%20k%20second%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20sum_as_string%20%3D%20sum_as_string%20%2B%20%22%20%2B%20%22%20%2B%20str%282*k%20%2B%201%29%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20%23if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum,%22%5CtValidation%3A%22,sum,%22%3D%22,str%28k%29%2B%22%5Cu00b2%22%29%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum,%22%5Cn%5CtValidation%3A%22,sum_as_string,%22%3D%22,str%28k%29%2B%22%5Cu00b2%22%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5Cn%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0Adef%20truth_value_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29,%22is%20a%22,truth_value_of_P%28n%29,%22proposition.%22%29&cumulative=false&curInstr=64&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false 
+
+// MKD Apr 5 2025 update #2 to code
+//https://pythontutor.com/render.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20True%0A%20%20%20%20%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20sum_as_string%20%3D%20%221%22%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22%5Cn%5CtValidation%3A%22,sum_as_string,%22%3D%22,str%28k%29%2B%22%5Cu00b2%22%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%20first,%20increment%20k%20second%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%0A%20%20%20%20%20%20%20%20sum_as_string%20%3D%20sum_as_string%20%2B%20%22%20%2B%20%22%20%2B%20str%282*k%20%2B%201%29%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22%5Cn%5CtValidation%3A%22,sum_as_string,%22%3D%22,str%28k%29%2B%22%5Cu00b2%22%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5Cn%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0Adef%20truth_value_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29,%22is%20a%22,truth_value_of_P%28n%29,%22proposition.%22%29&cumulative=false&curInstr=64&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// update #3 
+//https://pythontutor.com/render.html#code=%20%20%20%20%23%20sumOfOddIntegers%20%0A%20%20%20%20%23%20%20%20for%20each%20positive%20integer%20in%20%7B1,2,...n%7D%0A%20%20%20%20%23%20%20%20%20%20%20%20compute%20the%20sum%20of%20the%20first%20k%20odd%20positive%20integers%20%0A%20%20%20%20%23%20%20%20%20%20%20%20verify%20that%20the%20sum%20is%20equal%20to%20k%C2%B2%0A%20%20%20%20%23%20%20%20return%20the%20sum%20of%20the%20first%20n%20odd%20positive%20integers%0Adef%20sumOfOddIntegers%28n%29%3A%0A%20%20%20%20%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20sum_as_string%20%3D%20%221%22%0A%20%20%20%20sum_k_is_k_squared%20%3D%20None%20%23%20boolean%20to%20be%20set%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20sum_k_is_k_squared%20%3D%20%28sum%20%3D%3D%20k*k%29%0A%20%20%20%20if%20sum%20%3D%3D%20k*k%3A%0A%20%20%20%20%20%20%20%20print%28%22%5Cn%22%2Bsum_as_string,%22%3D%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28%22%5Cn%22%2Bsum_as_string,%22%E2%89%A0%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20if%20sum%20is%20equal%20to%20k%C2%B2%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20then%20sum%20will%20be%20assigned%20%28k%2B1%29%C2%B2%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20%20%20%20%20because%20k%C2%B2%20%2B%202*k%20%2B%201%20%3D%20%28k%2B1%29%C2%B2%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20sum_as_string%20%3D%20sum_as_string%20%2B%20%22%20%2B%20%22%20%2B%20str%282*k%20%2B%201%29%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20sum%20%3D%3D%20k*k%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22%5Cn%22%2Bsum_as_string,%22%3D%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22%5Cn%22%2Bsum_as_string,%22%E2%89%A0%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5Cn%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0An%20%3D%2010%0As%20%3D%20sumOfOddIntegers%28n%29%0Aif%20%28s%20%3D%3D%20n*n%29%3A%20print%28P%28n%29,%22is%20a%20True%20proposition.%22%29&cumulative=false&curInstr=72&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// update #4 
+//https://pythontutor.com/render.html#code=%20%20%20%20%23%20sumOfOddIntegers%20%0A%20%20%20%20%23%20%20%20for%20each%20positive%20integer%20in%20%7B1,2,...n%7D%0A%20%20%20%20%23%20%20%20%20%20%20%20compute%20the%20sum%20of%20the%20first%20k%20odd%20positive%20integers%20%0A%20%20%20%20%23%20%20%20%20%20%20%20verify%20that%20the%20sum%20is%20equal%20to%20k%C2%B2%0A%20%20%20%20%23%20%20%20return%20the%20sum%20of%20the%20first%20n%20odd%20positive%20integers%0Adef%20sumOfOddIntegers%28n%29%3A%0A%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%20P%281%29%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20sum_as_string%20%3D%20str%28sum%29%0A%20%20%20%20%20%20%20%20%23%20Verify%20that%20%221%20%3D%201%C2%B2%22%20is%20a%20True%20proposition%0A%20%20%20%20if%20sum%20%3D%3D%20k*k%3A%0A%20%20%20%20%20%20%20%20print%28%22%5Cn%22%2Bsum_as_string,%22%3D%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28%22%5CnBasis%20failed%3A%22,sum_as_string,%22%E2%89%A0%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20if%20you%20ASSUME%20that%20sum%20is%20equal%20to%20k%C2%B2%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20then%20sum%20will%20be%20assigned%20%28k%2B1%29%C2%B2%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20%20%20%20%20because%20k%C2%B2%20%2B%202*k%20%2B%201%20%3D%20%28k%2B1%29%C2%B2%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20sum_as_string%20%3D%20sum_as_string%20%2B%20%22%20%2B%20%22%20%2B%20str%282*k%20%2B%201%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20now%20increase%20k%20to%20the%20next%20k-value%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20and%20verify%20that%20this%20iteration%20gives%20a%20True%20statement%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20%3D%3D%20k*k%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22%5Cn%22%2Bsum_as_string,%22%3D%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22%5CnInduction%20step%20failed%3A%22,sum_as_string,%22%E2%89%A0%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5Cn%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0An%20%3D%2010%0As%20%3D%20sumOfOddIntegers%28n%29%0Aif%20%28s%20%3D%3D%20n*n%29%3A%20print%28P%28n%29,%22is%20a%20True%20proposition.%22%29&cumulative=false&curInstr=70&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// MKD Apr 6 2025 update #5
+//https://pythontutor.com/render.html#code=%20%20%20%20%23%20sumOfOddIntegers%20%0A%20%20%20%20%23%20%20%20for%20each%20positive%20integer%20in%20%7B1,2,...n%7D%0A%20%20%20%20%23%20%20%20%20%20%20%20compute%20the%20sum%20of%20the%20first%20k%20odd%20positive%20integers%20%0A%20%20%20%20%23%20%20%20%20%20%20%20verify%20that%20the%20sum%20is%20equal%20to%20k%C2%B2%0A%20%20%20%20%23%20%20%20return%20the%20sum%20of%20the%20first%20n%20odd%20positive%20integers%0Adef%20sumOfOddIntegers%28n%29%3A%0A%20%20%20%20def%20is_Predicate_True_for_k%28k,%20sum%29%3A%0A%20%20%20%20%20%20%20%20return%20sum%20%3D%3D%20k*k%0A%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%20P%281%29%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20sum_as_string%20%3D%20str%28sum%29%0A%20%20%20%20%20%20%20%20%23%20Verify%20that%20%221%20%3D%201%C2%B2%22%20is%20a%20True%20proposition%0A%20%20%20%20if%20sum%20%3D%3D%20k*k%3A%0A%20%20%20%20%20%20%20%20print%28%22%5Cn%22%2Bsum_as_string,%22%3D%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28%22%5CnBasis%20failed%3A%22,sum_as_string,%22%E2%89%A0%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20if%20you%20ASSUME%20that%20sum%20is%20equal%20to%20k%C2%B2%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20then%20sum%20will%20be%20assigned%20%28k%2B1%29%C2%B2%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20%20%20%20%20because%20k%C2%B2%20%2B%202*k%20%2B%201%20%3D%20%28k%2B1%29%C2%B2%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20sum_as_string%20%3D%20sum_as_string%20%2B%20%22%20%2B%20%22%20%2B%20str%282*k%20%2B%201%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20now%20increase%20k%20to%20the%20next%20k-value%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20and%20verify%20that%20this%20iteration%20gives%20a%20True%20statement%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20%3D%3D%20k*k%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22%5Cn%22%2Bsum_as_string,%22%3D%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28%22%5CnInduction%20step%20failed%3A%22,sum_as_string,%22%E2%89%A0%22,str%28k%29%2B%22%C2%B2%22%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5Cn%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0An%20%3D%2010%0As%20%3D%20sumOfOddIntegers%28n%29%0Aif%20%28s%20%3D%3D%20n*n%29%3A%20%0A%20%20%20%20print%28P%28n%29,%22is%20a%20True%20proposition.%22%29%0Aelse%3A%0A%20%20%20%20print%28P%28n%29,%22is%20a%20False%20proposition.%22%29&cumulative=false&curInstr=72&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// MKD Aug 21 2025 - needs editing before use
+//https://pythontutor.com/render.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20True%0A%20%20%20%20%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20ASSUME%20old%20values%20of%20k%20and%20sum%20are%20correct.%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20new%20values%20of%20sum%20for%20next%20k-value%20first,%20increment%20k%20second%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0Adef%20truth_value_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29,%22is%20a%22,truth_value_of_P%28n%29,%22proposition.%22%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+include::python_tutor.adoc[]
+
+Since we can now, in principle, build a proof of $P(n)$ for any value of $n \in \mathbb{N}$ that we could choose, 
+// MKD Aug 21 2025 removed reference to universal generalization
+//we apply the rule of inference _universal generalization_ to 
+we 
+conclude that $(\forall \in \mathbb{N})P(n).$ That is, we have proven the proposition \[ \text{"For every positive natural number } n \text{, the sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] [small]#Another way to look at this is to define $s(n)$ to be the number of disks in a $n \times n$ square arrangement of disks. We have shown that $s(1) = 1$ and that $s(k+1) = s(k) + 2k + 1$ for every positive natural number value of $k,$ and have concluded that $s(n) = n^{2}$ for every positive natural number $n.$#
+
+
+
+//Is there a way to change the image to prove that $P(n)$ is true for _every_ possible choice for the positive integer $n?$ Notice that simply stating a _conjecture_ such as "It seems like it must be true for any positive integer $n$" is *not* a valid mathematical proof!
+
+//To prove that $P(n)$ is true for _every_ positive integer $n$ using images, it seems we would need either an infinite number of images (one image for each positive integer $n$) or a single image of an infinitely large "square". Neither of these options corresponds to a proof of finite length.
+
+////
+// MKD code for squares begins
+Notice that the following code could be used to prove $P(n)$ for many more values of $n:$ The code computes the sum of the first $n$ positive odd integers and prints a message if the the sum is equal to $n^2.$ If you tried to execute this code for every natural number $n,$ you would run into constraints based on time and computing resources.
+
+// MKD: FIX THIS PYTHONTUTOR CODE - IT IS PULLING IN AN EARLIER EXAMPLE
+:pt_code_height: 400
+:pt_rawinput: false
+//:pt_code: n%20%3D%204%0Ai%20%3D%201%0AsumInt%20%3D%200%0AsumStr%20%3D%20%22%22%0Awhile%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20oddInt%20%3D%20%282*i-1%29%0A%20%20%20%20sumInt%20%2B%3D%20oddInt%0A%20%20%20%20sumStr%20%2B%3D%20str%28oddInt%29%0A%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20if%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20%20%20%20%20sumStr%20%2B%3D%20%22%20%2B%20%22%0Aprint%20%28sumStr,%22%3D%22,%20sumInt%29%0A
+:pt_code: def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0An%20%3D%204%0Ai%20%3D%201%0AsumInt%20%3D%200%0AsumStr%20%3D%20%22%22%0Awhile%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20oddInt%20%3D%20%282*i-1%29%0A%20%20%20%20sumInt%20%2B%3D%20oddInt%0A%20%20%20%20sumStr%20%2B%3D%20str%28oddInt%29%0A%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20if%20%28i%20%3C%3D%20n%29%3A%0A%20%20%20%20%20%20%20%20sumStr%20%2B%3D%20%22%20%2B%20%22%0Aprint%20%28sumStr,%22%3D%22,%20sumInt%29%0AnSquared%20%3D%20n*n%0Aif%20%28sumInt%20%3D%3D%20nSquared%29%3A%0A%20%20%20%20print%28P%28n%29%29%0A
+
+
+Use the _Next_ button to step through the program below.
+
+include::python_tutor.adoc[]
+
+To prove that $P(n)$ is True for _every_ positive integer $n$ using the code, 
+you would need one output from the function for each positive integer $n$, that is, 
+you would need an infinitely long proof. This is impossible!
+//However, we would require an infinite number of images or an infinite number of outputs from the 
+//function to prove that $P(n)$ is true for _every_ positive integer $n$.
+// MKD code for squares ends
+////
+
+
+//It is also impossible to use the drawing of small disks to prove that $P(n)$ is True for _every_ positive integer $n.$  For example, if you needed to convince someone that the proposition $P(1,\!000,\!000)$ must be True by drawing the complete image for that value of $n$, you would draw a square with $1,\!000,\!000$ rows each containing $1,\!000,\!000$ balls, for a total of $1,\!000,\!000,\!000,\!000$ disks. Next, compute how many disks you would need to draw to prove that $P(1,\!000,\!000,\!000,\!000$)$ is True... it is even larger! Even the code would likely fail to prove this unless you have a lot of time and computing resources available.
+
+
+////
+// MKD odds square formal proof begins
+This is why mathematical induction is used: The induction step justifies that we can (in principle) complete as large a finite number of these proofs as we need to by assuming we already have drawn the $k \times k$ square of balls to prove that $P(k)$ is true then we can use the pattern suggested in the image to enlarge the square to a $(k+1) \times (k+1)$ square of balls that proves $P(k+1)$ must be true. Or, in terms of the Python code, we already can prove that the output for input int $k$ is a square, and can show that this implies that the output for input int $k+1$ is _also_ a square.
+ 
+That is, we _could_ write down as large a finite number of proofs as we need to prove $P(n)$ for a specifically chosen value of $n$... but since there is no bound on this chosen value of $n$, we in fact have proven the predicate $P(n)$ for *all* positive values of $n$.
+
+NOTE: Mathematical induction does NOT state that we can write a 
+_single_ proof of $\forall n P(n)$ but instead 
+let's us justify that we can in principle write down a proof of $P(n)$ for 
+every possible value of $n$. To clarify, if we first choose a 
+_specific value for the integer_ $n$, then we can  
+write a proof of $P(0)$ (and stop if $n = 0$), and then 
+write a proof of $P(1)$ that builds on the proof of $P(0)$ (and stop if $n = 1$), and then 
+write a proof of $P(2)$ that builds on the proof of $P(1)$ (and stop if $n = 2$), and so on, 
+until we have written a proof of $P(n)$ that builds on the proof of $P(n-1)$.  
+
+We will prove that the predicate $P(n)$ is true for all positive integers $n$ - in this case it does not make sense to have ``the sum of the first $0$ positive integers'', so the basis step will use $n=1$, which corresponds to the single red ball in the image, instead of $n=0$, which would correspond to $0$ balls.
+
+
+.Solution
+Basis Step: In this case, the basis corresponds to $n=1$.
+// Is $1 = 1^{2}$? (Please answer "Yes!")
+// Since $1 = 1^{2}$, the predicate $P(n)$ is true for $n=1$.
+$P(1)$ is the proposition ``The sum of the first $1$ positive odd integers is equal to $1^{2}$.''
+
+$P(1)$ is a true proposition since $1 = 1^{2}$ (Note that the only term in the sum on the left-hand side of the equation is $1$). 
+The predicate $P(n)$ is true for $n=1$.
+
+It may seem a bit strange to use "the sum of the first $1$ odd integers", so we can do an additional basis step for $n=2$. THIS IS NOT NECESSARY, but may aid in seeing the pattern. $P(2)$ is the proposition ``The sum of the first $2$ positive odd integers is equal to $2^{2}$.''
+
+Induction Step:
+We will _assume_ that the proposition $P(k)$ is true and prove that $P(k+1)$ must also be true. In this context, the proposition $P(k)$ is called the *induction hypothesis* (and $P(k+1)$ could probably be called the induction conclusion, but I've never seen anyone use that name).
+
+Now, how do we _generalize_ the pattern seen in the image of the $16$ "balls" ?
+Well, suppose we have a $k \times k$ square arrangement of such balls... how do we add in the new gnomon of balls to increaese the square to $(k+1) \times (k+{1)}$ ? 
+We can add a new row of $k$ balls at the top, and a new column of $k$ balls to the right, and then $1$ additional ball at the upper right. 
+So, as an algebraic equation, we'd like to show that 
+$k^{2} + k + k + 1 = (k+1)^{2}$.
+
+//MKD: POINT OUT THAT $2k-1$ REPRESENTS THE $k\text{th}$ POSITIVE ODD INTEGER - MAYPE INTRODUCE A TABLE AND HAVE STUDENTS SHOW THAT THE LINEAR EXPRESSION $2k-1$ CAN BE FOUND FROM THE TABLE.
+
+// MKD replaced inductive hypothesis by induction hypothesis
+That is, assume that $P(k)$ is true, where $k$ is some unspecified positive integer (again, this is called the *induction hypothesis*). Based on the formula for the $k\text{th}$ odd positive integer, we can rewrite $P(k)$ as the equation \[1+3+...+(2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}.\]
+
+Now we _prove that this implies $P(k+1)$ is true._
+That is show 
+\[\sum\limits_{i=1}^{k+1}(2i-1) = \left(\sum\limits_{i=1}^{k}(2i-1)\right) + (2(k+1)-1) =  k^{2} +  (2(k+1)-1)\] 
+where we have substituted $k^{2}$
+for the sum $\sum\limits_{i=1}^{k}(2i-1)$ based on the inductive hypothesis. 
+
+Now we simplify this using algebra and show that it is the same as the right hand side.
+\[\sum\limits_{i=1}^{k+1}(2i-1) = k^{2} + (2(k+1)-1) = k^{2} + 2k + 2 - 1 
+= k^{2} + 2k + 1 = (k+1)^2.\]
+
+We have proven that the equation $1+3+...+(2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}$ implies the equation 
+$1+3+...+(2k-1) + (2k+1) = \sum\limits_{i=1}^{k+1}(2i-1) = (k+1)^{2}$, that is, $P(k) \rightarrow P(k+1)$.
+
+Conclusion of the proof:
+We have proven both the basis step and the induction step, therefore, 
+// by the principle of mathematical induction, 
+$1+3+...+(2n-1) = \sum\limits_{i=1}^{n}(2i-1) = n^{2}$ for all positive integers $n$.
+// MKD odds square formal proof ends
+////
+
+
+****
+
+//MKD added October 28 2024
+We will rewrite the above example more formally (with full algebraic detail) later in the chapter.
+
+//MKD end of square example
+
+// MKD Aug 21 2025 inserted anchor
+// MKD Aug 23 2025 moved anchor down
+//== The Form Of A Proof By Mathematical Induction
+== The Principle of Mathematical Induction
+
+//“”
+
+A *proof by mathematical induction* of a predicate $P(n)$ defined for natural numbers $n \in \mathbb{N}$ consists of three steps.
+
+[horizontal]
+Basis Step:: Prove the predicate $P(n)$ is True for some small value of $n.$ In most but not all cases, you prove either $P(0)$ or $P(1).$ + 
+[small]#You can also prove $P(n)$ for finitely-many other values if it helps you get a feel for what needs to be proven, as was done in “the sum of the first $n$ consecutive odd natural numbers is the perfect square $n^{2}$” in the previous section.# 
+Induction Step:: Prove that the conditional statement $P(k) \rightarrow P(k+1)$ is True for any integer $k.$ + 
+In this context, the predicate $P(k)$ is called the *induction hypothesis* and is [underline]#assumed to be True,# where $k$ represents an arbitrary natural number. + 
+[small]#By assuming that $P(k)$ is already True and also proving the conditional statement $P(k) \rightarrow P(k+1),$ you can use _modus ponens_ to infer that $P(k+1)$ must also be True: You can “step up” from any natural number to the next largest natural number and maintain the truth value of the predicate.#
+Conclusion Step:: Conclude that $P(n)$ is True for all natural numbers $n$ that are greater than or equal to the smallest value used in the Basis Step. 
+// MKD Aug 21 2025 removed reference to universal generalization
+That is, conclude that the proposition $(\forall n \in \mathbb{N}_{\geq b})P(n)$ is True, where $b$ represents the smallest value used in the Basis Step. + 
+//This conclusion uses _universal generalization_ as the rule of inference. 
+// MKD Aug 23 2025 
+//[small]#Note: Some textbooks and sources do not include the Conclusion Step as part of PMI, but the remixer wanted to stress that this step is needed to complete the proof.# 
+[small]#Some sources do not list the Conclusion Step as part of a proof by mathematical induction, but the Remix includes it to emphasize that this step must be done to complete the proof.# 
+
+
+// MKD Aug 23 2025 
+[[the_principle_of_mathematical_induction_for_natural_numbers]] 
+//The three steps above are referred to as the *Principle of Mathematical Induction,* which is often abbreviated as *PMI.* 
+This “proof by mathematical induction” proof technique is justified by the *Principle of Mathematical Induction,* which is often abbreviated as *PMI.*
+
+//“”
+
+.The Principle of Mathematical Induction 
+****
+Suppose that $S$ is a subset of $\mathbb{N}$ such that 
+
+. $0$ is an element of $S,$ and 
+. if $k$ is an element of $S,$ then $k+1$ is an element of $S,$ too.  
+
+Then every natural number is contained in $S,$ that is, $S = \mathbb{N}.$
+****
+
+// MKD Aug 22 2025 
+In the Remix, the Principle of Mathematical Induction is treated as an axiom, a statement that is assumed to be True about the set of natural numbers. 
+
+include::WOPPMI.adoc[] 
+
+// MKD start of insert Aug 21 2025 
+This principle has been used for nearly 2000 years, but was only formalized by mathematicians about 150 years ago. See the History section, as well as the References, at this link:https://en.wikipedia.org/wiki/Mathematical_induction#History[Wikipedia page.] + 
+// MKD end of insert Aug 21 2025
+
+
+// MKD Aug 21 2025 omitted proof below that PMI implies WOP and added this small note instead 
+//In the Remix, the Principle of Mathematical Induction is assumed as an [.underline]#axiom.# That is, we won't try to prove this principle, but will instead assume that the statement is True about the set of natural numbers. + 
+
+////
+[small]#Note: Many textbooks state and prove that the link:./relations.html#well_ordering_principle_for_natural_numbers[Well-Ordering Principle] and the link:./induction.html#the_principle_of_mathematical_induction_for_natural_numbers[Principle of Mathematical Induction] are logically equivalent. The Remix does not follow this course, due to some link:https://link.springer.com/article/10.1007/s00283-019-09898-4[highly technical issues] concerning the formal mathematical definition of the set $\mathbb{N}$ of natural numbers.#
+////
+
+
+// MKD Aug 23 2025 edited and moved up 
+You can compare the first two steps of 
+//PMI 
+a proof by mathematical induction 
+to the two steps used in a recursive definition as in the link:./recursion.html#definition_of_recursive_definition[Sequences and Recursion] chapter. Note that a recursive defintion is used to _describe and define_ a process for constructing objects or a set of objects or a structure, but a proof by mathematical induction is used to _justify and validate_ such a process.
+
+
+Note that each of the three steps will be a proof of finite length, but will allow us to conclude 
+//(by using the Well-Ordering Principle) 
+that $P(n)$ is true for *every* natural number $n$ greater than or equal to some some small natural number $n_{0} \geq 0$. That is, we can conclude that $(\forall n \geq n_{0}) P(n)$ is a True propostion.
+
+// MKD Aug 18 2025 - added proof of PMI from Well-Ordering Axiom 
+// MKD Aug 21 2025 omitted proof and added small note above instead 
+////
+Why is Principle of Mathematical Induction valid? 
+Recall that the link:./relations.html#well_ordering_axiom_for_natural_numbers[Well-Ordering Axiom] states that every nonempty subset of $S$ of $\mathbb{N}$ contains a least element with respect to the order relation $\leq.$ Suppose $P(x)$ is a predicate such that $P(0)$ is True and the conditional statement $P(k) \rightarrow P(k+1)$ is True. We will prove that $P(n)$ must be True for every choice of $n \in \mathbb{N},$ using proof by contradiction. To arrive at a contradiction, we assume that the set $S = \{ n \in \mathbb{N} : P(n) \text{ is False} \}$ is not the empty set; note that $S$ contains the natural numbers for which the predicate is False. The Well-Ordering Axiom states that since $S$ is not empty there must be a least element in $S.$ Notice that $0$ is not the least element of $S$ because $P(0)$ is True, so the least element of $S$ would have to be of the form $c+1,$ that is, the least element of $S$ is a natural number that comes after another natural number $c.$ Since $c+1$ is the least element of $S,$  $P(c+1)$ is False, but $P(c)$ must be True. By assumption, the conditional statement $P(c) \rightarrow P(c+1)$ is True, too. Since both $P(c)$ and $P(c) \rightarrow P(c+1)$ are True, you can use _modus ponens_ to infer that $P(c+1)$ is True, which means that $P(c+1)$ is both False and True … a contradiction! This proves that $S$ cannot have a least value, so $S$ must be the empty set, and $(\forall n \in \mathbb{N}) P(n)$ must be True.
+////
+
+
+//NOTE: In some cases, that basis step will involve a positive integer $c$ instead of $0$. As long as both the basis step and induction step have been proven, we can conclude that that $P(n)$ is true for *every* natural number $n \geq c$.
+
+////
+// MKD toy block image begins
+[.float-group]
+--
+// MKD needs to make attribution visible in html
+[.left.text-left]
+image::imagesMKD/CLIP-IS-A-BRICK_2x3.svg[GGC,250,250]
+// Illustration of color plastic block.
+//	found at https://publicdomainvectors.org/en/free-clipart/2x3-kids-brick-element-red-vector-image/31414.html
+//	Source: http://openclipart.org/detail/224273/clip-is-a-brick-2x3
+//	License: Public domain 
+//	https://web.archive.org/web/20150923003735/https://openclipart.org/detail/224273/clip-is-a-brick-2x3
+//	By: Vanja (https://web.archive.org/web/20150923003735/https://openclipart.org/user-detail/Vanja)
+[small]#Image credit: link:https://openclipart.org/detail/224273/clip-is-a-brick-2x3["Clip is a Brick - 2x3"] by Vanja. License: Public Domain.#
+//[small]#Image credit: link:https://publicdomainvectors.org/en/free-clipart/2x3-kids-brick-element-red-vector-image/31414.html["2x3 kid's brick element red vector image"]. License: Public Domain.#
+--
+//https://publicdomainvectors.org/en/free-clipart/2x3-kids-brick-element-red-vector-image/31414.html
+//Famous plastic brick, size 2x3, vector from 3D"
+// MKD toy block image ends
+////
+
+As an analogy, imagine we are building a tower using interlocking toy blocks. How tall can the tower be? 
+// The basis step involves placing a foundational block on the ground, 
+The basis step involves placing a foundation on the ground (either a flat surface for $n = 0$, or a first block for $n = 1$), 
+and the induction step justifies that if we have built a tower that has height $k$ then we can build a tower of height $k+1$ by placing one more block on the tower. The conclusion step states that we can build a tower that is of any finite height $n$ (as long as we have $n$ or more blocks and ignore issues arising from real-world physics!) Note that we never build an infinitely tall tower. + 
+[small]#Note: Some textbooks and sources use an "infinite ladder" analogy for mathematical induction, but this is not quite correct. A better analogy is a ladder that can be extended to any finite height you need, but that is always of finite height.#
+
+
+
+
+
+// MKD: Not sure where this code goes - window was open after several days of fighting the flu :(
+//https://pythontutor.com/render.html#code=%23%20set%20value%20of%20n%0An%20%3D%204%0A%23%20loop%20n%20times%0Ai%20%3D%201%0Asum%20%3D%200%0Awhile%20i%20%3C%3D%20n%3A%0A%20%20%20%20nextOdd%20%3D%20%282*i-1%29%0A%20%20%20%20sum%20%3D%20sum%20%2B%20nextOdd%0A%20%20%20%20print%28nextOdd,%22%2B%20%22,%20end%3D%22%22%29%0A%20%20%20%20i%20%2B%3D%201%0Aprint%28%22%3D%22,sum%29&cumulative=false&heapPrimitives=false&mode=edit&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+
+
+//MORE TO COME!
+////
+// MKD start of skipped example
+//
+
+Here is another example
+
+
+****
+.Example {counter:MKDinductionexample} - Proof by Induction
+$$\sum\limits_{i=1}^{n}i=1+2+...+n=\frac{n\left(n+1\right)}{2}$$by 
+
+This is a sequence of statements in terms of $n$ telling me that the sum of the first $n$ integers is going be equal to some formula that depends on the final number $n$ that you want to add.
+
+.Solution
+Basis Step:
+When $n=1$, there is only 1 term to add.  _Does $1 \overset{?}{=}\frac{1\ \left(1+1\right)}{2}$?_
+
+Since $1=\frac{2}{2}$, this formula is valid when $n=1$.
+
+It also checks out when $n=2$. $1+2=\frac{2\ \left(2+1\right)}{2}$
+
+We may continue with $n=3, n=4, ….$, etc., and notice that we want to prove an infinite collection of propositions. Specifically, we want to establish this claim for every positive integer.
+
+Inductive Step:
+Assume the statement is true for $P(m)$.
+
+That is $\sum\limits_{i=1}^{m}i=1+2+...+m=\frac{m\left(m+1\right)}{2}$ (called the inductive hypothesis).
+
+_Prove that this implies $P(m+1)$ is true._
+That is show $\sum\limits_{i=1}^{m+1}i=1+2+...+m+(m+1)=\frac{(m+1)\left(m+1+1\right)}{2}=\frac{(m+1)\left(m+2\right)}{2}$
+
+Begin with the left side $1+2+...+m+(m+1)$
+
+We can rewrite this as $\frac{m\left(m+1\right)}{2}+(m+1)$ using the induction hypothesis.
+
+Now we simplify this using algebra and show that it is the same as the right hand side.
+
+Factoring out $(m+1)$ gives,
+
+$\left(m+1\right)\left(\frac{m}{2}+1\right)=\left(m+1\right)\left(\frac{m}{2}+\frac{2}{2}\right)=\left(m+1\right)\left(\frac{m+2}{2}\right)=\frac{\left(m+1\right)\left(m+2\right)}{2}$
+
+Which is the same as the right-hand side!
+
+So $1+2+...+m+(m+1)=\frac{\left(m+1\right)\left(m+2\right)}{2}$, which means we have shown $P(m+1)$ follows from $P(m)$.
+
+So, by induction, $\sum\limits_{i=1}^{n}i=1+2+...+n=\frac{n\left(n+1\right)}{2}$ for all positive integers $n$.
+****
+////
+// MKD end of skipped example
+//
+
+
+
+////
+// MKD - moved divisibility and gcd content to induction chapter
+
+
+== Divisibility
+
+Let $a$ be a nonzero integer and let $b$ be an integer. We say that *$a$ divides $b$* if and only if there is an integer $c$ such that $b = ac.$
+If $a$ divides $b,$ then we use the notation: \[a \mid b.\]If $a$ does not divide $b,$ then we use the notation: \[a \nmid b.\] When $a$ divides $b,$ we say $a$ is a *divisor* of $b$ and that $b$ is a *multiple* of $a.$
+
+
+****
+.Example {counter:numex}
+Does $3$ divide $12$? Does $5$ divide $27$?
+
+.Solution
+Since we have \[12 = 3 \cdot 4,\]we see that $3 \mid 12.$ However, there is no integer $c$ such that \[27 = 5c.\]This implies that $5 \nmid 27.$
+****
+
+There are several theorems that can be proven just using the definition of divisibility given above. One such theorem is as follows.
+
+
+.Theorem
+****
+Let $a$ be a nonzero integer and let $b$ and $c$ be integers such that $a \mid b$ and $a \mid c.$ Then, for any integers $x$ and $y,$ \[a \mid \left(bx + cy\right).\]
+****
+
+=== Division Algorithm
+.The Division Algorithm
+****
+Let $a$ be an integer and let $d$ be a positive integer. Then, there are unique integers $q$ and $r,$ with $0 \leq r < d,$ such that \[a = dq + r.\]
+****
+
+Let $a$ be an integer and let $d$ be a positive integer. Suppose that $q$ and $r$ are integers given by the division algorithm. We refer to $q$ as the *quotient* and $r$ as the *remainder*. We use the following notation:
+
+[env.equationalign]
+--
+a \boldsymbol{\operatorname{\,div\,}} d &= q,\\
+a \boldsymbol{\bmod} d &= r.\\
+--
+
+****
+.Example {counter:numex}
+Find $129 \boldsymbol{\operatorname{\,div\,}} 7$ and $129 \boldsymbol{\bmod} 7.$
+
+.Solution
+We have \[129 = 7 \cdot 18 + 3.\] This implies that \[129 \boldsymbol{\operatorname{\,div\,}} 7 = 18\]
+and \[129 \boldsymbol{\bmod} 7 = 3.\]
+****
+
+If $b$ is an integer and $a$ is a positive integer, the following theorem shows how we can use the division algorithm to determine whether or not $a$ divides $b.$
+
+.Theorem
+****
+Let $a$ be a positive integer and let $b$ be an integer. Then $a \mid b$ if and only if $b \boldsymbol{\bmod} a = 0.$
+****
+
+For any positive integer $m,$ we define $\mathbb{Z}\_{m}$ to be the set of nonnegative integers less than $m.$
+In other words, we have \[\mathbb{Z}_m = \{0,1,\dots,m-1\}.\]
+Let $a$ and $b$ be elements of $\mathbb{Z}_m.$ We define addition in $\mathbb{Z}_m,$
+denoted $+_m,$ as follows: \[a +_m b = (a + b) \boldsymbol{\bmod} m.\] We define
+multiplication in $\mathbb{Z}_m,$ denoted $\cdot_m,$ as
+follows: \[a \cdot_m b = (a \cdot b) \boldsymbol{\bmod} m.\]
+
+****
+.Example {counter:numex}
+Use the definition of addition and multiplication
+in $\mathbb{Z}\_{11}$ to find $7 +\_{11} 9$ and
+$7 \cdot\_{11} 9= 7 \ \ ×_{\mathbf{11}}\ 9.$
+
+.Solution
+We have
+[env.equationalign]
+--
+7 +\_{11} 9 &= (7 + 9)\boldsymbol{\bmod} 11\\
+&= 16 \boldsymbol{\bmod} 11\\
+&= 5,
+--
+and
+[env.equationalign]
+--
+7 \ \ ×_{\mathbf{11}}\ 9=7 \cdot\_{11} 9 &= (7 \cdot 9)\boldsymbol{\bmod} 11\\
+&= 63 \boldsymbol{\bmod} 11\\
+&= 8.
+--
+****
+
+****
+.Example {counter:numex}
+Find addition and muliplication tables for $\mathbb{Z}\_6.$
+.Solution
+We have \[\mathbb{Z}\_6 = \{0,1,2,3,4,5\}.\]We have the following table for addition in $\mathbb{Z}\_6$: \[\begin{array}{c|cccccc}
++\_6 & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+0 & 0 & 1 & 2 & 3 & 4 & 5\\
+1 & 1 & 2 & 3 & 4 & 5 & 0\\
+2 & 2 & 3 & 4 & 5 & 0 & 1\\
+3 & 3 & 4 & 5 & 0 & 1 & 2\\
+4 & 4 & 5 & 0 & 1 & 2 & 3\\
+5 & 5 & 0 & 1 & 2 & 3 & 4\\
+\end{array}\] We have the following table for multiplication in $\mathbb{Z}\_6$: \[\begin{array}{c|cccccc}
+\cdot\_6 & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0\\
+1 & 0 & 1 & 2 & 3 & 4 & 5\\
+2 & 0 & 2 & 4 & 0 & 2 & 4\\
+3 & 0 & 3 & 0 & 3 & 0 & 3\\
+4 & 0 & 4 & 2 & 0 & 4 & 2\\
+5 & 0 & 5 & 4 & 3 & 2 & 1\\
+\end{array}\]
+****
+
+=== Greatest Common Divisor and Least Common Multiple
+
+Let $a$ and $b$ be positive integers. The largest positive integer $d$ such that $d$ divides $a$ and $d$ divides $b$ is referred to as the *greatest common divisor* of $a$ and $b.$ The greatest common divisor of $a$ and $b$ is denoted by $\gcd(a,b).$ If $\gcd(a,b) = 1,$ we say that $a$ and $b$ are *relatively prime*.
+
+****
+.Example {counter:numex}
+Find the greatest common divisor of $35$ and $21.$ Are $35$ and $21$ relatively prime?
+
+.Solution
+Since $35 = 7 \cdot 5$ and $21 = 7 \cdot 3,$ we see that $7$ is a common divisor of $35$ and $21.$ It can be checked that no positive integer larger than $7$ that divides both $35$ and $21.$ Thus, we see that \[\gcd(35,21) = 7.\]Since $\gcd(35,21) \neq 1,$ we see that $35$ and $21$ are not relatively prime.
+****
+
+Additionally, it is not hard to see that $\gcd(5,3) = 1,$ and thus $\frac{35}{7}$ and $\frac{21}{7}$ are relatively prime. In general, we have the following theorem.
+
+.Theorem
+****
+Let $a$ and $b$ be positive integers. Suppose that $d$ is a positive integer such that $d \mid a$ and $d \mid b.$ Then, $d = \gcd(a,b)$ if and only if $\frac{a}{d}$ and $\frac{b}{d}$ are relatively prime.
+****
+
+Let $a$ and $b$ be positive integers. The smallest positive integer $m$ such that $a$ divides $m$ and $b$ divides $m$ is referred to as the _least common multiple_ of $a$ and $b.$ The least common multiple of $a$ and $b$ is denoted by $\operatorname{lcm}(a,b).$
+
+****
+.Example {counter:numex}
+Find the least common multiple of $35$ and $21.$
+
+.Solution
+Since $105 = 35 \cdot 3$ and $105 = 21 \cdot 5,$ we see that $105$ is a common multiple of $35$ and $21.$ It can be checked that no positive integer smaller than $105$ is a multiple of both $35$ and $21.$ Thus, we see that \[\operatorname{lcm}(35,21) = 105.\]
+****
+
+Additionally, we observe that \[\gcd(35,21) \cdot \operatorname{lcm}(35,21) = 7 \cdot 105 = 735 = 35 \cdot 21.\]
+In general, we have the following theorem.
+
+.Theorem
+****
+Let $a$ and $b$ be positive integers. Then, \[\gcd(a,b) \cdot \operatorname{lcm}(a,b) = ab.\]
+****
+
+=== The Euclidean Algorithm
+
+A well-known method for computing the greatest common divisor and least common multiple of a pair of positive integers is called the *Euclidean algorithm*. Before describing this algorithm, we state the following theorem.
+
+.Theorem
+****
+Let $a,b,r,q$ be integers with $a=bq+r$. Then, \[\gcd(a,b) = \gcd(b,r).\]
+****
+
+Let $a$ and $b$ be positive integers. We let $r\_0 = a$ and $r\_1 = b.$ Next, we use the division algorithm to find integers $q\_1$ and $r\_2,$ with $0 \leq r\_2 < r\_1,$ such that \[r\_0 = r\_1q\_1 + r\_2.\]Then, if $r\_2 \neq 0,$ we again use the division algorithm to find integers $q\_2$ and $r\_3,$ with $0 \leq r\_3 < r\_2,$ such that \[r\_1 = r\_2q\_2 + r\_3.\] We continue this process until we obtain a remainder of $0$; that is, until, for some positive integer $k,$ we have $r\_{k+1} = 0.$ Then, we have
+
+[env.equationalign]
+--
+\gcd(a,b) = r\_k,\\
+\operatorname{lcm}(a,b) = \frac{ab}{r\_k}.\\
+--
+
+****
+.Example {counter:numex}
+Find the greatest common divisor and least common multiple of $480$ and $174.$
+
+.Solution
+We have the following:
+
+[env.equationalign]
+--
+480 &= 174 \cdot 2+ 132,\\
+174 &= 132 \cdot 1 + 42,\\
+132 &= 42 \cdot 3 + 6,\\
+42 &= 6 \cdot 7 + 0.
+--
+
+Since we have reached a remainder of 0, we are finished. The last nonzero remainder we found was $6.$ Thus, we see that \[\gcd(480,174) = 6,\]and that \[\operatorname{lcm}(480,174) = \frac{480\cdot 174}{6} = 13920.\]
+****
+
+:pt_code_height: 550
+:pt_rawinput: false
+:pt_code: a%20%3D%20int%28input%28%22a%20%3D%20%22%29%29%0Ab%20%3D%20int%28input%28%22b%20%3D%20%22%29%29%0Ar%20%3D%20%5Ba,b%5D%0Aq%20%3D%20%5B%5D%0Ak%20%3D%200%0Awhile%20r%5Bk%2B1%5D%20!%3D%200%3A%0A%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20q.append%28r%5Bk-1%5D//r%5Bk%5D%29%0A%20%20%20%20r.append%28r%5Bk-1%5D%25r%5Bk%5D%29%0A%20%20%20%20print%28%22%25d%20%3D%20%25d%20*%20%25d%20%2B%20%25d%22%20%25%20%28r%5Bk-1%5D,r%5Bk%5D,q%5Bk-1%5D,r%5Bk%2B1%5D%29%29%0Aprint%28%22gcd%28%25d,%25d%29%20%3D%20%25d%22%20%25%20%28a,b,r%5Bk%5D%29%29%0Aprint%28%22lcm%28%25d,%25d%29%20%3D%20%25d%22%20%25%20%28a,b,a*b//r%5Bk%5D%29%29
+
+.Euclidean Algorithm
+****
+--
+--
+Here is an implementation in Python of the Euclidean algorithm as it computes $\gcd(a,b)$ and $\operatorname{lcm}(a,b).$
+
+include::python_tutor.adoc[]
+****
+Additionally, we can use the work from the solution to the previous example to obtain the following:
+
+[env.equationalign]
+--
+6 &= 132 - 42\cdot 3,\\
+42 &= 174 - 132\cdot 1,\\
+132 &= 480 - 174 \cdot 2.
+--
+
+We express $\gcd(480,174)$ as a sum of multiples of $480$ and $174$ as follows:
+
+[env.equationalign]
+--
+6 &= 132 - 42 \cdot 3\\
+&= 132 - (174 - 132\cdot 1)\cdot 3\\
+&= 132 - 174 \cdot 3 + 132 \cdot 3\\
+&= 132 \cdot 4 - 174 \cdot 3\\
+&= (480 - 174\cdot 2)\cdot 4 - 174 \cdot 3\\
+&= 480 \cdot 4 - 174 \cdot 8 - 174 \cdot 3\\
+&= 480 \cdot 4 -174 \cdot 11\\
+&= 480 \cdot 4 + 174 \cdot (-11).
+--
+
+In general, we have the following theorem.
+
+.Theorem
+****
+Let $a$ and $b$ be positive integers. There exist integers $x$ and $y$ such that \[\gcd(a,b) = ax + by.\]
+****
+
+Particular values of $x$ and $y$ can be found using the Extended Eulcidean algorithm.
+
+:pt_code_height: 650
+:pt_rawinput: false
+:pt_code: a%20%3D%20int%28input%28%22a%20%3D%20%22%29%29%0Ab%20%3D%20int%28input%28%22b%20%3D%20%22%29%29%0Ar%20%3D%20%5Ba,b%5D%0Aq%20%3D%20%5B%5D%0Ak%20%3D%200%0Awhile%20r%5Bk%2B1%5D%20!%3D%200%3A%0A%20%20%20%20k%20%2B%3D%201%0A%20%20%20%20q.append%28r%5Bk-1%5D//r%5Bk%5D%29%0A%20%20%20%20r.append%28r%5Bk-1%5D%25r%5Bk%5D%29%0Aprint%28%22gcd%28%25d,%25d%29%20%3D%20%25d%22%20%25%20%28a,b,r%5Bk%5D%29%29%0Ax%20%3D%20%5B1%5D%0Ay%20%3D%20%5B-q%5Bk-2%5D%5D%0Afor%20i%20in%20range%28k-2%29%3A%0A%20%20%20%20print%28%22%25d%20%3D%20%25d%20*%20%25d%20%2B%20%25d%20*%20%25d%22%20%25%20%28r%5Bk%5D,%20r%5Bk-2-i%5D,%20x%5Bi%5D,%20r%5Bk-1-i%5D,%20y%5Bi%5D%29%29%0A%20%20%20%20x.append%28y%5Bi%5D%29%0A%20%20%20%20y.append%28x%5Bi%5D%20-%20q%5Bk-3-i%5D*y%5Bi%5D%29%20%20%20%20%0Aprint%28%22%25d%20%3D%20%25d%20*%20%25d%20%2B%20%25d%20*%20%25d%22%20%25%20%28r%5Bk%5D,%20r%5B0%5D,%20x%5Bk-2%5D,%20r%5B1%5D,%20y%5Bk-2%5D%29%29
+****
+.Example {counter:numex} - Extended Euclidean Algorithm in Python
+--
+--
+Here is an implementation in Python of the Extended Euclidean algorithm as it finds integers $x$ and $y$ such that $ax + by = \gcd(a,b).$
+
+include::python_tutor.adoc[]
+****
+// MKD - moved divisibility and gcd content to induction chapter
+////
+
+
+
+
+
+//MKD
+//// 
+// unreviewed original content 1
+Types of statements that can be proven by induction:
+
+* Summation formulas:
+Prove that   1(1!) + 2(2!) + · · · + n(n!) = (n + 1)! – 1, for all positive integers.
+
+* Inequalities:
+Prove that $2^n < n!$ for every positive integer $n$ with $n ≥ 4$.
+
+* Divisibility:
+Prove that $n^3+2n$ is divisible by 3 for every positive integer $n$.
+
+* Sets:
+Prove that if $S$ is a set with $n$ elements where $n$ is a nonnegative integer, then $S$ has $2^n$ subsets.
+
+* Algorithms: Prove that the recursively defined algorithm fac(n) returns $n!$ for all nonnegative integers.
+
+****
+def fac(n)
+
+ begin
+
+ if n = 0 then
+
+ return 1
+
+ else
+
+ return n · fac(n − 1)
+
+end
+****
+
+
+****
+.Example {counter:MKDinductionexample} - A Summation Formula
+Prove by mathematical induction $1·1!+2·2!+3·3!+···+n· n!=\underset{k=1}{\overset{n}{\sum }}k\left( k!\right) =\left(n+1\right)!-1$
+
+.Solution:
+For each integer $n$, let $P(n)$ be the statement $P(n):\sum\limits_{k=1}^{n} k\left( k!\right) =\left(n+1\right)!-1$
+
+To prove using induction we need
+
+* Base case: $P(1)$ is true
+
+* Inductive step: For all integers $m>0$, if $P(m)$ is true, then $P(m+1)$ is true.
+
+
+Base Case: Substitute $n=1$ into $ \sum\limits_{k=1}^{n}k(k!)=\left(n+1\right)!-1$
+
+$ \sum\limits_{k=1}^{1} (k)k!\overset{?}{=}\left(1+1\right)!-1$
+
+Simplify both sides to check for validity: 1==1, therefore the base case is true.
+
+Begin the inductive step by assuming P(m) for some integer m>0.
+
+Assume $P(m):\sum\limits_{k=1}^{m}k(k!)=\left(m+1\right)!-1$ for some integer m>0.
+
+Write down the left hand side of P(m+1):
+
+$P(m+1):\sum\limits_{k=1}^{m+1}k(k!)$
+
+Extract (m+1) (m+1)! from the summation,
+
+$\sum\limits_{k=1}^{m+1} k(k!)=\sum\limits_{k=1}^{m}kk!+(m+1)!(m+1)$
+
+Apply the induction hypothesis by replacing $\sum\limits_{k=1}^{m}k(k!)$ with (m+1)!-1,
+
+$\sum\limits_{k=1}^{m+1}k(k!)=((m+1)!-1)+(m+1)!(m+1)$
+
+Simplify the result:
+
+$\sum\limits_{k=1}^{m+1}k(k!)=-1+2\left(m+1\right)!+\left(m+1\right)!m$
+
+$=-1\ +(m+1)(2+m)=(m+2)!\ -1\ =((m+1)+1)!-1$
+
+Express the result in terms of m+1,
+
+$\sum\limits_{k=1}^{m+1}k(k!)=((m+1)+1)!-1$
+
+Therefore, the inductive step has been verified $\sum\limits_{k=1}^{m+1}k(k!)=((m+1)+1)!-1$
+****
+//MKD
+//// 
+// unreviewed original content 1
+
+
+// MKD Delete this example since it duplicates the motivating example at the beginning of the chapter.
+////
+// MKD end of sum of odds example
+//
+****
+.Example {counter:MKDinductionexample} -  Another Summation Formula
+Prove  the proposition that the sum of the ﬁrst n odd numbers is $n^2$; that is,
+
+$1+3+5+···+2n-1=\sum_{k=1}^{n} (2k-1) =n^2$ for n a positive integer $n\in\mathbb{Z}$
+
+.Solution:
+For each integer n, let P(n) be the statement $\sum_{k=1}^{n} \left(2k-1 \right)=n^2$
+$P\left(n\right):\sum_{k=1}^{n} \left(2k-1 \right)=n^2$
+
+Base case: P(1) is true.
+
+Inductive step: For all integers m>0, if P(m) is true, then P(m+1) is true.
+If the above properties hold, then for each n$\in\mathbb{Z}$ where n>0, the statement P(n) is true.
+
+Substitute n=1 into
+$\sum_{k=1}^{n} (2k-1)=n^2$
+
+$\ \sum_{k=1}^{1} (2k-1)\overset{?}{=}1^2 $
+
+Simplify both sides to check for validity:
+
+1=1, therefore the base case is true and the inductive step can be taken.
+
+Begin the inductive step by assuming $P(m)$ for some integer $m>0$.
+Assume for some integer m>0
+
+$P(m):\ \sum_{k=1}^{m} (2k-1)=m^2$
+
+Write down the left-hand side of $P(m+1)$:
+
+$\text{LHS }  P(m+1):\ \sum_{k=1}^{m+1}{(2k-1)}$
+
+Extract $ (m+1)-1$ from the summation,
+
+$\sum_{k=1}^{m+1} (2k-1)=\sum_{k=1}^{m}{(2k-1)}+(2(m+1)-1)$
+
+Apply the induction hypothesis by replacing $\sum_{k=1}^{m}{(2k-1)}$, with $m^2$.
+
+$\sum_{k=1}^{m+1} \left(2k-1\right)=m^2 +(2(m+1)-1)=m^2+2m+2-1$
+
+$=m^2+2m+2\ =m^2 +2m+2(m+1)^2$
+
+Simplify the result expressing in terms of $m+1$:
+
+$\sum_{k=1}^{m+1} {(2k-1)}={(m+1)}^2$.
+
+In other words, $\sum_{k=1}^{m} {(2k-1)}=m^2$, implies $\sum_{k=1}^{m+1} {(2k-1)}=(m+1)^2$.
+
+Therefore, the inductive step has been verified.
+****
+////
+// MKD end of sum of odds example
+//
+
+
+//MKD
+//// 
+// unreviewed original content 2
+
+****
+.Example {counter:MKDinductionexample} - Inequality
+Prove that $n! > 3^n$ for every positive integer $n$ with $n > 6$.
+
+.Solution:
+Since the base case value must be greater than 6, the base case value will be set to the next integer after 6, $n=7$.
+
+Does $7!\overset{?}{=}3^7$?
+
+Simplify both sides to check for validity:
+$5040>2187$, therefore the base case is true and the inductive step can be taken.
+
+Begin the inductive step by assuming P(m) for some integer m>6.
+Assume,
+
+$P(m):\ m!>3^m,$ for some integer m>6.
+
+We want to show this implies P(m+1) or,
+
+$P(m+1):\ (m+1)!>3^{m+1}$.
+
+Write down the left hand side of
+
+$\text{LHS } \ P(m+1) : (m+1)!$
+
+Factor out $m+1$ from $(m+1)!$:
+
+$(m+1)!=m! (m+1)$
+
+Using the induction hypothesis $ m!>3^m$, then
+
+$ m!(m+1)>3^m(m+1)$,
+
+$\left(m+1\right)!>3^m\left(m+1\right)$,
+
+Using $m+1>3$, then
+
+$3^m (m+1)>3^m3$
+
+Combining exponents, $3^m 3=3^{m+1}$
+
+$(m+1)!>3^{m+1}$
+
+$m!>3^m$ implies  $(m+1 )!>3^{m+1}$.
+
+.Graphs of $n!$, and $3^n$, showing $n! > 3^n$, for $n>6$.
+
+image::images/induction3.png[]
+****
+
+****
+.Example {counter:MKDinductionexample} - Divisibility
+
+Prove the following using the principle of mathematical induction:
+
+$n^2 + n$ is even (or divisible by 2), for $n > 0$.
+
+.Solution:
+Since the base case value must be greater than 0, the base case value will be set to the next integer after 0: $n=1$.
+For each integer $n$, let $P(n)$ be the statement $n^2 + n$ is divisible by 2.
+
+[NOTE]
+====
+$n^2+n$ is divisible by 2 if and only if $\left(n^2+n\right)\mod 2=0$.
+====
+
+Prove $\left(n^2+n\right)\mod 2=0$, for $n>0$.
+
+Substitute $n = 1$ into $\left(n^2+n\right)\mod 2=0$:
+
+$(1^2 + 1) \mod 2 \overset{?}{=}0$
+
+Simplify both sides to check for validity:
+
+$2  \mod 2 = 0$, therefore the base case is true and the inductive step can be taken.
+
+Begin the inductive step by assuming $P(m)$ for some integer $m > 0$:
+
+Assume $P(m):\ \left(m^2+km\right)\mod 2=0$ for some integer $m>0$.
+Write down the left hand side of P(m+1):
+
+$\text{LHS }\ P(m+1):\ \left(m+1\right)^2+\left(m+1\right)$
+
+
+Expand $\left(m+1\right)^2+\left(m+1\right)=m^2+2m+m+2$ and isolate $m^2+m$ as its own term:
+
+$(m+1)^2+(m+1)=\left(m^2+m\right)+\left(2m+2\right)$
+
+
+Factor 2 from $2m+2$:  $ \left(m^2+m\right)+2\ \left(m+1\right)$.
+
+The induction hypothesis states that $m^2+m$ is divisible by 2: $\left(m^2+m\right)\mod 2=0$, and $2 (m+1)$ has 2 as a factor explicitly, so
+
+$\left(2\left(m+1\right)\right)\mod 2=0$ and
+$\left(m^2+m\right)\mod 2=0$ implies
+
+$\left((m+1)^2+(m+1)\right)\mod 2=0$
+
+Therefore, the inductive step has been verified.
+****
+//MKD
+//// 
+// unreviewed original content 2
+
+
+// MKD October 27 and 28 2024
+//=== Further Examples
+
+As 
+//another 
+an 
+example, here is a proof of the Handshake Theorem for link:./introduction_discrete_math.html#informal_graph_definition[graphs.]
+
+****
+.Example {counter:MKDinductionexample} - Proof of the Handshake Theorem 
+
+//The Handshake Theorem is the following statement.
+We will prove the following proposition using mathematical induction. 
+
+====
+.Theorem  
+
+If $G$ is a graph with vertex set $V$ and edge set $E,$ where both $V$ and $E$ are finite sets, then the sum of the degrees of all vertices in $V$ is equal to 2 times the number of edges in $E.$
+
+==== 
+
+//Could this be proven without mathematical induction? 
+Notice first that since this needs to proven for _any_ graph with any finite number of vertices and edges, it is a good candidate for proof by mathematical induction. 
+
+Which number should be one we use for induction? 
+
+* We could try using induction on the number of vertices, but notice that we can add an isolated vertex without effecting either the sum of the degrees or the number of edges. This indicates that the number of vertices is not the correct variable to use for a proof by induction.
+* We could try using induction on the sum of the degrees of the vertices, but we'd have to figure out how to add 1 to that sum... 
+but notice that, as above, adding a new vertex $v$ to the graph  
+** either leaves the sum of degrees unchanged (if $v$ is isolated)
+** or changes the sum of degrees by 2 (because either $v$ is an endpoint of a loop or $v$ comes along with a new edge that connects to another vertex of the graph.) Since we cannot meaningfully add 1 to the sum of the degrees, this is also not the correct variable to use for induction.  
+* We could try using induction on the number of edges. This _could_ work since adding a new edge will increase the sum of degrees of the vertices by 2 (whether the vertices are "new" or "old").
+
+
+So, to prove the theorem, let $n$ represent the number of edges in a graph and let $P(n)$ be the predicate \[P(n)\text{: "The sum of the degrees of the vertices for a graph with } n \text{ edges is equal to } 2 \cdot n \text{."}\] We will prove that $(\forall n \in \mathbb{N})P(n).$
+
+
+*Basis Step:* $P(0)$ is the proposition "The sum of the degrees of the vertices for a graph with $0$ edges is equal to $2 \cdot 0.$" 
+since a graph with 0 edges is just a collection of isolated vertices, and each of the isolated vertices has degree 0, the sum of the degrees of the vertices must also be 0, which is 2 times the number of edges. This means that $P(0)$ is True, and the Basis has been established. 
+
+*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$. 
+
+Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
+
+For the natural number $k,$ the predicate $P(k)$ is the proposition "The sum of the degrees of the vertices for a graph with $k$ edges is equal to $2 \cdot k.$ 
+
+Suppose that we have a graph with $k$ edges. We insert one new edge $e$ into the graph. There are, essentially, two possible cases to consider.
+
+* $e$ has two different endpoints, in which case the degree of each endpoint increases by 1 when $e$ is added to the graph, so the sum of the degrees of the vertices increases by 2, or , 
+* $e$ is a loop with only one endpoint, in which case the degree of that endpoint increases by 2, so the sum of the degrees of the vertices increases by 2. + 
+[small]#Notice that in either bullet, it does not matter whether the new edge $e$ has endpoints that are "new" to the graph or were "old" vertices that were in the graph already.#
+
+Notice that any graph with $k+1$ edges can be built up this way from a graph that had $k$ edges. So, using the fact that $2 \cdot k + 2 = 2 \cdot (k+1),$ we have proven that "The sum of the degrees of the vertices for a graph with $k+1$ edges is equal to $2 \cdot (k + 1).$  That is, we have proven that $P(k) \rightarrow P(k+1)$.
+
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
+// MKD Aug 21 2025 removed reference to universal generalization
+//use _universal generalization_ to 
+conclude that 
+// by the principle of mathematical induction, 
+$(\forall n \in \mathbb{N})P(n),$ which translates to "For all natural numbers $n,$ the sum of the degrees of the vertices for a graph with $n$ edges is equal to $2 \cdot n.$"
+
+Q.E.D. 
+
+****
+
+
+//== Example Proofs Using Mathematical Induction
+== More Example Proofs Using Mathematical Induction
+
+// MKD rewritten April 7 2025 
+//In the next example, we prove that the sequence of all positive odd integers can be generated by evaluating the expression $2n-1$ at all the positive  integers $n.$ + 
+//[small]#Notice that if $n$ is an integer then the value of $2n-1$ MUST be an odd integer. The proof is establishing that the formula generates the entire infinite sequence of all positive odd integers, in order and without any gaps in the sequence.#
+// MKD commented out on April 7 2025    are the range of a linear function with domain the positive integers.  following is the formal proof that corresponds to the first example of this chapter
+
+****
+.Example {counter:MKDinductionexample} - An Algebraic Expression for Positive Odd Integers
+
+Let $P(n)$ be the predicate \[P(n)\text{: "The } n\text{th positive odd integer is equal to } 2n-1 \text{."}\] We will prove that $(\forall n \in \mathbb{N}_{>0})P(n),$ that is, for all positive integers $n.$ + 
+[small]#Notice that you can find evidence for the conjecture that $k\text{th}$ positive odd integer is $2k - 1$ by making a table and finding an algebraic formula that matches the table. See link:./appendix_math.html[this appendix] if you don't remember how to do this.# 
+
+*Basis Step:* $P(1)$ is the proposition "The $1$th positive odd integer is equal to $2(1)-1.$" This is True since $2(1)-1 = 1$, in spite of the poor English, which should use "$1$st" instead of "$1$th." 
+
+*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$. That is, we assume that "The $k$th positive odd integer is equal to $2k-1$" is True for some positive natural number $k.$
+
+Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
+
+If the $k$th positive odd integer is equal to $2k-1,$ then the $(k+1)$th positive odd integer is obtained by adding $2$ to $2k-1,$  that is the $(k+1)$th positive odd integer is equal to $(2k-1) + 2,$ which can be rewritten using algebra as 
+\begin{equation}
+\begin{aligned}
+(2k-1) + 2 {} & = 2k - 1 + 2 \\ 
+& = 2k + 2  - 1 \\
+& = 2(k+1) - 1 
+\end{aligned}
+\end{equation}
+
+We have proven that if $k$th positive odd integer is equal to $2k-1$ then the $(k+1)$th positive odd integer is equal to $2(k+1)-1.$ That is, we have proven $P(k) \rightarrow P(k+1)$.
+
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
+// MKD Aug 21 2025 removed reference to universal generalization
+//use _universal generalization_ to 
+conclude that 
+for all positive integers $n,$ the $n$th positive odd integer is equal to $2n-1.$ 
+
+Q.E.D.
+
+****
+
+The next example proof is the formal proof that corresponds to the first example of this chapter.
+
+****
+.Example {counter:MKDinductionexample} - Square Numbers
+
+Let $P(n)$ be the predicate \[P(n)\text{: "The sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] We will prove that $(\forall n \in \mathbb{N}_{>0})P(n).$
+
+//Notice that the value $n = 0$ gives a True but somewhat meaningless proposition $P(0)$ since "the sum of the first zero positive odd integers" is $0 = 0^{2}.$ 
+*Basis Step:* $P(1)$ is the proposition "The sum of the first $1$ positive odd integers is equal to $1^{2}.$" If we allow a sum to have only one addend, then $P(1)$ is True since $1 = 1^{2}$, so $P(1)$ can be used as the basis of our induction proof. 
+If we want to be sure that there are least two addends in the sum, we can use $P(2)$ as an additional basis. $P(2)$ is the proposition "The sum of the first $2$ positive odd integers is equal to $2^{2}$" which is True because $1 + 3 = 2^{2}.$ 
+
+*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$. 
+
+Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
+
+Based on the formula for the $k\text{th}$ positive odd integer, we can rewrite the sum of the first $k$ positive odd integers $1+3+...+(2k-1)$ using summation notation as $\sum\limits_{i=1}^{k}(2i-1)$ and rewrite the predicate $P(k)$ in algebraic form as \[ P(k): \sum\limits_{i=1}^{k}(2i-1) = k^{2}.\] Note that $P(k)$ is still a proposition - it is stating that a certain equation holds. + 
+[small]#A common error is to treat $P(k),$ when written algebraically, as a function that gives numerical outputs, but this is incorrect. $P(k)$ is still a predicate that gives propositions as outputs.#
+
+We can now prove that the conditional $P(k) \rightarrow P(k+1)$ must be True using algebra.
+//\[\sum\limits_{i=1}^{k+1}(2i-1) = \left(\sum\limits_{i=1}^{k}(2i-1)\right) + (2(k+1)-1) =  k^{2} +  (2(k+1)-1)\] 
+\begin{equation}
+\begin{aligned}
+\sum\limits_{i=1}^{k+1}(2i-1) {} & = \left(\sum\limits_{i=1}^{k}(2i-1)\right) + (2(k+1)-1) \\ 
+& = k^{2} +  (2(k+1)-1)
+\end{aligned}
+\end{equation}
+where we have substituted $k^{2}$
+for the sum $\sum\limits_{i=1}^{k}(2i-1)$ based on the induction hypothesis.
+
+Now we simplify this using algebra and show that it is the same as the right hand side.
+\begin{equation}
+\begin{aligned}
+\sum\limits_{i=1}^{k+1}(2i-1) {} & = k^{2} + (2(k+1)-1) \\ 
+& = k^{2} + 2k + 2 - 1 \\
+& = k^{2} + 2k + 1 \\
+& = (k + 1)^{2}\\
+\end{aligned}
+\end{equation}
+
+We have proven that the equation $1+3+...+(2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}$ implies the equation 
+$1+3+...+(2k-1) + (2k+1) = \sum\limits_{i=1}^{k+1}(2i-1) = (k+1)^{2}$, that is, $P(k) \rightarrow P(k+1)$.
+
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
+// MKD Aug 21 2025 removed reference to universal generalization
+//use _universal generalization_ to 
+conclude that 
+// by the principle of mathematical induction, 
+$1+3+...+(2n-1) = \sum\limits_{i=1}^{n}(2i-1) = n^{2}$ for all positive integers $n$.
+
+Q.E.D. 
+
+****
+
+// MKD march 17 2025
+//https://pythontutor.com/render.html#code=k%20%3D%200%0Asum%20%3D%200%0Astop_here%20%3D%2010%0Awhile%20k%20%3C%3D%20stop_here%3A%0A%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%0A%20%20%20%20k%20%3D%20k%20%2B%201%0A%20%20%20%20print%28%22Loop%20iterations%3A%22,k,%22%5CtSum%3A%22,sum%29&cumulative=false&curInstr=48&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// MKD march 17 2025 better
+//https://pythontutor.com/render.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20True%0A%20%20%20%20%20%20%20%20%23%20Initialization%20%28BASIS%20STEP%29%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22Loop%20iterations%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%20%28INDUCTION%20STEP%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Loop%20iterations%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20return%20sum%0A%0An%20%3D%2010%0Aprint%28f%22The%20square%20of%20%7Bn%7D%20is%20%7BaddTheOdds%28n%29%7D.%22%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// MKD march 17 2025 better
+//https://pythontutor.com/render.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20False%0A%20%20%20%20%20%20%20%20%23%20Initialization%20%28BASIS%20STEP%29%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22Loop%20iterations%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%20%28INDUCTION%20STEP%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Loop%20iterations%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D.%5C%22%22%0A%0Adef%20truth_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29,%22is%22,truth_of_P%28n%29%29&cumulative=false&curInstr=54&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+// MKD march 17 2025 better yet
+//https://pythontutor.com/render.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20False%0A%20%20%20%20%20%20%20%20%23%20Initialization%20%28BASIS%20STEP%29%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22Loop%20iterations%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%20%28INDUCTION%20STEP%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*%28k-1%29%20%2B%201%20%23inefficient%20for%20teaching%20purposes%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Loop%20iterations%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D.%5C%22%22%0A%0Adef%20truth_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29,%22is%22,truth_of_P%28n%29%29&cumulative=false&curInstr=54&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+//MKD march 17 2025 in class example
+//https://pythontutor.com/render.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20False%0A%20%20%20%20%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%20first,%20increment%20k%20second%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0Adef%20truth_value_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29%29%0A%23print%28P%28n%29,%22is%20a%22,truth_value_of_P%28n%29,%22proposition.%22%29&cumulative=false&curInstr=8&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+//=== Additional Examples of Proofs by Mathematical Induction
+//== Still More Examples of Proofs by Mathematical Induction
+//== Proving Inequalities Using Proofs by Mathematical Induction
+
+****
+.Example {counter:MKDinductionexample} - The Factorial Grows Faster Than An Exponential Function
+
+Let $P(n)$ be the predicate \[P(n): 2^{n} < n!\] We will prove that $(\forall n \in \mathbb{N}_{\geq 4})P(n).$
+
+*Basis Step:* First notice that the propositions $P(0),$ $P(1),$ $P(2),$ and $P(3)$ are all False! This is why we must use $P(4)$ as the basis. $P(4)$ is the proposition $2^{4} < 4!$ which is a True statement since $16 < 24.$
+
+*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$. #In this context we can assume $k \geq 4.$#
+
+Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
+
+Assume that $P(k)$ is True with $k \geq 4,$ that is, $2^{k} < k!.$  If we multiply both sides of the inequality by $2$ we get
+\begin{equation}
+\begin{aligned}
+2^{k+1} {} & = 2 \cdot 2^{k} \\ 
+& < (k+1) \cdot 2^{k} \text{ (since $k \geq 4,$ we must have $k+1 > 5 >2$)}\\
+& < (k+1) \cdot k! \text{ by the induction hypothesis}
+\end{aligned}
+\end{equation}
+
+Notice that the expression on the last line is equal to $(k+1)!,$ so we have shown that $(2^{k} < k!) \rightarrow (2^{k+1} < (k+1)!)$ as long as $k \geq 4.$ That is, we've proven that $P(k) \rightarrow P(k+1)$.
+
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
+// MKD Aug 21 2025 removed reference to universal generalization
+//use _universal generalization_ to 
+conclude that 
+// by the principle of mathematical induction, 
+for all positive integers $n \geq 4$, $2^{n} < n!$
+
+Q.E.D. 
+
+****
+
+
+****
+.Exercise - Setting Up A Proof By Induction (The Towers Of Hanoi)
+
+Set up the proof of the following statement.
+
+The minimal number of moves needed to solve the link:./recursion.html#Towers_Of_Hanoi[Towers Of Hanoi] puzzle with $n$ discs is $2^{n}-1.$
+
+What is the predicate $P(n)$?
+
+What value of $n$ is best to use in the Basis Step?
+
+What is the Induction Hypothesis? 
+
+What property of the puzzle is 
+//used 
+the key feature 
+used 
+to 
+//proving 
+prove 
+the Induction Step? You can describe this in words or use an algebraic equation. 
+
+****
+
+
+
+////
+****
+.Example {counter:MKDinductionexample} - A Divisibility Result
+
+We will prove that for all integers $n \geq 1,$  the integer $11^{n} – 6$ is divisible by 5. 
+
+Let $P(n)$ be the predicate \[P(n): 11^{n} – 6 \text{ is a multiple of } 5\] We will prove that $(\forall n \in \mathbb{N}_{\geq 1})P(n).$
+
+*Basis Step:* $P(1)$ is the proposition $11^{1} – 6 \text{ is a multiple of } 5$ which is a True statement since $11^{1} – 6 = 5.$
+
+*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$. 
+//In this context we can assume $k > 1.$#
+
+Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
+
+// MKD in progress April 7 2025 
+
+****
+
+
+****
+.Example {counter:MKDinductionexample} - The Towers Of Hanoi Recurrence Relations
+
+The minimal number of moves needed to solve the towers Of Hanoi with $n$ discs is $2^{n}-1.$
+
+****
+
+****
+.Example {counter:MKDinductionexample} - Validation of The Euclidean Algorithm (for Greatest Common Divisors)
+
+
+****
+////
+
+//Factorial function
+
+
+MORE PROOFS TO COME!
+
+// MKD - strong induction section needs cleanup/rewrite
+//== Strong Induction (SECTION IN PROGRESS)
+== Strong Induction
+
+////
+// MKD old strong induction begins
+Recall the idea behind mathematical induction, prove that a proposition //$P\left(m\right)$  
+$P_n$ is true for a base step, say $P_1$. Then prove the inductive step. This involves proving that $P_k$ implies $P_{k+1}$.
+*Strong induction* is a generalized version of induction where in the inductive step we assume $P_1, P_2,\ldots, P_m$ is true and show all these together imply $P_{m+1}$ is true.
+
+
+Strong version of Mathematical Induction:
+
+* Base Case: Prove the first statement $P_1$. (Or the first several $P_r$, if needed.)
+
+* Inductive Step: Given any integer $m \geq 1$, prove  $P_1\land {P_2\land {\ P_3\land {\ldots\land {P_m,\ }}}}$ implies  $P_{m+1}$
+
+Algorithmically:
+
+* Base Case: Prove that $P_{1,\ }P_2\ ,\ldots,\ P_r$, are all true.
+
+* Inductive Hypotheses: Assume, $P_{1,\ }P_2\ ,\ldots,\ P_m$are all true for some $m  ≥ 1$,
+
+* Inductive step: Assuming, $P_{1,\ }P_2\ ,\ldots,\ P_m$ are all true for some  $ m  ≥ 1$,  prove that $P_{m+1}$ is true.
+
+****
+.Example {counter:MKDinductionexample} - Recurrence Relations
+Consider the sequence $\left\{a_n\right\}$ defined as a a recurrence relation,
+
+$a_1=5$, $a_2=13$, and $a_{n+2}=5a_{n+1}-6a_n$, for all $n \geq 1$.
+
+Prove that $a_n=2^{n} +3^{n}$.
+
+.Solution
+Base case: Consider the case $n=1$, $a_1=5=2^{1} +3^{1}$, and $a_2=13=2^2 +3^2=4+9$.
+
+Induction hypothesis: Assume $a_1,\ a_2,..a_m$ are all given by $a_m=2^m + 3^m$.
+
+We want to show that $a_{m+1}=2^{m+1} +3^{m+1}$.
+
+Well, $ a_{m+1}=5a_m-6a_{m-1}$, using the definition of the recurrence relation.
+
+By the inductive hypothesis, $a_m=2^m+3^m$ and $a_{m-1}=2^{m-1} +3^{m-1}$.
+
+$ a_{m+1}=5\left(2^m +3^m \right)-6\left(2^{m-1} +3^{m-1}\right)$.
+
+Consider then,
+
+[env.equationalign]
+--
+5\left(2^m+ 3^m \right)-6\left(2^{m-1} +3^{m-1}\right) &=5\times 2^m +5\times 3^m -6\times 2^{m-1} -6\times 3^{m-1}\\
+&=5\times 2^m+5\times 3^m-3\times 2\times 2^{m-1}-2\times 3\times 3^{m-1}\\
+&=5\times\ 2^m+5\times 3^m-3{\times 2}^m-2\times 3^m\\
+&=\left( 5\times 2^m-3\times 2^m \right) + \left( 5 \times 3^m -2\times 3^m \right)\\
+&=\left(5-3\right) \times 2^m + \left(5-2\right) \times 3^m\\
+&=2\times\ 2^m+3\times 3^m\\
+&=2^{m+1} + 3^{m+1}
+--
+
+So $a_{m+1}=2^{m+1} + 3^{m+1}$ and therefore, $a_n=2^n +3^n$ for all $n \geq 1$.
+****
+// MKD old strong induction ends
+////
+
+
+Strong induction is used when it is easier to use the assumption that _all the propositions $P(0), P(1), \ldots , P(n-1)$ are True_ in order to prove that $P(n)$ is True. 
+
+[horizontal]
+Basis Step:: Prove the predicate $P(n)$ is True for _one or more consecutive small values_ of $n;$ in most but not all cases, you prove both $P(0)$ and $P(1).$ 
+//You can also prove $P(n)$ for other values as well if it helps you get a feel for what needs to be proven.
+Induction Step:: Prove that the conditional statement $( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)$ is True for any natural number $k.$ + 
+Using _modus ponens_ allows you to infer that $P(k+1)$ must also be True based on the assumption that all of the propositions $P(0), P(1), \ldots , P(k)$ are True.
+Conclusion Step:: Conclude that $P(n)$ is True for all natural numbers $n$ that are greater than or equal to the smallest value used in the Basis Step. 
+// MKD Aug 21 2025 removed reference to universal generalization
+//This conclusion uses _universal generalization_ as the rule of inference. 
+
+[small]#In spite of the name, strong induction and "weak" induction are equivalently powerful techniques in the sense that any proposition that you can prove using strong induction can also be proven by "weak" induction, and any proposition that you can prove using "weak" induction can also be proven by strong induction. The choice of which of the two proof techniques to use is based on convenience only, not power.#
+
+****
+.Example {counter:MKDinductionexample} - An Upper Bound for the Fibonacci numbers
+
+Recall that the link:./recursion.html#definition_of_fibonacci_numbers[Fibonacci numbers] are defined by the following recurrence relation: \[f_{0}=0, \, f_{1}=1, \text{ and } f_{n} = f_{n-1} + f_{n-2} \text{ for } n \geq 2.\]
+
+// to stand for $\displaystyle \left( \frac{1+\sqrt{5}}{2} \right)^{n},$ which is the commonly-used symbol for this number.
+
+We will prove that the predicate \[P(n): f_{n} < \displaystyle \left( \frac{1+\sqrt{5}}{2} \right)^{n}\] is True for all natural numbers $n.$ The proof will use strong induction because, for each $n \geq 2,$ the value of $f_{n}$ is defined in terms of both $f_{n-1}$ and $f_{n-2}.$ + 
+[small]#The number on the right-hand side of the inequality is a famous constant called link:https://en.wikipedia.org/wiki/Golden_ratio[the golden ratio] which is usually denoted by the lowercase Greek letter $\phi$ ("phi"): \[ \phi = \frac{1+\sqrt{5}}{2} \] $\phi$ is an irrational number whose first few digits are $1.618 \ldots .$ Also, $\phi$ is the positive solution of the equation $x^{2} = x + 1,$ which is a fact that we will use in the proof. The other solution of $x^{2} = x + 1$ is $1 - \phi,$ a fact you can use when you attempt the Challenge question at the end of this example. \[ 1 - \phi = \frac{1-\sqrt{5}}{2} \] Notice that you can verify that $\phi$ and $1-\phi$ are the two roots of $x^{2} - x - 1 = 0$ by using the quadratic formula.#
+
+// For more about the history of the golden ratio, see link:https://scholarworks.umt.edu/cgi/viewcontent.cgi?article=1047&context=tme[this paper.]
+
+
+*Basis Step:* In this case, we need to prove that the conjunction $P(0) \land P(1)$ is True as our basis for strong induction. 
+
+//** $P(0)$ is the proposition $f_{0} < \displaystyle \left( \frac{1+\sqrt{5}}{2} \right)^{0}$ which is a True proposition since $0 < 1.$ 
+
+** $P(0)$ is the proposition $f_{0} < \phi^{0}$ which is True since $0 < 1.$ 
+
+//** $P(1)$ is the proposition $f_{1} < \displaystyle \left( \frac{1+\sqrt{5}}{2} \right)^{1}$ and is a True proposition since $1 < 1.$ 
+
+** $P(1)$ is the proposition $f_{1} < \phi^{1}$ which is True since $1 < \phi.$ 
+  
+Since $P(0)$ and $P(1)$ are True, you can use the tautology $q \rightarrow ( r \rightarrow (q \land r) )$ to conclude that $P(0) \land P(1)$ is True, too.  
+
+*Induction Step:* First, we assume as the induction hypothesis that \[P(i) \text { is True for all positive natural numbers } i \leq k \] where we can assume that the integer $k$ is greater than or equal to $2$ (since the cases where $k < 2$ were already dealt with in the Basis Step.) That is, we assume that the single proposition $P(0) \land P(1) \land \cdots \land P(k)$ is True, where $k$ is some integer greater than or equal to 2.
+// That is, we assume that "$f_{i} < \phi^{i}$ for each natural number $i \leq k.$
+
+Secondly, we will prove that the conditional $( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ 
+// (or the equivalent tautology $( ( P(0) \land P(1) \land \cdots \land P(k) ) \land ( ( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) 
+to show that $P(k+1)$ is also True. 
+
+If the inequality $f_{i} < \phi^{i}$ is True for each $i \leq k,$ then 
+//$f_{k+1} = f_{k} + f_{k-1} < \phi^{k} + \phi^{k-1}.$ 
+//Notice that $\phi^{k} + \phi^{k-1} = \phi^{k-1} \cdot (\phi + 1).$ We now use the fact that $\phi$ is a solution of the equation $x^{2} = x + 1$ to rewrite $\phi^{k-1} + \phi^{k-2} = \phi^{k-1} \cdot (\phi + 1) = \phi^{k-1} \cdot (\phi^{2}) = \phi^{(k-1)+2} = \phi^{k+1}.$ 
+\begin{equation}
+\begin{aligned}
+f_{k+1} {} & = f_{k} + f_{k-1} \\ 
+& < \phi^{k} + \phi^{k-1} \text{ by the induction hypothesis} \\
+& \leq \phi^{k-1} \cdot (\phi + 1) \text{ by algebra} \\
+& \leq \phi^{k-1} \cdot \phi^{2} \text{ since } \phi^{2} = \phi + 1 \\
+& \leq \phi^{(k-1)+2} \text{ using one of the laws of exponents} \\
+& \leq \phi^{k+1}
+\end{aligned}
+\end{equation}
+
+We have proven that if $f_{i} < \phi^{i}$ is True for each natural number $i \leq k,$ then $f_{k+1} < \phi^{k+1}$ must also be True. That is, we have proven $( ( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)$.
+
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
+// MKD Aug 21 2025 removed reference to universal generalization
+//use _universal generalization_ to 
+conclude that 
+for all natural numbers $n,$ $f_{n} < \phi^{n}.$ 
+
+Q.E.D.
+
+[env.challenge]
+--
+Use strong induction to prove that the closed form of the Fibonacci numbers is  \[ f_{n} = \displaystyle \frac{\phi^{n} - (1-\phi)^{n}}{\sqrt{5}} \text{ for all natural numbers }n. \]
+--
+
+[click.hint]
+--
+For the Induction Step, use the fact that both $\phi^{2} = \phi + 1$ and $(1-\phi)^{2} = (1-\phi) + 1$ are True and use steps similar to the ones in the Induction Step in the proof above but working with equations instead of inequalities. Using the two equations in the previous sentence will help you avoid working directly with expressions like \[f_{n} = \displaystyle \frac{ \left( \displaystyle \frac{1 + \sqrt{5}}{2} \right)^{n} - \left( \displaystyle \frac{1 - \sqrt{5}}{2} \right)^{n}}{\sqrt{5}}\] or \[ f_{n} = \displaystyle \frac{ \left( 1 + \sqrt{5} \right)^{n} - \left( 1 - \sqrt{5} \right)^{n} }{ 2^{n} \sqrt{5} } \] which would be unnecessarily difficult and time-consuming.
+--
+
+****
+
+//Show that the formula gives the correct results for $n \in \{ 0, 1\},$ which will complete your Basis Step. 
+//Use the fact that $1 - \phi$ and $\phi$ are the solutions of $x^{2} = x + 1$ and follow steps similar to the ones in the proof above
+//Using the hint helps you avoid expanding powers of $(1 - \phi)^{n}$ that would just lead you into dealing with a lot of messy algebra!) And you definitely want to avoid working directly with the numbers in the form
+//$f_{n} = \displaystyle \frac{ ( \frac{1+\sqrt{5}}{2}} )^{n} - (\frac{1-\sqrt{5}}{2}})^{n}}{\sqrt{5}}$
+
+
+Next, we'll prove the following theorem.
+
+.The Fundamental Theorem of Arithmetic
+****
+Every positive integer $n$ that is greater than or equal to $2$ is either a prime number or can be written as a product of two or more prime numbers.
+
+//[click.Proof]
+//--
+
+//_Proof_
+[env.proof]
+--
+--
+
+Let $P(n)$ be the predicate \[P(n) \text{: "} n \text{ is either prime or the product of two or more primes."}\] We will prove that $(\forall n \in \mathbb{N}_{\geq 2})P(n),$ that is, each positive integer $n \geq 2$ is either a prime or a product two or more prime numbers. + 
+
+*Basis Step:* $P(2)$ is True since $2$ is a prime number. In this case, we could use only $P(2)$ as the basis, but it is easy to prove $P(3)$ and $P(4)$ are True since $3$ is prime and $4 = 2 \cdot 2$ is a product of two primes.
+
+*Induction Step:* First, we assume as the induction hypothesis that \[P(i) \text { is True for all positive natural numbers } i \text{ such that } 2 \leq i \leq k \] where we can assume that the integer $k$ is greater than or equal to $4$ (since the cases where $k \in \{ 2, 3, 4 \}$ were already dealt with in the Basis Step.) That is, we assume that the single proposition $P(2) \land P(3) \land \cdots \land P(k)$ is True, where $k$ is some integer greater than or equal to 4.
+
+Secondly, we will prove that the conditional $( P(2) \land P(3) \land \cdots \land P(k) ) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ to show that $P(k+1)$ is also True. 
+
+There are two cases: Either $k+1$ is prime or it is not prime (that is, it is composite.)
+
+. If $k+1$ is prime, then $P(k+1)$  is True in the case when $k+1$ is a prime number.
+
+. If $k+1$ is not prime, then there are two integers $a$ and $b$ that are both greater than $1$ such that $k+1 = ab.$ Notice that both $a$ and $b$ must be less than $k+1$ because if either one were greater than or equal to $k+1$ then the product $ab$ would be greater than or equal $2(k+1).$ Assuming the induction hypothesis, both $P(a)$ and $P(b)$ are True, so each of $a$ and $b$ is either a prime or a product of two or more primes, which means that the product $ab$ is a product of at least two primes (if both $a$ and $b$ are primes, they are the only two factors of $k+1,$ otherwise, there will be more than two prime factors of $k+1.$) Since $k+1 = ab$, this proves that $P(k+1)$ is True in the case when $k+1$ is a composite number.
+
+In either case, we have shown that $P(k+1)$ must be True. We have proven that if $P(i)$ is True for each natural number $i$ with $2 \leq i \leq k,$ then $P(k+1)$ must also be True. That is, we have proven $( ( P(2) \land P(3) \land \cdots \land P(k) ) \rightarrow P(k+1)$.
+
+
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
+// MKD Aug 21 2025 removed reference to universal generalization
+//use _universal generalization_ to 
+conclude that 
+for all natural numbers $n > 2,$ $n$ is either a prime number or a product of two or more prime numbers. 
+
+Q.E.D.
+//--
+
+****
+
+
+
+//MORE TO COME!
+
+
+== Validating An Algorithm Using Induction
+
+// MKD revised Apr 7 2025 to include the algorithm here 
+//One of the uses of mathematical induction in computer science is the validation of algorithms. 
+In this section, we'll prove that the Euclidean Algorithm as described below correctly computes the greatest common divisor of two positive integers. 
+
+* Task: Given the positive integers $a$ and $b$ with $a > b$,  
+compute the greatest common divisor (or "g.c.d") of $a$ and $b.$ That is, compute the greatest integer that is a factor of both $a$ and $b.$ 
+** Input: Two positive integers 
+//$a$ and $b,$ with $a>b.$ 
+** Steps: 
+. Set $a$ to the greater and $b$ to the lesser of the two input values. 
+. Compute the remainder $r$ when $a$ is divided by $b$ (using long division of integers, not "floating-point" decimals.) 
+. If $r > 0$ 
+.. Set $a$ equal to $b$
+.. Set $b$ equal to $r$
+.. Go to step 2
+. Return the value stored in $b.$
+** Output: A positive integer that is a factor of both input values.
+
+
+//The code below implements this algorithm.
+
+:pt_code_height: 500
+:pt_rawinput: false
+:pt_code: %23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A
+
+****
+.Example {counter:MKDinductionexample} - The Euclidean Algorithm in Python
+--
+--
+The code below implements integer division for _positive_ integers _a_ and _b._ 
+
+
+Click on the "Next" button to step through the code.
+
+include::python_tutor.adoc[]
+
+****
+
+
+First, we will prove a lemma (that is, a minor theorem) that we'll use in the induction step of the main proof.
+
+****
+.Lemma
+
+If $a$ and $b$ are integers such that $a > b > 0$ and the integers $q$ and $r$ satisfy \[ a = q \cdot b + r \text{ and } 0 \leq r < b \]
+then the set of positive integers that divide both $a$ and $b$ is the same as the set of positive integers that divide both $b$ and $r.$ 
+
+[env.proof]
+--
+--
+
+Notice that $q$ is the quotient and $r$ is the remainder that result when doing a long division of $a$ by $b.$ 
+
+Also notice that we can rewrite the equation $a = q \cdot b + r$ in the equivalent form $r = a - q \cdot b.$ 
+
+We can now prove the lemma.
+
+* If the integer $c$ divides both $a$ and $b$ then there are integers $a'$ and $b'$ so that $a = c \cdot a'$ and $b = c \cdot b'.$ Substitute these two new expressions in the equation $r = a - q \cdot b$ to get 
+\begin{equation}
+\begin{aligned}
+r {} & = a - q \cdot b  \\ 
+& = (c \cdot a') - q \cdot (c \cdot b')  \\ 
+& = c \cdot a' - c \cdot (q \cdot b')  \\ 
+& = c \cdot (a' -  q \cdot b')
+\end{aligned}
+\end{equation}
+which shows that $c$ is also a divisor of $r.$ Since we already assumed that $c$ divides $b,$ this means that $c$ is a divisor of both $b$ and $r.$ Therefore, the set of positive integers that divide both $a$ and $b$ is a subset of the set of positive integers that divide both $b$ and $r.$ 
+
+* If the integer $k$ divides both $b$ and $r$ then there are integers $b''$ and $r''$ so that $b = k \cdot b''$ and $r = k \cdot r''.$ Substitute these two new expressions in the equation $a = q \cdot b + r$ to get 
+\begin{equation}
+\begin{aligned}
+a {} & =  q \cdot b + r  \\ 
+& = q \cdot (k \cdot b'') + (k \cdot r'')  \\ 
+& = k \cdot (q \cdot b'') + k \cdot r''  \\ 
+& = k \cdot (q \cdot b'' + r'')  
+\end{aligned}
+\end{equation}
+which shows that $k$ is also a divisor of $a.$ Since we already assumed that $k$ divides $b,$ this means that $k$ is a divisor of both $a$ and $b.$ Therefore, the set of positive integers that divide both $b$ and $r$ is a subset of the set of positive integers that divide both $a$ and $b.$ 
+
+So we have two subsets, each of which is a subset of the other, which means that the two sets must be equal. That is, the set of positive integers that divide both $a$ and $b$ is equal to the set of positive integers that divide both $b$ and $r;$ more plainly, the two set descriptions define the _same_ set.
+
+Q.E.D.
+
+****
+
+From the lemma we can conclude that the greatest common divisor of $a$ and $b$ is equal to the greatest common divisor of $b$ and $r.$
+
+We are now ready to prove the main result by induction. 
+
+.Theorem 
+****
+The Euclidean Algorithm correctly computes the greatest common divisor (g.c.d.) of the two positive integers $a$ and $b.$
+
+[env.proof]
+--
+--
+
+We use mathematical induction on the number of times $n$ we must compute a new remainder (that is, the number $n$ of iterations of the code block inside the loop), and prove that the algorithm computes the correct g.c.d. no matter what the value of $n$ is.
+
+Let $P(n)$ be the predicate "If the loop executes $n$ times, then the last nonzero remainder is the g.c.d. of the two initial inputs." We will prove that $(\forall n \in \mathbb{N})P(n)$ is True.
+
+*Basis Step:* Notice that the number of iterations of the loop is $n=0$ if and only if the value of $r = a\%b$ is equal to $0$, which is True if and only if $b$ divides $a.$ This means that the "last nonzero remainder" is $b,$ and $b$ is the greatest common divisor of $a$ and $b,$ which means that $P(0)$ is True. 
+
+We can also prove that $P(1)$ is True in case the proof of $P(0)$ is unsatisfying. In the case when $n=1,$ the loop executes $1$ time, which means that $a = q \cdot b + r$ and $r$ is a nonzero divisor of $b,$ so $r$ is the g.c.d. of $b$ and $r,$ and we can use the lemma to conclude that $r$ is also the g.c.d. of $a$ and $b.$ This proves that $P(1)$ is True. 
+
+*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$.
+
+Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
+
+Assume that $P(k)$ is True for the positive integer $k,$ that is, if the loop executes $k$ times, then the last nonzero remainder is the g.c.d. of the two numbers we started with. 
+//, $a$ and $b.$ 
+We can assume $k \geq 1$ since the cases when $k \in \{ 0, 1 \}$ were proved in the Basis Step. Suppose that we have numbers $a$ and $b$ such that the loop executes $k+1$ times in order to reach the last nonzero remainder: We need to prove that this last nonzero remainder is actually the g.c.d. of $a$ and $b.$ Now, notice that if we find the first remainder so that $r = a - q \cdot b$ and $0 < r < b,$ then the Euclidean Algorithm requires $k$ loop iterations to find the last nonzero remainder for the pair of inputs $b$ and $r.$ That is , we know from the induction hypothesis that the last nonzero remainder for the initial values $b$ and $r$ is the g.c.d. of $b$ and $r.$ Now apply the lemma to conclude that the g.c.d. of $a$ and $b,$ computed after $k+1$ loop iterations, is equal to the g.c.d. of $b$ and $r,$ computed after $k$ loop iterations. Therefore, $P(k+1)$ is True, too. This proves that $P(k) \rightarrow P(k+1)$.
+
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
+// MKD Aug 21 2025 removed reference to universal generalization
+//use _universal generalization_ to 
+conclude that 
+for all natural numbers $n,$ if the loop executes $n$ times then the last nonzero remainder is the g.c.d. of $a$ and $b.$ That is, the Euclidean Algorithm correctly computes the g.c.d. of $a$ and $b$ no matter how many loop iterations are required to compute the last nonzero remainder.
+
+Q.E.D. 
+
+****
+
+//\[P(n): \text{ If the loop executes $n$ times, then the last nonzero remainder is the g.c.d. of the two initial inputs. } \]
+// \[P(n): \text{ If the number of iterations of the loop is }\ n \text{ then the last nonzero remainder computed } \]
+
+// MKD revised Apr 7 2025 
+[NOTE]
+//It is not difficult to see that 
+Notice that if $a = f_{n+2}$ and $b = f_{n+1}$ are consecutive Fibonacci numbers then the Euclidean Algorithm requires exactly $n$ loop iterations to compute the last nonzero remainder. + 
+The French mathematician Gabriel Lamé proved in 1844 that if the Euclidean Algorithm requires $n$ loop iterations to compute the last nonzero remainder for two given positive integer inputs $a$ and $b$ (with $a>b$) 
+then it must be True that both $f_{n+2} \leq a$ and $f_{n+1} \leq b.$ A proof by induction of Lamé's theorem is given at this link:https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case[Wikipedia page.] + 
+[small]#The "worst-case complexity" for the Euclidean Algorithm is described at that webpage as well: The Euclidean Algorithm is $O(log_{\phi}(b)).$ (Complexity and "big $O$" notation are discussed in the link:./growth_of_functions.html[Rates of Growth of Functions] chapter.)#
+
+
+
+//MKD//// 
+// unreviewed original content 3
+
+== Exercises
+
+//MKD Apr 07 2025 Remixer's Note: This section is taken from the original https://ggc-discrete-math.github.io/index.html[“Discrete Math”] book, with only a few minor revisions.
+
+
+//Prove using induction.
+
+//. For  all $n ≥ 1$ prove that $1+2+3+\ldots+n=\displaystyle\sum_{i=1}^{n}i=\displaystyle \frac{n\left(n+1\right)}{2}$
+
+. Prove by induction: 
+
+.. For  all $n ≥ 1, $ $1+2+3+\ldots+n=\displaystyle\sum_{i=1}^{n}i=\displaystyle \frac{n\left(n+1\right)}{2}$
+
+.. For  all $n ≥ 1, $ $1^2+2^2+3^2+\ldots+n^2=\displaystyle\sum_{i=1}^{n}i^2=\frac{1}{6} n (n+1) (2 n+1)$
+
+.. For  all $n ≥ 1, $ $1^3+2^3+3^3+\ldots+n^3=\displaystyle\sum_{k=1}^{n}k^3=\frac{1}{4} n^2 (n+1)^2$
+
+.. For all $n ≥ 1, $ ${23}^n-1$  is  divisible  by 11.
+
+. Prove by induction that $n^2+n = n(n+1)$ is even for all integers $n  ≥ 1$.
+
+. Find an appropriate $N \in \mathbb{Z}$, and prove by induction that $n^3 +3n^2$ is even for all $n  ≥ N$.
+
+. Find an appropriate $N \in \mathbb{Z}$, and prove by induction that $n^3 +2n$ is divisible by 3 for all $n  ≥ N$.
+*(Hint: You may use the result $n(n+1)$, is even for $n$, an integer.)*
+
+. Prove by induction that $7$ divides $2^{4n+2} + 3^{2n+1}$ for all nonnegative integers $n$.
+
+. Prove that for any $n  ≥ 1$ and $x  ≥ 0$ that $\left(1+x\right)^n\geq1+nx$.
+
+. For all $n ≥ 5$, prove that $n^2 < 2^n$ 
+//. For all $n  ≥ 5$, prove that $ 2^n>n^2$.
+//(This is one way to prove that $n^2$ is $O(2^n).$)
+//. For all $n  ≥ 5$, prove that $ 2^n>n^2$.
+// MKD this is a duplicate of the previous one.
+
+. Graph $n!$ and $2^n$, and then prove by induction that $ 2^n < n!$ for $n>3$.
+
+. Graph $n^3$ and $5n+12$, and then use your graph to find an appropriate $N \in \mathbb{Z}$ to prove by induction that
+$5n+12 < n^3$ whenever $n>N$.
+
+. Prove by induction that a set  $A$ with cardinality $|A|=n$ has $2^n$ subsets.
+. Prove by induction that there are $3^n$ numbers in base 3 (using the digits 0 ,1, 2) made up of $n$ digits.
+. Prove by induction that there are $4^n$ numbers in base 4 (using the digits 0 ,1, 2, 3) made up of $n$ digits.
+
+. State the principle of mathematical induction using a conditional logical statement.
+
+. Consider the sequence defined recursively as \[a_1=1,a_2=5, \text{ and } a_n=5a_{n-1}-6a_{n-2}\]
+.. Calculate the first eight terms of the recursive sequence.
+.. Prove by induction that the closed-form formula for the sequence is $a_{n} = 3^{n} - 2^{n}.$  + 
+(Hint: You can use the fact that $2$ and $3$ are the solutions of the quadratic equation $x^{2} = 5x - 6.$)
+// MKD Apr 7 2025 $a_1=1,a_2=5,$ and $a_n=5a_{n-1}-6a_{n-2}.$
+// Prove by induction that the recursive sequence is given by the formula $a_n=3^n-2^n.$ (Hint: You may be able to use the fact that $2$ and $3$ are the two solutions of the quadratic equation $x^{2} = 5x - 6.$)
+
+
+. Consider the sequence defined recursively as \[a_1=1 \text{ and } a_n=2a_{n-1}+n\]
+.. Calculate the first eight terms of the recursive sequence
+.. Prove by induction that the recursive sequence is given by the formula $a_n={4\cdot2}^{n-1}-n-1$.
+// MKD Apr 7 2025 $a_1=1$ and $a_n=2a_{n-1}+n$.
+
+. Recall that the link:./recursion.html#definition_of_fibonacci_numbers[Fibonacci numbers] are defined by the following recurrence relation: \[f_{0}=0, \, f_{1}=1, \text{ and } f_{n} = f_{n-1} + f_{n-2} \text{ for } n \geq 2.\]
+// MKD Apr 6 2025
+//.. Prove by induction that the sum of the first $(n+1)$ Fibonacci numbers is 1 less than the $(n+2)$th Fibonacci number, that is, 
+//f_0+f_1+f_2+\ldots+f_n=\sum_{i=0}^{n}{f_i=f_{n+2}-1}.
+.. Prove by induction that  
+\[
+f_0+f_1+f_2+\ldots+f_n= f_{n+2}-1.
+\]
+// MKD Apr 6 2025
+//..	Prove by induction that the sum of the squares of the first $(n+1)$ Fibonacci numbers is
+//f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 = \sum_{i=0}^{n} f_i^2=f_n \cdot\ f_{n+1}.
+..	Prove by induction that 
+\[
+f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 =f_n \cdot\ f_{n+1}.
+\]
+
+//MKD//// 
+// unreviewed original content 3
+
+
+// MKD Apr 8 2025 code for 5^n < n!
+//https://pythontutor.com/render.html#code=counter%20%3D%201%0Aa%20%3D%205%0Ab%20%3D%201%0Awhile%20a%20%3E%20b%3A%0A%20%20%20%20print%28a,%20b%29%0A%20%20%20%20counter%20%3D%20counter%20%2B%201%0A%20%20%20%20a%20*%3D%205%0A%20%20%20%20b%20*%3D%20counter%0Aprint%20%28counter%29&cumulative=false&curInstr=60&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false

@@ -7,7 +7,7 @@
   <meta content="Asciidoctor 1.5.8" name="generator"/>
   <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
   <title>
-   Discrete Math - The MKD Remix
+   Discrete Math - The MKD Remix (Public Version)
   </title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
   <style>
@@ -469,7 +469,7 @@ $(document).on('page:load', ready2);
  <body class="book toc2 toc-left">
   <div id="header">
    <h1>
-    Discrete Math - The MKD Remix
+    Discrete Math - The MKD Remix (Public Version)
    </h1>
    <div class="details">
     <span class="author" id="author">
@@ -616,10 +616,27 @@ $(document).on('page:load', ready2);
      </div>
      <div class="paragraph">
       <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are enrolled in the CSC 230 course that I teach at SFSU, you need to use
+        <a href="./CSC230/index.html">
+         the “CSC230 version”
+        </a>
+        of the book, which I will be updating throughout the semester. The version you are looking at now is the “public version” of the book that is only updated between semesters.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
        <em>
-        This chapter was last updated on July 15, 2025.
+        This chapter was last updated on August 17, 2025.
        </em>
        <br/>
+       <em>
+        Revised section on directed trees. Rewrote theorem on second characterization of trees.
+       </em>
       </p>
      </div>
      <div class="paragraph">
@@ -688,15 +705,27 @@ Trees are used to model decisions, to sort data, and to optimize networks.
       <h3 id="_definitions_examples_and_properties_of_trees_and_forests">
        15.1. Definitions, Examples, and Properties of Trees and Forests
       </h3>
-      <div class="admonitionblock important">
+      <div class="paragraph">
+       <p>
+        In this section, you will learn some of the basics about trees.
+       </p>
+      </div>
+      <div class="admonitionblock note">
        <table>
         <tr>
          <td class="icon">
-          <i class="fa icon-important" title="Important">
+          <i class="fa icon-note" title="Note">
           </i>
          </td>
          <td class="content">
-          In this chapter, all graphs are assumed to be undirected (that is, have no directed edges) unless stated otherwise.
+          Much of the terminology related to trees is not standardized, that is, different textbooks and sources use different terminology for the same types of trees. The Remix uses terminology consistent with
+          <a href="https://www.routledge.com/Handbook-of-Graph-Theory/Gross-Yellen-Zhang/p/book/9781439880180?srsltid=AfmBOoopymlQNVr5rlo05ShK51PGym1Kv1vJ47zHndypkoXdteehcoYw">
+           <em>
+            Handbook of Graph Theory,
+           </em>
+           Second Edition
+          </a>
+          by Gross, Yellin, and Zhang.
          </td>
         </tr>
        </table>
@@ -875,17 +904,17 @@ we have two different paths, \(v_{0}v_{1}\) and \(v_{1} \cdots v_{n},\) between 
       </div>
       <div class="paragraph">
        <p>
-        Here is another characterization of trees.
+        Next, we will give another characterization of trees, after first proving a lemma.
        </p>
       </div>
       <div class="sidebarblock">
        <div class="content">
         <div class="title">
-         Theorem
+         Lemma
         </div>
         <div class="paragraph">
          <p>
-          For every positive integer \(n,\) if a tree has \(n\) vertices then the tree has \(n-1\) edges.
+          Suppose that \(G\) is a connected simple graph with \(n\) vertices and \(n-1\) edges, where \(n\) is some postive integer greater than or equal to \(2.\) Then \(G\) must have at least one vertex of degree \(1.\)
          </p>
         </div>
         <div class="openblock proof">
@@ -899,7 +928,55 @@ we have two different paths, \(v_{0}v_{1}\) and \(v_{1} \cdots v_{n},\) between 
         </div>
         <div class="paragraph">
          <p>
-          We use mathematical induction on the number of vertices \(n.\)
+          \(G\) is assumed to be a connected graph, so that every vertex is the endpoint of at least one edge. That is, the degree of every vertex is greater than or equal to \(1.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We now use proof by contradiction to show that there is at least one vertex that has degree equal to \(1.\) To work towards a contradiction, suppose that every vertex has degree greater than \(1,\) that is, the degree of every vertex is greater than or equal to \(2.\) This means that the sum of the degrees of all vertices is greater than or equal to \(2n.\) By the Handshake Lemma, the sum of the degrees of the vertices must be equal to \(2\) times the number of edges, which in this case is \(2(n-1).\) We have obtained a contradiction, since the Handshake Lemma proves that the sum of the degrees of the vertices must be equal to \(2(n-1)\), but the sum of the degrees of the vertices must also be greater than or equal to \(2n.\)
+From this contradiction we can conclude that it is False that the degree of every vertex is greater than or equal to \(2,\) so there must be at least one vertex with degree less that \(2.\) Recalling that
+the degree of every vertex is greater than or equal to \(1\) proves that at least one vertex has degree \(1.\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          Suppose that \(G\) is a connected simple graph with finitely many vertices.
+The following statements are logically equivalent.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            \(G\) is a tree.
+           </p>
+          </li>
+          <li>
+           <p>
+            If \(G\) has \(n\) vertices, where \(n\) is a positive integer, then \(G\) has \(n-1\) edges.
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="openblock proof">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          First, assume \(G\) is a tree with \(n\) vertices. We will use mathematical induction on \(n\) to prove that the number of edges must be \(n-1.\)
          </p>
         </div>
         <div class="paragraph">
@@ -939,7 +1016,7 @@ If a tree has \(2\) vertices, then since a tree is a connected simple graph, the
          <p>
           Assume that \(P(k)\) is True for the positive integer \(k,\) that is, if a tree has \(k\) vertices then the tree has \(k-1\) edges.
 We can assume \(k \geq 2\) since the cases when \(k \in \{ 1, 2 \}\) were proved in the Basis Step. Suppose that we have a tree \(T\) that has \(k+1\) vertices; we will prove that the tree must have \(k\) edges.
-First, there must be at least one vertex \(v\) in \(T\) such that the degree of \(v\) is \(1:\) If every vertex had at least degree \(2,\) then we could find a cycle in \(T\) which cannot be True since \(T\) is a tree.
+First, there must be at least one vertex \(v\) in \(T\) such that the degree of \(v\) is 1: If every vertex had at least degree \(2,\) then we could find a cycle in \(T,\) which cannot be True since \(T\) is a tree.
 Remove one vertex \(v\) that has degree \(1\) along with the edge that has \(v\) as an endpoint to obtain the subgraph \(T-v.\)
 Notice that for every pair of vertices of \(T-v\) there is exactly one path between the vertices, and applying the previous theorem shows that \(T-v\) is a tree. Also, \(T-v\) has \(k\) vertices because we removed only \(v,\) so we can apply the Induction Hypothesis to conclude that \(T-v\) has \(k-1\) edges. Now, reinsert vertex \(v\) and the edge that was removed to obtain the tree \(T\) that has \(k+1\) vertices and \(k\) edges. Therefore, if \(P(k)\) is True then \(P(k+1)\) is True, too. That is, \(P(k) \rightarrow P(k+1)\).
          </p>
@@ -955,6 +1032,53 @@ Notice that for every pair of vertices of \(T-v\) there is exactly one path betw
           </em>
           to conclude that
 for all positive integers \(n,\) if a tree has \(n\) vertices then the tree has \(n-1\) edges.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Secondly, assume that \(G\) is a connected simple graph that has
+a finite number of vertices such that the number of edges is one less than the number of vertices.
+We will use mathematical induction on the number of vertices to prove that \(G\) is a tree.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Let \(P(n)\) be the predicate \[P(n): \text{If } G \text{ is a connected simple graph that has } n \text{ vertices and } n-1 \text{ edges then } G \text{ is a tree.}\] We will prove that the proposition \((\forall n \in \mathbb{N}_{&gt;0})P(n)\) is True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Basis Step:
+          </strong>
+          \(P(1)\) is True since a connected simple graph that has \(1\) vertex and \(0\) edges is a tree.
+          <br/>
+          We can also prove that \(P(2)\) is True in case the proof of \(P(1)\) feels unsatisfying.
+If G is a connected simple graph that has \(2\) vertices and \(1\) edge, then the edge cannot be a loop so must have \(2\) different endpoints. Since there are only \(2\) vertices in \(G\), the edge must have those vertices as its endpoints, so \(G\) consists of a single edge with distinct endpoints. Since there is exactly one path from one of the vertices to the other, the previous theorem can be applied to show that \(G\) is a tree. This proves that \(P(2)\) is True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Induction Step:
+          </strong>
+          First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use
+          <em>
+           modus ponens
+          </em>
+          (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Assume that \(P(k)\) is True for the positive integer \(k,\) that is, if a connected simple graph has \(k\) vertices and \(k-1\) edges then the graph is a tree.
+We can assume \(k \geq 2\) since the cases when \(k \in \{ 1, 2 \}\) were proved in the Basis Step. Suppose that we have a connected simple graph \(G\) that has \(k+1\) vertices and \((k+1)-1\) edges; we will prove that \(G\) is a tree.
+From the lemma proved earlier, we know that at least one of the vertices in \(G\) must have degree exactly equal to \(1;\) let \(v\) be such a vertex. Now consider the graph \(G-v\) obtained by removing \(v\) and the one edge \(e_v\) that has \(v\) as an endpoint: It is a connected simple graph with \(k\) vertices and \(k-1\) edges, so the Induction Hypothesis lets us conclude that \(G-v\) is a tree. In particular, there is exactly one path between any two vertices in \(G-v.\) Now reattach \(v\) and the edge \(e_v\) that has \(v\) as an endpoint. Notice that there is exactly one path between any two vertices in \(G:\) Either the two vertices are in \(G-v\) (so there is exactly one path) or one vertex, \(w,\) is in \(G-v\) and the other vertex is \(v,\) but in this second case there is exactly one path which goes from \(v\) to the other endpoint of the edge \(e_v\) and then continues as a path in \(G-v\) from that other endpoint to the vertex \(w.\)  Since there is only one path between \(w\) and the other endpoint of \(e_v\) in \(G-v,\) this path between \(w\) and \(v\) is the only one possible path in \(G.\) In summary, we have shown that there is exactly one path between any two vertices in \(G,\) and the previous theorem applies to prove that \(G\) is a tree.
          </p>
         </div>
         <div class="paragraph">
@@ -1560,269 +1684,542 @@ are
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_rooted_trees_section_under_construction">
-       15.3. Rooted Trees
-       <mark>
-        SECTION UNDER CONSTRUCTION!
-       </mark>
+      <h3 id="_directed_trees">
+       15.3. Directed Trees
       </h3>
       <div class="paragraph">
        <p>
-        The set of
+        Recall that a tree is defined to be a connected simple graph that contains no cycles.
+The edges of a tree are undirected.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        However, there are applications where it is useful to think of a tree as having directed edges. For that purpose, a
         <strong>
-         rooted trees
+         directed tree
         </strong>
-        is defined recursively as follows.
+        is defined to be a directed graph whose
+        <a href="./graph_theory.html#underlying_graph">
+         underlying graph
+        </a>
+        is a tree.
        </p>
       </div>
-      <div class="hdlist">
-       <table>
-        <tr>
-         <td class="hdlist1">
-          Basis Step
-         </td>
-         <td class="hdlist2">
-          <p>
-           A single vertex
-           <em>
-            r
-           </em>
-           is a rooted tree.
-The vertex
-           <em>
-            r
-           </em>
-           is called the
-           <strong>
-            root node
-           </strong>
-           of this rooted tree.
-          </p>
-         </td>
-        </tr>
-        <tr>
-         <td class="hdlist1">
-          Recursion
-         </td>
-         <td class="hdlist2">
-          <p>
-           Suppose that you have already constructed
-           <em>
-            n
-           </em>
-           rooted trees \(T_{1}, \, \ldots \, T_{n}\) where
-           <em>
-            n
-           </em>
-           is a positive integer and for each positive integer \(i \leq n,\) the root node of \(T_{i}\) is the vertex \(r_{i}.\)
-           <br/>
-           If both of the propositions
-           <br/>
-           (1) No vertex is in more than one of \(T_{1}, \, \ldots \, T_{n}.\)
-           <br/>
-           (2) No edge has endpoints in two of \(T_{1}, \, \ldots \, T_{n}.\)
-           <br/>
-           are True, then you can construct a new rooted tree by first creating a new root node
-           <em>
-            r
-           </em>
-           that is not a vertex of any of the rooted trees \(T_{1}, \, \ldots \, T_{n}\) and then creating
-           <em>
-            n
-           </em>
-           new edges, with one edge between
-           <em>
-            r
-           </em>
-           and each of the old root nodes \(r_{1}, \, \ldots \, r_{n}\) (which are now the root nodes of subtrees.)
-          </p>
-         </td>
-        </tr>
-       </table>
-      </div>
-      <div class="imageblock text-center">
-       <div class="content">
-        <img alt="RootedTreeRecursionV2" height="234" src="imagesMKD/RootedTreeRecursionV2.png" width="590"/>
+      <div class="sect3">
+       <h4 id="_rooted_trees">
+        15.3.1. Rooted Trees
+       </h4>
+       <div class="paragraph">
+        <p>
+         In some applications of directed trees, you can view the directed tree as if all paths “flow away” from a single vertex.
+For these applications, the concept of a
+         <strong>
+          rooted tree
+         </strong>
+         is useful.
+        </p>
        </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        The image shows the basis step and represents, in part, the results of the first and second
-uses of the recursion step.
-Rooted trees are usually drawn so that the root node appears at the top of the tree.
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        Notice that any one particular rooted tree you want to construct requires only finitely many uses of the recursion step.
-However, infinitely-many rooted trees are constructed at each use of the recursion step.
-Also, infinitely-many uses of the recursion step are needed to construct
-        <em>
-         all possible
-        </em>
-        rooted trees.
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        Much, but not all, of the terminology used with rooted trees is borrowed from “family trees.”
-       </p>
-      </div>
-      <div class="ulist">
-       <ul>
-        <li>
-         <p>
-          The new root node \(r\) added in the recursion step is called the
-          <strong>
-           parent
-          </strong>
-          of the old root nodes \(r_{1}, \, \ldots \, r_{n},\)
-and
-each of the old root nodes \(r_{1}, \, \ldots \, r_{n}\) is a
-          <strong>
-           child
-          </strong>
-          of \(r.\) The nodes \(r_{1}, \, \ldots \, r_{n}\) collectively are called the
-          <strong>
-           children
-          </strong>
-          of \(r.\)
-         </p>
-        </li>
-        <li>
-         <p>
-          Two or more vertices with the same parent are called
-          <strong>
-           siblings.
-          </strong>
-         </p>
-        </li>
-        <li>
-         <p>
-          A node that has no children is called a
-          <strong>
-           leaf.
-          </strong>
-         </p>
-        </li>
-        <li>
-         <p>
-          A node that has one or more children is called an
-          <strong>
-           internal node.
-          </strong>
-         </p>
-        </li>
-        <li>
-         <p>
-          The
-          <strong>
-           depth
-          </strong>
-          of node \(v\) in a rooted tree is the length of the shortest path from the root node \(r\) to the node \(v.\) This is also called the
-          <strong>
-           level
-          </strong>
-          of the node $v.*
-          <br/>
-          <span class="small">
-           We will prove later in this chapter that there is exactly one path between \(r\) and \(v.\)
-          </span>
-         </p>
-        </li>
-        <li>
-         <p>
-          A
-          <strong>
-           level
-          </strong>
-          of a rooted tree is the set of all nodes at the same depth. For example, level 1 is the set of all the child nodes of the root node. Level 0 is the set containing only the root node.
-         </p>
-        </li>
-        <li>
-         <p>
-          The
-          <strong>
-           height
-          </strong>
-          of a rooted tree is the maximum of the depths of all the nodes in the rooted tree.
-         </p>
-        </li>
-       </ul>
-      </div>
-      <div class="paragraph">
-       <p>
-        As mentioned earlier,
-rooted trees are usually drawn with the root node at the top of the tree,
-so each edge can be viewed as “pointing away” from the root node, from a parent node down into a child node’s subtree.
-        <br/>
-        <span class="small">
-         Note: In fact, many sources define rooted trees to be
-         <em>
-          directed graphs
-         </em>
-         by using directed edges in the recursion step, replacing the phrase “with one edge between
-         <em>
-          r
-         </em>
-         and each of the old root nodes” by the phrase “with one directed edge from
-         <em>
-          r
-         </em>
-         to each of the old root nodes” so that each of the \(n\) new edges is a directed edge with the new root node \(r\) as its initial vertex and one of the old root nodes \(r_{i}\) as its terminal vertex. However, even if the rooted tree is defined using directed edges, the rooted tree is usually drawn as if the edges are undirected, since drawing the root at the top of tree makes it clear which way the edges should be directed.
-Each rooted tree as defined in this textbook corresponds to
-         <a href="./graph_theory.html#underlying_graph">
-          the underlying graph
-         </a>
-         of a directed-edge rooted tree.
-        </span>
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        The next lemma shows that the set of rooted trees is essentially the same as the set of trees that have a finite number of vertices.
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="olist arabic">
-         <div class="title">
-          Lemma
-         </div>
-         <ol class="arabic">
-          <li>
+       <div class="paragraph">
+        <p>
+         The set of
+         <strong>
+          rooted trees
+         </strong>
+         can be defined recursively as follows.
+        </p>
+       </div>
+       <div class="hdlist">
+        <table>
+         <tr>
+          <td class="hdlist1">
+           Basis Step
+          </td>
+          <td class="hdlist2">
            <p>
-            If \(G\) is a rooted tree, then \(G\) is a tree that has finitely many vertices.
+            A single vertex
+            <em>
+             r
+            </em>
+            is a rooted tree.
+The vertex
+            <em>
+             r
+            </em>
+            is called the
+            <strong>
+             root node
+            </strong>
+            of this rooted tree.
            </p>
-          </li>
-          <li>
+          </td>
+         </tr>
+         <tr>
+          <td class="hdlist1">
+           Recursion
+          </td>
+          <td class="hdlist2">
            <p>
-            If \(G\) is a tree that has finitely many vertices, then \(G\) can be constructed as a rooted tree.
+            Suppose that you have a nonempty finite set of already-constructed rooted trees
+(which will be called “old rooted trees” below)
+such that the following propositions are True:
+            <br/>
+            (1) No vertex appears in more than one of the old rooted trees.
+            <br/>
+            (2) No edge has its two endpoints in two different old rooted trees.
+            <br/>
+            You can construct a new rooted tree by first creating a new root node
+            <em>
+             r
+            </em>
+            that is not a vertex of any of the old rooted trees, and then, for each of the old root nodes, creating a new directed edge from
+            <em>
+             r
+            </em>
+            to that old root node.
+That is, each new directed edge has initial vertex
+            <em>
+             r
+            </em>
+            and terminal vertex the root node of one of the old rooted trees.
            </p>
-          </li>
-         </ol>
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="imageblock text-center">
+        <div class="content">
+         <img alt="RootedTreeRecursionV2" height="234" src="imagesMKD/RootedTreeRecursionV2.png" width="590"/>
         </div>
-        <div class="openblock click">
-         <div class="title">
-          Proof outline
+       </div>
+       <div class="paragraph">
+        <p>
+         The image shows the basis step and represents, in part, the results of the first and second
+uses of the recursion step.
+In the image, the new root node created at each step is drawn at the top of the rooted tree.
+        </p>
+       </div>
+       <div class="admonitionblock important">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-important" title="Important">
+           </i>
+          </td>
+          <td class="content">
+           <mark>
+            Notice that the directed edges of rooted trees are drawn without arrows!
+           </mark>
+           Computer scientists usually follow this convention: A rooted tree is drawn with the root node at the top, with all the old root nodes of the previously-constructed rooted trees attached in the Recursion step drawn
+at the same horizontal level beneath the root node. This convention, along with the recursive definition, ensures that the direction of each directed edge is “down,” so an arrow is not needed to determine the direction of edge.
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="paragraph">
+        <p>
+         Notice that if you want to construct just one particular rooted tree, you only need to use the Recursion step finitely-many times.
+However, at each use of the Recursion step, there is an infinite number of possible rooted trees that can be constructed.
+Also, to construct
+         <em>
+          all possible
+         </em>
+         rooted trees would require infinitely-many uses of the Recursion step.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Some of the terminology used with rooted trees is borrowed from “family trees,” and other terminology is borrowed from
+plant science.
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           The new root node \(r\) added in the Recursion step is called the
+           <strong>
+            parent
+           </strong>
+           of each of the old root nodes,
+and each of the old root nodes is called a
+           <strong>
+            child
+           </strong>
+           of \(r.\) The old root nodes collectively are called the
+           <strong>
+            children
+           </strong>
+           of \(r.\)
+          </p>
+         </li>
+         <li>
+          <p>
+           Two or more nodes with the same parent are called
+           <strong>
+            siblings.
+           </strong>
+          </p>
+         </li>
+         <li>
+          <p>
+           A node that has one or more children is called an
+           <strong>
+            internal node.
+           </strong>
+          </p>
+         </li>
+         <li>
+          <p>
+           A node that has no children is called a
+           <strong>
+            leaf.
+           </strong>
+           A leaf can also be called an
+           <strong>
+            external node.
+           </strong>
+          </p>
+         </li>
+         <li>
+          <p>
+           The
+           <strong>
+            depth
+           </strong>
+           of node \(v\) in a rooted tree is the length of the shortest path from the root node \(r\) to the node \(v.\) This is also called the
+           <strong>
+            level
+           </strong>
+           of the node \(v.\)
+           <br/>
+          </p>
+         </li>
+         <li>
+          <p>
+           A
+           <strong>
+            level
+           </strong>
+           of a rooted tree is the set of all nodes at the same depth. For example, level 1 is the set of all the child nodes of the root node. Level 0 is the set containing only the root node.
+          </p>
+         </li>
+         <li>
+          <p>
+           The
+           <strong>
+            height
+           </strong>
+           of a rooted tree is the maximum of the depths of all the nodes in the rooted tree.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         The next lemma shows that you can construct any rooted tree without using recursion by instead starting with a tree then replacing all the undirected edges by appropriately directed edges.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="olist arabic">
+          <div class="title">
+           Lemma
+          </div>
+          <ol class="arabic">
+           <li>
+            <p>
+             If \(T\) is a rooted tree, then its underlying graph \(G\) is a tree that has finitely many vertices.
+            </p>
+           </li>
+           <li>
+            <p>
+             If \(G\) is a tree that has finitely many vertices, then \(G\) is the underlying graph of a rooted tree \(T.\)
+            </p>
+           </li>
+          </ol>
          </div>
-         <div class="content">
-          <div class="click_oblique">
-           First, suppose that \(G\) is a rooted tree.
-Use strong induction on the number of recursion steps needed to construct the rooted tree to prove that \(G\) must be a simple graph such that for each pair of vertices, there is exactly one path between the vertices.
-In more detail, there is only one path between two vertices of a rooted tree that was constructed using the recursion step only one time: All paths must pass through the root node. For the induction step, any path of a rooted tree constructed using the recursion step \(k+1\) times will either pass through the new root node or one of the subtree’s root node (and the induction hypothesis applies to each of the subtrees since they were constructed using fewer than \(k+1\) applications of the recursion step.)
+         <div class="openblock click">
+          <div class="title">
+           Proof outline
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            First, suppose that \(T\) is a rooted tree.
+Use strong induction on the number of recursion steps needed to construct the rooted tree to prove that the underlying graph \(G\) must be a simple graph such that for each pair of vertices, there is exactly one path between the vertices.
+In more detail, for a rooted tree that was constructed using the recursion step only one time, there is only one path between two vertices of the underlying graph: All paths must pass through the root node. For the induction step, any path in the underlying graph of a rooted tree constructed using the recursion step \(k+1\) times will either pass through the new root node or one of the subtree’s root nodes (and the induction hypothesis applies to each underlying graph of the subtrees since they were constructed using fewer than \(k+1\) applications of the recursion step.)
 Now use the theorem from the first section of the chapter to conclude that \(G\) must be a tree, that is, \(G\) must be a connected simple graph with no cycles.
 That \(G\) must have finitely many vertices follows from the recursive definition of “rooted tree” since at most finitely many vertices are introduced each time the recursion step is used.
-           <br/>
-           <br/>
-           Secondly, suppose that \(G\) is a tree
+            <br/>
+            <br/>
+            Secondly, suppose that \(G\) is a tree
 that has finitely many vertices.
-Use strong induction on the number of vertices to prove that \(G\) can be constructed as a rooted tree (with undirected edges.)
-In more detail, choose any vertex \(r\) of \(G\) to be the root node, then remove \(r\) and any edges incident to \(r\) to create a forest of subtrees \(T_{1}, \, \ldots \, T_{n}\) where \(n\) is the number of trees in the forest.
-Since each of the subtrees is either a single vertex (which is the basis case for rooted trees) or a tree that contains fewer vertices than \(G,\) we can apply the induction hypothesis to each of the subtrees to show that the subtree can be constructed as a rooted tree. Now apply the recursion step in the definition of rooted trees to reconnect the root nodes of \(T_{1}, \, \ldots \, T_{n}\) to \(r\) using the edges that had been removed. This shows that \(G\) can be constructed as a rooted tree.
-It is important to note that, if the direction of the edges matters, you will get a different rooted tree if you choose a different root node (that is, the implied directions of edges will be different even though the underlying undirected graphs will be isomorphic copies of \(G.\))
+Use strong induction on the number of vertices to prove that a rooted tree \(T\) can be constructed so that \(G\) is the underlying graph of \(T.\)
+In more detail, choose any vertex \(r\) of \(G,\) which will become the root node of our rooted tree, then remove \(r\) and any edges incident to \(r\) to create a forest of subtrees \(G_{1}, \, \ldots \, G_{n}\) where \(n\) is the number of trees in the forest.
+Since each of the subtrees is either a single vertex (which is the basis case for the recursive definition of rooted trees) or a tree that contains fewer vertices than \(G,\) we can apply the induction hypothesis to each of the subtrees to show that each subtree \(G_{i}\) is the underlying graph of a rooted tree \(T_{i}.\) Now apply the recursion step in the definition of rooted trees to reconnect the root nodes of the rooted trees \(T_{1}, \, \ldots \, T_{n}\) to \(r,\) replacing the undirected edges that had been removed by directed edges from \(r\) to each of the root nodes of rooted trees \(T_{1}, \, \ldots \, T_{n}.\) This shows that \(G\) is the underlying graph of a rooted tree.
+// MKD Aug 15 2025
+//It is important to note that, if the direction of the edges matters, you will get a different rooted tree if you choose a different root node (that is, the implied directions of edges will be different even though the underlying undirected graphs will be isomorphic copies of the undirected tree \(G.\))
+It is important to note that you will get a different rooted tree if you choose a different root node \(r\) since the directed edges will “flow away” from the root node (That is, the directions of the edges will be different for different choices of root node, but the underlying undirected graph will be the same.)
+           </div>
           </div>
          </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         In summary, the lemma tells you that every rooted tree can be thought of as an adaptation of a tree, where you first select a vertex to be the root node and then replace all the edges of the tree by directed edges that “flow away” from the root node.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_ordered_trees">
+        15.3.2. Ordered Trees
+       </h4>
+       <div class="paragraph">
+        <p>
+         Notice that in the Recursion step of the definition of rooted tree, the new root node is connected to each of the old root nodes,
+but since the subtrees' roots are members of a set,
+the order in which the new root node is connected to the old root nodes is not important.
+However, in some applications of rooted trees, it
+         <em>
+          is
+         </em>
+         important to note the order in which the new root node is connected to the old root nodes.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         For example, in a family tree, you may want to represent a person by the root node of the tree, then represent their offspring by birth order as the child nodes. In this case, the order of the children matters.
+To do this, you can
+list the old subtrees as the sequence \(T_{1}, \, \ldots \, T_{n}\) and list the old root nodes as the sequence \(r_{1}, \, \ldots \, r_{n},\) where \(n\) is the number of old subtrees used in the Recursion step.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In this subsection, a recursive definition for
+         <strong>
+          ordered trees
+         </strong>
+         is presented. This recursive definition takes the order of the indices of the old ordered trees into account when constructing the new ordered tree.
+         <br/>
+         <span class="small">
+          Warning: Many other names for ordered trees appear in various sources, such as
+          <strong>
+           ordered rooted tree,
+          </strong>
+          <strong>
+           rooted plane tree,
+          </strong>
+          <strong>
+           RP-tree,
+          </strong>
+          and
+          <strong>
+           decision tree.
+          </strong>
+          In fact, some sources even define “rooted tree” to mean what this textbook calls and “ordered tree.”
+         </span>
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The set of
+         <strong>
+          ordered trees
+         </strong>
+         is defined recursively as follows.
+        </p>
+       </div>
+       <div class="hdlist">
+        <table>
+         <tr>
+          <td class="hdlist1">
+           Basis Step
+          </td>
+          <td class="hdlist2">
+           <p>
+            A single vertex
+            <em>
+             r
+            </em>
+            is an ordered tree.
+Vertex
+            <em>
+             r
+            </em>
+            is the
+            <strong>
+             root node
+            </strong>
+            of this ordered tree.
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="hdlist1">
+           Recursion
+          </td>
+          <td class="hdlist2">
+           <p>
+            Suppose that you have already constructed the ordered trees in the sequence \(T_{1}, \, \ldots \, T_{n}\) where \(n\) is a positive integer and for each positive integer \(i \leq n,\) the root node of \(T_{i}\) is the vertex \(r_{i}.\)
+            <br/>
+            If both of the propositions
+            <br/>
+            (1) No vertex is in more than one of \(T_{1}, \, \ldots \, T_{n}.\)
+            <br/>
+            (2) No edge has endpoints in two of \(T_{1}, \, \ldots \, T_{n}.\)
+            <br/>
+            are True, then you can construct a new ordered tree by first creating a new root node
+            <em>
+             r
+            </em>
+            that is not a vertex of any of the ordered trees
+in the sequence  \(T_{1}, \, \ldots \, T_{n}\) and then creating \(n\) new directed edges, with one directed edge from \(r\) to each of the old root nodes in the sequence \(r_{1}, \, \ldots \, r_{n},\) in that order. The ordering of the children of the new root node \(r\)
+corresponds to the increasing order of
+the subscripts of the old root nodes (which also allows you to use the same ordering for the old ordered trees.)
+           </p>
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="paragraph">
+        <p>
+         Ordered trees are usually drawn so that the root node appears at the top of the tree, and for each internal node, the children are drawn in order from left to right.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In summary, an ordered tree can be thought of as a special kind of rooted tree where the children of each internal node are ordered.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_isomorphisms_rooted_trees_and_ordered_trees">
+        15.3.3. Isomorphisms: Rooted Trees and Ordered Trees
+       </h4>
+       <div class="paragraph">
+        <p>
+         As discussed in the Graphs chapter, the definition of isomorphism
+         <a href="./graph_theory.html#isomorphisms_that_preserve_attributes">
+          can be adapted
+         </a>
+         to include one-to-one correspondences between the vertex sets of two graphs that preserve specific features of a graph in addition to the adjacency relationships between vertices.
+Examples of such features are edge weights, edge directions, vertex colors, or edge colors.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In this subsection, examples are presented to show how the definition of isomorphism can be adapted for rooted trees and ordered trees.
+        </p>
+       </div>
+       <div class="sect4">
+        <h5 id="_nonisomorphic_rooted_trees_with_isomorphic_underlying_graphs">
+         Nonisomorphic Rooted Trees with Isomorphic Underlying Graphs
+        </h5>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="NonisomorphicRootedTrees" height="144" src="imagesMKD/NonisomorphicRootedTrees.png" width="324"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Here is a question for you: In the image, do the two drawings represent graphs or rooted trees?
+It’s okay if you are not sure how to answer this question. Since rooted trees are usually drawn with edges that do not use arrows to indicate the direction, the drawings are ambiguous, and you would probably need more context to decide whether the drawings represent two undirected graphs or two rooted trees.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that the interpretation also effects whether the two drawings represent isomorphic objects.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Suppose that the drawings are interpreted as undirected graphs. These are isomorphic as
+            <em>
+             undirected graphs,
+            </em>
+            and also isomorphic as
+            <em>
+             trees,
+            </em>
+            since
+redrawing
+the graph
+on the left as the one on the right
+does not change the adjacency relationships of the vertices.
+           </p>
+          </li>
+          <li>
+           <p>
+            Suppose that the drawings are interpreted as rooted trees. The adjacency relationships are the same, but the direction of the edge with endpoints \(A\) and \(B\) depends on whether \(A\) or \(B\) is chosen as the root node. The
+            <em>
+             underlying graphs
+            </em>
+            with undirected edges are isomorphic, but the
+            <em>
+             rooted trees
+            </em>
+            are not isomorphic.
+           </p>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="sect4">
+        <h5 id="_nonisomorphic_ordered_trees_that_are_isomorphic_rooted_trees">
+         Nonisomorphic Ordered Trees that are Isomorphic Rooted Trees
+        </h5>
+        <div class="imageblock text-center">
+         <div class="content">
+          <img alt="NonisomorphismcOrderedTrees" height="145" src="imagesMKD/NonisomorphismcOrderedTrees.png" width="320"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          In the image, two rooted trees are shown. The two rooted trees are isomorphic as
+          <em>
+           rooted trees
+          </em>
+          since the order of the children of the root node does not matter. However, these two rooted trees are not isomorphic as
+          <em>
+           ordered trees
+          </em>
+          since the corresponding children are not in the same order in each rooted tree.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          It may be helpful to think of each of the two ordered trees as “telling a story” about a family.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            On the left, a parent has three children, and the oldest child has three children, the middle child has no children, and the youngest child has one child.
+           </p>
+          </li>
+          <li>
+           <p>
+            On the right, a parent has three children, and the oldest child has no children, the middle child has three children, and the youngest child has one child.
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          In general, ordered trees are isomorphic if and only if they tell the same story about the families, so these two are not isomorphic as
+          <em>
+           ordered trees.
+          </em>
+          On the other hand, they are isomorphic as
+          <em>
+           rooted trees
+          </em>
+          because they tell the same story when the birth order of the children at level 1 is ignored: A parent has three children, of whom one has three children, another one has one child, and yet another one has no children.
+         </p>
         </div>
        </div>
       </div>
@@ -1840,7 +2237,13 @@ It is important to note that, if the direction of the edges matters, you will ge
         <strong>
          m-ary tree
         </strong>
-        is defined to be a rooted tree in which each internal node has at most \(m\) children.
+        is defined to be
+an ordered tree
+in which each internal node has at most \(m\) children.
+        <br/>
+        <span class="small">
+         Note: Some sources define m-ary tree to be a rooted tree instead of an ordered tree.
+        </span>
        </p>
       </div>
       <div class="paragraph">
@@ -1849,7 +2252,7 @@ It is important to note that, if the direction of the edges matters, you will ge
         <strong>
          binary tree
         </strong>
-        is a 2-ary tree, or more simply, a rooted tree in which each internal node has at most two children. In a binary tree, the root node is the parent of at most two subtrees \(T_{1},\) called the
+        is a 2-ary tree, or more simply, an ordered tree in which each internal node has at most two children. In a binary tree, the root node is the parent of at most two subtrees \(T_{1},\) called the
         <strong>
          left subtree,
         </strong>
@@ -1857,10 +2260,10 @@ It is important to note that, if the direction of the edges matters, you will ge
         <strong>
          right subtree.
         </strong>
-        Notice that it is allowable for either subtree to be absent (that is, empty).
+        Notice that in the context of binary trees, it is allowable for either or both of the subtrees to be absent (that is, empty).
         <br/>
         <span class="small">
-         Note: Some sources allow for a binary tree to have no vertices or edges. Mathematically speaking, this “empty binary tree” is not a rooted tree since it has no root node. In computer science, an empty binary tree is useful for implementing binary trees as data structures since an empty binary subtree can be represented by a null pointer. As an example, a leaf node can be recognized as one whose left child and right child pointers are both null vectors.
+         Note: Some sources allow for a binary tree to have no vertices or edges. This “empty binary tree” is not an ordered tree since it has no root node. In computer science, an empty binary tree is useful for implementing binary trees as data structures since an empty binary subtree can be represented by a null pointer (or null reference.) As an example, a leaf node can be recognized as one whose left child and right child pointers/references are both null.
         </span>
        </p>
       </div>
@@ -1873,23 +2276,11 @@ It is important to note that, if the direction of the edges matters, you will ge
        <ul>
         <li>
          <p>
-          A binary tree is a
-          <strong>
-           full binary tree
-          </strong>
-          if
-all internal nodes have exactly two children.
-         </p>
-        </li>
-        <li>
-         <p>
-          A binary tree is a
+          A
           <strong>
            complete binary tree
           </strong>
-          if
-is one where every level, except possibly the last, is filled and
-all nodes in the last level are as far left as possible.
+          is a binary tree in which every internal node has exactly 2 children and all leaves are at the same level.
           <br/>
           <span class="small">
            Note that a complete binary tree is not a complete graph. Mathematicians and computer scientists recycle certain words like “complete.”
@@ -1897,6 +2288,25 @@ all nodes in the last level are as far left as possible.
          </p>
         </li>
        </ul>
+      </div>
+      <div class="sect3">
+       <h4 id="_isomorphisms_binary_trees">
+        15.4.1. Isomorphisms: Binary Trees
+       </h4>
+       <div class="imageblock text-center">
+        <div class="content">
+         <img alt="NonisomorphicBinaryTrees" height="93" src="imagesMKD/NonisomorphicBinaryTrees.png" width="309"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         In the image, two binary trees are shown. As binary trees are ordered trees, it should be clear that these cannot be isomorphic as
+         <em>
+          binary trees
+         </em>
+         because the order of the left and right children of the root node in the two trees are different.
+        </p>
+       </div>
       </div>
      </div>
      <div class="sect2">

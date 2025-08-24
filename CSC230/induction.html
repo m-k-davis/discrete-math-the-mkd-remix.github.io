@@ -1,0 +1,2565 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Asciidoctor 1.5.8" name="generator"/>
+  <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
+  <title>
+   Discrete Math - The MKD Remix (CSC230 Version)
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
+  <style>
+   /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Uncomment @import statement below to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock pre.nowrap,.literalblock pre.nowrap pre,.listingblock pre.nowrap,.listingblock pre.nowrap pre{white-space:pre;word-wrap:normal}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #dddddf}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd){background:#f8f8f7}
+table.stripes-none tr,table.stripes-odd tr:nth-of-type(even){background:none}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <style>
+   .click .title { color: blue; }
+  .click {margin-top: 0.5em; margin-bottom: 0.5em;}
+  .openblock { margin-top: 1em; margin-bottom: 1em; }
+  .openblock>.box>.content { margin-top:1em;margin-bottom: 1em;margin-left:3em;margin-right:4em; }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript">
+  </script>
+  <script>
+   var ready2;
+
+ready2 = function() {
+
+    $(document).ready(function(){
+
+        $('.openblock.click').click( function()  { $(this).find('.content').slideToggle('200'); } )
+        $('.openblock.click').find('.content').hide()
+
+
+        $('.listingblock.click').click( function()  { $(this).find('.content').slideToggle('200') }  )
+        $('.listingblock.click').find('.content').hide()
+
+    });
+
+}
+
+
+
+
+$(document).ready(ready2);
+$(document).on('page:load', ready2);
+  </script>
+ </head>
+ <body class="book toc2 toc-left">
+  <div id="header">
+   <h1>
+    Discrete Math - The MKD Remix (CSC230 Version)
+   </h1>
+   <div class="details">
+    <span class="author" id="author">
+     A Work In Progress by Mark Kelly Davis
+    </span>
+    <br/>
+   </div>
+   <div class="toc2" id="toc">
+    <div id="toctitle">
+     Table of Contents
+    </div>
+    <ul class="sectlevel1">
+     <li>
+      <a href="index.html#_about_this_text">
+       About this text
+      </a>
+     </li>
+     <li>
+      <a href="introduction_discrete_math.html#_introducing_discrete_mathematics">
+       1. Introducing Discrete Mathematics
+      </a>
+     </li>
+     <li>
+      <a href="counting_arithmetic.html#_counting_arithmetic_techniques">
+       2. Counting: Arithmetic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="set_theory.html#_set_theory">
+       3. Set Theory
+      </a>
+     </li>
+     <li>
+      <a href="logic.html#_logic">
+       4. Logic
+      </a>
+     </li>
+     <li>
+      <a href="proofs.html#_proofs_basic_techniques">
+       5. Proofs: Basic Techniques
+      </a>
+     </li>
+     <li>
+      <a href="number_bases.html#_number_bases">
+       6. Number Bases
+      </a>
+     </li>
+     <li>
+      <a href="recursion.html#_sequences_and_recursion">
+       7. Sequences and Recursion
+      </a>
+     </li>
+     <li>
+      <a href="functions.html#_functions">
+       8. Functions
+      </a>
+     </li>
+     <li>
+      <a href="relations.html#_relations">
+       9. Relations
+      </a>
+     </li>
+     <li>
+      <a href="counting_binomial.html#_counting_permutations_and_combinations">
+       10. Counting: Permutations and Combinations
+      </a>
+     </li>
+     <li>
+      <a href="induction.html#_proofs_mathematical_induction">
+       11. Proofs: Mathematical Induction
+      </a>
+     </li>
+     <li>
+      <a href="growth_of_functions.html#_rates_of_growth_of_functions">
+       12. Rates of Growth of Functions
+      </a>
+     </li>
+     <li>
+      <a href="algorithms.html#_algorithms_and_their_analysis">
+       13. Algorithms and Their Analysis
+      </a>
+     </li>
+     <li>
+      <a href="graph_theory.html#_graphs">
+       14. Graphs
+      </a>
+     </li>
+     <li>
+      <a href="trees.html#_trees">
+       15. Trees
+      </a>
+     </li>
+     <li>
+      <a href="appendix_math.html#_appendix_on_demand_math_resources">
+       16. Appendix: On-Demand Math Resources
+      </a>
+     </li>
+     <li>
+      <a href="appendix_library.html#_appendix_library_of_functions">
+       17. Appendix: Library of Functions
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pyintro.html#_appendix_an_introduction_to_python">
+       18. Appendix: An Introduction to Python
+      </a>
+     </li>
+     <li>
+      <a href="appendix_pysyntax.html#_appendix_python_syntax_examples">
+       19. Appendix: Python Syntax Examples
+      </a>
+     </li>
+     <li>
+      <a href="appendix_for_instructors.html#_appendix_for_instructors">
+       20. Appendix: For Instructors
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div id="content">
+   <div id="preamble">
+    <div class="sectionbody">
+     <div class="openblock float-group">
+      <div class="content">
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="sect1">
+    <h2 id="_proofs_mathematical_induction">
+     11. Proofs: Mathematical Induction
+    </h2>
+    <div class="sectionbody">
+     <div class="paragraph">
+      <p>
+       <mark>
+        <strong>
+         CAUTION
+        </strong>
+        - CHAPTER UNDER CONSTRUCTION!
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for
+        <a href="../index.html">
+         the “public version”
+        </a>
+        of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       <em>
+        This chapter was last updated on August 23, 2025.
+       </em>
+       <br/>
+       <em>
+        added note about the Principle of Mathematical Induction and the Well-Ordering Principle
+       </em>
+       <br/>
+       <em>
+        removed references to universal generalization throughout.
+       </em>
+       <br/>
+       <em>
+        restructured discussion of proof by induction and the Principle of Mathematical Induction
+       </em>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       In this chapter, you will learn how to use the
+       <strong>
+        mathematical induction
+       </strong>
+       proof technique to create a single proof of
+       <em>
+        infinitely many
+       </em>
+       different but related propositions.
+This proof technique will also be used to validate algorithms.
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
+       Key terms and concepts covered in this chapter:
+      </p>
+     </div>
+     <div class="ulist">
+      <ul>
+       <li>
+        <p>
+         Mathematical induction
+        </p>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            Weak and strong induction (i.e., First and Second Principle of Induction)
+           </p>
+          </li>
+          <li>
+           <p>
+            examples of mathematical induction
+           </p>
+          </li>
+         </ul>
+        </div>
+       </li>
+       <li>
+        <p>
+         Well-ordering and Induction
+        </p>
+       </li>
+       <li>
+        <p>
+         Structural induction
+        </p>
+       </li>
+      </ul>
+     </div>
+     <div class="sect2">
+      <h3 id="_why_is_mathematical_induction_needed">
+       11.1. Why Is Mathematical Induction Needed?
+      </h3>
+      <div class="paragraph">
+       <p>
+        We often encounter an infinite sequence of related propositions, all of which appear to be True. To prove all of the propositions, we might try to write a proof for each individual proposition and then combine all those proofs together as a single infinitely-long “proof”… but recall from the chapter on
+        <a href="./proofs.html">
+         Proofs: Basic Techniques
+        </a>
+        that a proof
+consists of a
+        <em>
+         finite
+        </em>
+        sequence of propositions of
+        <em>
+         finite
+        </em>
+        length.
+As an analogy, imagine you had an “algorithm” that required infinitely-many steps to complete its task… such an algorithm would not be useful in the real world since it
+might
+never complete the task!
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        The next example introduces the ideas we will use to prove an infinite sequence of related propositions.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 1 - Why Use Mathematical Induction?
+         </div>
+         <p>
+          Let’s examine a conjecture about a certain type of
+          <a href="https://en.wikipedia.org/wiki/Figurate_number">
+           polygonal number,
+          </a>
+          namely, square numbers.
+         </p>
+        </div>
+        <div class="imageblock right text-center">
+         <div class="content">
+          <img alt="Square as sum of gnomons" height="111" src="imagesMKD/16_as_sum_of_gnomons_v3.png" width="124"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Consider the image that shows 16 colored disks arranged as a square.
+By starting at the lower left corner of the square and grouping disks of the same color, we can count the total number of disks in the figure as follows.
+\begin{equation}
+\begin{aligned}
+1 {} &amp; = 1^{2} \\
+1 + 3 {} &amp; = 4 = 2^{2} \\
+1 + 3 + 5 {} &amp; = 9 = 3^{2} \\
+1 + 3 + 5 + 7 {} &amp; = 16 = 4^{2} \\
+\end{aligned}
+\end{equation}
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that the sum of the odd integers on the left-hand side of each equation is equal to the square of the
+          <em>
+           number
+          </em>
+          of odd integers on the left-hand side of the equation. This means that the predicate \[P(n)\text{: "The sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] is a True statement for the natural numbers \(n \in \{ 1, 2, 3, 4 \},\) that is, each of the following four propositions is True:
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            \(P(1)\): "The sum of the first \(1\) positive odd integers is equal to \(1^{2}\)." (I know this is not proper English, but please bear with me!)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(P(2)\): "The sum of the first \(2\) positive odd integers is equal to \(2^{2}\)."
+           </p>
+          </li>
+          <li>
+           <p>
+            \(P(3)\): "The sum of the first \(3\) positive odd integers is equal to \(3^{2}\)."
+           </p>
+          </li>
+          <li>
+           <p>
+            \(P(4)\): "The sum of the first \(4\) positive odd integers is equal to \(4^{2}\)."
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          In the following code snippet, function \(P\) implements the predicate used in this example.
+Recall that the predicate’s output is a
+          <em>
+           proposition
+          </em>
+          - the output is just a string of symbols and does not indicate whether the proposition is True or False.
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0Afor%20n%20in%20%5B1,2,3,4%5D%3A%0A%20%20%20%20print%28P%28n%29%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20P%28n%29%3A%0A%20%20%20%20return%20%22The%20sum%20of%20the%20first%20%22%20%2B%20str%28n%29%20%2B%20%22%20positive%20odd%20integers%20is%20equal%20to%20%22%20%2B%20str%28n*n%29%20%2B%20%22.%22%0Afor%20n%20in%20%5B1,2,3,4%5D%3A%0A%20%20%20%20print%28P%28n%29%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="imageblock right text-center">
+         <div class="content">
+          <img alt="Square as sum of gnomons" height="151" src="imagesMKD/25_as_sum_of_gnomons_v3.png" width="166"/>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Next, consider this second image, which shows how you could change the first image to one that can be used to prove that \(P(5)\) is True.
+          <br/>
+          <span class="small">
+           It’s easy to show that the proposition \(P(5)\) is True because you can just write out and verify that \(1 + 3 + 5 + 7 + 9 = 25 = 5^{2}.\) The goal here is to relate the truth value of the proposition \(P(5)\) to the truth value of the “preceding proposition” \(P(4),\) in a way similar to how the numerical value of a term of a sequence can be related to the numerical value of the “preceding term” of the sequence using a
+           <a href="./recursion.html">
+            recurrence relation.
+           </a>
+          </span>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that the second image shows that, given the square arrangement of disks that has 4 disks along each side, we can construct a square arrangement that has 5 disks along each side by inserting 4 new disks above the top row, 4 new disks in a column to the right of the rightmost column, and 1 new disk in the upper right corner to complete the square arrangement.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In fact, there is nothing special about the number 4 in the previous paragraph: If \(k\) is
+          <em>
+           any positive natural number
+          </em>
+          and we have a \(k \times k\) square arrangement of disks, we can enlarge it to a \((k+1) \times (k+1)\) square arrangement of disks by inserting \(k\) disks above, \(k\) disks to the right, and \(1\) disk in the upper right corner of the \(k \times k\) square to complete the \((k+1) \times (k+1)\) square. Algebraically, we can account for the total number of disks in the \((k+1) \times (k+1)\) square by writing \[ k^{2} + k + k + 1 = (k+1)^{2} \] which is True for any natural number \(k\) (Just simplify the left-hand side and expand the right-hand side of the equation to see that the equation must be True.)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Based on this second image, we can make a conjecture that \(P(n)\) must be True for every positive natural number \(n.\) We now need to
+          <span class="underline">
+           prove
+          </span>
+          this conjecture.
+          <br/>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that if we combine the propositions
+         </p>
+        </div>
+        <div class="olist arabic">
+         <ol class="arabic">
+          <li>
+           <p>
+            \(P(1)\) and \(P(2)\) and \(P(3)\) and \(P(4)\)
+           </p>
+          </li>
+          <li>
+           <p>
+            For all \(k \in \mathbb{N},\) \(P(k)\) implies \(P(k+1).\)
+           </p>
+          </li>
+         </ol>
+        </div>
+        <div class="paragraph">
+         <p>
+          then we can
+build a proof for all the integers up to and including any value of \(n \in \mathbb{N}\) that we want.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For example, to prove \(P(1,\!000,\!000),\) we could start by asserting that \(P(1)\) is True, then apply the conditional \(P(k) \rightarrow P(k+1)\) along with the rule of inference
+          <em>
+           modus ponens
+          </em>
+          \(999,\!999\) times to prove that \(P(1,\!000,\!000)\) is True. This proof
+          <em>
+           is
+          </em>
+          finite - I never claimed that the proof would be short!
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          As an analogy,
+think
+of repeatedly applying
+          <em>
+           modus ponens
+          </em>
+          to the conditional as using a loop in code. We are just repeating the same argument \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\) over and over again as the value of the variable \(k\) is incremented by 1 at the end of each
+loop
+iteration until we reach the value
+that we want to stop at.
+In the following code snippet, the user-defined function
+          <code>
+           addTheOdds
+          </code>
+          implements the computations used in this example’s argument. Notice how the Basis Step corresponds to validating the loop initialization and how the Induction Step corresponds to validating the output at the end of each loop iteration (assuming that the values were correct at the start of that loop iteration.) You can change the value of \(n\) in the code to confirm the truth value of \(P(n)\) for any integer you’d like, assuming you have enough time and computing resources.
+         </p>
+        </div>
+        <iframe frameborder="5" height="650" src="https://pythontutor.com/iframe-embed.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20False%0A%20%20%20%20%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%20first,%20increment%20k%20second%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0Adef%20truth_value_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29%29%0A%23print%28P%28n%29,%22is%20a%22,truth_value_of_P%28n%29,%22proposition.%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=650" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20addTheOdds%28n%29%3A%0A%20%20%20%20print_validations%20%3D%20False%0A%20%20%20%20%20%20%20%20%23%20Initialization%3A%20BASIS%20STEP%0A%20%20%20%20k,%20sum%20%3D%201,%201%0A%20%20%20%20%20%20%20%20%23%20Validate%20the%20initialization%0A%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20%20%20%20%20%23%20Iteration%3A%20INDUCTION%20STEP%20P%28k%29-%3EP%28k%2B1%29%0A%20%20%20%20while%20k%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compute%20sum%20for%20next%20k-value%20first,%20increment%20k%20second%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Validate%20the%20iteration%0A%20%20%20%20%20%20%20%20if%20print_validations%3A%20print%28%22Number%20of%20odds%20added%3A%22,k,%22%5CtSum%3A%22,sum%29%0A%20%20%20%20return%20sum%0A%0Adef%20P%28n%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bn%7D%20positive%20odd%20integers%20is%20%7Bn*n%7D%5C%22%22%0A%0Adef%20truth_value_of_P%28n%29%3A%0A%20%20%20%20return%20addTheOdds%28n%29%20%3D%3D%20n*n%0A%0An%20%3D%2010%0Aprint%28P%28n%29%29%0A%23print%28P%28n%29,%22is%20a%22,truth_value_of_P%28n%29,%22proposition.%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="paragraph">
+         <p>
+          Since we can now, in principle, build a proof of \(P(n)\) for any value of \(n \in \mathbb{N}\) that we could choose,
+we
+conclude that \((\forall \in \mathbb{N})P(n).\) That is, we have proven the proposition \[ \text{"For every positive natural number } n \text{, the sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\]
+          <span class="small">
+           Another way to look at this is to define \(s(n)\) to be the number of disks in a \(n \times n\) square arrangement of disks. We have shown that \(s(1) = 1\) and that \(s(k+1) = s(k) + 2k + 1\) for every positive natural number value of \(k,\) and have concluded that \(s(n) = n^{2}\) for every positive natural number \(n.\)
+          </span>
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        We will rewrite the above example more formally (with full algebraic detail) later in the chapter.
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_proof_by_mathematical_induction_technique">
+       11.2. The “Proof By Mathematical Induction” Technique
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         proof by mathematical induction
+        </strong>
+        of a predicate \(P(n)\) defined for natural numbers \(n \in \mathbb{N}\) consists of three steps.
+       </p>
+      </div>
+      <div class="hdlist">
+       <table>
+        <tr>
+         <td class="hdlist1">
+          Basis Step
+         </td>
+         <td class="hdlist2">
+          <p>
+           Prove the predicate \(P(n)\) is True for some small value of \(n.\) In most but not all cases, you prove either \(P(0)\) or \(P(1).\)
+           <br/>
+           <span class="small">
+            You can also prove \(P(n)\) for finitely-many other values if it helps you get a feel for what needs to be proven, as was done in “the sum of the first \(n\) consecutive odd natural numbers is the perfect square \(n^{2}\)” in the previous section.
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Induction Step
+         </td>
+         <td class="hdlist2">
+          <p>
+           Prove that the conditional statement \(P(k) \rightarrow P(k+1)\) is True for any integer \(k.\)
+           <br/>
+           In this context, the predicate \(P(k)\) is called the
+           <strong>
+            induction hypothesis
+           </strong>
+           and is
+           <span class="underline">
+            assumed to be True,
+           </span>
+           where \(k\) represents an arbitrary natural number.
+           <br/>
+           <span class="small">
+            By assuming that \(P(k)\) is already True and also proving the conditional statement \(P(k) \rightarrow P(k+1),\) you can use
+            <em>
+             modus ponens
+            </em>
+            to infer that \(P(k+1)\) must also be True: You can “step up” from any natural number to the next largest natural number and maintain the truth value of the predicate.
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Conclusion Step
+         </td>
+         <td class="hdlist2">
+          <p>
+           Conclude that \(P(n)\) is True for all natural numbers \(n\) that are greater than or equal to the smallest value used in the Basis Step.
+           <br/>
+           <span class="small">
+            Some sources do not list the Conclusion Step as part of a proof by mathematical induction, but the Remix includes it to emphasize that this step must be done to complete the proof.
+           </span>
+          </p>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="paragraph">
+       <p>
+        You can compare the first two steps of
+a proof by mathematical induction
+to the two steps used in a recursive definition as in the
+        <a href="./recursion.html#definition_of_recursive_definition">
+         Sequences and Recursion
+        </a>
+        chapter. Note that a recursive defintion is used to
+        <em>
+         describe and define
+        </em>
+        a process for constructing objects or a set of objects or a structure, but a proof by mathematical induction is used to
+        <em>
+         justify and validate
+        </em>
+        such a process.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Note that each of the three steps will be a proof of finite length, but will allow us to conclude
+that \(P(n)\) is true for
+        <strong>
+         every
+        </strong>
+        natural number \(n\) greater than or equal to some some small natural number
+\(b \geq 0\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        As an analogy, imagine we are building a tower using interlocking toy blocks. How tall can the tower be?
+The basis step involves placing a foundation on the ground (either a flat surface for \(n = 0\), or a first block for \(n = 1\)),
+and the induction step justifies that if we have built a tower that has height \(k\) then we can build a tower of height \(k+1\) by placing one more block on the tower. The conclusion step states that we can build a tower that is of any finite height \(n\) (as long as we have
+enough
+blocks and ignore issues arising from real-world physics!) Note that we never build an infinitely tall tower.
+        <br/>
+        <span class="small">
+         Note: Some textbooks and sources use an "infinite ladder" analogy for mathematical induction, but this is not quite correct. A better analogy is a ladder that can be extended to any finite height you need, but that is always of finite height.
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Let’s finish this section with an example of using this proof technique.
+Here is a proof of the Handshake Theorem for
+        <a href="./introduction_discrete_math.html#informal_graph_definition">
+         graphs.
+        </a>
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 2 - Proof of the Handshake Theorem
+         </div>
+         <p>
+          We will prove the following proposition using
+proof by
+mathematical induction.
+         </p>
+        </div>
+        <div class="exampleblock">
+         <div class="content">
+          <div class="paragraph">
+           <div class="title">
+            Theorem
+           </div>
+           <p>
+            If \(G\) is a graph with vertex set \(V\) and edge set \(E,\) where both \(V\) and \(E\) are finite sets, then the sum of the degrees of all vertices in \(V\) is equal to 2 times the number of edges in \(E.\)
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice first that since this needs to proven for
+          <em>
+           any
+          </em>
+          graph with any finite number of vertices and edges, it is a good candidate for proof by mathematical induction.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Which number should be one we use for induction?
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            We could try using induction on the number of vertices, but notice that we can add an isolated vertex without affecting either the sum of the degrees or the number of edges. This indicates that the number of vertices is not the correct variable to use for a proof by induction.
+           </p>
+          </li>
+          <li>
+           <p>
+            We could try using induction on the sum of the degrees of the vertices, but we’d have to figure out how to add 1 to that sum…​
+but notice that, as above, adding a new vertex \(v\) to the graph
+           </p>
+           <div class="ulist">
+            <ul>
+             <li>
+              <p>
+               either leaves the sum of degrees unchanged (if \(v\) is isolated)
+              </p>
+             </li>
+             <li>
+              <p>
+               or changes the sum of degrees by 2 (because either \(v\) is an endpoint of a loop or \(v\) comes along with a new edge that connects to another vertex of the graph.) Since we cannot meaningfully add 1 to the sum of the degrees, this is also not the correct variable to use for induction.
+              </p>
+             </li>
+            </ul>
+           </div>
+          </li>
+          <li>
+           <p>
+            We could try using induction on the number of edges. This
+            <em>
+             could
+            </em>
+            work since adding a new edge will increase the sum of degrees of the vertices by 2 (whether the vertices are "new" or "old").
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          So, to prove the theorem, let \(n\) represent the number of edges in a graph and let \(P(n)\) be the predicate \[P(n)\text{: "The sum of the degrees of the vertices for a graph with } n \text{ edges is equal to } 2 \cdot n \text{."}\] We will prove that \((\forall n \in \mathbb{N})P(n).\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Basis Step:
+          </strong>
+          \(P(0)\) is the proposition "The sum of the degrees of the vertices for a graph with \(0\) edges is equal to \(2 \cdot 0.\)"
+Notice that a graph with 0 edges is just a collection of isolated vertices, and each of the isolated vertices has degree 0,
+so the sum of the degrees of the vertices must also be 0, which is 2 times the number of edges. This means that \(P(0)\) is True, and the Basis has been established.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Induction Step:
+          </strong>
+          First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use
+          <em>
+           modus ponens
+          </em>
+          (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          For the natural number \(k,\) the predicate \(P(k)\) is the proposition "The sum of the degrees of the vertices for a graph with \(k\) edges is equal to \(2 \cdot k.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Suppose that we have a graph with \(k\) edges. We insert one new edge \(e\) into the graph. There are, essentially, two possible cases to consider.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            \(e\) has two different endpoints, in which case the degree of each endpoint increases by 1 when \(e\) is added to the graph, so the sum of the degrees of the vertices increases by 2, or ,
+           </p>
+          </li>
+          <li>
+           <p>
+            \(e\) is a loop with only one endpoint, in which case the degree of that endpoint increases by 2, so the sum of the degrees of the vertices increases by 2.
+            <br/>
+            <span class="small">
+             Notice that in either bullet, it does not matter whether the new edge \(e\) has endpoints that are "new" to the graph or were "old" vertices that were in the graph already.
+            </span>
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that any graph with \(k+1\) edges can be built up this way from a graph that had \(k\) edges. So, using the fact that \(2 \cdot k + 2 = 2 \cdot (k+1),\) we have proven that "The sum of the degrees of the vertices for a graph with \(k+1\) edges is equal to \(2 \cdot (k + 1).\)  That is, we have proven that \(P(k) \rightarrow P(k+1)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Conclusion Step:
+          </strong>
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+\((\forall n \in \mathbb{N})P(n),\) which translates to "For all natural numbers \(n,\) the sum of the degrees of the vertices for a graph with \(n\) edges is equal to \(2 \cdot n.\)"
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_the_principle_of_mathematical_induction">
+       11.3. The Principle of Mathematical Induction
+      </h3>
+      <div class="paragraph" id="the_principle_of_mathematical_induction_for_natural_numbers">
+       <p>
+        The “proof by mathematical induction” technique is justified by the
+        <strong>
+         Principle of Mathematical Induction,
+        </strong>
+        often abbreviated as
+        <strong>
+         PMI.
+        </strong>
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         The Principle of Mathematical Induction
+        </div>
+        <div class="paragraph">
+         <p>
+          Suppose that \(S\) is a subset of \(\mathbb{N}\) such that
+         </p>
+        </div>
+        <div class="olist arabic">
+         <ol class="arabic">
+          <li>
+           <p>
+            \(0\) is an element of \(S,\) and
+           </p>
+          </li>
+          <li>
+           <p>
+            if \(k\) is an element of \(S,\) then \(k+1\) is an element of \(S,\) too.
+           </p>
+          </li>
+         </ol>
+        </div>
+        <div class="paragraph">
+         <p>
+          Then every natural number is contained in \(S,\) that is, \(S = \mathbb{N}.\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        In the Remix, the Principle of Mathematical Induction is treated as an axiom, a statement that is assumed to be True about the set of natural numbers.
+        <br/>
+        <span class="small">
+         This principle has been used for nearly 2,000 years, but was only formalized by mathematicians about 150 years ago. See the History section, as well as the References, at this
+         <a href="https://en.wikipedia.org/wiki/Mathematical_induction#History">
+          Wikipedia page
+         </a>
+         for more information.
+        </span>
+        <br/>
+       </p>
+      </div>
+      <div class="openblock click">
+       <div class="title">
+        Note to instructors - click to expand
+       </div>
+       <div class="content">
+        <div class="click_oblique">
+         <span class="small">
+          Many textbooks assume either the
+          <a href="./relations.html#well_ordering_principle_for_natural_numbers">
+           Well-Ordering Principle
+          </a>
+          or the
+          <a href="./induction.html#the_principle_of_mathematical_induction_for_natural_numbers">
+           Principle of Mathematical Induction
+          </a>
+          as an axiom, and then prove the other principle using that axiom (and also prove that the two principles are logically equivalent.) As the Remix is designed for students of Computer Science, both principles are simply assumed to be True without proof,
+that is, both principles are treated as axioms.
+This choice should not limit student understanding of how these principles can be applied, and also avoids some highly technical issues that arise in formal mathematical definitions of the set \(\mathbb{N}\) of natural numbers which would most likely only be of concern to Mathematics majors and their instructors. If you
+want to do a deeper mathematical exploration of these technical issues (e.g., differing formulations of the Peano axioms, and first-order versus second-order logic) you may refer to
+          <a href="https://link.springer.com/article/10.1007/s00283-019-09898-4">
+           this article
+          </a>
+          in
+          <em>
+           The Mathematical Intelligencer
+          </em>
+          as well as the subsection “Nonstandard models” of this
+          <a href="https://en.wikipedia.org/wiki/Peano_axioms#Nonstandard_models">
+           Wikipedia  page.
+          </a>
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The Principle of Mathematical Induction may seem like an “obviously True” statement.
+If 0 is in a set, and if for each natural number in the set the next biggest natural number is also in the set, then it would seem that you
+can list all the elements of the set by simply counting up by 1, starting at 0.
+The issue that arises is that you can
+        <em>
+         never stop
+        </em>
+        counting up because there are infinitely many natural numbers! Instead, mathematicians can
+state that they are
+        <em>
+         assuming
+        </em>
+        that the Principle of Mathematical Induction is True without further justification.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        As another example of why PMI is assumed to be True,
+consider the predicate that was used in the first example of this chapter: \[P(k)\text{: "The sum of the first } k \text{ positive odd integers is equal to } k^{2} \text{."}\]
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        What a mathematician would
+        <em>
+         really
+        </em>
+        like to do is
+to run
+an infinite loop, like the one shown in the code listing below, to verify that the predicate is True for every natural number greater than or equal to 1.
+       </p>
+      </div>
+      <div class="listingblock">
+       <div class="content">
+        <pre class="highlight"><code class="language-python" data-lang="python">def P(k):
+    return f"\"The sum of the first {k} positive odd integers is {k*k}\""
+
+def addTheOddsForever():
+    sum, k = 1, 1
+    if sum != k*k:
+        print(P(k),"is a False proposition.")
+        return False
+    while True: # loop forever...
+        sum = sum + 2*k + 1
+        k = k + 1
+        if sum != k*k:
+            print(P(k),"is a False proposition.")
+            return False
+    return True
+
+if addTheOddsForever():
+    print("P(n) is a True proposition for each every natural number n.")</code></pre>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        When
+        <code>
+         addTheOddsForever()
+        </code>
+        returns True, the code will have verified the predicate for every positive natural number, but can
+        <code>
+         addTheOddsForever()
+        </code>
+        <em>
+         ever
+        </em>
+        return True?
+The code only exits the loop if the predicate is False for some value of
+        <code>
+         k
+        </code>
+        but will never exit the loop otherwise! We will have to wait forever for the answer (Of course, in reality, we would run out of memory or processing power or time in the universe before that.) However, a timeless being might be able to determine that the algorithm implemented in the code will return True, but this does not help we humans much.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Since the code with the infinite loop cannot verify the predicate for all natural numbers greater than or equal to 1, the mathematician will settle for using the following code sample instead, as long as the variable
+        <code>
+         stop_value
+        </code>
+        can be made
+larger and larger, with no upper bound on how large it can be (Again, this won’t really work due to real-world constraints, but at least it does avoid the infinite loop.)
+       </p>
+      </div>
+      <iframe frameborder="5" height="700" src="https://pythontutor.com/iframe-embed.html#code=def%20P%28k%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bk%7D%20positive%20odd%20integers%20is%20%7Bk*k%7D%5C%22%22%0A%0Adef%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20sum,%20k%20%3D%201,%201%0A%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20while%20k%20%3C%20stop_value%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Astop_value%20%3D%2010%0Aif%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20print%28%22P%28n%29%20is%20a%20True%20proposition%20for%20each%20natural%20number%20n%20%E2%89%A4%20%22%2Bstr%28stop_value%29%2B%22.%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=700" width="100%">
+      </iframe>
+      <div style="text-align: right;">
+       <a href="http://www.pythontutor.com/visualize.html#code=def%20P%28k%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bk%7D%20positive%20odd%20integers%20is%20%7Bk*k%7D%5C%22%22%0A%0Adef%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20sum,%20k%20%3D%201,%201%0A%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20while%20k%20%3C%20stop_value%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Astop_value%20%3D%2010%0Aif%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20print%28%22P%28n%29%20is%20a%20True%20proposition%20for%20each%20natural%20number%20n%20%E2%89%A4%20%22%2Bstr%28stop_value%29%2B%22.%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+        Edit in PythonTutor
+       </a>
+      </div>
+      <div class="paragraph">
+       <p>
+        This code can verify the predicate for all natural numbers starting from 1 up to and including
+        <code>
+         stop_value
+        </code>
+        . The Principle of Mathematical Induction is stating that you can justify that
+the predicate \(P(k)\) is True for all positive natural numbers by instead verifying that
+        <code>
+         addTheOddsRevised(stop_value)
+        </code>
+        will return True for
+        <span class="underline">
+         every possible positive natural number value you could assign to
+         <code>
+          stop_value
+         </code>
+         .
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_more_example_proofs_using_mathematical_induction">
+       11.4. More Example Proofs Using Mathematical Induction
+      </h3>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 3 - An Algebraic Expression for Positive Odd Integers
+         </div>
+         <p>
+          Let \(P(n)\) be the predicate \[P(n)\text{: "The } n\text{th positive odd integer is equal to } 2n-1 \text{."}\] We will prove that \((\forall n \in \mathbb{N}_{&gt;0})P(n),\) that is, for all positive integers \(n.\)
+          <br/>
+          <span class="small">
+           Notice that you can find evidence for the conjecture that \(k\text{th}\) positive odd integer is \(2k - 1\) by making a table and finding an algebraic formula that matches the table. See
+           <a href="./appendix_math.html">
+            this appendix
+           </a>
+           if you don’t remember how to do this.
+          </span>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Basis Step:
+          </strong>
+          \(P(1)\) is the proposition "The \(1\)th positive odd integer is equal to \(2(1)-1.\)" This is True since \(2(1)-1 = 1\), in spite of the poor English, which should use "\(1\)st" instead of "\(1\)th."
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Induction Step:
+          </strong>
+          First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\). That is, we assume that "The \(k\)th positive odd integer is equal to \(2k-1\)" is True for some positive natural number \(k.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use
+          <em>
+           modus ponens
+          </em>
+          (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          If the \(k\)th positive odd integer is equal to \(2k-1,\) then the \((k+1)\)th positive odd integer is obtained by adding \(2\) to \(2k-1,\)  that is the \((k+1)\)th positive odd integer is equal to \((2k-1) + 2,\) which can be rewritten using algebra as
+\begin{equation}
+\begin{aligned}
+(2k-1) + 2 {} &amp; = 2k - 1 + 2 \\
+&amp; = 2k + 2  - 1 \\
+&amp; = 2(k+1) - 1
+\end{aligned}
+\end{equation}
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We have proven that if \(k\)th positive odd integer is equal to \(2k-1\) then the \((k+1)\)th positive odd integer is equal to \(2(k+1)-1.\) That is, we have proven \(P(k) \rightarrow P(k+1)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Conclusion Step:
+          </strong>
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+for all positive integers \(n,\) the \(n\)th positive odd integer is equal to \(2n-1.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        The next example proof is the formal proof that corresponds to the first example of this chapter.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 4 - Square Numbers
+         </div>
+         <p>
+          Let \(P(n)\) be the predicate \[P(n)\text{: "The sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] We will prove that \((\forall n \in \mathbb{N}_{&gt;0})P(n).\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Basis Step:
+          </strong>
+          \(P(1)\) is the proposition "The sum of the first \(1\) positive odd integers is equal to \(1^{2}.\)" If we allow a sum to have only one addend, then \(P(1)\) is True since \(1 = 1^{2}\), so \(P(1)\) can be used as the basis of our induction proof.
+If we want to be sure that there are least two addends in the sum, we can use \(P(2)\) as an additional basis. \(P(2)\) is the proposition "The sum of the first \(2\) positive odd integers is equal to \(2^{2}\)" which is True because \(1 + 3 = 2^{2}.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Induction Step:
+          </strong>
+          First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use
+          <em>
+           modus ponens
+          </em>
+          (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Based on the formula for the \(k\text{th}\) positive odd integer, we can rewrite the sum of the first \(k\) positive odd integers
+\(1 + 3+ \ldots + (2k-1)\)
+using summation notation as \(\sum\limits_{i=1}^{k}(2i-1)\) and rewrite the predicate \(P(k)\) in algebraic form as
+either \[ P(k): 1 + 3+ \ldots + (2k-1) = k^{2}\]
+or \[ P(k): \sum\limits_{i=1}^{k}(2i-1) = k^{2}.\] Note that \(P(k)\) is still a predicate
+- it is stating that a certain equation holds.
+          <br/>
+          <span class="small">
+           Note: A common error is to treat a predicate like \(P(k)\) that is written using algebra notation as a function that gives numbers as outputs, but this is incorrect. \(P(k)\) is a predicate that gives
+           <em>
+            propositions
+           </em>
+           as outputs. Recall, as mentioned
+           <a href="./introduction_discrete_math.html#informal_predicate_definition">
+            earlier
+           </a>
+           in the Remix, that you can think of this like a programmer: \(P(k)\) returns a string, not a number and not a Boolean.
+          </span>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We can now prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True using algebra.
+\begin{equation}
+\begin{aligned}
+\sum\limits_{i=1}^{k+1}(2i-1) {} &amp; = \left(\sum\limits_{i=1}^{k}(2i-1)\right) + (2(k+1)-1) \\
+&amp; = k^{2} +  (2(k+1)-1)
+\end{aligned}
+\end{equation}
+where we have substituted \(k^{2}\)
+for the sum \(\sum\limits_{i=1}^{k}(2i-1)\) based on the induction hypothesis.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Now we simplify this using algebra and show that it is the same as the right hand side.
+\begin{equation}
+\begin{aligned}
+\sum\limits_{i=1}^{k+1}(2i-1) {} &amp; = k^{2} + (2(k+1)-1) \\
+&amp; = k^{2} + 2k + 2 - 1 \\
+&amp; = k^{2} + 2k + 1 \\
+&amp; = (k + 1)^{2}\\
+\end{aligned}
+\end{equation}
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We have proven that the equation \(1 + 3 + \ldots + (2k-1) = \sum\limits_{i=1}^{k}(2i-1) = k^{2}\) implies the equation
+\(1 + 3 + \ldots + (2k-1) + (2k+1) = \sum\limits_{i=1}^{k+1}(2i-1) = (k+1)^{2}\), that is, \(P(k) \rightarrow P(k+1)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Conclusion Step:
+          </strong>
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+\(1 + 3 + \ldots + (2n-1) = \sum\limits_{i=1}^{n}(2i-1) = n^{2}\) for all positive integers \(n\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 5 - The Factorial Grows Faster Than An Exponential Function
+         </div>
+         <p>
+          Let \(P(n)\) be the predicate \[P(n): 2^{n} &lt; n!\] We will prove that \((\forall n \in \mathbb{N}_{\geq 4})P(n).\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Basis Step:
+          </strong>
+          First notice that the propositions \(P(0),\) \(P(1),\) \(P(2),\) and \(P(3)\) are all False! This is why we must use \(P(4)\) as the basis. \(P(4)\) is the proposition \(2^{4} &lt; 4!\) which is a True statement since \(16 &lt; 24.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Induction Step:
+          </strong>
+          First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).
+          <mark>
+           In this context we can assume \(k \geq 4.\)
+          </mark>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use
+          <em>
+           modus ponens
+          </em>
+          (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Assume that \(P(k)\) is True with \(k \geq 4,\) that is, \(2^{k} &lt; k!.\)  If we multiply both sides of the inequality by \(2\) we get
+\begin{equation}
+\begin{aligned}
+2^{k+1} {} &amp; = 2 \cdot 2^{k} \\
+&amp; &lt; (k+1) \cdot 2^{k} \text{ (since \(k \geq 4,\) we must have \(k+1 &gt; 5 &gt;2\))}\\
+&amp; &lt; (k+1) \cdot k! \text{ by the induction hypothesis}
+\end{aligned}
+\end{equation}
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that the expression on the last line is equal to \((k+1)!,\) so we have shown that \((2^{k} &lt; k!) \rightarrow (2^{k+1} &lt; (k+1)!)\) as long as \(k \geq 4.\) That is, we’ve proven that \(P(k) \rightarrow P(k+1)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Conclusion Step:
+          </strong>
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+for all positive integers \(n \geq 4\), \(2^{n} &lt; n!\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Exercise - Setting Up A Proof By Induction (The Towers Of Hanoi)
+         </div>
+         <p>
+          Set up the proof of the following statement.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The minimal number of moves needed to solve the
+          <a href="./recursion.html#Towers_Of_Hanoi">
+           Towers Of Hanoi
+          </a>
+          puzzle with \(n\) discs is \(2^{n}-1.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What is the predicate \(P(n)\)?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What value of \(n\) is best to use in the Basis Step?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What is the Induction Hypothesis?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What property of the puzzle is
+the key feature
+used
+to
+prove
+the Induction Step? You can describe this in words or use an algebraic equation.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        MORE PROOFS TO COME!
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_strong_induction">
+       11.5. Strong Induction
+      </h3>
+      <div class="paragraph">
+       <p>
+        Strong induction is used when it is easier to use the assumption that
+        <em>
+         all the propositions \(P(0), P(1), \ldots , P(n-1)\) are True
+        </em>
+        in order to prove that \(P(n)\) is True.
+       </p>
+      </div>
+      <div class="hdlist">
+       <table>
+        <tr>
+         <td class="hdlist1">
+          Basis Step
+         </td>
+         <td class="hdlist2">
+          <p>
+           Prove the predicate \(P(n)\) is True for
+           <em>
+            one or more consecutive small values
+           </em>
+           of \(n;\) in most but not all cases, you prove both \(P(0)\) and \(P(1).\)
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Induction Step
+         </td>
+         <td class="hdlist2">
+          <p>
+           Prove that the conditional statement \(( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)\) is True for any natural number \(k.\)
+           <br/>
+           Using
+           <em>
+            modus ponens
+           </em>
+           allows you to infer that \(P(k+1)\) must also be True based on the assumption that all of the propositions \(P(0), P(1), \ldots , P(k)\) are True.
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td class="hdlist1">
+          Conclusion Step
+         </td>
+         <td class="hdlist2">
+          <p>
+           Conclude that \(P(n)\) is True for all natural numbers \(n\) that are greater than or equal to the smallest value used in the Basis Step.
+          </p>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="paragraph">
+       <p>
+        <span class="small">
+         In spite of the name, strong induction and "weak" induction are equivalently powerful techniques in the sense that any proposition that you can prove using strong induction can also be proven by "weak" induction, and any proposition that you can prove using "weak" induction can also be proven by strong induction. The choice of which of the two proof techniques to use is based on convenience only, not power.
+        </span>
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 6 - An Upper Bound for the Fibonacci numbers
+         </div>
+         <p>
+          Recall that the
+          <a href="./recursion.html#definition_of_fibonacci_numbers">
+           Fibonacci numbers
+          </a>
+          are defined by the following recurrence relation: \[f_{0}=0, \, f_{1}=1, \text{ and } f_{n} = f_{n-1} + f_{n-2} \text{ for } n \geq 2.\]
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We will prove that the predicate \[P(n): f_{n} &lt; \displaystyle \left( \frac{1+\sqrt{5}}{2} \right)^{n}\] is True for all natural numbers \(n.\) The proof will use strong induction because, for each \(n \geq 2,\) the value of \(f_{n}\) is defined in terms of both \(f_{n-1}\) and \(f_{n-2}.\)
+          <br/>
+          <span class="small">
+           The number on the right-hand side of the inequality is a famous constant called
+           <a href="https://en.wikipedia.org/wiki/Golden_ratio">
+            the golden ratio
+           </a>
+           which is usually denoted by the lowercase Greek letter \(\phi\) ("phi"): \[ \phi = \frac{1+\sqrt{5}}{2} \] \(\phi\) is an irrational number whose first few digits are \(1.618 \ldots .\) Also, \(\phi\) is the positive solution of the equation \(x^{2} = x + 1,\) which is a fact that we will use in the proof. The other solution of \(x^{2} = x + 1\) is \(1 - \phi,\) a fact you can use when you attempt the Challenge question at the end of this example. \[ 1 - \phi = \frac{1-\sqrt{5}}{2} \] Notice that you can verify that \(\phi\) and \(1-\phi\) are the two roots of \(x^{2} - x - 1 = 0\) by using the quadratic formula.
+          </span>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Basis Step:
+          </strong>
+          In this case, we need to prove that the conjunction \(P(0) \land P(1)\) is True as our basis for strong induction.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            \(P(0)\) is the proposition \(f_{0} &lt; \phi^{0}\) which is True since \(0 &lt; 1.\)
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            \(P(1)\) is the proposition \(f_{1} &lt; \phi^{1}\) which is True since \(1 &lt; \phi.\)
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          Since \(P(0)\) and \(P(1)\) are True, you can use the tautology \(q \rightarrow ( r \rightarrow (q \land r) )\) to conclude that \(P(0) \land P(1)\) is True, too.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Induction Step:
+          </strong>
+          First, we assume as the induction hypothesis that \[P(i) \text { is True for all positive natural numbers } i \leq k \] where we can assume that the integer \(k\) is greater than or equal to \(2\) (since the cases where \(k &lt; 2\) were already dealt with in the Basis Step.) That is, we assume that the single proposition \(P(0) \land P(1) \land \cdots \land P(k)\) is True, where \(k\) is some integer greater than or equal to 2.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Secondly, we will prove that the conditional \(( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)\) must be True, which means we can use
+          <em>
+           modus ponens
+          </em>
+          to show that \(P(k+1)\) is also True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          If the inequality \(f_{i} &lt; \phi^{i}\) is True for each \(i \leq k,\) then
+\begin{equation}
+\begin{aligned}
+f_{k+1} {} &amp; = f_{k} + f_{k-1} \\
+&amp; &lt; \phi^{k} + \phi^{k-1} \text{ by the induction hypothesis} \\
+&amp; \leq \phi^{k-1} \cdot (\phi + 1) \text{ by algebra} \\
+&amp; \leq \phi^{k-1} \cdot \phi^{2} \text{ since } \phi^{2} = \phi + 1 \\
+&amp; \leq \phi^{(k-1)+2} \text{ using one of the laws of exponents} \\
+&amp; \leq \phi^{k+1}
+\end{aligned}
+\end{equation}
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We have proven that if \(f_{i} &lt; \phi^{i}\) is True for each natural number \(i \leq k,\) then \(f_{k+1} &lt; \phi^{k+1}\) must also be True. That is, we have proven \(( ( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Conclusion Step:
+          </strong>
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+for all natural numbers \(n,\) \(f_{n} &lt; \phi^{n}.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+        <div class="openblock challenge">
+         <div class="title">
+          Challenge
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           Use strong induction to prove that the closed form of the Fibonacci numbers is  \[ f_{n} = \displaystyle \frac{\phi^{n} - (1-\phi)^{n}}{\sqrt{5}} \text{ for all natural numbers }n. \]
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Hint
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           For the Induction Step, use the fact that both \(\phi^{2} = \phi + 1\) and \((1-\phi)^{2} = (1-\phi) + 1\) are True and use steps similar to the ones in the Induction Step in the proof above but working with equations instead of inequalities. Using the two equations in the previous sentence will help you avoid working directly with expressions like \[f_{n} = \displaystyle \frac{ \left( \displaystyle \frac{1 + \sqrt{5}}{2} \right)^{n} - \left( \displaystyle \frac{1 - \sqrt{5}}{2} \right)^{n}}{\sqrt{5}}\] or \[ f_{n} = \displaystyle \frac{ \left( 1 + \sqrt{5} \right)^{n} - \left( 1 - \sqrt{5} \right)^{n} }{ 2^{n} \sqrt{5} } \] which would be unnecessarily difficult and time-consuming.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Next, we’ll prove the following theorem.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         The Fundamental Theorem of Arithmetic
+        </div>
+        <div class="paragraph">
+         <p>
+          Every positive integer \(n\) that is greater than or equal to \(2\) is either a prime number or can be written as a product of two or more prime numbers.
+         </p>
+        </div>
+        <div class="openblock proof">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Let \(P(n)\) be the predicate \[P(n) \text{: "} n \text{ is either prime or the product of two or more primes."}\] We will prove that \((\forall n \in \mathbb{N}_{\geq 2})P(n),\) that is, each positive integer \(n \geq 2\) is either a prime or a product two or more prime numbers.
+          <br/>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Basis Step:
+          </strong>
+          \(P(2)\) is True since \(2\) is a prime number. In this case, we could use only \(P(2)\) as the basis, but it is easy to prove \(P(3)\) and \(P(4)\) are True since \(3\) is prime and \(4 = 2 \cdot 2\) is a product of two primes.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Induction Step:
+          </strong>
+          First, we assume as the induction hypothesis that \[P(i) \text { is True for all positive natural numbers } i \text{ such that } 2 \leq i \leq k \] where we can assume that the integer \(k\) is greater than or equal to \(4\) (since the cases where \(k \in \{ 2, 3, 4 \}\) were already dealt with in the Basis Step.) That is, we assume that the single proposition \(P(2) \land P(3) \land \cdots \land P(k)\) is True, where \(k\) is some integer greater than or equal to 4.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Secondly, we will prove that the conditional \(( P(2) \land P(3) \land \cdots \land P(k) ) \rightarrow P(k+1)\) must be True, which means we can use
+          <em>
+           modus ponens
+          </em>
+          to show that \(P(k+1)\) is also True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          There are two cases: Either \(k+1\) is prime or it is not prime (that is, it is composite.)
+         </p>
+        </div>
+        <div class="olist arabic">
+         <ol class="arabic">
+          <li>
+           <p>
+            If \(k+1\) is prime, then \(P(k+1)\)  is True in the case when \(k+1\) is a prime number.
+           </p>
+          </li>
+          <li>
+           <p>
+            If \(k+1\) is not prime, then there are two integers \(a\) and \(b\) that are both greater than \(1\) such that \(k+1 = ab.\) Notice that both \(a\) and \(b\) must be less than \(k+1\) because if either one were greater than or equal to \(k+1\) then the product \(ab\) would be greater than or equal to \(2(k+1).\) Assuming the induction hypothesis, both \(P(a)\) and \(P(b)\) are True, so each of \(a\) and \(b\) is either a prime or a product of two or more primes, which means that the product \(ab\) is a product of at least two primes (if both \(a\) and \(b\) are primes, they are the only two factors of \(k+1,\) otherwise, there will be more than two prime factors of \(k+1.\)) Since \(k+1 = ab\), this proves that \(P(k+1)\) is True in the case when \(k+1\) is a composite number.
+           </p>
+          </li>
+         </ol>
+        </div>
+        <div class="paragraph">
+         <p>
+          In either case, we have shown that \(P(k+1)\) must be True. We have proven that if \(P(i)\) is True for each natural number \(i\) with \(2 \leq i \leq k,\) then \(P(k+1)\) must also be True. That is, we have proven \(( ( P(2) \land P(3) \land \cdots \land P(k) ) \rightarrow P(k+1)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Conclusion Step:
+          </strong>
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+for all natural numbers \(n \geq 2,\) \(n\) is either a prime number or a product of two or more prime numbers.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_validating_an_algorithm_using_induction">
+       11.6. Validating An Algorithm Using Induction
+      </h3>
+      <div class="paragraph">
+       <p>
+        In this section, we’ll prove that the Euclidean Algorithm as described below correctly computes the greatest common divisor of two positive integers.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Task: Given the positive integers \(a\) and \(b\) with \(a &gt; b\),
+compute the greatest common divisor (or "g.c.d") of \(a\) and \(b.\) That is, compute the greatest integer that is a factor of both \(a\) and \(b.\)
+         </p>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             Input: Two positive integers
+            </p>
+           </li>
+           <li>
+            <p>
+             Steps:
+            </p>
+            <div class="olist arabic">
+             <ol class="arabic">
+              <li>
+               <p>
+                Set \(a\) to the greater and \(b\) to the lesser of the two input values.
+               </p>
+              </li>
+              <li>
+               <p>
+                Compute the remainder \(r\) when \(a\) is divided by \(b\) (using long division of integers, not "floating-point" decimals.)
+               </p>
+              </li>
+              <li>
+               <p>
+                If \(r &gt; 0\)
+               </p>
+               <div class="olist loweralpha">
+                <ol class="loweralpha" type="a">
+                 <li>
+                  <p>
+                   Set \(a\) equal to \(b\)
+                  </p>
+                 </li>
+                 <li>
+                  <p>
+                   Set \(b\) equal to \(r\)
+                  </p>
+                 </li>
+                 <li>
+                  <p>
+                   Go to step 2
+                  </p>
+                 </li>
+                </ol>
+               </div>
+              </li>
+              <li>
+               <p>
+                Return the value stored in \(b.\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+           <li>
+            <p>
+             Output: A positive integer that is a factor of both input values.
+            </p>
+           </li>
+          </ul>
+         </div>
+        </li>
+       </ul>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 7 - The Euclidean Algorithm in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The code below implements integer division for
+          <em>
+           positive
+          </em>
+          integers
+          <em>
+           a
+          </em>
+          and
+          <em>
+           b.
+          </em>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Click on the "Next" button to step through the code.
+         </p>
+        </div>
+        <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        First, we will prove a lemma (that is, a minor theorem) that we’ll use in the induction step of the main proof.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Lemma
+         </div>
+         <p>
+          If \(a\) and \(b\) are integers such that \(a &gt; b &gt; 0\) and the integers \(q\) and \(r\) satisfy \[ a = q \cdot b + r \text{ and } 0 \leq r &lt; b \]
+then the set of positive integers that divide both \(a\) and \(b\) is the same as the set of positive integers that divide both \(b\) and \(r.\)
+         </p>
+        </div>
+        <div class="openblock proof">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that \(q\) is the quotient and \(r\) is the remainder that result when doing a long division of \(a\) by \(b.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Also notice that we can rewrite the equation \(a = q \cdot b + r\) in the equivalent form \(r = a - q \cdot b.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We can now prove the lemma.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            If the integer \(c\) divides both \(a\) and \(b\) then there are integers \(a'\) and \(b'\) so that \(a = c \cdot a'\) and \(b = c \cdot b'.\) Substitute these two new expressions in the equation \(r = a - q \cdot b\) to get
+\begin{equation}
+\begin{aligned}
+r {} &amp; = a - q \cdot b  \\
+&amp; = (c \cdot a') - q \cdot (c \cdot b')  \\
+&amp; = c \cdot a' - c \cdot (q \cdot b')  \\
+&amp; = c \cdot (a' -  q \cdot b')
+\end{aligned}
+\end{equation}
+which shows that \(c\) is also a divisor of \(r.\) Since we already assumed that \(c\) divides \(b,\) this means that \(c\) is a divisor of both \(b\) and \(r.\) Therefore, the set of positive integers that divide both \(a\) and \(b\) is a subset of the set of positive integers that divide both \(b\) and \(r.\)
+           </p>
+          </li>
+          <li>
+           <p>
+            If the integer \(k\) divides both \(b\) and \(r\) then there are integers \(b''\) and \(r''\) so that \(b = k \cdot b''\) and \(r = k \cdot r''.\) Substitute these two new expressions in the equation \(a = q \cdot b + r\) to get
+\begin{equation}
+\begin{aligned}
+a {} &amp; =  q \cdot b + r  \\
+&amp; = q \cdot (k \cdot b'') + (k \cdot r'')  \\
+&amp; = k \cdot (q \cdot b'') + k \cdot r''  \\
+&amp; = k \cdot (q \cdot b'' + r'')
+\end{aligned}
+\end{equation}
+which shows that \(k\) is also a divisor of \(a.\) Since we already assumed that \(k\) divides \(b,\) this means that \(k\) is a divisor of both \(a\) and \(b.\) Therefore, the set of positive integers that divide both \(b\) and \(r\) is a subset of the set of positive integers that divide both \(a\) and \(b.\)
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          So we have two subsets, each of which is a subset of the other, which means that the two sets must be equal. That is, the set of positive integers that divide both \(a\) and \(b\) is equal to the set of positive integers that divide both \(b\) and \(r;\) more plainly, the two set descriptions define the
+          <em>
+           same
+          </em>
+          set.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        From the lemma we can conclude that the greatest common divisor of \(a\) and \(b\) is equal to the greatest common divisor of \(b\) and \(r.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We are now ready to prove the main result by induction.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          The Euclidean Algorithm correctly computes the greatest common divisor (g.c.d.) of the two positive integers \(a\) and \(b.\)
+         </p>
+        </div>
+        <div class="openblock proof">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          We use mathematical induction on the number of times \(n\) we must compute a new remainder (that is, the number \(n\) of iterations of the code block inside the loop), and prove that the algorithm computes the correct g.c.d. no matter what the value of \(n\) is.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Let \(P(n)\) be the predicate "If the loop executes \(n\) times, then the last nonzero remainder is the g.c.d. of the two initial inputs." We will prove that \((\forall n \in \mathbb{N})P(n)\) is True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Basis Step:
+          </strong>
+          Notice that the number of iterations of the loop is \(n=0\) if and only if the value of \(r = a\%b\) is equal to \(0\), which is True if and only if \(b\) divides \(a.\) This means that the "last nonzero remainder" is \(b,\) and \(b\) is the greatest common divisor of \(a\) and \(b,\) which means that \(P(0)\) is True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We can also prove that \(P(1)\) is True in case the proof of \(P(0)\) is unsatisfying. In the case when \(n=1,\) the loop executes \(1\) time, which means that \(a = q \cdot b + r\) and \(r\) is a nonzero divisor of \(b,\) so \(r\) is the g.c.d. of \(b\) and \(r,\) and we can use the lemma to conclude that \(r\) is also the g.c.d. of \(a\) and \(b.\) This proves that \(P(1)\) is True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Induction Step:
+          </strong>
+          First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use
+          <em>
+           modus ponens
+          </em>
+          (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Assume that \(P(k)\) is True for the positive integer \(k,\) that is, if the loop executes \(k\) times, then the last nonzero remainder is the g.c.d. of the two numbers we started with.
+We can assume \(k \geq 1\) since the cases when \(k \in \{ 0, 1 \}\) were proved in the Basis Step. Suppose that we have numbers \(a\) and \(b\) such that the loop executes \(k+1\) times in order to reach the last nonzero remainder: We need to prove that this last nonzero remainder is actually the g.c.d. of \(a\) and \(b.\) Now, notice that if we find the first remainder so that \(r = a - q \cdot b\) and \(0 &lt; r &lt; b,\) then the Euclidean Algorithm requires \(k\) loop iterations to find the last nonzero remainder for the pair of inputs \(b\) and \(r.\) That is , we know from the induction hypothesis that the last nonzero remainder for the initial values \(b\) and \(r\) is the g.c.d. of \(b\) and \(r.\) Now apply the lemma to conclude that the g.c.d. of \(a\) and \(b,\) computed after \(k+1\) loop iterations, is equal to the g.c.d. of \(b\) and \(r,\) computed after \(k\) loop iterations. Therefore, \(P(k+1)\) is True, too. This proves that \(P(k) \rightarrow P(k+1)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Conclusion Step:
+          </strong>
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+for all natural numbers \(n,\) if the loop executes \(n\) times then the last nonzero remainder is the g.c.d. of \(a\) and \(b.\) That is, the Euclidean Algorithm correctly computes the g.c.d. of \(a\) and \(b\) no matter how many loop iterations are required to compute the last nonzero remainder.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          Notice that if \(a = f_{n+2}\) and \(b = f_{n+1}\) are consecutive Fibonacci numbers then the Euclidean Algorithm requires exactly \(n\) loop iterations to compute the last nonzero remainder.
+          <br/>
+          The French mathematician Gabriel Lamé proved in 1844 that if the Euclidean Algorithm requires \(n\) loop iterations to compute the last nonzero remainder for two given positive integer inputs \(a\) and \(b\) (with \(a&gt;b\))
+then it must be True that both \(f_{n+2} \leq a\) and \(f_{n+1} \leq b.\) A proof by induction of Lamé’s theorem is given at this
+          <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case">
+           Wikipedia page.
+          </a>
+          <br/>
+          <span class="small">
+           The "worst-case complexity" for the Euclidean Algorithm is described at that webpage as well: The Euclidean Algorithm is \(O(log_{\phi}(b)).\) (Complexity and "big \(O\)" notation are discussed in the
+           <a href="./growth_of_functions.html">
+            Rates of Growth of Functions
+           </a>
+           chapter.)
+          </span>
+         </td>
+        </tr>
+       </table>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_exercises_7">
+       11.7. Exercises
+      </h3>
+      <div class="olist arabic">
+       <ol class="arabic">
+        <li>
+         <p>
+          Prove by induction:
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             For  all \(n ≥ 1, \) \(1+2+3+\ldots+n=\displaystyle\sum_{i=1}^{n}i=\displaystyle \frac{n\left(n+1\right)}{2}\)
+            </p>
+           </li>
+           <li>
+            <p>
+             For  all \(n ≥ 1, \) \(1^2+2^2+3^2+\ldots+n^2=\displaystyle\sum_{i=1}^{n}i^2=\frac{1}{6} n (n+1) (2 n+1)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             For  all \(n ≥ 1, \) \(1^3+2^3+3^3+\ldots+n^3=\displaystyle\sum_{k=1}^{n}k^3=\frac{1}{4} n^2 (n+1)^2\)
+            </p>
+           </li>
+           <li>
+            <p>
+             For all \(n ≥ 1, \) \({23}^n-1\)  is  divisible  by 11.
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Prove by induction that \(n^2+n = n(n+1)\) is even for all integers \(n  ≥ 1\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Find an appropriate \(N \in \mathbb{Z}\), and prove by induction that \(n^3 +3n^2\) is even for all \(n  ≥ N\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Find an appropriate \(N \in \mathbb{Z}\), and prove by induction that \(n^3 +2n\) is divisible by 3 for all \(n  ≥ N\).
+          <strong>
+           (Hint: You may use the result \(n(n+1)\), is even for \(n\), an integer.)
+          </strong>
+         </p>
+        </li>
+        <li>
+         <p>
+          Prove by induction that \(7\) divides \(2^{4n+2} + 3^{2n+1}\) for all nonnegative integers \(n\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Prove that for any \(n  ≥ 1\) and \(x  ≥ 0\) that \(\left(1+x\right)^n\geq1+nx\).
+         </p>
+        </li>
+        <li>
+         <p>
+          For all \(n ≥ 5\), prove that \(n^2 &lt; 2^n\)
+         </p>
+        </li>
+        <li>
+         <p>
+          Graph \(n!\) and \(2^n\), and then prove by induction that \( 2^n &lt; n!\) for \(n&gt;3\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Graph \(n^3\) and \(5n+12\), and then use your graph to find an appropriate \(N \in \mathbb{Z}\) to prove by induction that
+\(5n+12 &lt; n^3\) whenever \(n&gt;N\).
+         </p>
+        </li>
+        <li>
+         <p>
+          Prove by induction that a set  \(A\) with cardinality \(|A|=n\) has \(2^n\) subsets.
+         </p>
+        </li>
+        <li>
+         <p>
+          Prove by induction that there are \(3^n\) numbers in base 3 (using the digits 0 ,1, 2) made up of \(n\) digits.
+         </p>
+        </li>
+        <li>
+         <p>
+          Prove by induction that there are \(4^n\) numbers in base 4 (using the digits 0 ,1, 2, 3) made up of \(n\) digits.
+         </p>
+        </li>
+        <li>
+         <p>
+          State the principle of mathematical induction using a conditional logical statement.
+         </p>
+        </li>
+        <li>
+         <p>
+          Consider the sequence defined recursively as \[a_1=1,a_2=5, \text{ and } a_n=5a_{n-1}-6a_{n-2}\]
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Calculate the first eight terms of the recursive sequence.
+            </p>
+           </li>
+           <li>
+            <p>
+             Prove by induction that the closed-form formula for the sequence is \(a_{n} = 3^{n} - 2^{n}.\)
+             <br/>
+             (Hint: You can use the fact that \(2\) and \(3\) are the solutions of the quadratic equation \(x^{2} = 5x - 6.\))
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Consider the sequence defined recursively as \[a_1=1 \text{ and } a_n=2a_{n-1}+n\]
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Calculate the first eight terms of the recursive sequence
+            </p>
+           </li>
+           <li>
+            <p>
+             Prove by induction that the recursive sequence is given by the formula \(a_n={4\cdot2}^{n-1}-n-1\).
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Recall that the
+          <a href="./recursion.html#definition_of_fibonacci_numbers">
+           Fibonacci numbers
+          </a>
+          are defined by the following recurrence relation: \[f_{0}=0, \, f_{1}=1, \text{ and } f_{n} = f_{n-1} + f_{n-2} \text{ for } n \geq 2.\]
+         </p>
+         <div class="olist loweralpha">
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Prove by induction that
+
+\[
+f_0+f_1+f_2+\ldots+f_n= f_{n+2}-1.
+\]
+            </p>
+           </li>
+           <li>
+            <p>
+             Prove by induction that
+
+\[
+f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 =f_n \cdot\ f_{n+1}.
+\]
+            </p>
+           </li>
+          </ol>
+         </div>
+        </li>
+       </ol>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { extensions: ["mhchem.js"] }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML">
+  </script>
+ </body>
+</html>

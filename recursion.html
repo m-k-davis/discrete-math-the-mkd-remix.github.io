@@ -7,7 +7,7 @@
   <meta content="Asciidoctor 1.5.8" name="generator"/>
   <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
   <title>
-   Discrete Math - The MKD Remix
+   Discrete Math - The MKD Remix (Public Version)
   </title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
   <style>
@@ -469,7 +469,7 @@ $(document).on('page:load', ready2);
  <body class="book toc2 toc-left">
   <div id="header">
    <h1>
-    Discrete Math - The MKD Remix
+    Discrete Math - The MKD Remix (Public Version)
    </h1>
    <div class="details">
     <span class="author" id="author">
@@ -616,13 +616,31 @@ $(document).on('page:load', ready2);
      </div>
      <div class="paragraph">
       <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are enrolled in the CSC 230 course that I teach at SFSU, you need to use
+        <a href="./CSC230/index.html">
+         the “CSC230 version”
+        </a>
+        of the book, which I will be updating throughout the semester. The version you are looking at now is the “public version” of the book that is only updated between semesters.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
        <em>
-        This chapter was last updated on March 3, 2025.
+        This chapter was last updated on August 24, 2025.
        </em>
        <br/>
-       <span class="small">
-        Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.
-       </span>
+       <em>
+        Revised the recursive definition of rooted trees to more closely match the definition given in the
+        <a href="./trees.html">
+         Trees
+        </a>
+        chapter.
+       </em>
       </p>
      </div>
      <div class="paragraph">
@@ -1506,10 +1524,6 @@ Step 3 was executed.
            <a href="./introduction_discrete_math.html#vertex-edge-graphs">
             Introducing Discrete Mathematics
            </a>
-           chapter, and will be defined formally in the
-           <a href="./graphs.html">
-            Graphs
-           </a>
            chapter.
           </p>
          </div>
@@ -1535,7 +1549,11 @@ The vertex
               <em>
                r
               </em>
-              is called the root of this rooted tree.
+              is called the
+              <strong>
+               root node
+              </strong>
+              of this rooted tree.
              </p>
             </td>
            </tr>
@@ -1545,33 +1563,19 @@ The vertex
             </td>
             <td class="hdlist2">
              <p>
-              We can construct a new rooted tree from already-constructed rooted trees as follows. Suppose that for some positive integer
-              <em>
-               n
-              </em>
-              we have
-              <em>
-               n
-              </em>
-              already-constructed rooted trees \(T_{1}, \, \ldots \, T_{n}\) where vertex \(r_{i}\) is the root of rooted tree \(T_{i}\) for positive integers \(i \leq n\) such that
+              You can construct a new rooted tree from already-constructed rooted trees as follows. Suppose you have a nonempty finite set of “old” rooted trees (that is, already-constructed rooted trees) such that
               <br/>
-              (1) no vertex is in more than one of these rooted trees and
+              (1) no vertex is in more than one of the old rooted trees and
               <br/>
-              (2) no edge has endpoints in two of these rooted trees.
+              (2) no edge has endpoints in two different old rooted trees.
               <br/>
-              We can construct a new rooted tree by first adding a new vertex
-              <em>
-               r
-              </em>
-              that is not a vertex of any of the rooted trees \(T_{1}, \, \ldots \, T_{n}\) and then creating new edges from
-              <em>
-               r
-              </em>
-              to each of the already-constructed old root vertices \(r_{1}, \, \ldots \, r_{n}.\) The root of the new rooted tree is the vertex
-              <em>
-               r
-              </em>
-              that was added.
+              To construct the new rooted tree, first create a new vertex \(r\) that is not a vertex of any of the old rooted trees, then create new edges, with one new edge
+from
+the new root node
+\(r\)
+to each
+old
+root node of one of the old rooted trees. The root node of the new rooted tree is the new vertex \(r.\)
              </p>
             </td>
            </tr>
@@ -1585,7 +1589,18 @@ The vertex
          <div class="paragraph">
           <p>
            The preceding image shows the basis step and represents, in part, the results of the first and second
-uses of the recursion step; note that infinitely-many rooted trees are constructed at each use of the recursion step, so we cannot show all the rooted trees produced at any step other than the basis step. Also, we would need to complete infinitely many steps to construct
+uses of the recursion step.
+In the image, the new root nodes created at each recursion step appear at the top of the newly-created rooted trees.
+In each rooted tree, edges are treated as if they are directed “down,” away from the new root node; this will be discussed in more detail in the
+           <a href="./trees.html">
+            Trees
+           </a>
+           chapter.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Notice that infinitely-many rooted trees are constructed at each use of the recursion step, so we cannot show all the rooted trees produced at any step other than the basis step. Also, we would need to complete infinitely many steps to construct
            <em>
             all possible
            </em>

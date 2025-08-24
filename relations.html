@@ -7,7 +7,7 @@
   <meta content="Asciidoctor 1.5.8" name="generator"/>
   <meta content="A Work In Progress by Mark Kelly Davis" name="author"/>
   <title>
-   Discrete Math - The MKD Remix
+   Discrete Math - The MKD Remix (Public Version)
   </title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700" rel="stylesheet"/>
   <style>
@@ -469,7 +469,7 @@ $(document).on('page:load', ready2);
  <body class="book toc2 toc-left">
   <div id="header">
    <h1>
-    Discrete Math - The MKD Remix
+    Discrete Math - The MKD Remix (Public Version)
    </h1>
    <div class="details">
     <span class="author" id="author">
@@ -616,17 +616,28 @@ $(document).on('page:load', ready2);
      </div>
      <div class="paragraph">
       <p>
+       <mark>
+        <strong>
+         NOTICE:
+        </strong>
+        If you are enrolled in the CSC 230 course that I teach at SFSU, you need to use
+        <a href="./CSC230/index.html">
+         the “CSC230 version”
+        </a>
+        of the book, which I will be updating throughout the semester. The version you are looking at now is the “public version” of the book that is only updated between semesters.
+       </mark>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
        <em>
-        This chapter was last updated on March 11, 2025.
+        This chapter was last updated on August 22, 2025.
        </em>
        <br/>
        <em>
-        added additional example at end of chapter
+        added information to the subsection on the well-ordering of \(\mathbb{N}\)
        </em>
        <br/>
-       <span class="small">
-        Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.
-       </span>
       </p>
      </div>
      <div class="paragraph">
@@ -1520,22 +1531,105 @@ partial order \(R\) on \(S\) that has the additional property \((\forall x \in S
           of a set \(S\) is a total ordering \(R\) on \(S\) that has the additional property that every nonempty subset of \(S\) contains a least element with respect to the order relation.
          </p>
         </div>
-        <div class="sidebarblock" id="well_ordering_axiom_for_natural_numbers">
+        <div class="paragraph" id="well_ordering_principle_for_natural_numbers">
+         <p>
+          One of the most important examples of a well-ordering in mathematics is the relation \(\leq\) on the set of natural numbers \(\mathbb{N}.\)
+         </p>
+        </div>
+        <div class="sidebarblock">
          <div class="content">
           <div class="title">
-           Axiom
+           The Well-Ordering Principle for \(\mathbb{N}\)
           </div>
           <div class="paragraph">
            <p>
-            The relation \(\leq\) on the set \(\mathbb{N}\) of natural numbers is a well-ordering.
+            If \(S\) is a nonempty subset of \(\mathbb{N}\) then
+there is a natural number \(m \in S\) such that for every element \(x \in S,\) \(m \leq x.\)
            </p>
           </div>
          </div>
         </div>
         <div class="paragraph">
          <p>
-          Notice that the above statement is not a theorem…​ it is an axiom that we assume to be true about the natural numbers!
+          In the Remix, the Well-Ordering Principle is treated as an axiom, a statement that is assumed to be True about the set of natural numbers.
+          <br/>
          </p>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Note to instructors - click to expand
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           <span class="small">
+            Many textbooks assume either the
+            <a href="./relations.html#well_ordering_principle_for_natural_numbers">
+             Well-Ordering Principle
+            </a>
+            or the
+            <a href="./induction.html#the_principle_of_mathematical_induction_for_natural_numbers">
+             Principle of Mathematical Induction
+            </a>
+            as an axiom, and then prove the other principle using that axiom (and also prove that the two principles are logically equivalent.) As the Remix is designed for students of Computer Science, both principles are simply assumed to be True without proof,
+that is, both principles are treated as axioms.
+This choice should not limit student understanding of how these principles can be applied, and also avoids some highly technical issues that arise in formal mathematical definitions of the set \(\mathbb{N}\) of natural numbers which would most likely only be of concern to Mathematics majors and their instructors. If you
+want to do a deeper mathematical exploration of these technical issues (e.g., differing formulations of the Peano axioms, and first-order versus second-order logic) you may refer to
+            <a href="https://link.springer.com/article/10.1007/s00283-019-09898-4">
+             this article
+            </a>
+            in
+            <em>
+             The Mathematical Intelligencer
+            </em>
+            as well as the subsection “Nonstandard models” of this
+            <a href="https://en.wikipedia.org/wiki/Peano_axioms#Nonstandard_models">
+             Wikipedia  page.
+            </a>
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The Well-Ordering Principle may seem like an “obviously True” statement. To understand why mathematicians would make it clear that they are
+          <em>
+           assuming
+          </em>
+          that this principle is True is to understand what “infinity” means.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            For example, suppose that you are told that a nonempty subset \(S\) of \(\mathbb{N}\) contains the element 10. A brute-force way to determine the least element of \(S\) is to ask a sequence of 10 questions: \[ \text{“Is 0 in \(S?,\)” “Is 1 in \(S?,\)” \(\ldots\), “Is 9 in \(S?\)”} \] If the answer is “No” to all 10 of these questions, then 10 itself is the least element in \(S\),  otherwise, the least number in \(S\) is the first value of \(k\) for which the answer to the question “Is \(k\) in \(S?\)” is “Yes.”
+           </p>
+          </li>
+          <li>
+           <p>
+            Now, suppose that it takes 1 nanosecond to ask and answer each question of the form “Is \(k\) in \(S?\)” for each integer \(k,\) and suppose that you are given a new set, also called \(S,\) and told that the the number you can be sure is in \(S\) is \(10^{10^{10^{10^{10}}}}\) which is an integer
+greater than the number of nanoseconds estimated for our universe to reach its
+            <a href="https://en.wikipedia.org/wiki/Timeline_of_the_far_future#cite_ref-bignumber2_177-3">
+             final energy state!
+            </a>
+            If you try to use the brute-force method of asking a sequence of \(10^{10^{10^{10^{10}}}}\) questions: \[ \text{“Is 0 in \(S?,\)” “Is 1 in \(S?,\)” \(\ldots\), “Is \(\left( 10^{10^{10^{10^{10}}}}-1 \right)\) in \(S?\)”} \]
+it is possible that the answer to one of the questions is “Yes” but that you would never be able to ask that question before the universe ends.
+Notice that you can use
+            <a href="./logic.html">
+             formal logic
+            </a>
+            to justify that either the answers to all the questions would be “No” or that at least one of the questions would have the answer “Yes” - asking the sequence of questions
+            <span class="underline">
+             would
+            </span>
+            determine the least element in \(S\) if you had time to ask enough of the questions, but you (or humanity itself!) may not have that much time. For this reason, mathematicians
+            <em>
+             assume
+            </em>
+            that the least element of \(S\) exists (Notice that a “timeless being” could know all the answers.)
+           </p>
+          </li>
+         </ul>
         </div>
        </div>
       </div>

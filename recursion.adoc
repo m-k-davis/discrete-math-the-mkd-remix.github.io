@@ -3,8 +3,12 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
-_This chapter was last updated on March 3, 2025._ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+include::LinkToPrivate.adoc[] 
+
+
+_This chapter was last updated on August 24, 2025._ + 
+_Revised the recursive definition of rooted trees to more closely match the definition given in the link:./trees.html[Trees] chapter._ 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 // MKD start topic list
 ////
@@ -517,18 +521,35 @@ In the next example, we describe how to construct rooted trees, a type of graph.
 ****
 .Example {counter:indrecexample} - Rooted Trees
 
-A *rooted tree* is a type of graph. Graphs are described informally in the link:./introduction_discrete_math.html#vertex-edge-graphs[Introducing Discrete Mathematics] chapter, and will be defined formally in the link:./graphs.html[Graphs] chapter.
+A *rooted tree* is a type of graph. Graphs are described informally in the link:./introduction_discrete_math.html#vertex-edge-graphs[Introducing Discrete Mathematics] chapter.
+// MKD Aug 24 2025
+//, and 
+// MKD Aug 12 2025 //will be defined formally in the link:./graph_theory.html[Graphs] chapter.
+//rooted trees are discussed in more detail in the link:./trees.html[Trees] chapter.
 
 The set of rooted trees, is defined recursively as follows.
 //where a rooted tree consists of a set of vertices containing a distinguished vertex called the root, and edges connecting these vertices, can be defined recursively by these steps:
 
 [horizontal]
 Basis Step:: A single vertex _r_ is a rooted tree.
-The vertex _r_ is called the root of this rooted tree. 
+The vertex _r_ is called the *root node* of this rooted tree. 
+// MKD Aug 12 2025 
+Recursion:: You can construct a new rooted tree from already-constructed rooted trees as follows. Suppose you have a nonempty finite set of “old” rooted trees (that is, already-constructed rooted trees) such that + 
+	(1) no vertex is in more than one of the old rooted trees and + 
+	(2) no edge has endpoints in two different old rooted trees. + 
+To construct the new rooted tree, first create a new vertex $r$ that is not a vertex of any of the old rooted trees, then create new edges, with one new edge 
+from 
+the new root node 
+$r$ 
+to each 
+old 
+root node of one of the old rooted trees. The root node of the new rooted tree is the new vertex $r.$ 
+////
 Recursion:: We can construct a new rooted tree from already-constructed rooted trees as follows. Suppose that for some positive integer _n_ we have _n_ already-constructed rooted trees $T_{1}, \, \ldots \, T_{n}$ where vertex $r_{i}$ is the root of rooted tree $T_{i}$ for positive integers $i \leq n$ such that + 
 	(1) no vertex is in more than one of these rooted trees and + 
 	(2) no edge has endpoints in two of these rooted trees. + 
 We can construct a new rooted tree by first adding a new vertex _r_ that is not a vertex of any of the rooted trees $T_{1}, \, \ldots \, T_{n}$ and then creating new edges from _r_ to each of the already-constructed old root vertices $r_{1}, \, \ldots \, r_{n}.$ The root of the new rooted tree is the vertex _r_ that was added.
+////
 
 //image::imagesMKD/RootedTreeRecursion.png[RootedTreeRecursion,1144,481,float="right",align="center"]
 //image::imagesMKD/RootedTreeRecursion.png[RootedTreeRecursion,572,240,align="center"]
@@ -536,7 +557,16 @@ We can construct a new rooted tree by first adding a new vertex _r_ that is not 
 image::imagesMKD/RootedTreeRecursionV2.png[RootedTreeRecursionV2,590,234,align="center"] 
 The preceding image shows the basis step and represents, in part, the results of the first and second 
 //iterations 
-uses of the recursion step; note that infinitely-many rooted trees are constructed at each use of the recursion step, so we cannot show all the rooted trees produced at any step other than the basis step. Also, we would need to complete infinitely many steps to construct _all possible_ rooted trees, but any one particular rooted tree you want to construct will be produced after only finitely many uses of the recursion step. 
+uses of the recursion step. 
+//; note
+// MKD Aug 12 2025 
+In the image, the new root nodes created at each recursion step appear at the top of the newly-created rooted trees. 
+// MKD Aug 18 2025 
+//“”
+In each rooted tree, edges are treated as if they are directed “down,” away from the new root node; this will be discussed in more detail in the link:./trees.html[Trees] chapter.
+
+  
+Notice that infinitely-many rooted trees are constructed at each use of the recursion step, so we cannot show all the rooted trees produced at any step other than the basis step. Also, we would need to complete infinitely many steps to construct _all possible_ rooted trees, but any one particular rooted tree you want to construct will be produced after only finitely many uses of the recursion step. 
 
 ****
 // $T_{1}, \, \ldots \, T_{n}.$ 

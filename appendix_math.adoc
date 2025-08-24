@@ -1,6 +1,9 @@
 //= Appendix 3: Just-In-Time Math Review
 = Appendix: On-Demand Math Resources
 
+
+include::LinkToPrivate.adoc[] 
+
 _This chapter was last updated on August 25, 2024._
 
 //MKD blurb about purpose and how to use it
