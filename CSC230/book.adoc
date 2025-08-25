@@ -73,7 +73,12 @@ include::front_matter.adoc[]
 //#MKD Feb 2 2025 order 
 //chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'number_bases.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'counting_binomial.adoc', 'induction.adoc', 'growth_of_functions.adoc', 'algorithms.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc']
 
+//#MKD Aug 24 2025 bis order 
+//chap_adocs = ['index.adoc', 'introduction_discrete_math.adoc', 'number_bases.adoc', 'counting_arithmetic.adoc', 'set_theory.adoc', 'logic.adoc', 'proofs.adoc', 'recursion.adoc', 'functions.adoc', 'relations.adoc', 'counting_binomial.adoc', 'induction.adoc', 'growth_of_functions.adoc', 'algorithms.adoc', 'graph_theory.adoc', 'trees.adoc', 'appendix_math.adoc', 'appendix_library.adoc', 'appendix_pyintro.adoc', 'appendix_pysyntax.adoc', 'appendix_for_instructors.adoc']
+
 include::introduction_discrete_math.adoc[]
+
+include::number_bases.adoc[]
 
 include::counting_arithmetic.adoc[]
 
@@ -85,7 +90,7 @@ include::proofs.adoc[]
 
 // MKD - no separate chapter for number theory content
 //include::number_theory.adoc[]
-include::number_bases.adoc[]
+//include::number_bases.adoc[]
 
 include::recursion.adoc[]
 

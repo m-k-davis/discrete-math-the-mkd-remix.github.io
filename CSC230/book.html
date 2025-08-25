@@ -486,11 +486,11 @@ $(document).on('page:load', ready2);
 <ul class="sectlevel1">
 <li><a href="#_about_this_text">About this text</a></li>
 <li><a href="#_introducing_discrete_mathematics">1. Introducing Discrete Mathematics</a></li>
-<li><a href="#_counting_arithmetic_techniques">2. Counting: Arithmetic Techniques</a></li>
-<li><a href="#_set_theory">3. Set Theory</a></li>
-<li><a href="#_logic">4. Logic</a></li>
-<li><a href="#_proofs_basic_techniques">5. Proofs: Basic Techniques</a></li>
-<li><a href="#_number_bases">6. Number Bases</a></li>
+<li><a href="#_number_bases">2. Number Bases</a></li>
+<li><a href="#_counting_arithmetic_techniques">3. Counting: Arithmetic Techniques</a></li>
+<li><a href="#_set_theory">4. Set Theory</a></li>
+<li><a href="#_logic">5. Logic</a></li>
+<li><a href="#_proofs_basic_techniques">6. Proofs: Basic Techniques</a></li>
 <li><a href="#_sequences_and_recursion">7. Sequences and Recursion</a></li>
 <li><a href="#_functions">8. Functions</a></li>
 <li><a href="#_relations">9. Relations</a></li>
@@ -2276,7 +2276,1063 @@ wins \(2\) out of \(10\) districts, but in scenario \(B\) it wins \(7\)  out of 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_counting_arithmetic_techniques">2. Counting: Arithmetic Techniques</h2>
+<h2 id="_number_bases">2. Number Bases</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
+</div>
+<div class="paragraph">
+<p><em>This chapter was last updated on April 1, 2025.</em><br></p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s likely that you learned how to represent positive integers using
+the <strong>base-ten place-value system</strong> when you were young.
+This system uses ten symbols, the <strong>Hindu-Arabic numerals</strong>
+‘0’,
+‘1’,
+‘2’,
+‘3’,
+‘4’,
+‘5’,
+‘6’,
+‘7’,
+‘8’, and
+‘9’,
+to represent <em>any</em> natural number.</p>
+</div>
+<div class="paragraph">
+<p>In the base-ten place-value system that uses <strong>decimal</strong> notation, each natural number is represented by a numeral which is a string of one or more of the ten Hindu-Arabic digits.
+However, in some computer science contexts, it is more useful to represent natural numbers in a place-value system that uses a different <strong>number base</strong> such as <strong>binary</strong> (base-two), <strong>octal</strong> (base-eight), or <strong>hexadecimal</strong> (base-sixteen).
+Using or thinking about numbers represented by numerals in these other systems can help you develop more efficient algorithms and recognize when certain numerals can be interpreted as encodings of multiple pieces of information.</p>
+</div>
+<div class="paragraph">
+<p>In this chapter, you will learn how to represent natural numbers using place-value systems with bases other than ten.</p>
+</div>
+<div class="paragraph">
+<p>Key terms and concepts covered in this chapter:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Number bases</p>
+<div class="ulist">
+<ul>
+<li>
+<p>binary</p>
+</li>
+<li>
+<p>hexadecimal</p>
+</li>
+<li>
+<p>octal</p>
+</li>
+<li>
+<p>decimal</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_numbers_numerals_and_digits">2.1. Numbers, Numerals, and Digits</h3>
+<div class="paragraph">
+<p>In everyday life, it is common to treat numbers and numerals as if they are the same. However, it is important in this chapter to distinguish these concepts.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <strong>number</strong> is an abstract idea or mental concept of a count, a measure, a rank in an ordering, etc..</p>
+</li>
+<li>
+<p>A <strong>numeral</strong> is a word, phrase, symbol, or string of symbols that is used to represent a number.</p>
+</li>
+<li>
+<p>A <strong>digit</strong> is a single symbol that represents a number. A digit is a numeral, but multiple digits can be combined to create other numerals. For example, each of the ten Hindu-Arabic numerals is a digit that represents a natural number that is less than ten, and multiple Hindu-Arabic numerals can be combined to create numerals that represent numbers that are greater than or equal to ten.<br>
+<span class="small">NOTE: The word "digit" comes from the Latin word <em>digitus</em> which means "finger" or "toe."</span></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 1 -  Numerals, Numbers, and Digits</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>Consider the following words:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"five",</p>
+</li>
+<li>
+<p>"cinco",</p>
+</li>
+<li>
+<p>"خمسة" ("khamsa"),</p>
+</li>
+<li>
+<p>"पाँच" ("paanch"),</p>
+</li>
+<li>
+<p>"五" ("wǔ").</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These words, taken from different languages, are examples of <em>numerals,</em> words that represent a <em>number.</em> In fact, all those numerals represent the same number, but no one of the numerals <em>is</em> the number. The number itself is an abstract idea that can be referred to using any of those numerals.</p>
+</div>
+<div class="paragraph">
+<p>In the same way,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the Roman "Ⅴ",</p>
+</li>
+<li>
+<p>the Braille "⠼⠑",</p>
+</li>
+<li>
+<p>the Coptic Epact "𐋥",</p>
+</li>
+<li>
+<p>the Eastern Arabic "٥",</p>
+</li>
+<li>
+<p>the Western Arabic "5".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>are other ways of representing the same number that the
+words above represent.</p>
+</div>
+<div class="openblock click">
+<div class="title">Semiotics</div>
+<div class="content">
+<div class='click_oblique'>
+In semiotics, the study of signs, symbols, and signification, the number is a <strong>sign,</strong> made up of the <strong>signified</strong> mental concept and the <strong>signifier</strong> (the numeral.)
+Further discussion is beyond the scope of this textbook, and beyond the remixer&#8217;s expertise! Here is a <a href=http://visual-memory.co.uk/daniel//Documents/S4B/semiotic.html>link</a> if you want to learn more about semiotics.
+</div>
+</div>
+</div>
+<div class="openblock click">
+<div class="title">This is not a pipe!</div>
+<div class="content">
+<div class='click_oblique'>
+Read <a href=https://en.wikipedia.org/wiki/The_Treachery_of_Images>this Wikipedia article</a> and pay attention to the quote from the artist, René Magritte.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_review_of_the_base_ten_place_value_system">2.2. Review Of The Base-Ten Place Value System</h3>
+<div class="paragraph">
+<p><mark><strong>It&#8217;s likely that everything you are about to read in this section is knowledge you&#8217;ve had for many years. The purpose of stating everything so explicitly is to provide an example you can compare with place-value systems that use other bases.</strong></mark><br></p>
+</div>
+<div class="paragraph">
+<p>A base-ten numeral is a string formed from one or more digits (i.e.,  Hindu-Arabic numerals.)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The string is read from left-to-right.</p>
+</li>
+<li>
+<p>Each digit in the string represents a multiple of a power of the base, ten, depending on the its position in the string.</p>
+</li>
+<li>
+<p>The rightmost <strong>place</strong> represents a multiple of 1 (which is ten raised to the power zero) and each of the other places represents a multiple of a power of ten that is one greater than the power of ten represented by the place to its right.</p>
+</li>
+<li>
+<p>Notice that the base itself, the number ten, is represented by the string "10" in this place-value system. The string "10" represents the number described by the phrase "1 ten plus 0 ones".</p>
+</li>
+<li>
+<p>As an example, the string "101" represents the number described by the phrase "1 hundred plus 0 tens, plus 1 ones," where 1 hundred is the same as ten tens. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \] The expression on the right-hand side of the previous equation is referred to as <strong>expanded form</strong> in school-level mathematics.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="small">NOTE: The Hindu-Arabic numerals evolved from earlier Brahmi versions. You can look at the image at this <a href=https://www.britannica.com/topic/Hindu-Arabic-numerals/images-videos>web page</a> which shows a few steps in this evolution. Also, you can learn more about the history of the Hindu-Arabic numerals from the links in the "Notes" and "References" sections of this <a href=https://en.wikipedia.org/wiki/History_of_the_Hindu%E2%80%93Arabic_numeral_system>Wikipedia page.</a></span></p>
+</div>
+<div class="sect3">
+<h4 id="_an_algorithm_that_computes_the_digits_of_a_base_ten_numeral">2.2.1. An Algorithm That Computes The Digits Of A Base-Ten Numeral</h4>
+<div class="paragraph">
+<p>In this subsection, an algorithm is presented for computing the digits in the expanded form of a base-ten numeral of the natural number \(n.\) This may seem to be a complicated way to do something very simple since we could just <em>read off</em> the digits, but <mark>the important thing to notice about this algorithm is that the role that ten plays can be played by <em>any</em> other positive integer constant greater than one!</mark> This means that this algorithm can be adapted to find the "digits" in the expanded form of a base-\(b\) numeral for the number \(n\) for <em>any</em> base \(b\) we choose.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Task: Given the natural number <em>n,</em>
+compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)]  so that each of \(r_{0}, r_{1}, \ldots , r_{k}\) is represented by a single digit in base-10, and \[ n = r_{k} \cdot 10^{k} + \ldots + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0} \] where \(k\) is the greatest natural number such that \(10^{k} < n.\)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Input: The natural number \(n\)</p>
+</li>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set \(a\) equal to \(n\)</p>
+</li>
+<li>
+<p>Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)</p>
+</li>
+<li>
+<p>Divide \(a\) by 10 to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot 10 + r\) and \(0 \leq r < 10.\)</p>
+</li>
+<li>
+<p>Append \(r\) to the end of array \(s.\)</p>
+</li>
+<li>
+<p>If \(q \neq 0\)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>set \(a\) equal to \(q\)</p>
+</li>
+<li>
+<p>go to step 3</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Return the sequence \(s.\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a single digit, and \[ n = r_{k} \cdot 10^{k} + \ldots + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0}.\]</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>That is, we rewrite \(n\) as \(r_{0} + 10 \cdot (r_{1} + 10 \cdot (r_{2} + \ldots r_{k-1} + (10 \cdot (r_{k})) \ldots ))\)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 2 - Finding The Digits Of A Base-Ten Numeral</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>The following equations summarize how the preceding algorithm determines the digits in the base-ten expanded form numeral for the number 432.</p>
+</div>
+<div class="paragraph">
+<p>\begin{equation}
+\begin{aligned}
+432 {} &amp; = 43 \cdot 10 + 2 &amp; q {} &amp; = 43  &amp; r {} &amp; = 2 &amp; s &amp; = [2] \\
+43 {} &amp; = 4 \cdot 10 + 3   &amp; q {} &amp; = 4   &amp; r {} &amp; = 3 &amp; s &amp; = [2, 3] \\
+4 {} &amp; = 0 \cdot 10 + 4    &amp; q {} &amp; = 0   &amp; r {} &amp; = 4 &amp; s &amp; = [2, 3, 4] \\
+\end{aligned}
+\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>Notice that the items in \(s = [ r_{0}, \, r_{1}, \, r_{2} \)] are the numbers corresponding to the digits of the numeral \(“432”\) in reverse order, so \begin{equation}
+\begin{aligned}
+432 &amp; =  r_{2} \cdot 10^{2} + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0} \\
+&amp; =  4 \cdot 10^{2} + 3 \cdot 10^{1} + 2 \cdot 10^{0}
+\end{aligned}
+\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>Notice that the algorithm is rewriting \(432\) as the sum \(2 + 10 \cdot (3 + 10 \cdot 4)).\)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_base_two_place_value_system_binary_notation">2.3. The Base-Two Place Value System (Binary Notation)</h3>
+<div class="paragraph">
+<p>This subsection describes the base-two (binary) place value system. You will see that much of what is written here is the result of replacing "ten" by "two" in the description of the base-ten (decimal) system in the previous section.<br></p>
+</div>
+<div class="paragraph">
+<p>A base-two numeral is a string formed from one or more of the two <strong>binary digits</strong> (or <strong>bits</strong>) ‘0’ and ‘1’.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The string is read from left-to-right.</p>
+</li>
+<li>
+<p>Each digit in the string represents a multiple of a power of the base, two, depending on the its position in the string.</p>
+</li>
+<li>
+<p>The rightmost place represents a multiple of 1 (which is two raised to the power zero) and each of the other places represents a multiple of a power of two that is one greater than the power of two represented by the place to its right.</p>
+</li>
+<li>
+<p><mark>Notice that the base itself, the number two, is represented by the string "10" in this place-value system.</mark> The string "10" represents the number described by the phrase "1 two plus 0 ones".</p>
+</li>
+<li>
+<p>As an example, the string "101" represents the number described by the phrase "1 four plus 0 twos, plus 1 ones," where 1 four is the same as two twos. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Wait&#8230;&#8203; WHAT?!?) }\]
+Yes, this equation,
+which may appear to be written in the base-ten system,
+is correct <em>in the base-two place value system,</em> too!  "10" is how the number two is represented in base-two notation! <br>
+<span class="small">As an analogy, the string "pie" signifies different things in English (a baked dessert) and Spanish (a foot.) You must take care to know which context you are working in!</span></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is traditional to use
+some extra
+notation to indicate
+when the strings "10" and "101"
+<span class="underline"><em>are not</em></span>
+base-ten numerals
+to avoid confusion.
+In this textbook,
+numerals in any base other than ten
+will be written
+between a pair of parentheses followed by a subscript indicating the base. The subscript is written as a <em>base-ten numeral.</em> For example, we could rewrite the previous equation as \[(101)_{2} = (1)_2 \cdot (10)_2 \cdot (10)_2 + (0)_2 \cdot (10)_2 + (1)_2 \cdot (1)_2 \]
+which translates into base-ten as \(5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.\) We can also write \(5 = (101)_2\) which is a way of saying that the base-ten numeral and the base-two numeral signify the same number. + <span class="small">NOTE:
+The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used&#8230;&#8203; and we don&#8217;t need to use the parentheses or subscripts if we are already working in base-ten.</span></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The parentheses and subscript are not necessary if it is clear from the context that a numeral is not a base-ten numeral. For example, \[ \text{chmod 755 hello.txt} \]
+is a Unix/Linux command that changes the file permission bits (read, write, execute) of the file "hello.txt" for the file&#8217;s owner, the file&#8217;s group, and any other user. In this example, the string "755" is not a base-10 numeral, but is in <strong>octal (base-eight).</strong> Octal will be discussed later in the chapter. No subscript is used in the Unix/Linux command because it is <em>natural</em> to an experienced user of that operating system to use octal in the context.<br>
+<span class="small">In fact, the octal numeral "755" is used here as an encoding of three bitstrings, where each bitstring is of length 3; this idea is discussed in a later subsection of this chapter.</span></p>
+</div>
+<div class="paragraph">
+<p>Also, we can omit the parentheses and subscripts if we want to tell a couple of "jokes:"</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href=https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf>"There are 10 types of people in the world… those that understand binary and those that don’t.”</a></p>
+</li>
+<li>
+<p><a href=https://math.stackexchange.com/questions/166869/is-10-a-magical-number-or-i-am-missing-something>"Every base is base 10."</a></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You are ready now to learn how to represent numbers using base-two numerals.</p>
+</div>
+<div class="sect3">
+<h4 id="_an_algorithm_that_computes_the_digits_of_a_base_two_numeral">2.3.1. An Algorithm That Computes The Digits Of A Base-Two Numeral</h4>
+<div class="paragraph">
+<p>In this subsection, an algorithm is presented for computing the digits in the expanded form of a base-two numeral of the natural number \(n.\) This algorithm has been adapted from the one stated for base-ten in the previous section. <mark>Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.</mark></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Task: Given the natural number <em>n,</em>
+compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)]  so that each of \(r_{0}, r_{1}, \ldots , r_{k}\) is represented by a single digit in base-2, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \] where \(k\) is the greatest natural number such that \(2^{k} < n.\)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Input: The natural number \(n\)</p>
+</li>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set \(a\) equal to \(n\)</p>
+</li>
+<li>
+<p>Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)</p>
+</li>
+<li>
+<p>Divide \(a\) by 2 to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot 2 + r\) and \(0 \leq r < 2.\)</p>
+</li>
+<li>
+<p>Append \(r\) to the end of array \(s.\)</p>
+</li>
+<li>
+<p>If \(q \neq 0\)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>set \(a\) equal to \(q\)</p>
+</li>
+<li>
+<p>go to step 3</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Return the sequence \(s.\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a single digit, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0}.\]</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>That is, the algorithm rewrites \(n\) as \(r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))\)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 3 - Finding The Digits Of A Base-Two Numeral (Binary Notation)</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>The following equations summarize how the preceding algorithm determines the digits in the base-two expanded form numeral for the number 13.</p>
+</div>
+<div class="paragraph">
+<p>\begin{equation}
+\begin{aligned}
+13 {} &amp; = 6 \cdot 2 + 1 &amp; q {} &amp; = 6  &amp; r {} &amp; = 1 &amp; s &amp; = [1] \\
+6 {} &amp; = 3 \cdot 2 + 0   &amp; q {} &amp; = 3   &amp; r {} &amp; = 0 &amp; s &amp; = [1, 0] \\
+3 {} &amp; = 1 \cdot 2 + 1   &amp; q {} &amp; = 1   &amp; r {} &amp; = 1 &amp; s &amp; = [1, 0, 1] \\
+1 {} &amp; = 0 \cdot 2 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [1, 0, 1, 1] \\
+\end{aligned}
+\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>Notice that the items in \(s = [ r_{0}, \, r_{1}, \, r_{2} , \, r_{3} \)] are the numbers (in base-ten notation) corresponding to the digits of the numeral \(“(1101)_2”\) in reverse order, so \begin{equation}
+\begin{aligned}
+13 &amp; =  r_{3} \cdot 2^{3} +  r_{2} \cdot 2^{2} + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \\
+&amp; =  1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 2 \cdot 2^{0}
+\end{aligned}
+\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>The algorithm
+rewrites \(13\) as \(1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).\)<br>
+Again, notice that the items in the array \([1, 0, 1, 1\)] are listed in reverse order, so
+\(13 = (1101)_2\)
+where the base-ten numeral and the base-two numeral represent the same number, thirteen.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is a <a href=https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf>link</a> to an alternate method of finding the base-two numeral for a number.</p>
+</div>
+<div class="paragraph">
+<p>If you made it to this sentence without skipping any of the discussion above, congratulations! If you did skip some of the discussion, go back and try your best to understand what the algorithm in the previous example is computing: The array \(s\) holds the digits, in reverse order of the binary notation for the number \(n.\) Compare what is done in this algorithm to the one for base-ten in the previous section&#8230;&#8203; they are computing the digits for a numeral, but in different bases. If you can understand this algorithm, you will likely understand the rest of the chapter.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_base_b_place_value_system">2.4. The Base-\(b\) Place Value System</h3>
+<div class="paragraph">
+<p>If you made it here, you are ready to learn how to find, given any natural number \(n,\) the numeral that represents \(n\) in the base-\(b\) place value system (It is assumed that the base \(b\) is a natural number greater than or equal to 2.) You can compare the algorithm and example in this subsection to the ones in the preceding subsections for base-ten and base-two.</p>
+</div>
+<div class="paragraph">
+<p>A base-\(b\) numeral is a string formed from one or more digits out of a set that contains \(b\) symbols, where each symbol is called a "base-\(b\) digit."</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The string is read from left-to-right.</p>
+</li>
+<li>
+<p>Each digit in the string represents a multiple of a power of the base, \(b,\) depending on the its position in the string.</p>
+</li>
+<li>
+<p>The rightmost place represents a multiple of 1 (which is \(b\) raised to the power zero) and each of the other places represents a multiple of a power of \(b\) that is one greater than the power of \(b\) represented by the place to its right.</p>
+</li>
+<li>
+<p><mark>Notice that the base itself, the number \(b,\) is represented by the string "10" in the base-\(b\) place value system.</mark> The string "10" represents the number described by the phrase "1 \(b\) plus 0 ones".</p>
+</li>
+<li>
+<p>As an example, the string "101" represents the number described by the phrase "1 <em>b-_squared plus 0 _b</em>, plus 1 ones." That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Again?!?) }\]
+Yes, this equation is correct, too, <em>in the base-b place value system!</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To avoid confusion, you can enclose each numeral in a pair of parentheses followed by the subscript \(b\) to indicate the base, where \(b\) is written as a <em>base-ten numeral.</em> For example,
+the previous equation
+can be written as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \]
+which translates into base-ten as \(b^2 + 1 = 1 \cdot b \cdot b + 0 \cdot b + 1 \cdot 1.\)</p>
+</div>
+<div class="sect3">
+<h4 id="_an_algorithm_that_computes_the_digits_of_a_base_b_numeral">2.4.1. An Algorithm That Computes The Digits Of A Base-\(b\) Numeral</h4>
+<div class="paragraph">
+<p>This is an adaptation of the algorithm presented earlier for base-two.  <mark>Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.</mark></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Task: Given the natural number <em>n,</em> and positive integer constant \(b > 1\)
+compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] so that each of \(r_{0}, r_{1}, \ldots , r_{k}\)
+can be represented by a single digit in base-\(b\), and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0} \] where \(k\) is the greatest natural number such that \(b^{k} < n.\)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Input: The natural number \(n\)</p>
+</li>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set \(a\) equal to \(n\)</p>
+</li>
+<li>
+<p>Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)</p>
+</li>
+<li>
+<p>Divide \(a\) by \(b\) to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot b + r\) and \(0 \leq r < b.\)</p>
+</li>
+<li>
+<p>Append \(r\) to the end of array \(s.\)</p>
+</li>
+<li>
+<p>If \(q \neq 0\)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>set \(a\) equal to \(q\)</p>
+</li>
+<li>
+<p>go to step 3</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Return the sequence \(s.\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a
+single digit in base-\(b,\)
+and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0}.\]</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The algorithm rewrites \(n\) as \(r_{0} + b \cdot (r_{1} + b \cdot (r_{2} + \ldots r_{k-1} + (b \cdot (r_{k})) \ldots )).\) The result
+\(s\) contains the numbers
+that let you write \(n\)
+in base-\(b\) notation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_octal_notation_base_8">2.4.2. Octal Notation (Base-8)</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 4 - Finding The Digits Of A Base-8 Numeral (Octal Notation)</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>The following equations summarize how to determine the digits in the base-8 expanded form numeral for the number 100.</p>
+</div>
+<div class="paragraph">
+<p>Note that for base-8 we use the eight digits
+‘0’,
+‘1’,
+‘2’,
+‘3’,
+‘4’,
+‘5’,
+‘6’, and
+‘7’.</p>
+</div>
+<div class="paragraph">
+<p>\begin{equation}
+\begin{aligned}
+100 {} &amp; = 12 \cdot 8 + 4 &amp; q {} &amp; = 12  &amp; r {} &amp; = 4 &amp; s &amp; = [4] \\
+12 {} &amp; = 1 \cdot 8 + 4   &amp; q {} &amp; = 1   &amp; r {} &amp; = 4 &amp; s &amp; = [4, 4] \\
+1 {} &amp; = 0 \cdot 8 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [4, 4, 1] \\
+\end{aligned}
+\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>Notice that \(s = [ 4, \, 4, \, 1 \)] are the numbers (in base-ten notation) corresponding to the base-8 digits of the numeral \(“(144)_8”\) in reverse order. You can verify that \(100 = 1 \cdot 8^{2} + 4 \cdot 8^{1} + 4  \cdot 8^{0}.\) This means that \(100 = (144)_8.\)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_hexadecimal_notation_base_16">2.4.3. Hexadecimal Notation (Base-16)</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock">
+<div class="title">Example 5 - Finding The Digits Of A Base-16 Numeral (Hexadecimal Notation)</div>
+<div class="content">
+
+</div>
+</div>
+<div class="paragraph">
+<p>The following equations summarize how to determine the digits in the base-16 expanded form numeral for the number 500.</p>
+</div>
+<div class="paragraph">
+<p>Note that for base-16, we need sixteen digits! It is traditional to use the ten Hindu-Arabic numerals followed by the first six uppercase English letters as the digits:
+‘0’,
+‘1’,
+‘2’,
+‘3’,
+‘4’,
+‘5’,
+‘6’,
+‘7’,
+‘8’,
+‘9’,
+‘A’,
+‘B’,
+‘C’,
+‘D’,
+‘E’, and
+‘F’.
+So
+\(10 = (A)_{16},\)
+\(11 = (B)_{16},\)
+\(12 = (C)_{16},\)
+\(13 = (D)_{16},\)
+\(14 = (E)_{16},\) and
+\(15 = (F)_{16}.\)<br>
+<span class="small">Note: Some programming languages like Python use the lowercase letters 'a' through 'f' instead of the uppercase letters.</span></p>
+</div>
+<div class="paragraph">
+<p>The remainders stored in the array \(s\) are represented in base-ten notation, and will need to be replaced by the corresponding hexadecimal digits in the base-16 numeral for 500.</p>
+</div>
+<div class="paragraph">
+<p>\begin{equation}
+\begin{aligned}
+500 {} &amp; = 31 \cdot 16 + 4 &amp; q {} &amp; = 31  &amp; r {} &amp; = 4 &amp; s &amp; = [4] \\
+31 {} &amp; = 1 \cdot 16 + 15   &amp; q {} &amp; = 1   &amp; r {} &amp; = 15 &amp; s &amp; = [4, 15] \\
+1 {} &amp; = 0 \cdot 16 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [4, 15, 1] \\
+\end{aligned}
+\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>As before, we have \(500 = 1 \cdot 16^{2} + 15 \cdot 16^{1} + 4 \cdot 16^{0},\) which you can verify is true.
+To write the base-16 numeral for 500, you need to replace "15" in base-ten  by \((F)_{16}.\) So \(500 = (1F4)_{16}.\)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_a_theorem_to_be_proven_later">2.4.4. A Theorem (To Be Proven Later)</h4>
+<div class="paragraph">
+<p>We can summarize what the algorithm does as a <strong>mathematical theorem,</strong> though technically at this point, it&#8217;s only a <strong>conjecture,</strong> an educated guess based on a few cases that seem to indicate that the algorithm will always work. You will learn a technique that will prove the theorem by validating the algorithm for all choices of natural numbers \(n\) and \(b>1\) in the <a href=./induction.html>Proofs: Mathematical Induction </a> chapter.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>Let \(b\) be an integer greater than 1. Any positive integer \(n\) can be expressed uniquely in the form \[n = r_kb^k + r_{k - 1}b^{k-1} + \cdots + r_1b^1 + r_0b^0,\]where \(k\) is a nonnegative integer, \(r_0,r_1,\dots,r_k\) are nonnegative integers less than \(b,\) and \(r_k \neq 0.\)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_converting_from_base_b_to_base_ten">2.5. Converting From Base-\(b\) to Base-Ten</h3>
+<div class="paragraph">
+<p>In this section you will learn how to rewrite a base-\(b\) numeral in base-ten.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 6</div>
+<p>What is the decimal expansion of the positive integer with base 7 expansion \((1063)_7\)?</p>
+</div>
+<div class="paragraph">
+<div class="title">Solution</div>
+<p>We have</p>
+</div>
+<div class="openblock equationalign">
+<div class="content">
+<table class="equation_table_style" ><tr class="equation_row_style">
+<td class="equation_content_style";>
+\[\begin{split}
+(1063)_7 &amp;= 1 \cdot 7^3 + 0 \cdot 7^2 + 6\cdot 7^1 + 3 \cdot 7^0\\
+&amp;=1 \cdot 343 + 0 \cdot 49 + 6 \cdot 7 + 3 \cdot 1\\
+&amp;= 343 + 0 + 42 + 3\\
+&amp;= 388.
+\end{split}\]
+</td>
+</tr></table>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Several common bases used in computer science are base \(2\), base \(8\), and base \(16\), which are referred to as <strong>binary</strong>, <strong>octal</strong>, and <strong>hexadecimal</strong>, respectively. Binary digits are often referred to as <strong>bits</strong>. Note that, when finding the hexadecimal expansion of a positive integer, in addition to the usual digits \(0\) through \(9,\) we require an additional 6 digits. We will represent these by the letters \(\mathrm{A}\) through \(\mathrm{F}\), where \((\mathrm{A})_{16} = 10,\) \((\mathrm{B})_{16} = 11,\) \((\mathrm{C})_{16} = 12,\) \((\mathrm{D})_{16} = 13,\) \((\mathrm{E})_{16} = 14,\) and \((\mathrm{F})_{16} = 15.\)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 7 - Hexadecimal expansion</div>
+<p>Find the decimal expansion of the positive integer whose hexadecimal expansion is \((5\mathrm{B}\mathrm{F})_{16}.\)</p>
+</div>
+<div class="paragraph">
+<div class="title">Solution</div>
+<p>We have</p>
+</div>
+<div class="openblock equationalign">
+<div class="content">
+<table class="equation_table_style" ><tr class="equation_row_style">
+<td class="equation_content_style";>
+\[\begin{split}
+(5\mathrm{B}\mathrm{F})_{16} &amp;= 5\cdot 16^2 + 11 \cdot 16^1 + 15 \cdot 16^0\\
+&amp;= 5\cdot 256 + 11 \cdot 16 + 15 \cdot 1\\
+&amp;= 1280 + 176 + 15\\
+&amp;= 1471.
+\end{split}\]
+</td>
+</tr></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_base_conversion_among_binary_octal_and_hexadecimal">2.6. Base Conversion Among Binary, Octal, and Hexadecimal</h3>
+<div class="paragraph">
+<p>One of the ways that octal (base-eight) and hexadecimal (base-sixteen) are used in computer science is to abbreviate long bitstrings. The following examples will show how this is done.</p>
+</div>
+<div class="paragraph">
+<p>Suppose
+you need to convert
+a numeral
+from hexadecimal to binary. One method would be to first convert
+from hexadecimal to decimal, and then
+convert the result from decimal to binary. However,
+it is much more efficient to notice that since
+\(2^4 = 16,\)
+you can express each hexadecimal digit
+as a block of 4 bits
+(that is, a <a href=./introduction_discrete_math.html#informal_bitstring_definition><em>bitstring</em></a> of length 4)
+as follows:</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\begin{array}{llll}
+(0)_{16} = (0000)_2 &amp; (1)_{16} = (0001)_{2}&amp; (2)_{16} = (0010)_2 &amp; (3)_{16} = (0011)_2 \\
+(4)_{16} = (0100)_2&amp; (5)_{16} = (0101)_2&amp; (6)_{16} = (0110)_2 &amp; (7)_{16} = (0111)_2\\
+(8)_{16} = (1000)_2&amp; (9)_{16} = (1001)_2&amp; (\mathrm{A})_{16} = (1010)_2&amp; (\mathrm{B})_{16} = (1011)_2\\
+(\mathrm{C})_{16} = (1100)_2&amp; (\mathrm{D})_{16} = (1101)_2&amp; (\mathrm{E})_{16} = (1110)_2&amp;  (\mathrm{F})_{16} = (1111)_2.
+\end{array}\]
+</div>
+</div>
+<div class="paragraph">
+<p>You can then concatenate the blocks, and remove any leading zeros if you need to.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 8 - Hexadecimal to Binary Conversion</div>
+<p>Find the binary expansion of \((4\mathrm{C}\mathrm{A}7)_{16}.\)</p>
+</div>
+<div class="paragraph">
+<div class="title">Solution</div>
+<p>Each hexadecimal digit can be replaced by a block of 4 bits:</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\begin{array}{llll}
+(4)_{16} = (0100)_2 &amp; (\mathrm{C})_{16} = (1100)_2 &amp; (\mathrm{A})_{16} = (1010)_2 &amp; (7)_{16} = (0111)_2.
+\end{array}\]
+</div>
+</div>
+<div class="paragraph">
+<p>This means that you can write either \[(4\mathrm{C}\mathrm{A}7)_{16} = (0100110010100111)_{2}\] or, if the leading zero is not needed, \[(4\mathrm{C}\mathrm{A}7)_{16} = (100110010100111)_{2}.\] <span class="small">Why wouldn&#8217;t you always delete leading zeroes? Notice that a bitstring of length 4 can be used to encode a sequence of "Yes/No" or "True/False" answers. As an example, since \((6)_{16} = (0110)_2,\) the hexadecimal digit \((6)_{16}\) can be used to encode the sequence of 4 answers "No, Yes, Yes, No" to a Yes/No survey, and in this context the leftmost bit should be kept to make it clear that the answer to the first question was "No" (as opposed to the sequence "Yes, Yes, No, blank" where the fourth question was not answered.)</span></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>To convert
+a numeral from binary to hexadecimal,
+first
+break up
+the binary notation into blocks of 4
+bits,
+adding a suitable number of
+leading zeros if necessary.
+Next, convert each block of 4 bits to
+a hexadecimal digit
+and concatenate
+the results, removing any leading
+zeros if necessary.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 9 - Binary to Hexadecimal Conversion</div>
+<p>Find the hexadecimal expansion of \((110 1011 1111)_2.\)</p>
+</div>
+<div class="paragraph">
+<div class="title">Solution</div>
+<p>The are three blocks of 4 bits: \[0110,\ 1011,\ 1111.\]
+Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 = (\mathrm{F})_{16},\) \[(11010111111)_{2} = (6\mathrm{B}\mathrm{F})_{16}.\]</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>A similar method can be used to convert between octal and binary.
+Since \(2^3 = 8,\) each octal digit can be written uniquely as a block of 3 bits as follows:</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\begin{array}{llll}
+(0)_{8} = (000)_2 &amp; (1)_{8} = (001)_{2}&amp; (2)_{8} = (010)_2 &amp; (3)_{8} = (011)_2 \\
+(4)_{8} = (100)_2&amp; (5)_{8} = (101)_2&amp; (6)_{8} = (110)_2 &amp; (7)_{8} = (111)_2.
+\end{array}\]
+</div>
+</div>
+<div class="paragraph">
+<p>We then concatenate  blocks, removing any leading zeros if necessary.</p>
+</div>
+<div class="paragraph">
+<p>Also, the following table can be used to covert quickly between decimal, hexadecimal, octal, and binary in a similar way.</p>
+</div>
+<div class="paragraph">
+<p><strong>Conversion table for different bases</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8823%;">
+<col style="width: 5.8832%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Decimal</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Hexadecimal</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Octal</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Binary</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">101</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1010</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1011</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1101</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1111</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_exercises">2.7. Exercises</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Convert to decimal (base 10)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>\((10262)_7\)</p>
+</li>
+<li>
+<p>\((30A8)_{16}\)</p>
+</li>
+<li>
+<p>\((1000010001100)_2\)</p>
+</li>
+<li>
+<p>\(({12307)}_{60}\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Convert \(\left(2039\right)_{10}\) from decimal (base 10) to</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>base 7</p>
+</li>
+<li>
+<p>binary</p>
+</li>
+<li>
+<p>hexadecimal (base 16)</p>
+</li>
+<li>
+<p>octal (base 8)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Convert \(\left(2599\right)_{10}\) from decimal to</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>base 5</p>
+</li>
+<li>
+<p>binary</p>
+</li>
+<li>
+<p>hexadecimal</p>
+</li>
+<li>
+<p>base 3</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Convert the following hexadecimal numerals to binary numerals</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>\(\left(6F203\right)_{16}\)</p>
+</li>
+<li>
+<p>\(\left(3FA20C45\right)_{16}\)</p>
+</li>
+<li>
+<p>\(\left(FACE\right)_{16}\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Convert the following binary numerals to hexadecimal numerals</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>\(\left(1111100111010101101\right)_2\)</p>
+</li>
+<li>
+<p>\(\left(\ 10001111101011\right)_2\)</p>
+</li>
+<li>
+<p>\(\left(1100101011111110\right)_2\)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_counting_arithmetic_techniques">3. Counting: Arithmetic Techniques</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
@@ -2321,12 +3377,12 @@ wins \(2\) out of \(10\) districts, but in scenario \(B\) it wins \(7\)  out of 
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_some_foundational_counting_principles">2.1. Some Foundational Counting Principles</h3>
+<h3 id="_some_foundational_counting_principles">3.1. Some Foundational Counting Principles</h3>
 <div class="paragraph">
 <p>Each of the four arithmetic operations corresponds to a rule we can use to count quickly.</p>
 </div>
 <div class="sect3">
-<h4 id="_the_sum_rule">2.1.1. The Sum Rule</h4>
+<h4 id="_the_sum_rule">3.1.1. The Sum Rule</h4>
 <div class="paragraph">
 <p>The <strong>sum rule,</strong> also called the <strong>addition principle</strong> or the <strong>rule of sum,</strong> describes the number of possible choices of one element from a union of two sets that share no common elements (Such sets are called <strong>disjoint sets</strong>).</p>
 </div>
@@ -2369,7 +3425,7 @@ How many ways can the card be an even number or a king?<br>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_the_subtraction_rule">2.1.2. The Subtraction Rule</h4>
+<h4 id="_the_subtraction_rule">3.1.2. The Subtraction Rule</h4>
 <div class="paragraph">
 <p>The <strong>subtraction rule</strong> describes the number of possible choices of one element from a union of two sets that <em>do</em> share one or more common elements.</p>
 </div>
@@ -2427,7 +3483,7 @@ Dr. Joshua Roberts, Associate Professor of Mathematics at Georgia Gwinnett Colle
 </div>
 </div>
 <div class="sect3">
-<h4 id="_the_product_rule">2.1.3. The Product Rule</h4>
+<h4 id="_the_product_rule">3.1.3. The Product Rule</h4>
 <div class="paragraph">
 <p>The <strong>product rule,</strong> also called the <strong>multiplication principle</strong> or the <strong>rule of product,</strong> describes the number of possible choices of two successive elements where the first element comes from one set and the second from another set (which could be the same set as the first set).</p>
 </div>
@@ -2514,7 +3570,7 @@ Now use the subtraction rule to compute the number of bitstrings of length four 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_the_division_rule">2.1.4. The Division Rule</h4>
+<h4 id="_the_division_rule">3.1.4. The Division Rule</h4>
 <div class="paragraph">
 <p>This rule is used when there are \(n\) ways to complete a procedure, but
 each of those ways is equivalent to \(d\) ways (including the way itself.) That is, every possible outcome of the procedure can be done in \(d\) different ways</p>
@@ -2551,7 +3607,7 @@ Therefore, there are \(\frac{24}{4}\) or 6 different seatings.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_pigeonhole_principle">2.2. The Pigeonhole Principle</h3>
+<h3 id="_the_pigeonhole_principle">3.2. The Pigeonhole Principle</h3>
 <div class="paragraph">
 <p>A suprising number of counting problems can be solved with the so-called pigeonhole principle.</p>
 </div>
@@ -2582,7 +3638,7 @@ Therefore, there are \(\frac{24}{4}\) or 6 different seatings.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercises">2.3. Exercises</h3>
+<h3 id="_exercises_2">3.3. Exercises</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2689,7 +3745,7 @@ one of each type?</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_set_theory">3. Set Theory</h2>
+<h2 id="_set_theory">4. Set Theory</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
@@ -2755,7 +3811,7 @@ one of each type?</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_sets">3.1. Sets</h3>
+<h3 id="_sets">4.1. Sets</h3>
 <div class="paragraph">
 <p>A <strong>set</strong> is an unordered collection of objects, called <strong>elements</strong> or <strong>members</strong>. A set is said to <strong>contain</strong> its elements.</p>
 </div>
@@ -2763,7 +3819,7 @@ one of each type?</p>
 <p>If \(x\) is an element of the set \(S,\) then we write \(x \in S\). If \(x\) is not an element of the set \(S\), then we write \(x \not\in S\). For example, if \(S\) is the set of names of states in the United States of America, then “New York” is an element of \(S\) and “Ontario” is not an element of \(S,\) that is \[ \text{“New York”} \in S \text{ and } \text{“Ontario”} \not\in S. \] As another example, if \(E\) is the set of even integers, then \(2 \in E\) and \(3 \not\in E.\)</p>
 </div>
 <div class="sect3">
-<h4 id="_describing_a_set_the_roster_method">3.1.1. Describing A Set: The Roster Method</h4>
+<h4 id="_describing_a_set_the_roster_method">4.1.1. Describing A Set: The Roster Method</h4>
 <div class="paragraph">
 <p>One way of describing a set is the <strong>roster method:</strong> List all the elements of the set between curly braces.
 For example, \[A = \{1,-2,0,1,-3\} \] is the set whose elements are \(-3,\) \(-2,\) \(0,\) and \(1.\)</p>
@@ -2851,7 +3907,7 @@ For example, \[A = \{1,-2,0,1,-3\} \] is the set whose elements are \(-3,\) \(-2
 </div>
 </div>
 <div class="sect3">
-<h4 id="_describing_a_set_set_builder_notation">3.1.2. Describing A Set: Set Builder Notation</h4>
+<h4 id="_describing_a_set_set_builder_notation">4.1.2. Describing A Set: Set Builder Notation</h4>
 <div class="paragraph">
 <p>Another way of describing a set is the use of <strong>set builder</strong> notation. We write a set as \[\{x \in D : P(x)\}.\] This is the set of all elements \(x\) from a domain \(D\) that satisfy the <a href=./introduction_discrete_math.html#informal_predicate_definition>predicate</a> \(P(x).\)
 We can use either the colon \(:\) or the vertical bar \(|\) as the separator in this notation. For example, \(\{ x \in \mathbb{N} \, | \, x^{2} \leq 50 \}\) is the set of natural numbers that are less than \(\sqrt{50}.\)</p>
@@ -2879,7 +3935,7 @@ We can use either the colon \(:\) or the vertical bar \(|\) as the separator in 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_describing_a_set_special_sets_of_numbers">3.1.3. Describing A Set: Special Sets Of Numbers</h4>
+<h4 id="_describing_a_set_special_sets_of_numbers">4.1.3. Describing A Set: Special Sets Of Numbers</h4>
 <div class="paragraph">
 <p>You may already be familiar with the following sets of numbers, which are listed here for reference.</p>
 </div>
@@ -2921,7 +3977,7 @@ We can use either the colon \(:\) or the vertical bar \(|\) as the separator in 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_describing_a_set_switching_between_representations">3.1.4. Describing A Set: Switching Between Representations</h4>
+<h4 id="_describing_a_set_switching_between_representations">4.1.4. Describing A Set: Switching Between Representations</h4>
 <div class="paragraph">
 <p>A set can usually be described in more than one way, as shown in the following example.</p>
 </div>
@@ -2998,7 +4054,7 @@ We can use either the colon \(:\) or the vertical bar \(|\) as the separator in 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_equality_of_sets">3.2. Equality Of Sets</h3>
+<h3 id="_equality_of_sets">4.2. Equality Of Sets</h3>
 <div class="paragraph">
 <p>We say that two sets are <strong>equal</strong> if and only if they contain the same elements.
 When \(A\) and \(B\) are equal sets, we write \(A = B\). When \(A\) and \(B\) are not equal sets, we write \(A \neq B\).</p>
@@ -3011,7 +4067,7 @@ The extended equality \[\{2,3,5,7\} = \{5,2,7,3\} = \{x \in \mathbb{N} : x \text
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_empty_set">3.3. The Empty Set</h3>
+<h3 id="_the_empty_set">4.3. The Empty Set</h3>
 <div class="paragraph">
 <p>Consider the set of all natural numbers whose square is equal to 2, described using set builder notation: \(\{x \in \mathbb{N} : x^2 = 2\}.\) If you use the roster method to list all the elements you will get the set \(\{ \}\) because there are no natural numbers whose square is equal to 2!</p>
 </div>
@@ -3071,7 +4127,7 @@ Python interprets the empty curly braces {} as an empty object of type <em>dict<
 </div>
 </div>
 <div class="sect2">
-<h3 id="_subsets_of_a_set">3.4. Subsets of a Set</h3>
+<h3 id="_subsets_of_a_set">4.4. Subsets of a Set</h3>
 <div class="paragraph">
 <p>Suppose \(A\) and \(B\) are two sets, and that every element \(x\) of the set \(A\) is also an element of set \(B.\)  We say that \(A\) is a <strong>subset</strong> of a set \(B,\) and write \(A \subseteq B\). If a set \(C\) is not a subset of \(B,\) we write \(C \not\subseteq B\).</p>
 </div>
@@ -3134,7 +4190,7 @@ A &lt;= B.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_power_set_of_a_set">3.5. The Power Set of a Set</h3>
+<h3 id="_the_power_set_of_a_set">4.5. The Power Set of a Set</h3>
 <div class="paragraph">
 <p>Given a set \(A,\) we can define a new set by collecting together all subsets of \(A\). This new set is called the <strong>power set</strong> of \(A.\) The power set of \(A\) is denoted by \(\mathcal{P}(A).\) That is, \[ \mathcal{P}(A) = \{ B \, | \, B \subseteq A \}. \]
 Notice that \(\mathcal{P}(A)\) is a set whose elements are themselves sets.</p>
@@ -3169,7 +4225,7 @@ Notice that \(\mathcal{P}(A)\) is a set whose elements are themselves sets.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cartesian_products">3.6. Cartesian Products</h3>
+<h3 id="_cartesian_products">4.6. Cartesian Products</h3>
 <div class="paragraph">
 <p>The <strong>Cartesian product</strong> of two sets \(A\) and \(B\) is the set of <em>ordered pairs</em>
 defined by,</p>
@@ -3280,7 +4336,7 @@ are Cartesian products.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cardinality_of_sets_finite_sets">3.7. Cardinality Of Sets: Finite Sets</h3>
+<h3 id="_cardinality_of_sets_finite_sets">4.7. Cardinality Of Sets: Finite Sets</h3>
 <div class="paragraph">
 <p>Cardinality is the formalization of the idea of the count of the number of elements in a set.<br>
 <span class="small">In this section, we will prefer counting from 1 instead of 0. You will see below why this makes no difference.</span></p>
@@ -3407,7 +4463,7 @@ For the power set of \(A,\) to choose a subset of \(A\) you must decide for each
 </div>
 </div>
 <div class="sect2">
-<h3 id="_venn_diagrams">3.8. Venn Diagrams</h3>
+<h3 id="_venn_diagrams">4.8. Venn Diagrams</h3>
 <div class="paragraph">
 <p>A <strong>Venn diagram,</strong> named after the English mathematician John Venn,  consists of one or more circles, with each circular region representing a set. An example can be seen <a href=https://en.wikipedia.org/wiki/Venn_diagram#/media/File:Venn_diagram_gr_la_ru.svg>here.</a></p>
 </div>
@@ -3431,7 +4487,7 @@ In the image, the upper right example shows a Venn diagram because you could wri
 </div>
 </div>
 <div class="sect2">
-<h3 id="_set_operations">3.9. Set Operations</h3>
+<h3 id="_set_operations">4.9. Set Operations</h3>
 <div class="paragraph">
 <p>We can obtain new sets by performing operations on other sets. When performing set operations, it is often helpful to consider all of our sets as subsets of a <strong>universal set</strong> \(U.\) We can think of the universal set as the set of all of the objects under consideration.</p>
 </div>
@@ -3439,7 +4495,7 @@ In the image, the upper right example shows a Venn diagram because you could wri
 <p>We can represent set operations visually using Venn diagrams.</p>
 </div>
 <div class="sect3">
-<h4 id="_union">3.9.1. Union</h4>
+<h4 id="_union">4.9.1. Union</h4>
 <div class="paragraph">
 <p>The <strong>union</strong> of the sets \(A\) and \(B\) is the set containing those elements that are in \(A\) or \(B\) or both, and is denoted by \(A \cup B\).
 More formally, \[A \cup B = \{x \in U : x \in A \text{ or } x \in B\}.\]</p>
@@ -3488,7 +4544,7 @@ A | B</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_intersection">3.9.2. Intersection</h4>
+<h4 id="_intersection">4.9.2. Intersection</h4>
 <div class="paragraph">
 <p>The <strong>intersection</strong> of the sets \(A\) and \(B\) is the set containing those elements that are in \(A\) and \(B\) and is denoted by \(A \cap B\).
 More formally, \[A \cap B = \{x \in U : x \in A \text{ and } x \in B\}.\]</p>
@@ -3536,7 +4592,7 @@ A &amp; B</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_complement">3.9.3. Complement</h4>
+<h4 id="_complement">4.9.3. Complement</h4>
 <div class="paragraph">
 <p>The <strong>complement</strong> of a set \(A\) is the set of all elements in the universal set \(U\) which are not elements of \(A\) and is denoted by \(\overline{A}.\) More formally, \[\overline{A} = \{x \in U: x \not\in A\}.\]
 Note that other textbooks and internet sources may use different notation for the complement of \(A\), such as \(A'\) and \(A^{c}\), but these all stand for the same set, so that \(\overline{A} = A' = A^{c}\).</p>
@@ -3566,7 +4622,7 @@ Note that other textbooks and internet sources may use different notation for th
 </div>
 </div>
 <div class="sect3">
-<h4 id="_other_operations">3.9.4. Other Operations</h4>
+<h4 id="_other_operations">4.9.4. Other Operations</h4>
 <div class="paragraph">
 <p>The three operators complement, intersection, and union are the most commonly used to define subsets of a universal set. You will see why this is so later in the chapter.</p>
 </div>
@@ -3673,7 +4729,7 @@ A ^ B</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_multiple_set_operations">3.9.5. Multiple Set Operations</h4>
+<h4 id="_multiple_set_operations">4.9.5. Multiple Set Operations</h4>
 <div class="paragraph">
 <p>We can also perform more than one set operation on a collection of sets. For example, let \(A,\) \(B,\) and \(C\) be sets and consider the following set: \[(A \setminus B) \cup (C \setminus B).\]This is the set that is obtained by taking the union of the sets \(A \setminus B\) and \(C \setminus B.\) We have \[(A \setminus B) \cup (B \setminus A) = \{x \in U: (x \in A \text{ and } x \not\in B) \text{ or } (x \in C \text{ and } x \not\in B)\}.\]</p>
 </div>
@@ -3730,7 +4786,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_set_identities">3.10. Set Identities</h3>
+<h3 id="_set_identities">4.10. Set Identities</h3>
 <div class="paragraph">
 <p>Here is a collection of additional properties of the operations on sets. Each of these can be verified by drawing two Venn diagrams, one that represents the left-hand side of the equation and another that represents the right-hand side of the equation and showing that the resulting shadings of the Venn diagrams are the same.</p>
 </div>
@@ -3761,7 +4817,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.</p>
 \[ \overline{A \cap B} = \overline{A} \cup \overline{B} \]</p>
 </div>
 <div class="sect3">
-<h4 id="_operator_precedence_order_of_operations">3.10.1. Operator Precedence (Order Of Operations)</h4>
+<h4 id="_operator_precedence_order_of_operations">4.10.1. Operator Precedence (Order Of Operations)</h4>
 <div class="paragraph">
 <p>To ensure that we can properly interpret an expression involving multiple set operations, we can either use parentheses or rely on <em>operator precedence</em>.</p>
 </div>
@@ -3777,7 +4833,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_venn_diagrams_partitions_and_bitstrings">3.11. Venn Diagrams, Partitions, and Bitstrings</h3>
+<h3 id="_venn_diagrams_partitions_and_bitstrings">4.11. Venn Diagrams, Partitions, and Bitstrings</h3>
 <div class="paragraph">
 <p>A <strong>partition</strong> of a set \(U\) is a set of subsets of \(U\) such that each element \(x \in U\) is a member of exactly one of the subsets in the partition.</p>
 </div>
@@ -3820,7 +4876,7 @@ Dr. Katherine Pinzon, Professor of Mathematics at Georgia Gwinnett College.</p>
 <p>For an integer \(n > 3\), the Venn diagram is less useful for representing the partitioning of the universe created by \(n\) subsets, but we can still reason that there ought to be \(2^{n}\) subsets in the partition, where each of the subsets can be described by a unique bitstring of length \(n\) (We will be able give a formal mathematical proof of this for every positive integer \(n\) later in the textbook after we&#8217;ve discussed mathematical induction.)</p>
 </div>
 <div class="sect3">
-<h4 id="_disjunctive_normal_form_set_version">3.11.1. Disjunctive Normal Form (Set Version)</h4>
+<h4 id="_disjunctive_normal_form_set_version">4.11.1. Disjunctive Normal Form (Set Version)</h4>
 <div class="paragraph">
 <p>Suppose you have three sets \(A\), \(B\), and \(C\), and have partitioned the universe \(U\) into the 8 subsets as discussed above. A subset of \(U\) that corresponds to any shading of the Venn diagram can be
 written as a union of intersections of three sets, with one set chosen from each of the pairs \(\{ A,\,\overline{A} \}\), \(\{ B,\,\overline{B} \}\), and \(\{ C,\,\overline{C} \}\).</p>
@@ -3862,7 +4918,7 @@ The DNF may be neither the shortest possible expression nor the most easily unde
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_principle_of_inclusion_exclusion_pie">3.12. The Principle Of Inclusion-Exclusion (PIE)</h3>
+<h3 id="_the_principle_of_inclusion_exclusion_pie">4.12. The Principle Of Inclusion-Exclusion (PIE)</h3>
 <div class="paragraph">
 <p>In certain application problems, we want to compute the cardinality \(|A \cup B|\) of the union of two given finite sets \(A\) and \(B\). It is tempting to simply add \(|A|\) and \(|B|\), but as the Venn diagram below shows, each element of the intersection \(|A \cap B|\) will be counted <em>twice</em>, once for each bit that is \(1\), if we do so.</p>
 </div>
@@ -3977,7 +5033,7 @@ and
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cardinality_of_sets_infinite_sets">3.13. Cardinality Of Sets: Infinite Sets</h3>
+<h3 id="_cardinality_of_sets_infinite_sets">4.13. Cardinality Of Sets: Infinite Sets</h3>
 <div class="paragraph">
 <p>Set \(A\) is called an <strong>infinite set</strong> if it not a finite set.
 That is, \(A\) is not the empty set, and for every positive integer \(n\) there is no one-to-one correspondence between \(A\) and \(\{1, 2, \ldots , n \}.\)</p>
@@ -4174,7 +5230,7 @@ Therefore, such a one-to-one correspondence cannot exist.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_countable_and_uncountable_sets">3.13.1. Countable and Uncountable Sets</h4>
+<h4 id="_countable_and_uncountable_sets">4.13.1. Countable and Uncountable Sets</h4>
 <div class="paragraph">
 <p>Set \(A\) is called <strong>countable</strong> if</p>
 </div>
@@ -4219,7 +5275,7 @@ Therefore, such a one-to-one correspondence cannot exist.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercises_2">3.14. Exercises</h3>
+<h3 id="_exercises_3">4.14. Exercises</h3>
 <div class="paragraph">
 <p>Remixer&#8217;s Note: This section is taken from the original
 <a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> book with only minor changes.</p>
@@ -4597,7 +5653,7 @@ Therefore, such a one-to-one correspondence cannot exist.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_logic">4. Logic</h2>
+<h2 id="_logic">5. Logic</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
@@ -4708,7 +5764,7 @@ Therefore, such a one-to-one correspondence cannot exist.
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_propositional_logic">4.1. Propositional Logic</h3>
+<h3 id="_propositional_logic">5.1. Propositional Logic</h3>
 <div class="paragraph">
 <p>A <strong>proposition</strong> is a statement that declares a fact that is either True or False (but not both!)</p>
 </div>
@@ -4836,7 +5892,7 @@ validity of the argument.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_logical_operations_and_truth_tables">4.2. Logical Operations and Truth Tables</h3>
+<h3 id="_logical_operations_and_truth_tables">5.2. Logical Operations and Truth Tables</h3>
 <div class="paragraph">
 <p>In this section, compound propostions will be represented by using propositional variables and <strong>logical operator</strong> symbols (also called "logical operations" or "logical connectives") Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.</p>
 </div>
@@ -4868,7 +5924,7 @@ is created with rows representing all possible <strong>interpretations</strong> 
 <p>The most commonly-used logical operators are described in the rest of this section.</p>
 </div>
 <div class="sect3">
-<h4 id="_negation">4.2.1. Negation</h4>
+<h4 id="_negation">5.2.1. Negation</h4>
 <div class="paragraph">
 <p>"I am <strong>not</strong> an astronaut."</p>
 </div>
@@ -4948,7 +6004,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_conjunction">4.2.2. Conjunction</h4>
+<h4 id="_conjunction">5.2.2. Conjunction</h4>
 <div class="paragraph">
 <p>"I am a rock <strong>and</strong> I am an island."</p>
 </div>
@@ -5014,7 +6070,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_disjunction">4.2.3. Disjunction</h4>
+<h4 id="_disjunction">5.2.3. Disjunction</h4>
 <div class="paragraph">
 <p>"They studied hard <strong>or</strong> they are extremely bright."</p>
 </div>
@@ -5080,7 +6136,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_conditional">4.2.4. Conditional</h4>
+<h4 id="_conditional">5.2.4. Conditional</h4>
 <div class="paragraph">
 <p>"<strong>If</strong> you get a 100 on the final exam, <strong>then</strong> you earn an A in the class."</p>
 </div>
@@ -5344,7 +6400,7 @@ on <a href=#_logically_equivalent_propositions> logically equivalent proposition
 </div>
 </div>
 <div class="sect3">
-<h4 id="_biconditional">4.2.5. Biconditional</h4>
+<h4 id="_biconditional">5.2.5. Biconditional</h4>
 <div class="paragraph">
 <p>"It is raining outside <strong>if and only if</strong> it is a cloudy day."</p>
 </div>
@@ -5432,7 +6488,7 @@ The conditional represents a one-way contract: You earn an A in the class <em>if
 </div>
 </div>
 <div class="sect3">
-<h4 id="_other_compound_propositions">4.2.6. Other Compound Propositions</h4>
+<h4 id="_other_compound_propositions">5.2.6. Other Compound Propositions</h4>
 <div class="paragraph">
 <p>The negation, disjunction, conjunction, conditional, and biconditional are the most commonly-used logical operators for forming compound propostions and will be the ones used throughout the rest of this chapter. However, there are at least three others you should know about.</p>
 </div>
@@ -5588,7 +6644,7 @@ The conditional represents a one-way contract: You earn an A in the class <em>if
 </div>
 </div>
 <div class="sect3">
-<h4 id="wff_recursion">4.2.7. Well-Formed Formulae and Operator Precedence (Order Of Operations)</h4>
+<h4 id="wff_recursion">5.2.7. Well-Formed Formulae and Operator Precedence (Order Of Operations)</h4>
 <div class="paragraph">
 <p>A <strong>well-formed formula</strong> (or <strong>wff</strong> for short) is a string of symbols that represents a compound propsition.</p>
 </div>
@@ -5669,7 +6725,7 @@ At least some of the parentheses must be used if you want to represent a differe
 </div>
 </div>
 <div class="sect3">
-<h4 id="_truth_tables_of_compound_propositions">4.2.8. Truth Tables of Compound Propositions</h4>
+<h4 id="_truth_tables_of_compound_propositions">5.2.8. Truth Tables of Compound Propositions</h4>
 <div class="paragraph">
 <p>To compute the truth values of a longer compound proposition or wff by hand, it can be useful to break up the proposition or wff into the smaller  propositions or wffs that it was built from.</p>
 </div>
@@ -5819,7 +6875,7 @@ At least some of the parentheses must be used if you want to represent a differe
 </div>
 </div>
 <div class="sect2">
-<h3 id="_logically_equivalent_propositions">4.3. Logically Equivalent Propositions</h3>
+<h3 id="_logically_equivalent_propositions">5.3. Logically Equivalent Propositions</h3>
 <div class="paragraph">
 <p>Recall that an <strong>interpretation</strong> of a proposition is an assignment of truth values to the propositional variables.</p>
 </div>
@@ -5947,7 +7003,7 @@ Saying that two propositions <em>p</em> and <em>q</em> are logically equivalent 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tautologies_contradictions_and_contingencies">4.3.1. Tautologies, Contradictions and Contingencies</h4>
+<h4 id="_tautologies_contradictions_and_contingencies">5.3.1. Tautologies, Contradictions and Contingencies</h4>
 <div class="paragraph">
 <p>A proposition is a <strong>tautology</strong> if its truth value is <em>always</em> True.
 That is, a tautology is True for every possible interpretation of its propositional variables.</p>
@@ -6036,7 +7092,7 @@ is a contradiction (that is, the compound proposition is always False.)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_de_morgans_laws">4.3.2. De Morgan&#8217;s Laws</h4>
+<h4 id="_de_morgans_laws">5.3.2. De Morgan&#8217;s Laws</h4>
 <div class="paragraph">
 <p>Two important logical equivalences are De Morgan&#8217;s Law.  These describe how to "distribute" the \(\neg\) operator across the \(\land\) and \(\lor\) operators.</p>
 </div>
@@ -6059,7 +7115,7 @@ these propositions are True for every interpretation of \(p\) and \(q\).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_some_other_logical_equivalencies">4.3.3. Some Other Logical Equivalencies</h4>
+<h4 id="_some_other_logical_equivalencies">5.3.3. Some Other Logical Equivalencies</h4>
 <div class="paragraph">
 <p>Here is a collection of additional equivalencies of compound propositions. Each of these can be verified by constructing a truth table to show that
 the biconditional of the left-hand side and the right-hand side of the logical equivalence is true for all interpretations of the propositional variables.</p>
@@ -6090,7 +7146,7 @@ the biconditional of the left-hand side and the right-hand side of the logical e
 </div>
 </div>
 <div class="sect3">
-<h4 id="_disjunctive_normal_form_dnf">4.3.4. Disjunctive Normal Form (DNF)</h4>
+<h4 id="_disjunctive_normal_form_dnf">5.3.4. Disjunctive Normal Form (DNF)</h4>
 <div class="paragraph">
 <p>It is traditional to focus on negation \(\neg\), conjunction \(\land\), and disjunction \(\lor\) as the three primary logical operations. This is because <em>any</em> compound proposition can be rewritten in terms of these three operations and the propositional variables present in the original compound proposition.</p>
 </div>
@@ -6273,7 +7329,7 @@ the biconditional of the left-hand side and the right-hand side of the logical e
 </div>
 </div>
 <div class="sect3">
-<h4 id="_conjunctive_normal_form_cnf">4.3.5. Conjunctive Normal Form (CNF)</h4>
+<h4 id="_conjunctive_normal_form_cnf">5.3.5. Conjunctive Normal Form (CNF)</h4>
 <div class="paragraph">
 <p>In some applications of propositional logic, it is more useful to find a logically equivalent expression for a given proposition that is written as a conjunction of several disjunctions. This <strong>conjunctive normal form</strong> (CNF) can be constructed as shown in the following example.</p>
 </div>
@@ -6464,7 +7520,7 @@ the biconditional of the left-hand side and the right-hand side of the logical e
 </div>
 </div>
 <div class="sect3">
-<h4 id="_functional_completeness">4.3.6. Functional Completeness</h4>
+<h4 id="_functional_completeness">5.3.6. Functional Completeness</h4>
 <div class="paragraph">
 <p>A set \(S\) of logical operators is called <strong>functionally complete</strong> if every compound proposition is logically equivalent to a compound proposition involving only operators that are members of \(S.\)</p>
 </div>
@@ -6515,7 +7571,7 @@ These proofs are exercises for you. See the Challenge Exercises at the end of th
 </div>
 </div>
 <div class="sect2">
-<h3 id="_predicates_and_quantifiers">4.4. Predicates and Quantifiers</h3>
+<h3 id="_predicates_and_quantifiers">5.4. Predicates and Quantifiers</h3>
 <div class="paragraph">
 <p>Up to this point, most of our propositions have been of the form "Sarah earned a B.S. in Computer Science" - the proposition describes a single individual constant (in this case, "Sarah.")</p>
 </div>
@@ -6523,7 +7579,7 @@ These proofs are exercises for you. See the Challenge Exercises at the end of th
 <p>However, we often need to discuss an entire category of individuals at once, which is equivalent to replacing the constant "Sarah" by a variable. We will discuss this idea in this section.</p>
 </div>
 <div class="sect3">
-<h4 id="_predicates">4.4.1. Predicates</h4>
+<h4 id="_predicates">5.4.1. Predicates</h4>
 <div class="paragraph">
 <p>A <strong>predicate</strong> is a statement that includes one or more variables such that when values are assigned to the variables the predicate becomes a proposition.</p>
 </div>
@@ -6616,7 +7672,7 @@ Notice that code correctly outputs the two propositions as strings (of type <em>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_quantifiers">4.4.2. Quantifiers</h4>
+<h4 id="_quantifiers">5.4.2. Quantifiers</h4>
 <div class="paragraph">
 <p>Consider the statements</p>
 </div>
@@ -6780,7 +7836,7 @@ Again, we use the example domain [-2, -1, 0, 1, 2] because code can not check al
 </div>
 </div>
 <div class="sect3">
-<h4 id="_negation_of_quantifiers">4.4.3. Negation of Quantifiers</h4>
+<h4 id="_negation_of_quantifiers">5.4.3. Negation of Quantifiers</h4>
 <div class="paragraph">
 <p>It is important to consider the negation of a quantified expression.</p>
 </div>
@@ -6873,7 +7929,7 @@ Its negation would be \(\forall x \neg L(x)\).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_nested_quantifiers">4.4.4. Nested Quantifiers</h4>
+<h4 id="_nested_quantifiers">5.4.4. Nested Quantifiers</h4>
 <div class="paragraph">
 <p>There are times it will take more than one quantifier to express a statement.</p>
 </div>
@@ -6978,7 +8034,7 @@ Its negation would be \(\exists x \forall y \neg N(x,y)\).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_applications_of_logic">4.5. Applications of Logic</h3>
+<h3 id="_applications_of_logic">5.5. Applications of Logic</h3>
 <div class="paragraph">
 <p>Remixer&#8217;s Note: This section is taken from the original
 <a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> book with minor edits to include base-two notation and a link to the NANDgame website.</p>
@@ -6988,7 +8044,7 @@ Its negation would be \(\exists x \forall y \neg N(x,y)\).</p>
 computer science. The first involves bitwise operations, and the second designing and analyzing logic circuits.</p>
 </div>
 <div class="sect3">
-<h4 id="_bitwise_operations">4.5.1. Bitwise operations</h4>
+<h4 id="_bitwise_operations">5.5.1. Bitwise operations</h4>
 <div class="paragraph">
 <p>A <strong>bitwise operation</strong> is a <em>Boolean operation</em> that operates on the individual bits (\(0s\), or \(1s\)) of the operand(s) and are summarized</p>
 </div>
@@ -7134,7 +8190,7 @@ corresponding bits of each operand.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_logic_circuits">4.5.2. Logic Circuits</h4>
+<h4 id="_logic_circuits">5.5.2. Logic Circuits</h4>
 <div class="paragraph">
 <p>Logic circuits are important in designing the arithmetic and logic units of a computer processor.</p>
 </div>
@@ -7382,7 +8438,7 @@ Here is a <a href=https://nandgame.com/>link</a> to a website that lets you buil
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercises_3">4.6. Exercises</h3>
+<h3 id="_exercises_4">5.6. Exercises</h3>
 <div class="paragraph">
 <p>Remixer&#8217;s Note: This section is taken from the original
 <a href=https://ggc-discrete-math.github.io/index.html>“Discrete Math”</a> book with no changes.</p>
@@ -7729,7 +8785,7 @@ Determine the true value of the  following, an explain your reasoning.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_challenge_exercises">4.7. Challenge Exercises</h3>
+<h3 id="_challenge_exercises">5.7. Challenge Exercises</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -7764,7 +8820,7 @@ Determine the true value of the  following, an explain your reasoning.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_proofs_basic_techniques">5. Proofs: Basic Techniques</h2>
+<h2 id="_proofs_basic_techniques">6. Proofs: Basic Techniques</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
@@ -7838,7 +8894,7 @@ but each of these specialized terms describes a theorem.</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_rules_of_inference_for_propositions">5.1. Rules of Inference for Propositions</h3>
+<h3 id="_rules_of_inference_for_propositions">6.1. Rules of Inference for Propositions</h3>
 <div class="paragraph">
 <p>To create a proof, we must
 proceed from True propositions to other True propositions without introducing False propositions into the argument.
@@ -8162,7 +9218,7 @@ No. The argument is invalid and is an example of the <strong>inverse error</stro
 <p>In the following subsections we will discuss some of the more common rules of inference.</p>
 </div>
 <div class="sect3">
-<h4 id="_transitivity_of_the_conditional">5.1.1. Transitivity Of The Conditional</h4>
+<h4 id="_transitivity_of_the_conditional">6.1.1. Transitivity Of The Conditional</h4>
 <div class="paragraph">
 <p>The following rule of inference is called <strong>pure hypothetical syllogism,</strong> but we will use the less formal name <strong>transitivity.</strong> It is the basis of conditional proof in mathematics.</p>
 </div>
@@ -8218,7 +9274,7 @@ No. The argument is invalid and is an example of the <strong>inverse error</stro
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rules_of_inference_and_fallacies_arising_from_the_conditional">5.1.2. Rules Of Inference And Fallacies Arising From The Conditional</h4>
+<h4 id="_rules_of_inference_and_fallacies_arising_from_the_conditional">6.1.2. Rules Of Inference And Fallacies Arising From The Conditional</h4>
 <div class="paragraph">
 <p>Recall that if you have propositions \(p\) and \(q,\) you can form the conditional with
 hypothesis \(p\) and consequent \(q,\) which is written as
@@ -8380,7 +9436,7 @@ Together, these four argument forms are referred to as the
 </div>
 </div>
 <div class="sect3">
-<h4 id="_other_common_rules_of_inference">5.1.3. Other Common Rules Of Inference</h4>
+<h4 id="_other_common_rules_of_inference">6.1.3. Other Common Rules Of Inference</h4>
 <div class="paragraph">
 <p>Any tautology of the form \(p \rightarrow q\)
 can be used to define a rule of inference.
@@ -8522,12 +9578,12 @@ write down and give names to. Instead, we&#8217;ll just list a few tautologies.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="_rules_of_inference_for_quantified_statements">5.2. Rules Of Inference for Quantified Statements</h3>
+<h3 id="_rules_of_inference_for_quantified_statements">6.2. Rules Of Inference for Quantified Statements</h3>
 <div class="paragraph">
 <p>In this section, four rules of inference that apply to quantified predicates  are presented. In all of these rules of inference, the values of the variable(s) are assumed to be restricted to a universal set \(U.\)</p>
 </div>
 <div class="sect3">
-<h4 id="_rules_of_inference_for_universally_quantified_predicates">5.2.1. Rules of Inference for Universally-Quantified Predicates</h4>
+<h4 id="_rules_of_inference_for_universally_quantified_predicates">6.2.1. Rules of Inference for Universally-Quantified Predicates</h4>
 <div class="paragraph">
 <p>Universal instantiation states that, from the premise that \(\forall x P(x)\) is True, where \(x\) ranges over all elements of the universal set \(U,\) you can conclude that \(P(c)\) must also be True, where \(c \in U\) is any arbitrarily-chosen element of \(U.\)</p>
 </div>
@@ -8566,7 +9622,7 @@ write down and give names to. Instead, we&#8217;ll just list a few tautologies.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rules_of_inference_for_existentially_quantified_predicates">5.2.2. Rules of Inference for Existentially-Quantified Predicates</h4>
+<h4 id="_rules_of_inference_for_existentially_quantified_predicates">6.2.2. Rules of Inference for Existentially-Quantified Predicates</h4>
 <div class="paragraph">
 <p>Existential instantiation states that, from the premise \(\exists x P(x),\) you can conclude that there must be at least one \(c \in U\) such that \(P(c)\) is true. This allows you to pick a "constant" \(c\) that makes the predicate \(P(x)\) True instead of needing to refer repeatedly to the existential quantifier.</p>
 </div>
@@ -8606,7 +9662,7 @@ write down and give names to. Instead, we&#8217;ll just list a few tautologies.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proof_techniques">5.3. Proof Techniques</h3>
+<h3 id="_proof_techniques">6.3. Proof Techniques</h3>
 <div class="paragraph">
 <p>In this section several examples of formal mathematical proofs are given to illustrate different proof techniques.
 Many of the techniques correspond to certain rules of inference that were discussed earlier in this chapter.</p>
@@ -8643,7 +9699,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_direct_proof">5.3.1. Direct Proof</h4>
+<h4 id="_direct_proof">6.3.1. Direct Proof</h4>
 <div class="paragraph">
 <p>In a direct proof, we make an argument that a conditional statement \(p \rightarrow q\) must be True. This means that we can assume that the premise \(p\) is True and apply <em>modus ponens</em> to prove that \(q\) must be True, too.</p>
 </div>
@@ -8681,7 +9737,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_proof_by_contraposition">5.3.2. Proof By Contraposition</h4>
+<h4 id="_proof_by_contraposition">6.3.2. Proof By Contraposition</h4>
 <div class="paragraph">
 <p>In a proof by contraposition, we make an argument that \(p \rightarrow q\) is True by instead first arguing that its contrapositive \(\neg q \rightarrow \neg p\) is True and secondly applying the logical equivalence of the conditional and its contrapositive. Start by assuming that the premise \(\neg q\) is True and apply <em>modus ponens</em> to prove that \(\neq p\) must be True, too, then apply logical equivalence.</p>
 </div>
@@ -8721,7 +9777,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_proof_by_counterexample">5.3.3. Proof By Counterexample</h4>
+<h4 id="_proof_by_counterexample">6.3.3. Proof By Counterexample</h4>
 <div class="paragraph">
 <p>In a proof by counterexample, we <strong>disprove</strong> a proposition of the form \((\forall x \in D) P(x)\) by arguing that there is at least one value \(c \in D\) such that \(\neg P(c)\) is True.</p>
 </div>
@@ -8753,7 +9809,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_proof_by_contradiction">5.3.4. Proof by Contradiction</h4>
+<h4 id="_proof_by_contradiction">6.3.4. Proof by Contradiction</h4>
 <div class="paragraph">
 <p>In a proof by contradiction, we disprove the proposition \(\neg p\) by making an argument that the conditional \(\neg p \rightarrow (q \land \neg q)\) must be True for some proposition \(q\) and apply the Contradiction Rule to conclude that \(p\) must be True.<br>
 <span class="small">Note: Sometimes, we argue instead that the proposition \(((\neg p \rightarrow q) \land (\neg p \rightarrow \neg q))\) must be True, and use the fact that this proposition is logically equivalent to \(\neg p \rightarrow (q \land \neg q)\) and apply the Contradiction Rule.</span></p>
@@ -8872,7 +9928,7 @@ That is, the square root of 2 is not a rational number.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_proof_by_exhaustion_proof_by_cases">5.3.5. Proof By Exhaustion (Proof By Cases)</h4>
+<h4 id="_proof_by_exhaustion_proof_by_cases">6.3.5. Proof By Exhaustion (Proof By Cases)</h4>
 <div class="paragraph">
 <p>Sometimes it is convenient to break a proof into a finite number of cases.
 For example, it may be easier to prove a statement that involves an integer by considering a first case where the integer is odd and a separate second case where the integer is even, then combining the two separate cases to create a single proof for all integers \(n.\)</p>
@@ -8923,1062 +9979,6 @@ must be True no matter what value the integer \(n\) has, this shows that the sta
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_number_bases">6. Number Bases</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
-</div>
-<div class="paragraph">
-<p><em>This chapter was last updated on April 1, 2025.</em><br></p>
-</div>
-<div class="paragraph">
-<p>It&#8217;s likely that you learned how to represent positive integers using
-the <strong>base-ten place-value system</strong> when you were young.
-This system uses ten symbols, the <strong>Hindu-Arabic numerals</strong>
-‘0’,
-‘1’,
-‘2’,
-‘3’,
-‘4’,
-‘5’,
-‘6’,
-‘7’,
-‘8’, and
-‘9’,
-to represent <em>any</em> natural number.</p>
-</div>
-<div class="paragraph">
-<p>In the base-ten place-value system that uses <strong>decimal</strong> notation, each natural number is represented by a numeral which is a string of one or more of the ten Hindu-Arabic digits.
-However, in some computer science contexts, it is more useful to represent natural numbers in a place-value system that uses a different <strong>number base</strong> such as <strong>binary</strong> (base-two), <strong>octal</strong> (base-eight), or <strong>hexadecimal</strong> (base-sixteen).
-Using or thinking about numbers represented by numerals in these other systems can help you develop more efficient algorithms and recognize when certain numerals can be interpreted as encodings of multiple pieces of information.</p>
-</div>
-<div class="paragraph">
-<p>In this chapter, you will learn how to represent natural numbers using place-value systems with bases other than ten.</p>
-</div>
-<div class="paragraph">
-<p>Key terms and concepts covered in this chapter:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Number bases</p>
-<div class="ulist">
-<ul>
-<li>
-<p>binary</p>
-</li>
-<li>
-<p>hexadecimal</p>
-</li>
-<li>
-<p>octal</p>
-</li>
-<li>
-<p>decimal</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_numbers_numerals_and_digits">6.1. Numbers, Numerals, and Digits</h3>
-<div class="paragraph">
-<p>In everyday life, it is common to treat numbers and numerals as if they are the same. However, it is important in this chapter to distinguish these concepts.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A <strong>number</strong> is an abstract idea or mental concept of a count, a measure, a rank in an ordering, etc..</p>
-</li>
-<li>
-<p>A <strong>numeral</strong> is a word, phrase, symbol, or string of symbols that is used to represent a number.</p>
-</li>
-<li>
-<p>A <strong>digit</strong> is a single symbol that represents a number. A digit is a numeral, but multiple digits can be combined to create other numerals. For example, each of the ten Hindu-Arabic numerals is a digit that represents a natural number that is less than ten, and multiple Hindu-Arabic numerals can be combined to create numerals that represent numbers that are greater than or equal to ten.<br>
-<span class="small">NOTE: The word "digit" comes from the Latin word <em>digitus</em> which means "finger" or "toe."</span></p>
-</li>
-</ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="openblock">
-<div class="title">Example 1 -  Numerals, Numbers, and Digits</div>
-<div class="content">
-
-</div>
-</div>
-<div class="paragraph">
-<p>Consider the following words:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>"five",</p>
-</li>
-<li>
-<p>"cinco",</p>
-</li>
-<li>
-<p>"خمسة" ("khamsa"),</p>
-</li>
-<li>
-<p>"पाँच" ("paanch"),</p>
-</li>
-<li>
-<p>"五" ("wǔ").</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These words, taken from different languages, are examples of <em>numerals,</em> words that represent a <em>number.</em> In fact, all those numerals represent the same number, but no one of the numerals <em>is</em> the number. The number itself is an abstract idea that can be referred to using any of those numerals.</p>
-</div>
-<div class="paragraph">
-<p>In the same way,</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>the Roman "Ⅴ",</p>
-</li>
-<li>
-<p>the Braille "⠼⠑",</p>
-</li>
-<li>
-<p>the Coptic Epact "𐋥",</p>
-</li>
-<li>
-<p>the Eastern Arabic "٥",</p>
-</li>
-<li>
-<p>the Western Arabic "5".</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>are other ways of representing the same number that the
-words above represent.</p>
-</div>
-<div class="openblock click">
-<div class="title">Semiotics</div>
-<div class="content">
-<div class='click_oblique'>
-In semiotics, the study of signs, symbols, and signification, the number is a <strong>sign,</strong> made up of the <strong>signified</strong> mental concept and the <strong>signifier</strong> (the numeral.)
-Further discussion is beyond the scope of this textbook, and beyond the remixer&#8217;s expertise! Here is a <a href=http://visual-memory.co.uk/daniel//Documents/S4B/semiotic.html>link</a> if you want to learn more about semiotics.
-</div>
-</div>
-</div>
-<div class="openblock click">
-<div class="title">This is not a pipe!</div>
-<div class="content">
-<div class='click_oblique'>
-Read <a href=https://en.wikipedia.org/wiki/The_Treachery_of_Images>this Wikipedia article</a> and pay attention to the quote from the artist, René Magritte.
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_review_of_the_base_ten_place_value_system">6.2. Review Of The Base-Ten Place Value System</h3>
-<div class="paragraph">
-<p><mark><strong>It&#8217;s likely that everything you are about to read in this section is knowledge you&#8217;ve had for many years. The purpose of stating everything so explicitly is to provide an example you can compare with place-value systems that use other bases.</strong></mark><br></p>
-</div>
-<div class="paragraph">
-<p>A base-ten numeral is a string formed from one or more digits (i.e.,  Hindu-Arabic numerals.)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The string is read from left-to-right.</p>
-</li>
-<li>
-<p>Each digit in the string represents a multiple of a power of the base, ten, depending on the its position in the string.</p>
-</li>
-<li>
-<p>The rightmost <strong>place</strong> represents a multiple of 1 (which is ten raised to the power zero) and each of the other places represents a multiple of a power of ten that is one greater than the power of ten represented by the place to its right.</p>
-</li>
-<li>
-<p>Notice that the base itself, the number ten, is represented by the string "10" in this place-value system. The string "10" represents the number described by the phrase "1 ten plus 0 ones".</p>
-</li>
-<li>
-<p>As an example, the string "101" represents the number described by the phrase "1 hundred plus 0 tens, plus 1 ones," where 1 hundred is the same as ten tens. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \] The expression on the right-hand side of the previous equation is referred to as <strong>expanded form</strong> in school-level mathematics.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><span class="small">NOTE: The Hindu-Arabic numerals evolved from earlier Brahmi versions. You can look at the image at this <a href=https://www.britannica.com/topic/Hindu-Arabic-numerals/images-videos>web page</a> which shows a few steps in this evolution. Also, you can learn more about the history of the Hindu-Arabic numerals from the links in the "Notes" and "References" sections of this <a href=https://en.wikipedia.org/wiki/History_of_the_Hindu%E2%80%93Arabic_numeral_system>Wikipedia page.</a></span></p>
-</div>
-<div class="sect3">
-<h4 id="_an_algorithm_that_computes_the_digits_of_a_base_ten_numeral">6.2.1. An Algorithm That Computes The Digits Of A Base-Ten Numeral</h4>
-<div class="paragraph">
-<p>In this subsection, an algorithm is presented for computing the digits in the expanded form of a base-ten numeral of the natural number \(n.\) This may seem to be a complicated way to do something very simple since we could just <em>read off</em> the digits, but <mark>the important thing to notice about this algorithm is that the role that ten plays can be played by <em>any</em> other positive integer constant greater than one!</mark> This means that this algorithm can be adapted to find the "digits" in the expanded form of a base-\(b\) numeral for the number \(n\) for <em>any</em> base \(b\) we choose.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Task: Given the natural number <em>n,</em>
-compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)]  so that each of \(r_{0}, r_{1}, \ldots , r_{k}\) is represented by a single digit in base-10, and \[ n = r_{k} \cdot 10^{k} + \ldots + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0} \] where \(k\) is the greatest natural number such that \(10^{k} < n.\)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Input: The natural number \(n\)</p>
-</li>
-<li>
-<p>Steps:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Set \(a\) equal to \(n\)</p>
-</li>
-<li>
-<p>Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)</p>
-</li>
-<li>
-<p>Divide \(a\) by 10 to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot 10 + r\) and \(0 \leq r < 10.\)</p>
-</li>
-<li>
-<p>Append \(r\) to the end of array \(s.\)</p>
-</li>
-<li>
-<p>If \(q \neq 0\)</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>set \(a\) equal to \(q\)</p>
-</li>
-<li>
-<p>go to step 3</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Return the sequence \(s.\)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a single digit, and \[ n = r_{k} \cdot 10^{k} + \ldots + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0}.\]</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>That is, we rewrite \(n\) as \(r_{0} + 10 \cdot (r_{1} + 10 \cdot (r_{2} + \ldots r_{k-1} + (10 \cdot (r_{k})) \ldots ))\)</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="openblock">
-<div class="title">Example 2 - Finding The Digits Of A Base-Ten Numeral</div>
-<div class="content">
-
-</div>
-</div>
-<div class="paragraph">
-<p>The following equations summarize how the preceding algorithm determines the digits in the base-ten expanded form numeral for the number 432.</p>
-</div>
-<div class="paragraph">
-<p>\begin{equation}
-\begin{aligned}
-432 {} &amp; = 43 \cdot 10 + 2 &amp; q {} &amp; = 43  &amp; r {} &amp; = 2 &amp; s &amp; = [2] \\
-43 {} &amp; = 4 \cdot 10 + 3   &amp; q {} &amp; = 4   &amp; r {} &amp; = 3 &amp; s &amp; = [2, 3] \\
-4 {} &amp; = 0 \cdot 10 + 4    &amp; q {} &amp; = 0   &amp; r {} &amp; = 4 &amp; s &amp; = [2, 3, 4] \\
-\end{aligned}
-\end{equation}</p>
-</div>
-<div class="paragraph">
-<p>Notice that the items in \(s = [ r_{0}, \, r_{1}, \, r_{2} \)] are the numbers corresponding to the digits of the numeral \(“432”\) in reverse order, so \begin{equation}
-\begin{aligned}
-432 &amp; =  r_{2} \cdot 10^{2} + r_{1} \cdot 10^{1} + r_{0} \cdot 10^{0} \\
-&amp; =  4 \cdot 10^{2} + 3 \cdot 10^{1} + 2 \cdot 10^{0}
-\end{aligned}
-\end{equation}</p>
-</div>
-<div class="paragraph">
-<p>Notice that the algorithm is rewriting \(432\) as the sum \(2 + 10 \cdot (3 + 10 \cdot 4)).\)</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_the_base_two_place_value_system_binary_notation">6.3. The Base-Two Place Value System (Binary Notation)</h3>
-<div class="paragraph">
-<p>This subsection describes the base-two (binary) place value system. You will see that much of what is written here is the result of replacing "ten" by "two" in the description of the base-ten (decimal) system in the previous section.<br></p>
-</div>
-<div class="paragraph">
-<p>A base-two numeral is a string formed from one or more of the two <strong>binary digits</strong> (or <strong>bits</strong>) ‘0’ and ‘1’.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The string is read from left-to-right.</p>
-</li>
-<li>
-<p>Each digit in the string represents a multiple of a power of the base, two, depending on the its position in the string.</p>
-</li>
-<li>
-<p>The rightmost place represents a multiple of 1 (which is two raised to the power zero) and each of the other places represents a multiple of a power of two that is one greater than the power of two represented by the place to its right.</p>
-</li>
-<li>
-<p><mark>Notice that the base itself, the number two, is represented by the string "10" in this place-value system.</mark> The string "10" represents the number described by the phrase "1 two plus 0 ones".</p>
-</li>
-<li>
-<p>As an example, the string "101" represents the number described by the phrase "1 four plus 0 twos, plus 1 ones," where 1 four is the same as two twos. That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Wait&#8230;&#8203; WHAT?!?) }\]
-Yes, this equation,
-which may appear to be written in the base-ten system,
-is correct <em>in the base-two place value system,</em> too!  "10" is how the number two is represented in base-two notation! <br>
-<span class="small">As an analogy, the string "pie" signifies different things in English (a baked dessert) and Spanish (a foot.) You must take care to know which context you are working in!</span></p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>It is traditional to use
-some extra
-notation to indicate
-when the strings "10" and "101"
-<span class="underline"><em>are not</em></span>
-base-ten numerals
-to avoid confusion.
-In this textbook,
-numerals in any base other than ten
-will be written
-between a pair of parentheses followed by a subscript indicating the base. The subscript is written as a <em>base-ten numeral.</em> For example, we could rewrite the previous equation as \[(101)_{2} = (1)_2 \cdot (10)_2 \cdot (10)_2 + (0)_2 \cdot (10)_2 + (1)_2 \cdot (1)_2 \]
-which translates into base-ten as \(5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.\) We can also write \(5 = (101)_2\) which is a way of saying that the base-ten numeral and the base-two numeral signify the same number. + <span class="small">NOTE:
-The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used&#8230;&#8203; and we don&#8217;t need to use the parentheses or subscripts if we are already working in base-ten.</span></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The parentheses and subscript are not necessary if it is clear from the context that a numeral is not a base-ten numeral. For example, \[ \text{chmod 755 hello.txt} \]
-is a Unix/Linux command that changes the file permission bits (read, write, execute) of the file "hello.txt" for the file&#8217;s owner, the file&#8217;s group, and any other user. In this example, the string "755" is not a base-10 numeral, but is in <strong>octal (base-eight).</strong> Octal will be discussed later in the chapter. No subscript is used in the Unix/Linux command because it is <em>natural</em> to an experienced user of that operating system to use octal in the context.<br>
-<span class="small">In fact, the octal numeral "755" is used here as an encoding of three bitstrings, where each bitstring is of length 3; this idea is discussed in a later subsection of this chapter.</span></p>
-</div>
-<div class="paragraph">
-<p>Also, we can omit the parentheses and subscripts if we want to tell a couple of "jokes:"</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href=https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf>"There are 10 types of people in the world… those that understand binary and those that don’t.”</a></p>
-</li>
-<li>
-<p><a href=https://math.stackexchange.com/questions/166869/is-10-a-magical-number-or-i-am-missing-something>"Every base is base 10."</a></p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>You are ready now to learn how to represent numbers using base-two numerals.</p>
-</div>
-<div class="sect3">
-<h4 id="_an_algorithm_that_computes_the_digits_of_a_base_two_numeral">6.3.1. An Algorithm That Computes The Digits Of A Base-Two Numeral</h4>
-<div class="paragraph">
-<p>In this subsection, an algorithm is presented for computing the digits in the expanded form of a base-two numeral of the natural number \(n.\) This algorithm has been adapted from the one stated for base-ten in the previous section. <mark>Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.</mark></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Task: Given the natural number <em>n,</em>
-compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)]  so that each of \(r_{0}, r_{1}, \ldots , r_{k}\) is represented by a single digit in base-2, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \] where \(k\) is the greatest natural number such that \(2^{k} < n.\)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Input: The natural number \(n\)</p>
-</li>
-<li>
-<p>Steps:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Set \(a\) equal to \(n\)</p>
-</li>
-<li>
-<p>Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)</p>
-</li>
-<li>
-<p>Divide \(a\) by 2 to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot 2 + r\) and \(0 \leq r < 2.\)</p>
-</li>
-<li>
-<p>Append \(r\) to the end of array \(s.\)</p>
-</li>
-<li>
-<p>If \(q \neq 0\)</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>set \(a\) equal to \(q\)</p>
-</li>
-<li>
-<p>go to step 3</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Return the sequence \(s.\)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a single digit, and \[ n = r_{k} \cdot 2^{k} + \ldots + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0}.\]</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>That is, the algorithm rewrites \(n\) as \(r_{0} + 2 \cdot (r_{1} + 2 \cdot (r_{2} + \ldots r_{k-1} + (2 \cdot (r_{k})) \ldots ))\)</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="openblock">
-<div class="title">Example 3 - Finding The Digits Of A Base-Two Numeral (Binary Notation)</div>
-<div class="content">
-
-</div>
-</div>
-<div class="paragraph">
-<p>The following equations summarize how the preceding algorithm determines the digits in the base-two expanded form numeral for the number 13.</p>
-</div>
-<div class="paragraph">
-<p>\begin{equation}
-\begin{aligned}
-13 {} &amp; = 6 \cdot 2 + 1 &amp; q {} &amp; = 6  &amp; r {} &amp; = 1 &amp; s &amp; = [1] \\
-6 {} &amp; = 3 \cdot 2 + 0   &amp; q {} &amp; = 3   &amp; r {} &amp; = 0 &amp; s &amp; = [1, 0] \\
-3 {} &amp; = 1 \cdot 2 + 1   &amp; q {} &amp; = 1   &amp; r {} &amp; = 1 &amp; s &amp; = [1, 0, 1] \\
-1 {} &amp; = 0 \cdot 2 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [1, 0, 1, 1] \\
-\end{aligned}
-\end{equation}</p>
-</div>
-<div class="paragraph">
-<p>Notice that the items in \(s = [ r_{0}, \, r_{1}, \, r_{2} , \, r_{3} \)] are the numbers (in base-ten notation) corresponding to the digits of the numeral \(“(1101)_2”\) in reverse order, so \begin{equation}
-\begin{aligned}
-13 &amp; =  r_{3} \cdot 2^{3} +  r_{2} \cdot 2^{2} + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \\
-&amp; =  1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 2 \cdot 2^{0}
-\end{aligned}
-\end{equation}</p>
-</div>
-<div class="paragraph">
-<p>The algorithm
-rewrites \(13\) as \(1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).\)<br>
-Again, notice that the items in the array \([1, 0, 1, 1\)] are listed in reverse order, so
-\(13 = (1101)_2\)
-where the base-ten numeral and the base-two numeral represent the same number, thirteen.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Here is a <a href=https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf>link</a> to an alternate method of finding the base-two numeral for a number.</p>
-</div>
-<div class="paragraph">
-<p>If you made it to this sentence without skipping any of the discussion above, congratulations! If you did skip some of the discussion, go back and try your best to understand what the algorithm in the previous example is computing: The array \(s\) holds the digits, in reverse order of the binary notation for the number \(n.\) Compare what is done in this algorithm to the one for base-ten in the previous section&#8230;&#8203; they are computing the digits for a numeral, but in different bases. If you can understand this algorithm, you will likely understand the rest of the chapter.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_the_base_b_place_value_system">6.4. The Base-\(b\) Place Value System</h3>
-<div class="paragraph">
-<p>If you made it here, you are ready to learn how to find, given any natural number \(n,\) the numeral that represents \(n\) in the base-\(b\) place value system (It is assumed that the base \(b\) is a natural number greater than or equal to 2.) You can compare the algorithm and example in this subsection to the ones in the preceding subsections for base-ten and base-two.</p>
-</div>
-<div class="paragraph">
-<p>A base-\(b\) numeral is a string formed from one or more digits out of a set that contains \(b\) symbols, where each symbol is called a "base-\(b\) digit."</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The string is read from left-to-right.</p>
-</li>
-<li>
-<p>Each digit in the string represents a multiple of a power of the base, \(b,\) depending on the its position in the string.</p>
-</li>
-<li>
-<p>The rightmost place represents a multiple of 1 (which is \(b\) raised to the power zero) and each of the other places represents a multiple of a power of \(b\) that is one greater than the power of \(b\) represented by the place to its right.</p>
-</li>
-<li>
-<p><mark>Notice that the base itself, the number \(b,\) is represented by the string "10" in the base-\(b\) place value system.</mark> The string "10" represents the number described by the phrase "1 \(b\) plus 0 ones".</p>
-</li>
-<li>
-<p>As an example, the string "101" represents the number described by the phrase "1 <em>b-_squared plus 0 _b</em>, plus 1 ones." That is, \[ 101 = 1 \cdot 10 \cdot 10 + 0 \cdot 10 + 1 \cdot 1 \text{ (🤯: Again?!?) }\]
-Yes, this equation is correct, too, <em>in the base-b place value system!</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To avoid confusion, you can enclose each numeral in a pair of parentheses followed by the subscript \(b\) to indicate the base, where \(b\) is written as a <em>base-ten numeral.</em> For example,
-the previous equation
-can be written as \[(101)_{b} = (1)_b \cdot (10)_b \cdot (10)_b + (0)_b \cdot (10)_b + (1)_b \cdot (1)_b \]
-which translates into base-ten as \(b^2 + 1 = 1 \cdot b \cdot b + 0 \cdot b + 1 \cdot 1.\)</p>
-</div>
-<div class="sect3">
-<h4 id="_an_algorithm_that_computes_the_digits_of_a_base_b_numeral">6.4.1. An Algorithm That Computes The Digits Of A Base-\(b\) Numeral</h4>
-<div class="paragraph">
-<p>This is an adaptation of the algorithm presented earlier for base-two.  <mark>Notice that all numerals used in this algorithm are base-ten numerals unless otherwise indicated.</mark></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Task: Given the natural number <em>n,</em> and positive integer constant \(b > 1\)
-compute an array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] so that each of \(r_{0}, r_{1}, \ldots , r_{k}\)
-can be represented by a single digit in base-\(b\), and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0} \] where \(k\) is the greatest natural number such that \(b^{k} < n.\)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Input: The natural number \(n\)</p>
-</li>
-<li>
-<p>Steps:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Set \(a\) equal to \(n\)</p>
-</li>
-<li>
-<p>Set \(s\) to the empty array (We will append the values \(r_{0}, r_{1}, \ldots , r_{k}\) to the array \(s\) as we compute them)</p>
-</li>
-<li>
-<p>Divide \(a\) by \(b\) to find natural numbers \(q\) and \(r\) such that both \(a = q \cdot b + r\) and \(0 \leq r < b.\)</p>
-</li>
-<li>
-<p>Append \(r\) to the end of array \(s.\)</p>
-</li>
-<li>
-<p>If \(q \neq 0\)</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>set \(a\) equal to \(q\)</p>
-</li>
-<li>
-<p>go to step 3</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Return the sequence \(s.\)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Output: An array of natural numbers \(s = [ r_{0}, \, r_{1}, \, \ldots \, r_{k} \)] where each number is represented by a
-single digit in base-\(b,\)
-and \[ n = r_{k} \cdot b^{k} + \ldots + r_{1} \cdot b^{1} + r_{0} \cdot b^{0}.\]</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The algorithm rewrites \(n\) as \(r_{0} + b \cdot (r_{1} + b \cdot (r_{2} + \ldots r_{k-1} + (b \cdot (r_{k})) \ldots )).\) The result
-\(s\) contains the numbers
-that let you write \(n\)
-in base-\(b\) notation.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_octal_notation_base_8">6.4.2. Octal Notation (Base-8)</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="openblock">
-<div class="title">Example 4 - Finding The Digits Of A Base-8 Numeral (Octal Notation)</div>
-<div class="content">
-
-</div>
-</div>
-<div class="paragraph">
-<p>The following equations summarize how to determine the digits in the base-8 expanded form numeral for the number 100.</p>
-</div>
-<div class="paragraph">
-<p>Note that for base-8 we use the eight digits
-‘0’,
-‘1’,
-‘2’,
-‘3’,
-‘4’,
-‘5’,
-‘6’, and
-‘7’.</p>
-</div>
-<div class="paragraph">
-<p>\begin{equation}
-\begin{aligned}
-100 {} &amp; = 12 \cdot 8 + 4 &amp; q {} &amp; = 12  &amp; r {} &amp; = 4 &amp; s &amp; = [4] \\
-12 {} &amp; = 1 \cdot 8 + 4   &amp; q {} &amp; = 1   &amp; r {} &amp; = 4 &amp; s &amp; = [4, 4] \\
-1 {} &amp; = 0 \cdot 8 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [4, 4, 1] \\
-\end{aligned}
-\end{equation}</p>
-</div>
-<div class="paragraph">
-<p>Notice that \(s = [ 4, \, 4, \, 1 \)] are the numbers (in base-ten notation) corresponding to the base-8 digits of the numeral \(“(144)_8”\) in reverse order. You can verify that \(100 = 1 \cdot 8^{2} + 4 \cdot 8^{1} + 4  \cdot 8^{0}.\) This means that \(100 = (144)_8.\)</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_hexadecimal_notation_base_16">6.4.3. Hexadecimal Notation (Base-16)</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="openblock">
-<div class="title">Example 5 - Finding The Digits Of A Base-16 Numeral (Hexadecimal Notation)</div>
-<div class="content">
-
-</div>
-</div>
-<div class="paragraph">
-<p>The following equations summarize how to determine the digits in the base-16 expanded form numeral for the number 500.</p>
-</div>
-<div class="paragraph">
-<p>Note that for base-16, we need sixteen digits! It is traditional to use the ten Hindu-Arabic numerals followed by the first six uppercase English letters as the digits:
-‘0’,
-‘1’,
-‘2’,
-‘3’,
-‘4’,
-‘5’,
-‘6’,
-‘7’,
-‘8’,
-‘9’,
-‘A’,
-‘B’,
-‘C’,
-‘D’,
-‘E’, and
-‘F’.
-So
-\(10 = (A)_{16},\)
-\(11 = (B)_{16},\)
-\(12 = (C)_{16},\)
-\(13 = (D)_{16},\)
-\(14 = (E)_{16},\) and
-\(15 = (F)_{16}.\)<br>
-<span class="small">Note: Some programming languages like Python use the lowercase letters 'a' through 'f' instead of the uppercase letters.</span></p>
-</div>
-<div class="paragraph">
-<p>The remainders stored in the array \(s\) are represented in base-ten notation, and will need to be replaced by the corresponding hexadecimal digits in the base-16 numeral for 500.</p>
-</div>
-<div class="paragraph">
-<p>\begin{equation}
-\begin{aligned}
-500 {} &amp; = 31 \cdot 16 + 4 &amp; q {} &amp; = 31  &amp; r {} &amp; = 4 &amp; s &amp; = [4] \\
-31 {} &amp; = 1 \cdot 16 + 15   &amp; q {} &amp; = 1   &amp; r {} &amp; = 15 &amp; s &amp; = [4, 15] \\
-1 {} &amp; = 0 \cdot 16 + 1    &amp; q {} &amp; = 0   &amp; r {} &amp; = 1 &amp; s &amp; = [4, 15, 1] \\
-\end{aligned}
-\end{equation}</p>
-</div>
-<div class="paragraph">
-<p>As before, we have \(500 = 1 \cdot 16^{2} + 15 \cdot 16^{1} + 4 \cdot 16^{0},\) which you can verify is true.
-To write the base-16 numeral for 500, you need to replace "15" in base-ten  by \((F)_{16}.\) So \(500 = (1F4)_{16}.\)</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_a_theorem_to_be_proven_later">6.4.4. A Theorem (To Be Proven Later)</h4>
-<div class="paragraph">
-<p>We can summarize what the algorithm does as a <strong>mathematical theorem,</strong> though technically at this point, it&#8217;s only a <strong>conjecture,</strong> an educated guess based on a few cases that seem to indicate that the algorithm will always work. You will learn a technique that will prove the theorem by validating the algorithm for all choices of natural numbers \(n\) and \(b>1\) in the <a href=./induction.html>Proofs: Mathematical Induction </a> chapter.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Theorem</div>
-<div class="paragraph">
-<p>Let \(b\) be an integer greater than 1. Any positive integer \(n\) can be expressed uniquely in the form \[n = r_kb^k + r_{k - 1}b^{k-1} + \cdots + r_1b^1 + r_0b^0,\]where \(k\) is a nonnegative integer, \(r_0,r_1,\dots,r_k\) are nonnegative integers less than \(b,\) and \(r_k \neq 0.\)</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_converting_from_base_b_to_base_ten">6.5. Converting From Base-\(b\) to Base-Ten</h3>
-<div class="paragraph">
-<p>In this section you will learn how to rewrite a base-\(b\) numeral in base-ten.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<div class="title">Example 6</div>
-<p>What is the decimal expansion of the positive integer with base 7 expansion \((1063)_7\)?</p>
-</div>
-<div class="paragraph">
-<div class="title">Solution</div>
-<p>We have</p>
-</div>
-<div class="openblock equationalign">
-<div class="content">
-<table class="equation_table_style" ><tr class="equation_row_style">
-<td class="equation_content_style";>
-\[\begin{split}
-(1063)_7 &amp;= 1 \cdot 7^3 + 0 \cdot 7^2 + 6\cdot 7^1 + 3 \cdot 7^0\\
-&amp;=1 \cdot 343 + 0 \cdot 49 + 6 \cdot 7 + 3 \cdot 1\\
-&amp;= 343 + 0 + 42 + 3\\
-&amp;= 388.
-\end{split}\]
-</td>
-</tr></table>
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Several common bases used in computer science are base \(2\), base \(8\), and base \(16\), which are referred to as <strong>binary</strong>, <strong>octal</strong>, and <strong>hexadecimal</strong>, respectively. Binary digits are often referred to as <strong>bits</strong>. Note that, when finding the hexadecimal expansion of a positive integer, in addition to the usual digits \(0\) through \(9,\) we require an additional 6 digits. We will represent these by the letters \(\mathrm{A}\) through \(\mathrm{F}\), where \((\mathrm{A})_{16} = 10,\) \((\mathrm{B})_{16} = 11,\) \((\mathrm{C})_{16} = 12,\) \((\mathrm{D})_{16} = 13,\) \((\mathrm{E})_{16} = 14,\) and \((\mathrm{F})_{16} = 15.\)</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<div class="title">Example 7 - Hexadecimal expansion</div>
-<p>Find the decimal expansion of the positive integer whose hexadecimal expansion is \((5\mathrm{B}\mathrm{F})_{16}.\)</p>
-</div>
-<div class="paragraph">
-<div class="title">Solution</div>
-<p>We have</p>
-</div>
-<div class="openblock equationalign">
-<div class="content">
-<table class="equation_table_style" ><tr class="equation_row_style">
-<td class="equation_content_style";>
-\[\begin{split}
-(5\mathrm{B}\mathrm{F})_{16} &amp;= 5\cdot 16^2 + 11 \cdot 16^1 + 15 \cdot 16^0\\
-&amp;= 5\cdot 256 + 11 \cdot 16 + 15 \cdot 1\\
-&amp;= 1280 + 176 + 15\\
-&amp;= 1471.
-\end{split}\]
-</td>
-</tr></table>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_base_conversion_among_binary_octal_and_hexadecimal">6.6. Base Conversion Among Binary, Octal, and Hexadecimal</h3>
-<div class="paragraph">
-<p>One of the ways that octal (base-eight) and hexadecimal (base-sixteen) are used in computer science is to abbreviate long bitstrings. The following examples will show how this is done.</p>
-</div>
-<div class="paragraph">
-<p>Suppose
-you need to convert
-a numeral
-from hexadecimal to binary. One method would be to first convert
-from hexadecimal to decimal, and then
-convert the result from decimal to binary. However,
-it is much more efficient to notice that since
-\(2^4 = 16,\)
-you can express each hexadecimal digit
-as a block of 4 bits
-(that is, a <a href=./introduction_discrete_math.html#informal_bitstring_definition><em>bitstring</em></a> of length 4)
-as follows:</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[\begin{array}{llll}
-(0)_{16} = (0000)_2 &amp; (1)_{16} = (0001)_{2}&amp; (2)_{16} = (0010)_2 &amp; (3)_{16} = (0011)_2 \\
-(4)_{16} = (0100)_2&amp; (5)_{16} = (0101)_2&amp; (6)_{16} = (0110)_2 &amp; (7)_{16} = (0111)_2\\
-(8)_{16} = (1000)_2&amp; (9)_{16} = (1001)_2&amp; (\mathrm{A})_{16} = (1010)_2&amp; (\mathrm{B})_{16} = (1011)_2\\
-(\mathrm{C})_{16} = (1100)_2&amp; (\mathrm{D})_{16} = (1101)_2&amp; (\mathrm{E})_{16} = (1110)_2&amp;  (\mathrm{F})_{16} = (1111)_2.
-\end{array}\]
-</div>
-</div>
-<div class="paragraph">
-<p>You can then concatenate the blocks, and remove any leading zeros if you need to.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<div class="title">Example 8 - Hexadecimal to Binary Conversion</div>
-<p>Find the binary expansion of \((4\mathrm{C}\mathrm{A}7)_{16}.\)</p>
-</div>
-<div class="paragraph">
-<div class="title">Solution</div>
-<p>Each hexadecimal digit can be replaced by a block of 4 bits:</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[\begin{array}{llll}
-(4)_{16} = (0100)_2 &amp; (\mathrm{C})_{16} = (1100)_2 &amp; (\mathrm{A})_{16} = (1010)_2 &amp; (7)_{16} = (0111)_2.
-\end{array}\]
-</div>
-</div>
-<div class="paragraph">
-<p>This means that you can write either \[(4\mathrm{C}\mathrm{A}7)_{16} = (0100110010100111)_{2}\] or, if the leading zero is not needed, \[(4\mathrm{C}\mathrm{A}7)_{16} = (100110010100111)_{2}.\] <span class="small">Why wouldn&#8217;t you always delete leading zeroes? Notice that a bitstring of length 4 can be used to encode a sequence of "Yes/No" or "True/False" answers. As an example, since \((6)_{16} = (0110)_2,\) the hexadecimal digit \((6)_{16}\) can be used to encode the sequence of 4 answers "No, Yes, Yes, No" to a Yes/No survey, and in this context the leftmost bit should be kept to make it clear that the answer to the first question was "No" (as opposed to the sequence "Yes, Yes, No, blank" where the fourth question was not answered.)</span></p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>To convert
-a numeral from binary to hexadecimal,
-first
-break up
-the binary notation into blocks of 4
-bits,
-adding a suitable number of
-leading zeros if necessary.
-Next, convert each block of 4 bits to
-a hexadecimal digit
-and concatenate
-the results, removing any leading
-zeros if necessary.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<div class="title">Example 9 - Binary to Hexadecimal Conversion</div>
-<p>Find the hexadecimal expansion of \((110 1011 1111)_2.\)</p>
-</div>
-<div class="paragraph">
-<div class="title">Solution</div>
-<p>The are three blocks of 4 bits: \[0110,\ 1011,\ 1111.\]
-Since \((0110)_2 = (6)_{16},\) \((1011)_2 = (\mathrm{B})_{16},\) and \((1111)_2 = (\mathrm{F})_{16},\) \[(11010111111)_{2} = (6\mathrm{B}\mathrm{F})_{16}.\]</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>A similar method can be used to convert between octal and binary.
-Since \(2^3 = 8,\) each octal digit can be written uniquely as a block of 3 bits as follows:</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[\begin{array}{llll}
-(0)_{8} = (000)_2 &amp; (1)_{8} = (001)_{2}&amp; (2)_{8} = (010)_2 &amp; (3)_{8} = (011)_2 \\
-(4)_{8} = (100)_2&amp; (5)_{8} = (101)_2&amp; (6)_{8} = (110)_2 &amp; (7)_{8} = (111)_2.
-\end{array}\]
-</div>
-</div>
-<div class="paragraph">
-<p>We then concatenate  blocks, removing any leading zeros if necessary.</p>
-</div>
-<div class="paragraph">
-<p>Also, the following table can be used to covert quickly between decimal, hexadecimal, octal, and binary in a similar way.</p>
-</div>
-<div class="paragraph">
-<p><strong>Conversion table for different bases</strong></p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8823%;">
-<col style="width: 5.8832%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Decimal</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Hexadecimal</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">D</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Octal</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">17</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Binary</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">101</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">110</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1001</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1010</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1011</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1101</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1110</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1111</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_exercises_4">6.7. Exercises</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Convert to decimal (base 10)</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>\((10262)_7\)</p>
-</li>
-<li>
-<p>\((30A8)_{16}\)</p>
-</li>
-<li>
-<p>\((1000010001100)_2\)</p>
-</li>
-<li>
-<p>\(({12307)}_{60}\)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Convert \(\left(2039\right)_{10}\) from decimal (base 10) to</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>base 7</p>
-</li>
-<li>
-<p>binary</p>
-</li>
-<li>
-<p>hexadecimal (base 16)</p>
-</li>
-<li>
-<p>octal (base 8)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Convert \(\left(2599\right)_{10}\) from decimal to</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>base 5</p>
-</li>
-<li>
-<p>binary</p>
-</li>
-<li>
-<p>hexadecimal</p>
-</li>
-<li>
-<p>base 3</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Convert the following hexadecimal numerals to binary numerals</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>\(\left(6F203\right)_{16}\)</p>
-</li>
-<li>
-<p>\(\left(3FA20C45\right)_{16}\)</p>
-</li>
-<li>
-<p>\(\left(FACE\right)_{16}\)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Convert the following binary numerals to hexadecimal numerals</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>\(\left(1111100111010101101\right)_2\)</p>
-</li>
-<li>
-<p>\(\left(\ 10001111101011\right)_2\)</p>
-</li>
-<li>
-<p>\(\left(1100101011111110\right)_2\)</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
 </div>
 </div>
 </div>

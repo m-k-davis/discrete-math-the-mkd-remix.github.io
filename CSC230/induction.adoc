@@ -4,6 +4,8 @@
 
 include::LinkToPublic.adoc[] 
 
+//https://pythontutor.com/render.html#code=def%20P%28k%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bk%7D%20positive%20odd%20integers%20is%20%7Bk*k%7D%5C%22%22%0A%0Adef%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20sum,%20k%20%3D%201,%201%0A%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20while%20k%20%3C%20stop_value%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Astop_value%20%3D%2010%0Aif%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20print%28%22P%28n%29%20is%20a%20True%20proposition%20for%20each%20natural%20number%20n%20%E2%89%A4%20%22%2Bstr%28stop_value%29%2B%22.%22%29&cumulative=false&curInstr=47&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
 _This chapter was last updated on August 23, 2025._ + 
 _added note about the Principle of Mathematical Induction and the Well-Ordering Principle_ + 
 _removed references to universal generalization throughout._ + 
