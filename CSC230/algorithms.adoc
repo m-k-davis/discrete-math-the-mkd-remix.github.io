@@ -7,6 +7,12 @@ include::LinkToPublic.adoc[]
 _This chapter was last updated on April 14, 2025._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
+
+// MKD Sep 7 2025 
+// link to my Russian Peasant Multiplication implementation 
+//	https://pythontutor.com/render.html#code=def%20RPM%28a,b%29%3A%0A%20%20%20%20result%20%3D%200%0A%20%20%20%20if%20b%20%3D%3D%201%3A%20return%20a%0A%20%20%20%20while%20b%20%3E%201%3A%0A%20%20%20%20%20%20%20%20if%20b%252%3A%20%23%20if%20b%20is%20odd%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20result%20%2B%3D%20a%0A%20%20%20%20%20%20%20%20a%20%3D%20a%20%3C%3C%201%0A%20%20%20%20%20%20%20%20b%20%3D%20b//2%20%23%20b%20%3D%20math.floor%28b/2%29%0A%20%20%20%20result%20%2B%3D%20a%0A%20%20%20%20return%20result%0A%0Aprint%28RPM%2897,%2013%29%29&cumulative=false&curInstr=23&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+// not currently used in the book, but used in a classroom activity.
+
 //// 
 State, Explain, or Calculate complexity in the ideal and in the worst-case scenario for both implementations. [Remembering, Understanding, Applying]
 ////

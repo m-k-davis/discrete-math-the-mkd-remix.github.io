@@ -5,9 +5,10 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on February 10, 2025._ + 
+_This chapter was last updated on September 15, 2025._ + 
+_Fixed some typos._
 //_Split section on Cardinality into two sections (one for finite sets and one for infinite sets), moved section on Venn diagrams after section on Finite Sets, and moved section on infinite sets closer to the end of the chapter._
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 // MKD intro blurb needs editing
@@ -791,7 +792,7 @@ include::python_tutor.adoc[]
 
 === Multiple Set Operations
 
-We can also perform more than one set operation on a collection of sets. For example, let $A,$ $B,$ and $C$ be sets and consider the following set: \[(A \setminus B) \cup (C \setminus B).\]This is the set that is obtained by taking the union of the sets $A \setminus B$ and $C \setminus B.$ We have \[(A \setminus B) \cup (B \setminus A) = \{x \in U: (x \in A \text{ and } x \not\in B) \text{ or } (x \in C \text{ and } x \not\in B)\}.\]
+We can also perform more than one set operation on a collection of sets. For example, let $A,$ $B,$ and $C$ be sets and consider the following set: \[(A \setminus B) \cup (C \setminus B).\]This is the set that is obtained by taking the union of the sets $A \setminus B$ and $C \setminus B.$ We have \[(A \setminus B) \cup (C \setminus B) = \{x \in U: (x \in A \text{ and } x \not\in B) \text{ or } (x \in C \text{ and } x \not\in B)\}.\]
 
 We have the following Venn Diagram for $(A \setminus B) \cup (C \setminus B)$:
 
