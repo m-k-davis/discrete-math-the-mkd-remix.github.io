@@ -5662,9 +5662,8 @@ Therefore, such a one-to-one correspondence cannot exist.
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on February 18, 2025.</em><br>
-<em>Added link to DNF and CNF website</em><br>
-<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
+<p><em>This chapter was last updated on September 23, 2025.</em><br>
+<em>Edited section on logic circuits.</em></p>
 </div>
 <div class="paragraph">
 <p><strong>Logic</strong> is the study of reasoning. Logic is used to create, analyze, and validate <strong>arguments,</strong> where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument.</p>
@@ -8301,12 +8300,12 @@ a binary adder.</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p>It can be shown that the logic for the outputs \(S\), and \(C_{out}\) is given by the following propositions
+<p>You can write logically equivalent expressions for \(S\) and \(C_{out}\) by first writing expressions in Disjucntive Normal Form and then simplify those expressions using some of the other logical equivalences listed earlier in the chapter:
 
-\[ C_{out}=(A\land B)\lor \left(B\land C_{in}\right)\lor \left(A\land C_{in}\right)\]
+\[S \equiv \left(\sim A\land \sim B\land C_{in}\right)\lor \left(\sim A\land B\land
+\sim C_{in}\right)\lor \left(A\land \sim B\land \sim C_{in}\right)\lor \left(A\land B\land C_{in}\right) \]
 
-\[S=\left(\sim A\land \sim B\land C_{in}\right)\lor \left(\sim A\land B\land
-\sim C_{in}\right)\lor \left(A\land \sim B\land \sim C_{in}\right)\lor \left(A\land B\land C_{in}\right) \]</p>
+\[ C_{out} \equiv (A\land B)\lor \left(B\land C_{in}\right)\lor \left(A\land C_{in}\right)\]</p>
 </div>
 <div class="paragraph">
 <p>Implementing these logical outputs based on the inputs \((A,B, C_{in})\), is through the use of electronic
@@ -9739,7 +9738,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 <div class="sect3">
 <h4 id="_proof_by_contraposition">6.3.2. Proof By Contraposition</h4>
 <div class="paragraph">
-<p>In a proof by contraposition, we make an argument that \(p \rightarrow q\) is True by instead first arguing that its contrapositive \(\neg q \rightarrow \neg p\) is True and secondly applying the logical equivalence of the conditional and its contrapositive. Start by assuming that the premise \(\neg q\) is True and apply <em>modus ponens</em> to prove that \(\neq p\) must be True, too, then apply logical equivalence.</p>
+<p>In a proof by contraposition, we make an argument that \(p \rightarrow q\) is True by instead first arguing that its contrapositive \(\neg q \rightarrow \neg p\) is True and secondly applying the logical equivalence of the conditional and its contrapositive. Start by assuming that the premise \(\neg q\) is True and apply <em>modus ponens</em> to prove that \(\neg p\) must be True, too, then apply logical equivalence.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">

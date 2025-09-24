@@ -4,8 +4,9 @@
 
 include::LinkToPublic.adoc[] 
 
-_This chapter was last updated on August 18, 2025_ + 
-_Removed statement that universal generalization is used in proofs by mathematical induction._ + 
+_This chapter was last updated on September 23, 2025_ + 
+_Fixed typos._
+_NOTE: Statement that universal generalization is used in proofs by mathematical induction has been removed._ + 
 [small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
@@ -801,7 +802,7 @@ Write a proof of the following statement: If $a,$ $b,$ and $c$ are integers such
 // In a proof by contraposition, we make an argument that $\neg q \rightarrow \neg p$ must be True. This means that the logically equivalent conditional $p \rightarrow q$ must be True, so we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
 //In a proof by contraposition, we make an argument that $\neg q \rightarrow \neg p$ must be True. We can assume that the premise $\neg q$ is True and apply _modus tollens_ to prove that $\neg p$ must be True, too. 
 //In a proof by contraposition, we make an argument that $\neg q \rightarrow \neg p$ must be True. Since  $p \rightarrow q$ is logically equivalent to $\neg q \rightarrow \neg p,$ we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
-In a proof by contraposition, we make an argument that $p \rightarrow q$ is True by instead first arguing that its contrapositive $\neg q \rightarrow \neg p$ is True and secondly applying the logical equivalence of the conditional and its contrapositive. Start by assuming that the premise $\neg q$ is True and apply _modus ponens_ to prove that $\neq p$ must be True, too, then apply logical equivalence.
+In a proof by contraposition, we make an argument that $p \rightarrow q$ is True by instead first arguing that its contrapositive $\neg q \rightarrow \neg p$ is True and secondly applying the logical equivalence of the conditional and its contrapositive. Start by assuming that the premise $\neg q$ is True and apply _modus ponens_ to prove that $\neg p$ must be True, too, then apply logical equivalence.
 
 //	NEED; maybe if n^2 is even (odd) then n is even (odd)
 .Theorem
