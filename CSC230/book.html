@@ -6258,7 +6258,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
+<div id="conditional_converse_inverse_contrapositive" class="paragraph">
 <p>The extended truth table for the conditional and the three related propositions is shown below.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
@@ -8828,17 +8828,18 @@ Determine the true value of the  following, an explain your reasoning.</p>
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on September 23, 2025</em><br>
-<em>Fixed typos.</em>
-<em>NOTE: Statement that universal generalization is used in proofs by mathematical induction has been removed.</em><br>
-<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
+<p><em>This chapter was last updated on September 29, 2025</em><br>
+<em>Revised example of valid and invalid arguments. Introduced new example using rules of inference with predicates.</em><br>
+<em>Moved explanation of converse error using Euler diagrams to later in the chapter.</em><br>
+<em>Made minor wording changes and fixed typos.</em><br>
+<em>NOTE: Statement that universal generalization is used in proofs by mathematical induction has been removed.</em><br></p>
 </div>
 <div class="paragraph">
-<p>Recall from the <a href=./logic.html>Logic</a> chapter that an <strong>argument</strong> is a finite sequence of statements that ends with a final statement, the <strong>conclusion,</strong> that is based on inferences made from the earlier statements, called <strong>premises</strong> or <strong>hypotheses.</strong></p>
+<p>Recall from the <a href=./logic.html>Logic</a> chapter that an <strong>argument</strong> is a finite sequence of statements that ends with a final statement, called the <strong>conclusion,</strong> that is based on inferences made from the earlier statements, called <strong>premises</strong> or <strong>hypotheses.</strong></p>
 </div>
 <div class="paragraph">
 <p>An argument is <strong>valid</strong> if it is of a form such that if all premises are True then the conclusion must be True, too. An argument is not valid just because it exists!
-Just as a proposition is a single statement that may be either True or False (but not both), an argument is a finite sequence of statements that may be either valid or invalid (ut not both.)</p>
+Just as a proposition is a single statement that may be either True or False (but not both), an argument is a finite sequence of statements that may be either valid or invalid (but not both.)</p>
 </div>
 <div class="paragraph">
 <p>A <strong>proof</strong> is a valid argument made up of propositions. In a proof, some premises may be <strong>axioms</strong> or <strong>postulates,</strong> which are propositions that we simply ASSUME to be True. Other premises used in a proof may be previously-proven propositions called <strong>theorems.</strong> There are many other terms used for theorems depending on the context, such as <strong>lemma</strong> (a minor theorem needed to prove a more important major theorem) and <strong>corollary</strong> (a theorem that is a conclusion based on a premise that is a more important theorem),
@@ -8882,11 +8883,11 @@ but each of these specialized terms describes a theorem.</p>
 </div>
 </li>
 <li>
-<p>To be added to this chapter after May 23, 2025:</p>
+<p>To be added to this chapter</p>
 <div class="ulist">
 <ul>
 <li>
-<p>logical equivalence and circles of implication</p>
+<p>Circles of implication (“Ringschluss”) and logical equivalence</p>
 </li>
 </ul>
 </div>
@@ -8896,9 +8897,16 @@ but each of these specialized terms describes a theorem.</p>
 <div class="sect2">
 <h3 id="_rules_of_inference_for_propositions">6.1. Rules of Inference for Propositions</h3>
 <div class="paragraph">
-<p>To create a proof, we must
+<p>To create a proof,
+you
+must
 proceed from True propositions to other True propositions without introducing False propositions into the argument.
-To do this, we use <strong>rules of inference,</strong> which are ways to draw a True conclusion from one or more premises that are already known to be True (or assumed to be True). That is, a <strong>rule of inference</strong> is an argument form that corresponds to a tautology, and so is valid.</p>
+To do this,
+you
+use <strong>rules of inference,</strong> which are ways to draw a True conclusion from one or more premises that are already known to be True (or assumed to be True). That is, a <strong>rule of inference</strong> is an argument form that corresponds to a tautology, and so is
+a
+valid
+argument form.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -8927,7 +8935,7 @@ follows.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The propositional variables \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) represent the premises of the argument, and \(q\) represents the conclusion of the argument. The symbol \(\therefore\) is read as "therefore".</p>
+<p>The propositional variables \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) represent the premises of the argument, and \(q\) represents the conclusion of the argument. The symbol \(\therefore\) is read as “therefore.”</p>
 </div>
 <div class="paragraph">
 <p>This rule of inference is interpreted to mean that if all of the propositions \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) are True then the proposition \(q\) MUST be True.
@@ -8952,7 +8960,7 @@ The premises \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) are usually presented in an orde
 </div>
 <div class="paragraph">
 <div class="title">A Valid Argument</div>
-<p>The following argument was used as an example in the <a href=./logic.html>Logic</a> chapter.</p>
+<p>The following argument is based on an example in the <a href=./logic.html>Logic</a> chapter.</p>
 </div>
 <div class="ulist no-bullet">
 <ul class="no-bullet">
@@ -8960,7 +8968,7 @@ The premises \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) are usually presented in an orde
 <p>Sarah earned a B.S. in Computer Science.</p>
 </li>
 <li>
-<p>Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.</p>
+<p>If Sarah earned a B.S. in Computer Science, then Sarah earned a C or better in Discrete Math.</p>
 </li>
 <li>
 <p>Therefore, Sarah earned a C or better in Discrete Math.</p>
@@ -8984,7 +8992,7 @@ The premises \(p_{1},\,p_{2},\,\ldots,\,p_{n}\) are usually presented in an orde
 </ul>
 </div>
 <div class="paragraph">
-<p>This argument form is named <strong><em>modus ponens</em></strong> which is translated roughly from Latin as "method of affirming".
+<p>This argument form is named <strong><em>modus ponens</em></strong> which is translated very roughly from Latin as “method of affirming.”
 <em>Modus ponens</em> is a
 valid
 argument form because it corresponds to the tautology \((p \land (p \rightarrow q)) \rightarrow q\).</p>
@@ -9056,7 +9064,7 @@ argument form because it corresponds to the tautology \((p \land (p \rightarrow 
 <p>Arya earned a C or better in Discrete Math.</p>
 </li>
 <li>
-<p>Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.</p>
+<p>If Arya earned a B.S. in Computer Science, then Arya earned a C or better in Discrete Math.</p>
 </li>
 <li>
 <p>Therefore, Arya earned a B.S. in Computer Science.</p>
@@ -9065,12 +9073,18 @@ argument form because it corresponds to the tautology \((p \land (p \rightarrow 
 </div>
 <div class="paragraph">
 <p>This argument is NOT valid.
-If we assume that
+If
+you
+assume that
 the first two propositions
-are True, we do not have enough information to reach the conclusion
+are True,
+you
+do not have enough information to reach the conclusion
 that Arya earned a B.S. in Computer Science:
 Arya <em>may</em> have earned that degree, or <em>may</em> still be working towards the degree, or <em>may</em> have changed majors and
-earned a degree in the new major, or perhaps there is some other possibility -  we cannot determine
+earned a degree in the new major, or perhaps there is some other possibility -
+you
+cannot determine
 whether the conclusion
 is True or False
 based on the assumption that
@@ -9095,7 +9109,7 @@ argument form</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>This argument form is an example of a <strong>fallacy</strong> or <strong><em>non sequitur</em>,</strong> which is Latin for "it does not follow".
+<p>This argument form is an example of a <strong>fallacy</strong> or <strong><em>non sequitur,</em></strong> which is Latin for “it does not follow.”
 The argument form is <strong>invalid</strong>
 because it
 corresponds to a
@@ -9159,7 +9173,10 @@ as can be seen in the truth table for the compound proposition
 </tbody>
 </table>
 <div class="paragraph">
-<p>Notice that there is at least one row of the truth table in which both \(q\) and \(p \rightarrow q\) are True but \(p\) is False! This means that we can NOT infer that \(p\) is True whenever \((q \land (p \rightarrow q))\) is True. The argument form is <strong>invalid</strong> because \((q \land (p \rightarrow q)) \rightarrow p\) is not a tautology.</p>
+<p>Notice that there is at least one row of the truth table in which both \(q\) and \(p \rightarrow q\) are True but \(p\) is False! This means that
+you
+CANNOT
+infer that \(p\) is True whenever \((q \land (p \rightarrow q))\) is True. The argument form is <strong>invalid</strong> because \((q \land (p \rightarrow q)) \rightarrow p\) is not a tautology.</p>
 </div>
 <div class="paragraph">
 <p>This particular fallacy is used
@@ -9176,7 +9193,7 @@ so often that it has its own name: The <strong>converse error,</strong> or <stro
 <p>Jing did not earn a B.S. in Computer Science.</p>
 </li>
 <li>
-<p>Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.</p>
+<p>If Jing earned a B.S. in Computer Science, then Jing earned a C or better in Discrete Math.</p>
 </li>
 <li>
 <p>Therefore, Jing did not earn a C or better in Discrete Math.</p>
@@ -9298,7 +9315,7 @@ conditionals.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Also, recall that \((p \rightarrow q) \equiv (\neg q \rightarrow \neg p)\). That is, \((p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)\) is a tautology. This means that the conditional is logically equivalent to its contrapositive. The conditional is NOT logically equivalent to either its converse or its inverse, as was shown using truth tables in the <a href=./logic.html>Logic</a>chapter.</p>
+<p>Also, recall that \((p \rightarrow q) \equiv (\neg q \rightarrow \neg p)\). That is, \((p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)\) is a tautology. This means that the conditional is logically equivalent to its contrapositive. The conditional is NOT logically equivalent to either its converse or its inverse, as was shown using truth tables in the <a href=./logic.html#conditional_converse_inverse_contrapositive>Logic</a>chapter.</p>
 </div>
 <div class="paragraph">
 <p>From the four conditionals you can get two rules of inference and two fallacies.
@@ -9310,7 +9327,7 @@ Together, these four argument forms are referred to as the
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="title">Modus Ponens ("Method Of Affirming")</div>
+<div class="title">Modus Ponens (“Method Of Affirming”)</div>
 <div class="ulist no-bullet">
 <ul class="no-bullet">
 <li>
@@ -9332,7 +9349,7 @@ Together, these four argument forms are referred to as the
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="title">Modus Tollens ("Method Of Denying")</div>
+<div class="title">Modus Tollens (“Method Of Denying”)</div>
 <div class="ulist no-bullet">
 <ul class="no-bullet">
 <li>
@@ -9383,7 +9400,7 @@ Together, these four argument forms are referred to as the
 </ul>
 </div>
 <div class="paragraph">
-<p>This fallacy arises by mistakenly treating the inverse \(\neg p \rightarrow \neg q\) as if it were logically equivalent to \(p \rightarrow q\). It is also called the "fallacy of the inverse" and "fallacy of denying the hypothesis".</p>
+<p>This fallacy arises by mistakenly treating the inverse \(\neg p \rightarrow \neg q\) as if it were logically equivalent to \(p \rightarrow q\). It is also called the “fallacy of the inverse” and “fallacy of denying the hypothesis.”</p>
 </div>
 </div>
 </div>
@@ -9415,7 +9432,7 @@ Together, these four argument forms are referred to as the
 </ul>
 </div>
 <div class="paragraph">
-<p>This fallacy arises by mistakenly treating the converse \(q \rightarrow p\) as if it were logically equivalent to \(p \rightarrow q\). It is also called the "fallacy of the converse" and the "fallacy of affirming the consequent".</p>
+<p>This fallacy arises by mistakenly treating the converse \(q \rightarrow p\) as if it were logically equivalent to \(p \rightarrow q\). It is also called the “fallacy of the converse” and the “fallacy of affirming the consequent.”</p>
 </div>
 </div>
 </div>
@@ -9424,15 +9441,7 @@ Together, these four argument forms are referred to as the
 </table>
 </div>
 <div class="paragraph">
-<p>The following image uses an <strong>Euler diagram</strong> of two sets \(A \subseteq B\) to explain why the converse error is a fallacy. The image can also be used to explain why the inverse error is a fallacy.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="imagesMKD/ConverseErrorForSets.png" alt="ConverseErrorForSets">
-</div>
-</div>
-<div class="paragraph">
-<p>Suppose you were told that \(c\) is an element of \(B\) in the preceding image. Can you determine whether \(c\) is an element of \(A\), too?</p>
+<p>Later in <a href=./proofs.html#conditional_as_subset_relation>this chapter</a> you will see how these four conditionals can be viewed as describing the subset relationship between two sets, which may help you recognize when either a converse error or an inverse error is being made.</p>
 </div>
 </div>
 <div class="sect3">
@@ -9624,7 +9633,7 @@ write down and give names to. Instead, we&#8217;ll just list a few tautologies.<
 <div class="sect3">
 <h4 id="_rules_of_inference_for_existentially_quantified_predicates">6.2.2. Rules of Inference for Existentially-Quantified Predicates</h4>
 <div class="paragraph">
-<p>Existential instantiation states that, from the premise \(\exists x P(x),\) you can conclude that there must be at least one \(c \in U\) such that \(P(c)\) is true. This allows you to pick a "constant" \(c\) that makes the predicate \(P(x)\) True instead of needing to refer repeatedly to the existential quantifier.</p>
+<p>Existential instantiation states that, from the premise \(\exists x P(x),\) you can conclude that there must be at least one \(c \in U\) such that \(P(c)\) is true. This allows you to pick a “constant” \(c\) that makes the predicate \(P(x)\) True instead of needing to refer repeatedly to the existential quantifier.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -9660,9 +9669,97 @@ write down and give names to. Instead, we&#8217;ll just list a few tautologies.<
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_an_example_using_rules_of_inference_for_predicates">6.2.3. An Example Using Rules Of Inference For Predicates</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 3 - An Argument That Involves A Predicate</div>
+<p>The following argument was used as an example in the <a href=./logic.html>Logic</a> chapter.</p>
+</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>Sarah earned a B.S. in Computer Science.</p>
+</li>
+<li>
+<p>Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.</p>
+</li>
+<li>
+<p>Therefore, Sarah earned a C or better in Discrete Math.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Notice that the second proposition above involves a universally-quantified predicate:
+The universal quantifier “Anyone” is applied to the predicate “\(\rule{12mm}{.5pt}\) who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.”</p>
+</div>
+<div class="paragraph">
+<p>In this argument, you use one of the rules of inference for quantified predicates to create a proposition about Sarah from the universally-quantified predicate as follows.</p>
+</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>Sarah earned a B.S. in Computer Science.</p>
+</li>
+<li>
+<p>Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.</p>
+</li>
+<li>
+<p>Sarah who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.</p>
+</li>
+<li>
+<p>Therefore, Sarah must have earned a C or better in Discrete Math. That is, Sarah earned a C or better in Discrete Math.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This new argument is of the form</p>
+</div>
+<div class="ulist no-bullet">
+<ul class="no-bullet">
+<li>
+<p>\(P(c)\)</p>
+</li>
+<li>
+<p>\(\forall x (P(x) \rightarrow Q(x))\)</p>
+</li>
+<li>
+<p>\(P(c) \rightarrow Q(c)\)</p>
+</li>
+<li>
+<p>\(\therefore Q(c)\)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_proof_techniques">6.3. Proof Techniques</h3>
+<h3 id="conditional_as_subset_relation">6.3. Explaining The Converse Error Using An Euler Diagram</h3>
+<div class="paragraph">
+<p>The following image uses an <strong>Euler diagram</strong> of two sets \(A \subseteq B\) to explain why the converse error is a fallacy.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="imagesMKD/ConverseErrorForSets.png" alt="ConverseErrorForSets">
+</div>
+</div>
+<div class="paragraph">
+<p>To see why the converse error is a fallacy, consider the following question: If you are told that \(c\) is an element of set \(B\) in the preceding image, can you determine whether \(c\) is an element of set \(A\)?</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">You Try</div>
+<p>Describe how the Euler diagram can be used to explain why the inverse error is a fallacy.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proof_techniques">6.4. Proof Techniques</h3>
 <div class="paragraph">
 <p>In this section several examples of formal mathematical proofs are given to illustrate different proof techniques.
 Many of the techniques correspond to certain rules of inference that were discussed earlier in this chapter.</p>
@@ -9684,14 +9781,14 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 3 - Why do we need proofs at all?</div>
-<p>Consider the following proposition: "For all natural numbers \(n,\) the value of \(n^{2} + n + 41\) is a prime integer."</p>
+<div class="title">Example 4 - Why do we need proofs at all?</div>
+<p>Consider the following proposition: “For all natural numbers \(n,\) the value of \(n^{2} + n + 41\) is a prime integer.”</p>
 </div>
 <div class="paragraph">
-<p>For each of the natural numbers 0, 1, &#8230;&#8203;, 10, the predicate \(P(n)\): "\(n^{2} + n + 41\) is a prime integer." evaluates to a proposition that is True. In fact, \(P(n)\) evaluates to a proposition that is True for each of the natural numbers \(n\) that is less than or equal to 40.</p>
+<p>For each of the natural numbers 0, 1, &#8230;&#8203;, 10, the predicate \(P(n)\): “\(n^{2} + n + 41\) is a prime integer.” evaluates to a proposition that is True. In fact, \(P(n)\) evaluates to a proposition that is True for each of the natural numbers \(n\) that is less than or equal to 40.</p>
 </div>
 <div class="paragraph">
-<p>It may seem that we have "checked enough cases" to conclude that \(P(n)\) will evaluate to a proposition that is True for every possible natural number value of \(n.\) However, \(P(41)\) is the proposition "\(41^{2} + 41 + 41 \text{is a prime integer}\)," which is False - notice that \(41^{2} + 41 + 41 = 41 \cdot (41 + 1 + 1) = 41 \cdot 43\) is a composite number.</p>
+<p>It may seem that we have “checked enough cases” to conclude that \(P(n)\) will evaluate to a proposition that is True for every possible natural number value of \(n.\) However, \(P(41)\) is the proposition “\(41^{2} + 41 + 41 \text{is a prime integer}\),” which is False - notice that \(41^{2} + 41 + 41 = 41 \cdot (41 + 1 + 1) = 41 \cdot 43\) is a composite number.</p>
 </div>
 <div class="paragraph">
 <p>This example shows that it is not enough to verify that a proposition or predicate is True for just a few cases, unless those cases happen to cover <em>every</em> possibility.</p>
@@ -9699,7 +9796,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_direct_proof">6.3.1. Direct Proof</h4>
+<h4 id="_direct_proof">6.4.1. Direct Proof</h4>
 <div class="paragraph">
 <p>In a direct proof, we make an argument that a conditional statement \(p \rightarrow q\) must be True. This means that we can assume that the premise \(p\) is True and apply <em>modus ponens</em> to prove that \(q\) must be True, too.</p>
 </div>
@@ -9708,7 +9805,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 <div class="title">Theorem</div>
 <div class="paragraph">
 <p>If \(a,\) \(b,\) and \(c\) are integers such that both \(a\) and \(b\) are divisible by \(c,\) then for any integers \(m\) and \(n\) the integer \(ma+nb\) must be  divisible by \(c.\)<br>
-<span class="small">This statement can be rephrased as "If the integers \(a\) and \(b\) are multiples of the integer \(c\), then any sum of integer multiples of \(a\) and \(b\) must also be a multiple of \(c."\)</span></p>
+<span class="small">This statement can be rephrased as “If the integers \(a\) and \(b\) are multiples of the integer \(c\), then any sum of integer multiples of \(a\) and \(b\) must also be a multiple of \(c.”\)</span></p>
 </div>
 <div class="paragraph">
 <div class="title">Proof</div>
@@ -9737,7 +9834,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_proof_by_contraposition">6.3.2. Proof By Contraposition</h4>
+<h4 id="_proof_by_contraposition">6.4.2. Proof By Contraposition</h4>
 <div class="paragraph">
 <p>In a proof by contraposition, we make an argument that \(p \rightarrow q\) is True by instead first arguing that its contrapositive \(\neg q \rightarrow \neg p\) is True and secondly applying the logical equivalence of the conditional and its contrapositive. Start by assuming that the premise \(\neg q\) is True and apply <em>modus ponens</em> to prove that \(\neg p\) must be True, too, then apply logical equivalence.</p>
 </div>
@@ -9777,7 +9874,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_proof_by_counterexample">6.3.3. Proof By Counterexample</h4>
+<h4 id="_proof_by_counterexample">6.4.3. Proof By Counterexample</h4>
 <div class="paragraph">
 <p>In a proof by counterexample, we <strong>disprove</strong> a proposition of the form \((\forall x \in D) P(x)\) by arguing that there is at least one value \(c \in D\) such that \(\neg P(c)\) is True.</p>
 </div>
@@ -9809,7 +9906,7 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_proof_by_contradiction">6.3.4. Proof by Contradiction</h4>
+<h4 id="_proof_by_contradiction">6.4.4. Proof by Contradiction</h4>
 <div class="paragraph">
 <p>In a proof by contradiction, we disprove the proposition \(\neg p\) by making an argument that the conditional \(\neg p \rightarrow (q \land \neg q)\) must be True for some proposition \(q\) and apply the Contradiction Rule to conclude that \(p\) must be True.<br>
 <span class="small">Note: Sometimes, we argue instead that the proposition \(((\neg p \rightarrow q) \land (\neg p \rightarrow \neg q))\) must be True, and use the fact that this proposition is logically equivalent to \(\neg p \rightarrow (q \land \neg q)\) and apply the Contradiction Rule.</span></p>
@@ -9928,7 +10025,7 @@ That is, the square root of 2 is not a rational number.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_proof_by_exhaustion_proof_by_cases">6.3.5. Proof By Exhaustion (Proof By Cases)</h4>
+<h4 id="_proof_by_exhaustion_proof_by_cases">6.4.5. Proof By Exhaustion (Proof By Cases)</h4>
 <div class="paragraph">
 <p>Sometimes it is convenient to break a proof into a finite number of cases.
 For example, it may be easier to prove a statement that involves an integer by considering a first case where the integer is odd and a separate second case where the integer is even, then combining the two separate cases to create a single proof for all integers \(n.\)</p>
@@ -9951,7 +10048,7 @@ to prove that \(r\) must be True, too.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 4 - Working with multiple cases</div>
+<div class="title">Example 5 - Working with multiple cases</div>
 <p>Let&#8217;s prove the following theorem: \[ \text{If \(n\) is an integer, then \(n(n+1)\) is an even integer.} \]</p>
 </div>
 <div class="paragraph">

@@ -534,6 +534,8 @@ Given propositions _p_ and _q_, we can form three additional compound propositio
 * $ \neg q \rightarrow \neg p$, called the *contrapositive of $p \rightarrow q$*
 * $ \neg p \rightarrow \neg q$, called the *inverse of $p \rightarrow q$* 
 
+// MKD Sept 28 2025 inserted link to following truth table
+[[conditional_converse_inverse_contrapositive]]
 The extended truth table for the conditional and the three related propositions is shown below.
 
 [width=50%",align="center",options="header"]

@@ -2,12 +2,17 @@
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
+//“”
+
+
 include::LinkToPublic.adoc[] 
 
-_This chapter was last updated on September 23, 2025_ + 
-_Fixed typos._
+_This chapter was last updated on September 29, 2025_ + 
+_Revised example of valid and invalid arguments. Introduced new example using rules of inference with predicates._ + 
+_Moved explanation of converse error using Euler diagrams to later in the chapter._ + 
+_Made minor wording changes and fixed typos._ + 
 _NOTE: Statement that universal generalization is used in proofs by mathematical induction has been removed._ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 //MKD: Need to add info on Rules of Inference
@@ -126,12 +131,12 @@ Also see 	Proof Templates (slides 10-12) and (Jose Ortiz sets slides 35-40)
 
 //MKD needs to add intro blurb "Proof is used to validate arguments and processess"
 
-Recall from the link:./logic.html[Logic] chapter that an *argument* is a finite sequence of statements that ends with a final statement, the *conclusion,* that is based on inferences made from the earlier statements, called *premises* or *hypotheses.*
+Recall from the link:./logic.html[Logic] chapter that an *argument* is a finite sequence of statements that ends with a final statement, called the *conclusion,* that is based on inferences made from the earlier statements, called *premises* or *hypotheses.*
 
 An argument is *valid* if it is of a form such that if all premises are True then the conclusion must be True, too. An argument is not valid just because it exists! 
 //Compare this situation to a proposition, which is a single statement that may be either True or False (but not both); an argument is a finite sequence of statements that may be either valid or invalid.
 // MKD Feb 22 2025
-Just as a proposition is a single statement that may be either True or False (but not both), an argument is a finite sequence of statements that may be either valid or invalid (ut not both.)
+Just as a proposition is a single statement that may be either True or False (but not both), an argument is a finite sequence of statements that may be either valid or invalid (but not both.)
 
 A *proof* is a valid argument made up of propositions. In a proof, some premises may be *axioms* or *postulates,* which are propositions that we simply ASSUME to be True. Other premises used in a proof may be previously-proven propositions called *theorems.* There are many other terms used for theorems depending on the context, such as *lemma* (a minor theorem needed to prove a more important major theorem) and *corollary* (a theorem that is a conclusion based on a premise that is a more important theorem), 
 //etc., 
@@ -149,9 +154,11 @@ Key terms and concepts covered in this chapter:
 ** Proof by counterexample (Disproving by counterexample)
 ** Proof by contraposition (proof by contrapositive)
 ** Proof by contradiction
-* To be added to this chapter after May 23, 2025:
-** logical equivalence and circles of implication
-
+* To be added to this chapter 
+// after May 23, 2025:
+//** logical equivalence and circles of implication
+** Circles of implication (“Ringschluss”) and logical equivalence
+// MKD Sep 28 2025 see https://en.wikipedia.org/wiki/Ringschluss
 
 //You will see later in this chapter that in many proofs, we ASSUME that some premises are True and may prove other premises along the way before reaching the final conclusion.
 
@@ -186,12 +193,21 @@ include::python_tutor.adoc[]
 
 
 //In order to make a valid argument, we must 
-To create a proof, we must 
+To create a proof, 
+//we 
+you 
+must 
 //allow ourselves to 
 proceed from True propositions to other True propositions without introducing False propositions into the argument. 
 //using invalid reasoning. 
 //To this end, 
-To do this, we use *rules of inference,* which are ways to draw a True conclusion from one or more premises that are already known to be True (or assumed to be True). That is, a *rule of inference* is an argument form that corresponds to a tautology, and so is valid. 
+To do this, 
+//we 
+you 
+use *rules of inference,* which are ways to draw a True conclusion from one or more premises that are already known to be True (or assumed to be True). That is, a *rule of inference* is an argument form that corresponds to a tautology, and so is 
+a 
+valid 
+argument form. 
 //This is most easily explained by example.
 
 //One source of rules of inference are tautologies as discussed in the chapter on Logic.
@@ -217,7 +233,8 @@ follows.
 //* $____$
 * $\therefore q$
 
-The propositional variables $p_{1},\,p_{2},\,\ldots,\,p_{n}$ represent the premises of the argument, and $q$ represents the conclusion of the argument. The symbol $\therefore$ is read as "therefore".
+//“”
+The propositional variables $p_{1},\,p_{2},\,\ldots,\,p_{n}$ represent the premises of the argument, and $q$ represents the conclusion of the argument. The symbol $\therefore$ is read as “therefore.”
 
 This rule of inference is interpreted to mean that if all of the propositions $p_{1},\,p_{2},\,\ldots,\,p_{n}$ are True then the proposition $q$ MUST be True.
 //, too.
@@ -254,12 +271,15 @@ Consider the following three arguments.
 
 .A Valid Argument
 
-The following argument was used as an example in the link:./logic.html[Logic] chapter. 
+// MKD Sep 28 2025 revised to avoid predicates
+//The following argument was used as an example in the link:./logic.html[Logic] chapter. 
+The following argument is based on an example in the link:./logic.html[Logic] chapter. 
 
 [no-bullet]
 * Sarah earned a B.S. in Computer Science.
 //* Anyone who earned a B.S. in Computer Science earned a C or better in Discrete Math.
-* Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
+//* Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
+* If Sarah earned a B.S. in Computer Science, then Sarah earned a C or better in Discrete Math.
 * Therefore, Sarah earned a C or better in Discrete Math.
 
 //This 
@@ -278,7 +298,8 @@ The argument is of the form
 * $\therefore$ _q_ 
 
 
-This argument form is named *_modus ponens_* which is translated roughly from Latin as "method of affirming". 
+//“” 
+This argument form is named *_modus ponens_* which is translated very roughly from Latin as “method of affirming.” 
 _Modus ponens_ is a 
 //*valid* 
 valid 
@@ -303,22 +324,32 @@ Consider this second argument.
 [no-bullet]
 * Arya earned a C or better in Discrete Math.
 //* Anyone who earned a B.S. in Computer Science earned a C or better in Discrete Math.
-* Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
+//* Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
+* If Arya earned a B.S. in Computer Science, then Arya earned a C or better in Discrete Math.
 * Therefore, Arya earned a B.S. in Computer Science.
 
 //Hopefully, it does not surprise you that this 
 This argument is NOT valid. 
 //If we know that Arya earned a C or better in Discrete Math, 
-If we assume that 
+If 
+//we 
+you 
+assume that 
 //all premises, which are 
 the first two propositions
 //, 
-are True, we do not have enough information to reach the conclusion 
+are True, 
+//we 
+you 
+do not have enough information to reach the conclusion 
 that Arya earned a B.S. in Computer Science: 
 // that Arya earned a B.S. in Computer Science: Arya 
 Arya _may_ have earned that degree, or _may_ still be working towards the degree, or _may_ have changed majors and 
 //graduated after earning 
-earned a degree in the new major, or perhaps there is some other possibility -  we cannot determine 
+earned a degree in the new major, or perhaps there is some other possibility -  
+//we 
+you 
+cannot determine 
 //the truth value of 
 whether the conclusion 
 is True or False 
@@ -338,7 +369,8 @@ argument form
 * if _p_ then _q_
 * $\therefore$ _p_ 
 
-This argument form is an example of a *fallacy* or *_non sequitur_,* which is Latin for "it does not follow". 
+//“” 
+This argument form is an example of a *fallacy* or *_non sequitur,_* which is Latin for “it does not follow.” 
 //This 
 The argument form is *invalid* 
 //and is  
@@ -367,7 +399,12 @@ $(q \land (p \rightarrow q)) \rightarrow p$.
 
 //That is, we can not infer $p$ from $q \land (p \rightarrow q)$ because both
 
-Notice that there is at least one row of the truth table in which both $q$ and $p \rightarrow q$ are True but $p$ is False! This means that we can NOT infer that $p$ is True whenever $(q \land (p \rightarrow q))$ is True. The argument form is *invalid* because $(q \land (p \rightarrow q)) \rightarrow p$ is not a tautology. 
+Notice that there is at least one row of the truth table in which both $q$ and $p \rightarrow q$ are True but $p$ is False! This means that 
+//we 
+you 
+//can NOT 
+CANNOT 
+infer that $p$ is True whenever $(q \land (p \rightarrow q))$ is True. The argument form is *invalid* because $(q \land (p \rightarrow q)) \rightarrow p$ is not a tautology. 
 
 This particular fallacy is used 
 by people 
@@ -382,7 +419,8 @@ Write the argument form for the following argument.
 [no-bullet]
 * Jing did not earn a B.S. in Computer Science.
 //* Anyone who earned a B.S. in Computer Science earned a C or better in Discrete Math.
-* Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
+//* Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
+* If Jing earned a B.S. in Computer Science, then Jing earned a C or better in Discrete Math.
 * Therefore, Jing did not earn a C or better in Discrete Math.
 
 Find a compound proposition that corresponds to the argument form you wrote, and write the truth table for that compound proposition.
@@ -454,17 +492,18 @@ conditionals.
 * $\neg q \rightarrow \neg p$, the contrapositive of $p \rightarrow q$
 * $\neg p \rightarrow \neg q$, the inverse of $p \rightarrow q$ 
 
-Also, recall that $(p \rightarrow q) \equiv (\neg q \rightarrow \neg p)$. That is, $(p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)$ is a tautology. This means that the conditional is logically equivalent to its contrapositive. The conditional is NOT logically equivalent to either its converse or its inverse, as was shown using truth tables in the link:./logic.html[Logic]chapter.
+Also, recall that $(p \rightarrow q) \equiv (\neg q \rightarrow \neg p)$. That is, $(p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)$ is a tautology. This means that the conditional is logically equivalent to its contrapositive. The conditional is NOT logically equivalent to either its converse or its inverse, as was shown using truth tables in the link:./logic.html#conditional_converse_inverse_contrapositive[Logic]chapter.
 
 From the four conditionals you can get two rules of inference and two fallacies. 
 Together, these four argument forms are referred to as the 
 *mixed hypothetical syllogisms.*
 //, a term unlikely to be used again in this textbook.
-//, but mentioned here so that you can say honestly "I remember seeing that somewhere once!"
+//, but mentioned here so that you can say honestly “I remember seeing that somewhere once!”
 
 First, here are the two rules of inference.
 
-.Modus Ponens ("Method Of Affirming")
+//“” 
+.Modus Ponens (“Method Of Affirming”)
 ****
 [no-bullet]
 * $p \rightarrow q$
@@ -476,7 +515,8 @@ $((p \rightarrow q) \land p) \rightarrow q$.
 //, a valid use of the conditional $p \rightarrow q$.
 ****
 
-.Modus Tollens ("Method Of Denying")
+//“” 
+.Modus Tollens (“Method Of Denying”)
 ****
 [no-bullet]
 * $p \rightarrow q$
@@ -508,7 +548,8 @@ Next, here are the two fallacies. They are included because they are very common
 //* [line-through]#$\therefore \neg q$# 
 * [line-through]#∴¬_q_#
 
-This fallacy arises by mistakenly treating the inverse $\neg p \rightarrow \neg q$ as if it were logically equivalent to $p \rightarrow q$. It is also called the "fallacy of the inverse" and "fallacy of denying the hypothesis". 
+//“” 
+This fallacy arises by mistakenly treating the inverse $\neg p \rightarrow \neg q$ as if it were logically equivalent to $p \rightarrow q$. It is also called the “fallacy of the inverse” and “fallacy of denying the hypothesis.” 
 ****
 ====
 [WARNING]
@@ -525,16 +566,24 @@ This fallacy arises by mistakenly treating the inverse $\neg p \rightarrow \neg 
 //* $\therefore p$
 * [line-through]#∴_p_#
 
-This fallacy arises by mistakenly treating the converse $q \rightarrow p$ as if it were logically equivalent to $p \rightarrow q$. It is also called the "fallacy of the converse" and the "fallacy of affirming the consequent".
+//“” 
+This fallacy arises by mistakenly treating the converse $q \rightarrow p$ as if it were logically equivalent to $p \rightarrow q$. It is also called the “fallacy of the converse” and the “fallacy of affirming the consequent.”
 ****
 ====
 
-The following image uses an *Euler diagram* of two sets $A \subseteq B$ to explain why the converse error is a fallacy. The image can also be used to explain why the inverse error is a fallacy.
+// MKD Sept 28 2025 this image and the text need to moved later in the chapter 
+//// 
+//start moved example 
+The following image uses an *Euler diagram* of two sets $A \subseteq B$ to explain why the converse error is a fallacy. The image can also be used to explain why the inverse error is a fallacy. 
 //If $x \in B$, then we cannot determine whether $x \in A$ or $x \notin A$.
 
 image::imagesMKD/ConverseErrorForSets.png[]
 
-Suppose you were told that $c$ is an element of $B$ in the preceding image. Can you determine whether $c$ is an element of $A$, too?
+Suppose you were told that $c$ is an element of $B$ in the preceding image. Can you determine whether $c$ is an element of $A$, too? 
+// end moved example 
+////
+
+Later in link:./proofs.html#conditional_as_subset_relation[this chapter] you will see how these four conditionals can be viewed as describing the subset relationship between two sets, which may help you recognize when either a converse error or an inverse error is being made.
 
 
 === Other Common Rules Of Inference
@@ -688,7 +737,8 @@ Universal generalization states that, from the premise that $P(x)$ is True for e
 
 === Rules of Inference for Existentially-Quantified Predicates
 
-Existential instantiation states that, from the premise $\exists x P(x),$ you can conclude that there must be at least one $c \in U$ such that $P(c)$ is true. This allows you to pick a "constant" $c$ that makes the predicate $P(x)$ True instead of needing to refer repeatedly to the existential quantifier.
+//“” 
+Existential instantiation states that, from the premise $\exists x P(x),$ you can conclude that there must be at least one $c \in U$ such that $P(c)$ is true. This allows you to pick a “constant” $c$ that makes the predicate $P(x)$ True instead of needing to refer repeatedly to the existential quantifier.
 
 .Existential Instantiation (Existential Elimination)
 ****
@@ -713,6 +763,82 @@ Existential generalization states that, from the premise that $P(c)$ is True for
 //$(P(c) \text{ for every } c \in U) \rightarrow (\forall x \in U) P(x).$ 
 ****
 
+=== An Example Using Rules Of Inference For Predicates
+
+// MKD Sep 28 2025 revised to avoid predicates
+****
+.Example {counter:proofexample} - An Argument That Involves A Predicate
+
+The following argument was used as an example in the link:./logic.html[Logic] chapter. 
+[no-bullet]
+* Sarah earned a B.S. in Computer Science.
+* Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
+* Therefore, Sarah earned a C or better in Discrete Math.
+
+//“” 
+Notice that the second proposition above involves a universally-quantified predicate: 
+//The second proposition is logically equivalent to applying the quantifier “Anyone who” to the predicate “If $\rule{12mm}{.5pt}$ earned a B.S. in Computer Science then they must have earned a C or better in Discrete Math.” 
+The universal quantifier “Anyone” is applied to the predicate “$\rule{12mm}{.5pt}$ who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.” 
+//applied to all persons in the universe of discourse, which in this case is likely to be students.
+
+In this argument, you use one of the rules of inference for quantified predicates to create a proposition about Sarah from the universally-quantified predicate as follows. 
+// proposition to complete the argument as follows. 
+[no-bullet]
+* Sarah earned a B.S. in Computer Science.
+* Anyone who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
+//* If Sarah earned a B.S. in Computer Science, then Sarah must have earned a C or better in Discrete Math. 
+* Sarah who earned a B.S. in Computer Science must have earned a C or better in Discrete Math.
+* Therefore, Sarah must have earned a C or better in Discrete Math. That is, Sarah earned a C or better in Discrete Math.
+
+//// 
+Let $P(x)$ be the predicate “$\rule{12mm}{.5pt}$ earned a B.S. in Computer Science.” + 
+Let $Q(x)$ be the predicate “$\rule{12mm}{.5pt}$ earned a C or better in Discrete Math.” + 
+This new argument is of the form 
+[no-bullet]
+* $P(\text{“Sarah”})$
+* $\forall x (P(x) \rightarrow Q(x))$
+* $(P(\text{“Sarah”}) \rightarrow Q(\text{“Sarah”})$ by _universal instantiation._ 
+* $\therefore Q(\text{“Sarah”})$ using _modus ponens._
+//// 
+
+This new argument is of the form 
+[no-bullet]
+* $P(c)$
+* $\forall x (P(x) \rightarrow Q(x))$
+* $P(c) \rightarrow Q(c)$
+* $\therefore Q(c)$
+
+//“”
+
+****
+
+// MKD Sept 28 2025 added anchor
+[[conditional_as_subset_relation]] 
+== Explaining The Converse Error Using An Euler Diagram 
+
+// MKD Sept 28-29 2025 this image and the text were moved then the text was revised 
+// start revised example
+The following image uses an *Euler diagram* of two sets $A \subseteq B$ to explain why the converse error is a fallacy. 
+ 
+//If $x \in B$, then we cannot determine whether $x \in A$ or $x \notin A$.
+
+image::imagesMKD/ConverseErrorForSets.png[]
+
+To see why the converse error is a fallacy, consider the following question: If you are told that $c$ is an element of set $B$ in the preceding image, can you determine whether $c$ is an element of set $A$? 
+
+****
+//.Informal Exercise
+
+//The image can also be used to explain why the inverse error is a fallacy. 
+
+.You Try
+
+//Describe a question that uses the two sets in the image to explain why the inverse error is a fallacy. 
+Describe how the Euler diagram can be used to explain why the inverse error is a fallacy. 
+
+****
+ 
+// end revised example
 
 
 //== Proof Techniques - SECTION IN PROGRESS
@@ -746,11 +872,14 @@ Another important proof technique, *mathematical induction,* will be discussed i
 
 //Can't we just check a lot of cases?
 
-Consider the following proposition: "For all natural numbers $n,$ the value of $n^{2} + n + 41$ is a prime integer."
+//“” 
+Consider the following proposition: “For all natural numbers $n,$ the value of $n^{2} + n + 41$ is a prime integer.”
 
-For each of the natural numbers 0, 1, ..., 10, the predicate $P(n)$: "$n^{2} + n + 41$ is a prime integer." evaluates to a proposition that is True. In fact, $P(n)$ evaluates to a proposition that is True for each of the natural numbers $n$ that is less than or equal to 40. 
+//“” 
+For each of the natural numbers 0, 1, ..., 10, the predicate $P(n)$: “$n^{2} + n + 41$ is a prime integer.” evaluates to a proposition that is True. In fact, $P(n)$ evaluates to a proposition that is True for each of the natural numbers $n$ that is less than or equal to 40. 
 
-It may seem that we have "checked enough cases" to conclude that $P(n)$ will evaluate to a proposition that is True for every possible natural number value of $n.$ However, $P(41)$ is the proposition "$41^{2} + 41 + 41 \text{is a prime integer}$," which is False - notice that $41^{2} + 41 + 41 = 41 \cdot (41 + 1 + 1) = 41 \cdot 43$ is a composite number.
+//“” 
+It may seem that we have “checked enough cases” to conclude that $P(n)$ will evaluate to a proposition that is True for every possible natural number value of $n.$ However, $P(41)$ is the proposition “$41^{2} + 41 + 41 \text{is a prime integer}$,” which is False - notice that $41^{2} + 41 + 41 = 41 \cdot (41 + 1 + 1) = 41 \cdot 43$ is a composite number.
 
 This example shows that it is not enough to verify that a proposition or predicate is True for just a few cases, unless those cases happen to cover _every_ possibility. 
 
@@ -767,10 +896,11 @@ In a direct proof, we make an argument that a conditional statement $p \rightarr
 .Theorem
 ****
 If $a,$ $b,$ and $c$ are integers such that both $a$ and $b$ are divisible by $c,$ then for any integers $m$ and $n$ the integer $ma+nb$ must be  divisible by $c.$ + 
-[small]#This statement can be rephrased as "If the integers $a$ and $b$ are multiples of the integer $c$, then any sum of integer multiples of $a$ and $b$ must also be a multiple of $c."$#
+[small]#This statement can be rephrased as “If the integers $a$ and $b$ are multiples of the integer $c$, then any sum of integer multiples of $a$ and $b$ must also be a multiple of $c.”$#
 
 .Proof 
 
+//“” 
 Before starting the formal proof, let's look at a specific example. The integers 10, 6, and 2 are such that both 10 and 6 are divisible by 2. Suppose we have a pair of integers that we will use as multipliers, say 11 and 7, to form a new number $(11)(10)+(7)(6).$ Is the new number also divisible by 2? The answer is obviously "Yes" since we can just simplify the sum and divide by 2, but how can we _justify_ this for every choice of the pair of multipliers? Notice that we can factor 2 out of 10 and 6 in the sum that defines our new number: \[ (11)(10) + (7)(6) = (11)(5)(2) + (7)(3)(2) = [(11)(5)+(7)(3)](2) \] We can find the common factor of 2 and "factor it out" as if it were a variable. This appears to work no matter what values are chosen for the first three integers and the pair of multipliers, so should be generalizable to a formal proof.
 
 For the formal proof, start by supposing that $a,$ $b,$ and $c$ are integers such that both $a$ and $b$ are divisible by $c.$ This means that there are integers $q$ and $t$ such that \[ a=qc \text{ and } b=tc \]
