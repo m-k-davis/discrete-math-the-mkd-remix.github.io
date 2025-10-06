@@ -8828,9 +8828,10 @@ Determine the true value of the  following, an explain your reasoning.</p>
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on September 29, 2025</em><br>
+<p><em>This chapter was last updated on October 6, 2025</em><br>
 <em>Revised example of valid and invalid arguments. Introduced new example using rules of inference with predicates.</em><br>
 <em>Moved explanation of converse error using Euler diagrams to later in the chapter.</em><br>
+<em>Revised example 4</em>+
 <em>Made minor wording changes and fixed typos.</em><br>
 <em>NOTE: Statement that universal generalization is used in proofs by mathematical induction has been removed.</em><br></p>
 </div>
@@ -9785,10 +9786,12 @@ Most of these proofs establish an arithmetic fact that you probably have always 
 <p>Consider the following proposition: “For all natural numbers \(n,\) the value of \(n^{2} + n + 41\) is a prime integer.”</p>
 </div>
 <div class="paragraph">
-<p>For each of the natural numbers 0, 1, &#8230;&#8203;, 10, the predicate \(P(n)\): “\(n^{2} + n + 41\) is a prime integer.” evaluates to a proposition that is True. In fact, \(P(n)\) evaluates to a proposition that is True for each of the natural numbers \(n\) that is less than or equal to 40.</p>
+<p>For each of the natural numbers 0, 1, &#8230;&#8203;, 10, the predicate \(P(n)\): “\(n^{2} + n + 41\) is a prime integer.” evaluates to a proposition that is True. In fact, \(P(n)\) evaluates to a proposition that is True for each of the natural numbers \(n\) that is less than
+40.</p>
 </div>
 <div class="paragraph">
-<p>It may seem that we have “checked enough cases” to conclude that \(P(n)\) will evaluate to a proposition that is True for every possible natural number value of \(n.\) However, \(P(41)\) is the proposition “\(41^{2} + 41 + 41 \text{is a prime integer}\),” which is False - notice that \(41^{2} + 41 + 41 = 41 \cdot (41 + 1 + 1) = 41 \cdot 43\) is a composite number.</p>
+<p>It may seem that we have “checked enough cases” to conclude that \(P(n)\) will evaluate to a proposition that is True for every possible natural number value of \(n.\)
+However, \(P(40)\) is the proposition “\(40^{2} + 40 + 41 \text{ is a prime integer}\),” which is False - notice that \(40^{2} + 40 + 41 = 40 \cdot (40 + 1)+ 41 = 40 \cdot 41 + 41 = 41^2\) is a composite number.</p>
 </div>
 <div class="paragraph">
 <p>This example shows that it is not enough to verify that a proposition or predicate is True for just a few cases, unless those cases happen to cover <em>every</em> possibility.</p>
