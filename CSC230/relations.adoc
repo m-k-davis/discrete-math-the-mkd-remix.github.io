@@ -1,12 +1,16 @@
 = Relations
 
+//“”
+
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on August 22, 2025._ + 
-_added information to the subsection on the well-ordering of $\mathbb{N}$_ + 
+_This chapter was last updated on October 19, 2025._ + 
+_Revised the sections/subsections on partial orders, well-ordering, and modular arithmetic._ + 
+_Made other minor revisions and fixed typos._ + 
+//_added information to the subsection on the well-ordering of $\mathbb{N}$_ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 //COMING SOON!
@@ -87,7 +91,7 @@ Relations are used to describe an association of data.
 
 For example, imagine a university database of students. The database needs to have a record for each student, and the student's record needs to include fields for the student's name(s), the unique student ID number for the student, the student's current status, a list of courses that the student has enrolled in or has completed (along with the grade earned in each completed course,) and possibly other data associated with the student. One way to visualize the database is as a two-dimensional table, similar to a spreadsheet worksheet, where each row corresponds to a record and each column corresponds to a field; each row can be treated as an ordered $n$-tuple, where $n$ is the number of fields. 
 
-In this chapter, you will learn about the formal definition of relation, operations and properties of relations. You will also learn about some special types of relations, namely partial orderings and equivalence relations. As a special case of equivalence relations, you will learn aobut congruence relations of integers as well as modular arithmetic.
+In this chapter, you will learn about the formal definition of relation, operations and properties of relations. You will also learn about some special types of relations, namely partial orderings and equivalence relations. As a special case of equivalence relations, you will learn about congruence relations of integers as well as modular arithmetic.
 
 //Examples: 
 
@@ -398,12 +402,13 @@ A binary relation $R$ on a set $S$ is called an *equivalence relation* on $S$ if
 
 A first example of an equivalence relation is the diagonal, that is, the equality relation.  Another example is given below. 
 
+[[parity_relation_on_the_integers]] 
 ****
 .Example {counter:mkdrelex} - The Parity Relation on the Integers
 --
 --
 
-Consider the set $R = \{ (a,b) \in \mathbb{Z} \times \mathbb{Z} \, | \, \text{Both } a \text{ and } b \text{ are odd, or both }  a \text{ and } b \text{are even.} \}.$
+Consider the set $R = \{ (a,b) \in \mathbb{Z} \times \mathbb{Z} \, | \, \text{Both } a \text{ and } b \text{ are odd, or both }  a \text{ and } b \text{ are even.} \}.$
 
 Let's show that $R$ is an equivalence relation. 
 
@@ -422,6 +427,8 @@ It is not difficult to see that this relation can also be defined as $R = \{ (a,
 
 Given an equivalence relation $R$ on the set $S$ and an element $x \in S,$ we define the *equivalence class* of $x$ to be $[ x \]_{R} = \{ y \in S \, | \, (x,y) \in R \}.$
 
+
+[[partition_iff_equivalence_relation]]
 .Theorem 
 ****
 Let $R$ be a binary relation on the set $S.$
@@ -447,14 +454,30 @@ It is often useful to be able to compare elements of a set, based on some key pr
 
 A binary relation $R$ on a set $S$ is called a *partial order* on $S$ if $R$ is reflexive, antisymmetric, and transitive.
 
+// MKD Oct 19 2025 revised example 
 ****
 .Example {counter:mkdrelex} - Partial Orders
+//.Example {counter:mkdrelex} - Partial Orders
 --
 --
 
 //* For the set of real numbers $\mathbb{R}$ the usual order relations $<,$ $\leq,$ $>,$ and $\geq$ are partial orders.
 
-* For any set $S,$ the relations $\subseteq$ is a partial order.
+//* For any set $S,$ each of the relations $\subseteq$ and $\subset$ is a partial order on $\mathcal{P}(S),$ the link:./set_theory.htm#power_set_definition[power set] of $S.$ 
+
+For any set $S,$ each of the relations $\subseteq$ and $\subset$ is a partial order on $\mathcal{P}(S),$ the power set of $S.$ 
+
+// MKD Oct 19 2025 inserted image
+//image::imagesMKD/subset_lattice_for_set_with_3_members_v2.png[subset_lattice_for_set_with_3_members_v2,542,652,float="center",align="center"]
+//image::imagesMKD/subset_lattice_for_set_with_3_members_v2.png[subset_lattice_for_set_with_3_members_v2,181,218,float="center",align="center"] 
+image::imagesMKD/subset_lattice_for_set_with_3_members_v2.png[subset_lattice_for_set_with_3_members_v2,271,326,float="center",align="center"] 
+As an example, 
+for the set $S = \{ r, g, b \},$ 
+the image shows a link:https://en.wikipedia.org/wiki/Hasse_diagram[*Hasse diagram*] that represents the $\subset$ relation 
+//for the $8$ subsets of set $S = \{ r, g, b \}.$ 
+on the power set $\mathcal{P}(S).$ 
+// of $S = \{ r, g, b \}.$ 
+Notice that each line segment in the Hasse diagram connects a first subset of $S$ to a second subset of $S$ that is “immediately above” the first subset in the following sense: Each member of the first subset is also a member of the second subset, but the second subset has one additional member. In the Hasse diagram, two different subsets $A$ and $B$ satisfy $A \subset B$ if and only if there is a “path up” from $A$ to $B$ that uses one or more of the line segments. 
 
 ****
 
@@ -533,18 +556,26 @@ To understand why we must assume the principle to be True instead of trying to p
 ////
 The Well-Ordering Principle may seem like an “obviously True” statement. To understand why mathematicians would make it clear that they are _assuming_ that this principle is True is to understand what “infinity” means. 
 
-* For example, suppose that you are told that a nonempty subset $S$ of $\mathbb{N}$ contains the element 10. A brute-force way to determine the least element of $S$ is to ask a sequence of 10 questions: \[ \text{“Is 0 in $S?,$” “Is 1 in $S?,$” $\ldots$, “Is 9 in $S?$”} \] If the answer is “No” to all 10 of these questions, then 10 itself is the least element in $S$,  otherwise, the least number in $S$ is the first value of $k$ for which the answer to the question “Is $k$ in $S?$” is “Yes.” 
+// MKD Oct 19 2025 revised wording
+* First, suppose that you are told that the subset $A$ of $\mathbb{N}$ contains the element 10. You can use a brute‑force method to determine the least element of $A:$ Just ask the following sequence of 10 questions, in the order shown. \[ \text{“Is 0 in $A?,$” “Is 1 in $A?,$” $\ldots$, “Is 9 in $A?$”} \] If the answer is “No” to all 10 of these questions, then 10 itself is the least element in $A$,  otherwise, the least number in $A$ is the first value of $k$ for which the answer to the question “Is $k$ in $A?$” is “Yes.” 
 //determine the least element of $S$ since either the first “yes” answer determines the least element, or 10 itself is the least element if all the answers are “No.” 
 //and know that a certain natural number $n$ is in the set, then we need only //ask at most $n$ questions in the list 
 //“Is 0 in $S?,$” “Is 1 in $S?,$” ..., “Is $n-1$ in $S?$” to determine the least element of $S.$ 
 //For example, if you know 10 is in $S,$ then you can ask at most 10 questions 
-* Now, suppose that it takes 1 nanosecond to ask and answer each question of the form “Is $k$ in $S?$” for each integer $k,$ and suppose that you are given a new set, also called $S,$ and told that the the number you can be sure is in $S$ is $10^{10^{10^{10^{10}}}}$ which is an integer  
+//* Now, suppose that it takes 1 nanosecond to ask and answer each question of the form “Is $k$ in $S?$” for each integer $k,$ and suppose that you are given a new set, also called $S,$ and told that the number you can be sure is in $S$ is $10^{10^{10^{10^{10}}}}$ which is an integer  
+* Next, suppose that you are given a new set $S$ and told that the number $10^{10^{10^{10^{10}}}}$ is in $S.$ You again could try to use the brute‑force method of asking the sequence of $10^{10^{10^{10^{10}}}}$ questions: \[ \text{“Is 0 in $S?,$” “Is 1 in $S?,$” $\ldots$, “Is $\left( 10^{10^{10^{10^{10}}}}-1 \right)$ in $S?$”} \] but even if it took only 1 nanosecond to ask and answer each question, 
+//of the form “Is $k$ in $S?$” for each integer $k,$ 
+the integer $10^{10^{10^{10^{10}}}}$ is greater than the number of nanoseconds estimated for our universe to reach its link:https://en.wikipedia.org/wiki/Timeline_of_the_far_future#cite_ref-bignumber2_177-3[final energy state!] 
 //a natural number that is 
-greater than the number of nanoseconds estimated for our universe to reach its link:https://en.wikipedia.org/wiki/Timeline_of_the_far_future#cite_ref-bignumber2_177-3[final energy state!] If you try to use the brute-force method of asking a sequence of $10^{10^{10^{10^{10}}}}$ questions: \[ \text{“Is 0 in $S?,$” “Is 1 in $S?,$” $\ldots$, “Is $\left( 10^{10^{10^{10^{10}}}}-1 \right)$ in $S?$”} \] 
+//greater than the number of nanoseconds estimated for our universe to reach its link:https://en.wikipedia.org/wiki/Timeline_of_the_far_future#cite_ref-bignumber2_177-3[final energy state!] If you try to use the brute‑force method of asking the sequence of $10^{10^{10^{10^{10}}}}$ questions: \[ \text{“Is 0 in $S?,$” “Is 1 in $S?,$” $\ldots$, “Is $\left( 10^{10^{10^{10^{10}}}}-1 \right)$ in $S?$”} \] 
 // questions, 
-it is possible that the answer to one of the questions is “Yes” but that you would never be able to ask that question before the universe ends. 
+That is, 
+it is possible that the answer to one of these questions is “Yes” but that you would never be able to ask that question before the universe ends! 
 // MKD Aug 21 2025 
-Notice that you can use link:./logic.html[formal logic] to justify that either the answers to all the questions would be “No” or that at least one of the questions would have the answer “Yes” - asking the sequence of questions [.underline]#would# determine the least element in $S$ if you had time to ask enough of the questions, but you (or humanity itself!) may not have that much time. For this reason, mathematicians _assume_ that the least element of $S$ exists (Notice that a “timeless being” could know all the answers.)
+Notice that you can use link:./logic.html#de_morgans_laws[formal logic] to justify that either the answers to all of those questions would be “No” or that at least one of the questions would have the answer “Yes” — asking the sequence of questions 
+//[.underline]#would# 
+_would_ determine the least element in $S$ [.underline]#if you had time to ask enough of the questions,# but you (and humanity itself) may not have that much time. For this reason, mathematicians _assume_ that the least element of the set $S$ exists. + 
+[small]#Notice that a “timeless being” could know all the answers.# 
 //, but cannot prove that you have a way of determining what that least element is. 
 //That is, you only have a finite amount of time to determine the least element of $S,$ but that may not be enough time.
 //not have an infinite amount of time to determi
@@ -558,7 +589,7 @@ Notice that you can use link:./logic.html[formal logic] to justify that either t
 // PMI implies WO but not the converse?
 // https://link.springer.com/article/10.1007/s00283-019-09898-4
 
-== Modular Arithmetic
+== Modular Arithmetic (Revision in Progress!)
 
 // MKD Challenges
 //		Find all n such that n^2 \cong 1 mod 7 (Hint: you can make a table of values of the squaring function)
@@ -568,12 +599,76 @@ Notice that you can use link:./logic.html[formal logic] to justify that either t
 
 //For any positive integer $m,$ you can define *congruence modulo $m$* as the relation \[\{ (a, b) \, | \, m \text{ divides } (a-b) \}\] and we write $a \equiv_{m} b$ if the pair $(a, b)$ is in the relation. 
 
-For any positive integer $m,$ you can define *congruence modulo $m$* as the relation \[\{ (a, b) \in \mathbb{Z} \times \mathbb{Z} \, : \, m \text{ divides } (a-b) \}.\] 
-The symbol $\equiv_{m}$ is used to represent this relation, that is \[a \equiv_{m} b \text{ if and only if } m \text{ divides } (a-b)\]
+// MKD Oct 16-17 2025 rephrased
+//For any positive integer $m,$ you can define *congruence modulo $m$* as the relation \[\{ (a, b) \in \mathbb{Z} \times \mathbb{Z} \, : \, m \text{ divides } (a-b) \}.\] 
+//Suppose that $m$ is some positive integer greater than 1, which we will treat as a constant. 
+Let $m$ stand for some positive integer constant that is greater than 1. 
+//You can define *congruence modulo $m$* as the relation \[\{ (a, b) \in \mathbb{Z} \times \mathbb{Z} \, : \, m \text{ divides } (a-b) \}.\] 
+The relation *congruence modulo $m$* is defined to be \[\{ (a, b) \in \mathbb{Z} \times \mathbb{Z} \, : \, m \text{ divides } (a-b) \}.\] 
+//The symbol $\equiv_{m}$ is used to represent this relation, that is \[a \equiv_{m} b \text{ if and only if } m \text{ divides } (a-b)\]
+The symbol $\equiv_{m}$ is used to represent congruence modulo $m$, so \[a \equiv_{m} b \text{ if and only if } m \text{ divides } (a-b).\] 
 
-For each positive integer $m,$ $\equiv_{m}$ is an equivalence relation. 
+As an example, $13 \equiv_{3} 7$ because $3$ divides $13-7.$ Another way to see that $13 \equiv_{3} 7$ is to notice that both $13$ and $7$ leave a remainder of $1$ when divided by $3$ using integer long division.  
 
-For any integer $a,$ you can use the division algorithm to find the quotient and remainder such that $a = q \cdot m + r$, where $q$ and $r$ are integers and $0 \leq r < m,$ so every integer is congruent modulo $m$ to one of the integers in the set $\{ 0, 1, \ldots, m-1 \}.$ The set of equivalence classes $\{ [ 0 \]_{\equiv_{m}}, \, [ 1 \]_{\equiv_{m}}, \, [ 2 \]_{\equiv_{m}}, \, \ldots \,  [ m-1 \]_{\equiv_{m}} \}$ is the partition of $\mathbb{Z}$ that corresponds to to the relation $\equiv_{m}.$
+Notice that the relation $\equiv_{2}$ is the same as the  link:./relations.html#parity_relation_on_the_integers[parity relation] discussed in an example earlier in this chapter. As discussed in that example, $\equiv_{2}$ is an equivalence relation. In fact, for each positive integer constant $m$ that is greater than 1, the relation $\equiv_{m}$ is an equivalence relation.
+
+// MKD Oct 16 2025 wrote a more formal proof
+//For each positive integer 
+//value of 
+//$m,$ $\equiv_{m}$ is an equivalence relation. 
+
+//“”
+
+[[conguence_is_equivalence_relation]]
+.Theorem
+****
+
+If $m$ is a positive integer greater than 1, then $\equiv_{m}$ is an equivalence relation on $\mathbb{Z}.$
+
+//[click.Proof]
+//--
+.Proof  
+
+One way to prove this would be to use steps similar to the ones in the link:./relations.html#parity_relation_on_the_integers[parity relation] example to show that $\equiv_{m}$ is reflexive, symmetric, and transitive, but we'll use a different way to prove this theorem: We will show that the  relation $\equiv_{m}$ describes a way to partition $\mathbb{Z}$ into $m$ disjoint subsets, then apply the link:./relations.html#partition_iff_equivalence_relation[theorem] that states that such a partition corresponds to an equivalence relation. +  
+ + 
+You've already seen how the partition of $\mathbb{Z}$ into the odd integers and the even integers corresponds to the equivalence relation $\equiv_{2}.$  
+Before giving a formal proof, let's look at another example. If $m = 3,$ then every integer $a$ can be written in the form $a = q \cdot 3 + r$ where $q$ is an integer and $r$ is one of the integers in the set $\{ 0, 1, 2 \}.$ You can partition $\mathbb{Z}$ into the three subsets listed below: 
+\[\{ \ldots, -3, 0, 3, 6, \ldots \},\] 
+\[\{ \ldots, -2, 1, 4, 7, \ldots \},\] \[\{ \ldots, -1, 2, 5, 8, \ldots \}.\] 
+
+Notice that each integer is in exactly one of those three subsets 
+//of $\mathbb{Z}$ 
+so the subsets form a partition of $\mathbb{Z}.$ 
+//From the theorem proved earlier in the chapter, there is an equivalence relation that corresponds to this partition. 
+It's not difficult to see that two integers are members of the same subset of the partition if and only if $3$ divides their difference, so the subsets of the partition are the equivalence classes of the relation $\equiv_{3},$ that is,  
+//\[[ 0 \]_{\equiv_{3}} = \{ \ldots, -3, 0, 3, 6, \ldots \},\] 
+//\[[ 1 \]_{\equiv_{3}} = \{ \ldots, -2, 1, 4, 7, \ldots \},\] 
+//\[[ 2 \]_{\equiv_{3}} = \{ \ldots, -1, 2, 5, 8, \ldots \}.\] 
+We will now present the proof for the general case. Notice that if $a$ is any integer, you can use the division algorithm to find the quotient and remainder such that $a = q \cdot m + r$, where $q$ and $r$ are integers and $0 \leq r < m.$ This shows that each integer $a$ is congruent modulo $m$ to exactly one of the integers in the set $\{ 0, 1, \ldots, m-1 \},$ which means that the $m$ sets 
+\[\{ \ldots, -m, 0, m, \ldots \},\] 
+\[\{ \ldots, -m+1, 1, m+1, \ldots \},\] 
+\[\{ \ldots, -m+2, 2, m+2, \ldots \},\] 
+\[ \vdots \] 
+\[\{ \ldots, -2, m-2, m+(m-2), \ldots \},\] 
+\[\{ \ldots, -1, m-1, m+(m-1), \ldots \}\] 
+form a partition of $\mathbb{Z}.$
+By the theorem proved earlier in the chapter, $\equiv_{m}$ is an equivalence relation with equivalence classes $\{ [ 0 \]_{\equiv_{m}}, \, [ 1 \]_{\equiv_{m}}, \, [ 2 \]_{\equiv_{m}}, \, \ldots \,  [ m-1 \]_{\equiv_{m}} \}$ is the partition of $\mathbb{Z}$ that corresponds to the relation $\equiv_{m}.$ + 
+
+//--
+
+****
+
+//This proof is an exercise for you. You need to prove that $\equiv_{m}$ is reflexive, symmetric, and transitive, which you can do by adapting the argument used in the example “The Parity Relation on the Integers” above to the case where $m$ is an integer that is greater than $2.$
+
+////
+The relation $\equiv_{m}$ corresponds to a partition of the set $\mathbb{Z}$ as described below. +  
+For any integer $a,$ you can use the division algorithm to find the quotient and remainder such that $a = q \cdot m + r$, where $q$ and $r$ are integers and $0 \leq r < m,$ so every integer is congruent modulo $m$ to one of the integers in the set $\{ 0, 1, \ldots, m-1 \}.$ The set of equivalence classes $\{ [ 0 \]_{\equiv_{m}}, \, [ 1 \]_{\equiv_{m}}, \, [ 2 \]_{\equiv_{m}}, \, \ldots \,  [ m-1 \]_{\equiv_{m}} \}$ is the partition of $\mathbb{Z}$ that corresponds to the relation $\equiv_{m}.$ + 
+Now apply the theorem from the previous section: , you can prove that $\equiv_{m}$ is an equivalence relation on $\mathbb{Z}.$ 
+//// 
+
+//“”
+
+We can also do “arithmetic” directly with the equivalence classes of the $\equiv_{m}$ relation. The following example may make this more clear. 
 
 ****
 .Example {counter:mkdrelex} - Arithmetic with Even and Odd Numbers 
@@ -581,15 +676,16 @@ For any integer $a,$ you can use the division algorithm to find the quotient and
 --
 You likely learned, when you were quite young, that some integers are called "even" and other integers are called "odd." 
 
-Notice that every integer is either even or odd but not both, which means that the set \[\{ \text{the set of all even integers}, \, \text{the set of all odd integers} \}\] forms a partition of the set $\mathbb{Z}$ of integers. This partition corresponds to the relation $\equiv_{2},$ that is, congruence modulo 2: The set of all even numbers is the equivalence class $[ 0 \]_{\equiv_{2}}$ and the set of all odd numbers is the equivalence class $[ 1 \]_{\equiv_{2}}.$
+Notice that every integer is either even or odd but not both, which means that the set \[\{ \text{the set of all even integers}, \, \text{the set of all odd integers} \}\] or more formally \[\{ \{ \ldots, -4, -2, 0, 2, 4, \ldots \}, \, \{ \ldots, -3, -1, 1, 3, \ldots \} \}\]forms a partition of the set $\mathbb{Z}$ of integers. This partition corresponds to the relation $\equiv_{2},$ that is, congruence modulo 2. The set of all even numbers is the equivalence class $[ 0 \]_{\equiv_{2}}$ and the set of all odd numbers is the equivalence class $[ 1 \]_{\equiv_{2}}.$
 
-You may have learned how to do arithmetic with "even" and "odd," too, as shown in the tables.
+You may have learned how to do arithmetic with "Even" and "Odd," too, as shown in the tables.
 
 //image::imagesMKD/EvenAndOdd.png[EvenAndOdd,928,328,float="right",align="center"]
 //image::imagesMKD/EvenAndOdd.png[EvenAndOdd,310,110,float="center",align="center"]
 image::imagesMKD/EvenAndOdd.png[EvenAndOdd,464,164,float="center",align="center"]
 
-When you did arithmetic with "even" and "odd," you were really doing arithmetic with the equivalence classes $[ 0 \]_{\equiv_{2}}$ and $[ 1 \]_{\equiv_{2}}:$ For example, it will not matter _which_ two odd numbers you add, the result must be even because the two numbers were odd. You can just do the operations on the remainders that you get after dividing by 2.
+When you did arithmetic with "Even" and "Odd," you were really _doing arithmetic with the equivalence classes_ $[ 0 \]_{\equiv_{2}}$ and $[ 1 \]_{\equiv_{2}}.$ For example, it will not matter _which_ two odd numbers you add, the result must be even because the two numbers were odd. You can just do the operations on the remainders that you get after dividing by 2, 
+which corresponds to adding the equivalence classes: $[ 1 \]_{\equiv_{2}} + [ 1 \]_{\equiv_{2}} = [ 1+1 \]_{\equiv_{2}} = [ 2 \]_{\equiv_{2}} = [ 0 \]_{\equiv_{2}}$ where the last equality is True because $2$ and $0$ belong to the same equivalence class (that is, they are both even numbers.)
 
 // to which odd number because the result 0 and 1 modulo 2, or Numbers remainders when $m = 2$ when you were quite young, but not in the formal way presented above. 
 //this textbook. 

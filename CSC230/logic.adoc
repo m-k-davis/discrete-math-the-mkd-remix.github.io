@@ -1013,7 +1013,8 @@ Given any proposition $p$, the compound proposition \[p  \land \neg p\]
 is a contradiction (that is, the compound proposition is always False.)
 **** 
 
-
+// MKD Oct 19 2025 inserted anchor 
+[[de_morgans_laws]]
 === De Morgan's Laws
 Two important logical equivalences are De Morgan's Law.  These describe how to "distribute" the $\neg$ operator across the $\land$ and $\lor$ operators.
 

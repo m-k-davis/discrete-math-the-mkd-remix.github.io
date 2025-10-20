@@ -4190,7 +4190,7 @@ A &lt;= B.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_power_set_of_a_set">4.5. The Power Set of a Set</h3>
+<h3 id="power_set_definition">4.5. The Power Set of a Set</h3>
 <div class="paragraph">
 <p>Given a set \(A,\) we can define a new set by collecting together all subsets of \(A\). This new set is called the <strong>power set</strong> of \(A.\) The power set of \(A\) is denoted by \(\mathcal{P}(A).\) That is, \[ \mathcal{P}(A) = \{ B \, | \, B \subseteq A \}. \]
 Notice that \(\mathcal{P}(A)\) is a set whose elements are themselves sets.</p>
@@ -7091,7 +7091,7 @@ is a contradiction (that is, the compound proposition is always False.)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_de_morgans_laws">5.3.2. De Morgan&#8217;s Laws</h4>
+<h4 id="de_morgans_laws">5.3.2. De Morgan&#8217;s Laws</h4>
 <div class="paragraph">
 <p>Two important logical equivalences are De Morgan&#8217;s Law.  These describe how to "distribute" the \(\neg\) operator across the \(\land\) and \(\lor\) operators.</p>
 </div>
@@ -10093,8 +10093,9 @@ must be True no matter what value the integer \(n\) has, this shows that the sta
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on August 24, 2025.</em><br>
-<em>Revised the recursive definition of rooted trees to more closely match the definition given in the <a href=./trees.html>Trees</a> chapter.</em></p>
+<p><em>This chapter was last updated on October 12, 2025.</em><br>
+<em>Edited definition of recursively-defined function.</em><br>
+<em>Added material to the section about the Towers Of Hanoi.</em><br></p>
 </div>
 <div class="paragraph">
 <p><strong>Sequences</strong> are functions with domain a nonempty subset of the natural numbers. That is, sequences are
@@ -10621,15 +10622,16 @@ In each rooted tree, edges are treated as if they are directed “down,” away 
 <div class="ulist">
 <ul>
 <li>
-<p>Basis Step: Specify the value of the function at zero</p>
+<p>Basis Step: Specify the value of the function at one or more small input values.</p>
 </li>
 <li>
-<p>Recursion Step: Give a rule for finding its value at an integer from its value at smaller integers.</p>
+<p>Recursion Step: Give a rule for computing the function&#8217;s output value at an integer based on the output values at one or more smaller integers.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This is similar to a recurrence relation, but using function notation.</p>
+<p>A recursive definition of a function is similar to a recurrence relation,
+but uses function notation.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -11716,8 +11718,9 @@ increasing</strong> if whenever \$x&lt;y\$, then \$f(x)&lt;f(y)\$.</p>
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on August 22, 2025.</em><br>
-<em>added information to the subsection on the well-ordering of \(\mathbb{N}\)</em><br></p>
+<p><em>This chapter was last updated on October 19, 2025.</em><br>
+<em>Revised the sections/subsections on partial orders, well-ordering, and modular arithmetic.</em><br>
+<em>Made other minor revisions and fixed typos.</em><br></p>
 </div>
 <div class="paragraph">
 <p>Relations are used to describe an association of data.</p>
@@ -11726,7 +11729,7 @@ increasing</strong> if whenever \$x&lt;y\$, then \$f(x)&lt;f(y)\$.</p>
 <p>For example, imagine a university database of students. The database needs to have a record for each student, and the student&#8217;s record needs to include fields for the student&#8217;s name(s), the unique student ID number for the student, the student&#8217;s current status, a list of courses that the student has enrolled in or has completed (along with the grade earned in each completed course,) and possibly other data associated with the student. One way to visualize the database is as a two-dimensional table, similar to a spreadsheet worksheet, where each row corresponds to a record and each column corresponds to a field; each row can be treated as an ordered \(n\)-tuple, where \(n\) is the number of fields.</p>
 </div>
 <div class="paragraph">
-<p>In this chapter, you will learn about the formal definition of relation, operations and properties of relations. You will also learn about some special types of relations, namely partial orderings and equivalence relations. As a special case of equivalence relations, you will learn aobut congruence relations of integers as well as modular arithmetic.</p>
+<p>In this chapter, you will learn about the formal definition of relation, operations and properties of relations. You will also learn about some special types of relations, namely partial orderings and equivalence relations. As a special case of equivalence relations, you will learn about congruence relations of integers as well as modular arithmetic.</p>
 </div>
 <div class="paragraph">
 <p>Key terms and concepts covered in this chapter:</p>
@@ -12082,7 +12085,7 @@ Use the theorem from the previous subsection that describes irreflexive relation
 <div class="paragraph">
 <p>A first example of an equivalence relation is the diagonal, that is, the equality relation.  Another example is given below.</p>
 </div>
-<div class="sidebarblock">
+<div id="parity_relation_on_the_integers" class="sidebarblock">
 <div class="content">
 <div class="openblock">
 <div class="title">Example 3 - The Parity Relation on the Integers</div>
@@ -12091,7 +12094,7 @@ Use the theorem from the previous subsection that describes irreflexive relation
 </div>
 </div>
 <div class="paragraph">
-<p>Consider the set \(R = \{ (a,b) \in \mathbb{Z} \times \mathbb{Z} \, | \, \text{Both } a \text{ and } b \text{ are odd, or both }  a \text{ and } b \text{are even.} \}.\)</p>
+<p>Consider the set \(R = \{ (a,b) \in \mathbb{Z} \times \mathbb{Z} \, | \, \text{Both } a \text{ and } b \text{ are odd, or both }  a \text{ and } b \text{ are even.} \}.\)</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s show that \(R\) is an equivalence relation.</p>
@@ -12117,7 +12120,7 @@ Use the theorem from the previous subsection that describes irreflexive relation
 <div class="paragraph">
 <p>Given an equivalence relation \(R\) on the set \(S\) and an element \(x \in S,\) we define the <strong>equivalence class</strong> of \(x\) to be \([ x ]_{R} = \{ y \in S \, | \, (x,y) \in R \}.\)</p>
 </div>
-<div class="sidebarblock">
+<div id="partition_iff_equivalence_relation" class="sidebarblock">
 <div class="content">
 <div class="title">Theorem</div>
 <div class="paragraph">
@@ -12149,12 +12152,20 @@ Conversely, if \(\Pi\) is a partition of \(S\), then the relation defined by \(R
 
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>For any set \(S,\) the relations \(\subseteq\) is a partial order.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>For any set \(S,\) each of the relations \(\subseteq\) and \(\subset\) is a partial order on \(\mathcal{P}(S),\) the power set of \(S.\)</p>
+</div>
+<div class="imageblock center text-center">
+<div class="content">
+<img src="imagesMKD/subset_lattice_for_set_with_3_members_v2.png" alt="subset_lattice_for_set_with_3_members_v2" width="271" height="326">
+</div>
+</div>
+<div class="paragraph">
+<p>As an example,
+for the set \(S = \{ r, g, b \},\)
+the image shows a <a href=https://en.wikipedia.org/wiki/Hasse_diagram><strong>Hasse diagram</strong></a> that represents the \(\subset\) relation
+on the power set \(\mathcal{P}(S).\)
+Notice that each line segment in the Hasse diagram connects a first subset of \(S\) to a second subset of \(S\) that is “immediately above” the first subset in the following sense: Each member of the first subset is also a member of the second subset, but the second subset has one additional member. In the Hasse diagram, two different subsets \(A\) and \(B\) satisfy \(A \subset B\) if and only if there is a “path up” from \(A\) to \(B\) that uses one or more of the line segments.</p>
 </div>
 </div>
 </div>
@@ -12219,13 +12230,16 @@ want to do a deeper mathematical exploration of these technical issues (e.g., di
 <div class="ulist">
 <ul>
 <li>
-<p>For example, suppose that you are told that a nonempty subset \(S\) of \(\mathbb{N}\) contains the element 10. A brute-force way to determine the least element of \(S\) is to ask a sequence of 10 questions: \[ \text{“Is 0 in \(S?,\)” “Is 1 in \(S?,\)” \(\ldots\), “Is 9 in \(S?\)”} \] If the answer is “No” to all 10 of these questions, then 10 itself is the least element in \(S\),  otherwise, the least number in \(S\) is the first value of \(k\) for which the answer to the question “Is \(k\) in \(S?\)” is “Yes.”</p>
+<p>First, suppose that you are told that the subset \(A\) of \(\mathbb{N}\) contains the element 10. You can use a brute‑force method to determine the least element of \(A:\) Just ask the following sequence of 10 questions, in the order shown. \[ \text{“Is 0 in \(A?,\)” “Is 1 in \(A?,\)” \(\ldots\), “Is 9 in \(A?\)”} \] If the answer is “No” to all 10 of these questions, then 10 itself is the least element in \(A\),  otherwise, the least number in \(A\) is the first value of \(k\) for which the answer to the question “Is \(k\) in \(A?\)” is “Yes.”</p>
 </li>
 <li>
-<p>Now, suppose that it takes 1 nanosecond to ask and answer each question of the form “Is \(k\) in \(S?\)” for each integer \(k,\) and suppose that you are given a new set, also called \(S,\) and told that the the number you can be sure is in \(S\) is \(10^{10^{10^{10^{10}}}}\) which is an integer
-greater than the number of nanoseconds estimated for our universe to reach its <a href=https://en.wikipedia.org/wiki/Timeline_of_the_far_future#cite_ref-bignumber2_177-3>final energy state!</a> If you try to use the brute-force method of asking a sequence of \(10^{10^{10^{10^{10}}}}\) questions: \[ \text{“Is 0 in \(S?,\)” “Is 1 in \(S?,\)” \(\ldots\), “Is \(\left( 10^{10^{10^{10^{10}}}}-1 \right)\) in \(S?\)”} \]
-it is possible that the answer to one of the questions is “Yes” but that you would never be able to ask that question before the universe ends.
-Notice that you can use <a href=./logic.html>formal logic</a> to justify that either the answers to all the questions would be “No” or that at least one of the questions would have the answer “Yes” - asking the sequence of questions <span class="underline">would</span> determine the least element in \(S\) if you had time to ask enough of the questions, but you (or humanity itself!) may not have that much time. For this reason, mathematicians <em>assume</em> that the least element of \(S\) exists (Notice that a “timeless being” could know all the answers.)</p>
+<p>Next, suppose that you are given a new set \(S\) and told that the number \(10^{10^{10^{10^{10}}}}\) is in \(S.\) You again could try to use the brute‑force method of asking the sequence of \(10^{10^{10^{10^{10}}}}\) questions: \[ \text{“Is 0 in \(S?,\)” “Is 1 in \(S?,\)” \(\ldots\), “Is \(\left( 10^{10^{10^{10^{10}}}}-1 \right)\) in \(S?\)”} \] but even if it took only 1 nanosecond to ask and answer each question,
+the integer \(10^{10^{10^{10^{10}}}}\) is greater than the number of nanoseconds estimated for our universe to reach its <a href=https://en.wikipedia.org/wiki/Timeline_of_the_far_future#cite_ref-bignumber2_177-3>final energy state!</a>
+That is,
+it is possible that the answer to one of these questions is “Yes” but that you would never be able to ask that question before the universe ends!
+Notice that you can use <a href=./logic.html#de_morgans_laws>formal logic</a> to justify that either the answers to all of those questions would be “No” or that at least one of the questions would have the answer “Yes” — asking the sequence of questions
+<em>would</em> determine the least element in \(S\) <span class="underline">if you had time to ask enough of the questions,</span> but you (and humanity itself) may not have that much time. For this reason, mathematicians <em>assume</em> that the least element of the set \(S\) exists.<br>
+<span class="small">Notice that a “timeless being” could know all the answers.</span></p>
 </li>
 </ul>
 </div>
@@ -12233,16 +12247,60 @@ Notice that you can use <a href=./logic.html>formal logic</a> to justify that ei
 </div>
 </div>
 <div class="sect2">
-<h3 id="_modular_arithmetic">9.5. Modular Arithmetic</h3>
+<h3 id="_modular_arithmetic_revision_in_progress">9.5. Modular Arithmetic (Revision in Progress!)</h3>
 <div class="paragraph">
-<p>For any positive integer \(m,\) you can define <strong>congruence modulo \(m\)</strong> as the relation \[\{ (a, b) \in \mathbb{Z} \times \mathbb{Z} \, : \, m \text{ divides } (a-b) \}.\]
-The symbol \(\equiv_{m}\) is used to represent this relation, that is \[a \equiv_{m} b \text{ if and only if } m \text{ divides } (a-b)\]</p>
+<p>Let \(m\) stand for some positive integer constant that is greater than 1.
+The relation <strong>congruence modulo \(m\)</strong> is defined to be \[\{ (a, b) \in \mathbb{Z} \times \mathbb{Z} \, : \, m \text{ divides } (a-b) \}.\]
+The symbol \(\equiv_{m}\) is used to represent congruence modulo \(m\), so \[a \equiv_{m} b \text{ if and only if } m \text{ divides } (a-b).\]</p>
 </div>
 <div class="paragraph">
-<p>For each positive integer \(m,\) \(\equiv_{m}\) is an equivalence relation.</p>
+<p>As an example, \(13 \equiv_{3} 7\) because \(3\) divides \(13-7.\) Another way to see that \(13 \equiv_{3} 7\) is to notice that both \(13\) and \(7\) leave a remainder of \(1\) when divided by \(3\) using integer long division.</p>
 </div>
 <div class="paragraph">
-<p>For any integer \(a,\) you can use the division algorithm to find the quotient and remainder such that \(a = q \cdot m + r\), where \(q\) and \(r\) are integers and \(0 \leq r < m,\) so every integer is congruent modulo \(m\) to one of the integers in the set \(\{ 0, 1, \ldots, m-1 \}.\) The set of equivalence classes \(\{ [ 0 ]_{\equiv_{m}}, \, [ 1 ]_{\equiv_{m}}, \, [ 2 ]_{\equiv_{m}}, \, \ldots \,  [ m-1 ]_{\equiv_{m}} \}\) is the partition of \(\mathbb{Z}\) that corresponds to to the relation \(\equiv_{m}.\)</p>
+<p>Notice that the relation \(\equiv_{2}\) is the same as the  <a href=./relations.html#parity_relation_on_the_integers>parity relation</a> discussed in an example earlier in this chapter. As discussed in that example, \(\equiv_{2}\) is an equivalence relation. In fact, for each positive integer constant \(m\) that is greater than 1, the relation \(\equiv_{m}\) is an equivalence relation.</p>
+</div>
+<div id="conguence_is_equivalence_relation" class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>If \(m\) is a positive integer greater than 1, then \(\equiv_{m}\) is an equivalence relation on \(\mathbb{Z}.\)</p>
+</div>
+<div class="paragraph">
+<div class="title">Proof</div>
+<p>One way to prove this would be to use steps similar to the ones in the <a href=./relations.html#parity_relation_on_the_integers>parity relation</a> example to show that \(\equiv_{m}\) is reflexive, symmetric, and transitive, but we&#8217;ll use a different way to prove this theorem: We will show that the  relation \(\equiv_{m}\) describes a way to partition \(\mathbb{Z}\) into \(m\) disjoint subsets, then apply the <a href=./relations.html#partition_iff_equivalence_relation>theorem</a> that states that such a partition corresponds to an equivalence relation.<br>
+<br>
+You&#8217;ve already seen how the partition of \(\mathbb{Z}\) into the odd integers and the even integers corresponds to the equivalence relation \(\equiv_{2}.\)
+Before giving a formal proof, let&#8217;s look at another example. If \(m = 3,\) then every integer \(a\) can be written in the form \(a = q \cdot 3 + r\) where \(q\) is an integer and \(r\) is one of the integers in the set \(\{ 0, 1, 2 \}.\) You can partition \(\mathbb{Z}\) into the three subsets listed below:
+
+\[\{ \ldots, -3, 0, 3, 6, \ldots \},\]
+
+\[\{ \ldots, -2, 1, 4, 7, \ldots \},\] +
+\[\{ \ldots, -1, 2, 5, 8, \ldots \}.\]</p>
+</div>
+<div class="paragraph">
+<p>Notice that each integer is in exactly one of those three subsets
+so the subsets form a partition of \(\mathbb{Z}.\)
+It&#8217;s not difficult to see that two integers are members of the same subset of the partition if and only if \(3\) divides their difference, so the subsets of the partition are the equivalence classes of the relation \(\equiv_{3},\) that is,
+We will now present the proof for the general case. Notice that if \(a\) is any integer, you can use the division algorithm to find the quotient and remainder such that \(a = q \cdot m + r\), where \(q\) and \(r\) are integers and \(0 \leq r < m.\) This shows that each integer \(a\) is congruent modulo \(m\) to exactly one of the integers in the set \(\{ 0, 1, \ldots, m-1 \},\) which means that the \(m\) sets
+
+\[\{ \ldots, -m, 0, m, \ldots \},\]
+
+\[\{ \ldots, -m+1, 1, m+1, \ldots \},\]
+
+\[\{ \ldots, -m+2, 2, m+2, \ldots \},\]
+
+\[ \vdots \]
+
+\[\{ \ldots, -2, m-2, m+(m-2), \ldots \},\]
+
+\[\{ \ldots, -1, m-1, m+(m-1), \ldots \}\]
+form a partition of \(\mathbb{Z}.\)
+By the theorem proved earlier in the chapter, \(\equiv_{m}\) is an equivalence relation with equivalence classes \(\{ [ 0 ]_{\equiv_{m}}, \, [ 1 ]_{\equiv_{m}}, \, [ 2 ]_{\equiv_{m}}, \, \ldots \,  [ m-1 ]_{\equiv_{m}} \}\) is the partition of \(\mathbb{Z}\) that corresponds to the relation \(\equiv_{m}.\)<br></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>We can also do “arithmetic” directly with the equivalence classes of the \(\equiv_{m}\) relation. The following example may make this more clear.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -12256,10 +12314,10 @@ The symbol \(\equiv_{m}\) is used to represent this relation, that is \[a \equiv
 <p>You likely learned, when you were quite young, that some integers are called "even" and other integers are called "odd."</p>
 </div>
 <div class="paragraph">
-<p>Notice that every integer is either even or odd but not both, which means that the set \[\{ \text{the set of all even integers}, \, \text{the set of all odd integers} \}\] forms a partition of the set \(\mathbb{Z}\) of integers. This partition corresponds to the relation \(\equiv_{2},\) that is, congruence modulo 2: The set of all even numbers is the equivalence class \([ 0 ]_{\equiv_{2}}\) and the set of all odd numbers is the equivalence class \([ 1 ]_{\equiv_{2}}.\)</p>
+<p>Notice that every integer is either even or odd but not both, which means that the set \[\{ \text{the set of all even integers}, \, \text{the set of all odd integers} \}\] or more formally \[\{ \{ \ldots, -4, -2, 0, 2, 4, \ldots \}, \, \{ \ldots, -3, -1, 1, 3, \ldots \} \}\]forms a partition of the set \(\mathbb{Z}\) of integers. This partition corresponds to the relation \(\equiv_{2},\) that is, congruence modulo 2. The set of all even numbers is the equivalence class \([ 0 ]_{\equiv_{2}}\) and the set of all odd numbers is the equivalence class \([ 1 ]_{\equiv_{2}}.\)</p>
 </div>
 <div class="paragraph">
-<p>You may have learned how to do arithmetic with "even" and "odd," too, as shown in the tables.</p>
+<p>You may have learned how to do arithmetic with "Even" and "Odd," too, as shown in the tables.</p>
 </div>
 <div class="imageblock center text-center">
 <div class="content">
@@ -12267,7 +12325,8 @@ The symbol \(\equiv_{m}\) is used to represent this relation, that is \[a \equiv
 </div>
 </div>
 <div class="paragraph">
-<p>When you did arithmetic with "even" and "odd," you were really doing arithmetic with the equivalence classes \([ 0 ]_{\equiv_{2}}\) and \([ 1 ]_{\equiv_{2}}:\) For example, it will not matter <em>which</em> two odd numbers you add, the result must be even because the two numbers were odd. You can just do the operations on the remainders that you get after dividing by 2.</p>
+<p>When you did arithmetic with "Even" and "Odd," you were really <em>doing arithmetic with the equivalence classes</em> \([ 0 ]_{\equiv_{2}}\) and \([ 1 ]_{\equiv_{2}}.\) For example, it will not matter <em>which</em> two odd numbers you add, the result must be even because the two numbers were odd. You can just do the operations on the remainders that you get after dividing by 2,
+which corresponds to adding the equivalence classes: \([ 1 ]_{\equiv_{2}} + [ 1 ]_{\equiv_{2}} = [ 1+1 ]_{\equiv_{2}} = [ 2 ]_{\equiv_{2}} = [ 0 ]_{\equiv_{2}}\) where the last equality is True because \(2\) and \(0\) belong to the same equivalence class (that is, they are both even numbers.)</p>
 </div>
 </div>
 </div>

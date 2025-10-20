@@ -388,7 +388,8 @@ include::python_tutor.adoc[]
 ****
 // MKD subsets ends
 
-
+// MKD Oct 19 2025 inserted anchor 
+[[power_set_definition]]
 // MKD power set begins
 //=== Power Sets
 == The Power Set of a Set

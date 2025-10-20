@@ -6,8 +6,10 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on August 24, 2025._ + 
-_Revised the recursive definition of rooted trees to more closely match the definition given in the link:./trees.html[Trees] chapter._ 
+_This chapter was last updated on October 12, 2025._ + 
+_Edited definition of recursively-defined function._ + 
+_Added material to the section about the Towers Of Hanoi._ + 
+//_Revised the recursive definition of rooted trees to more closely match the definition given in the link:./trees.html[Trees] chapter._ 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 // MKD start topic list
@@ -577,10 +579,17 @@ Notice that infinitely-many rooted trees are constructed at each use of the recu
 
 A *recursively defined function* has two parts:
 
-* Basis Step: Specify the value of the function at zero
-* Recursion Step: Give a rule for finding its value at an integer from its value at smaller integers.
+// MKD Oct 12 2025
+//* Basis Step: Specify the value of the function at zero
+//* Recursion Step: Give a rule for finding its value at an integer from its value at smaller integers. 
+* Basis Step: Specify the value of the function at one or more small input values.
+* Recursion Step: Give a rule for computing the function's output value at an integer based on the output values at one or more smaller integers.
 
-This is similar to a recurrence relation, but using function notation.
+// MKD Oct 12 2025
+//This is similar to a recurrence relation, but using function notation. 
+A recursive definition of a function is similar to a recurrence relation, 
+but uses function notation.
+
 
 ****
 .Example {counter:indrecexample}
