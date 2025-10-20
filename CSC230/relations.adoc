@@ -7,7 +7,7 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on October 19, 2025._ + 
+_This chapter was last updated on October 20, 2025._ + 
 _Revised the sections/subsections on partial orders, well-ordering, and modular arithmetic._ + 
 _Made other minor revisions and fixed typos._ + 
 //_added information to the subsection on the well-ordering of $\mathbb{N}$_ + 
@@ -704,7 +704,7 @@ then $a + c \equiv_{m} b + d$ and $a \cdot c \equiv_{m} b \cdot d.$
 
 .Proof 
 
-Assume that $m,$ $a,$ $b,$ $c,$ and $d$ are integers, and $m > 1.$ 
+Assume that $m,$ $a,$ $b,$ $c,$ and $d$ are integers, $m > 1,$ $a \equiv_{m} b,$ and $c \equiv_{m} d.$ 
 This means that $m$ is a divisor of both $(a-b)$ and $(c-d),$ that is, both $(a-b)$ and $(c-d)$ are multiples of $m.$ 
 
 The sum $(a-b) + (c-d)$ must also be a multiple of $m,$ and this sum can be rewritten using properties of addition as $(a+c) - (b+d).$  
