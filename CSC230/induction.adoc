@@ -1542,9 +1542,8 @@ What value of $n$ is best to use in the Basis Step? That is, what is the smalles
 
 What is the Induction Hypothesis? 
 
-Suppose that you have a drawing of a complete graph that has $k$ vertices. 
-To create a drawing of a complete graph that has one more vertex, for a total of $k+1$ vertices, how many new edges would you need to draw? 
-Try to describe this using a recurrence relation for the function $E(k),$ where $E(k)$ outputs the number of edges in a complete graph that has $k$ vertices.
+Suppose that you have an expression for $(a+b)^{k}$ as the sum given in the statement. Explain how to determine the coefficient of each term in the expression for $(a+b)^{k+1}.$ 
+//in terms of
 
 ****
 
