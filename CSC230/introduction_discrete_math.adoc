@@ -1291,6 +1291,9 @@ Think carefully about what an edge represents in this graph.
 //The graph indicates that Li is enrolled in at least one class with Adil and in at least one class with Sofia. So Li is enrolled in _at least_ 2 classes, but may be enrolled in more than one with either Adil or Sofia (or some other student who is not included in the graph.)
 //--
 // What is the real-world interpretation of this isolated vertex?
+
+//MKD Oct 23 2025 inserted anchor
+[[complete_graphs_and_star_graphs]]
 ****
 //.Examples {counter:introdm} - Complete Graphs and Star Graphs
 .Examples - Complete Graphs and Star Graphs

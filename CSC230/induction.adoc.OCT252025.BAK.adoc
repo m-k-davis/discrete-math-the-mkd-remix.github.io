@@ -2,7 +2,6 @@
 
 //“”
 
-//…
 
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
@@ -10,8 +9,7 @@ include::LinkToPublic.adoc[]
 
 //https://pythontutor.com/render.html#code=def%20P%28k%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bk%7D%20positive%20odd%20integers%20is%20%7Bk*k%7D%5C%22%22%0A%0Adef%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20sum,%20k%20%3D%201,%201%0A%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20while%20k%20%3C%20stop_value%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Astop_value%20%3D%2010%0Aif%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20print%28%22P%28n%29%20is%20a%20True%20proposition%20for%20each%20natural%20number%20n%20%E2%89%A4%20%22%2Bstr%28stop_value%29%2B%22.%22%29&cumulative=false&curInstr=47&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 
-_This chapter was last updated on October 27, 2025._ + 
-_added new “coder-friendly” version of example in the first subsection (sum of consecutive odd positive integers)_ + 
+_This chapter was last updated on October 23, 2025._ + 
 _added additional “setting up a proof” exercises (complete graphs, binomial theorem)_ + 
 _added note about the Principle of Mathematical Induction and the Well-Ordering Principle_ + 
 _removed references to universal generalization throughout._ + 
@@ -151,87 +149,12 @@ Key terms and concepts covered in this chapter:
 We often encounter an infinite sequence of related propositions, all of which appear to be True. To prove all of the propositions, we might try to write a proof for each individual proposition and then combine all those proofs together as a single infinitely-long “proof”… but recall from the chapter on link:./proofs.html[Proofs: Basic Techniques] that a proof 
 //is a valid argument that 
 consists of a _finite_ sequence of propositions of _finite_ length. 
-
 As an analogy, imagine you had an “algorithm” that required infinitely-many steps to complete its task… such an algorithm would not be useful in the real world since it 
 //could 
 might 
 never complete the task!
 
-//=== A More Computer-Sciency Example 
-
-//Let's start by analyzing an algorithm. 
-
-****
-//.Example {counter:MKDinductionexample} - What does this code do?
-.Example {counter:MKDinductionexample} - What is this code computing?
-
-The Python code below computes the sum of consecutive odd positive integers, starting at 1, and stops at the first sum that is greater than or equal to `too_small` which was initialized to the value 10. You should trace through the code to see how it works. 
-
-:pt_code_height: 450
-:pt_rawinput: false
-//:pt_code: the_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Aprint%28the_sum%29%0Awhile%20the_sum%20%3C%2010%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20print%28the_sum%29
-:pt_code: %23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Aprint%28the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20print%28the_sum%29
-
-include::python_tutor.adoc[]
-
-You may notice that each number that is printed is a perfect square integer. 
-Will this be True no matter how many values we tell the code to print? Try editing the code and changing the initialization value of `too_small` to a larger integer such as link:https://pythontutor.com/render.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%20100%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Aprint%28the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20print%28the_sum%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false[100] to see that this pattern persists.  
-
-//or $10000$ to see that each number still a property that is True of all the integers that this code prints: 
-
-To better analyze this code, let's insert a variable `the_counter` which we'll use to count how many odd positive integers have been added to `the_sum` so far. 
-
-:pt_code_height: 500
-:pt_rawinput: false
-:pt_code: %23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Athe_counter%20%3D%201%0A%23print%28the_sum%29%0Aprint%28the_counter,%20the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20the_counter%20%3D%20the_counter%20%2B%201%0A%20%20%20%20%23print%28the_sum%29%20%20%20%20%0A%20%20%20%20print%28the_counter,%20the_sum%29
-
-include::python_tutor.adoc[]
-
-Notice that each print statement now seems to display a positive integer and its square… but we are not directly computing that square! Again, you can edit this code to change the value that `too_small` is initialized to to a larger integer such as link:https://pythontutor.com/render.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%20100%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Athe_counter%20%3D%201%0A%23print%28the_sum%29%0Aprint%28the_counter,%20the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20the_counter%20%3D%20the_counter%20%2B%201%0A%20%20%20%20%23print%28the_sum%29%20%20%20%20%0A%20%20%20%20print%28the_counter,%20the_sum%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false[100] or even link:https://pythontutor.com/render.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010000%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Athe_counter%20%3D%201%0A%23print%28the_sum%29%0Aprint%28the_counter,%20the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20the_counter%20%3D%20the_counter%20%2B%201%0A%20%20%20%20%23print%28the_sum%29%20%20%20%20%0A%20%20%20%20print%28the_counter,%20the_sum%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false[10000] to see that this pattern persists. 
-
-To make it more clear, let's edit the `print` statements so that the square of `the_counter` is displayed along with the other values. Also, since `the_counter` appears to be 
-//the most 
-such an 
-important variable, let's replace the loop condition with one that involves that variable (so `too_small` now is used as a bound on how many consecutive odd positive integers we've added instead of a bound on the cumulative sum.)  
-
-:pt_code_height: 550
-:pt_rawinput: false
-:pt_code: %23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Athe_counter%20%3D%201%0A%23print%28the_sum%29%0Aprint%28the_counter,%20the_sum,%20the_counter**2%29%0A%23while%20the_sum%20%3C%20too_small%3A%0Awhile%20the_counter%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20the_counter%20%3D%20the_counter%20%2B%201%0A%20%20%20%20%23print%28the_sum%29%20%20%20%20%0A%20%20%20%20print%28the_counter,%20the_sum,%20the_counter**2%29
-
-include::python_tutor.adoc[]
-
-At this point, if may seem “obvious” that this code is showing us that the sum of the first $n$ consecutive odd positive integers is always equal to $n^{2}$ (where $n$ can be any positive integer,) but notice that we can only use the code to show this for as many values as we can actually compute! 
-//, but the 
-The same issue arises here as in the 
-brute‑force method for finding the least element of a nonempty subset of the natural numbers that was discussed after introducing the  link:./relations.html#well_ordering_principle_for_natural_numbers[Well-Ordering Principle for $\mathbb{N}$] 
-//- Namely, 
-— we cannot actually run the code for very large values of `too_small` like $10^{10^{10^{10^{10}}}}$ because we don't have sufficient computing resources (including time and space) to do so.    
-
-//That is, in 
-In a “mathematically ideal” universe we would simply change the loop to use `while True:` and let the code run forever, then just check that each printed line displays `the_counter` followed by two copies of its square. However, since we are human and have limited computing resources (including time and space) we will need another way of justifying that _every_ value of `the_sum` will be a square without running an infinite loop. 
-The approach we'll take is to justify that no matter how many times we go through the loop, the value of `the_sum` will be the square of `the_counter` 
-//at the 
-when we reach the 
-end of the block of code within the loop _as long as that was also True for the previous iteration of the loop_ (and was also True at the end of the initialization 
-//step 
-block, 
-before ever entering the loop.) 
-This technique is, essentially, “proof by mathematical induction.” + 
-[small]#There are other approaches you could use to justify that `the_sum` will be the square of `the_counter` in this particular algorithm, but the goal of this example is to try to explain why we need the more general technique of mathematical induction to validate algorithms.# 
-//[small]#There are other ways to justify that `the_sum` will be the square of `the_counter` but the goal of this example is to explain why we need a technique that will allow us to validate more general algorithms and not just this one.#
-
-
-****
-
-
-
-// MKD Oct 26 2025 created new subsection header
-//=== A More Mathematical Example
-
-//The next example introduces the ideas we will use to prove an infinite sequence of related propositions. 
-
-// MKD Oct 26 2025 
-Now let's look at the same phenomenon using a mathematician's point of view. 
+The next example introduces the ideas we will use to prove an infinite sequence of related propositions.
 
 
 // MKD start of square example
@@ -1178,25 +1101,13 @@ Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be T
 
 For the natural number $k,$ the predicate $P(k)$ is the proposition "The sum of the degrees of the vertices for a graph with $k$ edges is equal to $2 \cdot k.$ 
 
-Suppose that we have a graph with $k$ edges. 
-// MKD Oct 26 2025 
-Recall that we are assuming that the Induction Hypothesis $P(k)$ is True, so the sum of the degrees of the vertices is equal to $2 \cdot k.$ 
- 
-// MKD Oct 26 2025 
-Next, 
-//We 
-we 
-insert one new edge $e$ into the graph. There are, essentially, two possible cases to consider.
+Suppose that we have a graph with $k$ edges. We insert one new edge $e$ into the graph. There are, essentially, two possible cases to consider.
 
 * $e$ has two different endpoints, in which case the degree of each endpoint increases by 1 when $e$ is added to the graph, so the sum of the degrees of the vertices increases by 2, or , 
 * $e$ is a loop with only one endpoint, in which case the degree of that endpoint increases by 2, so the sum of the degrees of the vertices increases by 2. + 
 [small]#Notice that in either bullet, it does not matter whether the new edge $e$ has endpoints that are "new" to the graph or were "old" vertices that were in the graph already.#
 
-Notice that any graph with $k+1$ edges can be built up this way from a graph that had $k$ edges 
-// MKD Oct 26 2025 
-//. 
-(or, if it is easier to think of, every graph with $k+1$ edges can be changed to one with only $k$ edges by temporarily removing one edge.) 
-So, using the fact that $2 \cdot k + 2 = 2 \cdot (k+1),$ we have proven that "The sum of the degrees of the vertices for a graph with $k+1$ edges is equal to $2 \cdot (k + 1).$  That is, we have proven that $P(k) \rightarrow P(k+1)$.
+Notice that any graph with $k+1$ edges can be built up this way from a graph that had $k$ edges. So, using the fact that $2 \cdot k + 2 = 2 \cdot (k+1),$ we have proven that "The sum of the degrees of the vertices for a graph with $k+1$ edges is equal to $2 \cdot (k + 1).$  That is, we have proven that $P(k) \rightarrow P(k+1)$.
 
 *Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
 // MKD Aug 21 2025 removed reference to universal generalization
@@ -1373,7 +1284,7 @@ Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be T
 
 Based on the formula for the $k\text{th}$ positive odd integer, we can rewrite the sum of the first $k$ positive odd integers 
 $1 + 3+ \ldots + (2k-1)$ 
-using link:./introduction_discrete_math.html#informal_summation_notation_definition[summation notation] as $\sum\limits_{i=1}^{k}(2i-1)$ and rewrite the predicate $P(k)$ in algebraic form as 
+using summation notation as $\sum\limits_{i=1}^{k}(2i-1)$ and rewrite the predicate $P(k)$ in algebraic form as 
 either \[ P(k): 1 + 3+ \ldots + (2k-1) = k^{2}\] 
 or \[ P(k): \sum\limits_{i=1}^{k}(2i-1) = k^{2}.\] Note that $P(k)$ is still a predicate 
 //proposition 
@@ -1449,7 +1360,7 @@ Assume that $P(k)$ is True with $k \geq 4,$ that is, $2^{k} < k!.$  If we multip
 \begin{equation}
 \begin{aligned}
 2^{k+1} {} & = 2 \cdot 2^{k} \\ 
-& < (k+1) \cdot 2^{k} \text{ (since $k \geq 4,$ we must have $k+1 \geq 5 >2$)}\\
+& < (k+1) \cdot 2^{k} \text{ (since $k \geq 4,$ we must have $k+1 > 5 >2$)}\\
 & < (k+1) \cdot k! \text{ by the induction hypothesis}
 \end{aligned}
 \end{equation}
@@ -1469,18 +1380,15 @@ Q.E.D.
 
 
 ****
-.Exercise - Setting Up A Proof By Induction (Solving the Towers of Hanoi)
+.Exercise - Setting Up A Proof By Induction (The Towers Of Hanoi)
 
 Set up the proof of the following statement.
 
-====
 The minimal number of moves needed to solve the link:./recursion.html#Towers_Of_Hanoi[Towers Of Hanoi] puzzle with $n$ discs is $2^{n}-1.$
-====
 
 What is the predicate $P(n)$?
 
-//What value of $n$ is best to use in the Basis Step?
-What value of $n$ is best to use in the Basis Step? That is, what is the smallest value of $n$ for which the statement/predicate could be True?
+What value of $n$ is best to use in the Basis Step?
 
 What is the Induction Hypothesis? 
 
@@ -1497,48 +1405,16 @@ the Induction Step? You can describe this in words or use an algebraic equation.
 
 //MKD Oct 23 2025
 ****
-//.Exercise - Setting Up A Proof By Induction (Counting Edges of Complete Graphs)
-//.Exercise - Setting Up A Proof By Induction (The Number of Edges of a Complete Graph)
-.Exercise - Setting Up A Proof By Induction (Counting the Edges of a Complete Graph)
+.Exercise - Setting Up A Proof By Induction (Counting Edges of Complete Graphs)
 
 Set up the proof of the following statement.
 
-====
 The number of edges of a link:./introduction_discrete_math.html#complete_graphs_and_star_graphs[complete graph] that has $n$ vertices is $\frac{1}{2}n(n-1).$ 
 //$\frac{1}{2}(n^{2}-n).$
-====
 
 What is the predicate $P(n)$?
 
-//What value of $n$ is best to use in the Basis Step?
-What value of $n$ is best to use in the Basis Step? That is, what is the smallest value of $n$ for which the statement/predicate could be True?
-
-What is the Induction Hypothesis? 
-
-////
-Suppose that you have a drawing of a complete graph that has $k$ vertices. 
-To create a drawing of a complete graph that has one more vertex, for a total of $k+1$ vertices, how many new edges would you need to draw? 
-Try to describe this using a recurrence relation for the function $E(k),$ where $E(k)$ outputs the number of edges in a complete graph that has $k$ vertices.
-////
-Suppose that you have a drawing of a complete graph that has $k+1$ vertices.  
-What changes could you make to the drawing to create a drawing of a complete graph that has $k$ vertices?
-
-****
-
-//MKD Oct 26 2025
-****
-.Exercise - Setting Up A Proof By Induction (The Binomial Theorem)
-
-Set up the proof of the following statement.
-
-====
-For every natural number $n$ and pair of real numbers $a$ and $b,$ \[(a+b)^{n} = \sum\limits_{i=0}^{n} {n\choose i}  a^{n-i} b^{i}.\]
-====
-
-What is the predicate $P(n)$?
-
-//What value of $n$ is best to use in the Basis Step?
-What value of $n$ is best to use in the Basis Step? That is, what is the smallest value of $n$ for which the statement/predicate could be True?
+What value of $n$ is best to use in the Basis Step?
 
 What is the Induction Hypothesis? 
 
@@ -1547,8 +1423,6 @@ To create a drawing of a complete graph that has one more vertex, for a total of
 Try to describe this using a recurrence relation for the function $E(k),$ where $E(k)$ outputs the number of edges in a complete graph that has $k$ vertices.
 
 ****
-
-//in the link:./induction.html[Proofs: Mathematical Induction] chapter that \[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i}  a^{n-i} b^{i} \] for every natural number $n.$
 
 
 
@@ -1590,154 +1464,6 @@ The minimal number of moves needed to solve the towers Of Hanoi with $n$ discs i
 
 
 MORE PROOFS TO COME!
-
-== Validating An Algorithm Using Induction
-
-// MKD revised Apr 7 2025 to include the algorithm here 
-//One of the uses of mathematical induction in computer science is the validation of algorithms. 
-In this section, we'll prove that the Euclidean Algorithm as described below correctly computes the greatest common divisor of two positive integers. 
-
-* Task: Given the positive integers $a$ and $b$ with $a > b$,  
-compute the greatest common divisor (or "g.c.d") of $a$ and $b.$ That is, compute the greatest integer that is a factor of both $a$ and $b.$ 
-** Input: Two positive integers 
-//$a$ and $b,$ with $a>b.$ 
-** Steps: 
-. Set $a$ to the greater and $b$ to the lesser of the two input values. 
-. Compute the remainder $r$ when $a$ is divided by $b$ (using long division of integers, not "floating-point" decimals.) 
-. If $r > 0$ 
-.. Set $a$ equal to $b$
-.. Set $b$ equal to $r$
-.. Go to step 2
-. Return the value stored in $b.$
-** Output: A positive integer that is a factor of both input values.
-
-
-//The code below implements this algorithm.
-
-:pt_code_height: 500
-:pt_rawinput: false
-:pt_code: %23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A
-
-****
-.Example {counter:MKDinductionexample} - The Euclidean Algorithm in Python
---
---
-The code below implements integer division for _positive_ integers _a_ and _b._ 
-
-
-Click on the "Next" button to step through the code.
-
-include::python_tutor.adoc[]
-
-****
-
-
-First, we will prove a lemma (that is, a minor theorem) that we'll use in the induction step of the main proof.
-
-****
-.Lemma
-
-If $a$ and $b$ are integers such that $a > b > 0$ and the integers $q$ and $r$ satisfy \[ a = q \cdot b + r \text{ and } 0 \leq r < b \]
-then the set of positive integers that divide both $a$ and $b$ is the same as the set of positive integers that divide both $b$ and $r.$ 
-
-[env.proof]
---
---
-
-Notice that $q$ is the quotient and $r$ is the remainder that result when doing a long division of $a$ by $b.$ 
-
-Also notice that we can rewrite the equation $a = q \cdot b + r$ in the equivalent form $r = a - q \cdot b.$ 
-
-// MKD Oct 26 2025 
-Before starting the formal proof, let's look at an example. 
-When we divide $a = 126$ by $b = 35$ using long division of integers, we get the quotient $q = 3$ and the remainder $r = 126 - 3 \cdot 35 = 21.$ That is, we can write the two equations \[126 = 3 \cdot 35 + 21 \text{ and } 21 = 126 - 3 \cdot 35\] which are both True. It is easy to see that for any integer, 
-// $c,$ $c$ 
-that integer divides both $126$ and $35$ if and only if 
-that same integer divides both $35$ and $21.$ 
-
-// MKD Oct 26 2025 
-//We can now prove the lemma.
-We now prove the lemma.
-
-* If the integer $c$ divides both $a$ and $b$ then there are integers $a'$ and $b'$ so that $a = c \cdot a'$ and $b = c \cdot b'.$ Substitute these two new expressions in the equation $r = a - q \cdot b$ to get 
-\begin{equation}
-\begin{aligned}
-r {} & = a - q \cdot b  \\ 
-& = (c \cdot a') - q \cdot (c \cdot b')  \\ 
-& = c \cdot a' - c \cdot (q \cdot b')  \\ 
-& = c \cdot (a' -  q \cdot b')
-\end{aligned}
-\end{equation}
-which shows that $c$ is also a divisor of $r.$ Since we already assumed that $c$ divides $b,$ this means that $c$ is a divisor of both $b$ and $r.$ Therefore, the set of positive integers that divide both $a$ and $b$ is a subset of the set of positive integers that divide both $b$ and $r.$ 
-
-* If the integer $k$ divides both $b$ and $r$ then there are integers $b''$ and $r''$ so that $b = k \cdot b''$ and $r = k \cdot r''.$ Substitute these two new expressions in the equation $a = q \cdot b + r$ to get 
-\begin{equation}
-\begin{aligned}
-a {} & =  q \cdot b + r  \\ 
-& = q \cdot (k \cdot b'') + (k \cdot r'')  \\ 
-& = k \cdot (q \cdot b'') + k \cdot r''  \\ 
-& = k \cdot (q \cdot b'' + r'')  
-\end{aligned}
-\end{equation}
-which shows that $k$ is also a divisor of $a.$ Since we already assumed that $k$ divides $b,$ this means that $k$ is a divisor of both $a$ and $b.$ Therefore, the set of positive integers that divide both $b$ and $r$ is a subset of the set of positive integers that divide both $a$ and $b.$ 
-
-So we have two subsets, each of which is a subset of the other, which means that the two sets must be equal. That is, the set of positive integers that divide both $a$ and $b$ is equal to the set of positive integers that divide both $b$ and $r;$ more plainly, the two set descriptions define the _same_ set.
-
-Q.E.D.
-
-****
-
-From the lemma we can conclude that the greatest common divisor of $a$ and $b$ is equal to the greatest common divisor of $b$ and $r.$
-
-We are now ready to prove the main result by induction. 
-
-.Theorem 
-****
-The Euclidean Algorithm correctly computes the greatest common divisor (g.c.d.) of the two positive integers $a$ and $b.$
-
-[env.proof]
---
---
-
-We use mathematical induction on the number of times $n$ we must compute a new remainder (that is, the number $n$ of iterations of the code block inside the loop), and prove that the algorithm computes the correct g.c.d. no matter what the value of $n$ is.
-
-Let $P(n)$ be the predicate "If the loop executes $n$ times, then the last nonzero remainder is the g.c.d. of the two initial inputs." We will prove that $(\forall n \in \mathbb{N})P(n)$ is True.
-
-*Basis Step:* Notice that the number of iterations of the loop is $n=0$ if and only if the value of $r = a\%b$ is equal to $0$, which is True if and only if $b$ divides $a.$ This means that the "last nonzero remainder" is $b,$ and $b$ is the greatest common divisor of $a$ and $b,$ which means that $P(0)$ is True. 
-
-We can also prove that $P(1)$ is True in case the proof of $P(0)$ is unsatisfying. In the case when $n=1,$ the loop executes $1$ time, which means that $a = q \cdot b + r$ and $r$ is a nonzero divisor of $b,$ so $r$ is the g.c.d. of $b$ and $r,$ and we can use the lemma to conclude that $r$ is also the g.c.d. of $a$ and $b.$ This proves that $P(1)$ is True. 
-
-*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$.
-
-Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
-
-Assume that $P(k)$ is True for the positive integer $k,$ that is, if the loop executes $k$ times, then the last nonzero remainder is the g.c.d. of the two numbers we started with. 
-//, $a$ and $b.$ 
-We can assume $k \geq 1$ since the cases when $k \in \{ 0, 1 \}$ were proved in the Basis Step. Suppose that we have numbers $a$ and $b$ such that the loop executes $k+1$ times in order to reach the last nonzero remainder: We need to prove that this last nonzero remainder is actually the g.c.d. of $a$ and $b.$ Now, notice that if we find the first remainder so that $r = a - q \cdot b$ and $0 < r < b,$ then the Euclidean Algorithm requires $k$ loop iterations to find the last nonzero remainder for the pair of inputs $b$ and $r.$ That is , we know from the induction hypothesis that the last nonzero remainder for the initial values $b$ and $r$ is the g.c.d. of $b$ and $r.$ Now apply the lemma to conclude that the g.c.d. of $a$ and $b,$ computed after $k+1$ loop iterations, is equal to the g.c.d. of $b$ and $r,$ computed after $k$ loop iterations. Therefore, $P(k+1)$ is True, too. This proves that $P(k) \rightarrow P(k+1)$.
-
-*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
-// MKD Aug 21 2025 removed reference to universal generalization
-//use _universal generalization_ to 
-conclude that 
-for all natural numbers $n,$ if the loop executes $n$ times then the last nonzero remainder is the g.c.d. of $a$ and $b.$ That is, the Euclidean Algorithm correctly computes the g.c.d. of $a$ and $b$ no matter how many loop iterations are required to compute the last nonzero remainder.
-
-Q.E.D. 
-
-****
-
-//\[P(n): \text{ If the loop executes $n$ times, then the last nonzero remainder is the g.c.d. of the two initial inputs. } \]
-// \[P(n): \text{ If the number of iterations of the loop is }\ n \text{ then the last nonzero remainder computed } \]
-
-// MKD revised Apr 7 2025 
-[NOTE]
-//It is not difficult to see that 
-Notice that if $a = f_{n+2}$ and $b = f_{n+1}$ are consecutive Fibonacci numbers then the Euclidean Algorithm requires exactly $n$ loop iterations to compute the last nonzero remainder. + 
-The French mathematician Gabriel Lamé proved in 1844 that if the Euclidean Algorithm requires $n$ loop iterations to compute the last nonzero remainder for two given positive integer inputs $a$ and $b$ (with $a>b$) 
-then it must be True that both $f_{n+2} \leq a$ and $f_{n+1} \leq b.$ A proof by induction of Lamé's theorem is given at this link:https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case[Wikipedia page.] + 
-[small]#The "worst-case complexity" for the Euclidean Algorithm is described at that webpage as well: The Euclidean Algorithm is $O(log_{\phi}(b)).$ (Complexity and "big $O$" notation are discussed in the link:./growth_of_functions.html[Rates of Growth of Functions] chapter.)#
-
-
-
 
 // MKD - strong induction section needs cleanup/rewrite
 //== Strong Induction (SECTION IN PROGRESS)
@@ -1934,33 +1660,145 @@ Q.E.D.
 ****
 
 
-//MKD Oct 26 2025
-****
-//.Exercise - Setting Up A Proof By Strong Induction (Counting Edges of Rooted Trees)
-.Exercise - Setting Up A Proof By Strong Induction (Counting the Edges of a Rooted Tree)
-
-Set up the proof of the following statement.
-
-====
-The number of edges of a link:./recursion.html#rooted_trees[rooted tree] is one less than the number of vertices of the rooted tree. 
-====
-
-What is the predicate $P(n)$?
-
-//What value(s) of $n$ is/are best to use in the Basis Step?
-//What value of $n$ is best to use in the Basis Step?
-What value(s) of $n$ is/are best to use in the Basis Step? That is, what is/are the smallest value(s) of $n$ for which the statement/predicate could be True? 
-
-What is the Induction Hypothesis? 
-
-Suppose that you have a drawing of a rooted tree that has $k+1$ vertices. 
-//How can you create rooted subtrees to which the Induction Hypothesis applies? 
-How can you use the recursive definition of link:./recursion.html#rooted_trees[rooted trees] to apply the Induction Hypothesis? 
-
-****
-
 
 //MORE TO COME!
+
+
+== Validating An Algorithm Using Induction
+
+// MKD revised Apr 7 2025 to include the algorithm here 
+//One of the uses of mathematical induction in computer science is the validation of algorithms. 
+In this section, we'll prove that the Euclidean Algorithm as described below correctly computes the greatest common divisor of two positive integers. 
+
+* Task: Given the positive integers $a$ and $b$ with $a > b$,  
+compute the greatest common divisor (or "g.c.d") of $a$ and $b.$ That is, compute the greatest integer that is a factor of both $a$ and $b.$ 
+** Input: Two positive integers 
+//$a$ and $b,$ with $a>b.$ 
+** Steps: 
+. Set $a$ to the greater and $b$ to the lesser of the two input values. 
+. Compute the remainder $r$ when $a$ is divided by $b$ (using long division of integers, not "floating-point" decimals.) 
+. If $r > 0$ 
+.. Set $a$ equal to $b$
+.. Set $b$ equal to $r$
+.. Go to step 2
+. Return the value stored in $b.$
+** Output: A positive integer that is a factor of both input values.
+
+
+//The code below implements this algorithm.
+
+:pt_code_height: 500
+:pt_rawinput: false
+:pt_code: %23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A
+
+****
+.Example {counter:MKDinductionexample} - The Euclidean Algorithm in Python
+--
+--
+The code below implements integer division for _positive_ integers _a_ and _b._ 
+
+
+Click on the "Next" button to step through the code.
+
+include::python_tutor.adoc[]
+
+****
+
+
+First, we will prove a lemma (that is, a minor theorem) that we'll use in the induction step of the main proof.
+
+****
+.Lemma
+
+If $a$ and $b$ are integers such that $a > b > 0$ and the integers $q$ and $r$ satisfy \[ a = q \cdot b + r \text{ and } 0 \leq r < b \]
+then the set of positive integers that divide both $a$ and $b$ is the same as the set of positive integers that divide both $b$ and $r.$ 
+
+[env.proof]
+--
+--
+
+Notice that $q$ is the quotient and $r$ is the remainder that result when doing a long division of $a$ by $b.$ 
+
+Also notice that we can rewrite the equation $a = q \cdot b + r$ in the equivalent form $r = a - q \cdot b.$ 
+
+We can now prove the lemma.
+
+* If the integer $c$ divides both $a$ and $b$ then there are integers $a'$ and $b'$ so that $a = c \cdot a'$ and $b = c \cdot b'.$ Substitute these two new expressions in the equation $r = a - q \cdot b$ to get 
+\begin{equation}
+\begin{aligned}
+r {} & = a - q \cdot b  \\ 
+& = (c \cdot a') - q \cdot (c \cdot b')  \\ 
+& = c \cdot a' - c \cdot (q \cdot b')  \\ 
+& = c \cdot (a' -  q \cdot b')
+\end{aligned}
+\end{equation}
+which shows that $c$ is also a divisor of $r.$ Since we already assumed that $c$ divides $b,$ this means that $c$ is a divisor of both $b$ and $r.$ Therefore, the set of positive integers that divide both $a$ and $b$ is a subset of the set of positive integers that divide both $b$ and $r.$ 
+
+* If the integer $k$ divides both $b$ and $r$ then there are integers $b''$ and $r''$ so that $b = k \cdot b''$ and $r = k \cdot r''.$ Substitute these two new expressions in the equation $a = q \cdot b + r$ to get 
+\begin{equation}
+\begin{aligned}
+a {} & =  q \cdot b + r  \\ 
+& = q \cdot (k \cdot b'') + (k \cdot r'')  \\ 
+& = k \cdot (q \cdot b'') + k \cdot r''  \\ 
+& = k \cdot (q \cdot b'' + r'')  
+\end{aligned}
+\end{equation}
+which shows that $k$ is also a divisor of $a.$ Since we already assumed that $k$ divides $b,$ this means that $k$ is a divisor of both $a$ and $b.$ Therefore, the set of positive integers that divide both $b$ and $r$ is a subset of the set of positive integers that divide both $a$ and $b.$ 
+
+So we have two subsets, each of which is a subset of the other, which means that the two sets must be equal. That is, the set of positive integers that divide both $a$ and $b$ is equal to the set of positive integers that divide both $b$ and $r;$ more plainly, the two set descriptions define the _same_ set.
+
+Q.E.D.
+
+****
+
+From the lemma we can conclude that the greatest common divisor of $a$ and $b$ is equal to the greatest common divisor of $b$ and $r.$
+
+We are now ready to prove the main result by induction. 
+
+.Theorem 
+****
+The Euclidean Algorithm correctly computes the greatest common divisor (g.c.d.) of the two positive integers $a$ and $b.$
+
+[env.proof]
+--
+--
+
+We use mathematical induction on the number of times $n$ we must compute a new remainder (that is, the number $n$ of iterations of the code block inside the loop), and prove that the algorithm computes the correct g.c.d. no matter what the value of $n$ is.
+
+Let $P(n)$ be the predicate "If the loop executes $n$ times, then the last nonzero remainder is the g.c.d. of the two initial inputs." We will prove that $(\forall n \in \mathbb{N})P(n)$ is True.
+
+*Basis Step:* Notice that the number of iterations of the loop is $n=0$ if and only if the value of $r = a\%b$ is equal to $0$, which is True if and only if $b$ divides $a.$ This means that the "last nonzero remainder" is $b,$ and $b$ is the greatest common divisor of $a$ and $b,$ which means that $P(0)$ is True. 
+
+We can also prove that $P(1)$ is True in case the proof of $P(0)$ is unsatisfying. In the case when $n=1,$ the loop executes $1$ time, which means that $a = q \cdot b + r$ and $r$ is a nonzero divisor of $b,$ so $r$ is the g.c.d. of $b$ and $r,$ and we can use the lemma to conclude that $r$ is also the g.c.d. of $a$ and $b.$ This proves that $P(1)$ is True. 
+
+*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$.
+
+Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
+
+Assume that $P(k)$ is True for the positive integer $k,$ that is, if the loop executes $k$ times, then the last nonzero remainder is the g.c.d. of the two numbers we started with. 
+//, $a$ and $b.$ 
+We can assume $k \geq 1$ since the cases when $k \in \{ 0, 1 \}$ were proved in the Basis Step. Suppose that we have numbers $a$ and $b$ such that the loop executes $k+1$ times in order to reach the last nonzero remainder: We need to prove that this last nonzero remainder is actually the g.c.d. of $a$ and $b.$ Now, notice that if we find the first remainder so that $r = a - q \cdot b$ and $0 < r < b,$ then the Euclidean Algorithm requires $k$ loop iterations to find the last nonzero remainder for the pair of inputs $b$ and $r.$ That is , we know from the induction hypothesis that the last nonzero remainder for the initial values $b$ and $r$ is the g.c.d. of $b$ and $r.$ Now apply the lemma to conclude that the g.c.d. of $a$ and $b,$ computed after $k+1$ loop iterations, is equal to the g.c.d. of $b$ and $r,$ computed after $k$ loop iterations. Therefore, $P(k+1)$ is True, too. This proves that $P(k) \rightarrow P(k+1)$.
+
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
+// MKD Aug 21 2025 removed reference to universal generalization
+//use _universal generalization_ to 
+conclude that 
+for all natural numbers $n,$ if the loop executes $n$ times then the last nonzero remainder is the g.c.d. of $a$ and $b.$ That is, the Euclidean Algorithm correctly computes the g.c.d. of $a$ and $b$ no matter how many loop iterations are required to compute the last nonzero remainder.
+
+Q.E.D. 
+
+****
+
+//\[P(n): \text{ If the loop executes $n$ times, then the last nonzero remainder is the g.c.d. of the two initial inputs. } \]
+// \[P(n): \text{ If the number of iterations of the loop is }\ n \text{ then the last nonzero remainder computed } \]
+
+// MKD revised Apr 7 2025 
+[NOTE]
+//It is not difficult to see that 
+Notice that if $a = f_{n+2}$ and $b = f_{n+1}$ are consecutive Fibonacci numbers then the Euclidean Algorithm requires exactly $n$ loop iterations to compute the last nonzero remainder. + 
+The French mathematician Gabriel Lamé proved in 1844 that if the Euclidean Algorithm requires $n$ loop iterations to compute the last nonzero remainder for two given positive integer inputs $a$ and $b$ (with $a>b$) 
+then it must be True that both $f_{n+2} \leq a$ and $f_{n+1} \leq b.$ A proof by induction of Lamé's theorem is given at this link:https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case[Wikipedia page.] + 
+[small]#The "worst-case complexity" for the Euclidean Algorithm is described at that webpage as well: The Euclidean Algorithm is $O(log_{\phi}(b)).$ (Complexity and "big $O$" notation are discussed in the link:./growth_of_functions.html[Rates of Growth of Functions] chapter.)#
 
 
 

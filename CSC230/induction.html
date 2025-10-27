@@ -631,7 +631,15 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on August 23, 2025.
+        This chapter was last updated on October 27, 2025.
+       </em>
+       <br/>
+       <em>
+        added new “coder-friendly” version of example in the first subsection (sum of consecutive odd positive integers)
+       </em>
+       <br/>
+       <em>
+        added additional “setting up a proof” exercises (complete graphs, binomial theorem)
        </em>
        <br/>
        <em>
@@ -719,21 +727,194 @@ consists of a
          finite
         </em>
         length.
-As an analogy, imagine you had an “algorithm” that required infinitely-many steps to complete its task… such an algorithm would not be useful in the real world since it
-might
-never complete the task!
        </p>
       </div>
       <div class="paragraph">
        <p>
-        The next example introduces the ideas we will use to prove an infinite sequence of related propositions.
+        As an analogy, imagine you had an “algorithm” that required infinitely-many steps to complete its task… such an algorithm would not be useful in the real world since it
+might
+never complete the task!
        </p>
       </div>
       <div class="sidebarblock">
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 1 - Why Use Mathematical Induction?
+          Example 1 - What is this code computing?
+         </div>
+         <p>
+          The Python code below computes the sum of consecutive odd positive integers, starting at 1, and stops at the first sum that is greater than or equal to
+          <code>
+           too_small
+          </code>
+          which was initialized to the value 10. You should trace through the code to see how it works.
+         </p>
+        </div>
+        <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Aprint%28the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20print%28the_sum%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Aprint%28the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20print%28the_sum%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="paragraph">
+         <p>
+          You may notice that each number that is printed is a perfect square integer.
+Will this be True no matter how many values we tell the code to print? Try editing the code and changing the initialization value of
+          <code>
+           too_small
+          </code>
+          to a larger integer such as
+          <a href="https://pythontutor.com/render.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%20100%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Aprint%28the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20print%28the_sum%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=false&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
+           100
+          </a>
+          to see that this pattern persists.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          To better analyze this code, let’s insert a variable
+          <code>
+           the_counter
+          </code>
+          which we’ll use to count how many odd positive integers have been added to
+          <code>
+           the_sum
+          </code>
+          so far.
+         </p>
+        </div>
+        <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Athe_counter%20%3D%201%0A%23print%28the_sum%29%0Aprint%28the_counter,%20the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20the_counter%20%3D%20the_counter%20%2B%201%0A%20%20%20%20%23print%28the_sum%29%20%20%20%20%0A%20%20%20%20print%28the_counter,%20the_sum%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Athe_counter%20%3D%201%0A%23print%28the_sum%29%0Aprint%28the_counter,%20the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20the_counter%20%3D%20the_counter%20%2B%201%0A%20%20%20%20%23print%28the_sum%29%20%20%20%20%0A%20%20%20%20print%28the_counter,%20the_sum%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that each print statement now seems to display a positive integer and its square… but we are not directly computing that square! Again, you can edit this code to change the value that
+          <code>
+           too_small
+          </code>
+          is initialized to to a larger integer such as
+          <a href="https://pythontutor.com/render.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%20100%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Athe_counter%20%3D%201%0A%23print%28the_sum%29%0Aprint%28the_counter,%20the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20the_counter%20%3D%20the_counter%20%2B%201%0A%20%20%20%20%23print%28the_sum%29%20%20%20%20%0A%20%20%20%20print%28the_counter,%20the_sum%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=false&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
+           100
+          </a>
+          or even
+          <a href="https://pythontutor.com/render.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010000%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Athe_counter%20%3D%201%0A%23print%28the_sum%29%0Aprint%28the_counter,%20the_sum%29%0Awhile%20the_sum%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20the_counter%20%3D%20the_counter%20%2B%201%0A%20%20%20%20%23print%28the_sum%29%20%20%20%20%0A%20%20%20%20print%28the_counter,%20the_sum%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=false&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
+           10000
+          </a>
+          to see that this pattern persists.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          To make it more clear, let’s edit the
+          <code>
+           print
+          </code>
+          statements so that the square of
+          <code>
+           the_counter
+          </code>
+          is displayed along with the other values. Also, since
+          <code>
+           the_counter
+          </code>
+          appears to be
+such an
+important variable, let’s replace the loop condition with one that involves that variable (so
+          <code>
+           too_small
+          </code>
+          now is used as a bound on how many consecutive odd positive integers we’ve added instead of a bound on the cumulative sum.)
+         </p>
+        </div>
+        <iframe frameborder="5" height="550" src="https://pythontutor.com/iframe-embed.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Athe_counter%20%3D%201%0A%23print%28the_sum%29%0Aprint%28the_counter,%20the_sum,%20the_counter**2%29%0A%23while%20the_sum%20%3C%20too_small%3A%0Awhile%20the_counter%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20the_counter%20%3D%20the_counter%20%2B%201%0A%20%20%20%20%23print%28the_sum%29%20%20%20%20%0A%20%20%20%20print%28the_counter,%20the_sum,%20the_counter**2%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=550" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%23%20compute%20the%20sum%20of%20consecutive%20odd%20positive%20integers%0Atoo_small%20%3D%2010%20%0Athe_integer%20%3D%201%0Athe_sum%20%3D%20the_integer%0Athe_counter%20%3D%201%0A%23print%28the_sum%29%0Aprint%28the_counter,%20the_sum,%20the_counter**2%29%0A%23while%20the_sum%20%3C%20too_small%3A%0Awhile%20the_counter%20%3C%20too_small%3A%0A%20%20%20%20the_integer%20%3D%20the_integer%20%2B%202%0A%20%20%20%20the_sum%20%3D%20the_sum%20%2B%20the_integer%0A%20%20%20%20the_counter%20%3D%20the_counter%20%2B%201%0A%20%20%20%20%23print%28the_sum%29%20%20%20%20%0A%20%20%20%20print%28the_counter,%20the_sum,%20the_counter**2%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="paragraph">
+         <p>
+          At this point, if may seem “obvious” that this code is showing us that the sum of the first \(n\) consecutive odd positive integers is always equal to \(n^{2}\) (where \(n\) can be any positive integer,) but notice that we can only use the code to show this for as many values as we can actually compute!
+The same issue arises here as in the
+brute‑force method for finding the least element of a nonempty subset of the natural numbers that was discussed after introducing the
+          <a href="./relations.html#well_ordering_principle_for_natural_numbers">
+           Well-Ordering Principle for \(\mathbb{N}\)
+          </a>
+          — we cannot actually run the code for very large values of
+          <code>
+           too_small
+          </code>
+          like \(10^{10^{10^{10^{10}}}}\) because we don’t have sufficient computing resources (including time and space) to do so.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          In a “mathematically ideal” universe we would simply change the loop to use
+          <code>
+           while True:
+          </code>
+          and let the code run forever, then just check that each printed line displays
+          <code>
+           the_counter
+          </code>
+          followed by two copies of its square. However, since we are human and have limited computing resources (including time and space) we will need another way of justifying that
+          <em>
+           every
+          </em>
+          value of
+          <code>
+           the_sum
+          </code>
+          will be a square without running an infinite loop.
+The approach we’ll take is to justify that no matter how many times we go through the loop, the value of
+          <code>
+           the_sum
+          </code>
+          will be the square of
+          <code>
+           the_counter
+          </code>
+          when we reach the
+end of the block of code within the loop
+          <em>
+           as long as that was also True for the previous iteration of the loop
+          </em>
+          (and was also True at the end of the initialization
+block,
+before ever entering the loop.)
+This technique is, essentially, “proof by mathematical induction.”
+          <br/>
+          <span class="small">
+           There are other approaches you could use to justify that
+           <code>
+            the_sum
+           </code>
+           will be the square of
+           <code>
+            the_counter
+           </code>
+           in this particular algorithm, but the goal of this example is to try to explain why we need the more general technique of mathematical induction to validate algorithms.
+          </span>
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Now let’s look at the same phenomenon using a mathematician’s point of view.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 2 - Why Use Mathematical Induction?
          </div>
          <p>
           Let’s examine a conjecture about a certain type of
@@ -1064,7 +1245,7 @@ Here is a proof of the Handshake Theorem for
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 2 - Proof of the Handshake Theorem
+          Example 3 - Proof of the Handshake Theorem
          </div>
          <p>
           We will prove the following proposition using
@@ -1175,7 +1356,15 @@ so the sum of the degrees of the vertices must also be 0, which is 2 times the n
         </div>
         <div class="paragraph">
          <p>
-          Suppose that we have a graph with \(k\) edges. We insert one new edge \(e\) into the graph. There are, essentially, two possible cases to consider.
+          Suppose that we have a graph with \(k\) edges.
+Recall that we are assuming that the Induction Hypothesis \(P(k)\) is True, so the sum of the degrees of the vertices is equal to \(2 \cdot k.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Next,
+we
+insert one new edge \(e\) into the graph. There are, essentially, two possible cases to consider.
          </p>
         </div>
         <div class="ulist">
@@ -1198,7 +1387,9 @@ so the sum of the degrees of the vertices must also be 0, which is 2 times the n
         </div>
         <div class="paragraph">
          <p>
-          Notice that any graph with \(k+1\) edges can be built up this way from a graph that had \(k\) edges. So, using the fact that \(2 \cdot k + 2 = 2 \cdot (k+1),\) we have proven that "The sum of the degrees of the vertices for a graph with \(k+1\) edges is equal to \(2 \cdot (k + 1).\)  That is, we have proven that \(P(k) \rightarrow P(k+1)\).
+          Notice that any graph with \(k+1\) edges can be built up this way from a graph that had \(k\) edges
+(or, if it is easier to think of, every graph with \(k+1\) edges can be changed to one with only \(k\) edges by temporarily removing one edge.)
+So, using the fact that \(2 \cdot k + 2 = 2 \cdot (k+1),\) we have proven that "The sum of the degrees of the vertices for a graph with \(k+1\) edges is equal to \(2 \cdot (k + 1).\)  That is, we have proven that \(P(k) \rightarrow P(k+1)\).
          </p>
         </div>
         <div class="paragraph">
@@ -1354,7 +1545,8 @@ an infinite loop, like the one shown in the code listing below, to verify that t
     return f"\"The sum of the first {k} positive odd integers is {k*k}\""
 
 def addTheOddsForever():
-    sum, k = 1, 1
+    sum = 1
+    k = 1
     if sum != k*k:
         print(P(k),"is a False proposition.")
         return False
@@ -1376,7 +1568,7 @@ if addTheOddsForever():
         <code>
          addTheOddsForever()
         </code>
-        returns True, the code will have verified the predicate for every positive natural number, but can
+        returns True, the code will have verified the predicate for every positive natural number… but when will
         <code>
          addTheOddsForever()
         </code>
@@ -1384,11 +1576,11 @@ if addTheOddsForever():
          ever
         </em>
         return True?
-The code only exits the loop if the predicate is False for some value of
+We only exit the loop if the predicate is False for some value of
         <code>
          k
         </code>
-        but will never exit the loop otherwise! We will have to wait forever for the answer (Of course, in reality, we would run out of memory or processing power or time in the universe before that.) However, a timeless being might be able to determine that the algorithm implemented in the code will return True, but this does not help we humans much.
+        (that is, if we find a counterexample) but otherwise we will never exit the loop to return True! We will have to wait “forever” for the answer, which dows not help us humans much — we would run out of memory or processing power or time in the universe before that.
        </p>
       </div>
       <div class="paragraph">
@@ -1438,7 +1630,7 @@ the predicate \(P(k)\) is True for all positive natural numbers by instead verif
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 3 - An Algebraic Expression for Positive Odd Integers
+          Example 4 - An Algebraic Expression for Positive Odd Integers
          </div>
          <p>
           Let \(P(n)\) be the predicate \[P(n)\text{: "The } n\text{th positive odd integer is equal to } 2n-1 \text{."}\] We will prove that \((\forall n \in \mathbb{N}_{&gt;0})P(n),\) that is, for all positive integers \(n.\)
@@ -1520,7 +1712,7 @@ for all positive integers \(n,\) the \(n\)th positive odd integer is equal to \(
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 4 - Square Numbers
+          Example 5 - Square Numbers
          </div>
          <p>
           Let \(P(n)\) be the predicate \[P(n)\text{: "The sum of the first } n \text{ positive odd integers is equal to } n^{2} \text{."}\] We will prove that \((\forall n \in \mathbb{N}_{&gt;0})P(n).\)
@@ -1556,7 +1748,11 @@ If we want to be sure that there are least two addends in the sum, we can use \(
          <p>
           Based on the formula for the \(k\text{th}\) positive odd integer, we can rewrite the sum of the first \(k\) positive odd integers
 \(1 + 3+ \ldots + (2k-1)\)
-using summation notation as \(\sum\limits_{i=1}^{k}(2i-1)\) and rewrite the predicate \(P(k)\) in algebraic form as
+using
+          <a href="./introduction_discrete_math.html#informal_summation_notation_definition">
+           summation notation
+          </a>
+          as \(\sum\limits_{i=1}^{k}(2i-1)\) and rewrite the predicate \(P(k)\) in algebraic form as
 either \[ P(k): 1 + 3+ \ldots + (2k-1) = k^{2}\]
 or \[ P(k): \sum\limits_{i=1}^{k}(2i-1) = k^{2}.\] Note that \(P(k)\) is still a predicate
 - it is stating that a certain equation holds.
@@ -1627,7 +1823,7 @@ conclude that
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 5 - The Factorial Grows Faster Than An Exponential Function
+          Example 6 - The Factorial Grows Faster Than An Exponential Function
          </div>
          <p>
           Let \(P(n)\) be the predicate \[P(n): 2^{n} &lt; n!\] We will prove that \((\forall n \in \mathbb{N}_{\geq 4})P(n).\)
@@ -1667,7 +1863,7 @@ conclude that
 \begin{equation}
 \begin{aligned}
 2^{k+1} {} &amp; = 2 \cdot 2^{k} \\
-&amp; &lt; (k+1) \cdot 2^{k} \text{ (since \(k \geq 4,\) we must have \(k+1 &gt; 5 &gt;2\))}\\
+&amp; &lt; (k+1) \cdot 2^{k} \text{ (since \(k \geq 4,\) we must have \(k+1 \geq 5 &gt;2\))}\\
 &amp; &lt; (k+1) \cdot k! \text{ by the induction hypothesis}
 \end{aligned}
 \end{equation}
@@ -1699,20 +1895,24 @@ for all positive integers \(n \geq 4\), \(2^{n} &lt; n!\)
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Exercise - Setting Up A Proof By Induction (The Towers Of Hanoi)
+          Exercise - Setting Up A Proof By Induction (Solving the Towers of Hanoi)
          </div>
          <p>
           Set up the proof of the following statement.
          </p>
         </div>
-        <div class="paragraph">
-         <p>
-          The minimal number of moves needed to solve the
-          <a href="./recursion.html#Towers_Of_Hanoi">
-           Towers Of Hanoi
-          </a>
-          puzzle with \(n\) discs is \(2^{n}-1.\)
-         </p>
+        <div class="exampleblock">
+         <div class="content">
+          <div class="paragraph">
+           <p>
+            The minimal number of moves needed to solve the
+            <a href="./recursion.html#Towers_Of_Hanoi">
+             Towers Of Hanoi
+            </a>
+            puzzle with \(n\) discs is \(2^{n}-1.\)
+           </p>
+          </div>
+         </div>
         </div>
         <div class="paragraph">
          <p>
@@ -1721,7 +1921,7 @@ for all positive integers \(n \geq 4\), \(2^{n} &lt; n!\)
         </div>
         <div class="paragraph">
          <p>
-          What value of \(n\) is best to use in the Basis Step?
+          What value of \(n\) is best to use in the Basis Step? That is, what is the smallest value of \(n\) for which the statement/predicate could be True?
          </p>
         </div>
         <div class="paragraph">
@@ -1741,6 +1941,95 @@ the Induction Step? You can describe this in words or use an algebraic equation.
         </div>
        </div>
       </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Exercise - Setting Up A Proof By Induction (Counting the Edges of a Complete Graph)
+         </div>
+         <p>
+          Set up the proof of the following statement.
+         </p>
+        </div>
+        <div class="exampleblock">
+         <div class="content">
+          <div class="paragraph">
+           <p>
+            The number of edges of a
+            <a href="./introduction_discrete_math.html#complete_graphs_and_star_graphs">
+             complete graph
+            </a>
+            that has \(n\) vertices is \(\frac{1}{2}n(n-1).\)
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          What is the predicate \(P(n)\)?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What value of \(n\) is best to use in the Basis Step? That is, what is the smallest value of \(n\) for which the statement/predicate could be True?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What is the Induction Hypothesis?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Suppose that you have a drawing of a complete graph that has \(k+1\) vertices.
+What changes could you make to the drawing to create a drawing of a complete graph that has \(k\) vertices?
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Exercise - Setting Up A Proof By Induction (The Binomial Theorem)
+         </div>
+         <p>
+          Set up the proof of the following statement.
+         </p>
+        </div>
+        <div class="exampleblock">
+         <div class="content">
+          <div class="paragraph">
+           <p>
+            For every natural number \(n\) and pair of real numbers \(a\) and \(b,\) \[(a+b)^{n} = \sum\limits_{i=0}^{n} {n\choose i}  a^{n-i} b^{i}.\]
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          What is the predicate \(P(n)\)?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What value of \(n\) is best to use in the Basis Step? That is, what is the smallest value of \(n\) for which the statement/predicate could be True?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          What is the Induction Hypothesis?
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Suppose that you have a drawing of a complete graph that has \(k\) vertices.
+To create a drawing of a complete graph that has one more vertex, for a total of \(k+1\) vertices, how many new edges would you need to draw?
+Try to describe this using a recurrence relation for the function \(E(k),\) where \(E(k)\) outputs the number of edges in a complete graph that has \(k\) vertices.
+         </p>
+        </div>
+       </div>
+      </div>
       <div class="paragraph">
        <p>
         MORE PROOFS TO COME!
@@ -1748,8 +2037,344 @@ the Induction Step? You can describe this in words or use an algebraic equation.
       </div>
      </div>
      <div class="sect2">
+      <h3 id="_validating_an_algorithm_using_induction">
+       11.5. Validating An Algorithm Using Induction
+      </h3>
+      <div class="paragraph">
+       <p>
+        In this section, we’ll prove that the Euclidean Algorithm as described below correctly computes the greatest common divisor of two positive integers.
+       </p>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Task: Given the positive integers \(a\) and \(b\) with \(a &gt; b\),
+compute the greatest common divisor (or "g.c.d") of \(a\) and \(b.\) That is, compute the greatest integer that is a factor of both \(a\) and \(b.\)
+         </p>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             Input: Two positive integers
+            </p>
+           </li>
+           <li>
+            <p>
+             Steps:
+            </p>
+            <div class="olist arabic">
+             <ol class="arabic">
+              <li>
+               <p>
+                Set \(a\) to the greater and \(b\) to the lesser of the two input values.
+               </p>
+              </li>
+              <li>
+               <p>
+                Compute the remainder \(r\) when \(a\) is divided by \(b\) (using long division of integers, not "floating-point" decimals.)
+               </p>
+              </li>
+              <li>
+               <p>
+                If \(r &gt; 0\)
+               </p>
+               <div class="olist loweralpha">
+                <ol class="loweralpha" type="a">
+                 <li>
+                  <p>
+                   Set \(a\) equal to \(b\)
+                  </p>
+                 </li>
+                 <li>
+                  <p>
+                   Set \(b\) equal to \(r\)
+                  </p>
+                 </li>
+                 <li>
+                  <p>
+                   Go to step 2
+                  </p>
+                 </li>
+                </ol>
+               </div>
+              </li>
+              <li>
+               <p>
+                Return the value stored in \(b.\)
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+           <li>
+            <p>
+             Output: A positive integer that is a factor of both input values.
+            </p>
+           </li>
+          </ul>
+         </div>
+        </li>
+       </ul>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 7 - The Euclidean Algorithm in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The code below implements integer division for
+          <em>
+           positive
+          </em>
+          integers
+          <em>
+           a
+          </em>
+          and
+          <em>
+           b.
+          </em>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Click on the "Next" button to step through the code.
+         </p>
+        </div>
+        <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=%23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        First, we will prove a lemma (that is, a minor theorem) that we’ll use in the induction step of the main proof.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Lemma
+         </div>
+         <p>
+          If \(a\) and \(b\) are integers such that \(a &gt; b &gt; 0\) and the integers \(q\) and \(r\) satisfy \[ a = q \cdot b + r \text{ and } 0 \leq r &lt; b \]
+then the set of positive integers that divide both \(a\) and \(b\) is the same as the set of positive integers that divide both \(b\) and \(r.\)
+         </p>
+        </div>
+        <div class="openblock proof">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Notice that \(q\) is the quotient and \(r\) is the remainder that result when doing a long division of \(a\) by \(b.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Also notice that we can rewrite the equation \(a = q \cdot b + r\) in the equivalent form \(r = a - q \cdot b.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Before starting the formal proof, let’s look at an example.
+When we divide \(a = 126\) by \(b = 35\) using long division of integers, we get the quotient \(q = 3\) and the remainder \(r = 126 - 3 \cdot 35 = 21.\) That is, we can write the two equations \[126 = 3 \cdot 35 + 21 \text{ and } 21 = 126 - 3 \cdot 35\] which are both True. It is easy to see that for any integer,
+that integer divides both \(126\) and \(35\) if and only if
+that same integer divides both \(35\) and \(21.\)
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We now prove the lemma.
+         </p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            If the integer \(c\) divides both \(a\) and \(b\) then there are integers \(a'\) and \(b'\) so that \(a = c \cdot a'\) and \(b = c \cdot b'.\) Substitute these two new expressions in the equation \(r = a - q \cdot b\) to get
+\begin{equation}
+\begin{aligned}
+r {} &amp; = a - q \cdot b  \\
+&amp; = (c \cdot a') - q \cdot (c \cdot b')  \\
+&amp; = c \cdot a' - c \cdot (q \cdot b')  \\
+&amp; = c \cdot (a' -  q \cdot b')
+\end{aligned}
+\end{equation}
+which shows that \(c\) is also a divisor of \(r.\) Since we already assumed that \(c\) divides \(b,\) this means that \(c\) is a divisor of both \(b\) and \(r.\) Therefore, the set of positive integers that divide both \(a\) and \(b\) is a subset of the set of positive integers that divide both \(b\) and \(r.\)
+           </p>
+          </li>
+          <li>
+           <p>
+            If the integer \(k\) divides both \(b\) and \(r\) then there are integers \(b''\) and \(r''\) so that \(b = k \cdot b''\) and \(r = k \cdot r''.\) Substitute these two new expressions in the equation \(a = q \cdot b + r\) to get
+\begin{equation}
+\begin{aligned}
+a {} &amp; =  q \cdot b + r  \\
+&amp; = q \cdot (k \cdot b'') + (k \cdot r'')  \\
+&amp; = k \cdot (q \cdot b'') + k \cdot r''  \\
+&amp; = k \cdot (q \cdot b'' + r'')
+\end{aligned}
+\end{equation}
+which shows that \(k\) is also a divisor of \(a.\) Since we already assumed that \(k\) divides \(b,\) this means that \(k\) is a divisor of both \(a\) and \(b.\) Therefore, the set of positive integers that divide both \(b\) and \(r\) is a subset of the set of positive integers that divide both \(a\) and \(b.\)
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="paragraph">
+         <p>
+          So we have two subsets, each of which is a subset of the other, which means that the two sets must be equal. That is, the set of positive integers that divide both \(a\) and \(b\) is equal to the set of positive integers that divide both \(b\) and \(r;\) more plainly, the two set descriptions define the
+          <em>
+           same
+          </em>
+          set.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        From the lemma we can conclude that the greatest common divisor of \(a\) and \(b\) is equal to the greatest common divisor of \(b\) and \(r.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We are now ready to prove the main result by induction.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Theorem
+        </div>
+        <div class="paragraph">
+         <p>
+          The Euclidean Algorithm correctly computes the greatest common divisor (g.c.d.) of the two positive integers \(a\) and \(b.\)
+         </p>
+        </div>
+        <div class="openblock proof">
+         <div class="title">
+          Proof
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+          </div>
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          We use mathematical induction on the number of times \(n\) we must compute a new remainder (that is, the number \(n\) of iterations of the code block inside the loop), and prove that the algorithm computes the correct g.c.d. no matter what the value of \(n\) is.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Let \(P(n)\) be the predicate "If the loop executes \(n\) times, then the last nonzero remainder is the g.c.d. of the two initial inputs." We will prove that \((\forall n \in \mathbb{N})P(n)\) is True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Basis Step:
+          </strong>
+          Notice that the number of iterations of the loop is \(n=0\) if and only if the value of \(r = a\%b\) is equal to \(0\), which is True if and only if \(b\) divides \(a.\) This means that the "last nonzero remainder" is \(b,\) and \(b\) is the greatest common divisor of \(a\) and \(b,\) which means that \(P(0)\) is True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          We can also prove that \(P(1)\) is True in case the proof of \(P(0)\) is unsatisfying. In the case when \(n=1,\) the loop executes \(1\) time, which means that \(a = q \cdot b + r\) and \(r\) is a nonzero divisor of \(b,\) so \(r\) is the g.c.d. of \(b\) and \(r,\) and we can use the lemma to conclude that \(r\) is also the g.c.d. of \(a\) and \(b.\) This proves that \(P(1)\) is True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Induction Step:
+          </strong>
+          First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use
+          <em>
+           modus ponens
+          </em>
+          (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Assume that \(P(k)\) is True for the positive integer \(k,\) that is, if the loop executes \(k\) times, then the last nonzero remainder is the g.c.d. of the two numbers we started with.
+We can assume \(k \geq 1\) since the cases when \(k \in \{ 0, 1 \}\) were proved in the Basis Step. Suppose that we have numbers \(a\) and \(b\) such that the loop executes \(k+1\) times in order to reach the last nonzero remainder: We need to prove that this last nonzero remainder is actually the g.c.d. of \(a\) and \(b.\) Now, notice that if we find the first remainder so that \(r = a - q \cdot b\) and \(0 &lt; r &lt; b,\) then the Euclidean Algorithm requires \(k\) loop iterations to find the last nonzero remainder for the pair of inputs \(b\) and \(r.\) That is , we know from the induction hypothesis that the last nonzero remainder for the initial values \(b\) and \(r\) is the g.c.d. of \(b\) and \(r.\) Now apply the lemma to conclude that the g.c.d. of \(a\) and \(b,\) computed after \(k+1\) loop iterations, is equal to the g.c.d. of \(b\) and \(r,\) computed after \(k\) loop iterations. Therefore, \(P(k+1)\) is True, too. This proves that \(P(k) \rightarrow P(k+1)\).
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Conclusion Step:
+          </strong>
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
+for all natural numbers \(n,\) if the loop executes \(n\) times then the last nonzero remainder is the g.c.d. of \(a\) and \(b.\) That is, the Euclidean Algorithm correctly computes the g.c.d. of \(a\) and \(b\) no matter how many loop iterations are required to compute the last nonzero remainder.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          Q.E.D.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          Notice that if \(a = f_{n+2}\) and \(b = f_{n+1}\) are consecutive Fibonacci numbers then the Euclidean Algorithm requires exactly \(n\) loop iterations to compute the last nonzero remainder.
+          <br/>
+          The French mathematician Gabriel Lamé proved in 1844 that if the Euclidean Algorithm requires \(n\) loop iterations to compute the last nonzero remainder for two given positive integer inputs \(a\) and \(b\) (with \(a&gt;b\))
+then it must be True that both \(f_{n+2} \leq a\) and \(f_{n+1} \leq b.\) A proof by induction of Lamé’s theorem is given at this
+          <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case">
+           Wikipedia page.
+          </a>
+          <br/>
+          <span class="small">
+           The "worst-case complexity" for the Euclidean Algorithm is described at that webpage as well: The Euclidean Algorithm is \(O(log_{\phi}(b)).\) (Complexity and "big \(O\)" notation are discussed in the
+           <a href="./growth_of_functions.html">
+            Rates of Growth of Functions
+           </a>
+           chapter.)
+          </span>
+         </td>
+        </tr>
+       </table>
+      </div>
+     </div>
+     <div class="sect2">
       <h3 id="_strong_induction">
-       11.5. Strong Induction
+       11.6. Strong Induction
       </h3>
       <div class="paragraph">
        <p>
@@ -1815,7 +2440,7 @@ the Induction Step? You can describe this in words or use an algebraic equation.
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 6 - An Upper Bound for the Fibonacci numbers
+          Example 8 - An Upper Bound for the Fibonacci numbers
          </div>
          <p>
           Recall that the
@@ -2039,333 +2664,55 @@ for all natural numbers \(n \geq 2,\) \(n\) is either a prime number or a produc
         </div>
        </div>
       </div>
-     </div>
-     <div class="sect2">
-      <h3 id="_validating_an_algorithm_using_induction">
-       11.6. Validating An Algorithm Using Induction
-      </h3>
-      <div class="paragraph">
-       <p>
-        In this section, we’ll prove that the Euclidean Algorithm as described below correctly computes the greatest common divisor of two positive integers.
-       </p>
-      </div>
-      <div class="ulist">
-       <ul>
-        <li>
-         <p>
-          Task: Given the positive integers \(a\) and \(b\) with \(a &gt; b\),
-compute the greatest common divisor (or "g.c.d") of \(a\) and \(b.\) That is, compute the greatest integer that is a factor of both \(a\) and \(b.\)
-         </p>
-         <div class="ulist">
-          <ul>
-           <li>
-            <p>
-             Input: Two positive integers
-            </p>
-           </li>
-           <li>
-            <p>
-             Steps:
-            </p>
-            <div class="olist arabic">
-             <ol class="arabic">
-              <li>
-               <p>
-                Set \(a\) to the greater and \(b\) to the lesser of the two input values.
-               </p>
-              </li>
-              <li>
-               <p>
-                Compute the remainder \(r\) when \(a\) is divided by \(b\) (using long division of integers, not "floating-point" decimals.)
-               </p>
-              </li>
-              <li>
-               <p>
-                If \(r &gt; 0\)
-               </p>
-               <div class="olist loweralpha">
-                <ol class="loweralpha" type="a">
-                 <li>
-                  <p>
-                   Set \(a\) equal to \(b\)
-                  </p>
-                 </li>
-                 <li>
-                  <p>
-                   Set \(b\) equal to \(r\)
-                  </p>
-                 </li>
-                 <li>
-                  <p>
-                   Go to step 2
-                  </p>
-                 </li>
-                </ol>
-               </div>
-              </li>
-              <li>
-               <p>
-                Return the value stored in \(b.\)
-               </p>
-              </li>
-             </ol>
-            </div>
-           </li>
-           <li>
-            <p>
-             Output: A positive integer that is a factor of both input values.
-            </p>
-           </li>
-          </ul>
-         </div>
-        </li>
-       </ul>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="openblock">
-         <div class="title">
-          Example 7 - The Euclidean Algorithm in Python
-         </div>
-         <div class="content">
-         </div>
-        </div>
-        <div class="paragraph">
-         <p>
-          The code below implements integer division for
-          <em>
-           positive
-          </em>
-          integers
-          <em>
-           a
-          </em>
-          and
-          <em>
-           b.
-          </em>
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Click on the "Next" button to step through the code.
-         </p>
-        </div>
-        <iframe frameborder="5" height="500" src="https://pythontutor.com/iframe-embed.html#code=%23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=500" width="100%">
-        </iframe>
-        <div style="text-align: right;">
-         <a href="http://www.pythontutor.com/visualize.html#code=%23%20set%20values%20of%20integers%20a%20and%20b%20with%20a%3Eb%3E0%0Aa%20%3D%2026480501%0Ab%20%3D%208841577%0Aprint%28%22The%20gcd%20of%22,a,%22and%22,b,%22is%22,%20end%20%3D%22%20%22%29%0A%23%20loop%20until%20remainder%20r%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Ar%20%3D%20a%20%25%20b%20%23%20integer%20remainder%0Awhile%20r%20%3E%200%3A%0A%20%20%20%20a%20%3D%20b%0A%20%20%20%20b%20%3D%20r%0A%20%20%20%20r%20%3D%20a%20%25%20b%0Aprint%28str%28b%29%2B%22.%22%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
-          Edit in PythonTutor
-         </a>
-        </div>
-       </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        First, we will prove a lemma (that is, a minor theorem) that we’ll use in the induction step of the main proof.
-       </p>
-      </div>
       <div class="sidebarblock">
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Lemma
+          Exercise - Setting Up A Proof By Strong Induction (Counting the Edges of a Rooted Tree)
          </div>
          <p>
-          If \(a\) and \(b\) are integers such that \(a &gt; b &gt; 0\) and the integers \(q\) and \(r\) satisfy \[ a = q \cdot b + r \text{ and } 0 \leq r &lt; b \]
-then the set of positive integers that divide both \(a\) and \(b\) is the same as the set of positive integers that divide both \(b\) and \(r.\)
+          Set up the proof of the following statement.
          </p>
         </div>
-        <div class="openblock proof">
-         <div class="title">
-          Proof
-         </div>
+        <div class="exampleblock">
          <div class="content">
-          <div class="click_oblique">
+          <div class="paragraph">
+           <p>
+            The number of edges of a
+            <a href="./recursion.html#rooted_trees">
+             rooted tree
+            </a>
+            is one less than the number of vertices of the rooted tree.
+           </p>
           </div>
          </div>
         </div>
         <div class="paragraph">
          <p>
-          Notice that \(q\) is the quotient and \(r\) is the remainder that result when doing a long division of \(a\) by \(b.\)
+          What is the predicate \(P(n)\)?
          </p>
         </div>
         <div class="paragraph">
          <p>
-          Also notice that we can rewrite the equation \(a = q \cdot b + r\) in the equivalent form \(r = a - q \cdot b.\)
+          What value(s) of \(n\) is/are best to use in the Basis Step? That is, what is/are the smallest value(s) of \(n\) for which the statement/predicate could be True?
          </p>
         </div>
         <div class="paragraph">
          <p>
-          We can now prove the lemma.
-         </p>
-        </div>
-        <div class="ulist">
-         <ul>
-          <li>
-           <p>
-            If the integer \(c\) divides both \(a\) and \(b\) then there are integers \(a'\) and \(b'\) so that \(a = c \cdot a'\) and \(b = c \cdot b'.\) Substitute these two new expressions in the equation \(r = a - q \cdot b\) to get
-\begin{equation}
-\begin{aligned}
-r {} &amp; = a - q \cdot b  \\
-&amp; = (c \cdot a') - q \cdot (c \cdot b')  \\
-&amp; = c \cdot a' - c \cdot (q \cdot b')  \\
-&amp; = c \cdot (a' -  q \cdot b')
-\end{aligned}
-\end{equation}
-which shows that \(c\) is also a divisor of \(r.\) Since we already assumed that \(c\) divides \(b,\) this means that \(c\) is a divisor of both \(b\) and \(r.\) Therefore, the set of positive integers that divide both \(a\) and \(b\) is a subset of the set of positive integers that divide both \(b\) and \(r.\)
-           </p>
-          </li>
-          <li>
-           <p>
-            If the integer \(k\) divides both \(b\) and \(r\) then there are integers \(b''\) and \(r''\) so that \(b = k \cdot b''\) and \(r = k \cdot r''.\) Substitute these two new expressions in the equation \(a = q \cdot b + r\) to get
-\begin{equation}
-\begin{aligned}
-a {} &amp; =  q \cdot b + r  \\
-&amp; = q \cdot (k \cdot b'') + (k \cdot r'')  \\
-&amp; = k \cdot (q \cdot b'') + k \cdot r''  \\
-&amp; = k \cdot (q \cdot b'' + r'')
-\end{aligned}
-\end{equation}
-which shows that \(k\) is also a divisor of \(a.\) Since we already assumed that \(k\) divides \(b,\) this means that \(k\) is a divisor of both \(a\) and \(b.\) Therefore, the set of positive integers that divide both \(b\) and \(r\) is a subset of the set of positive integers that divide both \(a\) and \(b.\)
-           </p>
-          </li>
-         </ul>
-        </div>
-        <div class="paragraph">
-         <p>
-          So we have two subsets, each of which is a subset of the other, which means that the two sets must be equal. That is, the set of positive integers that divide both \(a\) and \(b\) is equal to the set of positive integers that divide both \(b\) and \(r;\) more plainly, the two set descriptions define the
-          <em>
-           same
-          </em>
-          set.
+          What is the Induction Hypothesis?
          </p>
         </div>
         <div class="paragraph">
          <p>
-          Q.E.D.
-         </p>
-        </div>
-       </div>
-      </div>
-      <div class="paragraph">
-       <p>
-        From the lemma we can conclude that the greatest common divisor of \(a\) and \(b\) is equal to the greatest common divisor of \(b\) and \(r.\)
-       </p>
-      </div>
-      <div class="paragraph">
-       <p>
-        We are now ready to prove the main result by induction.
-       </p>
-      </div>
-      <div class="sidebarblock">
-       <div class="content">
-        <div class="title">
-         Theorem
-        </div>
-        <div class="paragraph">
-         <p>
-          The Euclidean Algorithm correctly computes the greatest common divisor (g.c.d.) of the two positive integers \(a\) and \(b.\)
-         </p>
-        </div>
-        <div class="openblock proof">
-         <div class="title">
-          Proof
-         </div>
-         <div class="content">
-          <div class="click_oblique">
-          </div>
-         </div>
-        </div>
-        <div class="paragraph">
-         <p>
-          We use mathematical induction on the number of times \(n\) we must compute a new remainder (that is, the number \(n\) of iterations of the code block inside the loop), and prove that the algorithm computes the correct g.c.d. no matter what the value of \(n\) is.
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Let \(P(n)\) be the predicate "If the loop executes \(n\) times, then the last nonzero remainder is the g.c.d. of the two initial inputs." We will prove that \((\forall n \in \mathbb{N})P(n)\) is True.
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          <strong>
-           Basis Step:
-          </strong>
-          Notice that the number of iterations of the loop is \(n=0\) if and only if the value of \(r = a\%b\) is equal to \(0\), which is True if and only if \(b\) divides \(a.\) This means that the "last nonzero remainder" is \(b,\) and \(b\) is the greatest common divisor of \(a\) and \(b,\) which means that \(P(0)\) is True.
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          We can also prove that \(P(1)\) is True in case the proof of \(P(0)\) is unsatisfying. In the case when \(n=1,\) the loop executes \(1\) time, which means that \(a = q \cdot b + r\) and \(r\) is a nonzero divisor of \(b,\) so \(r\) is the g.c.d. of \(b\) and \(r,\) and we can use the lemma to conclude that \(r\) is also the g.c.d. of \(a\) and \(b.\) This proves that \(P(1)\) is True.
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          <strong>
-           Induction Step:
-          </strong>
-          First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use
-          <em>
-           modus ponens
-          </em>
-          (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Assume that \(P(k)\) is True for the positive integer \(k,\) that is, if the loop executes \(k\) times, then the last nonzero remainder is the g.c.d. of the two numbers we started with.
-We can assume \(k \geq 1\) since the cases when \(k \in \{ 0, 1 \}\) were proved in the Basis Step. Suppose that we have numbers \(a\) and \(b\) such that the loop executes \(k+1\) times in order to reach the last nonzero remainder: We need to prove that this last nonzero remainder is actually the g.c.d. of \(a\) and \(b.\) Now, notice that if we find the first remainder so that \(r = a - q \cdot b\) and \(0 &lt; r &lt; b,\) then the Euclidean Algorithm requires \(k\) loop iterations to find the last nonzero remainder for the pair of inputs \(b\) and \(r.\) That is , we know from the induction hypothesis that the last nonzero remainder for the initial values \(b\) and \(r\) is the g.c.d. of \(b\) and \(r.\) Now apply the lemma to conclude that the g.c.d. of \(a\) and \(b,\) computed after \(k+1\) loop iterations, is equal to the g.c.d. of \(b\) and \(r,\) computed after \(k\) loop iterations. Therefore, \(P(k+1)\) is True, too. This proves that \(P(k) \rightarrow P(k+1)\).
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          <strong>
-           Conclusion Step:
-          </strong>
-          We have proven both the Basis Step and the Induction Step. Therefore, we can
-conclude that
-for all natural numbers \(n,\) if the loop executes \(n\) times then the last nonzero remainder is the g.c.d. of \(a\) and \(b.\) That is, the Euclidean Algorithm correctly computes the g.c.d. of \(a\) and \(b\) no matter how many loop iterations are required to compute the last nonzero remainder.
-         </p>
-        </div>
-        <div class="paragraph">
-         <p>
-          Q.E.D.
-         </p>
-        </div>
-       </div>
-      </div>
-      <div class="admonitionblock note">
-       <table>
-        <tr>
-         <td class="icon">
-          <i class="fa icon-note" title="Note">
-          </i>
-         </td>
-         <td class="content">
-          Notice that if \(a = f_{n+2}\) and \(b = f_{n+1}\) are consecutive Fibonacci numbers then the Euclidean Algorithm requires exactly \(n\) loop iterations to compute the last nonzero remainder.
-          <br/>
-          The French mathematician Gabriel Lamé proved in 1844 that if the Euclidean Algorithm requires \(n\) loop iterations to compute the last nonzero remainder for two given positive integer inputs \(a\) and \(b\) (with \(a&gt;b\))
-then it must be True that both \(f_{n+2} \leq a\) and \(f_{n+1} \leq b.\) A proof by induction of Lamé’s theorem is given at this
-          <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm#Worst-case">
-           Wikipedia page.
+          Suppose that you have a drawing of a rooted tree that has \(k+1\) vertices.
+How can you use the recursive definition of
+          <a href="./recursion.html#rooted_trees">
+           rooted trees
           </a>
-          <br/>
-          <span class="small">
-           The "worst-case complexity" for the Euclidean Algorithm is described at that webpage as well: The Euclidean Algorithm is \(O(log_{\phi}(b)).\) (Complexity and "big \(O\)" notation are discussed in the
-           <a href="./growth_of_functions.html">
-            Rates of Growth of Functions
-           </a>
-           chapter.)
-          </span>
-         </td>
-        </tr>
-       </table>
+          to apply the Induction Hypothesis?
+         </p>
+        </div>
+       </div>
       </div>
      </div>
      <div class="sect2">
