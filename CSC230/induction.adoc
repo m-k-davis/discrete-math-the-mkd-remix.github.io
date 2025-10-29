@@ -10,7 +10,10 @@ include::LinkToPublic.adoc[]
 
 //https://pythontutor.com/render.html#code=def%20P%28k%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bk%7D%20positive%20odd%20integers%20is%20%7Bk*k%7D%5C%22%22%0A%0Adef%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20sum,%20k%20%3D%201,%201%0A%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20while%20k%20%3C%20stop_value%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Astop_value%20%3D%2010%0Aif%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20print%28%22P%28n%29%20is%20a%20True%20proposition%20for%20each%20natural%20number%20n%20%E2%89%A4%20%22%2Bstr%28stop_value%29%2B%22.%22%29&cumulative=false&curInstr=47&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 
-_This chapter was last updated on October 27, 2025._ + 
+_This chapter was last updated on October 29, 2025._ + 
+_inserted additional sample proof (Example 7: $11^{n}-6$ is divisible by $5$ for all natural numbers $n.$)_ + 
+_linked setup of proof of Binomial Theorem to earlier discussion in the link:./counting_binomial.html[Counting: Permutations and Combinations] chapter_ + 
+_Earlier updates include:_ + 
 _added new “coder-friendly” version of example in the first subsection (sum of consecutive odd positive integers)_ + 
 _added additional “setting up a proof” exercises (complete graphs, binomial theorem)_ + 
 _added note about the Principle of Mathematical Induction and the Well-Ordering Principle_ + 
@@ -1467,6 +1470,58 @@ Q.E.D.
 
 ****
 
+//“”
+
+// MKD Oct 28 2025  
+****
+//.Example {counter:MKDinductionexample} - A Function Defined For Natural Number Inputs With Outputs That Are Always Divisible By 5.
+//.Example {counter:MKDinductionexample} - A Function That Gives An Integer Multiple Of 5 As The Output For Each Natural Number Input.
+.Example {counter:MKDinductionexample} - An Algebraic Expression That Evaluates To An Integer Multiple Of 5 For Each Natural Number Value Assigned To The Variable.
+
+
+Consider the function that is   link:./introduction_discrete_math.html#informal_function_definition[informally defined] for natural number inputs by the rule $f(n) = 11^{n}-6.$ 
+//We will prove that every output value is an integer multiple of $5.$ 
+// +  
+[click.Do.you.want.to.see.the.formal.definition.of.this.function?]
+--
+As described in the link:./functions.html[Functions] chapter, the formal definition of this function is the ordered triple  \[ \left( \{(n, 11^{n}-6) : n \in \mathbb{N} \}, \mathbb{N}, \mathbb{N} \right). \]
+--
+
+We will prove that every output value is an integer multiple of $5.$ 
+
+Let $P(n)$ be the predicate \[P(n): \text{“}11^{n}-6 \text{ is divisible by } 5\text{.”}\] We will prove that $(\forall n \in \mathbb{N})P(n).$
+
+*Basis Step:* $P(0)$ is the proposition $\text{“}11^{0}-6 \text{ is divisible by } 5\text{,”}$ which is a True statement since $11^{0}-6 = -5$ and $-5$ is divisible by $5.$ If you find $P(0)$ to be unconvincing, you can use the next biggest natural number as well: 
+// want an additional basis that avoids the negative value, notice that 
+$P(1)$ is the proposition $\text{“}11^{1}-6 \text{ is divisible by } 5\text{,”}$ which is True since $11^{1}-6 = 5$ and $5$ is divisible by $5.$
+
+*Induction Step:* First, we assume that the induction hypothesis $P(k)$ is True for some positive natural number $k$. 
+
+Secondly, we will prove that the conditional $P(k) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ (or the equivalent tautology $( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)$) to show that $P(k+1)$ is also True. 
+
+//MKD NEEDS TO EDIT start 
+Assume that $P(k)$ is True, that is, assume that $11^{k}-6$ is divisible by $5,$ where $k$ is some natural number. We need to show that $11^{k+1}-6$ must also be divisible by $5.$ 
+
+Let's try to rewrite the expression $11^{k+1}-6$ in terms of the expression $11^{k}-6.$  
+//with the If we multiply both sides of the inequality by $2$ we get
+	\begin{equation}
+	\begin{aligned}
+	11^{k+1}-6 {} & = 11 \cdot 11^{k}-6 \\ 
+	& = 11 \cdot 11^{k} + (11 \cdot -6 + 66) - 6 \text{ by adding zero in a clever way} \\
+	& = (11 \cdot 11^{k} + 11 \cdot -6) + (66 - 6) \text{ by regrouping} \\
+	& = 11 \cdot (11^{k} - 6) + 60 
+	\end{aligned}
+	\end{equation}
+	
+Recall that $(11^{k} - 6)$ is _assumed_ to be divisible by $5.$ It is clear that $60$ is divisible by $5,$ so the entire expression $11 \cdot (11^{k} - 6) + 60$ is divisible by $5,$ as well, that is, $11^{k+1}-6$ is divisible by $5.$ We have proven the conditional statement $P(k) \rightarrow P(k+1)$.
+
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can conclude that 
+for all natural numbers $n,$ $11^{n}-6$ is divisible by $5.$
+
+Q.E.D. 
+
+****
+
 
 ****
 .Exercise - Setting Up A Proof By Induction (Solving the Towers of Hanoi)
@@ -1525,9 +1580,11 @@ What changes could you make to the drawing to create a drawing of a complete gra
 
 ****
 
-//MKD Oct 26 2025
+//MKD Oct 26 2025, added link Oct 28, 2025
 ****
-.Exercise - Setting Up A Proof By Induction (The Binomial Theorem)
+//.Exercise - Setting Up A Proof By Induction (The Binomial Theorem)
+//binomial_theorem
+.Exercise - Setting Up A Proof By Induction (link:./counting_binomial.html#binomial_theorem[The Binomial Theorem])
 
 Set up the proof of the following statement.
 

@@ -578,7 +578,7 @@ Alternatively, this theorem can be proven algebraically using the formula $C(n,r
 //A formal proof of the theorem can be written by proving that, for any set $S$, the function with domain and codomain $\mathcal{P}(S)$ and that maps each subset of $S$ to its complement is both injective and surjective.
 // MKD combination NEW symmetry ends
 
-
+[[binomial_theorem]]
 == The Binomial Theorem
 
 An algebraic expression that is the product of a number and power of zero or more variables is called a *term.* Two terms are called *like terms* if the two terms have the exact same variables and those variables appear with the exact same exponents. For example, $a,$ $ab,$ $5a,$ and $3a^{2}$ are terms, and $a$ and $5a$ are like terms. Like terms can be added to make a new term, for example, $a + 5a$ is $6a$ where we've used the distributive property of multiplication over addition to write \[ a + 5a = 1a + 5a = (1+5)a = 6a \] 
@@ -644,7 +644,7 @@ We will prove
 //later 
 in the link:./induction.html[Proofs: Mathematical Induction] chapter that \[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i}  a^{n-i} b^{i} \] for every natural number $n.$
 
-//\[ (a+b)^{n} = \sum\limits_{i=1}^{n} {n\choose i} a^{n-i}b^{i} \] 
+//\[ (a+b)^{n} = \sum\limits_{i=0}^{n} {n\choose i} a^{n-i}b^{i} \] 
 
 //where the *binomial coefficient* $n\choose i$ is equal to $C$(n,i).$
 

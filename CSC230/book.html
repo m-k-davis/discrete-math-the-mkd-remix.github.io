@@ -12910,7 +12910,7 @@ This is an informal proof of the following theorem.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_binomial_theorem">10.4. The Binomial Theorem</h3>
+<h3 id="binomial_theorem">10.4. The Binomial Theorem</h3>
 <div class="paragraph">
 <p>An algebraic expression that is the product of a number and power of zero or more variables is called a <strong>term.</strong> Two terms are called <strong>like terms</strong> if the two terms have the exact same variables and those variables appear with the exact same exponents. For example, \(a,\) \(ab,\) \(5a,\) and \(3a^{2}\) are terms, and \(a\) and \(5a\) are like terms. Like terms can be added to make a new term, for example, \(a + 5a\) is \(6a\) where we&#8217;ve used the distributive property of multiplication over addition to write \[ a + 5a = 1a + 5a = (1+5)a = 6a \]</p>
 </div>
@@ -13108,7 +13108,10 @@ in the <a href=./induction.html>Proofs: Mathematical Induction</a> chapter that 
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on October 27, 2025.</em><br>
+<p><em>This chapter was last updated on October 29, 2025.</em><br>
+<em>inserted additional sample proof (Example 7: \(11^{n}-6\) is divisible by \(5\) for all natural numbers \(n.\))</em><br>
+<em>linked setup of proof of Binomial Theorem to earlier discussion in the <a href=./counting_binomial.html>Counting: Permutations and Combinations</a> chapter</em><br>
+<em>Earlier updates include:</em><br>
 <em>added new “coder-friendly” version of example in the first subsection (sum of consecutive odd positive integers)</em><br>
 <em>added additional “setting up a proof” exercises (complete graphs, binomial theorem)</em><br>
 <em>added note about the Principle of Mathematical Induction and the Well-Ordering Principle</em><br>
@@ -13729,6 +13732,62 @@ for all positive integers \(n \geq 4\), \(2^{n} < n!\)</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
+<div class="title">Example 7 - An Algebraic Expression That Evaluates To An Integer Multiple Of 5 For Each Natural Number Value Assigned To The Variable.</div>
+<p>Consider the function that is   <a href=./introduction_discrete_math.html#informal_function_definition>informally defined</a> for natural number inputs by the rule \(f(n) = 11^{n}-6.\)</p>
+</div>
+<div class="openblock click">
+<div class="title">Do you want to see the formal definition of this function?</div>
+<div class="content">
+<div class='click_oblique'>
+As described in the <a href=./functions.html>Functions</a> chapter, the formal definition of this function is the ordered triple  \[ \left( \{(n, 11^{n}-6) : n \in \mathbb{N} \}, \mathbb{N}, \mathbb{N} \right). \]
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>We will prove that every output value is an integer multiple of \(5.\)</p>
+</div>
+<div class="paragraph">
+<p>Let \(P(n)\) be the predicate \[P(n): \text{“}11^{n}-6 \text{ is divisible by } 5\text{.”}\] We will prove that \((\forall n \in \mathbb{N})P(n).\)</p>
+</div>
+<div class="paragraph">
+<p><strong>Basis Step:</strong> \(P(0)\) is the proposition \(\text{“}11^{0}-6 \text{ is divisible by } 5\text{,”}\) which is a True statement since \(11^{0}-6 = -5\) and \(-5\) is divisible by \(5.\) If you find \(P(0)\) to be unconvincing, you can use the next biggest natural number as well:
+\(P(1)\) is the proposition \(\text{“}11^{1}-6 \text{ is divisible by } 5\text{,”}\) which is True since \(11^{1}-6 = 5\) and \(5\) is divisible by \(5.\)</p>
+</div>
+<div class="paragraph">
+<p><strong>Induction Step:</strong> First, we assume that the induction hypothesis \(P(k)\) is True for some positive natural number \(k\).</p>
+</div>
+<div class="paragraph">
+<p>Secondly, we will prove that the conditional \(P(k) \rightarrow P(k+1)\) must be True, which means we can use <em>modus ponens</em> (or the equivalent tautology \(( P(k) \land ( P(k) \rightarrow P(k+1) ) ) \rightarrow P(k+1)\)) to show that \(P(k+1)\) is also True.</p>
+</div>
+<div class="paragraph">
+<p>Assume that \(P(k)\) is True, that is, assume that \(11^{k}-6\) is divisible by \(5,\) where \(k\) is some natural number. We need to show that \(11^{k+1}-6\) must also be divisible by \(5.\)</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s try to rewrite the expression \(11^{k+1}-6\) in terms of the expression \(11^{k}-6.\)
+	\begin{equation}
+	\begin{aligned}
+	11^{k+1}-6 {} &amp; = 11 \cdot 11^{k}-6 \\
+	&amp; = 11 \cdot 11^{k} + (11 \cdot -6 + 66) - 6 \text{ by adding zero in a clever way} \\
+	&amp; = (11 \cdot 11^{k} + 11 \cdot -6) + (66 - 6) \text{ by regrouping} \\
+	&amp; = 11 \cdot (11^{k} - 6) + 60
+	\end{aligned}
+	\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>Recall that \((11^{k} - 6)\) is <em>assumed</em> to be divisible by \(5.\) It is clear that \(60\) is divisible by \(5,\) so the entire expression \(11 \cdot (11^{k} - 6) + 60\) is divisible by \(5,\) as well, that is, \(11^{k+1}-6\) is divisible by \(5.\) We have proven the conditional statement \(P(k) \rightarrow P(k+1)\).</p>
+</div>
+<div class="paragraph">
+<p><strong>Conclusion Step:</strong> We have proven both the Basis Step and the Induction Step. Therefore, we can conclude that
+for all natural numbers \(n,\) \(11^{n}-6\) is divisible by \(5.\)</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
 <div class="title">Exercise - Setting Up A Proof By Induction (Solving the Towers of Hanoi)</div>
 <p>Set up the proof of the following statement.</p>
 </div>
@@ -13789,7 +13848,7 @@ What changes could you make to the drawing to create a drawing of a complete gra
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Exercise - Setting Up A Proof By Induction (The Binomial Theorem)</div>
+<div class="title">Exercise - Setting Up A Proof By Induction (<a href=./counting_binomial.html#binomial_theorem>The Binomial Theorem</a>)</div>
 <p>Set up the proof of the following statement.</p>
 </div>
 <div class="exampleblock">
@@ -13875,7 +13934,7 @@ compute the greatest common divisor (or "g.c.d") of \(a\) and \(b.\) That is, co
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 7 - The Euclidean Algorithm in Python</div>
+<div class="title">Example 8 - The Euclidean Algorithm in Python</div>
 <div class="content">
 
 </div>
@@ -14068,7 +14127,7 @@ Conclusion Step
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 8 - An Upper Bound for the Fibonacci numbers</div>
+<div class="title">Example 9 - An Upper Bound for the Fibonacci numbers</div>
 <p>Recall that the <a href=./recursion.html#definition_of_fibonacci_numbers>Fibonacci numbers</a> are defined by the following recurrence relation: \[f_{0}=0, \, f_{1}=1, \text{ and } f_{n} = f_{n-1} + f_{n-2} \text{ for } n \geq 2.\]</p>
 </div>
 <div class="paragraph">
