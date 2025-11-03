@@ -10,8 +10,8 @@ include::LinkToPublic.adoc[]
 
 //https://pythontutor.com/render.html#code=def%20P%28k%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bk%7D%20positive%20odd%20integers%20is%20%7Bk*k%7D%5C%22%22%0A%0Adef%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20sum,%20k%20%3D%201,%201%0A%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20while%20k%20%3C%20stop_value%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Astop_value%20%3D%2010%0Aif%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20print%28%22P%28n%29%20is%20a%20True%20proposition%20for%20each%20natural%20number%20n%20%E2%89%A4%20%22%2Bstr%28stop_value%29%2B%22.%22%29&cumulative=false&curInstr=47&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 
-_This chapter was last updated on November 3, 2025._ + 
-_inserted proof of correctness of the MergeSort algorithm using strong induction_ +
+_This chapter was last updated on November 2, 2025._ + 
+_inserted validation of the Merge Sort algorithm using strong induction_ +
 _Earlier updates include:_ + 
 _inserted additional sample proof (Example 7: $11^{n}-6$ is divisible by $5$ for all natural numbers $n.$)_ + 
 _linked setup of proof of Binomial Theorem to earlier discussion in the link:./counting_binomial.html[Counting: Permutations and Combinations] chapter_ + 
@@ -2016,210 +2016,53 @@ How can you use the recursive definition of link:./recursion.html#rooted_trees[r
 
 ****
 
-// MKD Nov 1-3 2025  strong induction validation of mergesort
+// MKD Nov 1 2025  strong induction validation of mergesort
 
 [[merge_sort_strong_induction]]
-//== Validating An Algorithm Using Strong Induction (IN PROGRESS)
-== Validating A Recursive Algorithm Using Strong Induction 
+== Validating An Algorithm Using Strong Induction (IN PROGRESS)
 
-// MKD Nov 2 2025 UNUSED (OBSOLETE?) CODE 
-//https://pythontutor.com/render.html#code=import%20math%20%0Adef%20myMergesort%28L%29%3A%0A%20%20%20%20%23L_sorted%20%3D%20%5B%5D%0A%20%20%20%20lengthL%20%3D%20len%28L%29%0A%20%20%20%20if%20lengthL%20%3C%3D%201%3A%20%0A%20%20%20%20%20%20%20%20%23L_sorted.append%28L%5B0%5D%29%0A%20%20%20%20%20%20%20%20%23return%20L_sorted%0A%20%20%20%20%20%20%20%20return%20L%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20L_sorted%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20%23sliceAt%20%3D%20math.floor%28lengthL/2%29%0A%20%20%20%20%20%20%20%20sliceAt%20%3D%20math.ceil%28lengthL/2%29%0A%20%20%20%20%20%20%20%20leftL%20%3D%20L%5B0%3AsliceAt%5D%0A%20%20%20%20%20%20%20%20rightL%20%3D%20L%5BsliceAt%3AlengthL%5D%0A%20%20%20%20%20%20%20%20leftL%20%3D%20myMergesort%28leftL%29%0A%20%20%20%20%20%20%20%20rightL%20%3D%20myMergesort%28rightL%29%0A%20%20%20%20%20%20%20%20%23print%28leftL,%20rightL,%20%22to%20be%20implemented%22%29%0A%20%20%20%20%20%20%20%20while%20%28len%28leftL%29%3E0%20and%20len%28rightL%29%3E0%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20leftL%5B0%5D%20%3C%3D%20rightL%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20L_sorted.append%28leftL.pop%280%29%29%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20L_sorted.append%28rightL.pop%280%29%29%0A%20%20%20%20%20%20%20%20if%20len%28leftL%29%3E0%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20while%20len%28leftL%29%3E0%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20L_sorted.append%28leftL.pop%280%29%29%0A%20%20%20%20%20%20%20%20elif%20len%28rightL%29%3E0%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20while%20len%28rightL%29%3E0%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20L_sorted.append%28rightL.pop%280%29%29%0A%20%20%20%20%20%20%20%20else%3A%20%23%20both%20sublists%20are%20empty%0A%20%20%20%20%20%20%20%20%20%20%20%20pass%20%23%20nothing%20to%20do%20here!%0A%20%20%20%20%20%20%20%20return%20L_sorted%0A%0AmyList%20%3D%20%5B5,3,7,17,13,2%5D%0AmyList%20%3D%20myMergesort%28myList%29&cumulative=false&curInstr=125&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
-
-// GOOD CODE 
-//https://pythontutor.com/render.html#code=import%20math%20%0A%0Adef%20myMerge%28A,B%29%3A%20%23after%20Knuth%0A%20%20%20%20M%20%3D%20%5B%5D%0A%20%20%20%20i,%20j,%20lenA,%20lenB%20%3D%200,%200,%20len%28A%29,%20len%28B%29%0A%20%20%20%20while%20%28i%3ClenA%20and%20j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20if%20A%5Bi%5D%20%3C%3D%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20i%20%3E%3D%20lenA%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20while%28j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%20%23%20A%5Bi%5D%20%3E%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20j%20%3E%3D%20lenB%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20while%28i%3ClenA%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20return%20M%0A%20%20%20%20%0Adef%20myMergeSort%28L%29%3A%0A%20%20%20%20lenL%20%3D%20len%28L%29%0A%20%20%20%20if%20lenL%20%3C%3D%201%3A%20%0A%20%20%20%20%20%20%20%20return%20L%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20L_sorted%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20sliceAt%20%3D%20math.ceil%28lenL/2%29%0A%20%20%20%20%20%20%20%20leftL%20%3D%20L%5B0%3AsliceAt%5D%0A%20%20%20%20%20%20%20%20rightL%20%3D%20L%5BsliceAt%3AlenL%5D%0A%20%20%20%20%20%20%20%20L_sorted%20%3D%20myMerge%28myMergeSort%28leftL%29,myMergeSort%28rightL%29%29%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%20%28lenL%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20L%5Bi%5D%20%3D%20L_sorted%5Bi%5D%0A%20%20%20%20%20%20%20%20return%20L%0A%0AmyList%20%3D%20%5B5,3,7,2%5D%0A%23myList%20%3D%20%5B5,3,7,17,13,2%5D%0AmyMergeSort%28myList%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
-
-
-
-//In this section, we'll use strong induction to prove that the recursive algorithm _MergeSort_ described below is correct, that is, it does what it claims to do. 
-// sorts a list of numbers in nondecreasing order. 
-In this section, we'll use strong induction to prove the correctness of a recursive algorithm. 
-// _MergeSort,_ which will be described below. , 
-That is, we will 
-//validate 
-show that the algorithm 
-must 
-//works 
-work as intended. 
-//it is  does what it claims to do. 
-
-//In general, s
-Strong induction is useful for proving properties of recursively-defined objects 
-//recursive algorithms (and recursive definitions in general) 
-since each use of the link:./recursion.html#definition_of_recursive_definition[Recursion Step] can depend on _any_ previously completed steps instead of just one previous step. 
-
-// MKD Nov 3 2025  subsection header inserted
-=== The _MergeSort_ Algorithm
+In this section, we'll prove that the Merge Sort algorithm described below correctly sorts a list of numbers. 
 
 //“”
-//— (em dash)
 
-In this subsection, we describe the _MergeSort_ algorithm, which is an example of a “divide-and-conquer” algorithm that breaks up a large problem into two or more smaller versions of the same problem and then combines the solutions of the smaller problems to find a solution to the original large problem. 
-
-Here is a description of the _MergeSort_ algorithm.
-
-._MergeSort_
-//* Task: Given a list of numbers, $L,$ return a copy of $L$ that is sorted in nondecreasing order.  
-* Task: Sort the numbers in a list $L$ in increasing order. The numbers can be integers or real numbers. 
-* Input: The list $L.$ 
+* Task: Given a list $L$ of numbers, return a copy of $L$ that is sorted in nondecreasing order.  
+* Input: The list $L$ of numbers; the numbers can be integers or real numbers. 
 * Steps: 
-. If the length of list $L$ is less than $2,$ return $L.$
-//. Define two lists $L_{\text{left}}$ and $L_{\text{right}},$ and initialize each list as the empty list. 
-. Set $c$ to the link:./introduction_discrete_math.html#informal_floor_and_ceiling_definition[ceiling] of half the length of list $L.$
-//. Append the first $c$ elements of list $L,$ in their current order, to $L_{\text{left}},$ and + 
-//append the remaining elements of list $L$, in their current order, to $L_{\text{right}}.$
-. Define the list $L_{\text{left}}$ to be the list of the first $c$ elements of list $L,$ in the current order, and + 
-define $L_{\text{right}}$ to be the list of the remaining elements of list $L$, in the current order.
-//. Define a list $L_{\text{sorted}}$ and initialize it as the empty list.
-//. Set $L_{\text{sorted}}$ to the list returned by the _Merge_ algorithm called with the input lists $L_{\text{left}}$ and $L_{\text{right}}.$
-. Define $L_{\text{sorted}}$ to be the list returned by the _Merge_ algorithm called with the two input lists $MergeSort(L_{\text{left}})$ and $MergeSort(L_{\text{right}}).$
-. Copy the values to $L$ from $L_{\text{sorted}}.$
-. Return $L.$
-//* Output: The list $L,$ sorted in nondecreasing order. 
-* Output: The list $L,$ sorted in increasing order. 
-
-The _MergeSort_ algorithm is recursive: 
-[horizontal]
-Basis Step:: The shortest lists, ones that are either empty or have only a single element, are processed at Step 1 of the algorithm. These lists are considered to be sorted by definition. 
-Recursion:: Longer lists are processed starting at Step 2 of the algorithm. In particular, notice that at Step 4, the algorithm calls on a second algorithm, _Merge,_ after recursively calling itself twice, once for each of the shorter lists $L_{\text{left}}$ and $L_{\text{right}}.$ 
-
-Of course, we will need to describe precisely what the _Merge_ algorithm does, which we will do below. An implementation of both the _MergeSort_ and _Merge_ algorithms in Python will be given, too. 
-More detail about _MergeSort,_ along with a different Python implementation,  can be found in the link:./algorithms.html#merge_sort[Algorithms and Their Analysis] chapter. 
-
-//Notice that at Step 4, we invoke another algorithm called _Merge_ on the sorted versions of the two smaller lists $L_{\text{left}}$ and $L_{\text{right}}$ 
-//Notice that at Step 4, we invoke another algorithm called _Merge_ after using _MergeSort_ to sort the two smaller lists $L_{\text{left}}$ and $L_{\text{right}}$ 
-
-//“divide-and-conquer” algorithm always produces the intended output, which is to sort the list $L$ in nondecreasing order. 
-
-// MKD Nov 3 2025 MOVED up 
-////
-The _MergeSort_ algorithm is an example of a “divide-and-conquer” algorithm that breaks up a large problem into 
-//several 
-two or more 
-smaller versions of the same problem, then combines the solutions of the smaller problems to find a solution to the original large problem. 
-////
-
-//Notice that the list size is divided by $2$ (approximately) each time the procedure is called recursively. 
-// MKD Nove 3 2025 moved up 
-//More detail about _MergeSort,_ along with a different Python implementation,  can be found in the link:./algorithms.html#merge_sort[Algorithms and Their Analysis] chapter. 
-
-
-// MKD Nov 02 2025 start merge
-
-Next, we describe the _Merge_ algorithm, which is designed to combine two ordered lists into a single ordered list.
-
-._Merge_ 
-//* Task: Given two lists $A$ and $B$ of numbers that already are sorted in increasing order, return a new merged list $M$ that also is sorted in increasing order and that contains all the numbers in the two lists $A$ and $B.$  
-* Task: Create a new list $M$ that is sorted in increasing order and contains all the numbers in two given lists of numbers, $A$ and $B,$ that already were sorted in increasing order.  
-* Input: The lists $A$ and $B.$ The numbers in each list can be integers or real numbers. 
-//Each list is assumed to be sorted in nondecreasing order. 
-////
-* Steps: 
-. Define a list $M$ and initialize it as the empty list.
-. While both $A$ and $B$ are nonempty: 
-.. If the initial element of $A$ is less than or equal to the initial element of $B$ 
-... append the initial element of $A$ to $M$ 
-... remove the initial element from $A$
+. Define a list $L_{\text{sorted}}$ and initialize it as the empty list.
+//. If the length of list $L$ is $0,$ return $L_{\text{sorted}}.$
+. If the length of list $L$ is $1,$ append the element of $L$ to $L_{\text{sorted}},$ and return $L_{\text{sorted}}.$
+//. Set $n$ to the length of list $L$ 
+//. Set $s$ to $\floor{\frac{n}{2}}$ greater and $b$ to the lesser of the two input values. 
+. Define two lists $L_{\text{left}}$ and $L_{\text{right}},$ and initialize each list as the empty list. 
+. Set $s$ to the link:./introduction_discrete_math.html#informal_floor_and_ceiling_definition[floor] of half the length of list $L.$
+//the product of $\frac{1}{2}$ and the length of list $L$.
+. Append, in the current order, the first $s$ elements of list $L$ to $L_{\text{left}},$ then append the remaining elements of list $L$, in the current order, to $L_{\text{right}}.$
+. Define $L_{\text{left, sorted}}$ to be the list returned by Merge Sort with input $L_{\text{left}}.$ 
+. Define $L_{\text{right, sorted}}$ to be the list returned by Merge Sort with input $L_{\text{right}}.$ 
+//. Create list $L_{\text{sorted}}$ by merging $L_{\text{left, sorted}}$ and $L_{\text{right, sorted}}$ as follows: 
+//.. While both $L_{\text{left, sorted}}$ and $L_{\text{right, sorted}}$ are nonempty: 
+//... If the initial element of $L_{\text{left, sorted}}$ is less than or equal to the initial element of $L_{\text{right, sorted}},$ append the initial element of $L_{\text{left, sorted}}$ to $L_{\text{sorted}}$ and remove that initial element from $L_{\text{left, sorted}}$
+//... Otherwise, append the initial element of $L_{\text{right, sorted}}$ to $L_{\text{sorted}}$ and remove that initial element from $L_{\text{right, sorted}}$ 
+. While both $L_{\text{left, sorted}}$ and $L_{\text{right, sorted}}$ are nonempty: 
+.. If the initial element of $L_{\text{left, sorted}}$ is less than or equal to the initial element of $L_{\text{right, sorted}},$ 
+... append the initial element of $L_{\text{left, sorted}}$ to $L_{\text{sorted}}$ and remove that initial element from $L_{\text{left, sorted}}$
 .. Otherwise, 
-... append the initial element of $B$ to $M$ 
-... remove the initial element from $B$
-. Append the remaining elements of whichever of $A$ and $B$ is nonempty to $M.$ 
-. Return $M.$
-////
-////
-* Steps: 
-. Define a list $M$ and initialize it as the empty list.
-. Define index variables $i$ and $j$ and initialize both to $0.$
-. While there are elements in both $A$ and $B$ not yet appended to $M$ 
-.. If $A[i]$ is less than or equal to $B[j]$ 
-... Append $A[i]$ to $M$ 
-... Increment $i$ by $1$
-//... If $i$ is greater than or equal to the length of list $A,$ then append the remaining elements of $B$ to $M.$ 
-... If all the elements of $A$ have been appended to $M,$ then append the remaining elements of $B$ to $M.$ 
-.. Otherwise, $B[j]$ must be less than $A[i],$ so
-... Append $B[j]$ to $M$ 
-... Increment $j$ by $1$
-//... If $j$ is greater than or equal to the length of list $B,$ then append the remaining elements of $A$ to $M.$ 
-... If all the elements of $B$ have been appended to $M,$ then append the remaining elements of $A$ to $M.$ 
-. Return $M.$
-////
-* Steps: 
-. Define a list $M$ and initialize it as the empty list.
-. Define index variables $i$ and $j$ and initialize both to $0.$
-. While there are elements in both $A$ and $B$ not yet appended to $M$ 
-.. If $A[i]$ is less than or equal to $B[j]$ 
-... Append $A[i]$ to $M$ 
-... Increment $i$ by $1$
-.. Otherwise, $B[j]$ must be less than $A[i]$ so
-... Append $B[j]$ to $M$ 
-... Increment $j$ by $1$
-. If all the elements of $A$ have been appended to $M,$ then append all remaining elements of $B$ to $M.$ 
-. If all the elements of $B$ have been appended to $M,$ then append all remaining elements of $A$ to $M.$ 
-. Return $M.$
-* Output: List $M,$ containing all the numbers in the two lists $A$ and $B,$ sorted in increasing order.
+... append the initial element of $L_{\text{right, sorted}}$ to $L_{\text{sorted}}$ and remove that initial element from $L_{\text{right, sorted}}$ 
+. Append the remaining elements of whichever of $L_{\text{left, sorted}}$ and $L_{\text{right, sorted}}$ is nonempty to $L_{\text{sorted}}.$ 
+. Return $L_{\text{sorted}}.$
+* Output: A list $L_{\text{sorted}}$ that contains all the elements of $L$ but in nondecreasing order. 
 
-// MKD Nov 2 2025 end merge
+[small]#Notice that the algorithm assumes that the input list $L$ is not empty, but you can adjust the algorithm to handle an empty input $L,$ too: Insert a step before the one that handles a list of length 1 so that if the length of $L$ is $0$ the algorithm returns the output $L_{\text{sorted}},$ which was initialized to be empty.#
 
-// MKD Nov 2 2025 insert code
-The following Python code implements both _MergeSort_ and _Merge._ Try tracing through the code to see how it works. This code is a bit longer than most sample in this textbook, so it may be easier to view and trace it in a new tab or window by clicking on the link labeled “Edit in PythonTutor.”
+//We won't discuss the details of _how_ the merging of the two sorted sublists is to be done, but instead use strong induction to validate that this recursive algorithm will produce the intended output, which is a sorted list that contains all the elements of the input list, but in nondecreasing order. 
+We will use strong induction to validate that this recursive algorithm always produces the intended output, which is a new list, sorted in nondecreasing order, that contains all the elements of the input list. 
+More detail about the Merge Sort can be found in the link:./algorithms.html#merge_sort[Algorithms and Their Analysis] chapter. 
 
-:pt_code_height: 520
-:pt_rawinput: false
-//:pt_code: import%20math%20%0A%0Adef%20myMerge%28A,B%29%3A%20%0A%20%20%20%20M,%20i,%20j,%20lenA,%20lenB%20%3D%20%5B%5D,%200,%200,%20len%28A%29,%20len%28B%29%0A%20%20%20%20while%20%28i%3ClenA%20and%20j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20if%20A%5Bi%5D%20%3C%3D%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20i%20%3E%3D%20lenA%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20while%28j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%20%23%20A%5Bi%5D%20%3E%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20j%20%3E%3D%20lenB%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20while%28i%3ClenA%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20return%20M%0A%20%20%20%20%0Adef%20myMergeSort%28L%29%3A%0A%20%20%20%20lenL%20%3D%20len%28L%29%0A%20%20%20%20if%20lenL%20%3C%202%3A%20%0A%20%20%20%20%20%20%20%20return%20L%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20c%20%3D%20math.ceil%28lenL/2%29%0A%20%20%20%20%20%20%20%20leftL%20%3D%20L%5B0%3Ac%5D%20%20%20%20%20%20%23%20the%20first%20c%20elements%0A%20%20%20%20%20%20%20%20rightL%20%3D%20L%5Bc%3AlenL%5D%20%20%23%20the%20rest%20of%20the%20elements%0A%20%20%20%20%20%20%20%20L_sorted%20%3D%20myMerge%28myMergeSort%28leftL%29,myMergeSort%28rightL%29%29%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%20%28lenL%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20L%5Bi%5D%20%3D%20L_sorted%5Bi%5D%0A%20%20%20%20%20%20%20%20return%20L%0A%0AmyList%20%3D%20%5B5,3,7,13,%202%5D%0A%23myList%20%3D%20%5B5,3,7,17,13,2%5D%0AmyMergeSort%28myList%29 
-//:pt_code:  import%20math%20%0A%0Adef%20myMerge%28A,B%29%3A%20%0A%20%20%20%20M%20%3D%20%5B%5D%0A%20%20%20%20i,%20j,%20lenA,%20lenB%20%3D%200,%200,%20len%28A%29,%20len%28B%29%0A%20%20%20%20while%20%28i%3ClenA%20and%20j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20if%20A%5Bi%5D%20%3C%3D%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20i%20%3E%3D%20lenA%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20while%28j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%20%23%20A%5Bi%5D%20%3E%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20j%20%3E%3D%20lenB%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20while%28i%3ClenA%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20return%20M%0A%20%20%20%20%0Adef%20myMergeSort%28L%29%3A%0A%20%20%20%20lenL%20%3D%20len%28L%29%0A%20%20%20%20if%20lenL%20%3C%202%3A%20%0A%20%20%20%20%20%20%20%20return%20L%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20c%20%3D%20math.ceil%28lenL/2%29%0A%20%20%20%20%20%20%20%20leftL%20%3D%20L%5B0%3Ac%5D%20%20%20%20%20%20%23%20the%20first%20c%20elements%0A%20%20%20%20%20%20%20%20rightL%20%3D%20L%5Bc%3AlenL%5D%20%20%23%20the%20rest%20of%20the%20elements%0A%20%20%20%20%20%20%20%20L_sorted%20%3D%20myMerge%28%20myMergeSort%28leftL%29,%20myMergeSort%28rightL%29%20%29%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%20%28lenL%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20L%5Bi%5D%20%3D%20L_sorted%5Bi%5D%0A%20%20%20%20%20%20%20%20return%20L%0A%0AmyList%20%3D%20%5B5,3,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,13,2%5D%0AmyMergeSort%28myList%29 
-//:pt_code: import%20math%20%0A%0Adef%20myMerge%28A,B%29%3A%20%0A%20%20%20%20M%20%3D%20%5B%5D%0A%20%20%20%20i,%20j,%20lenA,%20lenB%20%3D%200,%200,%20len%28A%29,%20len%28B%29%0A%20%20%20%20while%20%28i%3ClenA%20and%20j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20if%20A%5Bi%5D%20%3C%3D%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%20%23%20A%5Bi%5D%20%3E%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20if%20i%20%3E%3D%20lenA%3A%0A%20%20%20%20%20%20%20%20while%28j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20if%20j%20%3E%3D%20lenB%3A%0A%20%20%20%20%20%20%20%20while%28i%3ClenA%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20return%20M%0A%20%20%20%20%0Adef%20myMergeSort%28L%29%3A%0A%20%20%20%20lenL%20%3D%20len%28L%29%0A%20%20%20%20if%20lenL%20%3C%202%3A%20%0A%20%20%20%20%20%20%20%20return%20L%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20c%20%3D%20math.ceil%28lenL/2%29%0A%20%20%20%20%20%20%20%20leftL%20%3D%20L%5B0%3Ac%5D%20%20%20%20%20%20%23%20the%20first%20c%20elements%0A%20%20%20%20%20%20%20%20rightL%20%3D%20L%5Bc%3AlenL%5D%20%20%23%20the%20rest%20of%20the%20elements%0A%20%20%20%20%20%20%20%20L_sorted%20%3D%20myMerge%28%20myMergeSort%28leftL%29,%20myMergeSort%28rightL%29%20%29%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%20%28lenL%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20L%5Bi%5D%20%3D%20L_sorted%5Bi%5D%0A%20%20%20%20%20%20%20%20return%20L%0A%0AmyList%20%3D%20%5B5,3,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,13,2%5D%0AmyMergeSort%28myList%29
-:pt_code: import%20math%20%0A%0Adef%20myMerge%28A,B%29%3A%20%0A%20%20%20%20M%20%3D%20%5B%5D%0A%20%20%20%20i,%20j,%20lenA,%20lenB%20%3D%200,%200,%20len%28A%29,%20len%28B%29%0A%20%20%20%20while%20%28i%3ClenA%20and%20j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20if%20A%5Bi%5D%20%3C%3D%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%20%23%20A%5Bi%5D%20%3E%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20if%20i%20%3E%3D%20lenA%3A%0A%20%20%20%20%20%20%20%20while%28j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20if%20j%20%3E%3D%20lenB%3A%0A%20%20%20%20%20%20%20%20while%28i%3ClenA%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20return%20M%0A%20%20%20%20%0Adef%20myMergeSort%28L%29%3A%0A%20%20%20%20lenL%20%3D%20len%28L%29%0A%20%20%20%20if%20lenL%20%3C%202%3A%20%0A%20%20%20%20%20%20%20%20return%20L%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20c%20%3D%20math.ceil%28lenL/2%29%0A%20%20%20%20%20%20%20%20L_left%20%3D%20L%5B0%3Ac%5D%20%20%20%20%20%20%23%20the%20first%20c%20elements%0A%20%20%20%20%20%20%20%20L_right%20%3D%20L%5Bc%3AlenL%5D%20%20%23%20the%20rest%20of%20the%20elements%0A%20%20%20%20%20%20%20%20L_sorted%20%3D%20myMerge%28%20myMergeSort%28L_left%29,%20myMergeSort%28L_right%29%20%29%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%20%28lenL%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20L%5Bi%5D%20%3D%20L_sorted%5Bi%5D%0A%20%20%20%20%20%20%20%20return%20L%0A%0AmyList%20%3D%20%5B5,3,2%5D%0A%23myList%20%3D%20%5B5,3,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,13,2%5D%0Aprint%20%28'Unsorted%3A',%20myList%29%0AmyMergeSort%28myList%29%0Aprint%20%28'Sorted%20%20%3A',%20myList%29
-
-
-// MORE CODE 
-//https://pythontutor.com/visualize.html#code=import%20math%20%0A%0Adef%20myMerge%28A,B%29%3A%20%0A%20%20%20%20M%20%3D%20%5B%5D%0A%20%20%20%20i,%20j,%20lenA,%20lenB%20%3D%200,%200,%20len%28A%29,%20len%28B%29%0A%20%20%20%20while%20%28i%3ClenA%20and%20j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20if%20A%5Bi%5D%20%3C%3D%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20i%20%3E%3D%20lenA%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20while%28j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%20%23%20A%5Bi%5D%20%3E%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20j%20%3E%3D%20lenB%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20while%28i%3ClenA%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20return%20M%0A%20%20%20%20%0Adef%20myMergeSort%28L%29%3A%0A%20%20%20%20lenL%20%3D%20len%28L%29%0A%20%20%20%20if%20lenL%20%3C%202%3A%20%0A%20%20%20%20%20%20%20%20return%20L%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20c%20%3D%20math.ceil%28lenL/2%29%0A%20%20%20%20%20%20%20%20leftL%20%3D%20L%5B0%3Ac%5D%20%20%20%20%20%20%23%20the%20first%20c%20elements%0A%20%20%20%20%20%20%20%20rightL%20%3D%20L%5Bc%3AlenL%5D%20%20%23%20the%20rest%20of%20the%20elements%0A%20%20%20%20%20%20%20%20L_sorted%20%3D%20myMerge%28%20myMergeSort%28leftL%29,%20myMergeSort%28rightL%29%20%29%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%20%28lenL%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20L%5Bi%5D%20%3D%20L_sorted%5Bi%5D%0A%20%20%20%20%20%20%20%20return%20L%0A%0AmyList%20%3D%20%5B5,3,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,13,2%5D%0AmyMergeSort%28myList%29&cumulative=false&heapPrimitives=false&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false 
-
-include::python_tutor.adoc[]
-
-
-Now that you have had the opportunity to see the how _MergeSort_ and _Merge_ work as implemented in Python, you are ready to try to prove the correctness of both algorithms. 
-
-First, let's discuss a proof of correctness for the _Merge_ algorithm.
-
-// MKD Nov 2 2025
-
-//For any two finite-length lists of numbers $A$ and $B$ that are sorted in increasing order, the _Merge_ algorithm correctly constructs a list $M$ that is sorted in increasing order and contains all the numbers in the two lists. 
-
-****
-.Lemma  
-
-For any two finite-length lists of numbers that are sorted in increasing order, the _Merge_ algorithm correctly constructs a list $M$ that is sorted in increasing order and contains all the numbers in the two lists. 
-
-[click.Proof]
---
-This proof is an exercise for you! + 
- + 
-Notice that if you assume each list is nonempty then after one element has been appended to $M$ you can now treat whichever list contained that value as if it is a list with one less element (that is, you can treat that list as if the smallest element had been _removed_ from the list and all other elements were re-indexed.) This suggests that using mathematical induction (not strong induction) where $n$ is equal to the sum of the lengths of the two input lists will work. + 
- + 
-Suggestions: + 
- + 
-First, write down the predicate $P(n)$ that you need to prove. + 
- + 
-For the Basis Step, look at the three cases $n = 0$ (both lists are empty,) $n = 1$ (one list is empty, the other is not,) and $n = 2$ (either each list contains one element, or one list is empty and the other contains $2$ elements.) These cases are handled differently by the _Merge_ algorithm (different Steps/parts of the Python code are used in each case,) but should cover all the possible ways the algorithm will handle short lists. + 
- + 
-Write down the Induction Hypothesis $P(k).$ + 
- + 
-For the Induction Step, assume that the sum of the lengths of the two input lists is $k+1,$ and use the idea discussed above: After the first element is appended to $M,$ the sum of the lengths of the list is reduced to $k,$ the case you _assume_ can be handled correctly by the algorithm.  
-
---
-
-****
-//Use mathematical induction with $n$ equal to the sum of the lengths of the two lists, with Basis Step value $n=2$  (Notice that after one number has been appended to $M,$ you can treat whichever list had that value as if is an array with one less element.)
-//of the induction should use the smallest sum that makes sense in the context.  + 
-
-
-
-// MKD Nov 1-3 2025
-Next, let's prove the correctness of the _MergeSort_ algorithm. 
-
+// MKD Nov 1 2025 NEED TO EDIT
 ****
 .Theorem 
 
-For any finte-length list of numbers, the _MergeSort_ algorithm sorts the list in increasing order. 
+For any finte-length list of numbers, the Merge Sort algorithm returns a copy of the list that is sorted in nondecreasing order. 
 
 //[click.Proof]
 //--
@@ -2230,49 +2073,24 @@ For any finte-length list of numbers, the _MergeSort_ algorithm sorts the list i
 --
 
 //Let $P(n)$ be the predicate \[P(n) \text{: "For any list of numbers that has length } n \text{, the Merge Sort algorithm returns a copy of the list sorted in nondecreasing order.."}\] 
-//Let $P(n)$ be the predicate \[P(n) \text{: “For any list of numbers that has length } n \text{, the } MergeSort \text{ algorithm} \\ \text{returns a copy of the list sorted in increasing order.”}\] 
-Let $P(n)$ be the predicate \[P(n) \text{: “For any list of numbers that has length } n \text{, } \text{the } MergeSort \\ \text{ algorithm sorts the list in increasing order.”}\] 
-We will prove that 
-//$(\forall n \in \mathbb{N}_{\geq 1})P(n),$ 
-$(\forall n \in \mathbb{N})P(n),$ 
-//which will prove that 
-that is, 
-the _MergeSort_ algorithm works as intended for any list $L$ that has finite length. + 
+Let $P(n)$ be the predicate \[P(n) \text{: “For any list of numbers that has length } n \text{, the Merge Sort algorithm} \\ \text{returns a copy of the list sorted in nondecreasing order.”}\] 
+We will prove that $(\forall n \in \mathbb{N}_{\geq 1})P(n),$ which will prove that the Merge Sort algorithm works as intended for any list $L$ that has finite length. + 
 
-*Basis Step:* Both $P(0)$ and $P(1)$ are True since the _MergeSort_ algorithm returns 
-//a copy of 
-the original list 
-unchanged if the length of the list is less than or equal to $1$ 
-//, which is already sorted in increasing order 
-(An empty list can be considered as sorted for our purposes, and a list that contains  
-//because there is 
-only a single element 
-//in the list! + 
-already _is_ sorted in increasing order.) + 
-$P(2)$ is True, too, since the _MergeSort_ algorithm will 
-invoke the _Merge_ algorithm, which will not change the 
-order of the elements of the list if the two elements already are in increasing order but will swap the two elements otherwise; in either case the output of the _MergeSort_ algorithm is the original list sorted in increasing order. 
+*Basis Step:* $P(1)$ is True since the Merge Sort algorithm returns a copy of the original list, which was already sorted in nondecreasing order. $P(2)$ is True as well, since the Merge Sort returns a copy of the original list or a list that has the order of the two elements swapped, and in either case the returned list is in nondecreasing order. 
 // Also do $P(3)$ and $P(4).$
 
-*Induction Step:* First, we assume as the induction hypothesis that \[P(i) \text { is True for all positive natural numbers } i \text{ such that } 2 \leq i \leq k \] or, in words, 
-//“For any list of numbers that has length less than or equal to $k,$ the } MergeSort \text{ algorithm returns a copy of the list sorted in increasing order,” 
-“For any list of numbers that has length less than or equal to $k,$ the  _MergeSort_ algorithm sorts the list in increasing order,” 
-where we can assume that the integer $k$ is greater than or equal to $2$ (because the cases where $k \in \{ 0, 1, 2 \}$ were already dealt with in the Basis Step.) That is, we assume that the single proposition $P(0) \land P(1) \land \cdots \land P(k)$ is True, where $k$ is some integer greater than or equal to $2.$ 
+*Induction Step:* First, we assume as the induction hypothesis that \[P(i) \text { is True for all positive natural numbers } i \text{ such that } 2 \leq i \leq k \] or, in words, “For any list of numbers that has length less than or equal to $k,$ the Merge Sort algorithm returns a copy of the list sorted in nondecreasing order,” 
+//\[P(n) \text{: "For any list of numbers that has length less than or equal to } k \text{, the Merge Sort algorithm} \\ \text{returns a copy of the list sorted in nondecreasing order,"}\] 
+where we can assume that the integer $k$ is greater than or equal to $2$ (since the cases where $k \in \{ 1, 2, 3, 4 \}$ were already dealt with in the Basis Step.) That is, we assume that the single proposition $P(1) \land P(2) \land \cdots \land P(k)$ is True, where $k$ is some integer greater than or equal to $2.$ 
 
-Secondly, we will prove that the conditional $( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ to show that $P(k+1)$ is also True. 
+Secondly, we will prove that the conditional $( P(1) \land P(2) \land \cdots \land P(k) ) \rightarrow P(k+1)$ must be True, which means we can use _modus ponens_ to show that $P(k+1)$ is also True. 
 
-Assume that we have a list $L$ that has length $k+1.$ 
-//We also may assume that the length $k+1$ of the list is greater than $2$ since we have covered the cases for lists of lengths $1$ and $2$ in the Basis Step. 
-Notice that when we split the list $L$ as described in the algorithm, each of the resulting left and right sublists must have length less than $k+1,$ so the Induction Hypothesis applies to those sublists: The _MergeSort_ algorithm correctly 
-//returns sorted copies of 
-sorts 
-the left and right sublists. From the lemma, we know that when _Merge_ is invoked on the two sublists, it creates a list that is sorted in increasing order that contains all the elements of the original input list. The list that is output by _Merge_ is then copied element-by-element to the original input list $L,$ resulting in list that is sorted in increasing order and that includes all the elements of the unsorted input list. 
+Assume that we have a list $L$ that has length $k+1.$ We also may assume that the length $k+1$ of the list is greater than $2$ since we have covered the cases for lists of lengths $1$ and $2$ in the Basis Step. Notice that when we split the list $L$ as described in the algorithm, each of the resulting left and right sublists must have length less than $k+1,$ so the Induction Hypothesis applies to those sublists: The Merge Sort correctly returns sorted copies of the left and right sublists. The merge performed on the two sublists creates a list that is sorted in nondecreasing order, which contains all the elements of the original input list. 
+
+We have proven that if $P(i)$ is True for each natural number $i$ with $1 \leq i \leq k,$ then $P(k+1)$ must also be True. That is, we have proven $( ( P(1) \land P(2) \land \cdots \land P(k) ) \rightarrow P(k+1)$.
 
 
-We have proven that if $P(i)$ is True for each natural number $i$ with $0 \leq i \leq k,$ then $P(k+1)$ must also be True. That is, we have proven $( ( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)$.
-
-
-*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can conclude that for all positive integers $n,$ the _MergeSort_ algorithm sorts any input list of length $n$ in increasing order. Since this is True for every natural number value of $n,$ we have successfully created a proof of correctness for the _MergeSort_ algorithm: For any finte-length list of numbers, the _MergeSort_ algorithm sorts the list in increasing order. 
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can conclude that for positive integers $n,$ the Merge Sort algorithm returns a copy of the original list that is sorted in nondecreasing order. 
 
 Q.E.D.
 //--

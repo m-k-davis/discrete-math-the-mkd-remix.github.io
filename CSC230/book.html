@@ -13108,10 +13108,11 @@ in the <a href=./induction.html>Proofs: Mathematical Induction</a> chapter that 
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on October 29, 2025.</em><br>
+<p><em>This chapter was last updated on November 3, 2025.</em><br>
+<em>inserted proof of correctness of the MergeSort algorithm using strong induction</em><br>
+<em>Earlier updates include:</em><br>
 <em>inserted additional sample proof (Example 7: \(11^{n}-6\) is divisible by \(5\) for all natural numbers \(n.\))</em><br>
 <em>linked setup of proof of Binomial Theorem to earlier discussion in the <a href=./counting_binomial.html>Counting: Permutations and Combinations</a> chapter</em><br>
-<em>Earlier updates include:</em><br>
 <em>added new “coder-friendly” version of example in the first subsection (sum of consecutive odd positive integers)</em><br>
 <em>added additional “setting up a proof” exercises (complete graphs, binomial theorem)</em><br>
 <em>added note about the Principle of Mathematical Induction and the Well-Ordering Principle</em><br>
@@ -14287,7 +14288,275 @@ How can you use the recursive definition of <a href=./recursion.html#rooted_tree
 </div>
 </div>
 <div class="sect2">
-<h3 id="_exercises_7">11.7. Exercises</h3>
+<h3 id="merge_sort_strong_induction">11.7. Validating A Recursive Algorithm Using Strong Induction</h3>
+<div class="paragraph">
+<p>In this section, we&#8217;ll use strong induction to prove the correctness of a recursive algorithm.
+That is, we will
+show that the algorithm
+must
+work as intended.</p>
+</div>
+<div class="paragraph">
+<p>Strong induction is useful for proving properties of recursively-defined objects
+since each use of the <a href=./recursion.html#definition_of_recursive_definition>Recursion Step</a> can depend on <em>any</em> previously completed steps instead of just one previous step.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_mergesort_algorithm">11.7.1. The <em>MergeSort</em> Algorithm</h4>
+<div class="paragraph">
+<p>In this subsection, we describe the <em>MergeSort</em> algorithm, which is an example of a “divide-and-conquer” algorithm that breaks up a large problem into two or more smaller versions of the same problem and then combines the solutions of the smaller problems to find a solution to the original large problem.</p>
+</div>
+<div class="paragraph">
+<p>Here is a description of the <em>MergeSort</em> algorithm.</p>
+</div>
+<div class="ulist">
+<div class="title"><em>MergeSort</em></div>
+<ul>
+<li>
+<p>Task: Sort the numbers in a list \(L\) in increasing order. The numbers can be integers or real numbers.</p>
+</li>
+<li>
+<p>Input: The list \(L.\)</p>
+</li>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the length of list \(L\) is less than \(2,\) return \(L.\)</p>
+</li>
+<li>
+<p>Set \(c\) to the <a href=./introduction_discrete_math.html#informal_floor_and_ceiling_definition>ceiling</a> of half the length of list \(L.\)</p>
+</li>
+<li>
+<p>Define the list \(L_{\text{left}}\) to be the list of the first \(c\) elements of list \(L,\) in the current order, and<br>
+define \(L_{\text{right}}\) to be the list of the remaining elements of list \(L\), in the current order.</p>
+</li>
+<li>
+<p>Define \(L_{\text{sorted}}\) to be the list returned by the <em>Merge</em> algorithm called with the two input lists \(MergeSort(L_{\text{left}})\) and \(MergeSort(L_{\text{right}}).\)</p>
+</li>
+<li>
+<p>Copy the values to \(L\) from \(L_{\text{sorted}}.\)</p>
+</li>
+<li>
+<p>Return \(L.\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Output: The list \(L,\) sorted in increasing order.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <em>MergeSort</em> algorithm is recursive:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Basis Step
+</td>
+<td class="hdlist2">
+<p>The shortest lists, ones that are either empty or have only a single element, are processed at Step 1 of the algorithm. These lists are considered to be sorted by definition.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Recursion
+</td>
+<td class="hdlist2">
+<p>Longer lists are processed starting at Step 2 of the algorithm. In particular, notice that at Step 4, the algorithm calls on a second algorithm, <em>Merge,</em> after recursively calling itself twice, once for each of the shorter lists \(L_{\text{left}}\) and \(L_{\text{right}}.\)</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Of course, we will need to describe precisely what the <em>Merge</em> algorithm does, which we will do below. An implementation of both the <em>MergeSort</em> and <em>Merge</em> algorithms in Python will be given, too.
+More detail about <em>MergeSort,</em> along with a different Python implementation,  can be found in the <a href=./algorithms.html#merge_sort>Algorithms and Their Analysis</a> chapter.</p>
+</div>
+<div class="paragraph">
+<p>Next, we describe the <em>Merge</em> algorithm, which is designed to combine two ordered lists into a single ordered list.</p>
+</div>
+<div class="ulist">
+<div class="title"><em>Merge</em></div>
+<ul>
+<li>
+<p>Task: Create a new list \(M\) that is sorted in increasing order and contains all the numbers in two given lists of numbers, \(A\) and \(B,\) that already were sorted in increasing order.</p>
+</li>
+<li>
+<p>Input: The lists \(A\) and \(B.\) The numbers in each list can be integers or real numbers.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Define a list \(M\) and initialize it as the empty list.</p>
+</li>
+<li>
+<p>Define index variables \(i\) and \(j\) and initialize both to \(0.\)</p>
+</li>
+<li>
+<p>While there are elements in both \(A\) and \(B\) not yet appended to \(M\)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If \(A[i\)] is less than or equal to \(B[j\)]</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Append \(A[i\)] to \(M\)</p>
+</li>
+<li>
+<p>Increment \(i\) by \(1\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Otherwise, \(B[j\)] must be less than \(A[i\)] so</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Append \(B[j\)] to \(M\)</p>
+</li>
+<li>
+<p>Increment \(j\) by \(1\)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>If all the elements of \(A\) have been appended to \(M,\) then append all remaining elements of \(B\) to \(M.\)</p>
+</li>
+<li>
+<p>If all the elements of \(B\) have been appended to \(M,\) then append all remaining elements of \(A\) to \(M.\)</p>
+</li>
+<li>
+<p>Return \(M.\)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Output: List \(M,\) containing all the numbers in the two lists \(A\) and \(B,\) sorted in increasing order.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following Python code implements both <em>MergeSort</em> and <em>Merge.</em> Try tracing through the code to see how it works. This code is a bit longer than most sample in this textbook, so it may be easier to view and trace it in a new tab or window by clicking on the link labeled “Edit in PythonTutor.”</p>
+</div>
+<iframe width="100%" frameborder="5" height="520" src="https://pythontutor.com/iframe-embed.html#code=import%20math%20%0A%0Adef%20myMerge%28A,B%29%3A%20%0A%20%20%20%20M%20%3D%20%5B%5D%0A%20%20%20%20i,%20j,%20lenA,%20lenB%20%3D%200,%200,%20len%28A%29,%20len%28B%29%0A%20%20%20%20while%20%28i%3ClenA%20and%20j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20if%20A%5Bi%5D%20%3C%3D%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%20%23%20A%5Bi%5D%20%3E%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20if%20i%20%3E%3D%20lenA%3A%0A%20%20%20%20%20%20%20%20while%28j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20if%20j%20%3E%3D%20lenB%3A%0A%20%20%20%20%20%20%20%20while%28i%3ClenA%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20return%20M%0A%20%20%20%20%0Adef%20myMergeSort%28L%29%3A%0A%20%20%20%20lenL%20%3D%20len%28L%29%0A%20%20%20%20if%20lenL%20%3C%202%3A%20%0A%20%20%20%20%20%20%20%20return%20L%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20c%20%3D%20math.ceil%28lenL/2%29%0A%20%20%20%20%20%20%20%20L_left%20%3D%20L%5B0%3Ac%5D%20%20%20%20%20%20%23%20the%20first%20c%20elements%0A%20%20%20%20%20%20%20%20L_right%20%3D%20L%5Bc%3AlenL%5D%20%20%23%20the%20rest%20of%20the%20elements%0A%20%20%20%20%20%20%20%20L_sorted%20%3D%20myMerge%28%20myMergeSort%28L_left%29,%20myMergeSort%28L_right%29%20%29%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%20%28lenL%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20L%5Bi%5D%20%3D%20L_sorted%5Bi%5D%0A%20%20%20%20%20%20%20%20return%20L%0A%0AmyList%20%3D%20%5B5,3,2%5D%0A%23myList%20%3D%20%5B5,3,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,13,2%5D%0Aprint%20%28'Unsorted%3A',%20myList%29%0AmyMergeSort%28myList%29%0Aprint%20%28'Sorted%20%20%3A',%20myList%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=520"> </iframe>
+
+<div style="text-align: right;">
+<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=import%20math%20%0A%0Adef%20myMerge%28A,B%29%3A%20%0A%20%20%20%20M%20%3D%20%5B%5D%0A%20%20%20%20i,%20j,%20lenA,%20lenB%20%3D%200,%200,%20len%28A%29,%20len%28B%29%0A%20%20%20%20while%20%28i%3ClenA%20and%20j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20if%20A%5Bi%5D%20%3C%3D%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%20%23%20A%5Bi%5D%20%3E%20B%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20if%20i%20%3E%3D%20lenA%3A%0A%20%20%20%20%20%20%20%20while%28j%3ClenB%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28B%5Bj%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20if%20j%20%3E%3D%20lenB%3A%0A%20%20%20%20%20%20%20%20while%28i%3ClenA%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20M.append%28A%5Bi%5D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20return%20M%0A%20%20%20%20%0Adef%20myMergeSort%28L%29%3A%0A%20%20%20%20lenL%20%3D%20len%28L%29%0A%20%20%20%20if%20lenL%20%3C%202%3A%20%0A%20%20%20%20%20%20%20%20return%20L%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20c%20%3D%20math.ceil%28lenL/2%29%0A%20%20%20%20%20%20%20%20L_left%20%3D%20L%5B0%3Ac%5D%20%20%20%20%20%20%23%20the%20first%20c%20elements%0A%20%20%20%20%20%20%20%20L_right%20%3D%20L%5Bc%3AlenL%5D%20%20%23%20the%20rest%20of%20the%20elements%0A%20%20%20%20%20%20%20%20L_sorted%20%3D%20myMerge%28%20myMergeSort%28L_left%29,%20myMergeSort%28L_right%29%20%29%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%20%28lenL%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20L%5Bi%5D%20%3D%20L_sorted%5Bi%5D%0A%20%20%20%20%20%20%20%20return%20L%0A%0AmyList%20%3D%20%5B5,3,2%5D%0A%23myList%20%3D%20%5B5,3,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,2%5D%0A%23myList%20%3D%20%5B5,3,11,7,13,2%5D%0Aprint%20%28'Unsorted%3A',%20myList%29%0AmyMergeSort%28myList%29%0Aprint%20%28'Sorted%20%20%3A',%20myList%29&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
+</div>
+<div class="paragraph">
+<p>Now that you have had the opportunity to see the how <em>MergeSort</em> and <em>Merge</em> work as implemented in Python, you are ready to try to prove the correctness of both algorithms.</p>
+</div>
+<div class="paragraph">
+<p>First, let&#8217;s discuss a proof of correctness for the <em>Merge</em> algorithm.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Lemma</div>
+<p>For any two finite-length lists of numbers that are sorted in increasing order, the <em>Merge</em> algorithm correctly constructs a list \(M\) that is sorted in increasing order and contains all the numbers in the two lists.</p>
+</div>
+<div class="openblock click">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+This proof is an exercise for you!<br>
+<br>
+Notice that if you assume each list is nonempty then after one element has been appended to \(M\) you can now treat whichever list contained that value as if it is a list with one less element (that is, you can treat that list as if the smallest element had been <em>removed</em> from the list and all other elements were re-indexed.) This suggests that using mathematical induction (not strong induction) where \(n\) is equal to the sum of the lengths of the two input lists will work.<br>
+<br>
+Suggestions:<br>
+<br>
+First, write down the predicate \(P(n)\) that you need to prove.<br>
+<br>
+For the Basis Step, look at the three cases \(n = 0\) (both lists are empty,) \(n = 1\) (one list is empty, the other is not,) and \(n = 2\) (either each list contains one element, or one list is empty and the other contains \(2\) elements.) These cases are handled differently by the <em>Merge</em> algorithm (different Steps/parts of the Python code are used in each case,) but should cover all the possible ways the algorithm will handle short lists.<br>
+<br>
+Write down the Induction Hypothesis \(P(k).\)<br>
+<br>
+For the Induction Step, assume that the sum of the lengths of the two input lists is \(k+1,\) and use the idea discussed above: After the first element is appended to \(M,\) the sum of the lengths of the list is reduced to \(k,\) the case you <em>assume</em> can be handled correctly by the algorithm.
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, let&#8217;s prove the correctness of the <em>MergeSort</em> algorithm.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Theorem</div>
+<p>For any finte-length list of numbers, the <em>MergeSort</em> algorithm sorts the list in increasing order.</p>
+</div>
+<div class="openblock proof">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Let \(P(n)\) be the predicate \[P(n) \text{: “For any list of numbers that has length } n \text{, } \text{the } MergeSort \\ \text{ algorithm sorts the list in increasing order.”}\]
+We will prove that
+\((\forall n \in \mathbb{N})P(n),\)
+that is,
+the <em>MergeSort</em> algorithm works as intended for any list \(L\) that has finite length.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Basis Step:</strong> Both \(P(0)\) and \(P(1)\) are True since the <em>MergeSort</em> algorithm returns
+the original list
+unchanged if the length of the list is less than or equal to \(1\)
+(An empty list can be considered as sorted for our purposes, and a list that contains
+only a single element
+already <em>is</em> sorted in increasing order.)<br>
+\(P(2)\) is True, too, since the <em>MergeSort</em> algorithm will
+invoke the <em>Merge</em> algorithm, which will not change the
+order of the elements of the list if the two elements already are in increasing order but will swap the two elements otherwise; in either case the output of the <em>MergeSort</em> algorithm is the original list sorted in increasing order.</p>
+</div>
+<div class="paragraph">
+<p><strong>Induction Step:</strong> First, we assume as the induction hypothesis that \[P(i) \text { is True for all positive natural numbers } i \text{ such that } 2 \leq i \leq k \] or, in words,
+“For any list of numbers that has length less than or equal to \(k,\) the  <em>MergeSort</em> algorithm sorts the list in increasing order,”
+where we can assume that the integer \(k\) is greater than or equal to \(2\) (because the cases where \(k \in \{ 0, 1, 2 \}\) were already dealt with in the Basis Step.) That is, we assume that the single proposition \(P(0) \land P(1) \land \cdots \land P(k)\) is True, where \(k\) is some integer greater than or equal to \(2.\)</p>
+</div>
+<div class="paragraph">
+<p>Secondly, we will prove that the conditional \(( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)\) must be True, which means we can use <em>modus ponens</em> to show that \(P(k+1)\) is also True.</p>
+</div>
+<div class="paragraph">
+<p>Assume that we have a list \(L\) that has length \(k+1.\)
+Notice that when we split the list \(L\) as described in the algorithm, each of the resulting left and right sublists must have length less than \(k+1,\) so the Induction Hypothesis applies to those sublists: The <em>MergeSort</em> algorithm correctly
+sorts
+the left and right sublists. From the lemma, we know that when <em>Merge</em> is invoked on the two sublists, it creates a list that is sorted in increasing order that contains all the elements of the original input list. The list that is output by <em>Merge</em> is then copied element-by-element to the original input list \(L,\) resulting in list that is sorted in increasing order and that includes all the elements of the unsorted input list.</p>
+</div>
+<div class="paragraph">
+<p>We have proven that if \(P(i)\) is True for each natural number \(i\) with \(0 \leq i \leq k,\) then \(P(k+1)\) must also be True. That is, we have proven \(( ( P(0) \land P(1) \land \cdots \land P(k) ) \rightarrow P(k+1)\).</p>
+</div>
+<div class="paragraph">
+<p><strong>Conclusion Step:</strong> We have proven both the Basis Step and the Induction Step. Therefore, we can conclude that for all positive integers \(n,\) the <em>MergeSort</em> algorithm sorts any input list of length \(n\) in increasing order. Since this is True for every natural number value of \(n,\) we have successfully created a proof of correctness for the <em>MergeSort</em> algorithm: For any finte-length list of numbers, the <em>MergeSort</em> algorithm sorts the list in increasing order.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exercises_7">11.8. Exercises</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -15920,7 +16189,7 @@ larger elements to the right, using a variable, say \(j\).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_merge_sort">13.4.3. Merge Sort</h4>
+<h4 id="merge_sort">13.4.3. Merge Sort</h4>
 <div class="paragraph">
 <p>Merge Sort is a recursive sorting algorithm. The general idea is to divide a list of length \(n\) into \(n\) sublists of length \(1\), where a list of length one is considered already sorted. Subsequently, the algorithm repeatedly merges the sublists to make sorted lists until only a single list of length \(n\) is remaining. This will be the a sorted list consisting of the elements of the original list.</p>
 </div>

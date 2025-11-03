@@ -675,6 +675,8 @@ include::python_tutor.adoc[]
 It is left as an exercise to verify that the insertion sort algorithm is $O(n^2)$.
 
 
+// MKD Nov 1 2025 inserted anchor
+[[merge_sort]]
 //MKD merge sort begins
 === Merge Sort
 
