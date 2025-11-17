@@ -9,8 +9,9 @@
 
 include::LinkToPublic.adoc[] 
 
-_This chapter was last updated on November 10, 2025._ + 
-_updated discussion of the MergeSort algorithm._ + 
+_This chapter was last updated on November 16, 2025._ + 
+_added closed-form solution for the recurrence relation that describes the number of comparisons used by the MergeSort algorithm for lists of length a power of 2._ + 
+//_updated discussion of the MergeSort algorithm._ + 
 //_inserted content on Dijkstra's algorithm._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
@@ -719,7 +720,8 @@ include::python_tutor.adoc[]
 
 Define a function $C(n)$ with output equal to the number of comparisons needed by Merge Sort to order a list of size $n$. From the algorithm, you can see that $C(n)$ satisfies the following recurrence relation. \[ C(n) = C \left( \left\lceil \frac{n}{2} \right\rceil \right) + C \left( \left\lfloor \frac{n}{2} \right\rfloor \right) + (n - 1) \] with $C(1) = 0$ and $C(2) = 1.$ 
 
-To simplify the analysis, let's *assume that $n$ is a power of $2$* so that the ceiling and floor are not needed in the recurrence relation. \[ C(n) = C \left( \frac{n}{2} \right) + C \left( \frac{n}{2} \right) + (n - 1) \] where $n$ is a power of $2$ and $C(1) = 0$ and $C(2) = 1.$ Notice that the recursive step can be rewritten as \[ C(n) = 2 C \left( \frac{n}{2} \right) + (n - 1). \] It can be shown that the closed-form solution to this recurrence relation is a function that is $O(n \log{n}).$
+To simplify the analysis, let's *assume that $n$ is a power of $2$* so that the ceiling and floor are not needed in the recurrence relation. \[ C(n) = C \left( \frac{n}{2} \right) + C \left( \frac{n}{2} \right) + (n - 1) \] where $n$ is a power of $2$ and $C(1) = 0$ and $C(2) = 1.$ Notice that the recursive step can be rewritten as \[ C(n) = 2 C \left( \frac{n}{2} \right) + (n - 1). \] It can be shown that the closed-form solution to this recurrence relation is a function that is $O(n \log{n}).$ + 
+[small]#Informal exercise: Verify that $C(n) = n \cdot \log_{2}{(n)} - (n-1)$ is a closed-form solution of the simplified recurrence relation.#
 
 ////
 //Notice that Merge Sort has complexity $n \log{n}$. 

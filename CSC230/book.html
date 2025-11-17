@@ -15496,8 +15496,8 @@ words what it means that \( f(x)\) is <span class="underline">not</span> \( O(g(
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on November 10, 2025.</em><br>
-<em>updated discussion of the MergeSort algorithm.</em><br></p>
+<p><em>This chapter was last updated on November 16, 2025.</em><br>
+<em>added closed-form solution for the recurrence relation that describes the number of comparisons used by the MergeSort algorithm for lists of length a power of 2.</em><br></p>
 </div>
 <div class="paragraph">
 <p>An <strong>algorithm</strong> is a step-by-step process, defined by a set of
@@ -16228,7 +16228,8 @@ larger elements to the right, using a variable, say \(j\).</p>
 <p>Define a function \(C(n)\) with output equal to the number of comparisons needed by Merge Sort to order a list of size \(n\). From the algorithm, you can see that \(C(n)\) satisfies the following recurrence relation. \[ C(n) = C \left( \left\lceil \frac{n}{2} \right\rceil \right) + C \left( \left\lfloor \frac{n}{2} \right\rfloor \right) + (n - 1) \] with \(C(1) = 0\) and \(C(2) = 1.\)</p>
 </div>
 <div class="paragraph">
-<p>To simplify the analysis, let&#8217;s <strong>assume that \(n\) is a power of \(2\)</strong> so that the ceiling and floor are not needed in the recurrence relation. \[ C(n) = C \left( \frac{n}{2} \right) + C \left( \frac{n}{2} \right) + (n - 1) \] where \(n\) is a power of \(2\) and \(C(1) = 0\) and \(C(2) = 1.\) Notice that the recursive step can be rewritten as \[ C(n) = 2 C \left( \frac{n}{2} \right) + (n - 1). \] It can be shown that the closed-form solution to this recurrence relation is a function that is \(O(n \log{n}).\)</p>
+<p>To simplify the analysis, let&#8217;s <strong>assume that \(n\) is a power of \(2\)</strong> so that the ceiling and floor are not needed in the recurrence relation. \[ C(n) = C \left( \frac{n}{2} \right) + C \left( \frac{n}{2} \right) + (n - 1) \] where \(n\) is a power of \(2\) and \(C(1) = 0\) and \(C(2) = 1.\) Notice that the recursive step can be rewritten as \[ C(n) = 2 C \left( \frac{n}{2} \right) + (n - 1). \] It can be shown that the closed-form solution to this recurrence relation is a function that is \(O(n \log{n}).\)<br>
+<span class="small">Informal exercise: Verify that \(C(n) = n \cdot \log_{2}{(n)} - (n-1)\) is a closed-form solution of the simplified recurrence relation.</span></p>
 </div>
 <div class="paragraph">
 <p>MORE TO COME!</p>
@@ -16248,7 +16249,8 @@ larger elements to the right, using a variable, say \(j\).</p>
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on Aug 15, 2025.</em><br>
+<p><em>This chapter was last updated on November 17, 2025.</em><br>
+<em>Revised example involving isomophism and planarity.</em><br>
 <em>Revised and expanded the discussion of isomorphisms and underlying graphs.</em></p>
 </div>
 <div class="paragraph">
@@ -16997,9 +16999,7 @@ other graph
 <p>It is not immediately clear that the graphs on the left and right are bipartite, but the arrangement of the vertices in the middle graph into "upper" and "lower" rows makes this easy to see.</p>
 </li>
 <li>
-<p>Also, it is not immediately clear that the graph in the middle or the graph on the right is <strong>planar</strong> (that is, the graph can be redrawn in a \(2\)-dimension plane so that no edges cross) but this is obvious for the graph on the left.<br>
-<span class="small">Note: This textbook does not discuss planar graphs in detail, but it is worth mentioning that it can be proven that neither \(K_{5}\) nor \(K_{3,3}\) is planar. If you&#8217;d like to learn more about planar graphs, one source is the section "Planar Graphs" in
-<a href=https://discrete.openmathbooks.org/dmoi4/sec_gt-planar.html>Oscar Levin&#8217;s <em>Discrete Mathematics: An Open Introduction,</em> 4th edition.</a></span></p>
+<p>Also, it is not immediately clear that the graph in the middle or the graph on the right is <strong>planar</strong> (that is, the graph can be redrawn in a \(2\)-dimension plane so that no edges cross) but this is obvious for the graph on the left.<br></p>
 </li>
 </ul>
 </div>
@@ -17020,6 +17020,26 @@ Look for rows and columns in the different matrices that are identical. The orde
 </div>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="imageblock right text-center">
+<div class="content">
+<img src="imagesMKD/BasicNonPlanarGraphsv2.png" alt="BasicNonPlanarGraphsv2.png" width="306" height="138">
+</div>
+</div>
+<div class="paragraph">
+<p>This textbook does not discuss planar graphs in detail, but it is worth mentioning that it can be proven that neither \(K_{5}\) nor \(K_{3,3}\) is planar. If you&#8217;d like to learn more about planar graphs, one source is the section "Planar Graphs" in
+<a href=https://discrete.openmathbooks.org/dmoi4/sec_gt-planar.html>Oscar Levin&#8217;s <em>Discrete Mathematics: An Open Introduction,</em> 4th edition.</a></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="isomorphisms_that_preserve_attributes">14.9.1. Isomorphism of Graphs with Additional Features</h4>
@@ -17376,7 +17396,8 @@ and the edge \(e\) that connects \(v\) and \(w\) is part of a path between \(a\)
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on August 17, 2025.</em><br>
+<p><em>This chapter was last updated on November 17, 2025.</em><br>
+<em>Added note on Jan Łukasiewicz&#8217;s notation (usually called “Polish notation,” subsection to be added later)</em><br>
 <em>Revised section on directed trees. Rewrote theorem on second characterization of trees.</em></p>
 </div>
 <div class="paragraph">
@@ -18261,6 +18282,13 @@ in which each internal node has at most \(m\) children.<br>
 </li>
 <li>
 <p>Expression Trees</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Polish and Reverse Polish Notations (Jan Łukasiewicz)</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>

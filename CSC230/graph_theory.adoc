@@ -8,7 +8,8 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on Aug 15, 2025._ + 
+_This chapter was last updated on November 17, 2025._ + 
+_Revised example involving isomophism and planarity._ + 
 _Revised and expanded the discussion of isomorphisms and underlying graphs._
 //_Inserted a version of Dijkstra's algorithm for a minimal-weight path between two given vertices._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
@@ -1046,9 +1047,6 @@ Once you have shown that the three graphs are isomorphic, you can use the fact t
 * It is not immediately clear that the graphs on the left and right are bipartite, but the arrangement of the vertices in the middle graph into "upper" and "lower" rows makes this easy to see.
 
 * Also, it is not immediately clear that the graph in the middle or the graph on the right is *planar* (that is, the graph can be redrawn in a $2$-dimension plane so that no edges cross) but this is obvious for the graph on the left. + 
-[small]#Note: This textbook does not discuss planar graphs in detail, but it is worth mentioning that it can be proven that neither $K_{5}$ nor $K_{3,3}$ is planar. If you'd like to learn more about planar graphs, one source is the section "Planar Graphs" in 
-link:https://discrete.openmathbooks.org/dmoi4/sec_gt-planar.html[Oscar Levin's _Discrete Mathematics: An Open Introduction,_ 4th edition.]#
-//link:https://discrete.openmathbooks.org/dmoi3.html[Oscar Levin's _Discrete Mathematics: An Open Introduction,_ 3rd edition.]#
 
 [env.challenge]
 --
@@ -1062,6 +1060,22 @@ Look for rows and columns in the different matrices that are identical. The orde
 
 
 ****
+
+[NOTE] 
+====
+
+// MKD Nov 17 2025
+//image::imagesMKD/BasicNonPlanarGraphsv2.png[BasicNonPlanarGraphsv2.png,613,276,float="right",align="center"]
+//image::imagesMKD/BasicNonPlanarGraphsv2.png[BasicNonPlanarGraphsv2.png,245,110,float="right",align="center"]
+image::imagesMKD/BasicNonPlanarGraphsv2.png[BasicNonPlanarGraphsv2.png,306,138,float="right",align="center"]
+//[small]#Note: 
+//.Note about Planar Graphs 
+This textbook does not discuss planar graphs in detail, but it is worth mentioning that it can be proven that neither $K_{5}$ nor $K_{3,3}$ is planar. If you'd like to learn more about planar graphs, one source is the section "Planar Graphs" in 
+link:https://discrete.openmathbooks.org/dmoi4/sec_gt-planar.html[Oscar Levin's _Discrete Mathematics: An Open Introduction,_ 4th edition.] 
+// #
+//link:https://discrete.openmathbooks.org/dmoi3.html[Oscar Levin's _Discrete Mathematics: An Open Introduction,_ 3rd edition.]# 
+
+====
 
 //It is immediately clear by looking at the graph (drawing) on the left that the graph consists of a single cycle, and by looking at the graph (drawing) in the middle that the graph is bipartite; neither of these properties is immediately obvious if you only had the graph (drawing) on the right. 
 

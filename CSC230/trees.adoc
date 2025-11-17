@@ -7,7 +7,8 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on August 17, 2025._ + 
+_This chapter was last updated on November 17, 2025._ + 
+_Added note on Jan Łukasiewicz's notation (usually called “Polish notation,” subsection to be added later)_ + 
 _Revised section on directed trees. Rewrote theorem on second characterization of trees._
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
@@ -942,6 +943,8 @@ Tree traversal algorithms are used to visit each node of a rooted tree. There ar
 *** Algorithms for Depth- and breadth-first traversals
 
 ** Expression Trees
+
+*** Polish and Reverse Polish Notations (Jan Łukasiewicz)
 
 //* Algorithms
 

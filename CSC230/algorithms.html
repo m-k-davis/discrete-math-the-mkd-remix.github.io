@@ -631,11 +631,11 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on November 10, 2025.
+        This chapter was last updated on November 16, 2025.
        </em>
        <br/>
        <em>
-        updated discussion of the MergeSort algorithm.
+        added closed-form solution for the recurrence relation that describes the number of comparisons used by the MergeSort algorithm for lists of length a power of 2.
        </em>
        <br/>
       </p>
@@ -1977,6 +1977,10 @@ larger elements to the right, using a variable, say \(j\).
            assume that \(n\) is a power of \(2\)
           </strong>
           so that the ceiling and floor are not needed in the recurrence relation. \[ C(n) = C \left( \frac{n}{2} \right) + C \left( \frac{n}{2} \right) + (n - 1) \] where \(n\) is a power of \(2\) and \(C(1) = 0\) and \(C(2) = 1.\) Notice that the recursive step can be rewritten as \[ C(n) = 2 C \left( \frac{n}{2} \right) + (n - 1). \] It can be shown that the closed-form solution to this recurrence relation is a function that is \(O(n \log{n}).\)
+          <br/>
+          <span class="small">
+           Informal exercise: Verify that \(C(n) = n \cdot \log_{2}{(n)} - (n-1)\) is a closed-form solution of the simplified recurrence relation.
+          </span>
          </p>
         </div>
         <div class="paragraph">
