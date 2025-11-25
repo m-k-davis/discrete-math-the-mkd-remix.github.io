@@ -352,7 +352,8 @@ either because the target element is the last element of the array,
 or the target element  is not  actually  in the search list at all. The algorithm
 runs in $O(n)$ time in the worst case.
 
-
+// MKD Nov 22 2025 inserted anchor 
+[[binary_search_algorithm]] 
 === The Binary Search Algorithm
 
 // MKD reworded paragraph

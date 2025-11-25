@@ -481,6 +481,8 @@ Notice that each line segment in the Hasse diagram connects a first subset of $S
 
 ****
 
+// MKD Nov 22 2025 inserted anchor
+[[total_ordering]]
 ==== Total Orderings
 
 A *total ordering* of a set $S$ is a 

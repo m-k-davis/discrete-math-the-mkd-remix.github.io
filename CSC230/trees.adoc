@@ -7,7 +7,8 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on November 17, 2025._ + 
+_This chapter was last updated on November 22, 2025._ + 
+_Added content to the section on binary trees._ + 
 _Added note on Jan Łukasiewicz's notation (usually called “Polish notation,” subsection to be added later)_ + 
 _Revised section on directed trees. Rewrote theorem on second characterization of trees._
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
@@ -713,6 +714,8 @@ In summary, the lemma tells you that every rooted tree can be thought of as an a
  
 // MKD added Aug 11 2025 
 
+// MKD Nov 22 2025 inserted ancho 
+[[ordered_trees]] 
 === Ordered Trees 
 
 Notice that in the Recursion step of the definition of rooted tree, the new root node is connected to each of the old root nodes, 
@@ -744,6 +747,9 @@ In this subsection, a recursive definition for *ordered trees* is presented. Thi
 
 //    since we only use them  as important, that is, we simply have  is a positive integer and for each positive integer $i \leq n,$ the root node of $T_{i}$ is the vertex $r_{i}.$ +  
 
+
+// MKD Nov 22 2025 inserted another anchor...
+[[ordered_tree_recursive_definition]]
 The set of *ordered trees* is defined recursively as follows. 
 //+ 
 //[small]#This definition is a minor revision to the one that appeared in the link:./recursion.html#rooted_trees[Recursion] chapter.#
@@ -854,6 +860,11 @@ In general, ordered trees are isomorphic if and only if they tell the same story
 == Binary Trees #SECTION UNDER CONSTRUCTION!# 
 // ** Algorithms for Binary search trees
 
+
+// MKD Nov 22 2025 
+NOTE: As mentioned near the beginning of this chapter, much of the terminology related to trees is not standardized. The definitions in this section use terminology consistent with link:https://www.routledge.com/Handbook-of-Graph-Theory/Gross-Yellen-Zhang/p/book/9781439880180?srsltid=AfmBOoopymlQNVr5rlo05ShK51PGym1Kv1vJ47zHndypkoXdteehcoYw[_Handbook of Graph Theory,_ Second Edition,] but information on alternative definitions is also stated. 
+
+ 
 //Binary trees are An important type of rooted tree used in computer science is the *binary tree.*
 
 For any positive integer $m,$ an *m-ary tree* is defined to be 
@@ -862,18 +873,22 @@ For any positive integer $m,$ an *m-ary tree* is defined to be
 an ordered tree 
 in which each internal node has at most $m$ children. + 
 // MKD Aug 16 2025 add small note 
-[small]#Note: Some sources define m-ary tree to be a rooted tree instead of an ordered tree.#
+[small]#Some sources define m-ary tree to be a rooted tree instead of an ordered tree.# 
+//Note: 
 
 
 A *binary tree* is a 2-ary tree, or more simply, an ordered tree in which each internal node has at most two children. In a binary tree, the root node is the parent of at most two subtrees $T_{1},$ called the *left subtree,* and $T_{2},$ called the *right subtree.* Notice that in the context of binary trees, it is allowable for either or both of the subtrees to be absent (that is, empty). + 
 // MKD Aug 16 2025 reworded small note
-[small]#Note: Some sources allow for a binary tree to have no vertices or edges. This “empty binary tree” is not an ordered tree since it has no root node. In computer science, an empty binary tree is useful for implementing binary trees as data structures since an empty binary subtree can be represented by a null pointer (or null reference.) As an example, a leaf node can be recognized as one whose left child and right child pointers/references are both null.# 
+// MKD Nov 22 2025 revised small note again, and inserted link
+[small]#Some sources allow a binary tree to be “empty,” in the sense that it has no vertices or edges. An “empty binary tree” is not an link:./trees.html#ordered_tree_recursive_definition[ordered tree] as defined above since it has no root node. However, an empty binary tree is useful in computer science applications. For example, when implementing binary trees as data structures, an empty binary subtree corresponds to by a null pointer (or null reference);  a leaf node of a binary tree can be recognized as a node whose left child and right child pointers/references are both null.# 
+//#Note: 
 // MKD July 15 2025 - also see https://xlinux.nist.gov/dads/HTML/tree.html
 
 
 // MKD an image with an absent subtree would be good here!
 
-Here is some additional terminology for binary trees. 
+// MKD Nov 21 2025  removed bulleted list (there was only "complete binary tree")
+//Here is some additional terminology for binary trees. 
 
 // MKD Aug 16 2025 - omitted James Wong's PowerPoint definition of full binary tree
 ////
@@ -887,9 +902,26 @@ all internal nodes have exactly two children.
 ////
 
 // MKD Aug 16 2025 - replaced James Wong's PowerPoint definition of complete binary tree with one based on The Handbook Of Graph Theory
+// MKD Nov 21 2025  - inserted image
 //* A binary tree is a *complete binary tree* if is one where every level, except possibly the last, is filled and all nodes in the last level are as far left as possible. + 
-* A *complete binary tree* is a binary tree in which every internal node has exactly 2 children and all leaves are at the same level. + 
-[small]#Note that a complete binary tree is not a complete graph. Mathematicians and computer scientists recycle certain words like “complete.”#
+
+// MKD Nov 21-22 2025 
+//// 
+// Defintions of "complete m-ary tree"
+// Handbook: An m-ary tree in which every internal vertex has exactly m children and all leaves are at the same level.
+// Rosen: A full m-ary tree in which every leaf is at the same level (A full m-ary tree is one with every internal vertex having exactly m children.) 
+////
+//image::imagesMKD/CompleteBinaryTreeHeight2.png[CompleteBinaryTreeHeight2,302,185,float="right",align="center"]
+//image::imagesMKD/CompleteBinaryTreeHeight2.png[CompleteBinaryTreeHeight2,151,93,float="right",align="center"] 
+image::imagesMKD/CompleteBinaryTreeHeight2.png[CompleteBinaryTreeHeight2,202,124,float="right",align="center"] 
+A *complete binary tree* is a binary tree in which every internal node has exactly 2 children and all leaves are at the same level. + 
+//[small]#The definition of “complete binary tree” used in the Remix matches the ones used by Rosen in  link:https://www.mheducation.com/highered/product/discrete-mathematics-applications-rosen/M9781259676512.html[_Discrete Mathematics and Its Applications,_ 8th Edition] and by Maurer in  link:https://www.routledge.com/Handbook-of-Graph-Theory/Gross-Yellen-Zhang/p/book/9781439880180?srsltid=AfmBOoopymlQNVr5rlo05ShK51PGym1Kv1vJ47zHndypkoXdteehcoYw[_Handbook of Graph Theory,_ Second Edition.] However, link:https://xlinux.nist.gov/dads/HTML/perfectBinaryTree.html[some sources call these “perfect binary trees” and other sources call these “full binary trees;”] many of those sources use “complete binary tree” to describe link:https://xlinux.nist.gov/dads/HTML/completeBinaryTree.html[something else.]# 
+[small]#link:https://xlinux.nist.gov/dads/HTML/perfectBinaryTree.html[Some sources] use either “perfect binary tree” or “full binary trees” to describe this type of binary tree and use the phrase “complete binary tree” to describe link:https://xlinux.nist.gov/dads/HTML/completeBinaryTree.html[something else.]# 
+// like “complete.”#
+//“”
+//Also note that a complete binary tree is not a complete graph. As mentioned before in the Remix, mathematicians and computer scientists recycle certain words. 
+//However, link:https://xlinux.nist.gov/dads/HTML/perfectBinaryTree.html[this definition is not used universally:] Some sources call these “perfect binary trees” and other sources call these “full binary trees,” and then use “complete binary tree” to describe link:https://xlinux.nist.gov/dads/HTML/completeBinaryTree.html[something else.] + 
+
 // MKD need to clarify what a "level" is
 
 // MKD again, images for full and/or complete binary trees would be good here!
@@ -897,6 +929,101 @@ all internal nodes have exactly two children.
 // MKD Aug 16 2025 
 // not great code sample for nodes of a binary tree 
 // https://pythontutor.com/render.html#code=class%20Node%3A%20%0A%20%20%20%20def%20__init__%28self,data%29%3A%20%0A%20%20%20%20%20%20%20%20self.data%20%3D%20data%0A%20%20%20%20%20%20%20%20self.leftChild%20%3D%20None%0A%20%20%20%20%20%20%20%20self.rightChild%20%3D%20None%20%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20def%20addLeftChild%28self,%20the_Node%29%3A%0A%20%20%20%20%20%20%20%20if%20self.leftChild%20%3D%3D%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.leftChild%20%3D%20the_Node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%22Left%20child%20already%20exists!%22%29%0A%0A%20%20%20%20def%20addRightChild%28self,%20the_Node%29%3A%0A%20%20%20%20%20%20%20%20if%20self.rightChild%20%3D%3D%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.rightChild%20%3D%20the_Node%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20ValueError%28%22Right%20child%20already%20exists!%22%29%0A%0An1%20%3D%20Node%28%22first%22%29%0An2%20%3D%20Node%28%22second%22%29%0Ar%20%3D%20Node%28%22new_root%22%29%0Ar.addLeftChild%28n1%29%0Ar.addRightChild%28n2%29&cumulative=false&curInstr=29&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+
+// MKD Nov 22 2025 
+// MKD an image of a balanced binary tree would be good here 
+A binary tree is called *balanced* if for every vertex $v,$ the number of vertices in the left subtree of $v$ and the number of vertices in the right subtree of $v$ differ by at most one. + 
+[small]#Some sources define a binary tree of height $h$ to be balanced if each leaf is at either level $h$ or level $h − 1.$#
+
+
+
+// MKD Nov 22 2025 new subsection
+=== Binary Search Trees
+
+//A *binary search tree* (BST) is a binary tree where each vertex is assigned a *key,* where all the keys come from a set that has a link:./relations.html#total_ordering[total ordering.] For example, the keys may be integers, or strings that are alphabetically ordered, or any other type of data that can be totally ordered. In a binary search tree, the key assigned to vertex $v$ is greater than the key at each vertex in the left subtree of v, and is less than the key at each vertex in the right subtree of v. 
+
+Define a *key* to be an element of a set that has a link:./relations.html#total_ordering[total ordering.] For example, keys could be integers ordered using the usual $\leq$ relation. As another example, keys could be strings ordered alphabetically. In general, keys could be any type of data that can be totally ordered. 
+
+// MKD you really need an image here! 
+A *binary search tree* (BST) is a binary tree where each vertex is assigned a key in such a way that that if key $k$ is assigned to vertex $v$ then both of the following are True. 
+[arabic]
+. the key $k$ is greater than each key assigned to a vertex in the left subtree of $v,$ and 
+. the key $k$ is less than each key assigned to a vertex in the right subtree of $v.$ 
+
+
+If you are given a list(or an array) of keys, a 
+binary search tree can be used to sort the keys and then quickly search for a key. An advantage of binary search trees is that it is much easier and faster to maintain the sort order if you need to insert new keys than it would be to insert the same keys into a sorted list (or an array) of keys. 
+//link:./algorithms.html#binary_search_algorithm[binary search.] 
+
+
+****
+.Example {counter:treeex} - Constructing a Binary Search Tree
+
+First, let's construct a binary search tree from the list of keys 
+$ \left[ 17, 3, 5, 31, 2 \right] .$ 
+
+* The first key in the list, $17,$ is assigned to the root node. 
+* The next key, $3,$ is less than the key $17$ at the root node, so $3$ is assigned to the left child of the root node. 
+* The next key, $5,$ is less than the key $17$ at the root node, so $5$ must be assigned to some node in the left subtree. 
+** Since $5$ is greater than the key $3$ at the left subtree's root, $5$ is assigned to the _right_ child of the left subtree's root. 
+* The next key, $31,$ is greater than the key $17$ at the root node, so $31$ is assigned to the right child of the root node. 
+* The last key, $2,$ is less than the key $17$ at the root node, so $2$ must be assigned to some node in the left subtree. 
+** Since $2$ is greater than $3,$ $2$ is assigned to the _left_ child of of the left subtree's root. 
+
+The following animation illustrates the construction of this binary search tree. 
+
+image::imagesMKD/BinarySearchTreeAnimation/01_05_loop_v3.gif[01_05_loop_v3,229,210,align="center"] 
+
+
+Now, let's search for some keys. If a key is not already present, it will be inserted in the correct position. 
+
+Consider the key $5.$ 
+
+* $5$ is less than the key at the root node, which is $17.$ If $5$ is in this BST, it must be in the left subtree, so continue searching from there. 
+* $5$ is greater than the key at the left subtree's root node, which is $3.$ If $5$ is in this BST, it must be in the right subtree of this node, so continue searching from there. 
+* $5$ is equal to the key at the subtree's root node, so we have found this key!
+
+Now consider the key $19$ which was not included in the original list. 
+
+* $19$ is greater than the key at the root node, which is $17.$ If $19$ is in this BST, it must be in the right subtree, so continue searching from there. 
+* $19$ is less than the key at the right subtree's root node, which is $31.$ If $19$ is in this BST, it must be in the left subtree of this node, so continue searching from there. 
+* This subtree is empty, so insert a new root node for this subtree and assign the key $19$ to this new node. 
+
+The following image shows the modified BST with the new key $19$ inserted in the correct position. 
+
+image::imagesMKD/BinarySearchTreeAnimation/06.gif[06,229,210,align="center"] 
+
+
+.You Try
+Locate the correct position of the new node when the key $11$ is inserted in the previously modified BST. 
+
+[click.answer]
+--
+
+The key $11$ is assigned to the right child of the node that has the key $5.$ Click link:./imagesMKD/BinarySearchTreeAnimation/07.gif[here] to see an image of the BST with $11$ assigned to the new node.
+ 
+--
+
+//image::imagesMKD/BinarySearchTreeAnimation/07.gif[07,229,210,align="center"]
+//<img src="imagesMKD/BinarySearchTreeAnimation/07.gif"> 
+
+
+
+
+.You Try
+Consider the following list of names, which will be used as keys. \[ \left[ \text{Li, Adil, Chris, Sofia, Elias, Maya, Jun} \right] . \] Construct and draw the binary search tree for this list of keys.
+
+[click.answer]
+--
+
+Click link:./imagesMKD/7names.png[here] to see an image of the BST.
+ 
+--
+
+
+****
+
 
 
 // MKD Aug 16 2025 new subsection

@@ -12170,7 +12170,7 @@ Notice that each line segment in the Hasse diagram connects a first subset of \(
 </div>
 </div>
 <div class="sect4">
-<h5 id="_total_orderings">Total Orderings</h5>
+<h5 id="total_ordering">Total Orderings</h5>
 <div class="paragraph">
 <p>A <strong>total ordering</strong> of a set \(S\) is a
 partial order \(R\) on \(S\) that has the additional property \((\forall x \in S)(\forall y \in S)(xRy \lor yRx).\)</p>
@@ -15874,7 +15874,7 @@ runs in \(O(n)\) time in the worst case.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_the_binary_search_algorithm">13.3.2. The Binary Search Algorithm</h4>
+<h4 id="binary_search_algorithm">13.3.2. The Binary Search Algorithm</h4>
 <div class="paragraph">
 <p>The binary search algorithm searches a <em>sorted</em> list <em>L</em> of integers for a target value <em>t.</em>  The algorithm starts looking for <em>t</em> in the middle of the sorted list. If <em>t</em> is greater than the value in the middle, the algorithm continues the binary search in the upper half of the list, otherwise the algorithm continues the binary search in the lower half of the list. The algorithm continues in this way until we reach a list of length 1 that either does or does not have <em>t</em> as its only element.</p>
 </div>
@@ -17396,7 +17396,8 @@ and the edge \(e\) that connects \(v\) and \(w\) is part of a path between \(a\)
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on November 17, 2025.</em><br>
+<p><em>This chapter was last updated on November 22, 2025.</em><br>
+<em>Added content to the section on binary trees.</em><br>
 <em>Added note on Jan Łukasiewicz&#8217;s notation (usually called “Polish notation,” subsection to be added later)</em><br>
 <em>Revised section on directed trees. Rewrote theorem on second characterization of trees.</em></p>
 </div>
@@ -18110,7 +18111,7 @@ It is important to note that you will get a different rooted tree if you choose 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ordered_trees">15.3.2. Ordered Trees</h4>
+<h4 id="ordered_trees">15.3.2. Ordered Trees</h4>
 <div class="paragraph">
 <p>Notice that in the Recursion step of the definition of rooted tree, the new root node is connected to each of the old root nodes,
 but since the subtrees' roots are members of a set,
@@ -18126,7 +18127,7 @@ list the old subtrees as the sequence \(T_{1}, \, \ldots \, T_{n}\) and list the
 <p>In this subsection, a recursive definition for <strong>ordered trees</strong> is presented. This recursive definition takes the order of the indices of the old ordered trees into account when constructing the new ordered tree.<br>
 <span class="small">Warning: Many other names for ordered trees appear in various sources, such as <strong>ordered rooted tree,</strong> <strong>rooted plane tree,</strong> <strong>RP-tree,</strong> and <strong>decision tree.</strong> In fact, some sources even define “rooted tree” to mean what this textbook calls and “ordered tree.”</span></p>
 </div>
-<div class="paragraph">
+<div id="ordered_tree_recursive_definition" class="paragraph">
 <p>The set of <strong>ordered trees</strong> is defined recursively as follows.</p>
 </div>
 <div class="hdlist">
@@ -18233,29 +18234,187 @@ does not change the adjacency relationships of the vertices.</p>
 </div>
 <div class="sect2">
 <h3 id="_binary_trees_section_under_construction">15.4. Binary Trees <mark>SECTION UNDER CONSTRUCTION!</mark></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As mentioned near the beginning of this chapter, much of the terminology related to trees is not standardized. The definitions in this section use terminology consistent with <a href=https://www.routledge.com/Handbook-of-Graph-Theory/Gross-Yellen-Zhang/p/book/9781439880180?srsltid=AfmBOoopymlQNVr5rlo05ShK51PGym1Kv1vJ47zHndypkoXdteehcoYw><em>Handbook of Graph Theory,</em> Second Edition,</a> but information on alternative definitions is also stated.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>For any positive integer \(m,\) an <strong>m-ary tree</strong> is defined to be
 an ordered tree
 in which each internal node has at most \(m\) children.<br>
-<span class="small">Note: Some sources define m-ary tree to be a rooted tree instead of an ordered tree.</span></p>
+<span class="small">Some sources define m-ary tree to be a rooted tree instead of an ordered tree.</span></p>
 </div>
 <div class="paragraph">
 <p>A <strong>binary tree</strong> is a 2-ary tree, or more simply, an ordered tree in which each internal node has at most two children. In a binary tree, the root node is the parent of at most two subtrees \(T_{1},\) called the <strong>left subtree,</strong> and \(T_{2},\) called the <strong>right subtree.</strong> Notice that in the context of binary trees, it is allowable for either or both of the subtrees to be absent (that is, empty).<br>
-<span class="small">Note: Some sources allow for a binary tree to have no vertices or edges. This “empty binary tree” is not an ordered tree since it has no root node. In computer science, an empty binary tree is useful for implementing binary trees as data structures since an empty binary subtree can be represented by a null pointer (or null reference.) As an example, a leaf node can be recognized as one whose left child and right child pointers/references are both null.</span></p>
+<span class="small">Some sources allow a binary tree to be “empty,” in the sense that it has no vertices or edges. An “empty binary tree” is not an <a href=./trees.html#ordered_tree_recursive_definition>ordered tree</a> as defined above since it has no root node. However, an empty binary tree is useful in computer science applications. For example, when implementing binary trees as data structures, an empty binary subtree corresponds to by a null pointer (or null reference);  a leaf node of a binary tree can be recognized as a node whose left child and right child pointers/references are both null.</span></p>
+</div>
+<div class="imageblock right text-center">
+<div class="content">
+<img src="imagesMKD/CompleteBinaryTreeHeight2.png" alt="CompleteBinaryTreeHeight2" width="202" height="124">
+</div>
 </div>
 <div class="paragraph">
-<p>Here is some additional terminology for binary trees.</p>
+<p>A <strong>complete binary tree</strong> is a binary tree in which every internal node has exactly 2 children and all leaves are at the same level.<br>
+<span class="small"><a href=https://xlinux.nist.gov/dads/HTML/perfectBinaryTree.html>Some sources</a> use either “perfect binary tree” or “full binary trees” to describe this type of binary tree and use the phrase “complete binary tree” to describe <a href=https://xlinux.nist.gov/dads/HTML/completeBinaryTree.html>something else.</a></span></p>
+</div>
+<div class="paragraph">
+<p>A binary tree is called <strong>balanced</strong> if for every vertex \(v,\) the number of vertices in the left subtree of \(v\) and the number of vertices in the right subtree of \(v\) differ by at most one.<br>
+<span class="small">Some sources define a binary tree of height \(h\) to be balanced if each leaf is at either level \(h\) or level \(h − 1.\)</span></p>
+</div>
+<div class="sect3">
+<h4 id="_binary_search_trees">15.4.1. Binary Search Trees</h4>
+<div class="paragraph">
+<p>Define a <strong>key</strong> to be an element of a set that has a <a href=./relations.html#total_ordering>total ordering.</a> For example, keys could be integers ordered using the usual \(\leq\) relation. As another example, keys could be strings ordered alphabetically. In general, keys could be any type of data that can be totally ordered.</p>
+</div>
+<div class="paragraph">
+<p>A <strong>binary search tree</strong> (BST) is a binary tree where each vertex is assigned a key in such a way that that if key \(k\) is assigned to vertex \(v\) then both of the following are True.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the key \(k\) is greater than each key assigned to a vertex in the left subtree of \(v,\) and</p>
+</li>
+<li>
+<p>the key \(k\) is less than each key assigned to a vertex in the right subtree of \(v.\)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If you are given a list(or an array) of keys, a
+binary search tree can be used to sort the keys and then quickly search for a key. An advantage of binary search trees is that it is much easier and faster to maintain the sort order if you need to insert new keys than it would be to insert the same keys into a sorted list (or an array) of keys.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 2 - Constructing a Binary Search Tree</div>
+<p>First, let&#8217;s construct a binary search tree from the list of keys
+\( \left[ 17, 3, 5, 31, 2 \right .\)]</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A <strong>complete binary tree</strong> is a binary tree in which every internal node has exactly 2 children and all leaves are at the same level.<br>
-<span class="small">Note that a complete binary tree is not a complete graph. Mathematicians and computer scientists recycle certain words like “complete.”</span></p>
+<p>The first key in the list, \(17,\) is assigned to the root node.</p>
+</li>
+<li>
+<p>The next key, \(3,\) is less than the key \(17\) at the root node, so \(3\) is assigned to the left child of the root node.</p>
+</li>
+<li>
+<p>The next key, \(5,\) is less than the key \(17\) at the root node, so \(5\) must be assigned to some node in the left subtree.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Since \(5\) is greater than the key \(3\) at the left subtree&#8217;s root, \(5\) is assigned to the <em>right</em> child of the left subtree&#8217;s root.</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>The next key, \(31,\) is greater than the key \(17\) at the root node, so \(31\) is assigned to the right child of the root node.</p>
+</li>
+<li>
+<p>The last key, \(2,\) is less than the key \(17\) at the root node, so \(2\) must be assigned to some node in the left subtree.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Since \(2\) is greater than \(3,\) \(2\) is assigned to the <em>left</em> child of of the left subtree&#8217;s root.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following animation illustrates the construction of this binary search tree.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="imagesMKD/BinarySearchTreeAnimation/01_05_loop_v3.gif" alt="01_05_loop_v3" width="229" height="210">
+</div>
+</div>
+<div class="paragraph">
+<p>Now, let&#8217;s search for some keys. If a key is not already present, it will be inserted in the correct position.</p>
+</div>
+<div class="paragraph">
+<p>Consider the key \(5.\)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(5\) is less than the key at the root node, which is \(17.\) If \(5\) is in this BST, it must be in the left subtree, so continue searching from there.</p>
+</li>
+<li>
+<p>\(5\) is greater than the key at the left subtree&#8217;s root node, which is \(3.\) If \(5\) is in this BST, it must be in the right subtree of this node, so continue searching from there.</p>
+</li>
+<li>
+<p>\(5\) is equal to the key at the subtree&#8217;s root node, so we have found this key!</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Now consider the key \(19\) which was not included in the original list.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(19\) is greater than the key at the root node, which is \(17.\) If \(19\) is in this BST, it must be in the right subtree, so continue searching from there.</p>
+</li>
+<li>
+<p>\(19\) is less than the key at the right subtree&#8217;s root node, which is \(31.\) If \(19\) is in this BST, it must be in the left subtree of this node, so continue searching from there.</p>
+</li>
+<li>
+<p>This subtree is empty, so insert a new root node for this subtree and assign the key \(19\) to this new node.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following image shows the modified BST with the new key \(19\) inserted in the correct position.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="imagesMKD/BinarySearchTreeAnimation/06.gif" alt="06" width="229" height="210">
+</div>
+</div>
+<div class="paragraph">
+<div class="title">You Try</div>
+<p>Locate the correct position of the new node when the key \(11\) is inserted in the previously modified BST.</p>
+</div>
+<div class="openblock click">
+<div class="title">Answer</div>
+<div class="content">
+<div class='click_oblique'>
+
+The key \(11\) is assigned to the right child of the node that has the key \(5.\) Click <a href=./imagesMKD/BinarySearchTreeAnimation/07.gif>here</a> to see an image of the BST with \(11\) assigned to the new node.
+
+</div>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">You Try</div>
+<p>Consider the following list of names, which will be used as keys. \[ \left[ \text{Li, Adil, Chris, Sofia, Elias, Maya, Jun} \right] . \] Construct and draw the binary search tree for this list of keys.</p>
+</div>
+<div class="openblock click">
+<div class="title">Answer</div>
+<div class="content">
+<div class='click_oblique'>
+
+Click <a href=./imagesMKD/7names.png>here</a> to see an image of the BST.
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="_isomorphisms_binary_trees">15.4.1. Isomorphisms: Binary Trees</h4>
+<h4 id="_isomorphisms_binary_trees">15.4.2. Isomorphisms: Binary Trees</h4>
 <div class="imageblock text-center">
 <div class="content">
 <img src="imagesMKD/NonisomorphicBinaryTrees.png" alt="NonisomorphicBinaryTrees" width="309" height="93">
