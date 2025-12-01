@@ -7,9 +7,9 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on November 22, 2025._ + 
-_Added content to the section on binary trees._ + 
-_Added note on Jan Łukasiewicz's notation (usually called “Polish notation,” subsection to be added later)_ + 
+_This chapter was last updated on December 1, 2025._ + 
+_Added content to the section on binary trees: Tree traversal algorithms, Łukasiewicz's parentheses-free notation (“Polish notation”) and expression trees._ + 
+//_Added note on Jan Łukasiewicz's notation (usually called “Polish notation,” subsection to be added later)_ + 
 _Revised section on directed trees. Rewrote theorem on second characterization of trees._
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
@@ -254,7 +254,10 @@ Remove one vertex $v$ that has degree $1$ along with the edge that has $v$ as an
 // MKD Jun 30 2025 changed "trail" to "path" in the following 
 Notice that for every pair of vertices of $T-v$ there is exactly one path between the vertices, and applying the previous theorem shows that $T-v$ is a tree. Also, $T-v$ has $k$ vertices because we removed only $v,$ so we can apply the Induction Hypothesis to conclude that $T-v$ has $k-1$ edges. Now, reinsert vertex $v$ and the edge that was removed to obtain the tree $T$ that has $k+1$ vertices and $k$ edges. Therefore, if $P(k)$ is True then $P(k+1)$ is True, too. That is, $P(k) \rightarrow P(k+1)$.
 
-*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can use _universal generalization_ to conclude that 
+*Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can 
+// MKD Nov 29 2025 removed reference to universal generalization
+//use _universal generalization_ to 
+conclude that 
 for all positive integers $n,$ if a tree has $n$ vertices then the tree has $n-1$ edges.
 
 
@@ -857,6 +860,8 @@ It may be helpful to think of each of the two ordered trees as “telling a stor
 In general, ordered trees are isomorphic if and only if they tell the same story about the families, so these two are not isomorphic as _ordered trees._ On the other hand, they are isomorphic as _rooted trees_ because they tell the same story when the birth order of the children at level 1 is ignored: A parent has three children, of whom one has three children, another one has one child, and yet another one has no children.
 
 
+
+
 == Binary Trees #SECTION UNDER CONSTRUCTION!# 
 // ** Algorithms for Binary search trees
 
@@ -937,9 +942,54 @@ A binary tree is called *balanced* if for every vertex $v,$ the number of vertic
 [small]#Some sources define a binary tree of height $h$ to be balanced if each leaf is at either level $h$ or level $h − 1.$#
 
 
+// MKD Nov 25 2025 inserted before Binary Trees
+//== Tree Traversal Algorithms for Ordered Trees #SECTION UNDER CONSTRUCTION!# 
+// MKD Nov 29 2025 moved back to section on Binary Trees
+=== Tree Traversal Algorithms for Binary Trees 
+
+In many applications of 
+//ordered 
+binary 
+trees, it is necessary to visit every node. 
+// of the ordered tree; this 
+The process of visiting every node is called *tree traversal.* In this 
+//section, 
+subsection, you will learn about three commonly-used algorithms for tree traversal. 
+
+//* Preorder traversal: Visit internal nodes before leaves. 
+//This tree traversal algorithm is used to make copies of binary search trees.
+//* Inorder traversal: Visit leftmost subtree of each node before visiting the root node. 
+//of a binary search tree visits the nodes in ascending order of their key values, corresponding to a sorted list of the data in a binary tree.
+//* Postorder traversal: 
+//Visit the left subtree, then the right subtree, before visiting the root node.  
+// Visit leaves before internal nodes. 
+// is used when leaves must be explored before internal nodes. It is used for deleting a tree because all vertices below the root of a subtree will be removed before the root of the subtree. 
+
+// MKD Dec 1 2025 revision - still need to include algorithms!
+The three traversal algorithms can be described recursively as follows. 
+
+* *Preorder traversal:* First, visit the root node. Next, visit each node in the root node's left subtree using preorder traversal. Finally, visit each node in the root node's right subtree using preorder traversal.  
+* *Inorder traversal:* First, visit each node in the root node's left subtree using inorder traversal. Next, visit the root node. Finally, visit each node in the root node's right subtree using preorder traversal.  
+* *Postorder traversal:* First, visit each node in the root node's left subtree using postorder traversal. Next, visit each node in the root node's right subtree using postorder traversal. visit the root node. Finally, visit the root node.
+
+//[small]# NOTES: 
+//[arabic]
+//. 
+For each of these three traversal algorithms, the Base Step for the recursion 
+is applied to 
+//is that whenever 
+a binary tree has only one node 
+(a root node that has empty left and right subtrees), 
+and 
+you visit just that one node. + 
+//. 
+[small]#Some sources use hyphens in the written names of these traversal algorithms, so list them as *pre-order,* *in-order,* and *post-order* traversal.#
+
+You may find the interactive demonstration at this link:https://en.wikipedia.org/wiki/Tree_traversal#Types[Wikipedia page] useful to understanding these three traversal algorithms.
+		
 
 // MKD Nov 22 2025 new subsection
-=== Binary Search Trees
+=== Binary Search Trees #SECTION UNDER CONSTRUCTION!# 
 
 //A *binary search tree* (BST) is a binary tree where each vertex is assigned a *key,* where all the keys come from a set that has a link:./relations.html#total_ordering[total ordering.] For example, the keys may be integers, or strings that are alphabetically ordered, or any other type of data that can be totally ordered. In a binary search tree, the key assigned to vertex $v$ is greater than the key at each vertex in the left subtree of v, and is less than the key at each vertex in the right subtree of v. 
 
@@ -952,7 +1002,7 @@ A *binary search tree* (BST) is a binary tree where each vertex is assigned a ke
 . the key $k$ is less than each key assigned to a vertex in the right subtree of $v.$ 
 
 
-If you are given a list(or an array) of keys, a 
+If you are given a list (or an array) of keys, a 
 binary search tree can be used to sort the keys and then quickly search for a key. An advantage of binary search trees is that it is much easier and faster to maintain the sort order if you need to insert new keys than it would be to insert the same keys into a sorted list (or an array) of keys. 
 //link:./algorithms.html#binary_search_algorithm[binary search.] 
 
@@ -1009,8 +1059,11 @@ The key $11$ is assigned to the right child of the node that has the key $5.$ Cl
 //<img src="imagesMKD/BinarySearchTreeAnimation/07.gif"> 
 
 
+****
 
 
+// MKD Nov 30 2025 removed from previous example
+////
 .You Try
 Consider the following list of names, which will be used as keys. \[ \left[ \text{Li, Adil, Chris, Sofia, Elias, Maya, Jun} \right] . \] Construct and draw the binary search tree for this list of keys.
 
@@ -1020,10 +1073,153 @@ Consider the following list of names, which will be used as keys. \[ \left[ \tex
 Click link:./imagesMKD/7names.png[here] to see an image of the BST.
  
 --
+////
 
+
+
+Constructing a binary search trees from a list can serve two purposes.  First, as shown in the preceding example, it is quicker to search for a key in the binary search tree because, in the best case scenario when the tree is balanced, the number of keys is halved with each iteration of the search. Secondly, the original list can be sorted 
+//in order 
+by performing 
+//a preorder 
+an inorder 
+traversal of the binary search tree. 
+
+// MKD maybe use the binary search tree with 11 and 19 from the previous example here. 
+
+// MKD Nov 29 2025 inserted new exercise
+// MKD Nov 30 2025 replaced then restored exercise
+****
+//.Example {counter:treeex} - Traversing a Binary Search Tree
+.Exercise - Traversing a Binary Search Tree
+
+Consider the binary search tree with integer keys that 
+//you may have constructed 
+was the solution in the “You Try” section of the previous example. 
+
+image::imagesMKD/BinarySearchTreeAnimation/07.gif[07,229,210,align="center"] 
+
+List the keys of the binary search tree using each of preorder, inorder, and postorder traversal to visit all nodes of the binary search tree. 
+
+[click.answer]
+--
+
+Preorder: $ \left[ 17, 3, 2, 5, 11, 31, 19 \right] .$ + 
+
+Inorder: $ \left[ 2, 3, 5, 11, 17, 19, 31 \right] .$  + 
+
+Preorder: $ \left[ 2, 11, 5, 3, 19, 31, 17 \right] .$ 
+ 
+--
+
+****
+////
+////
+
+Here is another exercise for you to try. 
+
+****
+.Check Your Understanding
+
+Consider the following list of names, which will be used as alphabetically-ordered keys. \[ \left[ \text{Jun, Li, Chris, Elias, Sofia, Adil, Maya} \right] \] 
+
+First, construct and draw the binary search tree for this list of keys. 
+
+[click.answer]
+--
+
+Click link:./imagesMKD/7namesAlt_v2.png[here] to see an image of the BST.
+ 
+--
+
+Next, write down the three lists you get by using preorder, inorder, and postorder traversals to visit all nodes of the binary search tree.
+
+[click.answer]
+--
+
+Preorder: [ Jun, Chris, Adil, Elias, Li, Sofia, Maya ] + 
+
+Inorder: [ Adil, Chris, Elias, Jun, Li, Maya, Sofia ] + 
+
+Preorder: [ Adil, Elias, Chris, Maya, Sofia, Li, Jun ] 
+ 
+-- 
 
 ****
 
+//the keys of the binary search tree
+//Preorder: $\left[ \text{Jun, Chris, Adil, Elias, Li, Sofia, Maya} \right]$ + 
+//Inorder: $\left[ \text{Adil, Chris, Elias, Jun, Li, Maya, Sofia} \right]$ + 
+//Preorder: $\left[ \text{Adil, Elias, Chris, Maya, Sofia, Li, Jun} \right]$ 
+
+
+
+
+// MKD Nov 27 2025 new subsection
+//=== Polish and Reverse Polish Notation
+=== Expression Trees and Polish Notation #SECTION UNDER CONSTRUCTION!# 
+
+// (Jan Łukasiewicz) 
+
+//In the 1920's, the Polish logician link:https://en.wikipedia.org/wiki/Jan_%C5%81ukasiewicz[Jan Łukasiewicz] created what is called today either *Polish notation* or *prefix notation* to express link:./logic.html#wff_recursion[well-formed formulas] in a format that requires link:https://plato.stanford.edu/entries/lukasiewicz/polish-notation.html[no parentheses.] 
+
+//In the 1920's, the Polish logician link:https://en.wikipedia.org/wiki/Jan_%C5%81ukasiewicz[Jan Łukasiewicz] created a way to write link:./logic.html#wff_recursion[logical well-formed formulas] in a format that requires link:https://plato.stanford.edu/entries/lukasiewicz/polish-notation.html[no parentheses:] Instead of placing operators like $\land$ and $\lor$ between two previously-constructed wffs, Łukasiewicz placed the operators _in front of_ those wffs, which makes the use of parentheses unnecessary. Today, Łukasiewicz's notation usually is called either *Polish notation* or *prefix notation,* and is more often applied to arithmetic formulas than to logical formulas.  
+
+
+In the 1920's, the Polish logician link:https://en.wikipedia.org/wiki/Jan_%C5%81ukasiewicz[Jan Łukasiewicz] created a notational format for writing link:./logic.html#wff_recursion[logical well-formed formulas] that 
+link:https://plato.stanford.edu/entries/lukasiewicz/polish-notation.html[does not use any parentheses:] 
+// [does not require any parentheses.] 
+// MKD Nov 29 2025 revised wording 
+Instead of 
+//placing 
+writing logical 
+operator 
+//s 
+symbols (like $\land$ and $\lor$) between two previously-constructed wffs, Łukasiewicz placed 
+//the 
+operator 
+//s
+symbols _in front of_ those wffs, which makes the use of parentheses  completely 
+unnecessary! Today, notation that is based on Łukasiewicz's original notation is called either *Polish notation* or *prefix notation* and is most often applied to arithmetic/algebraic formulas instead of logical formulas.  
+
+There is also *Reverse Polish notation* or *postfix notation,* where the operator symbol is placed _after_ its operands. The “usual” notation where the operand is placed _between_ the two operands is called *infix notation.* 
+
+// MKD Nov 30 2025 new example
+****
+.Example {counter:treeex} - Polish and Reverse Polish notation 
+
+Consider the following algebraic expression, written in infix notation. \[ 3 \cdot x - 5 \] 
+
+The Polish notation (prefix notation) for the same expression is \[ - \, \cdot \, 3 \, x \, 5 \] and the Reverse Polish notation (postfix notation) for the expression is \[ 3 \, x \, \cdot \, 5 \, - \] 
+
+****
+
+//image::imagesMKD/ExpressionTree_3xminus5_v2.png[ExpressionTree_3xminus5_v2,264,204,float="right",align="center"] 
+image::imagesMKD/ExpressionTree_3xminus5_v2.png[ExpressionTree_3xminus5_v2,176,136,float="right",align="center"] 
+You can use binary trees and tree traversal to make it easier to switch between these three notations. Define an *expression tree* to be a binary tree where each leaf is assigned a key that is either a numeral or a variable symbol, and where each internal node is assigned a key that is an operator symbol. The expression tree for the infix notation $3 \cdot x - 5$ is shown. Notice that the order of the symbols for the infix expression corresponds to the inorder traversal of the expression tree. It is an exercise for you to confirm that the order of the symbols in the Polish notation expression corresponds to the preorder traversal of the expression tree, and that the Reverse Polish notation expression corresponds to the postorder traversal of the expression tree. 
+//, and that the usual order of operations for infix expressions corresponds to the inorder traversal of the expression tree. 
+// 3 ⋅ x - 5
+
+
+// MKD Nov 30 2025 need examples using computation/expression building using Polish and Reverse Polish notations
+
+
+
+// MKD need an example here, using a binary tree. 
+// construct an expression tree form an arithmetic/algebraic formula in the usual infix notation, the explain how preorder traversal will give the Polish/prefix notation, and postorder traversal will give the Reverse Polish/postfix notation.     
+
+// MKD Nov 30 2025 new example
+****
+.Example {counter:treeex} - An Expression Tree #UNDER CONSTRUCTION!# 
+
+
+Consider the arithmetic expression. \[ 5 + 7 \times - 3 - 8 \div 2 \] Recall that it is not correct to evaluate this left-to-right; instead you need to use the order of operations, which is equivalent to inserting parentheses as shown. \[ (5 + (7 \times (- 3))) - (8 \div 2) \]
+
+****
+
+
+
+// link:https://en.wikipedia.org/wiki/Polish_notation[Łukasiewicz notation,] also called *prefix notation* and *Polish notation.* In this notation, the binary operators $+,$ $-,$ $\times,$ and $\div$  
+// For more on the history of Łukasiewicz's notation, see this link:https://plato.stanford.edu/entries/lukasiewicz/polish-notation.html[link.]  
 
 
 // MKD Aug 16 2025 new subsection
@@ -1046,16 +1242,6 @@ Binary Search Trees
 ////
 
 
-////
-== Tree Traversal Algorithms #SECTION UNDER CONSTRUCTION!# 
-
-Tree traversal algorithms are used to visit each node of a rooted tree. There are three common algorithms used to traverse a rooted tree. The names refer to the order in which the root node is visited compared to the subtree nodes.
-
-* Preorder traversal visits internal nodes before leaves. This algorithm is used to make copies of binary search trees.
-* Inorder traversal of a binary search tree visits the nodes in ascending order of their key values, corresponding to a sorted list of the data in a binary tree.
-* Postorder traversal is used when leaves must be explored before internal nodes. It is used for deleting a tree because all vertices below the root of a subtree will be removed before the root of the subtree.
-////
-		
 
 == Additional Topics To Be Added Later
 // in this chapter will include:
@@ -1069,9 +1255,12 @@ Tree traversal algorithms are used to visit each node of a rooted tree. There ar
 
 *** Algorithms for Depth- and breadth-first traversals
 
-** Expression Trees
+** Expression Trees 
+// https://en.wikipedia.org/wiki/Binary_expression_tree
 
-*** Polish and Reverse Polish Notations (Jan Łukasiewicz)
+//*** Polish and Reverse Polish Notations (Jan Łukasiewicz) 
+// link:https://en.wikipedia.org/wiki/Polish_notation[Łukasiewicz notation,] also called *prefix notation* and *Polish notation.* In this notation, the binary operators $+,$ $-,$ $\times,$ and $\div$  
+// For more on the history of Łukasiewicz's notation, see this link:https://plato.stanford.edu/entries/lukasiewicz/polish-notation.html[link.]  
 
 //* Algorithms
 

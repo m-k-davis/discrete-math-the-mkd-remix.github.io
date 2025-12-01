@@ -8,7 +8,8 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on November 17, 2025._ + 
+_This chapter was last updated on November 29, 2025._ + 
+_Added content to subsection on the Traveling Salesperson Problem._ + 
 _Revised example involving isomophism and planarity._ + 
 _Revised and expanded the discussion of isomorphisms and underlying graphs._
 //_Inserted a version of Dijkstra's algorithm for a minimal-weight path between two given vertices._ + 
@@ -1400,7 +1401,22 @@ The TSP can be modeled using a graph. If there are $n$ cities, you can represent
 
 Notice that if you choose a vertex (city) as the starting and ending point, then there are $\frac{1}{2}(n-1)!$ different Hamiltonian cycles (The division by 2 represents that you could reverse the direction of the cycle without changing the total distance traveled.) 
 
-The brute-force solution examines every possible path and has time complexity $O(n!),$ which is infeasible for even relatively small values of $n.$ At present, there is no algorithm with polynomial worst-case time complexity that solves the TSP.
+The brute-force solution examines every possible path and has time complexity 
+// $O(n!),$ 
+$\Theta (n!),$ which is infeasible for even relatively small values of $n.$ 
+// MKD Nov 29 2025 
+There is the link:https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm#Algorithmic_complexity[Bellman–Held–Karp algorithm] that solves the TSP with time complexity $\Theta (2^{n}n^{2}).$ Also, there are link:https://en.wikipedia.org/wiki/Travelling_salesman_problem#Heuristic_and_approximation_algorithms[other methods] to find “approximate” solutions to the TSP 
+//(that is, Hamiltonian circuits 
+that are “good enough” 
+//to the shortest possible.) 
+for some problems. 
+At present, there is no known algorithm with polynomial worst-case time complexity that solves the TSP. 
+
+
+
+
+// MKD Mov 29 2025 
+//https://www.networkpages.nl/a-big-breakthrough-in-the-euclidean-travelling-salesman-problem/
 
  
 ////

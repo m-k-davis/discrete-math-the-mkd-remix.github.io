@@ -304,6 +304,8 @@ and so is $\{  \},$ the empty set.
 // MKD sets ends
 
 
+// MKD Nov 30 2025 consider comparing sets and ordered pairs here or in the subsection on sequences
+
 // MKD one-to-one correspondence begins
 [[informal_one_to_one_correspondence_definition]]
 * A *one-to-one correspondence* between two sets _A_ and _B_ 
@@ -1309,6 +1311,9 @@ image::imagesMKD/StarGraphOn6Vertices.png[StarGraphOn6Vertices,92,88,float="righ
 A *star graph* is a graph that has one central vertex that is one of the  endpoints of every edge in the graph. The image shows the star graph on 6 vertices. The star graph is one example of a *tree,* a graph in which for every pair of distinct vertices there is exactly one path of edges that can be used to connect the vertices. Some of the many applications of trees in computer science will be discussed in the link:./trees.html[Trees] chapter.
 
 ****
+
+// MKD Nov 30 2025 consider inserting example of using a tree to solve a counting problem here. 
+
 
 // MKD NEEDS MORE ARTWORK HERE.
 // maybe https://eng.libretexts.org/@api/deki/files/42793/clipboard_e2c0029f031ce8d39860aa77e76b909cf.png?revision=1&size=bestfit&width=321&height=151 from https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_and_Computation_Fundamentals/Mathematics_for_Computer_Science_%28Lehman_Leighton_and_Meyer%29/02%3A_Structures/11%3A_Simple_Graphs/11.01%3A_Vertex_Adjacency_and_Degrees (MIT Courseware, so should be CC BY-NC)

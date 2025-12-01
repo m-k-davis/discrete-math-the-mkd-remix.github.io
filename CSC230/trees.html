@@ -631,15 +631,11 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on November 22, 2025.
+        This chapter was last updated on December 1, 2025.
        </em>
        <br/>
        <em>
-        Added content to the section on binary trees.
-       </em>
-       <br/>
-       <em>
-        Added note on Jan Łukasiewicz’s notation (usually called “Polish notation,” subsection to be added later)
+        Added content to the section on binary trees: Tree traversal algorithms, Łukasiewicz’s parentheses-free notation (“Polish notation”) and expression trees.
        </em>
        <br/>
        <em>
@@ -1034,11 +1030,8 @@ Notice that for every pair of vertices of \(T-v\) there is exactly one path betw
           <strong>
            Conclusion Step:
           </strong>
-          We have proven both the Basis Step and the Induction Step. Therefore, we can use
-          <em>
-           universal generalization
-          </em>
-          to conclude that
+          We have proven both the Basis Step and the Induction Step. Therefore, we can
+conclude that
 for all positive integers \(n,\) if a tree has \(n\) vertices then the tree has \(n-1\) edges.
          </p>
         </div>
@@ -2337,8 +2330,96 @@ in which each internal node has at most \(m\) children.
        </p>
       </div>
       <div class="sect3">
-       <h4 id="_binary_search_trees">
-        15.4.1. Binary Search Trees
+       <h4 id="_tree_traversal_algorithms_for_binary_trees">
+        15.4.1. Tree Traversal Algorithms for Binary Trees
+       </h4>
+       <div class="paragraph">
+        <p>
+         In many applications of
+binary
+trees, it is necessary to visit every node.
+The process of visiting every node is called
+         <strong>
+          tree traversal.
+         </strong>
+         In this
+subsection, you will learn about three commonly-used algorithms for tree traversal.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The three traversal algorithms can be described recursively as follows.
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           <strong>
+            Preorder traversal:
+           </strong>
+           First, visit the root node. Next, visit each node in the root node’s left subtree using preorder traversal. Finally, visit each node in the root node’s right subtree using preorder traversal.
+          </p>
+         </li>
+         <li>
+          <p>
+           <strong>
+            Inorder traversal:
+           </strong>
+           First, visit each node in the root node’s left subtree using inorder traversal. Next, visit the root node. Finally, visit each node in the root node’s right subtree using preorder traversal.
+          </p>
+         </li>
+         <li>
+          <p>
+           <strong>
+            Postorder traversal:
+           </strong>
+           First, visit each node in the root node’s left subtree using postorder traversal. Next, visit each node in the root node’s right subtree using postorder traversal. visit the root node. Finally, visit the root node.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         For each of these three traversal algorithms, the Base Step for the recursion
+is applied to
+a binary tree has only one node
+(a root node that has empty left and right subtrees),
+and
+you visit just that one node.
+         <br/>
+         <span class="small">
+          Some sources use hyphens in the written names of these traversal algorithms, so list them as
+          <strong>
+           pre-order,
+          </strong>
+          <strong>
+           in-order,
+          </strong>
+          and
+          <strong>
+           post-order
+          </strong>
+          traversal.
+         </span>
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         You may find the interactive demonstration at this
+         <a href="https://en.wikipedia.org/wiki/Tree_traversal#Types">
+          Wikipedia page
+         </a>
+         useful to understanding these three traversal algorithms.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_binary_search_trees_section_under_construction">
+        15.4.2. Binary Search Trees
+        <mark>
+         SECTION UNDER CONSTRUCTION!
+        </mark>
        </h4>
        <div class="paragraph">
         <p>
@@ -2378,7 +2459,7 @@ in which each internal node has at most \(m\) children.
        </div>
        <div class="paragraph">
         <p>
-         If you are given a list(or an array) of keys, a
+         If you are given a list (or an array) of keys, a
 binary search tree can be used to sort the keys and then quickly search for a key. An advantage of binary search trees is that it is much easier and faster to maintain the sort order if you need to insert new keys than it would be to insert the same keys into a sorted list (or an array) of keys.
         </p>
        </div>
@@ -2543,12 +2624,71 @@ binary search tree can be used to sort the keys and then quickly search for a ke
            </div>
           </div>
          </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Constructing a binary search trees from a list can serve two purposes.  First, as shown in the preceding example, it is quicker to search for a key in the binary search tree because, in the best case scenario when the tree is balanced, the number of keys is halved with each iteration of the search. Secondly, the original list can be sorted
+by performing
+an inorder
+traversal of the binary search tree.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
          <div class="paragraph">
           <div class="title">
-           You Try
+           Exercise - Traversing a Binary Search Tree
           </div>
           <p>
-           Consider the following list of names, which will be used as keys. \[ \left[ \text{Li, Adil, Chris, Sofia, Elias, Maya, Jun} \right] . \] Construct and draw the binary search tree for this list of keys.
+           Consider the binary search tree with integer keys that
+was the solution in the “You Try” section of the previous example.
+          </p>
+         </div>
+         <div class="imageblock text-center">
+          <div class="content">
+           <img alt="07" height="210" src="imagesMKD/BinarySearchTreeAnimation/07.gif" width="229"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           List the keys of the binary search tree using each of preorder, inorder, and postorder traversal to visit all nodes of the binary search tree.
+          </p>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Answer
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Preorder: \( \left[ 17, 3, 2, 5, 11, 31, 19 \right .\)]
+            <br/>
+            Inorder: \( \left[ 2, 3, 5, 11, 17, 19, 31 \right .\)]
+            <br/>
+            Preorder: \( \left[ 2, 11, 5, 3, 19, 31, 17 \right .\)]
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Here is another exercise for you to try.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Check Your Understanding
+          </div>
+          <p>
+           Consider the following list of names, which will be used as alphabetically-ordered keys. \[ \left[ \text{Jun, Li, Chris, Elias, Sofia, Adil, Maya} \right] \]
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           First, construct and draw the binary search tree for this list of keys.
           </p>
          </div>
          <div class="openblock click">
@@ -2558,10 +2698,29 @@ binary search tree can be used to sort the keys and then quickly search for a ke
           <div class="content">
            <div class="click_oblique">
             Click
-            <a href="./imagesMKD/7names.png">
+            <a href="./imagesMKD/7namesAlt_v2.png">
              here
             </a>
             to see an image of the BST.
+           </div>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Next, write down the three lists you get by using preorder, inorder, and postorder traversals to visit all nodes of the binary search tree.
+          </p>
+         </div>
+         <div class="openblock click">
+          <div class="title">
+           Answer
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+            Preorder: [ Jun, Chris, Adil, Elias, Li, Sofia, Maya ]
+            <br/>
+            Inorder: [ Adil, Chris, Elias, Jun, Li, Maya, Sofia ]
+            <br/>
+            Preorder: [ Adil, Elias, Chris, Maya, Sofia, Li, Jun ]
            </div>
           </div>
          </div>
@@ -2569,8 +2728,121 @@ binary search tree can be used to sort the keys and then quickly search for a ke
        </div>
       </div>
       <div class="sect3">
+       <h4 id="_expression_trees_and_polish_notation_section_under_construction">
+        15.4.3. Expression Trees and Polish Notation
+        <mark>
+         SECTION UNDER CONSTRUCTION!
+        </mark>
+       </h4>
+       <div class="paragraph">
+        <p>
+         In the 1920’s, the Polish logician
+         <a href="https://en.wikipedia.org/wiki/Jan_%C5%81ukasiewicz">
+          Jan Łukasiewicz
+         </a>
+         created a notational format for writing
+         <a href="./logic.html#wff_recursion">
+          logical well-formed formulas
+         </a>
+         that
+         <a href="https://plato.stanford.edu/entries/lukasiewicz/polish-notation.html">
+          does not use any parentheses:
+         </a>
+         Instead of
+writing logical
+operator
+symbols (like \(\land\) and \(\lor\)) between two previously-constructed wffs, Łukasiewicz placed
+operator
+symbols
+         <em>
+          in front of
+         </em>
+         those wffs, which makes the use of parentheses  completely
+unnecessary! Today, notation that is based on Łukasiewicz’s original notation is called either
+         <strong>
+          Polish notation
+         </strong>
+         or
+         <strong>
+          prefix notation
+         </strong>
+         and is most often applied to arithmetic/algebraic formulas instead of logical formulas.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         There is also
+         <strong>
+          Reverse Polish notation
+         </strong>
+         or
+         <strong>
+          postfix notation,
+         </strong>
+         where the operator symbol is placed
+         <em>
+          after
+         </em>
+         its operands. The “usual” notation where the operand is placed
+         <em>
+          between
+         </em>
+         the two operands is called
+         <strong>
+          infix notation.
+         </strong>
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 3 - Polish and Reverse Polish notation
+          </div>
+          <p>
+           Consider the following algebraic expression, written in infix notation. \[ 3 \cdot x - 5 \]
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           The Polish notation (prefix notation) for the same expression is \[ - \, \cdot \, 3 \, x \, 5 \] and the Reverse Polish notation (postfix notation) for the expression is \[ 3 \, x \, \cdot \, 5 \, - \]
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="imageblock right text-center">
+        <div class="content">
+         <img alt="ExpressionTree_3xminus5_v2" height="136" src="imagesMKD/ExpressionTree_3xminus5_v2.png" width="176"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         You can use binary trees and tree traversal to make it easier to switch between these three notations. Define an
+         <strong>
+          expression tree
+         </strong>
+         to be a binary tree where each leaf is assigned a key that is either a numeral or a variable symbol, and where each internal node is assigned a key that is an operator symbol. The expression tree for the infix notation \(3 \cdot x - 5\) is shown. Notice that the order of the symbols for the infix expression corresponds to the inorder traversal of the expression tree. It is an exercise for you to confirm that the order of the symbols in the Polish notation expression corresponds to the preorder traversal of the expression tree, and that the Reverse Polish notation expression corresponds to the postorder traversal of the expression tree.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example 4 - An Expression Tree
+           <mark>
+            UNDER CONSTRUCTION!
+           </mark>
+          </div>
+          <p>
+           Consider the arithmetic expression. \[ 5 + 7 \times - 3 - 8 \div 2 \] Recall that it is not correct to evaluate this left-to-right; instead you need to use the order of operations, which is equivalent to inserting parentheses as shown. \[ (5 + (7 \times (- 3))) - (8 \div 2) \]
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
        <h4 id="_isomorphisms_binary_trees">
-        15.4.2. Isomorphisms: Binary Trees
+        15.4.4. Isomorphisms: Binary Trees
        </h4>
        <div class="imageblock text-center">
         <div class="content">
@@ -2612,15 +2884,6 @@ binary search tree can be used to sort the keys and then quickly search for a ke
          <p>
           Expression Trees
          </p>
-         <div class="ulist">
-          <ul>
-           <li>
-            <p>
-             Polish and Reverse Polish Notations (Jan Łukasiewicz)
-            </p>
-           </li>
-          </ul>
-         </div>
         </li>
        </ul>
       </div>
