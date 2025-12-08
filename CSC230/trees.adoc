@@ -971,7 +971,7 @@ The three traversal algorithms can be described recursively as follows.
 
 * *Preorder traversal:* First, visit the root node. Secondly, visit each node in the root node's left subtree using preorder traversal. Finally, visit each node in the root node's right subtree using preorder traversal.  
 * *Inorder traversal:* First, visit each node in the root node's left subtree using inorder traversal. Secondly, visit the root node. Finally, visit each node in the root node's right subtree using preorder traversal.  
-* *Postorder traversal:* First, visit each node in the root node's left subtree using postorder traversal. Secondly, visit each node in the root node's right subtree using postorder traversal. visit the root node. Finally, visit the root node.
+* *Postorder traversal:* First, visit each node in the root node's left subtree using postorder traversal. Secondly, visit each node in the root node's right subtree using postorder traversal. Finally, visit the root node.
 
 //[small]# NOTES: 
 //[arabic]
