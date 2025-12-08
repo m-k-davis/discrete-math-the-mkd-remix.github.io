@@ -979,7 +979,7 @@ The three traversal algorithms can be described recursively as follows.
 For each of these three traversal algorithms, the Base Step for the recursion 
 is applied to 
 //is that whenever 
-a binary tree has only one node 
+a binary tree that has only one node 
 (a root node that has empty left and right subtrees), 
 and 
 you visit just that one node. + 
@@ -1255,7 +1255,9 @@ expression, you can see that the expression tree will have the minus sign at the
 //image::imagesMKD/ExpressionTreeExample_v2.png[ExpressionTreeExample_v2,390,390,float="right",align="center"] 
 //image::imagesMKD/ExpressionTreeExample_v3.png[ExpressionTreeExample_v3,390,390,float="right",align="center"] 
 image::imagesMKD/ExpressionTreeExample_v3.png[ExpressionTreeExample_v3,260,260,align="center"] 
-The image displays a drawing of the expression tree for $(5 + (7 \times (- 3))) - (8 \div 2)$. Notice that the negative sign labels a node with only one child, which is treated as the left child. 
+The image displays a drawing of the expression tree for $(5 + (7 \times (- 3))) - (8 \div 2)$. Notice that the negative sign labels a node with only one child, which is treated as the left child (but as the _right child for inorder traversal._) 
+// MKD Dec 8 2025
+
 
 Next, you can use each of the traversal methods to create the Polish (prefix), infix, and Reverse Polish (postfix) expressions. 
 

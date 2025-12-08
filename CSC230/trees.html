@@ -2380,7 +2380,7 @@ subsection, you will learn about three commonly-used algorithms for tree travers
         <p>
          For each of these three traversal algorithms, the Base Step for the recursion
 is applied to
-a binary tree has only one node
+a binary tree that has only one node
 (a root node that has empty left and right subtrees),
 and
 you visit just that one node.
@@ -2862,7 +2862,11 @@ expression, you can see that the expression tree will have the minus sign at the
          </div>
          <div class="paragraph">
           <p>
-           The image displays a drawing of the expression tree for \((5 + (7 \times (- 3))) - (8 \div 2)\). Notice that the negative sign labels a node with only one child, which is treated as the left child.
+           The image displays a drawing of the expression tree for \((5 + (7 \times (- 3))) - (8 \div 2)\). Notice that the negative sign labels a node with only one child, which is treated as the left child (but as the
+           <em>
+            right child for inorder traversal.
+           </em>
+           )
           </p>
          </div>
          <div class="paragraph">
