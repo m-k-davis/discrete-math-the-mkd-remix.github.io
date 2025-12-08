@@ -7,8 +7,8 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on December 1, 2025._ + 
-_Added content to the section on binary trees: Tree traversal algorithms, Łukasiewicz's parentheses-free notation (“Polish notation”) and expression trees._ + 
+_This chapter was last updated on December 8, 2025._ + 
+_Added more content to the section on binary trees: Tree traversal algorithms, Łukasiewicz's parentheses-free notation (“Polish notation”) and expression trees._ + 
 //_Added note on Jan Łukasiewicz's notation (usually called “Polish notation,” subsection to be added later)_ + 
 _Revised section on directed trees. Rewrote theorem on second characterization of trees._
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
@@ -862,7 +862,7 @@ In general, ordered trees are isomorphic if and only if they tell the same story
 
 
 
-== Binary Trees #SECTION UNDER CONSTRUCTION!# 
+== Binary Trees 
 // ** Algorithms for Binary search trees
 
 
@@ -943,7 +943,8 @@ A binary tree is called *balanced* if for every vertex $v,$ the number of vertic
 
 
 // MKD Nov 25 2025 inserted before Binary Trees
-//== Tree Traversal Algorithms for Ordered Trees #SECTION UNDER CONSTRUCTION!# 
+//== Tree Traversal Algorithms for Ordered Trees
+
 // MKD Nov 29 2025 moved back to section on Binary Trees
 === Tree Traversal Algorithms for Binary Trees 
 
@@ -968,9 +969,9 @@ subsection, you will learn about three commonly-used algorithms for tree travers
 // MKD Dec 1 2025 revision - still need to include algorithms!
 The three traversal algorithms can be described recursively as follows. 
 
-* *Preorder traversal:* First, visit the root node. Next, visit each node in the root node's left subtree using preorder traversal. Finally, visit each node in the root node's right subtree using preorder traversal.  
-* *Inorder traversal:* First, visit each node in the root node's left subtree using inorder traversal. Next, visit the root node. Finally, visit each node in the root node's right subtree using preorder traversal.  
-* *Postorder traversal:* First, visit each node in the root node's left subtree using postorder traversal. Next, visit each node in the root node's right subtree using postorder traversal. visit the root node. Finally, visit the root node.
+* *Preorder traversal:* First, visit the root node. Secondly, visit each node in the root node's left subtree using preorder traversal. Finally, visit each node in the root node's right subtree using preorder traversal.  
+* *Inorder traversal:* First, visit each node in the root node's left subtree using inorder traversal. Secondly, visit the root node. Finally, visit each node in the root node's right subtree using preorder traversal.  
+* *Postorder traversal:* First, visit each node in the root node's left subtree using postorder traversal. Secondly, visit each node in the root node's right subtree using postorder traversal. visit the root node. Finally, visit the root node.
 
 //[small]# NOTES: 
 //[arabic]
@@ -985,11 +986,18 @@ you visit just that one node. +
 //. 
 [small]#Some sources use hyphens in the written names of these traversal algorithms, so list them as *pre-order,* *in-order,* and *post-order* traversal.#
 
+
+// MKD Dec 8 2025 
+//image::imagesMKD/TraversalMethods_v1.png[TraversalMethods_v1,1080,324,float="right",align="center"] 
+//image::imagesMKD/TraversalMethods_v1.png[TraversalMethods_v1,480,144,align="center"] 
+image::imagesMKD/TraversalMethods_v1.png[TraversalMethods_v1,540,162,align="center"] 
+The image displays the same binary tree with its nodes being “counted off”  using each of these three traversal algorithms.  
+
 You may find the interactive demonstration at this link:https://en.wikipedia.org/wiki/Tree_traversal#Types[Wikipedia page] useful to understanding these three traversal algorithms.
 		
 
 // MKD Nov 22 2025 new subsection
-=== Binary Search Trees #SECTION UNDER CONSTRUCTION!# 
+=== Binary Search Trees 
 
 //A *binary search tree* (BST) is a binary tree where each vertex is assigned a *key,* where all the keys come from a set that has a link:./relations.html#total_ordering[total ordering.] For example, the keys may be integers, or strings that are alphabetically ordered, or any other type of data that can be totally ordered. In a binary search tree, the key assigned to vertex $v$ is greater than the key at each vertex in the left subtree of v, and is less than the key at each vertex in the right subtree of v. 
 
@@ -1156,7 +1164,7 @@ Preorder: [ Adil, Elias, Chris, Maya, Sofia, Li, Jun ]
 
 // MKD Nov 27 2025 new subsection
 //=== Polish and Reverse Polish Notation
-=== Expression Trees and Polish Notation #SECTION UNDER CONSTRUCTION!# 
+=== Expression Trees and Polish Notation 
 
 // (Jan Łukasiewicz) 
 
@@ -1179,9 +1187,20 @@ symbols (like $\land$ and $\lor$) between two previously-constructed wffs, Łuka
 operator 
 //s
 symbols _in front of_ those wffs, which makes the use of parentheses  completely 
-unnecessary! Today, notation that is based on Łukasiewicz's original notation is called either *Polish notation* or *prefix notation* and is most often applied to arithmetic/algebraic formulas instead of logical formulas.  
+unnecessary! Today, notation that is based on Łukasiewicz's original notation is called either *Polish notation* or *prefix notation* and is 
+//most often 
+applied to 
+both 
+arithmetic/algebraic formulas 
+//instead of 
+and 
+logical formulas.  
 
-There is also *Reverse Polish notation* or *postfix notation,* where the operator symbol is placed _after_ its operands. The “usual” notation where the operand is placed _between_ the two operands is called *infix notation.* 
+There is also the *Reverse Polish notation,* also called *postfix notation,* where the operator symbol is placed _after_ its operands. The “usual” notation where the 
+//operand 
+operator symbol 
+is placed _between_ the two operands is called *infix notation.* 
+
 
 // MKD Nov 30 2025 new example
 ****
@@ -1195,10 +1214,21 @@ The Polish notation (prefix notation) for the same expression is \[ - \, \cdot \
 
 //image::imagesMKD/ExpressionTree_3xminus5_v2.png[ExpressionTree_3xminus5_v2,264,204,float="right",align="center"] 
 image::imagesMKD/ExpressionTree_3xminus5_v2.png[ExpressionTree_3xminus5_v2,176,136,float="right",align="center"] 
-You can use binary trees and tree traversal to make it easier to switch between these three notations. Define an *expression tree* to be a binary tree where each leaf is assigned a key that is either a numeral or a variable symbol, and where each internal node is assigned a key that is an operator symbol. The expression tree for the infix notation $3 \cdot x - 5$ is shown. Notice that the order of the symbols for the infix expression corresponds to the inorder traversal of the expression tree. It is an exercise for you to confirm that the order of the symbols in the Polish notation expression corresponds to the preorder traversal of the expression tree, and that the Reverse Polish notation expression corresponds to the postorder traversal of the expression tree. 
+You can use binary trees and tree traversal to make it easier to switch between these three notations. Define an *expression tree* to be a binary tree where each leaf is 
+//assigned a key that is 
+labeled by 
+either a numeral or a variable symbol, and where each internal node is 
+//assigned a key that is 
+labeled by 
+an operator symbol. The expression tree for the infix notation $3 \cdot x - 5$ is shown. 
+// MKD Dec 8 2025 
+Notice that in the expression tree for $3 \cdot x - 5,$ the root node corresponds to the “last” operation you would perform and the subtrees correspond to the previously-constructed expressions $3 \cdot x$ and $5.$
+//Notice 
+Also notice that, 
+in the earlier example, 
+the order of the symbols for the infix expression corresponds to the inorder traversal of the expression tree. It is an exercise for you to confirm that the order of the symbols in the Polish notation expression corresponds to the preorder traversal of the expression tree, and that the Reverse Polish notation expression corresponds to the postorder traversal of the expression tree. 
 //, and that the usual order of operations for infix expressions corresponds to the inorder traversal of the expression tree. 
 // 3 ⋅ x - 5
-
 
 // MKD Nov 30 2025 need examples using computation/expression building using Polish and Reverse Polish notations
 
@@ -1207,15 +1237,41 @@ You can use binary trees and tree traversal to make it easier to switch between 
 // MKD need an example here, using a binary tree. 
 // construct an expression tree form an arithmetic/algebraic formula in the usual infix notation, the explain how preorder traversal will give the Polish/prefix notation, and postorder traversal will give the Reverse Polish/postfix notation.     
 
-// MKD Nov 30 2025 new example
+// MKD Nov 30 2025 new example, revised Dec 8 2025
 ****
-.Example {counter:treeex} - An Expression Tree #UNDER CONSTRUCTION!# 
+//.Example {counter:treeex} - Building An Expression Tree
+.Example {counter:treeex} - Building And Traversing An Expression Tree
 
 
-Consider the arithmetic expression. \[ 5 + 7 \times - 3 - 8 \div 2 \] Recall that it is not correct to evaluate this left-to-right; instead you need to use the order of operations, which is equivalent to inserting parentheses as shown. \[ (5 + (7 \times (- 3))) - (8 \div 2) \]
+Consider the arithmetic expression. \[ 5 + 7 \times - 3 - 8 \div 2 \] Recall that it is not correct to evaluate this left-to-right; instead you need to use the order of operations, which is equivalent to 
+evaluating the 
+following expression that results after 
+inserting parentheses. \[ (5 + (7 \times (- 3))) - (8 \div 2) \] From this 
+second 
+expression, you can see that the expression tree will have the minus sign at the root and subtrees that represent $(5 + (7 \times (- 3)))$ and $(8 \div 2).$ Continuing recursively, the subtree for $(5 + (7 \times (- 3)))$ will have the plus sign at its root and subtrees that represent $5$ and $(7 \times (- 3)),$ and the subtree for $(8 \div 2)$ will have the division sign at its root node and subtrees that represent $8$ and $2.$ Continue recursively until all symbols have been placed at a node. 
+
+
+//image::imagesMKD/ExpressionTreeExample_v1.png[ExpressionTreeExample_v1,408,288,float="right",align="center"] 
+//image::imagesMKD/ExpressionTreeExample_v2.png[ExpressionTreeExample_v2,390,390,float="right",align="center"] 
+//image::imagesMKD/ExpressionTreeExample_v3.png[ExpressionTreeExample_v3,390,390,float="right",align="center"] 
+image::imagesMKD/ExpressionTreeExample_v3.png[ExpressionTreeExample_v3,260,260,align="center"] 
+The image displays a drawing of the expression tree for $(5 + (7 \times (- 3))) - (8 \div 2)$. Notice that the negative sign labels a node with only one child, which is treated as the left child. 
+
+Next, you can use each of the traversal methods to create the Polish (prefix), infix, and Reverse Polish (postfix) expressions. 
+
+$\text{prefix: } \ - \, + \, 5 \, \times \, 7 \, - \, 3 \, \div \, 8 \; 2 $
+
+$\text{infix:  } \ 5 \, + \, 7 \, \times \, - \, 3 \, - \, 8 \, \div \, 2 $
+
+$\text{postfix:} \ 5 \, 7 \, 3 \, - \, \times \, + \, 8 \; 2 \, \div \, - $
+
 
 ****
 
+// 5 + 7 × −3 − 8 ÷ 2
+
+You can see another example of how to construct expression trees, using Reverse Polish notation and a stack, at link:https://en.wikipedia.org/wiki/Binary_expression_tree#Construction_of_an_expression_tree[this Wikipedia page.] 
+//This example illustrates how the stack can be used to evaluate a function that has two inputs.
 
 
 // link:https://en.wikipedia.org/wiki/Polish_notation[Łukasiewicz notation,] also called *prefix notation* and *Polish notation.* In this notation, the binary operators $+,$ $-,$ $\times,$ and $\div$  
@@ -1251,11 +1307,11 @@ Binary Search Trees
 //#Students in CSC 230 Spring 2025 can refer to the slide decks (from Spring 2024 and Fall 2024) that are posted in link:https://sfsu.instructure.com/[Canvas.]#
 
 		
-** Tree Traversal Strategies
+//** Tree Traversal Strategies
 
 *** Algorithms for Depth- and breadth-first traversals
 
-** Expression Trees 
+//** Expression Trees 
 // https://en.wikipedia.org/wiki/Binary_expression_tree
 
 //*** Polish and Reverse Polish Notations (Jan Łukasiewicz) 

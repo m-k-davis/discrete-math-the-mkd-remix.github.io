@@ -758,3 +758,7 @@ Since $4 \cdot 7 \equiv_{12} 4,$ four 7-hour intervals must pass before the cloc
 
 
 MORE TO COME!
+
+
+// MKD Dec 1 2025 you want to insert Chinese Remainder Theorem somewhere in this subsection 
+// https://en.wikipedia.org/wiki/Chinese_remainder_theorem

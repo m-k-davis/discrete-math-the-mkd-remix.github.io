@@ -631,11 +631,11 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on December 1, 2025.
+        This chapter was last updated on December 8, 2025.
        </em>
        <br/>
        <em>
-        Added content to the section on binary trees: Tree traversal algorithms, Łukasiewicz’s parentheses-free notation (“Polish notation”) and expression trees.
+        Added more content to the section on binary trees: Tree traversal algorithms, Łukasiewicz’s parentheses-free notation (“Polish notation”) and expression trees.
        </em>
        <br/>
        <em>
@@ -2226,11 +2226,8 @@ does not change the adjacency relationships of the vertices.
       </div>
      </div>
      <div class="sect2">
-      <h3 id="_binary_trees_section_under_construction">
+      <h3 id="_binary_trees">
        15.4. Binary Trees
-       <mark>
-        SECTION UNDER CONSTRUCTION!
-       </mark>
       </h3>
       <div class="admonitionblock note">
        <table>
@@ -2358,7 +2355,7 @@ subsection, you will learn about three commonly-used algorithms for tree travers
            <strong>
             Preorder traversal:
            </strong>
-           First, visit the root node. Next, visit each node in the root node’s left subtree using preorder traversal. Finally, visit each node in the root node’s right subtree using preorder traversal.
+           First, visit the root node. Secondly, visit each node in the root node’s left subtree using preorder traversal. Finally, visit each node in the root node’s right subtree using preorder traversal.
           </p>
          </li>
          <li>
@@ -2366,7 +2363,7 @@ subsection, you will learn about three commonly-used algorithms for tree travers
            <strong>
             Inorder traversal:
            </strong>
-           First, visit each node in the root node’s left subtree using inorder traversal. Next, visit the root node. Finally, visit each node in the root node’s right subtree using preorder traversal.
+           First, visit each node in the root node’s left subtree using inorder traversal. Secondly, visit the root node. Finally, visit each node in the root node’s right subtree using preorder traversal.
           </p>
          </li>
          <li>
@@ -2374,7 +2371,7 @@ subsection, you will learn about three commonly-used algorithms for tree travers
            <strong>
             Postorder traversal:
            </strong>
-           First, visit each node in the root node’s left subtree using postorder traversal. Next, visit each node in the root node’s right subtree using postorder traversal. visit the root node. Finally, visit the root node.
+           First, visit each node in the root node’s left subtree using postorder traversal. Secondly, visit each node in the root node’s right subtree using postorder traversal. visit the root node. Finally, visit the root node.
           </p>
          </li>
         </ul>
@@ -2404,6 +2401,16 @@ you visit just that one node.
          </span>
         </p>
        </div>
+       <div class="imageblock text-center">
+        <div class="content">
+         <img alt="TraversalMethods_v1" height="162" src="imagesMKD/TraversalMethods_v1.png" width="540"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         The image displays the same binary tree with its nodes being “counted off”  using each of these three traversal algorithms.
+        </p>
+       </div>
        <div class="paragraph">
         <p>
          You may find the interactive demonstration at this
@@ -2415,11 +2422,8 @@ you visit just that one node.
        </div>
       </div>
       <div class="sect3">
-       <h4 id="_binary_search_trees_section_under_construction">
+       <h4 id="_binary_search_trees">
         15.4.2. Binary Search Trees
-        <mark>
-         SECTION UNDER CONSTRUCTION!
-        </mark>
        </h4>
        <div class="paragraph">
         <p>
@@ -2728,11 +2732,8 @@ was the solution in the “You Try” section of the previous example.
        </div>
       </div>
       <div class="sect3">
-       <h4 id="_expression_trees_and_polish_notation_section_under_construction">
+       <h4 id="_expression_trees_and_polish_notation">
         15.4.3. Expression Trees and Polish Notation
-        <mark>
-         SECTION UNDER CONSTRUCTION!
-        </mark>
        </h4>
        <div class="paragraph">
         <p>
@@ -2766,16 +2767,21 @@ unnecessary! Today, notation that is based on Łukasiewicz’s original notation
          <strong>
           prefix notation
          </strong>
-         and is most often applied to arithmetic/algebraic formulas instead of logical formulas.
+         and is
+applied to
+both
+arithmetic/algebraic formulas
+and
+logical formulas.
         </p>
        </div>
        <div class="paragraph">
         <p>
-         There is also
+         There is also the
          <strong>
-          Reverse Polish notation
+          Reverse Polish notation,
          </strong>
-         or
+         also called
          <strong>
           postfix notation,
          </strong>
@@ -2783,7 +2789,9 @@ unnecessary! Today, notation that is based on Łukasiewicz’s original notation
          <em>
           after
          </em>
-         its operands. The “usual” notation where the operand is placed
+         its operands. The “usual” notation where the
+operator symbol
+is placed
          <em>
           between
          </em>
@@ -2821,23 +2829,71 @@ unnecessary! Today, notation that is based on Łukasiewicz’s original notation
          <strong>
           expression tree
          </strong>
-         to be a binary tree where each leaf is assigned a key that is either a numeral or a variable symbol, and where each internal node is assigned a key that is an operator symbol. The expression tree for the infix notation \(3 \cdot x - 5\) is shown. Notice that the order of the symbols for the infix expression corresponds to the inorder traversal of the expression tree. It is an exercise for you to confirm that the order of the symbols in the Polish notation expression corresponds to the preorder traversal of the expression tree, and that the Reverse Polish notation expression corresponds to the postorder traversal of the expression tree.
+         to be a binary tree where each leaf is
+labeled by
+either a numeral or a variable symbol, and where each internal node is
+labeled by
+an operator symbol. The expression tree for the infix notation \(3 \cdot x - 5\) is shown.
+Notice that in the expression tree for \(3 \cdot x - 5,\) the root node corresponds to the “last” operation you would perform and the subtrees correspond to the previously-constructed expressions \(3 \cdot x\) and \(5.\)
+Also notice that,
+in the earlier example,
+the order of the symbols for the infix expression corresponds to the inorder traversal of the expression tree. It is an exercise for you to confirm that the order of the symbols in the Polish notation expression corresponds to the preorder traversal of the expression tree, and that the Reverse Polish notation expression corresponds to the postorder traversal of the expression tree.
         </p>
        </div>
        <div class="sidebarblock">
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 4 - An Expression Tree
-           <mark>
-            UNDER CONSTRUCTION!
-           </mark>
+           Example 4 - Building And Traversing An Expression Tree
           </div>
           <p>
-           Consider the arithmetic expression. \[ 5 + 7 \times - 3 - 8 \div 2 \] Recall that it is not correct to evaluate this left-to-right; instead you need to use the order of operations, which is equivalent to inserting parentheses as shown. \[ (5 + (7 \times (- 3))) - (8 \div 2) \]
+           Consider the arithmetic expression. \[ 5 + 7 \times - 3 - 8 \div 2 \] Recall that it is not correct to evaluate this left-to-right; instead you need to use the order of operations, which is equivalent to
+evaluating the
+following expression that results after
+inserting parentheses. \[ (5 + (7 \times (- 3))) - (8 \div 2) \] From this
+second
+expression, you can see that the expression tree will have the minus sign at the root and subtrees that represent \((5 + (7 \times (- 3)))\) and \((8 \div 2).\) Continuing recursively, the subtree for \((5 + (7 \times (- 3)))\) will have the plus sign at its root and subtrees that represent \(5\) and \((7 \times (- 3)),\) and the subtree for \((8 \div 2)\) will have the division sign at its root node and subtrees that represent \(8\) and \(2.\) Continue recursively until all symbols have been placed at a node.
+          </p>
+         </div>
+         <div class="imageblock text-center">
+          <div class="content">
+           <img alt="ExpressionTreeExample_v3" height="260" src="imagesMKD/ExpressionTreeExample_v3.png" width="260"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The image displays a drawing of the expression tree for \((5 + (7 \times (- 3))) - (8 \div 2)\). Notice that the negative sign labels a node with only one child, which is treated as the left child.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Next, you can use each of the traversal methods to create the Polish (prefix), infix, and Reverse Polish (postfix) expressions.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(\text{prefix: } \ - \, + \, 5 \, \times \, 7 \, - \, 3 \, \div \, 8 \; 2 \)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(\text{infix:  } \ 5 \, + \, 7 \, \times \, - \, 3 \, - \, 8 \, \div \, 2 \)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(\text{postfix:} \ 5 \, 7 \, 3 \, - \, \times \, + \, 8 \; 2 \, \div \, - \)
           </p>
          </div>
         </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         You can see another example of how to construct expression trees, using Reverse Polish notation and a stack, at
+         <a href="https://en.wikipedia.org/wiki/Binary_expression_tree#Construction_of_an_expression_tree">
+          this Wikipedia page.
+         </a>
+        </p>
        </div>
       </div>
       <div class="sect3">
