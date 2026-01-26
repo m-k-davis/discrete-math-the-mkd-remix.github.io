@@ -21,29 +21,32 @@ _This chapter was last updated on July 9, 2025._ +
 Welcome to the Remix! I hope this textbook provides you an opportunity for a stimulating and intellectually enjoyable learning experience. 
 
 // MKD musing to help students understand our approach: 
-Mathematics is one of human civilization's greatest tools: It involves pattern noticing, collecting, comparing, counting, generalizing, formalizing, and abstracting. The development of mathematics is a continuing work that spans at least 5,000 years and many different peoples and cultures. This development will continue long after you and I are gone - never forget that we are living during an era that will be someone else's Ancient History!
+Mathematics is one of human civilization's greatest tools: It involves pattern noticing, collecting, comparing, counting, generalizing, formalizing, and abstracting. The development of mathematics is a continuing work that spans at least 5,000 years and many different peoples and cultures. This development will continue long after you and I are gone — never forget that we are living during an era that will be someone else's Ancient History!
 
 
 // MKD trying to define Discrete Mathematics 
 //	see also https://philsci-archive.pitt.edu/16561/1/Discrete%20and%20Continuous.pdf and https://www.google.com/search?q=defintion+of+discrete+mathematics+site%3A.edu
-== What is "Discrete Mathematics"? 
 
-//There seems to be no universally agreed-upon definition of "discrete mathematics," but I, the remixer, will try to explain what it is. 
-There seems to be no universally agreed-upon definition of "discrete mathematics," but I will describe to you my understanding of what the phrase "discrete mathematics" means. 
+// MKD Jan 21 2026 remoed quotation marks 
+//== What is “Discrete Mathematics”? 
+== What is Discrete Mathematics? 
+
+//There seems to be no universally agreed-upon definition of “discrete mathematics,” but I, the remixer, will try to explain what it is. 
+There seems to be no universally agreed-upon definition of “discrete mathematics,” but I will describe to you my understanding of what the phrase “discrete mathematics” means. 
 //"discrete mathematics" is. 
 //it is using real-world analogies.
 //it is using some analogies.
 
 //MKD old attempt
-//Discrete mathematics is used to study and understand structures built out of individual objects that are naturally separate from other objects in the same structure; such objects can placed into categories and counted. For example, a structure built from individual objects for which questions like "What is the next object in the structure?" or "Which other objects are the closest to this object?" (where "closest" could refer to physical distance or could mean most similar in color or size) or "How many objects in the structure have a certain property?" are the kind of questions that discrete mathematics can address. If this seems vague, think about the following examples.
+//Discrete mathematics is used to study and understand structures built out of individual objects that are naturally separate from other objects in the same structure; such objects can placed into categories and counted. For example, a structure built from individual objects for which questions like “What is the next object in the structure?” or “Which other objects are the closest to this object?” (where “closest” could refer to physical distance or could mean most similar in color or size) or “How many objects in the structure have a certain property?” are the kind of questions that discrete mathematics can address. If this seems vague, think about the following examples.
 // MKD old wall example 
 //A wall made of stone and brick is a structure, and we can use this as an example of a discrete structure. The objects in the discrete structure are the stones and bricks. You can tell individual objects apart, and can classify the objects by type (either stone or brick) or by color or by the how close to the top of the wall the objects are. You can try to count the total number of objects, and you can count the number of objects that are next to any one of the objects you choose. 
 
-Discrete mathematics is the mathematics people use to study and understand structures that are built from individual objects in a way that the individual objects can still be treated as separate from one another within the structure. In such a structure, the individual objects can be put into categories and counted; it makes sense to ask questions like "What is the next object in the structure after this one?" or "Which other objects are the closest to this one?" (where "closest" could refer to physical distance or could mean most similar in color or size) or "How many objects in the structure have a certain property?" Discrete mathematics is a collection of tools that can be used to answer these kind of questions. 
+Discrete mathematics is the mathematics people use to study and understand structures that are built from individual objects in a way that the individual objects can still be treated as separate from one another within the structure. In such a structure, the individual objects can be put into categories and counted; it makes sense to ask questions like “What is the next object in the structure after this one?” or “Which other objects are the closest to this one?” (where “closest” could refer to physical distance or could mean most similar in color or size) or “How many objects in the structure have a certain property?” Discrete mathematics is a collection of tools that can be used to answer these kind of questions. 
 
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,480,307,float="right",align="center"]
 image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,320,205,float="right",align="center"]
-//[small]#Image credit: link:https://www.publicdomainpictures.net/en/view-image.php?image=87806&picture=vintage-stone-and-brick-wall["Vintage Stone And Brick Wall"] by Paul Brennan. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0].#
+//[small]#Image credit: link:https://www.publicdomainpictures.net/en/view-image.php?image=87806&picture=vintage-stone-and-brick-wall[“Vintage Stone And Brick Wall”] by Paul Brennan. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0].#
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,1920,1227,float="right",align="center"]
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,240,154,float="right",align="center",title="link:https://www.publicdomainpictures.net/en/view-image.php?image=87806&picture=vintage-stone-and-brick-wall[Vintage Stone And Brick Wall] by Paul Brennan. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0]."]
 //image::imagesMKD/vintage-stone-and-brick-wall.jpg[Vintage Stone And Brick Wall,240,154,float="right",align="center"]
@@ -61,7 +64,9 @@ individual object
 by type (either stone or brick) or by color or by the how close to the top of the wall the object 
 //s are
 is. You can try to count the total number of individual objects, and you can count the number of individual objects that are next to any one object you choose. The wall is a (non-mathematical) example of a *discrete structure.* + 
-[small]#Image credit: link:https://www.publicdomainpictures.net/en/view-image.php?image=87806&picture=vintage-stone-and-brick-wall["Vintage Stone And Brick Wall"] by Paul Brennan. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0].#
+[small]#Image credit: link:https://www.publicdomainpictures.net/en/view-image.php?image=87806&picture=vintage-stone-and-brick-wall[“Vintage Stone And Brick Wall”] by Paul Brennan. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0].#
+
+//“”
 
 //If this seems vague, think about the following examples.
 Here are two more examples of discrete structures.
@@ -69,9 +74,9 @@ Here are two more examples of discrete structures.
 //* The set of humans in a family can be treated as a discrete structure. + 
 //We tend to perceive humans as individuals who can be separated from one another, and questions like "Which humans are siblings of this human?" and "Which humans are parents of this human?" and "How many children does this human have?" make sense. 
 * A family of humans can be treated as a discrete structure. + 
-The humans in a family are seen as individuals who can be distinguished from one another. Questions like "Which humans are siblings of this human?" and "Which humans are parents of this human?" and "How many children does this human have?" make sense. 
+The humans in a family are seen as individuals who can be distinguished from one another. Questions like “Which humans are siblings of this human?” and “Which humans are parents of this human?” and “How many children does this human have?” make sense. 
 * The set of integers, in the usual order, as represented on a number line is a discrete structure. + 
-It makes sense to ask questions like "What is the next integer after -2?" or "What are the integers that are closest to -2?" for this structure. 
+It makes sense to ask questions like “What is the next integer after -2?” or “What are the integers that are closest to -2?” for this structure. 
 
 Notice that in these examples, the individual objects are of a different nature than the entire structure: Individual bricks and stones aren't considered a wall, individual humans aren't considered a family, and individual integers are not a collection of integers.
 
@@ -85,20 +90,20 @@ Notice that in these examples, the individual objects are of a different nature 
 So what kind of structure is not discrete? 
 
 image::imagesMKD/water-glass-13525637587gp.jpg[Water Glass,320,212,float="right",align="center"]
-Consider the water in the glass shown in the image. The water in the glass _is_ a structure, but for most of human history it has not been seen as made up of objects that are of a different nature than the structure. That is, many generations of humans have recognized the difference between a wall and the individual stones and bricks that make up the wall, but likely have perceived water as being made up of... water. This is why humans tend to use _measurement of quantities_ of water, using units such as fluid ounces or milliliters. 
+Consider the water in the glass shown in the image. The water in the glass _is_ a structure, but for most of human history it has not been seen as made up of objects that are of a different nature than the structure. That is, many generations of humans have recognized the difference between a wall and the individual stones and bricks that make up the wall, but likely have perceived water as being made up of… water. This is why humans tend to use _measurement of quantities_ of water, using units such as fluid ounces or milliliters. 
 //In our time 
 In our current era, 
 we humans understand that the water is built from molecules, 
 which are of a different nature than the water 
-"structure," 
+“structure,” 
 //, 
 but because the molecules are so tiny, numerous, and densely distributed throughout the structure, we humans (except perhaps some scientists and engineers) 
 //still ignore the individual molecules and use measurement instead of counting. 
 still use measurement instead of counting and ignore the individual molecules. 
-For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10^24^ molecules of water." Notice that the measurement units used do not correspond in any natural way to individual molecules or groupings of individual molecules (unless, perhaps, you are a scientist or engineer.) + 
+For example, a recipe might call for “8 ounces of water” but never would ask for “7.6 × 10^24^ molecules of water.” Notice that the measurement units used do not correspond in any natural way to individual molecules or groupings of individual molecules (unless, perhaps, you are a scientist or engineer.) + 
 //Also, notice that the glass container itself is another structure in which the individuality of molecules tends to be ignored. + 
 Also, notice that the glass container itself is another structure in which the individual molecules tend to be ignored. + 
-[small]#Image credit: link:https://www.publicdomainpictures.net/en/view-image.php?image=27533&picture=water-glass["Water Glass"] by Peter Griffin. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0].#
+[small]#Image credit: link:https://www.publicdomainpictures.net/en/view-image.php?image=27533&picture=water-glass[“Water Glass”] by Peter Griffin. The image is dedicated to the public domain under link:http://creativecommons.org/publicdomain/zero/1.0/[CC0].#
 
 //On the other hand, continuous mathematics involves quantities that often are densely distributed throughout a structure, for which measurement is more appropriate than counting. 
 
@@ -107,12 +112,12 @@ Humans use *continuous mathematics* like calculus to study a structure that is b
 
 * The set of real numbers, in the usual order, as represented on a number line is NOT a discrete structure. + 
 //It does NOT makes sense to ask about "the next real number after $\pi$ on the number line" because if we think _c_ is the _"best candidate"_ for "the next real number after $\pi$ on the number line" then the number $c_{1} = \frac{c+\pi}{2},$ which is the midpoint of the interval with endpoints _c_ and $\pi,$ is closer to $\pi$ than is _c,_ so $c_{1}$ is a _better candidate than the "best candidate"_ for "the next real number after $\pi$ on the number line"... that is, the concept "the next real number after $\pi$ on the number line" does not make sense for this structure as such a number cannot exist! Likewise, "the real numbers that are closest to $\pi$" do not exist. + 
-It does NOT makes sense to ask about "the next real number after $\pi$ on the number line" because if we think _c_ is "the next real number after $\pi$ on the number line" then we can compute the number $c_{1} = \frac{c+\pi}{2},$ which is the midpoint of the interval with endpoints $\pi$ and _c,_ so $c_{1}$ is closer to $\pi$ than _c_ is, which means $c_{1}$ is a _better candidate_ for "the next real number after $\pi$ on the number line" than _c_ … so the concept "the next real number after $\pi$ on the number line" does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to $\pi$ over and over again. Likewise, "the real numbers that are closest to $\pi$" do not exist. + 
+It does NOT makes sense to ask about "the next real number after $\pi$ on the number line" because if we think _c_ is "the next real number after $\pi$ on the number line" then we can compute the number $c_{1} = \frac{c+\pi}{2},$ which is the midpoint of the interval with endpoints $\pi$ and _c,_ so $c_{1}$ is closer to $\pi$ than _c_ is, which means $c_{1}$ is a _better candidate_ for “the next real number after $\pi$ on the number line” than _c_ … so the concept “the next real number after $\pi$ on the number line” does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to $\pi$ over and over again. Likewise, “the real numbers that are closest to $\pi$” do not exist. + 
 //Instead, "the real numbers that differ from $\pi$ by less than $\epsilon$" makes sense for any positive number $\epsilon$ (The symbol $\epsilon$ is  the Greek letter "epsilon".) By choosing $\epsilon$ as small as we like, we can describe the real numbers that are as close to $\pi$ as needed to use as approximations to $\pi.$ This is why (and how) limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line. + 
-Instead, it makes sense to talk about "the real numbers that differ from $\pi$ by less than $\epsilon$" where $\epsilon$ is some positive real number  (The symbol $\epsilon$ is  the Greek letter "epsilon".) By choosing $\epsilon$ as small as we like, we can describe the real numbers that are as close to $\pi$ as needed to use as approximations to $\pi.$ This is why and how limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line. + 
-[small]#Note 1: You could use any other real number instead of $\pi$ in the discussion above because the argument will still be valid. For example, "the next real number after $-2$ on the number line" and "the real numbers that are closest to $-2$ on the number line" do not exist since you can choose numbers that get closer and closer to $-2$ such as $-1,$ $-1.5,$ $-1.75,$ and so on. + 
+Instead, it makes sense to talk about “the real numbers that differ from $\pi$ by less than $\epsilon$” where $\epsilon$ is some positive real number  (The symbol $\epsilon$ is  the Greek letter “epsilon.”) By choosing $\epsilon$ as small as we like, we can describe the real numbers that are as close to $\pi$ as needed to use as approximations to $\pi.$ This is why and how limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line. + 
+[small]#Note 1: You could use any other real number instead of $\pi$ in the discussion above because the argument will still be valid. For example, “the next real number after $-2$ on the number line” and “the real numbers that are closest to $-2$ on the number line” do not exist since you can choose numbers that get closer and closer to $-2$ such as $-1,$ $-1.5,$ $-1.75,$ and so on. + 
 //It is important to distinguish what mathematicians mean by "natural number" (nonnegative whole numbers) and "real number" (i.e., a number that can be represented by a decimal expansion) to understand this 
-Note 2: The technique used to justify that "the next real number after $\pi$ on the number line" does not exist is called *proof by contradiction* and will be discussed along with other techniques in the link:./proofs.html[Proofs: Basic Techniques] chapter of this textbook. + 
+Note 2: The technique used to justify that “the next real number after $\pi$ on the number line” does not exist is called *proof by contradiction* and will be discussed along with other techniques in the link:./proofs.html[Proofs: Basic Techniques] chapter of this textbook. + 
 Note 3: Is $\pi$ really on the number line? Click link:https://www.youtube.com/watch?v=PFf9d7U2tVA&t=282s[here] to view an artist's explanation about where $\pi$ lies on the number line. Be warned that some of what this artist says (about history, about $\pi$ being equal to 3.14) is not correct, but the visualization still may be helpful to you. + 
 Note 4: FYI, the set of real numbers is called *the continuum* in advanced mathematics courses.#
 
@@ -127,7 +132,7 @@ Note 4: FYI, the set of real numbers is called *the continuum* in advanced mathe
 
 //MKD avoid talking about the rationals (with the usual order) - this IS NOT a discrete structure, but the fact that the set of rationals is countable causes some authors to treat the structure as discrete.
 //	https://mathworld.wolfram.com/RationalNumber.html says Q is continuous 
-//	https://cs.fit.edu/~wds/classes/adm/Handouts/Numbers.pdf argues  using the Stern-Brocot tree that Q is discrete
+//	https://cs.fit.edu/~wds/classes/adm/Handouts/Numbers.pdf argues using the Stern-Brocot tree that Q is discrete
 
 
 // MKD notes
@@ -184,13 +189,15 @@ The Remix is designed to build on your previous knowledge, and then build new kn
 There are two analogies that I, the remixer, like to use here:
 
 * Think of the course presented in the Remix as a language course. + 
-You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then "forgetting" that content later, but still succeed in the course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.
+You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then “forgetting” that content later, but still succeed in the course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.
 
 * Think of the course presented in the Remix as exercising at a gym. + 
-You will build your strength and awareness about your abilities by working out. It may be tempting to watch others "demonstrate" how to do certain exercises and then choose not to do them yourself, but you are selling yourself short. A physical trainer usually knows already what they are capable of doing, so it is no compliment if you tell them "Wow, you're really strong"... the trainer's goal is to get you to say "Wow, [underline]#*I'm*# starting to get really strong!"
+You will build your strength and awareness about your abilities by working out. It may be tempting to watch others “demonstrate” how to do certain exercises and then choose not to do them yourself, but you are selling yourself short. A physical trainer usually knows already what they are capable of doing, so it is no compliment if you tell them “Wow, you're really strong”… the trainer's goal is to get you to say “Wow, [underline]#*I'm*# starting to get really strong!”
 
 
 === Foundations 
+
+//“”
 
 Learning discrete mathematics requires putting together old ideas in new ways and adding new ideas to your mix. 
 
@@ -1124,6 +1131,17 @@ Consider what changes are needed to the loop condition and the computations with
 
 
 ****
+
+[[division_algorithm_note]] 
+NOTE: Mathematicians often refer to the _statement_ “For all integers $a$ and $b,$ there are integers $q$ and $r$ so that $a = q \cdot b + r$ and $0 \leq r < b$” as the Division Algorithm without describing any of the steps used to compute $q$ and $r$. It is likely that those mathematicians are _assuming_ that division by repeated subtraction is being used, because that technique was used by Euclid in Book Ⅶ of link:https://en.wikipedia.org/wiki/Euclid%27s_Elements#Book_VII[_The Elements._]
+
+//of link:http://aleph0.clarku.edu/~djoyce/java/elements/bookVII/propVII1.html[_Στοιχεῖα,_] that is _The Elements._# 
+
+//http://aleph0.clarku.edu/~djoyce/java/elements/bookVII/propVII1.html
+
+// MKD Jan 14 2026 ἀνθυφαιρουμένου is the correct Greek term 
+// MKD Jan 17 2026 links https://www.loebclassics.com/view/euclid-greek_mathematical_works_xiv_euclid/1939/pb_LCL335.507.xml discusses the translation
+
 
 //MKD unused or deleted snippets from the algorithm complexity example
 // 130 divided by 3 requires 43 loops or 7 with base-ten shift

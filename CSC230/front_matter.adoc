@@ -22,7 +22,9 @@ NOTE: If you were a student in my course during the Spring 2024 semester, the ve
  + 
 If you were a student in one of my courses during the Fall 2024 semester, the version of the book you used can be found link:./book_Dec2024.html[here.] + 
  + 
-If you were a student in one of my courses during the Spring 2025 semester, the version of the book you used can be found link:./book_May2025.html[here.]
+If you were a student in one of my courses during the Spring 2025 semester, the version of the book you used can be found link:./book_May2025.html[here.] + 
+ + 
+If you were a student in one of my courses during the Fall 2025 semester, the version of the book you used can be found link:./book_Jan2026.html[here.]
 
 == How does the Remix differ from the original work?
 

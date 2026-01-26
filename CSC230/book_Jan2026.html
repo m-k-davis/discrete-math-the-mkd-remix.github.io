@@ -475,7 +475,8 @@ $(document).on('page:load', ready2);
 </head>
 
 
-<body class="book toc2 toc-left">
+<!-- body class="book toc2 toc-left" -->
+<body class="book toc2 toc-left" style="background-color:#999999;">
 <div id="header">
 <h1>Discrete Math - The MKD Remix (CSC230 Version)</h1>
 <div class="details">
@@ -521,6 +522,21 @@ $(document).on('page:load', ready2);
 <div class="sect1">
 <h2 id="_about_this_text">About this text</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><em>This revision of the book was last updated on December 8, 2025.</em><br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<mark>This is an old revision of the Remix. The current revision can be viewed <a href=./index.html>here.</a></mark><br>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><mark><strong>CAUTION</strong> - CHAPTER UNDER CONSTRUCTION!</mark></p>
 </div>
@@ -749,15 +765,15 @@ introduced into each of the new chapters.</p>
 <p>Welcome to the Remix! I hope this textbook provides you an opportunity for a stimulating and intellectually enjoyable learning experience.</p>
 </div>
 <div class="paragraph">
-<p>Mathematics is one of human civilization&#8217;s greatest tools: It involves pattern noticing, collecting, comparing, counting, generalizing, formalizing, and abstracting. The development of mathematics is a continuing work that spans at least 5,000 years and many different peoples and cultures. This development will continue long after you and I are gone — never forget that we are living during an era that will be someone else&#8217;s Ancient History!</p>
+<p>Mathematics is one of human civilization&#8217;s greatest tools: It involves pattern noticing, collecting, comparing, counting, generalizing, formalizing, and abstracting. The development of mathematics is a continuing work that spans at least 5,000 years and many different peoples and cultures. This development will continue long after you and I are gone - never forget that we are living during an era that will be someone else&#8217;s Ancient History!</p>
 </div>
 <div class="sect2">
-<h3 id="_what_is_discrete_mathematics">1.1. What is Discrete Mathematics?</h3>
+<h3 id="_what_is_discrete_mathematics">1.1. What is "Discrete Mathematics"?</h3>
 <div class="paragraph">
-<p>There seems to be no universally agreed-upon definition of “discrete mathematics,” but I will describe to you my understanding of what the phrase “discrete mathematics” means.</p>
+<p>There seems to be no universally agreed-upon definition of "discrete mathematics," but I will describe to you my understanding of what the phrase "discrete mathematics" means.</p>
 </div>
 <div class="paragraph">
-<p>Discrete mathematics is the mathematics people use to study and understand structures that are built from individual objects in a way that the individual objects can still be treated as separate from one another within the structure. In such a structure, the individual objects can be put into categories and counted; it makes sense to ask questions like “What is the next object in the structure after this one?” or “Which other objects are the closest to this one?” (where “closest” could refer to physical distance or could mean most similar in color or size) or “How many objects in the structure have a certain property?” Discrete mathematics is a collection of tools that can be used to answer these kind of questions.</p>
+<p>Discrete mathematics is the mathematics people use to study and understand structures that are built from individual objects in a way that the individual objects can still be treated as separate from one another within the structure. In such a structure, the individual objects can be put into categories and counted; it makes sense to ask questions like "What is the next object in the structure after this one?" or "Which other objects are the closest to this one?" (where "closest" could refer to physical distance or could mean most similar in color or size) or "How many objects in the structure have a certain property?" Discrete mathematics is a collection of tools that can be used to answer these kind of questions.</p>
 </div>
 <div class="imageblock right text-center">
 <div class="content">
@@ -774,7 +790,7 @@ an
 individual object
 by type (either stone or brick) or by color or by the how close to the top of the wall the object
 is. You can try to count the total number of individual objects, and you can count the number of individual objects that are next to any one object you choose. The wall is a (non-mathematical) example of a <strong>discrete structure.</strong><br>
-<span class="small">Image credit: <a href=https://www.publicdomainpictures.net/en/view-image.php?image=87806&amp;picture=vintage-stone-and-brick-wall>“Vintage Stone And Brick Wall”</a> by Paul Brennan. The image is dedicated to the public domain under <a href=http://creativecommons.org/publicdomain/zero/1.0/>CC0</a>.</span></p>
+<span class="small">Image credit: <a href=https://www.publicdomainpictures.net/en/view-image.php?image=87806&amp;picture=vintage-stone-and-brick-wall>"Vintage Stone And Brick Wall"</a> by Paul Brennan. The image is dedicated to the public domain under <a href=http://creativecommons.org/publicdomain/zero/1.0/>CC0</a>.</span></p>
 </div>
 <div class="paragraph">
 <p>Here are two more examples of discrete structures.</p>
@@ -783,11 +799,11 @@ is. You can try to count the total number of individual objects, and you can cou
 <ul>
 <li>
 <p>A family of humans can be treated as a discrete structure.<br>
-The humans in a family are seen as individuals who can be distinguished from one another. Questions like “Which humans are siblings of this human?” and “Which humans are parents of this human?” and “How many children does this human have?” make sense.</p>
+The humans in a family are seen as individuals who can be distinguished from one another. Questions like "Which humans are siblings of this human?" and "Which humans are parents of this human?" and "How many children does this human have?" make sense.</p>
 </li>
 <li>
 <p>The set of integers, in the usual order, as represented on a number line is a discrete structure.<br>
-It makes sense to ask questions like “What is the next integer after -2?” or “What are the integers that are closest to -2?” for this structure.</p>
+It makes sense to ask questions like "What is the next integer after -2?" or "What are the integers that are closest to -2?" for this structure.</p>
 </li>
 </ul>
 </div>
@@ -803,16 +819,16 @@ It makes sense to ask questions like “What is the next integer after -2?” or
 </div>
 </div>
 <div class="paragraph">
-<p>Consider the water in the glass shown in the image. The water in the glass <em>is</em> a structure, but for most of human history it has not been seen as made up of objects that are of a different nature than the structure. That is, many generations of humans have recognized the difference between a wall and the individual stones and bricks that make up the wall, but likely have perceived water as being made up of… water. This is why humans tend to use <em>measurement of quantities</em> of water, using units such as fluid ounces or milliliters.
+<p>Consider the water in the glass shown in the image. The water in the glass <em>is</em> a structure, but for most of human history it has not been seen as made up of objects that are of a different nature than the structure. That is, many generations of humans have recognized the difference between a wall and the individual stones and bricks that make up the wall, but likely have perceived water as being made up of&#8230;&#8203; water. This is why humans tend to use <em>measurement of quantities</em> of water, using units such as fluid ounces or milliliters.
 In our current era,
 we humans understand that the water is built from molecules,
 which are of a different nature than the water
-“structure,”
+"structure,"
 but because the molecules are so tiny, numerous, and densely distributed throughout the structure, we humans (except perhaps some scientists and engineers)
 still use measurement instead of counting and ignore the individual molecules.
-For example, a recipe might call for “8 ounces of water” but never would ask for “7.6 × 10<sup>24</sup> molecules of water.” Notice that the measurement units used do not correspond in any natural way to individual molecules or groupings of individual molecules (unless, perhaps, you are a scientist or engineer.)<br>
+For example, a recipe might call for "8 ounces of water" but never would ask for "7.6 × 10<sup>24</sup> molecules of water." Notice that the measurement units used do not correspond in any natural way to individual molecules or groupings of individual molecules (unless, perhaps, you are a scientist or engineer.)<br>
 Also, notice that the glass container itself is another structure in which the individual molecules tend to be ignored.<br>
-<span class="small">Image credit: <a href=https://www.publicdomainpictures.net/en/view-image.php?image=27533&amp;picture=water-glass>“Water Glass”</a> by Peter Griffin. The image is dedicated to the public domain under <a href=http://creativecommons.org/publicdomain/zero/1.0/>CC0</a>.</span></p>
+<span class="small">Image credit: <a href=https://www.publicdomainpictures.net/en/view-image.php?image=27533&amp;picture=water-glass>"Water Glass"</a> by Peter Griffin. The image is dedicated to the public domain under <a href=http://creativecommons.org/publicdomain/zero/1.0/>CC0</a>.</span></p>
 </div>
 <div class="paragraph">
 <p>Humans use <strong>continuous mathematics</strong> like calculus to study a structure that is built from objects that are densely distributed throughout the structure. For such a structure, measurement and approximation is more appropriate than counting.</p>
@@ -821,10 +837,10 @@ Also, notice that the glass container itself is another structure in which the i
 <ul>
 <li>
 <p>The set of real numbers, in the usual order, as represented on a number line is NOT a discrete structure.<br>
-It does NOT makes sense to ask about "the next real number after \(\pi\) on the number line" because if we think <em>c</em> is "the next real number after \(\pi\) on the number line" then we can compute the number \(c_{1} = \frac{c+\pi}{2},\) which is the midpoint of the interval with endpoints \(\pi\) and <em>c,</em> so \(c_{1}\) is closer to \(\pi\) than <em>c</em> is, which means \(c_{1}\) is a <em>better candidate</em> for “the next real number after \(\pi\) on the number line” than <em>c</em> … so the concept “the next real number after \(\pi\) on the number line” does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to \(\pi\) over and over again. Likewise, “the real numbers that are closest to \(\pi\)” do not exist.<br>
-Instead, it makes sense to talk about “the real numbers that differ from \(\pi\) by less than \(\epsilon\)” where \(\epsilon\) is some positive real number  (The symbol \(\epsilon\) is  the Greek letter “epsilon.”) By choosing \(\epsilon\) as small as we like, we can describe the real numbers that are as close to \(\pi\) as needed to use as approximations to \(\pi.\) This is why and how limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line.<br>
-<span class="small">Note 1: You could use any other real number instead of \(\pi\) in the discussion above because the argument will still be valid. For example, “the next real number after \(-2\) on the number line” and “the real numbers that are closest to \(-2\) on the number line” do not exist since you can choose numbers that get closer and closer to \(-2\) such as \(-1,\) \(-1.5,\) \(-1.75,\) and so on.<br>
-Note 2: The technique used to justify that “the next real number after \(\pi\) on the number line” does not exist is called <strong>proof by contradiction</strong> and will be discussed along with other techniques in the <a href=./proofs.html>Proofs: Basic Techniques</a> chapter of this textbook.<br>
+It does NOT makes sense to ask about "the next real number after \(\pi\) on the number line" because if we think <em>c</em> is "the next real number after \(\pi\) on the number line" then we can compute the number \(c_{1} = \frac{c+\pi}{2},\) which is the midpoint of the interval with endpoints \(\pi\) and <em>c,</em> so \(c_{1}\) is closer to \(\pi\) than <em>c</em> is, which means \(c_{1}\) is a <em>better candidate</em> for "the next real number after \(\pi\) on the number line" than <em>c</em> … so the concept "the next real number after \(\pi\) on the number line" does not make sense for this structure as such a number cannot exist! We can just keep computing numbers that get closer and closer to \(\pi\) over and over again. Likewise, "the real numbers that are closest to \(\pi\)" do not exist.<br>
+Instead, it makes sense to talk about "the real numbers that differ from \(\pi\) by less than \(\epsilon\)" where \(\epsilon\) is some positive real number  (The symbol \(\epsilon\) is  the Greek letter "epsilon".) By choosing \(\epsilon\) as small as we like, we can describe the real numbers that are as close to \(\pi\) as needed to use as approximations to \(\pi.\) This is why and how limits are defined and used in courses like precalculus and calculus, subjects that involve the real number line.<br>
+<span class="small">Note 1: You could use any other real number instead of \(\pi\) in the discussion above because the argument will still be valid. For example, "the next real number after \(-2\) on the number line" and "the real numbers that are closest to \(-2\) on the number line" do not exist since you can choose numbers that get closer and closer to \(-2\) such as \(-1,\) \(-1.5,\) \(-1.75,\) and so on.<br>
+Note 2: The technique used to justify that "the next real number after \(\pi\) on the number line" does not exist is called <strong>proof by contradiction</strong> and will be discussed along with other techniques in the <a href=./proofs.html>Proofs: Basic Techniques</a> chapter of this textbook.<br>
 Note 3: Is \(\pi\) really on the number line? Click <a href=https://www.youtube.com/watch?v=PFf9d7U2tVA&amp;t=282s>here</a> to view an artist&#8217;s explanation about where \(\pi\) lies on the number line. Be warned that some of what this artist says (about history, about \(\pi\) being equal to 3.14) is not correct, but the visualization still may be helpful to you.<br>
 Note 4: FYI, the set of real numbers is called <strong>the continuum</strong> in advanced mathematics courses.</span></p>
 </li>
@@ -848,11 +864,11 @@ Note 4: FYI, the set of real numbers is called <strong>the continuum</strong> in
 <ul>
 <li>
 <p>Think of the course presented in the Remix as a language course.<br>
-You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then “forgetting” that content later, but still succeed in the course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.</p>
+You will use this language to talk about mathematics and computer science as you continue along your professional path. You cannot master a new language by learning some words or grammar in the first few weeks of a language course and then "forgetting" that content later, but still succeed in the course and master the language to use beyond the course. You need to  assume that everything you learn in this textbook will apply later in the textbook and in your later learning. One of the goals of this textbook is to help you build a broad and rich vocabulary in discrete mathematics and a way of thinking that will apply to your future work.</p>
 </li>
 <li>
 <p>Think of the course presented in the Remix as exercising at a gym.<br>
-You will build your strength and awareness about your abilities by working out. It may be tempting to watch others “demonstrate” how to do certain exercises and then choose not to do them yourself, but you are selling yourself short. A physical trainer usually knows already what they are capable of doing, so it is no compliment if you tell them “Wow, you&#8217;re really strong”… the trainer&#8217;s goal is to get you to say “Wow, <span class="underline"><strong>I&#8217;m</strong></span> starting to get really strong!”</p>
+You will build your strength and awareness about your abilities by working out. It may be tempting to watch others "demonstrate" how to do certain exercises and then choose not to do them yourself, but you are selling yourself short. A physical trainer usually knows already what they are capable of doing, so it is no compliment if you tell them "Wow, you&#8217;re really strong"&#8230;&#8203; the trainer&#8217;s goal is to get you to say "Wow, <span class="underline"><strong>I&#8217;m</strong></span> starting to get really strong!"</p>
 </li>
 </ul>
 </div>
@@ -1730,18 +1746,6 @@ Consider what changes are needed to the loop condition and the computations with
 </div>
 </div>
 </div>
-</div>
-<div id="division_algorithm_note" class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Mathematicians often refer to the <em>statement</em> “For all integers \(a\) and \(b,\) there are integers \(q\) and \(r\) so that \(a = q \cdot b + r\) and \(0 \leq r < b\)” as the Division Algorithm without describing any of the steps used to compute \(q\) and \(r\). It is likely that those mathematicians are <em>assuming</em> that division by repeated subtraction is being used, because that technique was used by Euclid in Book Ⅶ of <a href=https://en.wikipedia.org/wiki/Euclid%27s_Elements#Book_VII><em>The Elements.</em></a>
-</td>
-</tr>
-</table>
 </div>
 <div class="ulist">
 <ul>
@@ -3352,11 +3356,11 @@ Since \(2^3 = 8,\) each octal digit can be written uniquely as a block of 3 bits
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on January 20, 2026.</em><br></p>
+<p><em>This chapter was last updated on February 2, 2025.</em><br>
+<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
 </div>
 <div class="paragraph">
-<p>You probably learned how to count objects one by one when you were a child. You may have counted up to 5 on the fingers on one hand, or up to 10 on the fingers of two hands, or up to 20 on fingers and toes - that is, you paired the objects (fingers and/or toes) with number names to create a one-to-one correspondence.
-You may even have learned how to count all the way up to 100! 😉</p>
+<p>You probably learned how to count objects one by one when you were a child. You may have counted up to 5 on the fingers on one hand, or up to 10 on the fingers of two hands, or up to 20 on fingers and toes - that is, you paired the objects (fingers and/or toes) with number names to create a one-to-one correspondence. You may have counted all the way up to 100.</p>
 </div>
 <div class="paragraph">
 <p>However, many problems in computer science or mathematics require you to count the number of elements in sets that contain millions of elements, or billions of elements, or even more elements, so counting one by one is inefficient or impossible. Starting with this chapter, and continuing later in the <a href=./set_theory.html>Set Theory</a> and <a href=./counting_binomial.html>Counting: Permutations and Combinations</a> chapters, you will study ways to quickly and efficiently count the number of elements of any set no matter the size of the set.</p>
@@ -3393,7 +3397,7 @@ You may even have learned how to count all the way up to 100! 😉</p>
 <div class="sect2">
 <h3 id="_some_foundational_counting_principles">3.1. Some Foundational Counting Principles</h3>
 <div class="paragraph">
-<p>Each of the four arithmetic operations corresponds to a rule you can use to count quickly.</p>
+<p>Each of the four arithmetic operations corresponds to a rule we can use to count quickly.</p>
 </div>
 <div class="sect3">
 <h4 id="_the_sum_rule">3.1.1. The Sum Rule</h4>
@@ -3609,11 +3613,11 @@ each of those ways is equivalent to \(d\) ways (including the way itself.) That 
 </div>
 <div class="paragraph">
 <div class="title">Example 7</div>
-<p>Four students will sit around a circular table, but two seatings are  considered “not different” whenever each student has the same left neighbor and right neighbor. How many different seatings are there?</p>
+<p>Four students will sit around a circular table, but two seatings are  considered "not different" whenever each student has the same left neighbor and right neighbor. How many different seatings are there?</p>
 </div>
 <div class="paragraph">
 <div class="title">Solution</div>
-<p>First use the product rule to find that there are (4)(3)(2)(1) = 24 possible ways for the 4 students to sit (For example, there are 4 choices for the “North,” then 3 choices remaining for the “East,” then 2 choices remaining for the “South,” and 1 choice remaining for the “West.”) Next, notice that if all the students shifted one chair to the left once, twice, or thrice, they would all have the same neighbors that they originally had. This means that for <em>each</em> of the 24 ways the students can sit, 4 of those ways are not considered different.<br>
+<p>First use the product rule to find that there are (4)(3)(2)(1) = 24 possible ways for the 4 students to sit (For example, there are 4 choices for the "North," then 3 choices remaining for the "East," then 2 choices remaining for the "South," and 1 choice remaining for the "West.") Next, notice that if all the students shifted one chair to the left once, twice, or thrice, they would all have the same neighbors that they originally had. This means that for <em>each</em> of the 24 ways the students can sit, 4 of those ways are not considered different.<br>
 Therefore, there are \(\frac{24}{4}\) or 6 different seatings.</p>
 </div>
 </div>
@@ -11732,8 +11736,7 @@ increasing</strong> if whenever \$x&lt;y\$, then \$f(x)&lt;f(y)\$.</p>
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on January 14, 2026.</em><br>
-<em>Inserted proof of the Division Algorithm using the Well-Ordering Principle.</em><br>
+<p><em>This chapter was last updated on October 20, 2025.</em><br>
 <em>Revised the sections/subsections on partial orders, well-ordering, and modular arithmetic.</em><br>
 <em>Made other minor revisions and fixed typos.</em><br></p>
 </div>
@@ -12258,30 +12261,6 @@ Notice that you can use <a href=./logic.html#de_morgans_laws>formal logic</a> to
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="openblock">
-<div class="title">Example 6 - Validating the Division Algorithm</div>
-<div class="content">
-
-</div>
-</div>
-<div class="paragraph">
-<p>Recall that the <a href=./introduction_discrete_math.html#division_algorithm_note>Division Algorithm</a>
-states that if you have two positive integers \(a\) and \(b\) with \(a \geq b,\) then there are natural numbers \(q\) and \(r\) such that \(a = q \cdot b + r\) and \(0 \leq r < b\) (where \(q\) is the <strong>quotient</strong> and \(r\) is the <strong>remainder.</strong>) It is easy to see that \(q\) and \(r\) can be computed for small values of \(a\) and \(b\), but can you justify that \(q\) and \(r\) can be computed for cases where both \(a\) and \(b\) are very large positive integers and where \(a\) is much much larger than \(b?\)
-As an example, suppose that \(a = 42 + 10^{10^{10^{10^{10}}}}\) and \(b = 17 + 10^{10^{10}}.\)
-In such a case, you can use the Well-Ordering Principle to justify that \(q\) and \(r\) must exist, without actually needing to try to compute the values of \(q\) and \(r.\)<br>
-<span class="small">This may seem strange, but think like a coder: You want to be sure that the problem you are trying to solve actually has a solution before investing time in implementing or tracking down code to solve the problem.</span></p>
-</div>
-<div class="paragraph">
-<p>Let \(S\) be the set \(\{ a - k \cdot b | k \in \mathbb{N} \} \cap \mathbb{N},\) that is, the set \(\{ a \, , a - b \,  a - 2b, \ldots \} \cap \mathbb{N}.\) In words, this is the set of all numbers we can get by starting with \(a\) and subtracting \(b\) any whole number of times that gives a nonnegative result.
-Using the Well-Ordering Principle (as an axiom) lets you conclude that there must be a least element in \(S\) which we can write as \(a - q \cdot b\) for some natural number \(q\). Furthermore, if we let \(r\) stand for \(a - q \cdot b\) (that is, set \(r\) equal to \(a - q \cdot b\)) then \(0 \geq r\) since \(a - q \cdot b\) must be nonnegative, and \(r < b\) (because if \(r \geq b\) were true, we coulc subtract at least one more copy of \(b\) from \(a - q \cdot b\) and still get a nonnegative result, which contradicts how we chose \(a - q \cdot b\) and \(q\).)</p>
-</div>
-<div class="paragraph">
-<p>Therefore, you can conclude that \(q\) and \(r\) exist even if it is not feasible to compute their values.</p>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -12344,7 +12323,7 @@ By the theorem proved earlier in the chapter, \(\equiv_{m}\) is an equivalence r
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 7 - Arithmetic with Even and Odd Numbers</div>
+<div class="title">Example 6 - Arithmetic with Even and Odd Numbers</div>
 <div class="content">
 
 </div>
@@ -12402,7 +12381,7 @@ This shows that \(m\) is a divisor of \((a+c) - (b+d,)\) which can also be state
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 8 - Solving a linear congruence</div>
+<div class="title">Example 7 - Solving a linear congruence</div>
 <div class="content">
 
 </div>
@@ -20012,7 +19991,7 @@ for val in numbers:
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on January 25, 2025.</em><br>
+<p><em>This chapter was last updated on August 24, 2025.</em><br>
 <em>made minor wording changes</em></p>
 </div>
 <div class="paragraph">
@@ -20033,22 +20012,20 @@ for val in numbers:
 <table>
 <tr>
 <td class="hdlist1">
-Handshake Lemma (DMP Lesson 3)
-</td>
-<td class="hdlist2">
-<p>This lesson can be used to introduce the concept of conjecture, lay the groundwork for proof, and provide a nonarithmetic/nonalgebraic example for proof by mathematical induction that can be referred to later when mathematical induction is formally introduced.<br>
-The graph theory content needed by students is minimal and can be learned just-in-time, so this lesson can be used very early in the course. Note that it may be important to mention to students that this activity does not involve literally shaking the hands of other people.<br>
-A possible extension to this lesson could be to examine the corresponding properties for vertices of directed graphs.<br>
-I find that using Handshake as the <a href=https://sites.google.com/view/discrete-math-project-pilot/lesson-materials>introductory lesson</a> has an advantage over using the intended counting problem lesson: The graph theory content is likely to be unfamiliar to most students so team members are more likely to adhere to their specific team roles and work collaboratively. I&#8217;ve found that many students already “know” how to do the counting problems (but perhaps incorrectly) from their previous learning, so some team members can dominate their team&#8217;s discussion which prevents the team from working collaboratively as a whole.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
 Introduction to Teamworthy Tasks - Counting (DMP Lesson 1)
 </td>
 <td class="hdlist2">
 <p>This lesson involves counting arguments and seems to have been designed as an accessible entry point for all students.<br>
-However, as mentioned earlier, some students in each team may know how to solve the problems already while others may not, and this can undermine collaboration and adherence to the assigned team roles.</p>
+However, in my experience, when teams are formed some students in each team may know how to solve the problems already while others may not, which can lead to the team members dropping out of the roles they are assigned to play during the activity and instead focusing on “getting the answers.” It may be worth considering using another activity with content that is more likely to be unfamiliar to almost all students. I may swap the content of this one with Handshake Lemma (That is, use the introductory materials about team-worthy tasks, but replace the activity content with Handshake lesson&#8217;s content).</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Handshake Lemma (DMP Lesson 3)
+</td>
+<td class="hdlist2">
+<p>This lesson can be used to introduce the concept of conjecture, lay the groundwork for proof, and provides a nonarithmetic/nonalgebraic example for proof by mathematical induction that is referred to later when mathematical induction is formally introduced. The graph theory content needed by students is minimal and can be learned just-in-time, so this lesson can be used very early in the course. NOTE: It may be important to mention to students that this activity does not involve literally shaking the hands of other people. A possible extension to this could be to use directed edges.
+Also, using this lesson as the first one in a semester may have an advantage over the counting problems included in the Introduction to Teamworthy Tasks lesson: The graph theory content is likely to be unfamiliar to most students so that team members may be more likely to adhere to their specific team roles.</p>
 </td>
 </tr>
 <tr>

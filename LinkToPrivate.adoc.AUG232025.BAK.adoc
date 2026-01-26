@@ -1,0 +1,2 @@
+
+#*NOTICE:* If you are enrolled in the CSC 230 course that I teach at SFSU, you need to use link:./CSC230/index.html[the “CSC230 version”] of the book, which I will be updating throughout the semester. The version you are looking at now is the “public version” of the book that is only updated between semesters.#

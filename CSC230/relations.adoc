@@ -7,7 +7,8 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on October 20, 2025._ + 
+_This chapter was last updated on January 14, 2026._ + 
+_Inserted proof of the Division Algorithm using the Well-Ordering Principle._ + 
 _Revised the sections/subsections on partial orders, well-ordering, and modular arithmetic._ + 
 _Made other minor revisions and fixed typos._ + 
 //_added information to the subsection on the well-ordering of $\mathbb{N}$_ + 
@@ -582,7 +583,7 @@ _would_ determine the least element in $S$ [.underline]#if you had time to ask e
 //That is, you only have a finite amount of time to determine the least element of $S,$ but that may not be enough time.
 //not have an infinite amount of time to determi
 
-//However, suppose instead that we have a set and only know that $10^{10^{10^{10^{10}}}}$ is in the set. Also suppose that it takes 1 nanosecond to ask and answer each of the questions of the form “Is $k$ in $S?$” The problem with using the brute-force question-and-answer method is that  $10^{10^{10^{10^{10}}}}$ is greater than the number of nanoseconds estimated for our universe to reach its link:https://en.wikipedia.org/wiki/Timeline_of_the_far_future#cite_ref-bignumber2_177-3[final energy state!] It is possible that the answer to one of the questions is “yes” but that we would never be able to ask that question before the universe ends.
+//However, suppose instead that we have a set and only know that $10^{10^{10^{10^{10}}}}$ is in the set. Also suppose that it takes 1 nanosecond to ask and answer each of the questions of the form “Is $k$ in $S?$” The problem with using the brute-force question-and-answer method is that $10^{10^{10^{10^{10}}}}$ is greater than the number of nanoseconds estimated for our universe to reach its link:https://en.wikipedia.org/wiki/Timeline_of_the_far_future#cite_ref-bignumber2_177-3[final energy state!] It is possible that the answer to one of the questions is “yes” but that we would never be able to ask that question before the universe ends.
 // questions to get an answer of “yes.”
 //run out of time to ask the questions before we ever got an answer “yes!”
 
@@ -590,6 +591,34 @@ _would_ determine the least element in $S$ [.underline]#if you had time to ask e
 // MKD Aug 20 2025 
 // PMI implies WO but not the converse?
 // https://link.springer.com/article/10.1007/s00283-019-09898-4
+
+// MKD Jan 14-16 2026 new Example
+//link:./introduction_discrete_math.html#informal_algorithm_definition[Division Algorithm] 
+
+****
+.Example {counter:mkdrelex} - Validating the Division Algorithm  
+--
+--
+
+Recall that the link:./introduction_discrete_math.html#division_algorithm_note[Division Algorithm]
+states that if you have two positive integers $a$ and $b$ with $a \geq b,$ then there are natural numbers $q$ and $r$ such that $a = q \cdot b + r$ and $0 \leq r < b$ (where $q$ is the *quotient* and $r$ is the *remainder.*) It is easy to see that $q$ and $r$ can be computed for small values of $a$ and $b$, but can you justify that $q$ and $r$ can be computed for cases where both $a$ and $b$ are very large positive integers and where $a$ is much much larger than $b?$ 
+//+ 
+//[small]#
+As an example, suppose that $a = 42 + 10^{10^{10^{10^{10}}}}$ and $b = 17 + 10^{10^{10}}.$ 
+//# 
+//
+In such a case, you can use the Well-Ordering Principle to justify that $q$ and $r$ must exist, without actually needing to try to compute the values of $q$ and $r.$ + 
+[small]#This may seem strange, but think like a coder: You want to be sure that the problem you are trying to solve actually has a solution before investing time in implementing or tracking down code to solve the problem.# 
+
+Let $S$ be the set $\{ a - k \cdot b | k \in \mathbb{N} \} \cap \mathbb{N},$ that is, the set $\{ a \, , a - b \,  a - 2b, \ldots \} \cap \mathbb{N}.$ In words, this is the set of all numbers we can get by starting with $a$ and subtracting $b$ any whole number of times that gives a nonnegative result. 
+Using the Well-Ordering Principle (as an axiom) lets you conclude that there must be a least element in $S$ which we can write as $a - q \cdot b$ for some natural number $q$. Furthermore, if we let $r$ stand for $a - q \cdot b$ (that is, set $r$ equal to $a - q \cdot b$) then $0 \geq r$ since $a - q \cdot b$ must be nonnegative, and $r < b$ (because if $r \geq b$ were true, we coulc subtract at least one more copy of $b$ from $a - q \cdot b$ and still get a nonnegative result, which contradicts how we chose $a - q \cdot b$ and $q$.) 
+
+Therefore, you can conclude that $q$ and $r$ exist even if it is not feasible to compute their values.
+
+****
+
+
+
 
 == Modular Arithmetic (Revision in Progress!)
 
@@ -762,3 +791,5 @@ MORE TO COME!
 
 // MKD Dec 1 2025 you want to insert Chinese Remainder Theorem somewhere in this subsection 
 // https://en.wikipedia.org/wiki/Chinese_remainder_theorem
+// MKD Jan 17 2026 include link below in CRT subsection
+// https://mathshistory.st-andrews.ac.uk/Biographies/Sun_Zi/

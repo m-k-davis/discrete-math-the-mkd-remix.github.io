@@ -1,12 +1,15 @@
 = Counting: Arithmetic Techniques
 
+//“”
+
+
 //#*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on February 2, 2025._ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+_This chapter was last updated on January 20, 2026._ + 
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 ////
 AUG 2024 update on topics (basic counting)
@@ -96,7 +99,10 @@ Exercises (proofs by induction)
 
 //Many of us learned how to count when we were young children. We may have counted up to 10 on our fingers, or up to 20 on our fingers and toes, but we probably never counted up to much more than 100. However, many problems in computer science or mathematics require that we count the number of elements of sets that contain millions or billions of elements, or even more. 
 
-You probably learned how to count objects one by one when you were a child. You may have counted up to 5 on the fingers on one hand, or up to 10 on the fingers of two hands, or up to 20 on fingers and toes - that is, you paired the objects (fingers and/or toes) with number names to create a one-to-one correspondence. You may have counted all the way up to 100. 
+You probably learned how to count objects one by one when you were a child. You may have counted up to 5 on the fingers on one hand, or up to 10 on the fingers of two hands, or up to 20 on fingers and toes - that is, you paired the objects (fingers and/or toes) with number names to create a one-to-one correspondence. 
+// You may have counted all the way up to 100. 
+// MKD Jan 20 2026 
+You may even have learned how to count all the way up to 100! 😉 
 
 However, many problems in computer science or mathematics require you to count the number of elements in sets that contain millions of elements, or billions of elements, or even more elements, so counting one by one is inefficient or impossible. Starting with this chapter, and continuing later in the link:./set_theory.html[Set Theory] and link:./counting_binomial.html[Counting: Permutations and Combinations] chapters, you will study ways to quickly and efficiently count the number of elements of any set no matter the size of the set.
 
@@ -133,7 +139,8 @@ Counting arguments: Arithmetic and geometric progressions
 
 == Some Foundational Counting Principles
 
-Each of the four arithmetic operations corresponds to a rule we can use to count quickly. 
+// MKD Jan 202 26 changed we to you
+Each of the four arithmetic operations corresponds to a rule you can use to count quickly. 
 
 === The Sum Rule
 
@@ -407,10 +414,10 @@ image::imagesMKD/DivisionRuleCircularTableImage.png[DivisionRuleCircularTableIma
 
 //image::imagesMKD/DivisionRuleCircularTableImage.png[DivisionRuleCircularTableImage,759,772,float="right",align="center"]
 
-Four students will sit around a circular table, but two seatings are  considered "not different" whenever each student has the same left neighbor and right neighbor. How many different seatings are there? 
+Four students will sit around a circular table, but two seatings are  considered “not different” whenever each student has the same left neighbor and right neighbor. How many different seatings are there? 
 
 .Solution 
-First use the product rule to find that there are (4)(3)(2)(1) = 24 possible ways for the 4 students to sit (For example, there are 4 choices for the "North," then 3 choices remaining for the "East," then 2 choices remaining for the "South," and 1 choice remaining for the "West.") Next, notice that if all the students shifted one chair to the left once, twice, or thrice, they would all have the same neighbors that they originally had. This means that for _each_ of the 24 ways the students can sit, 4 of those ways are not considered different. + 
+First use the product rule to find that there are (4)(3)(2)(1) = 24 possible ways for the 4 students to sit (For example, there are 4 choices for the “North,” then 3 choices remaining for the “East,” then 2 choices remaining for the “South,” and 1 choice remaining for the “West.”) Next, notice that if all the students shifted one chair to the left once, twice, or thrice, they would all have the same neighbors that they originally had. This means that for _each_ of the 24 ways the students can sit, 4 of those ways are not considered different. + 
 Therefore, there are $\frac{24}{4}$ or 6 different seatings.
 
 ****

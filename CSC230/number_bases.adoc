@@ -151,11 +151,17 @@ In the same way,
 //Arabic-Indic 
 * the Eastern Arabic "٥", 
 * the Western Arabic "5". 
+// MKD Jan 19 2026 inserted Mayan, but most browsers do not render it
+//* the ancient Mayan "𝋥". 
+// * the Maya "_". 
+// "_" is Low Line U+005F, not the correct symbol 01D2E5
+//[small]#NOTE: The ancient Mayan character should look like a horizontal bar, but will only display correctly if a font supporting the Mayan numerals is installed on your device.#
 //* tally marks {counter:numextally}
 
 are other ways of representing the same number that the 
 //word "five" represents.
 words above represent.
+
 
 [click.Semiotics]
 --

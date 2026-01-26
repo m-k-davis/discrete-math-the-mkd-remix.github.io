@@ -631,7 +631,11 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on October 20, 2025.
+        This chapter was last updated on January 14, 2026.
+       </em>
+       <br/>
+       <em>
+        Inserted proof of the Division Algorithm using the Well-Ordering Principle.
        </em>
        <br/>
        <em>
@@ -1659,6 +1663,51 @@ Notice that you can use
           </li>
          </ul>
         </div>
+        <div class="sidebarblock">
+         <div class="content">
+          <div class="openblock">
+           <div class="title">
+            Example 6 - Validating the Division Algorithm
+           </div>
+           <div class="content">
+           </div>
+          </div>
+          <div class="paragraph">
+           <p>
+            Recall that the
+            <a href="./introduction_discrete_math.html#division_algorithm_note">
+             Division Algorithm
+            </a>
+            states that if you have two positive integers \(a\) and \(b\) with \(a \geq b,\) then there are natural numbers \(q\) and \(r\) such that \(a = q \cdot b + r\) and \(0 \leq r &lt; b\) (where \(q\) is the
+            <strong>
+             quotient
+            </strong>
+            and \(r\) is the
+            <strong>
+             remainder.
+            </strong>
+            ) It is easy to see that \(q\) and \(r\) can be computed for small values of \(a\) and \(b\), but can you justify that \(q\) and \(r\) can be computed for cases where both \(a\) and \(b\) are very large positive integers and where \(a\) is much much larger than \(b?\)
+As an example, suppose that \(a = 42 + 10^{10^{10^{10^{10}}}}\) and \(b = 17 + 10^{10^{10}}.\)
+In such a case, you can use the Well-Ordering Principle to justify that \(q\) and \(r\) must exist, without actually needing to try to compute the values of \(q\) and \(r.\)
+            <br/>
+            <span class="small">
+             This may seem strange, but think like a coder: You want to be sure that the problem you are trying to solve actually has a solution before investing time in implementing or tracking down code to solve the problem.
+            </span>
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            Let \(S\) be the set \(\{ a - k \cdot b | k \in \mathbb{N} \} \cap \mathbb{N},\) that is, the set \(\{ a \, , a - b \,  a - 2b, \ldots \} \cap \mathbb{N}.\) In words, this is the set of all numbers we can get by starting with \(a\) and subtracting \(b\) any whole number of times that gives a nonnegative result.
+Using the Well-Ordering Principle (as an axiom) lets you conclude that there must be a least element in \(S\) which we can write as \(a - q \cdot b\) for some natural number \(q\). Furthermore, if we let \(r\) stand for \(a - q \cdot b\) (that is, set \(r\) equal to \(a - q \cdot b\)) then \(0 \geq r\) since \(a - q \cdot b\) must be nonnegative, and \(r &lt; b\) (because if \(r \geq b\) were true, we coulc subtract at least one more copy of \(b\) from \(a - q \cdot b\) and still get a nonnegative result, which contradicts how we chose \(a - q \cdot b\) and \(q\).)
+           </p>
+          </div>
+          <div class="paragraph">
+           <p>
+            Therefore, you can conclude that \(q\) and \(r\) exist even if it is not feasible to compute their values.
+           </p>
+          </div>
+         </div>
+        </div>
        </div>
       </div>
      </div>
@@ -1760,7 +1809,7 @@ By the theorem proved earlier in the chapter, \(\equiv_{m}\) is an equivalence r
        <div class="content">
         <div class="openblock">
          <div class="title">
-          Example 6 - Arithmetic with Even and Odd Numbers
+          Example 7 - Arithmetic with Even and Odd Numbers
          </div>
          <div class="content">
          </div>
@@ -1854,7 +1903,7 @@ This shows that \(m\) is a divisor of \((a+c) - (b+d,)\) which can also be state
        <div class="content">
         <div class="openblock">
          <div class="title">
-          Example 7 - Solving a linear congruence
+          Example 8 - Solving a linear congruence
          </div>
          <div class="content">
          </div>
