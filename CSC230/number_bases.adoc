@@ -22,7 +22,7 @@ include::LinkToPublic.adoc[]
 
 
 _This chapter was last updated on February 2, 2026._ + 
-//_fixed typos_  
+_fixed typos_  
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 // MKD example code, not sure where to use it yet
