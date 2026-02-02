@@ -21,7 +21,8 @@ https://chrisbracco.com › curly-quotes
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on April 1, 2025._ + 
+_This chapter was last updated on February 2, 2026._ + 
+//_fixed typos_  
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
 
 // MKD example code, not sure where to use it yet
@@ -44,6 +45,7 @@ _This chapter was last updated on April 1, 2025._ +
 // and code for binary bitstring 
 //https://pythontutor.com/render.html#code=a%20%3D%2041%0Atemp%20%3D%20a%0Abits%20%3D%20%22%22%0Awhile%28temp%20%3E0%29%3A%0A%20%20%20%20bits%20%3D%20str%28temp%252%29%20%2B%20bits%0A%20%20%20%20temp%20%3D%20%28temp%20%3E%3E%201%29&cumulative=false&curInstr=22&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 
+//“”
 //MKD musings: 1*1=0+1, 2*1=0+1+1 (we always add TO zero)
 //	205, not "2 5" or "25" to indicate "0 tens"
 //	compare {}. "", and 0
@@ -117,7 +119,7 @@ In everyday life, it is common to treat numbers and numerals as if they are the 
 * A *number* is an abstract idea or mental concept of a count, a measure, a rank in an ordering, etc.. 
 * A *numeral* is a word, phrase, symbol, or string of symbols that is used to represent a number. 
 * A *digit* is a single symbol that represents a number. A digit is a numeral, but multiple digits can be combined to create other numerals. For example, each of the ten Hindu-Arabic numerals is a digit that represents a natural number that is less than ten, and multiple Hindu-Arabic numerals can be combined to create numerals that represent numbers that are greater than or equal to ten. + 
-[small]#NOTE: The word "digit" comes from the Latin word _digitus_ which means "finger" or "toe."# 
+[small]#NOTE: The word “digit” comes from the Latin word _digitus_ which means “finger” or “toe.”# 
 
 //but in this chapter, the word "digit" will be used for any base $b.$#  
 // MKD Apr 01 2025
@@ -132,35 +134,42 @@ In everyday life, it is common to treat numbers and numerals as if they are the 
 
 Consider the following words: 
 
-* "five", 
-* "cinco", 
-* "خمسة" ("khamsa"), 
-* "पाँच" ("paanch"), 
-* "五" ("wǔ"). 
+* “five”, 
+* “cinco”, 
+* “خمسة” (“khamsa”), 
+* “पाँच” (“paanch”), 
+* “五” (“wǔ”).
 
-These words, taken from different languages, are examples of _numerals,_ words that represent a _number._ In fact, all those numerals represent the same number, but no one of the numerals _is_ the number. The number itself is an abstract idea that can be referred to using any of those numerals. 
+//“”
+
+These words, taken from different languages, are examples of _numerals,_ words that represent a _number._ In fact, all those numerals represent the same number, but no one of the numerals _is_ the number. The number itself is an abstract idea that can be referred to using any of those numerals. + 
 // . A number is an abstraction. 
 // noun, just like "blue" or "beauty" or "justice".
 //Is ❤️ an actual heart? Is it "love"?
 
 In the same way, 
 
-* the Roman "Ⅴ", 
-* the Braille "⠼⠑", 
-* the Coptic Epact "𐋥",
+* the Roman “Ⅴ”, 
+* the Braille “⠼⠑”, 
+* the Coptic Epact “𐋥”,
 //Arabic-Indic 
-* the Eastern Arabic "٥", 
-* the Western Arabic "5". 
+* the Eastern Arabic “٥”, 
+* the Western Arabic “5”. 
 // MKD Jan 19 2026 inserted Mayan, but most browsers do not render it
 //* the ancient Mayan "𝋥". 
 // * the Maya "_". 
 // "_" is Low Line U+005F, not the correct symbol 01D2E5
 //[small]#NOTE: The ancient Mayan character should look like a horizontal bar, but will only display correctly if a font supporting the Mayan numerals is installed on your device.#
 //* tally marks {counter:numextally}
+// MKD Jan 29 2026 
+* the Maya “𝋥”. 
 
 are other ways of representing the same number that the 
 //word "five" represents.
-words above represent.
+words above represent. + 
+// MKD Jan 29 2026 
+[small]#Note: The Maya numeral may not display correctly in some browsers; it should appear as a link:https://commons.wikimedia.org/wiki/File:Maya_5.svg[horizontal bar.]#
+
 
 
 [click.Semiotics]
@@ -352,7 +361,7 @@ Notice that the items in $s = [ r_{0}, \, r_{1}, \, r_{2} ]$ are the numbers cor
 \end{equation}
 
 //Notice that the algorithm is essentially rewriting $432$ as $2 + 10 \cdot 43 = 2 + 10 \cdot (3 + 10 \cdot 4)).$
-Notice that the algorithm is rewriting $432$ as the sum $2 + 10 \cdot (3 + 10 \cdot 4)).$
+Notice that the algorithm is rewriting $432$ as the sum $2 + 10 \cdot (3 + 10 \cdot 4).$
 
 ****
 
@@ -415,8 +424,8 @@ numerals in any base other than ten
 will be written 
 between a pair of parentheses followed by a subscript indicating the base. The subscript is written as a _base-ten numeral._ For example, we could rewrite the previous equation as \[(101)_{2} = (1)_2 \cdot (10)_2 \cdot (10)_2 + (0)_2 \cdot (10)_2 + (1)_2 \cdot (1)_2 \]
 //\[(101)_{2} = (1)_{2} \cdot (10)_{2} \cdot (10)_{2} + (0)_{2} \cdot (10)_{2} + (1)_{2} \cdot (1)_{2} \] 
-which translates into base-ten as $5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.$ We can also write $5 = (101)_2$ which is a way of saying that the base-ten numeral and the base-two numeral signify the same number. + [small]#NOTE: 
-The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used... and we don't need to use the parentheses or subscripts if we are already working in base-ten.#
+which translates into base-ten as $5 = 1 \cdot 2 \cdot 2 + 0 \cdot 2 + 1 \cdot 1.$ We can also write $5 = (101)_2$ which is a way of saying that the base-ten numeral and the base-two numeral signify the same number. + 
+[small]#NOTE: The reason we use base-ten numerals as the subscripts on numerals in other bases is because base-ten is so dominant: It is the "privileged" base, so we need to indicate when a different base is being used... and we don't need to use the parentheses or subscripts if we are already working in base-ten.#
 //This also allows us to write "base-10" to mean "the usual decimal base" and to write "base"+ 
 ====
 
@@ -492,13 +501,13 @@ The following equations summarize how the preceding algorithm determines the dig
 Notice that the items in $s = [ r_{0}, \, r_{1}, \, r_{2} , \, r_{3} ]$ are the numbers (in base-ten notation) corresponding to the digits of the numeral $“(1101)_2”$ in reverse order, so \begin{equation}
 \begin{aligned}
 13 & =  r_{3} \cdot 2^{3} +  r_{2} \cdot 2^{2} + r_{1} \cdot 2^{1} + r_{0} \cdot 2^{0} \\ 
-& =  1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 2 \cdot 2^{0}
+& =  1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 1 \cdot 2^{0}
 \end{aligned}
 \end{equation}
 
 The algorithm 
 //lets us \rewrite $13$ as $1 + 2 \cdot 6 = 1 + 2 \cdot (0 + 2 \cdot 3) = 1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).$ + 
-rewrites $13$ as $1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2))).$ + 
+rewrites $13$ as $1 + 2 \cdot (0 + 2 \cdot (1 + 1 \cdot 2)).$ + 
 Again, notice that the items in the array $[1, 0, 1, 1]$ are listed in reverse order, so  
 //You can also write 
 $13 = (1101)_2$ 
@@ -511,8 +520,10 @@ where the base-ten numeral and the base-two numeral represent the same number, t
 
 Here is a link:https://www.bu.edu/lernet/artemis/years/2011/slides/binary.pdf[link] to an alternate method of finding the base-two numeral for a number.
 
-If you made it to this sentence without skipping any of the discussion above, congratulations! If you did skip some of the discussion, go back and try your best to understand what the algorithm in the previous example is computing: The array $s$ holds the digits, in reverse order of the binary notation for the number $n.$ Compare what is done in this algorithm to the one for base-ten in the previous section... they are computing the digits for a numeral, but in different bases. If you can understand this algorithm, you will likely understand the rest of the chapter.
+If you made it to this sentence without skipping any of the discussion above, congratulations! If you did skip some of the discussion, go back and try your best to understand what the algorithm in the previous example is computing: The array $s$ holds the digits, in reverse order, of the binary notation for the number $n.$ Compare what is done in this algorithm to the one for base-ten in the previous section… they are computing the digits for a numeral, but in different bases. If you can understand this algorithm, you will likely understand the rest of the chapter.
 
+// MKD Jan 28 2026 code to print int as binary string 
+// https://pythontutor.com/render.html#code=def%20binaryExpansion%28n%3A%20int%29%3A%0A%20%20%20%20%23print%28bin%28n%29%29%0A%20%20%20%20return%20str%28bin%28n%29%29%0A%20%20%20%20%0A%23binaryExpansion%28100%29%0Aprint%28binaryExpansion%28100%29%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 
 ==  The Base-$b$ Place Value System
@@ -718,11 +729,15 @@ is a Unix/Linux command that changes file permission bits (read, write, execute)
 
 === A Theorem (To Be Proven Later)
 
-We can summarize what the algorithm does as a *mathematical theorem,* though technically at this point, it's only a *conjecture,* an educated guess based on a few cases that seem to indicate that the algorithm will always work. You will learn a technique that will prove the theorem by validating the algorithm for all choices of natural numbers $n$ and $b>1$ in the link:./induction.html[Proofs: Mathematical Induction ] chapter.
+// MKD Jan 29 2026 wording revised
+We can summarize what the algorithm does as a *mathematical theorem,* though technically at this point, it's only a *conjecture,* an educated guess based on a few cases that seem to indicate that the algorithm will always work. You will learn a technique that 
+//will 
+you can use to 
+prove the theorem by validating the algorithm for _all_ choices of natural numbers $n$ and $b>1$ in the link:./induction.html[Proofs: Mathematical Induction ] chapter.
 
 .Theorem
 ****
-Let $b$ be an integer greater than 1. Any positive integer $n$ can be expressed uniquely in the form \[n = r\_kb^k + r\_{k - 1}b^{k-1} + \cdots + r\_1b^1 + r\_0b^0,\]where $k$ is a nonnegative integer, $r\_0,r\_1,\dots,r\_k$ are nonnegative integers less than $b,$ and $r\_k \neq 0.$
+Let $b$ be an integer greater than 1. Any positive integer $n$ can be expressed uniquely in the form \[n = r\_kb^k + r\_{k - 1}b^{k-1} + \cdots + r\_1b^1 + r\_0b^0,\]where $k$ is a nonnegative integer, $r\_0,r\_1,\dots,r\_k$ are nonnegative integers less than $b,$ and $r\_k \neq 0.$ 
 
 ****
 ////
@@ -741,6 +756,9 @@ For the induction step, assume that $n > b$ and that all integers less than $n$ 
 
 //Let $b$ be an integer greater than 1 and let $n$ be a positive integer. The representation of $n$ in the above theorem is referred to as the *base $b$ expansion of $n$*. We refer to $a\_k,a\_{k-1},\dots,a\_0,a\_1$ as *digits*. We represent the base $b$ expansion of $n$ using the following notation: \[(a\_ka\_{k-1}\dots a\_1a\_0)\_b.\]
 
+// MKD Jan 29 2026 
+That is, for each positive integer $b > 1,$ every positive integer $n$ has a unique base-$b$ expansion. 
+
 
 == Converting From Base-$b$ to Base-Ten
 
@@ -758,7 +776,7 @@ In this section you will learn how to rewrite a base-$b$ numeral in base-ten.
 
 ****
 .Example {counter:numex}
-What is the decimal expansion of the positive integer with base 7 expansion $(1063)\_7$?
+What is the decimal expansion of the positive integer with base-7 expansion $(1063)\_7$?
 
 .Solution
 
@@ -773,7 +791,7 @@ We have
 --
 ****
 
-Several common bases used in computer science are base $2$, base $8$, and base $16$, which are referred to as *binary*, *octal*, and *hexadecimal*, respectively. Binary digits are often referred to as *bits*. Note that, when finding the hexadecimal expansion of a positive integer, in addition to the usual digits $0$ through $9,$ we require an additional 6 digits. We will represent these by the letters $\mathrm{A}$ through $\mathrm{F}$, where $(\mathrm{A})\_{16} = 10,$ $(\mathrm{B})\_{16} = 11,$ $(\mathrm{C})\_{16} = 12,$ $(\mathrm{D})\_{16} = 13,$ $(\mathrm{E})\_{16} = 14,$ and $(\mathrm{F})\_{16} = 15.$
+Several common bases used in computer science are base-$2$, base-$8$, and base-$16$, which are referred to as *binary*, *octal*, and *hexadecimal*, respectively. Binary digits are often referred to as *bits*. Note that, when finding the hexadecimal expansion of a positive integer, in addition to the usual digits $0$ through $9,$ we require an additional 6 digits. We will represent these by the letters $\mathrm{A}$ through $\mathrm{F}$, where $(\mathrm{A})\_{16} = 10,$ $(\mathrm{B})\_{16} = 11,$ $(\mathrm{C})\_{16} = 12,$ $(\mathrm{D})\_{16} = 13,$ $(\mathrm{E})\_{16} = 14,$ and $(\mathrm{F})\_{16} = 15.$
 
 ****
 .Example {counter:numex} - Hexadecimal expansion

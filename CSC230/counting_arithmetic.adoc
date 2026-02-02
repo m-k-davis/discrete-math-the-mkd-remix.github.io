@@ -8,7 +8,7 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on January 20, 2026._ + 
+_This chapter was last updated on February 2, 2026._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 ////
@@ -432,6 +432,43 @@ There are 12 pens stored in each box and 96 pens in total, so the instructor use
 
 ****
 ////
+
+
+=== Using Multiple Rules 
+
+#*CAUTION* - SUBSECTION UNDER CONSTRUCTION!#
+
+
+The following example is repeated from the introductory chapter. 
+
+****
+.Example {counter:countexample} - License Plates 
+--
+--
+
+A large U. S. state uses passenger vehicle license plate numbers that are 7 characters long, where the first character is one of the 9 nonzero  Hindu-Arabic numerals, the second, third, and fourth characters are uppercase English letters, and the fifth, sixth, and seventh characters are  Hindu-Arabic numerals. How many different possible passenger vehicle license plate numbers can the state create? + 
+ + 
+
+[click.Challenge.1]
+--
+The previous question was simplified. In fact, the state places additional restrictions on the characters. To avoid confusing "0" with "O" or "Q", and "1" with "I", the state does not allow "O", "Q", and "I" as the second or fourth character on the license plate. With that change, how many different possible passenger vehicle license plate numbers can the state create?
+--
+
+
+[click.Challenge.2]
+--
+Both of the previous questions were simplified. In fact, in addition to the restrictions on "O", "Q", and "I," the state does not use 
+1SWD000 through 1TZZ999, 
+1WAA000 through 1YZZ999,  
+strings whose first four characters are 1UAA through 1VZZ, 
+1ZZA through 1ZZZ, or 3ZZA through 3ZZG 
+for its passenger vehicle license plate numbers. +  
+With these additional restrictions, how many different possible passenger vehicle license plate numbers can the state create?
+--
+
+****
+
+
 
 
 == The Pigeonhole Principle
