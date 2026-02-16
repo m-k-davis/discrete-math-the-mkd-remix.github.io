@@ -10,7 +10,8 @@ include::LinkToPublic.adoc[]
 
 //https://pythontutor.com/render.html#code=def%20P%28k%29%3A%0A%20%20%20%20return%20f%22%5C%22The%20sum%20of%20the%20first%20%7Bk%7D%20positive%20odd%20integers%20is%20%7Bk*k%7D%5C%22%22%0A%0Adef%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20sum,%20k%20%3D%201,%201%0A%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20while%20k%20%3C%20stop_value%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%202*k%20%2B%201%20%0A%20%20%20%20%20%20%20%20k%20%3D%20k%20%2B%201%20%0A%20%20%20%20%20%20%20%20if%20sum%20!%3D%20k*k%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Astop_value%20%3D%2010%0Aif%20addTheOddsRevised%28stop_value%29%3A%0A%20%20%20%20print%28%22P%28n%29%20is%20a%20True%20proposition%20for%20each%20natural%20number%20n%20%E2%89%A4%20%22%2Bstr%28stop_value%29%2B%22.%22%29&cumulative=false&curInstr=47&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 
-_This chapter was last updated on November 3, 2025._ + 
+_This chapter was last updated on February 14, 2026._ + 
+_Corrected formal definition of function in the "$11^{n}-6$ is divisible by $5$" example._ + 
 _inserted proof of correctness of the MergeSort algorithm using strong induction_ +
 _Earlier updates include:_ + 
 _inserted additional sample proof (Example 7: $11^{n}-6$ is divisible by $5$ for all natural numbers $n.$)_ + 
@@ -1485,7 +1486,7 @@ Consider the function that is   link:./introduction_discrete_math.html#informal_
 // +  
 [click.Do.you.want.to.see.the.formal.definition.of.this.function?]
 --
-As described in the link:./functions.html[Functions] chapter, the formal definition of this function is the ordered triple  \[ \left( \{(n, 11^{n}-6) : n \in \mathbb{N} \}, \mathbb{N}, \mathbb{N} \right). \]
+As described in the link:./functions.html[Functions] chapter, the formal definition of this function is the ordered triple  \[ \left( \{(n, 11^{n}-6) : n \in \mathbb{N} \}, \mathbb{N}, \mathbb{Z} \right). \]
 --
 
 We will prove that every output value is an integer multiple of $5.$ 

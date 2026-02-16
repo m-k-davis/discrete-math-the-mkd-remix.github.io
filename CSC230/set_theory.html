@@ -621,7 +621,11 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on September 15, 2025.
+        This chapter was last updated on February 16, 2026.
+       </em>
+       <br/>
+       <em>
+        Edited section "Cardinality Of Sets: Infinite Sets."
        </em>
        <br/>
        <em>
@@ -3034,6 +3038,18 @@ There are, in essence, as many copies of \(\mathbb{N}\) (the rows of red points)
           can be encoded uniquely to a natural number (so, for example, the set of all possible finite-length strings of Unicode characters/code points can be encoded to the set of natural numbers, which may or may not be surprising to you.)
          </p>
         </div>
+        <div class="paragraph">
+         <p>
+          <span class="image">
+           <img alt="4_3_2_1" height="188" src="imagesMKD/4_3_2_1.png" width="483"/>
+          </span>
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          The image shows a way that we can find one-to-one correspondences between the numbers, ordered pairs, ordred triples, and ordered quadruples.
+         </p>
+        </div>
         <div class="openblock Mega-challenge!">
          <div class="title">
           Mega-challenge!
@@ -3061,8 +3077,27 @@ There are, in essence, as many copies of \(\mathbb{N}\) (the rows of red points)
            <a href="https://en.wikipedia.org/wiki/Triangular_number">
             triangular numbers
            </a>
-           to get an idea of how the mapping of ordered pairs to numbers is being done. In the first image, the red points form a "triangle of infinite height" with a vertex at \((0,0)\) and sides lying along the \(x-\) and \(y-\)axes. "Row 0" of the triangle is the single point \((0,0),\) and "row \(n\)" of the triangle is made up of the red points with natural number coordinates \((x,y)\) that add up to \(n\) (that is, \(x+y = n\).)
+           to get an idea of how the mapping of ordered pairs to numbers is being done.
            <br/>
+           In the first image, the red points form a "triangle of infinite height" with a vertex at \((0,0)\) and sides lying along the \(x-\) and \(y-\)axes. "Row 0" of the triangle is the single point \((0,0),\) and "row \(n\)" of the triangle is made up of the red points with natural number coordinates \((x,y)\) that add up to \(n\) (that is, \(x+y = n\).)
+           <br/>
+           The set of triangular numbers is the same as the set of natural numbers that correspond to the red points that lie upon the \(x-\)axis.
+          </div>
+         </div>
+        </div>
+        <div class="openblock click">
+         <div class="title">
+          Answer
+         </div>
+         <div class="content">
+          <div class="click_oblique">
+           The function \[ {\displaystyle f (x,y):={\frac {(x+y)^2 + (x+y)}{2}} + y} \] maps each ordered pair corresponding to a red point to a natural number that labels that point.
+           <br/>
+           Keep in mind that the two variables \(x\) and \(y\) represent
+           <em>
+            natural numbers
+           </em>
+           in this function, not real numbers.
            <br/>
            A proof that this mapping of ordered pairs of natural numbers to individual natural numbers is in fact a one-to-one correspondence will be presented later in the textbook.
           </div>

@@ -9,7 +9,8 @@
 
 include::LinkToPublic.adoc[] 
 
-_This chapter was last updated on November 16, 2025._ + 
+_This chapter was last updated on February 14, 2026._ + 
+_Corrected text in Euclidean Algorithm example._ +
 _added closed-form solution for the recurrence relation that describes the number of comparisons used by the MergeSort algorithm for lists of length a power of 2._ + 
 //_updated discussion of the MergeSort algorithm._ + 
 //_inserted content on Dijkstra's algorithm._ + 
@@ -284,7 +285,7 @@ It is often needed to find a common divisor of two integers. This next algorithm
 .Example {counter:algoex} - The Euclidean Algorithm
 --
 --
-The code below implements integer division for _positive_ integers _a_ and _b._ 
+The code below implements the Euclidean algorithm that is used to compute the greatest common divisor of two _positive_ integers _m_ and _n._ 
 
 
 Click on the "Next" button to step through the code.

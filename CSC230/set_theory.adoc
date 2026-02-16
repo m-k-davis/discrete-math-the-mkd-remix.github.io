@@ -5,7 +5,8 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on September 15, 2025._ + 
+_This chapter was last updated on February 16, 2026._ + 
+_Edited section "Cardinality Of Sets: Infinite Sets."_ + 
 _Fixed some typos._
 //_Split section on Cardinality into two sections (one for finite sets and one for infinite sets), moved section on Venn diagrams after section on Finite Sets, and moved section on infinite sets closer to the end of the chapter._
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
@@ -1199,6 +1200,15 @@ There are, in essence, as many copies of $\mathbb{N}$ (the rows of red points) a
 
 Notice something else about this example: It shows that each _pair of natural numbers_ can be encoded as a _single natural number._ In fact, this example can be generalized to show that any element in the set of _all finite-length sequences of natural numbers_ can be encoded uniquely to a natural number (so, for example, the set of all possible finite-length strings of Unicode characters/code points can be encoded to the set of natural numbers, which may or may not be surprising to you.)
 
+//image:imagesMKD/4_3_2_1.png[4_3_2_1,1288,502,float="right",align="center"] 
+image:imagesMKD/4_3_2_1.png[4_3_2_1,483,188,align="center"] 
+
+The image shows a way that we can find one-to-one correspondences between the numbers, ordered pairs, ordred triples, and ordered quadruples. 
+
+
+// MKD Feb 16 2026 insert image here
+
+
 [env.Mega-challenge!]
 --
 Try to find an algebraic formula for the function $n = f(x,y)$ that describes the one-to-one correspondence described by the images, then show that the function must map two different inputs (ordered pairs of natural numbers) to two different outputs (natural numbers) and also that _every_ natural number is an output from the function for some input ordered pair of natural numbers.
@@ -1208,12 +1218,26 @@ Try to find an algebraic formula for the function $n = f(x,y)$ that describes th
 --
 It's possible to write $f(x,y)$ as a quadratic polynomial in the two variables $x$ and $y.$ + 
  + 
-You may want to read about link:https://en.wikipedia.org/wiki/Triangular_number[triangular numbers] to get an idea of how the mapping of ordered pairs to numbers is being done. In the first image, the red points form a "triangle of infinite height" with a vertex at $(0,0)$ and sides lying along the $x-$ and $y-$axes. "Row 0" of the triangle is the single point $(0,0),$ and "row $n$" of the triangle is made up of the red points with natural number coordinates $(x,y)$ that add up to $n$ (that is, $x+y = n$.) + 
-  +  
+You may want to read about link:https://en.wikipedia.org/wiki/Triangular_number[triangular numbers] to get an idea of how the mapping of ordered pairs to numbers is being done. + 
+In the first image, the red points form a "triangle of infinite height" with a vertex at $(0,0)$ and sides lying along the $x-$ and $y-$axes. "Row 0" of the triangle is the single point $(0,0),$ and "row $n$" of the triangle is made up of the red points with natural number coordinates $(x,y)$ that add up to $n$ (that is, $x+y = n$.) + 
+The set of triangular numbers is the same as the set of natural numbers that correspond to the red points that lie upon the $x-$axis.
+--
+
+
+
+[click.answer]
+--
+The function \[ {\displaystyle f (x,y):={\frac {(x+y)^2 + (x+y)}{2}} + y} \] maps each ordered pair corresponding to a red point to a natural number that labels that point. + 
+Keep in mind that the two variables $x$ and $y$ represent _natural numbers_ in this function, not real numbers. + 
 A proof that this mapping of ordered pairs of natural numbers to individual natural numbers is in fact a one-to-one correspondence will be presented later in the textbook.
 --
 
+
 ****
+
+//  +  
+//A proof that this mapping of ordered pairs of natural numbers to individual natural numbers is in fact a one-to-one correspondence will be presented later in the textbook.
+
 
 
 //If you get stuck, don't worry... a

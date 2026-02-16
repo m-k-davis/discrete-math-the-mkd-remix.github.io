@@ -2296,7 +2296,8 @@ wins \(2\) out of \(10\) districts, but in scenario \(B\) it wins \(7\)  out of 
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on February 2, 2026.</em><br></p>
+<p><em>This chapter was last updated on February 2, 2026.</em><br>
+<em>fixed typos</em></p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s likely that you learned how to represent positive integers using
@@ -3819,7 +3820,8 @@ one of each type?</p>
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on September 15, 2025.</em><br>
+<p><em>This chapter was last updated on February 16, 2026.</em><br>
+<em>Edited section "Cardinality Of Sets: Infinite Sets."</em><br>
 <em>Fixed some typos.</em></p>
 </div>
 <div class="paragraph">
@@ -5235,6 +5237,12 @@ There are, in essence, as many copies of \(\mathbb{N}\) (the rows of red points)
 <div class="paragraph">
 <p>Notice something else about this example: It shows that each <em>pair of natural numbers</em> can be encoded as a <em>single natural number.</em> In fact, this example can be generalized to show that any element in the set of <em>all finite-length sequences of natural numbers</em> can be encoded uniquely to a natural number (so, for example, the set of all possible finite-length strings of Unicode characters/code points can be encoded to the set of natural numbers, which may or may not be surprising to you.)</p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="imagesMKD/4_3_2_1.png" alt="4_3_2_1" width="483" height="188"></span></p>
+</div>
+<div class="paragraph">
+<p>The image shows a way that we can find one-to-one correspondences between the numbers, ordered pairs, ordred triples, and ordered quadruples.</p>
+</div>
 <div class="openblock Mega-challenge!">
 <div class="title">Mega-challenge!</div>
 <div class="content">
@@ -5249,8 +5257,18 @@ Try to find an algebraic formula for the function \(n = f(x,y)\) that describes 
 <div class='click_oblique'>
 It&#8217;s possible to write \(f(x,y)\) as a quadratic polynomial in the two variables \(x\) and \(y.\)<br>
 <br>
-You may want to read about <a href=https://en.wikipedia.org/wiki/Triangular_number>triangular numbers</a> to get an idea of how the mapping of ordered pairs to numbers is being done. In the first image, the red points form a "triangle of infinite height" with a vertex at \((0,0)\) and sides lying along the \(x-\) and \(y-\)axes. "Row 0" of the triangle is the single point \((0,0),\) and "row \(n\)" of the triangle is made up of the red points with natural number coordinates \((x,y)\) that add up to \(n\) (that is, \(x+y = n\).)<br>
- <br>
+You may want to read about <a href=https://en.wikipedia.org/wiki/Triangular_number>triangular numbers</a> to get an idea of how the mapping of ordered pairs to numbers is being done.<br>
+In the first image, the red points form a "triangle of infinite height" with a vertex at \((0,0)\) and sides lying along the \(x-\) and \(y-\)axes. "Row 0" of the triangle is the single point \((0,0),\) and "row \(n\)" of the triangle is made up of the red points with natural number coordinates \((x,y)\) that add up to \(n\) (that is, \(x+y = n\).)<br>
+The set of triangular numbers is the same as the set of natural numbers that correspond to the red points that lie upon the \(x-\)axis.
+</div>
+</div>
+</div>
+<div class="openblock click">
+<div class="title">Answer</div>
+<div class="content">
+<div class='click_oblique'>
+The function \[ {\displaystyle f (x,y):={\frac {(x+y)^2 + (x+y)}{2}} + y} \] maps each ordered pair corresponding to a red point to a natural number that labels that point.<br>
+Keep in mind that the two variables \(x\) and \(y\) represent <em>natural numbers</em> in this function, not real numbers.<br>
 A proof that this mapping of ordered pairs of natural numbers to individual natural numbers is in fact a one-to-one correspondence will be presented later in the textbook.
 </div>
 </div>
@@ -13201,7 +13219,8 @@ in the <a href=./induction.html>Proofs: Mathematical Induction</a> chapter that 
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on November 3, 2025.</em><br>
+<p><em>This chapter was last updated on February 14, 2026.</em><br>
+<em>Corrected formal definition of function in the "\(11^{n}-6\) is divisible by \(5\)" example.</em><br>
 <em>inserted proof of correctness of the MergeSort algorithm using strong induction</em><br>
 <em>Earlier updates include:</em><br>
 <em>inserted additional sample proof (Example 7: \(11^{n}-6\) is divisible by \(5\) for all natural numbers \(n.\))</em><br>
@@ -13833,7 +13852,7 @@ for all positive integers \(n \geq 4\), \(2^{n} < n!\)</p>
 <div class="title">Do you want to see the formal definition of this function?</div>
 <div class="content">
 <div class='click_oblique'>
-As described in the <a href=./functions.html>Functions</a> chapter, the formal definition of this function is the ordered triple  \[ \left( \{(n, 11^{n}-6) : n \in \mathbb{N} \}, \mathbb{N}, \mathbb{N} \right). \]
+As described in the <a href=./functions.html>Functions</a> chapter, the formal definition of this function is the ordered triple  \[ \left( \{(n, 11^{n}-6) : n \in \mathbb{N} \}, \mathbb{N}, \mathbb{Z} \right). \]
 </div>
 </div>
 </div>
@@ -15589,7 +15608,8 @@ words what it means that \( f(x)\) is <span class="underline">not</span> \( O(g(
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on November 16, 2025.</em><br>
+<p><em>This chapter was last updated on February 14, 2026.</em><br>
+<em>Corrected text in Euclidean Algorithm example.</em><br>
 <em>added closed-form solution for the recurrence relation that describes the number of comparisons used by the MergeSort algorithm for lists of length a power of 2.</em><br></p>
 </div>
 <div class="paragraph">
@@ -15870,7 +15890,7 @@ Python provides built-in operators to find the quotient and remainder for variab
 </div>
 </div>
 <div class="paragraph">
-<p>The code below implements integer division for <em>positive</em> integers <em>a</em> and <em>b.</em></p>
+<p>The code below implements the Euclidean algorithm that is used to compute the greatest common divisor of two <em>positive</em> integers <em>m</em> and <em>n.</em></p>
 </div>
 <div class="paragraph">
 <p>Click on the "Next" button to step through the code.</p>

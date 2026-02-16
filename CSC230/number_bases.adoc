@@ -21,6 +21,9 @@ https://chrisbracco.com › curly-quotes
 include::LinkToPublic.adoc[] 
 
 
+// MKD Feb 9 2026 Converting to bin/oct/hex in Python
+//https://pythontutor.com/visualize.html#code=print%28bin%2813%29%29%0Aprint%28oct%2813%29%29%0Aprint%28hex%2813%29%29&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
 _This chapter was last updated on February 2, 2026._ + 
 _fixed typos_  
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on December 20, 2024.#
