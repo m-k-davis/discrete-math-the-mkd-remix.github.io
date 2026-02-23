@@ -10,7 +10,7 @@ include::LinkToPublic.adoc[]
 _This chapter was last updated on October 6, 2025_ + 
 _Revised example of valid and invalid arguments. Introduced new example using rules of inference with predicates._ + 
 _Moved explanation of converse error using Euler diagrams to later in the chapter._ + 
-_Revised example 4_+
+_Revised example 4._ +
 _Made minor wording changes and fixed typos._ + 
 _NOTE: Statement that universal generalization is used in proofs by mathematical induction has been removed._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#

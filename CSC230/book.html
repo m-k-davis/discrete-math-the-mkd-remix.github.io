@@ -5748,14 +5748,14 @@ Therefore, such a one-to-one correspondence cannot exist.
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on September 23, 2025.</em><br>
+<p><em>This chapter was last updated on February 23, 2026.</em><br>
 <em>Edited section on logic circuits.</em></p>
 </div>
 <div class="paragraph">
 <p><strong>Logic</strong> is the study of reasoning. Logic is used to create, analyze, and validate <strong>arguments,</strong> where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument.</p>
 </div>
 <div class="paragraph">
-<p>Among the applications of logic to computer science are design of electronic circuits and validation of algorithms and programs.</p>
+<p>Among the applications of logic to computer science are the design of electronic circuits and the validation of algorithms and programs.</p>
 </div>
 <div class="paragraph">
 <p>Key terms and concepts covered in this chapter:</p>
@@ -5763,24 +5763,24 @@ Therefore, such a one-to-one correspondence cannot exist.
 <div class="ulist">
 <ul>
 <li>
-<p>Propositional logic (also called "propositional calculus")</p>
+<p>Propositional logic (also called “propositional calculus”)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Logical operators (also called "logical connectives")</p>
+<p>Logical operators (also called “logical connectives”)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Negation ("not")</p>
+<p>Negation (“not”)</p>
 </li>
 <li>
-<p>Conjunction ("and")</p>
+<p>Conjunction (“and”)</p>
 </li>
 <li>
-<p>Disjunction ("or")</p>
+<p>Disjunction (“or”)</p>
 </li>
 <li>
-<p>Conditional ("implication")</p>
+<p>Conditional (“implication”)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -5790,7 +5790,7 @@ Therefore, such a one-to-one correspondence cannot exist.
 </div>
 </li>
 <li>
-<p>Biconditional ("if and only if," abbreviated as "iff")</p>
+<p>Biconditional (“if and only if,” abbreviated as “iff”)</p>
 </li>
 </ul>
 </div>
@@ -5815,7 +5815,7 @@ Therefore, such a one-to-one correspondence cannot exist.
 <div class="ulist">
 <ul>
 <li>
-<p>Predicates as "statement-valued functions"</p>
+<p>Predicates as “statement-valued functions”</p>
 </li>
 <li>
 <p>Quantification of Predicates</p>
@@ -5834,7 +5834,7 @@ Therefore, such a one-to-one correspondence cannot exist.
 </div>
 </li>
 <li>
-<p>To be added to this chapter after May 23, 2025:</p>
+<p>To be added to this chapter:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -5895,11 +5895,15 @@ Therefore, such a one-to-one correspondence cannot exist.
 <p><strong>Propositional logic</strong> consists of a set of formal rules for combining propositions in order to derive new propositions.</p>
 </div>
 <div class="paragraph">
-<p>A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based <em>solely</em> on the propositions' <strong>truth values</strong> (True and False), ignoring the actual content of the propositions.
-Compare this to doing algebra:
+<p>A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based <em>solely</em> on the propositions' <strong>truth values</strong> (True and False)
+while
+ignoring the actual content of the propositions.</p>
+</div>
+<div class="paragraph">
+<p>Compare this to doing algebra:
 You can write \(2 (x + 3 y) = 2x + 6y\) because it is a correct and valid step to distribute multiplication over addition. You can do the algebra and ignore
 the specific numerical values
-(the "numerical content") that \(x\) and \(y\) stand for.</p>
+(the “numerical content”) that \(x\) and \(y\) stand for.</p>
 </div>
 <div class="paragraph">
 <p>In propositional logic, it is traditional to use <strong>propositional variables</strong> such as <em>p,</em> <em>q,</em> and <em>r</em> to
@@ -5973,13 +5977,13 @@ validity of the argument.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can build <strong>compound propositions</strong> (also called "propositional functions") from simpler propositions. For example, in the preceding example, the compound propostion "if <em>p</em> then <em>q</em>" was introduced as a new proposition built from the propositional variables <em>p</em> and <em>q</em>. In the next section, you will learn how to represent compound propositions using symbols.</p>
+<p>You can build <strong>compound propositions</strong> (also called “propositional functions”) from simpler propositions. For example, in the preceding example, the compound propostion “if <em>p</em> then <em>q</em>” was introduced as a new proposition built from the propositional variables <em>p</em> and <em>q</em>. In the next section, you will learn how to represent compound propositions using symbols.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_logical_operations_and_truth_tables">5.2. Logical Operations and Truth Tables</h3>
 <div class="paragraph">
-<p>In this section, compound propostions will be represented by using propositional variables and <strong>logical operator</strong> symbols (also called "logical operations" or "logical connectives") Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.</p>
+<p>In this section, compound propostions will be represented by using propositional variables and <strong>logical operator</strong> symbols (also called “logical operations” or “logical connectives”) Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -6003,7 +6007,9 @@ Each compound proposition can implemented using the \(\texttt{Boolean}\) operati
 <div class="paragraph">
 <p>A <strong>truth table</strong> can be used to display the truth values of a compound proposition that is built from propositional variables and logical operators.
 A truth table
-is created with rows representing all possible <strong>interpretations</strong> of the propositional variables, that is, all possible assignments of truth values to the propositional variables. Each column of a truth table displays the truth values for either one of the propositional variables or a compound proposition built up from propositional variables and/or simpler compound propositions. As an analogy, think of how a table can be used to display the numerical input and output values of a function represented by an algebraic expression.</p>
+is created with rows representing all possible <strong>interpretations</strong> of the propositional variables, that is, all possible assignments of truth values to the propositional variables. Each column of a truth table displays the truth values for either one of the propositional variables or a compound proposition built up from propositional variables and/or simpler compound propositions. As an analogy, think of how a table can be used to display the numerical input and output values of a function
+or formula that is
+represented by an algebraic expression.</p>
 </div>
 <div class="paragraph">
 <p>The most commonly-used logical operators are described in the rest of this section.</p>
@@ -6011,11 +6017,11 @@ is created with rows representing all possible <strong>interpretations</strong> 
 <div class="sect3">
 <h4 id="_negation">5.2.1. Negation</h4>
 <div class="paragraph">
-<p>"I am <strong>not</strong> an astronaut."</p>
+<p>“I am <strong>not</strong> an astronaut.”</p>
 </div>
 <div class="paragraph">
 <p>The <strong>negation</strong> of a proposition \(p\), denoted in mathematics by \(\neg p\) and
-read as "not \(p\)", is the proposition
+read as “not \(p\)”, is the proposition
 "It is <em>not the case</em> that \(p\)".
 The proposition \(\neg p\) has the opposite truth value to \(p.\)<br>
 <span class="small">Other textbooks and sources may use \(\overline{p}\) or \(\sim \! p\) to represent \(\neg p.\)</span></p>
@@ -6043,12 +6049,13 @@ The proposition \(\neg p\) has the opposite truth value to \(p.\)<br>
 </tbody>
 </table>
 <div class="paragraph">
-<p>For example, the negation of the proposition "Today is Friday." would be
-"It is not the case that today is Friday." or more succinctly "Today is not Friday."<br>
-<span class="small">For a proposition \(p,\) exactly one of \(p\) and \(\neg p\) is True and exactly one is False. Two propositions can be contrary (that is, they could not both be True) without being negations of each other: As an example, both of the propositions "Today is Friday." and "Today is Saturday." could be False, so "Today is Saturday." is not the negation of "Today is Friday."</span></p>
+<p>For example, the negation of the proposition “Today is Friday.” would be
+“It is not the case that today is Friday.” or more succinctly “Today is not Friday.”<br>
+<span class="small">NOTE: For a proposition \(p,\) exactly one of \(p\) and \(\neg p\) is True and exactly one is False. Two propositions can be <em>contrary</em> (that is, the two propositions cannot both be True) without being negations of each other:
+As an example, only one of the propositions “Today is Friday” and “Today is Saturday” could be True, but both could be False! The proposition “Today is Friday” is not the negation of the proposition of “Today is Saturday.”</span></p>
 </div>
 <div class="paragraph">
-<p>Notice that the two propositions \(p\) and \(\neg (\neg p)\) must always have the <em>same</em> truth value (You can see this by inserting a column for \(\neg (\neg p)\) in the truth table shown earlier in this subsection.)</p>
+<p>Notice that the two propositions \(p\) and \(\neg (\neg p)\) must always have the <em>same</em> truth value (You can see this by inserting an additional column for \(\neg (\neg p)\) in the truth table shown earlier in this subsection.)</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -6057,9 +6064,9 @@ The proposition \(\neg p\) has the opposite truth value to \(p.\)<br>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In the first few truth tables in this chapter, "True" and "False"
+In the first few truth tables in this chapter, “True” and “False”
 are spelled out, but it is more often the case that these words are
-abbreviated to their first letters, "T" and "F" in truth tables.
+abbreviated to their first letters, “T” and “F” in truth tables.
 </td>
 </tr>
 </table>
@@ -6091,10 +6098,10 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 <div class="sect3">
 <h4 id="_conjunction">5.2.2. Conjunction</h4>
 <div class="paragraph">
-<p>"I am a rock <strong>and</strong> I am an island."</p>
+<p>“I am a rock <strong>and</strong> I am an island.”</p>
 </div>
 <div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions.  The <strong>conjunction</strong> of \(p\) and \(q\), denoted in mathematics by \(p \land q\) and read as "\(p\) and \(q\)", is True when both \(p\) and \(q\) are True and is False otherwise.</p>
+<p>Let \(p\) and \(q\) be propositions.  The <strong>conjunction</strong> of \(p\) and \(q\), denoted in mathematics by \(p \land q\) and read as “\(p\) and \(q\)”, is True when both \(p\) and \(q\) are True and is False otherwise.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -6160,7 +6167,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 <p>"They studied hard <strong>or</strong> they are extremely bright."</p>
 </div>
 <div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions.  The <strong>disjunction</strong> of \(p\) and \(q\), denoted in mathematics by \(p \lor q\) and read as "\(p\) or \(q\)", is True when at least one of \(p\) and \(q\) are True and is False otherwise.</p>
+<p>Let \(p\) and \(q\) be propositions.  The <strong>disjunction</strong> of \(p\) and \(q\), denoted in mathematics by \(p \lor q\) and read as “\(p\) or \(q\)”, is True when <em>at least one</em> of \(p\) and \(q\) are True and is False otherwise.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -6223,11 +6230,11 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 <div class="sect3">
 <h4 id="_conditional">5.2.4. Conditional</h4>
 <div class="paragraph">
-<p>"<strong>If</strong> you get a 100 on the final exam, <strong>then</strong> you earn an A in the class."</p>
+<p>“<strong>If</strong> you get a 100 on the final exam, <strong>then</strong> you earn an A in the class.”</p>
 </div>
 <div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions. The <strong>conditional statement</strong> \(p \rightarrow q\), read as "if <em>p</em> then <em>q</em>", "<em>p</em> implies <em>q</em>", or, more formally, "the conditional with hypothesis <em>p</em> and conclusion <em>q</em>", is the proposition that is False when <em>p</em> is True and <em>q</em> is False, and True otherwise. The conditional statement \(p \rightarrow q\) is also called "the implication  \(p \rightarrow q\)".<br>
-<span class="small">The conditional \(p \rightarrow q\) can also be denoted by \(p \Rightarrow q\) or \(p \implies q.\) In addition, there are many other ways to express the conditional \(p \rightarrow q\) in English, two of which are "<em>p</em> only if <em>q</em>" and "<em>q</em> if <em>p</em>".</span></p>
+<p>Let \(p\) and \(q\) be propositions. The <strong>conditional statement</strong> \(p \rightarrow q\), read as “if <em>p</em> then <em>q</em>”, “<em>p</em> implies <em>q</em>”, or, more formally, “the conditional with hypothesis <em>p</em> and conclusion <em>q</em>”, is the proposition that is <em>False</em> when <em>p</em> is True and <em>q</em> is False, and True otherwise. The conditional statement \(p \rightarrow q\) is also called “the implication \(p \rightarrow q\)”.<br>
+<span class="small">The conditional \(p \rightarrow q\) can also be denoted by \(p \Rightarrow q\) or \(p \implies q.\) In addition, there are many other ways to express the conditional \(p \rightarrow q\) in English, two of which are “<em>p</em> only if <em>q</em>” and “<em>q</em> if <em>p</em>”.</span></p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -6300,7 +6307,7 @@ that <em>not p</em> implements the negation \(\neg p\) in Python.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The conditional may or may not represent a "cause-and-effect" relationship. For example, the conditional "if Shakespeare wrote <em>Hamlet</em> then \(2 + 2 = 4\)" is a True proposition because the conclusion "\(2 + 2 = 4\)" is True, but the arithmetic equation is not an effect that was caused by the authorship of <em>Hamlet</em>.</p>
+<p>The conditional may or may not represent a “cause-and-effect” relationship. For example, the conditional “if Shakespeare wrote <em>Hamlet</em> then \(2 + 2 = 4\)” is a True proposition because the conclusion “\(2 + 2 = 4\)” is True, but the arithmetic equation is not an effect that was caused by the authorship of <em>Hamlet</em>.</p>
 </li>
 </ul>
 </div>
@@ -6441,7 +6448,7 @@ on <a href=#_logically_equivalent_propositions> logically equivalent proposition
 <div class="title">Example 6 - Conditional, Converse, Contrapositive and Inverse.</div>
 <ol class="loweralpha" type="a">
 <li>
-<p>Translate the statement "If the number of students in class is divisible by 4, then the number of students in class is divisible by 2" using a conditional.</p>
+<p>Translate the statement “If the number of students in class is divisible by 4, then the number of students in class is divisible by 2” using a conditional.</p>
 </li>
 <li>
 <p>Form and translate the converse, contrapositive, and inverse.</p>
@@ -6454,31 +6461,35 @@ on <a href=#_logically_equivalent_propositions> logically equivalent proposition
 <li>
 <p>Let</p>
 <div class="paragraph">
-<p>\(p\) be the proposition "The number of students in class is divisible by 4."</p>
+<p>\(p\) be the proposition “The number of students in class is divisible by 4.”</p>
 </div>
 <div class="paragraph">
-<p>\(q\) be the proposition "The number of students in class is divisible by 2."</p>
+<p>\(q\) be the proposition “The number of students in class is divisible by 2.”</p>
 </div>
 <div class="paragraph">
-<p>The conditional \(p\rightarrow q\) translates as "If the number of students in class is divisible by 4, then the number of students in class is divisible by 2."</p>
+<p>The conditional \(p\rightarrow q\) translates as “If the number of students in class is divisible by 4, then the number of students in class is divisible by 2.”</p>
 </div>
 </li>
 <li>
 <p>The converse \(q \rightarrow p\) may be translated as
-"If the number of students in class is divisible by 2, then the number of students in class is divisible by 4."</p>
+“If the number of students in class is divisible by 2, then the number of students in class is divisible by 4.”</p>
 <div class="paragraph">
 <p>The contrapositive \( \neg q \rightarrow \neg p\) may be translated as
-"If the number of students in class is not divisible by 2, then the number of students in class is not divisible by 4."</p>
+“If the number of students in class is not divisible by 2, then the number of students in class is not divisible by 4.”</p>
 </div>
 <div class="paragraph">
 <p>The inverse \( \neg p \rightarrow \neg q\) may be translated as
-"If the number of students in class is not divisible by 4, then the number of students in class is not divisible by 2."</p>
+“If the number of students in class is not divisible by 4, then the number of students in class is not divisible by 2.”</p>
 </div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Notice that in this example, the conditional must be True, based on properties of factors of integers, but its converse could be False:  Consider the case where the number of students in class is equal to 26, so \(p\) is False and \(q\) is True, and \(p\rightarrow q\) is True but \(q\rightarrow p\) is False. This also shows, again, that the conditional need not represent a "cause-and-effect" relationship, since NOT being "divisible by 4" does not let us conclude anything about being "divisible by 2".</p>
+<p>Notice that in this example, the conditional must be True, based on properties of factors of integers, but its converse could be False:  Consider the case where the number of students in class is equal to 26, so \(p\) is False and \(q\) is True, and \(p\rightarrow q\) is True but \(q\rightarrow p\) is False. This also shows, again, that the conditional need not represent a “cause-and-effect” relationship, since
+a number being NOT
+“divisible by 4” does not let you conclude anything about
+that number
+being “divisible by 2.”</p>
 </div>
 </div>
 </div>
@@ -6487,10 +6498,10 @@ on <a href=#_logically_equivalent_propositions> logically equivalent proposition
 <div class="sect3">
 <h4 id="_biconditional">5.2.5. Biconditional</h4>
 <div class="paragraph">
-<p>"It is raining outside <strong>if and only if</strong> it is a cloudy day."</p>
+<p>“It is raining outside <strong>if and only if</strong> it is a cloudy day.”</p>
 </div>
 <div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions. The <strong>biconditional</strong> \(p \leftrightarrow q\), read as "<em>p</em> if and only if <em>q</em>", is the proposition that is True when <em>p</em> and <em>q</em> have the <em>same</em> truth value, and False otherwise. The biconditional is also called "the bi-implication".
+<p>Let \(p\) and \(q\) be propositions. The <strong>biconditional</strong> \(p \leftrightarrow q\), read as “<em>p</em> if and only if <em>q</em>”, is the proposition that is True when <em>p</em> and <em>q</em> have the <em>same</em> truth value, and False otherwise. The biconditional is also called “the bi-implication”.
 <span class="small">Note that \(p \leftrightarrow q\) can also be denoted by \(p \Leftrightarrow q\) or \(p \iff q.\)</span></p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
@@ -6540,7 +6551,7 @@ on <a href=#_logically_equivalent_propositions> logically equivalent proposition
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The biconditional \(p \leftrightarrow q\) is read as "<em>p</em> if and only if <em>q</em>" because it has the same truth table as the conjunction of the two conditionals "<em>p</em> if <em>q</em>" (that is, \(q \rightarrow p\)) and "<em>p</em> only if <em>q</em>" (that is, \(p \rightarrow q\)).</p>
+<p>The biconditional \(p \leftrightarrow q\) is read as “<em>p</em> if and only if <em>q</em>” because it has the same truth table as the conjunction of the two conditionals “<em>p</em> if <em>q</em>” (that is, \(q \rightarrow p\)) and “<em>p</em> only if <em>q</em>” (that is, \(p \rightarrow q\)).</p>
 </div>
 </td>
 </tr>
@@ -6565,11 +6576,12 @@ on <a href=#_logically_equivalent_propositions> logically equivalent proposition
 </div>
 </div>
 <div class="paragraph">
-<p>It is important to contrast the conditional with the biconditional.  Consider the conditional example "If you get a 100 on the final exam, then you earn an A in the class."  This means that when you get a 100 on the final you also get an A in the class.
+<p>It is important to contrast the conditional with the biconditional.  Consider the conditional example “If you get a 100 on the final exam, then you earn an A in the class.”  This means that when you get a 100 on the final you also get an A in the class.
 The conditional represents a one-way contract: You earn an A in the class <em>if</em> you get a 100 on the final exam. There is nothing said about the result (the grade you earn in the class) if you do NOT meet the condition (get a 100 on the final exam).</p>
 </div>
 <div class="paragraph">
-<p>As a biconditional the example would say "You get a 100 on the final exam if and only if you earn an A in the class."  This becomes a two-way contract: You earn an A in the class if you get a 100 on the final, <em>but</em> you do not earn an A in the class if you do not get a 100 on the final.</p>
+<p>As a biconditional the example would say “You get a 100 on the final exam if and only if you earn an A in the class.” This becomes a two-way contract: You earn an A in the class if you get a 100 on the final,
+<em>and</em> you do not earn an A in the class if you do not get a 100 on the final.</p>
 </div>
 </div>
 <div class="sect3">
@@ -6580,10 +6592,10 @@ The conditional represents a one-way contract: You earn an A in the class <em>if
 <div class="sect4">
 <h5 id="_exclusive_disjunction">Exclusive Disjunction</h5>
 <div class="paragraph">
-<p>"I took <strong>either</strong> 2 Advil <strong>or</strong> 2 Tylenol."</p>
+<p>“I took <strong>either</strong> 2 Advil <strong>or</strong> 2 Tylenol.”</p>
 </div>
 <div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions.  The exclusive disjunction of \(p\) and \(q\) (also known as <em>xor</em>), denoted in mathematics by \(p \oplus q\), is True when exactly one of \(p\) and \(q\) are True and False otherwise.</p>
+<p>Let \(p\) and \(q\) be propositions. The exclusive disjunction of \(p\) and \(q\) (also known as <em>xor</em>), denoted in mathematics by \(p \oplus q\), is True when exactly one of \(p\) and \(q\) are True and False otherwise.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -6633,10 +6645,10 @@ The conditional represents a one-way contract: You earn an A in the class <em>if
 <div class="sect5">
 <h6 id="_nand">NAND</h6>
 <div class="paragraph">
-<p>"An <a href=https://en.wikipedia.org/wiki/Onion>onion</a> is <strong>not both</strong> a fruit and a vegetable."</p>
+<p>“An <a href=https://en.wikipedia.org/wiki/Onion>onion</a> is <strong>not both</strong> a fruit and a vegetable.”</p>
 </div>
 <div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions. In this textbook, the NAND of \(p\) and \(q\) is denoted by \(p \uparrow q\) and is False when both \(p\) and \(q\) are True and is True otherwise. That is, the NAND is the negation of \(p \land q\) - think of NAND as "Not AND."<br></p>
+<p>Let \(p\) and \(q\) be propositions. In this textbook, the NAND of \(p\) and \(q\) is denoted by \(p \uparrow q\) and is False when both \(p\) and \(q\) are True and is True otherwise. That is, the NAND is the negation of \(p \land q\) - think of NAND as “Not AND.”<br></p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -6681,10 +6693,10 @@ The conditional represents a one-way contract: You earn an A in the class <em>if
 <div class="sect5">
 <h6 id="_nor">NOR</h6>
 <div class="paragraph">
-<p>"This pen&#8217;s ink is <strong>neither</strong> red <strong>nor</strong> blue."</p>
+<p>“This pen&#8217;s ink is <strong>neither</strong> red <strong>nor</strong> blue.”</p>
 </div>
 <div class="paragraph">
-<p>Let \(p\) and \(q\) be propositions. In this textbook, the NOR of \(p\) and \(q\) is denoted by \(p \downarrow q\) and is True when both of \(p\) and \(q\) are False and is False otherwise. The NOR is also referred to as "joint denial" since it is True exactly when neither \(p\) nor \(q\) is True. That is, the NOR is the negation of \(p \lor q.\)</p>
+<p>Let \(p\) and \(q\) be propositions. In this textbook, the NOR of \(p\) and \(q\) is denoted by \(p \downarrow q\) and is True when both of \(p\) and \(q\) are False and is False otherwise. The NOR is also referred to as “joint denial” since it is True exactly when neither \(p\) nor \(q\) is True. That is, the NOR is the negation of \(p \lor q.\)</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
@@ -6742,7 +6754,7 @@ The conditional represents a one-way contract: You earn an A in the class <em>if
 <p>A propositional variable is a well-formed formula.</p>
 </li>
 <li>
-<p>If \(\alpha\) ("alpha") and \(\beta\) ("beta") are well-formed formulas, then the following are also well-formed formulas:</p>
+<p>If \(\alpha\) (“alpha”) and \(\beta\) (“beta”) are well-formed formulas, then the following are also well-formed formulas:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -7764,7 +7776,7 @@ Notice that code correctly outputs the two propositions as strings (of type <em>
 <div class="ulist">
 <ul>
 <li>
-<p>For all integers \(x\), \(x^2\geq 0\).</p>
+<p>Every student in the class was assigned an ID number.</p>
 </li>
 <li>
 <p>Some student in the class has a birthday in July.</p>
@@ -7772,15 +7784,17 @@ Notice that code correctly outputs the two propositions as strings (of type <em>
 </ul>
 </div>
 <div class="paragraph">
-<p>Each of these statements considers a proposition over an entire population or set, called the <strong>domain,</strong> and
-describes whether at least one element, or all of the elements
-in the
-domain
-satisfy the proposition.
-There are two
-commonly-used
-quantifiers, the <strong>universal quantifier</strong> and the <strong>existential quantifier</strong>.<br>
-<span class="small">The domain is also called the <strong>domain of discourse</strong> or the <strong>universe of discourse.</strong></span></p>
+<p>Each of these statements is a proposition formed by considering the possible interpretations of variables of a predicate over a population or set, called the <strong>domain</strong> or the <strong>universe.</strong>
+One proposition describes whether <em>all</em> the elements
+in the domain satisfy a first predicate, and
+and the other proposition describes whether <em>at least one</em> element
+in the domain satisfies a second predicate.<br>
+<span class="small">The domain is also called the <strong>domain of discourse</strong> or <strong>universe of discourse.</strong></span></p>
+</div>
+<div class="paragraph">
+<p>There are two commonly-used
+symbols for
+quantifiers, the <strong>universal quantifier</strong> and the <strong>existential quantifier</strong> symbols.<br></p>
 </div>
 <div class="paragraph">
 <p>The <strong>Universal Quantifier,</strong> \(\forall,\) represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true <em>for all values</em> in the domain.</p>
@@ -7797,7 +7811,7 @@ quantifiers, the <strong>universal quantifier</strong> and the <strong>existenti
 </div>
 </div>
 <div class="paragraph">
-<p>Let \(P(x)\) be the statement \(x + 1 \gt x\).  Is this true for all integers x?</p>
+<p>Let \(P(x)\) be the statement \(x + 1 \gt x\).  Is this true for <em>all</em> integers x in the set \(\{ -2, -1, 0, 1, 2 \}\)?</p>
 </div>
 <iframe width="100%" frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=stmt%20%3D%20%22For%20all%20x,%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x%20%2B%201%20%3E%20x%0A%0Aforall%20%3D%20True%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20false%0A%20%20%20%20if%20P%28x%29%20%3D%3D%20False%3A%0A%20%20%20%20%20%20%20%20forall%20%3D%20False%0A%20%20%20%20%20%20%20%20%0Aprint%28stmt%29%0Aprint%28forall%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=450"> </iframe>
 
@@ -7811,7 +7825,7 @@ quantifiers, the <strong>universal quantifier</strong> and the <strong>existenti
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-We use the example domain [-2, -1, 0, 1, 2] because code can not check all integers.
+We cannot check for <em>all</em> integers using code, so instead used the example domain \(\{ -2, -1, 0, 1, 2 \}\).
 </td>
 </tr>
 </table>
@@ -7830,7 +7844,7 @@ We use the example domain [-2, -1, 0, 1, 2] because code can not check all integ
 </div>
 </div>
 <div class="paragraph">
-<p>Let \(P(x)\) be the statement \(x + x \gt x\).  Is this true for all integers x?</p>
+<p>Let \(P(x)\) be the statement \(x + x \gt x\).  Is this true for all integers x in \(\{ -2, -1, 0, 1, 2 \}\)?</p>
 </div>
 <iframe width="100%" frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=stmt%20%3D%20%22For%20all%20x,%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x%20%2B%20x%20%3E%20x%0A%0Aforall%20%3D%20True%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20false%0A%20%20%20%20if%20not%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20forall%20%3D%20False%0Aprint%28stmt%29%0Aprint%28forall%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=450"> </iframe>
 
@@ -7875,7 +7889,7 @@ We use the example domain [-2, -1, 0, 1, 2] because code can not check all integ
 </div>
 </div>
 <div class="paragraph">
-<p>Let \(P(x)\) be the statement \(x^3 = 4\).  Is this true for at least one integer x?</p>
+<p>Let \(P(x)\) be the statement \(x^3 = 4\).  Is this true for at least one integer \(x\)?</p>
 </div>
 <iframe width="100%" frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=stmt%20%3D%20%22There%20exists%20an%20x,%20such%20that%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x**3%20%3D%3D%204%0A%0Aexists%20%3D%20False%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20true%0A%20%20%20%20if%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20exists%20%3D%20True%0Aprint%28stmt%29%0Aprint%28exists%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=450"> </iframe>
 
@@ -7889,7 +7903,7 @@ We use the example domain [-2, -1, 0, 1, 2] because code can not check all integ
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Again, we use the example domain [-2, -1, 0, 1, 2] because code can not check all integers.
+Again, we use the example domain \(\{ -2, -1, 0, 1, 2 \}\) because code can not check all integers.
 </td>
 </tr>
 </table>
@@ -7902,12 +7916,14 @@ Again, we use the example domain [-2, -1, 0, 1, 2] because code can not check al
 <div class="ulist">
 <ul>
 <li>
-<p>For all integers \(x\), \(x^2 \geq 0\).</p>
+<p>Every student in the class was assigned an ID number.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Let \(P(x)\) be the predicate "\(x^2 \geq 0\)".  Then we write the statement as \(\forall x P(x)\), where the domain is the set of all integers.  This quantified statement will be true since anytime you square a nonzero integer it is positive and \(0^2=0\).</p>
+<p>Let \(P(x)\) be the predicate "student \(x\) was assigned an ID number".
+You can write the bulleted statement as \(\forall x P(x)\), where the domain is the set of all students in the class.
+The quantified statement will be True as long as <em>every</em> student in the class was assigned an ID number. It will be False, otherwise.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -7917,13 +7933,20 @@ Again, we use the example domain [-2, -1, 0, 1, 2] because code can not check al
 </ul>
 </div>
 <div class="paragraph">
-<p>Let \(Q(s)\) be the predicate "student \(s\) has a birthday in July".  Then we write the statement as \(\exists s Q(s)\), where the domain is the set of all students in the class. This statement will be true as long as at least one student in the class has a birthday in July.  It will be false, otherwise.</p>
+<p>Let \(Q(s)\) be the predicate "student \(s\) has a birthday in July".
+You can write the bulleted statement as \(\exists s Q(s)\), where the domain is the set of all students in the class.
+The quantified statement will be True as long as <em>at least one</em> student in the class has a birthday in July. It will be False, otherwise.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_negation_of_quantifiers">5.4.3. Negation of Quantifiers</h4>
 <div class="paragraph">
-<p>It is important to consider the negation of a quantified expression.</p>
+<p>It is important to consider
+how to find
+the negation of a quantified expression.</p>
+</div>
+<div class="paragraph">
+<p>What is the negation of the following proposition?</p>
 </div>
 <div class="ulist">
 <ul>
@@ -7938,7 +7961,7 @@ Again, we use the example domain [-2, -1, 0, 1, 2] because code can not check al
 <div class="ulist">
 <ul>
 <li>
-<p>"There is a student in this class who has NOT taken Programming Fundamentals."</p>
+<p>"There is a student in this class who has not taken Programming Fundamentals."</p>
 </li>
 </ul>
 </div>
@@ -8917,7 +8940,7 @@ Determine the true value of the  following, an explain your reasoning.</p>
 <p><em>This chapter was last updated on October 6, 2025</em><br>
 <em>Revised example of valid and invalid arguments. Introduced new example using rules of inference with predicates.</em><br>
 <em>Moved explanation of converse error using Euler diagrams to later in the chapter.</em><br>
-<em>Revised example 4</em>+
+<em>Revised example 4.</em><br>
 <em>Made minor wording changes and fixed typos.</em><br>
 <em>NOTE: Statement that universal generalization is used in proofs by mathematical induction has been removed.</em><br></p>
 </div>

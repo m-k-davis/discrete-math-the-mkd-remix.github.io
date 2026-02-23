@@ -1,11 +1,14 @@
 = Logic
 
+//“”
+
+
 #*CAUTION* - CHAPTER UNDER CONSTRUCTION!#
 
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on September 23, 2025._ + 
+_This chapter was last updated on February 23, 2026._ + 
 _Edited section on logic circuits._
 //_Added link to DNF and CNF website_ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
@@ -142,20 +145,23 @@ Additional ideas
 *Logic* is the study of reasoning. Logic is used to create, analyze, and validate *arguments,* where an argument is a finite sequence of statements that ends with a conclusion based on inferences made from earlier statements in the argument. 
 //Two applications of logic to computer science are correct and efficient design of electronic circuits and validation of algorithms and programs.
 
-Among the applications of logic to computer science are design of electronic circuits and validation of algorithms and programs.
+// MKD Feb 23 2026 inserte two "the"s 
+Among the applications of logic to computer science are the design of electronic circuits and the validation of algorithms and programs.
+
+//“”
 
 Key terms and concepts covered in this chapter:
 
 //MKD Feb 13 2025 - cleaned up topics and terminolgy list
-* Propositional logic (also called "propositional calculus")
-** Logical operators (also called "logical connectives") 
-*** Negation ("not")
-*** Conjunction ("and")
-*** Disjunction ("or")
-*** Conditional ("implication")
+* Propositional logic (also called “propositional calculus”)
+** Logical operators (also called “logical connectives”) 
+*** Negation (“not”)
+*** Conjunction (“and”)
+*** Disjunction (“or”)
+*** Conditional (“implication”)
 **** The converse, inverse, and contrapositive of a conditional
-//*** Biconditional ("equivalence")
-*** Biconditional ("if and only if," abbreviated as "iff")
+//*** Biconditional (“equivalence”)
+*** Biconditional (“if and only if,” abbreviated as “iff”)
 //**** how implication and equivalence are different
 // MKD Feb 13 2025 added Satisfiability, tautology, and contradiction
 ** Truth tables
@@ -166,11 +172,11 @@ Key terms and concepts covered in this chapter:
 ** Normal forms (conjunctive and disjunctive)
 // MKD Feb 13 2025 - Inference is covered in the next chapter
 * Predicate logic
-** Predicates as "statement-valued functions"
+** Predicates as “statement-valued functions” 
 ** Quantification of Predicates
 *** Universal quantifier
 *** Existential quantifier
-* To be added to this chapter after May 23, 2025:
+* To be added to this chapter:
 ** Limitations of propositional and predicate logic (e.g., expressiveness issues)
 ** Boolean algebra and Boolean circuits
 
@@ -218,9 +224,15 @@ A *proposition* is a statement that declares a fact that is either True or False
 
 //MKD added the following 2 paragraphs
 //An *argument* is a finite sequence of propositions that ends with a conclusion based on inferences made from earlier propositions in the argument. 
-A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based _solely_ on the propositions' *truth values* (True and False), ignoring the actual content of the propositions. 
+A goal of propositional logic is to have a method for creating valid arguments that are sequences of propositions, where the correctness and validity of the argument is based _solely_ on the propositions' *truth values* (True and False) 
+// MKD Feb 23 2026 replace comma by whilte
+//, 
+while 
+ignoring the actual content of the propositions. 
 // MKD Feb 13 2025 commented out some text 
 //Choosing to ignore the actual content of the propositions may seem strange at first, but c
+
+// MKD Feb 23 2026
 Compare this to doing algebra: 
 //We can write $2 (x + 3 y) = 2x + 6y$ because we know that it is correct and valid to distribute multiplication over addition - we can do the algebra and ignore the actual real-world meaning of the "numerical content" that $x$ and $y$ stand for. 
 You can write $2 (x + 3 y) = 2x + 6y$ because it is a correct and valid step to distribute multiplication over addition. You can do the algebra and ignore 
@@ -228,7 +240,9 @@ You can write $2 (x + 3 y) = 2x + 6y$ because it is a correct and valid step to 
 //the actual meaning/content (that is, 
 the specific numerical values 
 //) 
-(the "numerical content") that $x$ and $y$ stand for. 
+(the “numerical content”) that $x$ and $y$ stand for. 
+
+//“”
 
 In propositional logic, it is traditional to use *propositional variables* such as _p,_ _q,_ and _r_ to 
 //represent 
@@ -288,12 +302,13 @@ You can make this argument completely abstract using propositional variables.
 //MKD added on 2/13/24
 //We can build *compound propositions* (also called "propositional functions") from simpler propositions. For example, in the preceding example, we introduced "if _p_ then _q_" as a new proposition built from the propositional variables _p_ and _q_.
 // MKD edit 9/22/2024
-You can build *compound propositions* (also called "propositional functions") from simpler propositions. For example, in the preceding example, the compound propostion "if _p_ then _q_" was introduced as a new proposition built from the propositional variables _p_ and _q_. In the next section, you will learn how to represent compound propositions using symbols.
+You can build *compound propositions* (also called “propositional functions”) from simpler propositions. For example, in the preceding example, the compound propostion “if _p_ then _q_” was introduced as a new proposition built from the propositional variables _p_ and _q_. In the next section, you will learn how to represent compound propositions using symbols.
+
 
 // MKD new section re-added here on 9/22/2024
 == Logical Operations and Truth Tables 
 
-In this section, compound propostions will be represented by using propositional variables and *logical operator* symbols (also called "logical operations" or "logical connectives") Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.
+In this section, compound propostions will be represented by using propositional variables and *logical operator* symbols (also called “logical operations” or “logical connectives”) Once again, you can compare this to how numerical and algebraic relationships can be represented in symbols using algebraic expressions built with the usual arithmetic operator symbols with variables and numerals.
 
 
 //MKD: Reword - Python is not necessary here, but is useful as a tool 
@@ -325,7 +340,10 @@ _Operators and Expressions_ in the chapter "Appendix: An Introduction to Python"
 A *truth table* can be used to display the truth values of a compound proposition that is built from propositional variables and logical operators. 
 A truth table 
 //typically 
-is created with rows representing all possible *interpretations* of the propositional variables, that is, all possible assignments of truth values to the propositional variables. Each column of a truth table displays the truth values for either one of the propositional variables or a compound proposition built up from propositional variables and/or simpler compound propositions. As an analogy, think of how a table can be used to display the numerical input and output values of a function represented by an algebraic expression. 
+is created with rows representing all possible *interpretations* of the propositional variables, that is, all possible assignments of truth values to the propositional variables. Each column of a truth table displays the truth values for either one of the propositional variables or a compound proposition built up from propositional variables and/or simpler compound propositions. As an analogy, think of how a table can be used to display the numerical input and output values of a function 
+// MKD Feb 23 2026 
+or formula that is 
+represented by an algebraic expression. 
 
 //, using the truth values of its components. 
 // (This description will make more sense as we begin to use truth tables below).
@@ -340,10 +358,10 @@ The most commonly-used logical operators are described in the rest of this secti
 //MKD: Mention other common notations for negation
 //The *negation* is a statement that has the opposite truth value.
 
-"I am *not* an astronaut."
+“I am *not* an astronaut.”
 
 The *negation* of a proposition $p$, denoted in mathematics by $\neg p$ and 
-read as "not $p$", is the proposition 
+read as “not $p$”, is the proposition 
 "It is __not the case__ that $p$". 
 //Note that other books and sources may use different notation such as $\overline{p}$ or $\sim \! p$ for the negation of $p$.
 The proposition $\neg p$ has the opposite truth value to $p.$ + 
@@ -358,9 +376,14 @@ The proposition $\neg p$ has the opposite truth value to $p.$ +
 | False | True
 |====
 
-For example, the negation of the proposition "Today is Friday." would be 
-"It is not the case that today is Friday." or more succinctly "Today is not Friday." + 
-[small]#For a proposition $p,$ exactly one of $p$ and $\neg p$ is True and exactly one is False. Two propositions can be contrary (that is, they could not both be True) without being negations of each other: As an example, both of the propositions "Today is Friday." and "Today is Saturday." could be False, so "Today is Saturday." is not the negation of "Today is Friday."#
+For example, the negation of the proposition “Today is Friday.” would be 
+“It is not the case that today is Friday.” or more succinctly “Today is not Friday.” + 
+// MKD Feb 23 2026 
+[small]#NOTE: For a proposition $p,$ exactly one of $p$ and $\neg p$ is True and exactly one is False. Two propositions can be _contrary_ (that is, the two propositions cannot both be True) without being negations of each other: 
+As an example, only one of the propositions “Today is Friday” and “Today is Saturday” could be True, but both could be False! The proposition “Today is Friday” is not the negation of the proposition of “Today is Saturday.”#
+
+
+//[small]#For a proposition $p,$ exactly one of $p$ and $\neg p$ is True and exactly one is False. Two propositions can be _contrary_ (that is, they could not both be True) without being negations of each other: As an example, both of the propositions “Today is Friday.” and “Today is Saturday.” could be False, so "Today is Saturday." is not the negation of "Today is Friday."#
 
 ////
 From the truth table it can be seen that 
@@ -369,12 +392,11 @@ exactly one is False.
 Notice that, in each row of the truth table, exactly one of the two propositions $p$ and $\neg p$ is True and exactly one is False.
 ////
 
-Notice that the two propositions $p$ and $\neg (\neg p)$ must always have the _same_ truth value (You can see this by inserting a column for $\neg (\neg p)$ in the truth table shown earlier in this subsection.)
+Notice that the two propositions $p$ and $\neg (\neg p)$ must always have the _same_ truth value (You can see this by inserting an additional column for $\neg (\neg p)$ in the truth table shown earlier in this subsection.)
 
-
-NOTE: In the first few truth tables in this chapter, "True" and "False" 
+NOTE: In the first few truth tables in this chapter, “True” and “False” 
 are spelled out, but it is more often the case that these words are 
-abbreviated to their first letters, "T" and "F" in truth tables. 
+abbreviated to their first letters, “T” and “F” in truth tables. 
 
 
 //MKD - original code follows def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20a%20%3D%20negation%28p%29%0A%20%20%20%20print%28p,%20a%29
@@ -398,9 +420,9 @@ include::python_tutor.adoc[]
 
 === Conjunction
 //MKD: Mention other common notations for negation
-"I am a rock *and* I am an island."
+“I am a rock *and* I am an island.”
 
-Let $p$ and $q$ be propositions.  The *conjunction* of $p$ and $q$, denoted in mathematics by $p \land q$ and read as "$p$ and $q$", is True when both $p$ and $q$ are True and is False otherwise.
+Let $p$ and $q$ be propositions.  The *conjunction* of $p$ and $q$, denoted in mathematics by $p \land q$ and read as “$p$ and $q$”, is True when both $p$ and $q$ are True and is False otherwise.
 
 [width=50%",align="center",options="header"]
 |====
@@ -433,7 +455,7 @@ include::python_tutor.adoc[]
 //MKD: Mention other common notations for negation
 "They studied hard *or* they are extremely bright."
 
-Let $p$ and $q$ be propositions.  The *disjunction* of $p$ and $q$, denoted in mathematics by $p \lor q$ and read as "$p$ or $q$", is True when at least one of $p$ and $q$ are True and is False otherwise.
+Let $p$ and $q$ be propositions.  The *disjunction* of $p$ and $q$, denoted in mathematics by $p \lor q$ and read as “$p$ or $q$”, is True when _at least one_ of $p$ and $q$ are True and is False otherwise.
 
 [width=50%",align="center",options="header"]
 |====
@@ -464,20 +486,21 @@ include::python_tutor.adoc[]
 
 //MKD moved XOR to a subsection "Other Operations" and planning to include NAND and NOR there
 
+
 === Conditional
 //=== Implication
 //MKD: Mention other common notations for negation
 //MKD: May want to fly in some info from MIT Courseware here
-"*If* you get a 100 on the final exam, *then* you earn an A in the class."
+“*If* you get a 100 on the final exam, *then* you earn an A in the class.”
 
 // MKD material conditional relates truth values but does not describe a cause-and-effect relationship 
 
 //MKD rewrote the following paragraph
 //Let $p$ and $q$ be propositions. The *implication* of $p$ and $q$, denoted in mathematics by $p \implies q$, is short hand for the statement "if p then q".  As such, implication requires $q$ to be True whenever $p$ is True.  If $p$ is not True, then $q$ can be any value. In other words, implication fails (is False) when $p$ is True and $q$ is False. Note, this is different from "p if and only if q".
 
-Let $p$ and $q$ be propositions. The *conditional statement* $p \rightarrow q$, read as "if _p_ then _q_", "_p_ implies _q_", or, more formally, "the conditional with hypothesis _p_ and conclusion _q_", is the proposition that is False when _p_ is True and _q_ is False, and True otherwise. The conditional statement $p \rightarrow q$ is also called "the implication  $p \rightarrow q$". + 
+Let $p$ and $q$ be propositions. The *conditional statement* $p \rightarrow q$, read as “if _p_ then _q_”, “_p_ implies _q_”, or, more formally, “the conditional with hypothesis _p_ and conclusion _q_”, is the proposition that is _False_ when _p_ is True and _q_ is False, and True otherwise. The conditional statement $p \rightarrow q$ is also called “the implication $p \rightarrow q$”. + 
 //Other books and sources may use $p \Rightarrow q$ or $p \implies q$ for the conditional statement. 
-[small]#The conditional $p \rightarrow q$ can also be denoted by $p \Rightarrow q$ or $p \implies q.$ In addition, there are many other ways to express the conditional $p \rightarrow q$ in English, two of which are "_p_ only if _q_" and "_q_ if _p_".#
+[small]#The conditional $p \rightarrow q$ can also be denoted by $p \Rightarrow q$ or $p \implies q.$ In addition, there are many other ways to express the conditional $p \rightarrow q$ in English, two of which are “_p_ only if _q_” and “_q_ if _p_”.#
 
 //[.underline]#many# 
 
@@ -503,7 +526,7 @@ Let $p$ and $q$ be propositions. The *conditional statement* $p \rightarrow q$, 
 
 //MKD added 
 //* Implication CANNOT be considered evidence of a "cause-and-effect" relationship. For example, consider the implication "If $2 + 2 = 4$ then Shakespeare wrote the play _Hamlet_." This implication is True since both "$2 + 2 = 4$" and "Shakespeare wrote the play _Hamlet_" are True, but the arithmetic equation likely was neither cause nor inspiration for the writing of the play.
-* The conditional may or may not represent a "cause-and-effect" relationship. For example, the conditional "if Shakespeare wrote _Hamlet_ then $2 + 2 = 4$" is a True proposition because the conclusion "$2 + 2 = 4$" is True, but the arithmetic equation is not an effect that was caused by the authorship of _Hamlet_.
+* The conditional may or may not represent a “cause-and-effect” relationship. For example, the conditional “if Shakespeare wrote _Hamlet_ then $2 + 2 = 4$” is a True proposition because the conclusion “$2 + 2 = 4$” is True, but the arithmetic equation is not an effect that was caused by the authorship of _Hamlet_.
 ====
 
 //MKD
@@ -570,10 +593,11 @@ on <<Logically Equivalent Propositions>> we will discuss the bullet points in th
 //We illustrate these four propositions with an example.
 The next example illustrates these four propositions.
 
+
 ****
 .Example {counter:logicexample} - Conditional, Converse, Contrapositive and Inverse.
 
-.. Translate the statement "If the number of students in class is divisible by 4, then the number of students in class is divisible by 2" using a conditional.
+.. Translate the statement “If the number of students in class is divisible by 4, then the number of students in class is divisible by 2” using a conditional.
 
 .. Form and translate the converse, contrapositive, and inverse.
 
@@ -581,32 +605,38 @@ The next example illustrates these four propositions.
 
 .. Let
 +
-$p$ be the proposition "The number of students in class is divisible by 4."
+$p$ be the proposition “The number of students in class is divisible by 4.”
 +
-$q$ be the proposition "The number of students in class is divisible by 2."
+$q$ be the proposition “The number of students in class is divisible by 2.”
 +
-The conditional $p\rightarrow q$ translates as "If the number of students in class is divisible by 4, then the number of students in class is divisible by 2."
+The conditional $p\rightarrow q$ translates as “If the number of students in class is divisible by 4, then the number of students in class is divisible by 2.”
 
 .. The converse $q \rightarrow p$ may be translated as 
-"If the number of students in class is divisible by 2, then the number of students in class is divisible by 4."
+“If the number of students in class is divisible by 2, then the number of students in class is divisible by 4.”
 +
 The contrapositive $ \neg q \rightarrow \neg p$ may be translated as 
-"If the number of students in class is not divisible by 2, then the number of students in class is not divisible by 4."
+“If the number of students in class is not divisible by 2, then the number of students in class is not divisible by 4.”
 +
 The inverse $ \neg p \rightarrow \neg q$ may be translated as 
-"If the number of students in class is not divisible by 4, then the number of students in class is not divisible by 2."
+“If the number of students in class is not divisible by 4, then the number of students in class is not divisible by 2.”
 
-Notice that in this example, the conditional must be True, based on properties of factors of integers, but its converse could be False:  Consider the case where the number of students in class is equal to 26, so $p$ is False and $q$ is True, and $p\rightarrow q$ is True but $q\rightarrow p$ is False. This also shows, again, that the conditional need not represent a "cause-and-effect" relationship, since NOT being "divisible by 4" does not let us conclude anything about being "divisible by 2".
+Notice that in this example, the conditional must be True, based on properties of factors of integers, but its converse could be False:  Consider the case where the number of students in class is equal to 26, so $p$ is False and $q$ is True, and $p\rightarrow q$ is True but $q\rightarrow p$ is False. This also shows, again, that the conditional need not represent a “cause-and-effect” relationship, since 
+a number being NOT 
+//being 
+“divisible by 4” does not let you conclude anything about 
+that number 
+being “divisible by 2.”
 ****
+
 
 === Biconditional
 //=== Bi-Implication
-"It is raining outside *if and only if* it is a cloudy day."
+“It is raining outside *if and only if* it is a cloudy day.”
 
 //MKD
-//Let $p$ and $q$ be propositions. The *biconditional* of $p$ and $q$, denoted in mathematics by $p \leftrightarrow q$, is short hand for the statement "p if and only if q". As such, bi-implication requires $q$ to be True only when $p$ is True.  In other words, bi-implication fails (is False) when $p$ is True and $q$ is False or when $p$ is False and $q$ is True.
+//Let $p$ and $q$ be propositions. The *biconditional* of $p$ and $q$, denoted in mathematics by $p \leftrightarrow q$, is short hand for the statement “p if and only if q”. As such, bi-implication requires $q$ to be True only when $p$ is True.  In other words, bi-implication fails (is False) when $p$ is True and $q$ is False or when $p$ is False and $q$ is True.
 
-Let $p$ and $q$ be propositions. The *biconditional* $p \leftrightarrow q$, read as "_p_ if and only if _q_", is the proposition that is True when _p_ and _q_ have the _same_ truth value, and False otherwise. The biconditional is also called "the bi-implication". 
+Let $p$ and $q$ be propositions. The *biconditional* $p \leftrightarrow q$, read as “_p_ if and only if _q_”, is the proposition that is True when _p_ and _q_ have the _same_ truth value, and False otherwise. The biconditional is also called “the bi-implication”. 
 //Other books and sources may use $p \iff q$ for the biconditional statement.
 [small]#Note that $p \leftrightarrow q$ can also be denoted by $p \Leftrightarrow q$ or $p \iff q.$#
 
@@ -623,9 +653,11 @@ Let $p$ and $q$ be propositions. The *biconditional* $p \leftrightarrow q$, read
 //From the truth table it can be seen that the two propositions $p \leftrightarrow q$ and $q \leftrightarrow p$ always have the same truth value.
 You can use a truth table to show that two propositions $p \leftrightarrow q$ and $q \leftrightarrow p$ always have the same truth value.
 
+//“”
+
 [NOTE]
 ====
-The biconditional $p \leftrightarrow q$ is read as "_p_ if and only if _q_" because it has the same truth table as the conjunction of the two conditionals "_p_ if _q_" (that is, $q \rightarrow p$) and "_p_ only if _q_" (that is, $p \rightarrow q$).
+The biconditional $p \leftrightarrow q$ is read as “_p_ if and only if _q_” because it has the same truth table as the conjunction of the two conditionals “_p_ if _q_” (that is, $q \rightarrow p$) and “_p_ only if _q_” (that is, $p \rightarrow q$).
 ====
 
 //MKD
@@ -650,23 +682,26 @@ include::python_tutor.adoc[]
 //Bi-implication is True if the propositions have the same truth value and False otherwise.
 //====
 
-It is important to contrast the conditional with the biconditional.  Consider the conditional example "If you get a 100 on the final exam, then you earn an A in the class."  This means that when you get a 100 on the final you also get an A in the class. 
+It is important to contrast the conditional with the biconditional.  Consider the conditional example “If you get a 100 on the final exam, then you earn an A in the class.”  This means that when you get a 100 on the final you also get an A in the class. 
 //MKD: 
 The conditional represents a one-way contract: You earn an A in the class _if_ you get a 100 on the final exam. There is nothing said about the result (the grade you earn in the class) if you do NOT meet the condition (get a 100 on the final exam). 
 
-As a biconditional the example would say "You get a 100 on the final exam if and only if you earn an A in the class."  This becomes a two-way contract: You earn an A in the class if you get a 100 on the final, _but_ you do not earn an A in the class if you do not get a 100 on the final.
+As a biconditional the example would say “You get a 100 on the final exam if and only if you earn an A in the class.” This becomes a two-way contract: You earn an A in the class if you get a 100 on the final, 
+//_but_ 
+_and_ you do not earn an A in the class if you do not get a 100 on the final. 
 
 === Other Compound Propositions
 
 The negation, disjunction, conjunction, conditional, and biconditional are the most commonly-used logical operators for forming compound propostions and will be the ones used throughout the rest of this chapter. However, there are at least three others you should know about. 
 
+
 ==== Exclusive Disjunction
 //MKD: Mention other common notations for negation
 // also, can we use xor in the code instead of the (p and not q) or (q and not p)
 //"Take *either* 2 Advil *or* 2 Tylenol."
-"I took *either* 2 Advil *or* 2 Tylenol."
+“I took *either* 2 Advil *or* 2 Tylenol.”
 
-Let $p$ and $q$ be propositions.  The exclusive disjunction of $p$ and $q$ (also known as _xor_), denoted in mathematics by $p \oplus q$, is True when exactly one of $p$ and $q$ are True and False otherwise.
+Let $p$ and $q$ be propositions. The exclusive disjunction of $p$ and $q$ (also known as _xor_), denoted in mathematics by $p \oplus q$, is True when exactly one of $p$ and $q$ are True and False otherwise.
 
 [width=50%",align="center",options="header"]
 |====
@@ -720,12 +755,12 @@ The NAND and NOR operators correspond to two important digital logic gates used 
 //"A chimpanzee is *not both* an ape and a monkey."
 //	https://sciencenotes.org/is-tomato-a-fruit-difference-between-fruits-and-vegetables/
 //"A cherry is *not both* a fruit and a vegetable."
-"An link:https://en.wikipedia.org/wiki/Onion[onion] is *not both* a fruit and a vegetable."
+“An link:https://en.wikipedia.org/wiki/Onion[onion] is *not both* a fruit and a vegetable.”
 
 //Let $p$ and $q$ be propositions. The NAND of $p$ and $q$ is commonly denoted by $p \mid q$ and is False when both $p$ and $q$ are True and True otherwise. That is, the NAND is the negation of $p \land q.$ + 
-//[small]#In this context, the symbol $\mid$ is called the "Sheffer stroke." Other notations for NAND include $p{\overline {\land }}q$ and $p \uparrow q.$#
+//[small]#In this context, the symbol $\mid$ is called the “Sheffer stroke.” Other notations for NAND include $p{\overline {\land }}q$ and $p \uparrow q.$#
 // MKD changed notation 9/22/2024 to avoid clashing with bitwise OR notation used in section from original book
-Let $p$ and $q$ be propositions. In this textbook, the NAND of $p$ and $q$ is denoted by $p \uparrow q$ and is False when both $p$ and $q$ are True and is True otherwise. That is, the NAND is the negation of $p \land q$ - think of NAND as "Not AND." + 
+Let $p$ and $q$ be propositions. In this textbook, the NAND of $p$ and $q$ is denoted by $p \uparrow q$ and is False when both $p$ and $q$ are True and is True otherwise. That is, the NAND is the negation of $p \land q$ - think of NAND as “Not AND.” + 
 // and," this is $\neg (p \land q).$
 //The term "NAND" can be thought of "not and." 
 
@@ -745,17 +780,16 @@ Notice that the two propositions $p \uparrow q$ and $q \uparrow p$ always have t
 
 
 
-
 ===== NOR 
 
 // MKD Feb 5 2025 made relatively minor edits
 
 //"This pen is *neither* black *nor* blue."
-"This pen's ink is *neither* red *nor* blue."
+“This pen's ink is *neither* red *nor* blue.”
 
-//Let $p$ and $q$ be propositions. The NOR of $p$ and $q$ is commonly denoted by $p \downarrow q$ and is True when both $p$ and $q$ are False and False otherwise. The NOR is also referred to as "joint denial" since it is True exactly when neither $p$ nor $q$ is True. That is, the NOR is the negation of $p \lor q$ - think of NOR as "Not OR." + 
+//Let $p$ and $q$ be propositions. The NOR of $p$ and $q$ is commonly denoted by $p \downarrow q$ and is True when both $p$ and $q$ are False and False otherwise. The NOR is also referred to as “joint denial” since it is True exactly when neither $p$ nor $q$ is True. That is, the NOR is the negation of $p \lor q$ - think of NOR as “Not OR.“” + 
 //[small]#In this context, the symbol $\downarrow$ is called the "Peirce arrow." Another common notation for NOR is $p{\overline {\lor }}q.$#
-Let $p$ and $q$ be propositions. In this textbook, the NOR of $p$ and $q$ is denoted by $p \downarrow q$ and is True when both of $p$ and $q$ are False and is False otherwise. The NOR is also referred to as "joint denial" since it is True exactly when neither $p$ nor $q$ is True. That is, the NOR is the negation of $p \lor q.$
+Let $p$ and $q$ be propositions. In this textbook, the NOR of $p$ and $q$ is denoted by $p \downarrow q$ and is True when both of $p$ and $q$ are False and is False otherwise. The NOR is also referred to as “joint denial” since it is True exactly when neither $p$ nor $q$ is True. That is, the NOR is the negation of $p \lor q.$
 [width=50%",align="center",options="header"]
 |====
 | $p$ | $q$ | $p \downarrow q$
@@ -784,7 +818,7 @@ Here is a recursive definition of wff:
 * A propositional variable is a well-formed formula.
 // T and F are formulas.
 
-* If $\alpha$ ("alpha") and $\beta$ ("beta") are well-formed formulas, then the following are also well-formed formulas: 
+* If $\alpha$ (“alpha”) and $\beta$ (“beta”) are well-formed formulas, then the following are also well-formed formulas: 
 ** $\left( \neg \alpha \right)$ 
 ** $\left( \alpha \land \beta \right)$ 
 ** $\left( \alpha \lor \beta \right)$ 
@@ -894,7 +928,6 @@ It should have 8 rows - since there are three simple propositions and each one h
 ****
 
 //MKD moved *Logical Translations* from here up to just after Sarah and Daniel
-
 
 
 //== Proposition Equivalences
@@ -1352,26 +1385,34 @@ include::python_tutor.adoc[]
 
 // MKD also point out the "for all" and "there exist" can create propositions from predicates
 
+
+//“”
+
+
 === Quantifiers
 Consider the statements
 
-*  For all integers $x$, $x^2\geq 0$.
+// MKD Feb 23 2026 replaced first bullet with ID number one
+//*  For all integers $x$, $x^2\geq 0$.
+*  Every student in the class was assigned an ID number.
 *  Some student in the class has a birthday in July.
 
-Each of these statements considers a proposition over an entire population or set, called the *domain,* and  
-// MKD Feb 13 2025
+//Each of these statements considers a proposition over an entire population or set, called the *domain* or the *universe,* and  
+// MKD Feb 23 2026 
+Each of these statements is a proposition formed by considering the possible interpretations of variables of a predicate over a population or set, called the *domain* or the *universe.*  
+// MKD Feb 13 2025 and Feb 23 2026
 //quantifies how many elements (or people) 
-describes whether at least one element, or all of the elements 
-in the 
-//set 
-domain 
-satisfy the proposition. 
+One proposition describes whether _all_ the elements 
+in the domain satisfy a first predicate, and  
+and the other proposition describes whether _at least one_ element 
+in the domain satisfies a second predicate. + 
+[small]#The domain is also called the *domain of discourse* or *universe of discourse.*#
 //To represent this idea, we use 
-There are two 
-//main 
-commonly-used 
-quantifiers, the *universal quantifier* and the *existential quantifier*. + 
-[small]#The domain is also called the *domain of discourse* or the *universe of discourse.*#
+
+
+There are two commonly-used 
+symbols for 
+quantifiers, the *universal quantifier* and the *existential quantifier* symbols. + 
 
 The *Universal Quantifier,* $\forall,$ represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true _for all values_ in the domain.
 
@@ -1384,11 +1425,11 @@ The *Universal Quantifier,* $\forall,$ represents the statement "for all", "for 
 Universal Quantifier $\forall x, x + 1 \gt x$
 --
 --
-Let $P(x)$ be the statement $x + 1 \gt x$.  Is this true for all integers x?
+Let $P(x)$ be the statement $x + 1 \gt x$.  Is this true for _all_ integers x in the set $\{ -2, -1, 0, 1, 2 \}$?
 
 include::python_tutor.adoc[]
 
-NOTE: We use the example domain [-2, -1, 0, 1, 2] because code can not check all integers.
+NOTE: We cannot check for _all_ integers using code, so instead used the example domain $\{ -2, -1, 0, 1, 2 \}$.
 ****
 
 :pt_code_height: 450
@@ -1401,7 +1442,7 @@ NOTE: We use the example domain [-2, -1, 0, 1, 2] because code can not check all
 Universal Quantifier $\forall x, x + x \gt x$
 --
 --
-Let $P(x)$ be the statement $x + x \gt x$.  Is this true for all integers x?
+Let $P(x)$ be the statement $x + x \gt x$.  Is this true for all integers x in $\{ -2, -1, 0, 1, 2 \}$?
 
 include::python_tutor.adoc[]
 ****
@@ -1435,34 +1476,51 @@ include::python_tutor.adoc[]
 Existential Quantifier $\exists x, x^3 = 4$
 --
 --
-Let $P(x)$ be the statement $x^3 = 4$.  Is this true for at least one integer x?
+Let $P(x)$ be the statement $x^3 = 4$.  Is this true for at least one integer $x$?
 
 include::python_tutor.adoc[]
 
-NOTE: Again, we use the example domain [-2, -1, 0, 1, 2] because code can not check all integers.
+NOTE: Again, we use the example domain $\{ -2, -1, 0, 1, 2 \}$ because code can not check all integers.
 //MKD: Alter above to lay "intellectual need" for mathematical induction
 
 ****
 
 Recall the previous example statements:
 
+// MKD Feb 23 2026 
+////
 * For all integers $x$, $x^2 \geq 0$.
 
 Let $P(x)$ be the predicate "$x^2 \geq 0$".  Then we write the statement as $\forall x P(x)$, where the domain is the set of all integers.  This quantified statement will be true since anytime you square a nonzero integer it is positive and $0^2=0$.
+////
+// MKD Feb 23 2026 
+
+* Every student in the class was assigned an ID number. 
+
+Let $P(x)$ be the predicate "student $x$ was assigned an ID number".  
+You can write the bulleted statement as $\forall x P(x)$, where the domain is the set of all students in the class. 
+The quantified statement will be True as long as _every_ student in the class was assigned an ID number. It will be False, otherwise.
 
 * Some student in the class has a birthday in July.
 
-Let $Q(s)$ be the predicate "student $s$ has a birthday in July".  Then we write the statement as $\exists s Q(s)$, where the domain is the set of all students in the class. This statement will be true as long as at least one student in the class has a birthday in July.  It will be false, otherwise.
+Let $Q(s)$ be the predicate "student $s$ has a birthday in July". 
+You can write the bulleted statement as $\exists s Q(s)$, where the domain is the set of all students in the class. 
+The quantified statement will be True as long as _at least one_ student in the class has a birthday in July. It will be False, otherwise.
 
 
 === Negation of Quantifiers
-It is important to consider the negation of a quantified expression.
+It is important to consider 
+how to find 
+the negation of a quantified expression. 
+
+// MKD Feb 23 2026 
+What is the negation of the following proposition? 
 
 * "Every student in this class has taken Programming Fundamentals."
 
 This is a universally quantified statement and can be expressed as $\forall x P(x)$ where $P(x)$ is the statement "$x$ has taken Programming Fundamentals" and the domain consists of all the students in this class.  The negation of the statement would be "It is not true that every student in this  has taken Programming Fundamentals."  Equivalently,
 
-* "There is a student in this class who has NOT taken Programming Fundamentals."
+* "There is a student in this class who has not taken Programming Fundamentals."
 
 This is an existentially quantified statement expressed as $\exists x \neg P(x)$.
 
