@@ -631,25 +631,19 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on October 6, 2025
+        This chapter was last updated on March 2, 2026
        </em>
        <br/>
        <em>
-        Revised example of valid and invalid arguments. Introduced new example using rules of inference with predicates.
+        inserted Python code for a “proof by cases” example
        </em>
        <br/>
-       <em>
-        Moved explanation of converse error using Euler diagrams to later in the chapter.
-       </em>
+       _inserted “proof by picture” just or fun!
        <br/>
-       <em>
-        Revised example 4.
-       </em>
-       <br/>
-       <em>
-        Made minor wording changes and fixed typos.
-       </em>
-       <br/>
+      </p>
+     </div>
+     <div class="paragraph">
+      <p>
        <em>
         NOTE: Statement that universal generalization is used in proofs by mathematical induction has been removed.
        </em>
@@ -2978,6 +2972,77 @@ must be True no matter what value the integer \(n\) has, this shows that the sta
          </div>
         </div>
        </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_proof_by_picture_section_in_progress">
+        6.4.6. “Proof By Picture”
+        <mark>
+         SECTION IN PROGRESS
+        </mark>
+       </h4>
+       <div class="imageblock right text-center">
+        <div class="content">
+         <img alt="TriangularProofByPicture" height="210" src="imagesMKD/TriangularProofByPicture.png" width="128"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         A commonly-used technique that is not considered rigorous by many mathematicians involves drawing a picture that suggests that a proposition is True. For example, the image suggests that for every natural number \(n,\)  the \(n\)th triangular number \(T_{n}\), defined to be the sum of all natural numbers that are less than of equal to \(n,\) is equal to \(\frac{1}{2}n(n+1).\) Notice that the picture only proves one case, that \(T_{4} = 0 + 1 + 2 + 3 + 4 = \frac{1}{2}(4)(5)\) but that it seems that we should be able to produce a  picture like this for any \(n\) we want. A more rigorous argument can be made using the
+         <a href="./induction.html">
+          mathematical induction
+         </a>
+         proof technique that is discussed later in the textbook.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_application_validating_code">
+       6.5. Application: Validating Code
+      </h3>
+      <div class="paragraph">
+       <p>
+        As an application of the
+proof techniques, consider the following code.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example 6 - Code validation
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Does the function
+          <em>
+           minimumOfThree
+          </em>
+          actually return the minimum of the three input numbers?
+         </p>
+        </div>
+        <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=def%20minimumOfThree%28a,b,c%29%3A%0A%20%20%20%20if%20a%20%3C%20b%3A%0A%20%20%20%20%20%20%20%20if%20a%20%3C%20c%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20a%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20if%20b%20%3C%20c%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20b%0A%20%20%20%20return%20c%0A%20%20%20%20%0Aprint%28%20minimumOfThree%285,%203,%202%29%20%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20minimumOfThree%28a,b,c%29%3A%0A%20%20%20%20if%20a%20%3C%20b%3A%0A%20%20%20%20%20%20%20%20if%20a%20%3C%20c%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20a%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20if%20b%20%3C%20c%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20b%0A%20%20%20%20return%20c%0A%20%20%20%20%0Aprint%28%20minimumOfThree%285,%203,%202%29%20%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that in the example above, you could either
+(1) use logic and the “proof by cases” technique to make an argument that
+        <em>
+         minimumOfThree
+        </em>
+        must work as its name indicates, or
+(2) use “proof by cases” thinking to create different test cases for the values assigned to the three variables \(a,\) \(b,\) and \(c,\) then evaluate the function at those test cases to try to validate that the function work as its name indicates.
+       </p>
       </div>
      </div>
     </div>

@@ -87,6 +87,13 @@ then revised to contrast reals and integers
 
 //MKD start of actual content 
 
+
+// MKD Feb 28 2026 - need to expand this example
+// 	two different algorithms (Python functions) that appear to 
+//	generate the same input-output pairs... 
+//	a mathematician would say that these are the SAME function 
+//	because they have the same domain, codomain, and graph. 
+//https://pythontutor.com/visualize.html#code=%23def%20squareMe%28n%29%3A%0Adef%20triangularNumber%28n%29%3A%0A%20%20%20%20%23if%20type%28n%29%20is%20not%20int%3A%20%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%3A%0A%20%20%20%20%20%20%20%20raise%20TypeError%28%22Expected%20int,%20got%20%22%2B%20str%28type%28n%29.__name__%29%20%29%0A%20%20%20%20if%20n%20%3C%200%3A%20%0A%20%20%20%20%20%20%20%20raise%20ValueError%28%22Expected%20positive%20int,%20got%20%22%2B%20str%28n%29%20%29%0A%20%20%20%20return%20n*%28n%2B1%29//2%20%23%20//%20gives%20int,%20but%20/%20gives%20float%0A%20%20%20%20%0Adef%20sumTheFirstFewNaturalNumbers%28n%29%3A%0A%20%20%20%20%23if%20type%28n%29%20is%20not%20int%3A%20%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%3A%0A%20%20%20%20%20%20%20%20raise%20TypeError%28%22Expected%20int,%20got%20%22%2B%20str%28type%28n%29.__name__%29%20%29%0A%20%20%20%20if%20n%20%3C%200%3A%20%0A%20%20%20%20%20%20%20%20raise%20ValueError%28%22Expected%20positive%20int,%20got%20%22%2B%20str%28n%29%20%29%0A%20%20%20%20i%3D0%0A%20%20%20%20s%20%3D%200%0A%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20s%20%3D%20s%20%2B%20i%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20return%20s%0A%20%20%20%20%0A%23squareMe%284%29%0A%23squareMe%28-1%29%0A%23squareMe%28%22-1%22%29%0Acounter%20%3D%200%0Awhile%20counter%20%3C%2010%3A%0A%20%20%20%20print%28triangularNumber%28counter%29,%20sumTheFirstFewNaturalNumbers%28counter%29%29%0A%20%20%20%20counter%20%2B%3D%201&cumulative=false&curInstr=329&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
 // MKD added following two paragraphs
 //function as a rule that assigns to each input exactly one output
 // March 6 2025 - more rewording

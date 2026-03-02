@@ -7,11 +7,15 @@
 
 include::LinkToPublic.adoc[] 
 
-_This chapter was last updated on October 6, 2025_ + 
+_This chapter was last updated on March 2, 2026_ + 
+_inserted Python code for a “proof by cases” example_ + 
+_inserted “proof by picture” just or fun! + 
+//// 
 _Revised example of valid and invalid arguments. Introduced new example using rules of inference with predicates._ + 
 _Moved explanation of converse error using Euler diagrams to later in the chapter._ + 
 _Revised example 4._ +
 _Made minor wording changes and fixed typos._ + 
+//// 
 _NOTE: Statement that universal generalization is used in proofs by mathematical induction has been removed._ + 
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
@@ -1185,6 +1189,54 @@ Q.E.D.
 
 ****
 
+=== “Proof By Picture” #SECTION IN PROGRESS#
+
+
+//image::imagesMKD/TriangularProofByPicture.png[TriangularProofByPicture,513,841,float="right",align="center"] 
+image::imagesMKD/TriangularProofByPicture.png[TriangularProofByPicture,128,210,float="right",align="center"] 
+
+A commonly-used technique that is not considered rigorous by many mathematicians involves drawing a picture that suggests that a proposition is True. For example, the image suggests that for every natural number $n,$  the $n$th triangular number $T_{n}$, defined to be the sum of all natural numbers that are less than of equal to $n,$ is equal to $\frac{1}{2}n(n+1).$ Notice that the picture only proves one case, that $T_{4} = 0 + 1 + 2 + 3 + 4 = \frac{1}{2}(4)(5)$ but that it seems that we should be able to produce a  picture like this for any $n$ we want. A more rigorous argument can be made using the link:./induction.html[mathematical induction] proof technique that is discussed later in the textbook.
+
+
+
+//==== Application: Validating Code 
+== Application: Validating Code 
+
+// MKD March 1 2026 - code sample
+// version 1 - do not use 
+//https://pythontutor.com/visualize.html#code=def%20theSmallest%28a,b,c%29%3A%0A%20%20%20%20if%20a%20%3C%20b%3A%0A%20%20%20%20%20%20%20%20if%20a%20%3C%20c%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20a%0A%20%20%20%20%20%20%20%20%23else%3A%0A%20%20%20%20%20%20%20%20%23%20%20%20%20return%20c%0A%20%20%20%20else%3A%20%23%20b%20%3C%3D%20a%0A%20%20%20%20%20%20%20%20if%20b%20%3C%20c%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20b%0A%20%20%20%20return%20c%0A%20%20%20%20%0Aprint%28%20theSmallest%285,%203,%202%29%20%29&cumulative=false&curInstr=6&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+// version 2 
+//https://pythontutor.com/visualize.html#code=def%20theSmallest%28a,b,c%29%3A%0A%20%20%20%20if%20a%20%3C%20b%3A%0A%20%20%20%20%20%20%20%20if%20a%20%3C%20c%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20a%0A%20%20%20%20elif%20b%20%3C%20c%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20b%0A%20%20%20%20return%20c%0A%20%20%20%20%0Aprint%28%20theSmallest%285,%203,%202%29%20%29&cumulative=false&curInstr=7&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+// Example should ask "Explain why theSmallest will return the least value of the numbers a, b, and c." 
+//version 3 - use this one 
+//https://pythontutor.com/visualize.html#code=def%20minimumOfThree%28a,b,c%29%3A%0A%20%20%20%20if%20a%20%3C%20b%3A%0A%20%20%20%20%20%20%20%20if%20a%20%3C%20c%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20a%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20if%20b%20%3C%20c%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20b%0A%20%20%20%20return%20c%0A%20%20%20%20%0Aprint%28%20minimumOfThree%285,%203,%202%29%20%29&cumulative=false&curInstr=7&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false
+
+
+:pt_code_height: 450 
+:pt_rawinput: false
+:pt_code: def%20minimumOfThree%28a,b,c%29%3A%0A%20%20%20%20if%20a%20%3C%20b%3A%0A%20%20%20%20%20%20%20%20if%20a%20%3C%20c%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20a%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20if%20b%20%3C%20c%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20b%0A%20%20%20%20return%20c%0A%20%20%20%20%0Aprint%28%20minimumOfThree%285,%203,%202%29%20%29
+
+
+As an application of the 
+// “proof by cases” 
+proof techniques, consider the following code. 
+
+****
+.Example {counter:proofexample} - Code validation
+--
+--
+
+Does the function _minimumOfThree_ actually return the minimum of the three input numbers?
+
+include::python_tutor.adoc[]
+
+****
+
+//You can use the _Next_ button to step through the code. 
+
+Notice that in the example above, you could either 
+(1) use logic and the “proof by cases” technique to make an argument that _minimumOfThree_ must work as its name indicates, or 
+(2) use “proof by cases” thinking to create different test cases for the values assigned to the three variables $a,$ $b,$ and $c,$ then evaluate the function at those test cases to try to validate that the function work as its name indicates.
 
 
 // \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{ \frac{n}{k} } - 1 \right) \leq  \] 
