@@ -5,8 +5,9 @@
 
 include::LinkToPublic.adoc[] 
 
-_This chapter was last updated on March 11, 2025._ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+_This chapter was last updated on March 9, 2026._ + 
+_Inserted example of three Python implementations of one mathematical function_
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 // MKD start of topics
 ////
