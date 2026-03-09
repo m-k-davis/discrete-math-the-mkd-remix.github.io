@@ -7,9 +7,10 @@
 
 include::LinkToPublic.adoc[] 
 
-_This chapter was last updated on March 2, 2026_ + 
+_This chapter was last updated on March 4, 2026_ + 
+_fixed some typos_ + 
 _inserted Python code for a “proof by cases” example_ + 
-_inserted “proof by picture” just or fun! + 
+_inserted “proof by picture” just or fun!_ + 
 //// 
 _Revised example of valid and invalid arguments. Introduced new example using rules of inference with predicates._ + 
 _Moved explanation of converse error using Euler diagrams to later in the chapter._ + 
@@ -1236,7 +1237,7 @@ include::python_tutor.adoc[]
 
 Notice that in the example above, you could either 
 (1) use logic and the “proof by cases” technique to make an argument that _minimumOfThree_ must work as its name indicates, or 
-(2) use “proof by cases” thinking to create different test cases for the values assigned to the three variables $a,$ $b,$ and $c,$ then evaluate the function at those test cases to try to validate that the function work as its name indicates.
+(2) use “proof by cases” thinking to create different test cases for the values assigned to the three variables $a,$ $b,$ and $c,$ then evaluate the function at those test cases to try to validate that the function works as its name indicates.
 
 
 // \[ c_1 + c_2 + \cdots + c_n \leq k \left( \displaystyle{ \frac{n}{k} } - 1 \right) \leq  \] 

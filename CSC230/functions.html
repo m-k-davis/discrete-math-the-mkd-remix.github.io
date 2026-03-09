@@ -1234,6 +1234,59 @@ have the same graph and the same domain.
         </div>
        </div>
       </div>
+      <div class="paragraph">
+       <p>
+        Also, notice that the formal definition does not take into account how a function computes an output.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example 3 -  The formal definition cares only about
+          <em>
+           WHAT
+          </em>
+          output an input is mapped to, not
+          <em>
+           HOW
+          </em>
+          the output is determined…
+         </div>
+         <p>
+          Consider the three user-defined Python functions
+shown in the code sample.
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20S%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20i%20%3D%200%0A%20%20%20%20%20%20%20%20sum%20%3D%200%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%20%28n%2B1%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20%20%20%20%20return%20sum//2%20%23%20//%20gives%20int%20result,%20not%20float%0A%20%20%20%20%0Adef%20T%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20i%3D0%0A%20%20%20%20%20%20%20%20sum%20%3D%200%0A%20%20%20%20%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20%20%20%20%20return%20sum%0A%20%20%20%20%0Adef%20U%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20return%20n*%28n%2B1%29//2%20%23%20//%20gives%20int,%20but%20/%20gives%20float%0A%20%20%20%20%0Acounter%20%3D%200%0Awhile%20counter%20%3C%2010%3A%0A%20%20%20%20print%28counter,%20S%28counter%29,%20T%28counter%29,%20U%28counter%29%29%0A%20%20%20%20counter%20%2B%3D%201&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20S%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20i%20%3D%200%0A%20%20%20%20%20%20%20%20sum%20%3D%200%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%20%28n%2B1%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20%20%20%20%20return%20sum//2%20%23%20//%20gives%20int%20result,%20not%20float%0A%20%20%20%20%0Adef%20T%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20i%3D0%0A%20%20%20%20%20%20%20%20sum%20%3D%200%0A%20%20%20%20%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20%20%20%20%20return%20sum%0A%20%20%20%20%0Adef%20U%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20return%20n*%28n%2B1%29//2%20%23%20//%20gives%20int,%20but%20/%20gives%20float%0A%20%20%20%20%0Acounter%20%3D%200%0Awhile%20counter%20%3C%2010%3A%0A%20%20%20%20print%28counter,%20S%28counter%29,%20T%28counter%29,%20U%28counter%29%29%0A%20%20%20%20counter%20%2B%3D%201&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+        <div class="paragraph">
+         <p>
+          To step through the code, click on the "Next" button.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          According to the formal definition,
+these three user-defined functions are just different implementations of the
+          <em>
+           same mathematical function
+          </em>
+          because the domains, codomains, and graphs
+are the same, even though each Python function uses a different
+          <em>
+           algorithm
+          </em>
+          to compute its output values.
+         </p>
+        </div>
+       </div>
+      </div>
      </div>
      <div class="sect2">
       <h3 id="_properties_of_functions">
@@ -1271,7 +1324,7 @@ Using the contrapositive, this can be stated as: For all \(a_1\) and \(a_2\) in 
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 3 - Injective Functions
+           Example 4 - Injective Functions
           </div>
           <p>
            Consider the functions
@@ -1333,7 +1386,7 @@ Using the contrapositive, this can be stated as: For all \(a_1\) and \(a_2\) in 
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 4 - Surjective Functions
+           Example 5 - Surjective Functions
           </div>
           <p>
            Consider the functions
@@ -1397,7 +1450,7 @@ Using the contrapositive, this can be stated as: For all \(a_1\) and \(a_2\) in 
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 5 - Verifying a function is bijective
+           Example 6 - Verifying a function is bijective
           </div>
           <p>
            Verify that the function \(f\left(x\right)=3x+5\), from \(f:R\rightarrow R\), is bijective.
@@ -1614,7 +1667,7 @@ have the same domain \(A\) and same codomain \(\mathbb{R},\) then you can combin
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 6
+          Example 7
          </div>
          <p>
           Consider \(f\left(x\right)=x^2+1\) and \(g\left(x\right)=\sqrt x\) defined on \(f,\ g: \mathbb{R}_{\geq0} \rightarrow \mathbb{R}\).
@@ -1685,7 +1738,7 @@ provided \(x\ \in\ A\) and \(g\left(x\right)\in B\).
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 7
+          Example 8
          </div>
          <p>
           Consider \(f\left(x\right)=\frac{1}{x}\) and \(g\left(x\right)=2x-3\),
@@ -1719,7 +1772,7 @@ needs to be in the domain of \(g\left(x\right)\), or \(f\left(x\right)\) can be 
        <div class="content">
         <div class="paragraph">
          <div class="title">
-          Example 8 - composing inverse functions
+          Example 9 - composing inverse functions
          </div>
          <p>
           Consider \(f\left(x\right)=x^3+1\) and  \$g(x) =root(3)(x-1)\$
@@ -1828,7 +1881,7 @@ We have shown explicitly that \(\left(g\circ f\right)\left(x\right)=x\).
         <div class="content">
          <div class="paragraph">
           <div class="title">
-           Example 9 - finding an inverse
+           Example 10 - finding an inverse
           </div>
           <p>
            Find the inverse \(g\left(x\right)\) of  the bijective function

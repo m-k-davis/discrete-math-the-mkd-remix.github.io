@@ -998,6 +998,10 @@ include::python_tutor.adoc[]
 
 //MKD added material on satisfiable and unsatisfiable
 
+// MKD note Mar 4 2026 
+// Is this Jan Łukasiewicz's tautology?
+// $((p \rightarrow q) \rightarrow p) \rightarrow p$
+
 
 A proposition is a *tautology* if its truth value is _always_ True. 
 That is, a tautology is True for every possible interpretation of its propositional variables.

@@ -7,8 +7,9 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on April 14, 2025._ + 
-[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
+_This chapter was last updated on March 7, 2026._ + 
+_inserted "Check Your Understanding" for floor and ceiling functions._
+//[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
 
 // MKD see https://en.wikipedia.org/wiki/Big_O_notation#Matters_of_notation
@@ -272,6 +273,18 @@ Computer scientists have traditionally written this relation as $f(x) = \Theta(g
 I believe that both mathematicians and computer scientists agree that [line-through]#Θ(_g_(_x_)) = _f_(_x_)# is just too hideous a notation to use... so please do not ever, ever use it!
 
 //®(f(n)) denotes the set of all g(n) such that there exist positive constants C, C' , and nO with Cf(n) < g(n) < C'f(n) for all n ~ nO 
+
+
+// MKD Mar 7 2026 
+****
+.Check Your Understanding 
+
+Explain why each of the functions $\lfloor x \rfloor$ and $\lceil x \rceil$ is $\Theta(x).$ 
+
+//(Recall that the floor and ceiling functions are described link:./introduction_discrete_math.html#informal_floor_and_ceiling_definition[here.])  
+
+****
+
 
 
 

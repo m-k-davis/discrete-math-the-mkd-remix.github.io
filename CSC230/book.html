@@ -8937,9 +8937,10 @@ Determine the true value of the  following, an explain your reasoning.</p>
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on March 2, 2026</em><br>
+<p><em>This chapter was last updated on March 4, 2026</em><br>
+<em>fixed some typos</em><br>
 <em>inserted Python code for a “proof by cases” example</em><br>
-_inserted “proof by picture” just or fun!<br></p>
+<em>inserted “proof by picture” just or fun!</em><br></p>
 </div>
 <div class="paragraph">
 <p><em>NOTE: Statement that universal generalization is used in proofs by mathematical induction has been removed.</em><br></p>
@@ -10228,7 +10229,7 @@ proof techniques, consider the following code.</p>
 <div class="paragraph">
 <p>Notice that in the example above, you could either
 (1) use logic and the “proof by cases” technique to make an argument that <em>minimumOfThree</em> must work as its name indicates, or
-(2) use “proof by cases” thinking to create different test cases for the values assigned to the three variables \(a,\) \(b,\) and \(c,\) then evaluate the function at those test cases to try to validate that the function work as its name indicates.</p>
+(2) use “proof by cases” thinking to create different test cases for the values assigned to the three variables \(a,\) \(b,\) and \(c,\) then evaluate the function at those test cases to try to validate that the function works as its name indicates.</p>
 </div>
 </div>
 </div>
@@ -10243,7 +10244,9 @@ proof techniques, consider the following code.</p>
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on October 12, 2025.</em><br>
+<p><em>This chapter was last updated on March 9, 2026.</em><br>
+<em>Inserted new content (triangular numbers)</em><br>
+<em>Edited content about the Fibonacci numbers.</em><br>
 <em>Edited definition of recursively-defined function.</em><br>
 <em>Added material to the section about the Towers Of Hanoi.</em><br></p>
 </div>
@@ -10252,7 +10255,8 @@ proof techniques, consider the following code.</p>
 ordered
 lists of objects indexed by some or all of the natural numbers. The indexed objects
 in the list
-are called the <strong>terms</strong> of the sequence and may be any kind of object - numbers, sets, functions, strings, steps of a proof, steps of an algorithm, etc.</p>
+are called the <strong>terms</strong> of the sequence and may be any kind of object:
+Numbers, sets, functions, strings, steps of a proof, steps of an algorithm, etc.</p>
 </div>
 <div class="paragraph">
 <p><strong>Recursion</strong> is a process that you can use to define an object, compute a value, or describe the construction of an object or set of objects, by using a sequence of steps where each step after the initial step refers to one or more previously completed steps.</p>
@@ -10312,8 +10316,8 @@ are called the <strong>terms</strong> of the sequence and may be any kind of obj
 <div class="sect2">
 <h3 id="_sequences">7.1. Sequences</h3>
 <div class="paragraph">
-<p>A <strong>sequence</strong> is a function \(s\) from a nonempty subset of the natural numbers \(\mathbb{N} = \{ 0, 1, 2, 3 \ldots \}\) to a set \(C.\) That is, the domain of the sequence is some set of nonnegative integers, and the codomain can be any set. Each "input" value of \(n\) in the domain is called an <strong>index.</strong>
-The "outputs" of the sequence are called the <strong>terms</strong> of the sequence, and are usually denoted by \(s_{n},\) which
+<p>A <strong>sequence</strong> is a function \(s\) from a nonempty subset of the natural numbers \(\mathbb{N} = \{ 0, 1, 2, 3 \ldots \}\) to a set \(C.\) That is, the domain of the sequence is some set of nonnegative integers, and the codomain can be any set. Each “input” value of \(n\) in the domain is called an <strong>index.</strong>
+The “outputs” of the sequence are called the <strong>terms</strong> of the sequence, and are usually denoted by \(s_{n},\) which
 is usually
 used instead of the
 function notation \(s(n),\) but the meaning is the same: The output value that corresponds to the input \(n.\)</p>
@@ -10351,6 +10355,8 @@ You may have seen some of these
 sequences
 in your previous mathematics experience but others may be new to you.</p>
 </div>
+<div class="sect4">
+<h5 id="_arithmetic_sequences">Arithmetic Sequences</h5>
 <div class="paragraph">
 <p>An <strong>arithmetic sequence</strong> is a sequence of numbers generated by a linear expression.</p>
 </div>
@@ -10401,6 +10407,9 @@ recurrence relation
 </div>
 </div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_geometric_sequences">Geometric Sequences</h5>
 <div class="paragraph">
 <p>A <strong>geometric sequence</strong> is a sequence of numbers generated by an exponential expression.</p>
 </div>
@@ -10451,46 +10460,61 @@ recurrence relation
 </div>
 </div>
 </div>
-<div id="definition_of_factorial" class="paragraph">
-<p>The <strong>factorial</strong> is usually defined using a recurrence relation,
-but with its own notation that does not use a subscript for the index.</p>
+</div>
+<div class="sect4">
+<h5 id="_the_triangular_numbers">The Triangular Numbers</h5>
+<div id="definition_of_triangular_numbers" class="imageblock right text-center">
+<div class="content">
+<img src="imagesMKD/4th_triangular_number.png" alt="4th_triangular_number" width="124" height="111">
+</div>
+</div>
+<div class="paragraph">
+<p>The sequence of <strong>triangular numbers</strong> is defined as \[0, \, 0+1, \,  0+1+2, \,  0+1+2+3, \,  0+1+2+3+4, \,  \ldots .\]
+That is, the \(n\)th triangular number \(T_{n}\) is defined to be the sum of all the natural numbers that are less than or equal to \(n.\)</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 3 - The Factorial Function</div>
-<p>The factorial of a natural number can be treated as a term of a sequence, called the <strong>factorial function.</strong> The commonly-used notation for a term of this sequence is \(n!\) and the sequence is defined as \[n! = n \cdot (n-1) \cdots 2 \cdot 1\] with \(1! = 1\) and \(0! = 1.\)</p>
+<div class="title">Example 3 - The Triangular Numbers</div>
+<p>The sequence of triangular numbers is defined for al natural numbers \(n\) by the equation \[T_{n} = 0 + 1 \cdots + (n-1) + n\]<br>
+or, using <a href=./introduction_discrete_math.html#informal_summation_notation_definition>summation notation,</a> \[T_{n} = \sum\limits_{i=0}^{n}i\]<br></p>
 </div>
 <div class="paragraph">
-<p>Notice that the factorial can be defined a bit more precisely by using the recurrence relation \[0!=1 \text{ and } n!=n\cdot (n-1)! \text{ for } n \in \mathbb{N}_{&gt;0}.\] So the first few values of the factorial are</p>
+<p>Notice that this sequence can be defined recursively using a recurrence relation: \[T_{0} = 0 \text{ and } T_{n} = T_{n-1} + n \text{ for } n \in \mathbb{N}_{&gt;0}.\] The first five triangular numbers are</p>
 </div>
 <div class="paragraph">
-<p>\(0!=1\)</p>
+<p>\(T_{0} = 0\)</p>
 </div>
 <div class="paragraph">
-<p>\(1!=1\cdot (1-1)!=1\cdot1=1\)</p>
+<p>\(T_{1} = T_{0} + 1 = 1\)</p>
 </div>
 <div class="paragraph">
-<p>\(2!=2\cdot (2-1)!=2\cdot1=2\)</p>
+<p>\(T_{2} = T_{1} + 2 = 3\)</p>
 </div>
 <div class="paragraph">
-<p>\(3!=3\cdot (3-1)!=3\cdot2=6\)</p>
+<p>\(T_{3} = T_{2} + 3 = 6\)</p>
 </div>
 <div class="paragraph">
-<p>\(4!=4\cdot (4-1)!=4\cdot6=24\)</p>
+<p>\(T_{4} = T_{3} + 4 = 10\)</p>
 </div>
 </div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_the_fibonacci_numbers">The Fibonacci Numbers</h5>
 <div id="definition_of_fibonacci_numbers" class="paragraph">
-<p>The next sequence is the very famous <strong>Fibonacci numbers,</strong> named for the Italian mathematician Fibonacci who was also known as Leonardo of Pisa. However, this sequence and its properties were known and discussed by Indian poets and mathematicians such as
+<p>The next sequence is the very famous <strong>Fibonacci numbers,</strong> named for the Italian mathematician Leonardo of Pisa who was also known as Fibonacci.
+However, this sequence of numbers and its properties were known and discussed by Indian poets and mathematicians such as
 <a href=https://en.wikipedia.org/wiki/Fibonacci_sequence#History>
 Pingala,</a> <a href=https://www.sciencedirect.com/science/article/pii/0315086085900217>
 Virahanka,</a>
 and
 <a href=https://www.tandfonline.com/doi/abs/10.1080/10724117.2008.11974752>
-Hemachandra</a>
-before Fibonacci was born. The sequence became known to Europeans when Fibonacci used the sequence in his 1202 book <em>Liber Abaci</em> to solve a counting problem that involves    <a href=https://mathcenter.oxford.emory.edu/site/math125/fibonacciRabbits/>breeding pairs of rabbits</a> <br>
-<span class="small">The book <em>Liber Abaci</em> ("Book of Calculation") is credited with popularizing the use of the base-ten Hindu-Arabic numeral system in Europe, too.</span></p>
+Hemachandra,</a>
+some of whom lived long
+before Fibonacci was born. The sequence became known to Europeans when Fibonacci used it in his 1202 book <em>Liber Abaci</em> (“Book of Calculation”) to solve a counting problem that involves    <a href=https://mathcenter.oxford.emory.edu/site/math125/fibonacciRabbits/>breeding pairs of rabbits.</a>
+An English translation of this rabbit problem from <em>Liber Abaci</em> can be viewed   <a href=https://www.math.utah.edu/%7Ebeebe/software/java/fibonacci/liber-abaci.html#:~:text=A%20certain%20man%20had%20one%20pair%20of%20rabbits>here.</a><br>
+<span class="small">Note: <em>Liber Abaci</em> also is credited with popularizing the use, in Europe, of the base-ten place value system and the Hindu-Arabic numerals, as described   <a href=https://old.maa.org/press/periodicals/convergence/mathematical-treasure-fibonacci-s-liber-abaci>here.</a></span></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -10523,6 +10547,7 @@ before Fibonacci was born. The sequence became known to Europeans when Fibonacci
 </div>
 <div class="paragraph">
 <p><span class="small">Note: The definition used in this textbook matches the ones used in several textbooks, but be warned that other may use definitions that are slightly different (e.g., some sources state the initial values as  \(f_{0}=1\) and \(f_{1}=1.\)</span></p>
+</div>
 </div>
 </div>
 </div>
@@ -10767,21 +10792,34 @@ In each rooted tree, edges are treated as if they are directed “down,” away 
 <div class="sect3">
 <h4 id="_recursively_defined_functions">7.2.2. Recursively-Defined Functions</h4>
 <div class="paragraph">
-<p>A <strong>recursively defined function</strong> has two parts:</p>
+<p>The definition of a <strong>recursively-defined function</strong> has two parts:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Basis Step: Specify the value of the function at one or more small input values.</p>
-</li>
-<li>
-<p>Recursion Step: Give a rule for computing the function&#8217;s output value at an integer based on the output values at one or more smaller integers.</p>
-</li>
-</ul>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Basis Step
+</td>
+<td class="hdlist2">
+<p>Specify the value of the function at one or more small input values.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Recursion
+</td>
+<td class="hdlist2">
+<p>Give a rule for computing the function&#8217;s output value at an integer based on the output values at one or more smaller integers.</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>A recursive definition of a function is similar to a recurrence relation,
-but uses function notation.</p>
+<p>A recursive definition of a function is
+essentially the same as
+a recurrence relation,
+but uses function notation
+instead of subscripts.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -10792,19 +10830,136 @@ but uses function notation.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Consider again the Fibonacci numbers, but this time given by a function \(f(n)\) where \(f(0)=0\), \(f(1)=1\) and \(f(n)=f(n-1)+f(n-2)\) for integers \(n \geq 2.\)</p>
+<p>Consider the function \(C\) that is defined below, recursively, for all natural number inputs \(n.\) You will use this function in the  <a href=./algorithms.html>Algorithms and Their Analysis</a> chapter to describe the time complexity of an algorithm for sorting lists of numbers.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Basis Step
+</td>
+<td class="hdlist2">
+<p>\(C(0) = 0\) and \(C(1) = 0.\)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Recursion
+</td>
+<td class="hdlist2">
+<p>\(C(n) = C \left( \left\lceil \frac{n}{2} \right\rceil \right) + C \left( \left\lfloor \frac{n}{2} \right\rfloor \right) + (n - 1)\) for integers \(n \geq 2,\)<br>
+where \(\lceil x \rceil\) and \(\lfloor x \rfloor\) are the <a href=./introduction_discrete_math.html#informal_floor_and_ceiling_definition>ceiling and floor functions.</a></p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Applying the formula gives
-\begin{align*}
-f(2)&amp;=f(1)+f(0)=1+0=1\\
-f(3)&amp;=f(2)+f(1)=1+1=2\\
-f(4)&amp;=f(3)+f(2)=2+1=3\\
-f(5)&amp;=f(4)+f(3)=3+2=5\\
-f(6)&amp;=f(5)+f(4)=5+3=8\\
-\end{align*}
-Thinking of this as a recurrence relation we would write \(f_0=0, f_1=1\) and \(f_n=f_{n-1}+f_{n-2}\).  Generating the sequence \({0,1,1,2,3,5,8,\ldots}\).</p>
+<p><span class="small">Notice that \(C\) is defined by the recurrence relation \(C(0) = 0,\) \(C(1) = 0,\) and \(C(n) = C \left( \left\lceil \frac{n}{2} \right\rceil \right) + C \left( \left\lfloor \frac{n}{2} \right\rfloor \right) + (n - 1)\) for each integer \(n \geq 2,\) but using function notation instead of sequence subscripting/indexing.</span></p>
 </div>
+<div class="paragraph">
+<p>The first few values of the function \(C\) are given below.</p>
+</div>
+<div class="paragraph">
+<p>\(C(0) = 0\)</p>
+</div>
+<div class="paragraph">
+<p>\(C(1) = 0\)</p>
+</div>
+<div class="paragraph">
+<p>\(C(2) = C \left( \left\lceil \frac{2}{2} \right\rceil \right) + C \left( \left\lfloor \frac{2}{2} \right\rfloor \right) + (2 - 1) = 0 + 0 + 1 = 1\)</p>
+</div>
+<div class="paragraph">
+<p>\(C(3) = C \left( \left\lceil \frac{3}{2} \right\rceil \right) + C \left( \left\lfloor \frac{3}{2} \right\rfloor \right) + (3 - 1) = 1 + 0 + 2 = 3\)</p>
+</div>
+<div class="paragraph">
+<p>\(C(4) = C \left( \left\lceil \frac{4}{2} \right\rceil \right) + C \left( \left\lfloor \frac{4}{2} \right\rfloor \right) + (4 - 1) = 1 + 1 + 3 = 5\)</p>
+</div>
+<div class="paragraph">
+<p>\(C(5) = C \left( \left\lceil \frac{5}{2} \right\rceil \right) + C \left( \left\lfloor \frac{5}{2} \right\rfloor \right) + (5 - 1) = 3 + 1 + 4 = 8\)</p>
+</div>
+<div class="paragraph">
+<p>\(C(6) = C \left( \left\lceil \frac{6}{2} \right\rceil \right) + C \left( \left\lfloor \frac{6}{2} \right\rfloor \right) + (6 - 1) = 3 + 3 + 5 = 11\)</p>
+</div>
+<div class="paragraph">
+<p>\(C(7) = C \left( \left\lceil \frac{7}{2} \right\rceil \right) + C \left( \left\lfloor \frac{7}{2} \right\rfloor \right) + (7 - 1) = 5 + 3 + 6 = 14\)</p>
+</div>
+<div class="paragraph">
+<p>\(C(8) = C \left( \left\lceil \frac{8}{2} \right\rceil \right) + C \left( \left\lfloor \frac{8}{2} \right\rfloor \right) + (8 - 1) = 5 + 5 + 7 = 17\)</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_the_factorial">The Factorial</h5>
+<div id="definition_of_factorial" class="paragraph">
+<p>The <strong>factorial</strong> is usually defined using a recurrence relation,
+but with its own notation that
+uses neither the parentheses of function notation nor the subscripts of sequences.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 10 - The Factorial of a Natural Number</div>
+<p>The <strong>factorial function</strong> is defined for all natural number inputs as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For each positive natural number input value \(n,\) the output value is the product of all the positive natural numbers up to and including \(n.\)</p>
+</li>
+<li>
+<p>For the input value \(0,\) the output value is \(1.\)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The commonly-used notation for this function is \(n!\)</p>
+</div>
+<div class="paragraph">
+<p>The factorial can be defined recursively.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Basis Step
+</td>
+<td class="hdlist2">
+<p>\(0! = 1\)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Recursion
+</td>
+<td class="hdlist2">
+<p>\(n! = n \cdot (n-1)!\)</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The first five values of the factorial are</p>
+</div>
+<div class="paragraph">
+<p>\(0!=1\)</p>
+</div>
+<div class="paragraph">
+<p>\(1!=1\cdot (1-1)!=1\cdot1=1\)</p>
+</div>
+<div class="paragraph">
+<p>\(2!=2\cdot (2-1)!=2\cdot1=2\)</p>
+</div>
+<div class="paragraph">
+<p>\(3!=3\cdot (3-1)!=3\cdot2=6\)</p>
+</div>
+<div class="paragraph">
+<p>\(4!=4\cdot (4-1)!=4\cdot6=24\)</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The
+factorial numbers have been known for many centuries and across many cultures. You can start to learn more about the history of the factorial numbers <a href=https://en.wikipedia.org/wiki/Factorial#History>here.</a></p>
 </div>
 </div>
 </div>
@@ -10820,7 +10975,7 @@ Thinking of this as a recurrence relation we would write \(f_0=0, f_1=1\) and \(
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 10</div>
+<div class="title">Example 11</div>
 <div class="content">
 
 </div>
@@ -10852,7 +11007,7 @@ So our closed formula is \(a_n=2+3(n-1)\).</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="openblock">
-<div class="title">Example 11 - Solving a second-order linear homogeneous recurrence relation</div>
+<div class="title">Example 12 - Solving a second-order linear homogeneous recurrence relation</div>
 <div class="content">
 
 </div>
@@ -11212,6 +11367,31 @@ have the same graph and the same domain.</p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Also, notice that the formal definition does not take into account how a function computes an output.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Example 3 -  The formal definition cares only about <em>WHAT</em> output an input is mapped to, not <em>HOW</em> the output is determined…</div>
+<p>Consider the three user-defined Python functions
+shown in the code sample.</p>
+</div>
+<iframe width="100%" frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20S%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20i%20%3D%200%0A%20%20%20%20%20%20%20%20sum%20%3D%200%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%20%28n%2B1%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20%20%20%20%20return%20sum//2%20%23%20//%20gives%20int%20result,%20not%20float%0A%20%20%20%20%0Adef%20T%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20i%3D0%0A%20%20%20%20%20%20%20%20sum%20%3D%200%0A%20%20%20%20%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20%20%20%20%20return%20sum%0A%20%20%20%20%0Adef%20U%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20return%20n*%28n%2B1%29//2%20%23%20//%20gives%20int,%20but%20/%20gives%20float%0A%20%20%20%20%0Acounter%20%3D%200%0Awhile%20counter%20%3C%2010%3A%0A%20%20%20%20print%28counter,%20S%28counter%29,%20T%28counter%29,%20U%28counter%29%29%0A%20%20%20%20counter%20%2B%3D%201&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=450&codeDivHeight=350"> </iframe>
+
+<div style="text-align: right;">
+<a style="" target="_blank" href="http://www.pythontutor.com/visualize.html#code=def%20S%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20i%20%3D%200%0A%20%20%20%20%20%20%20%20sum%20%3D%200%0A%20%20%20%20%20%20%20%20while%20i%20%3C%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%20%28n%2B1%29%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20%20%20%20%20return%20sum//2%20%23%20//%20gives%20int%20result,%20not%20float%0A%20%20%20%20%0Adef%20T%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20i%3D0%0A%20%20%20%20%20%20%20%20sum%20%3D%200%0A%20%20%20%20%20%20%20%20while%20i%20%3C%3D%20n%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20sum%20%3D%20sum%20%2B%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20%20%20%20%20return%20sum%0A%20%20%20%20%0Adef%20U%28n%29%3A%0A%20%20%20%20if%20not%20isinstance%28n,%20int%29%20or%20n%20%3C%200%3A%0A%20%20%20%20%20%20%20%20raise%20Exception%28%22Expected%20nonnegative%20int,%20got%20%22%2Bstr%28n%29%29%0A%20%20%20%20else%3A%20%0A%20%20%20%20%20%20%20%20return%20n*%28n%2B1%29//2%20%23%20//%20gives%20int,%20but%20/%20gives%20float%0A%20%20%20%20%0Acounter%20%3D%200%0Awhile%20counter%20%3C%2010%3A%0A%20%20%20%20print%28counter,%20S%28counter%29,%20T%28counter%29,%20U%28counter%29%29%0A%20%20%20%20counter%20%2B%3D%201&mode=edit&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">Edit in PythonTutor</a>
+</div>
+<div class="paragraph">
+<p>To step through the code, click on the "Next" button.</p>
+</div>
+<div class="paragraph">
+<p>According to the formal definition,
+these three user-defined functions are just different implementations of the <em>same mathematical function</em> because the domains, codomains, and graphs
+are the same, even though each Python function uses a different <em>algorithm</em> to compute its output values.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_properties_of_functions">8.3. Properties of Functions</h3>
@@ -11229,7 +11409,7 @@ Using the contrapositive, this can be stated as: For all \(a_1\) and \(a_2\) in 
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 3 - Injective Functions</div>
+<div class="title">Example 4 - Injective Functions</div>
 <p>Consider the functions<br>
 \(f : \mathbb{Z} \rightarrow \mathbb{Q}\) defined by \(f(n) = 2^{n}\)<br>
 \(g : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(g(n) = n^{2},\) and<br>
@@ -11260,7 +11440,7 @@ Using the contrapositive, this can be stated as: For all \(a_1\) and \(a_2\) in 
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 4 - Surjective Functions</div>
+<div class="title">Example 5 - Surjective Functions</div>
 <p>Consider the functions<br>
 \(f : \mathbb{Z} \rightarrow \mathbb{Q}\) defined by \(f(n) = 2^{n}\)<br>
 \(g : \mathbb{Z} \rightarrow \mathbb{Z}\) defined by \(g(n) = n^{2},\) and<br>
@@ -11298,7 +11478,7 @@ Using the contrapositive, this can be stated as: For all \(a_1\) and \(a_2\) in 
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 5 - Verifying a function is bijective</div>
+<div class="title">Example 6 - Verifying a function is bijective</div>
 <p>Verify that the function \(f\left(x\right)=3x+5\), from \(f:R\rightarrow R\), is bijective.</p>
 </div>
 <div class="paragraph">
@@ -11442,7 +11622,7 @@ have the same domain \(A\) and same codomain \(\mathbb{R},\) then you can combin
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 6</div>
+<div class="title">Example 7</div>
 <p>Consider \(f\left(x\right)=x^2+1\) and \(g\left(x\right)=\sqrt x\) defined on \(f,\ g: \mathbb{R}_{\geq0} \rightarrow \mathbb{R}\).
 Find the rules for the functions \(\left(f+g\right)\), \(\left(f-g\right)\), \(\left(f\cdot\ g\right)\),  and \(\left(\frac{f}{g}\right)?\)</p>
 </div>
@@ -11485,7 +11665,7 @@ provided \(x\ \in\ A\) and \(g\left(x\right)\in B\).</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 7</div>
+<div class="title">Example 8</div>
 <p>Consider \(f\left(x\right)=\frac{1}{x}\) and \(g\left(x\right)=2x-3\),
 defined on \(f,g:R\rightarrow R\). Notice that \(g\left(x\right)\)
 is defined for all real \(x\) and \(f\left(x\right)\) is defined for all real \(x\ \neq0\). Form the compositions,
@@ -11509,7 +11689,7 @@ needs to be in the domain of \(g\left(x\right)\), or \(f\left(x\right)\) can be 
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 8 - composing inverse functions</div>
+<div class="title">Example 9 - composing inverse functions</div>
 <p>Consider \(f\left(x\right)=x^3+1\) and  \$g(x) =root(3)(x-1)\$
 defined on on \(f,g:R\rightarrow R\).
 Show that \(\left(g \circ f\right)\left(1\right)=1, \left(g \circ f\right)\left(2\right)=2, \left(g\circ f\right)\left(3\right)=3\),
@@ -11578,7 +11758,7 @@ We have shown explicitly that \(\left(g\circ f\right)\left(x\right)=x\).</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<div class="title">Example 9 - finding an inverse</div>
+<div class="title">Example 10 - finding an inverse</div>
 <p>Find the inverse \(g\left(x\right)\) of  the bijective function
 \(f\left(x\right)=3x+5\) for \(f,\ g:R\rightarrow R\) .  Verify the inverse and show \(\left(f \circ g\right)\left(x\right)=x=\left(g \circ f\right)\left(x\right)\).</p>
 </div>
@@ -14859,8 +15039,8 @@ f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 =f_n \cdot\ f_{n+1}.
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on April 14, 2025.</em><br>
-<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
+<p><em>This chapter was last updated on March 7, 2026.</em><br>
+<em>inserted "Check Your Understanding" for floor and ceiling functions.</em></p>
 </div>
 <div class="paragraph">
 <p>You have seen that some tasks can be completed by more than one algorithm. Two questions to ask are</p>
@@ -15035,6 +15215,14 @@ I believe that both mathematicians and computer scientists agree that <span clas
 </td>
 </tr>
 </table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Check Your Understanding</div>
+<p>Explain why each of the functions \(\lfloor x \rfloor\) and \(\lceil x \rceil\) is \(\Theta(x).\)</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -18879,7 +19067,7 @@ positive integers or possibly just the set
 </div>
 </div>
 <div class="sect2">
-<h3 id="_arithmetic_sequences">16.2. Arithmetic Sequences</h3>
+<h3 id="_arithmetic_sequences_2">16.2. Arithmetic Sequences</h3>
 <div class="paragraph">
 <p>An <strong>arithmetic sequence</strong> or <strong>arithmetic progression</strong> is a sequence of numbers \(a_{0}, \, a_{1}, \, a_{2}, \, \ldots\) such that there is a constant \(d\) so that \[ a_{i+1}-a_{i} = d \text{ for all } i \in \mathbb{N}\]
 The constant \(d\) is called the <strong>common difference</strong> of the sequence. The sequence can be infinite, defined for every \(i \in \mathbb{N},\) or finite, defined only for \(i \in \mathbb{N}\) less than some greatest index \(n\).</p>
@@ -18895,7 +19083,7 @@ The constant \(d\) is called the <strong>common difference</strong> of the seque
 </div>
 </div>
 <div class="sect2">
-<h3 id="_geometric_sequences">16.3. Geometric Sequences</h3>
+<h3 id="_geometric_sequences_2">16.3. Geometric Sequences</h3>
 <div class="paragraph">
 <p>A <strong>geometric sequence</strong> or <strong>geometric progression</strong> is a sequence of numbers \(a_{0}, \, a_{1}, \, a_{2}, \, \ldots\) such that there is a constant \(r\) so that \[ a_{i+1} = r \cdot a_{i} \text{ for all } i \in \mathbb{N}\]
 The constant \(r\) is called the <strong>common ratio</strong> of the sequence. The sequence can be infinite, defined for every \(i \in \mathbb{N},\) or finite, defined only for \(i \in \mathbb{N}\) less than some greatest index \(n\).</p>
