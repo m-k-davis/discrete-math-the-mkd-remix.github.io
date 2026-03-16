@@ -951,9 +951,9 @@ n \equiv_{7} 0
 
 Notice that any solution must be a multiple of $5 \cdot 7 = 35$ that leaves a remainder of $1$ when it is divided by $3.$ For now, we can just use “trial-and-error” to find a solution. 
 
-$0 \equiv_{3} = 0$ since $0 = 0 \cdot 3 + 0$ + 
-$35 \equiv_{3} = 2$ since $35 = 11 \cdot 3 + 2$ + 
-$70 \equiv_{3} = 1$ since $35 = 23 \cdot 3 + 1$ + 
+$0 \equiv_{3} 0$ since $0 = 0 \cdot 3 + 0$ + 
+$35 \equiv_{3} 2$ since $35 = 11 \cdot 3 + 2$ + 
+$70 \equiv_{3} 1$ since $35 = 23 \cdot 3 + 1$ + 
 [small]#Notice that the remainders will repeat periodically for the multiples of $35.$# 
 
 So one solution of this system of congruences is $70.$
@@ -972,8 +972,8 @@ n \equiv_{7} 0
 
 Notice that any solution must be a multiple of $3 \cdot 7 = 21$ that leaves a remainder of $1$ when it is divided by $5.$ Again, we can just use “trial-and-error” to find a solution. 
 
-$0 \equiv_{5} = 0$ since $0 = 0 \cdot 5 + 0$ + 
-$21 \equiv_{5} = 1$ since $21 = 4 \cdot 5 + 1$ 
+$0 \equiv_{5} 0$ since $0 = 0 \cdot 5 + 0$ + 
+$21 \equiv_{5} 1$ since $21 = 4 \cdot 5 + 1$ 
 
 So one solution of this system of congruences is $21.$
 
@@ -990,8 +990,8 @@ n \equiv_{7} 1
 
 Any solution must be a multiple of $3 \cdot 5 = 15$ that leaves a remainder of $1$ when it is divided by $7.$ Once again, we use “trial-and-error” to find a solution. 
 
-$0 equiv_{7} 0$ since $0 = 0 \cdot 7 + 0$ + 
-$15 equiv_{7} 1$ since $15 = 2 \cdot 7 + 1$ 
+$0 \equiv_{7} 0$ since $0 = 0 \cdot 7 + 0$ + 
+$15 \equiv_{7} 1$ since $15 = 2 \cdot 7 + 1$ 
 
 So one solution of this system of congruences is $15.$
 
