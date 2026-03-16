@@ -9913,7 +9913,7 @@ However, \(P(40)\) is the proposition “\(40^{2} + 40 + 41 \text{ is a prime in
 <div class="paragraph">
 <p>In a direct proof, we make an argument that a conditional statement \(p \rightarrow q\) must be True. This means that we can assume that the premise \(p\) is True and apply <em>modus ponens</em> to prove that \(q\) must be True, too.</p>
 </div>
-<div class="sidebarblock">
+<div id="linear_combination_of_multiples_is_a_multiple" class="sidebarblock">
 <div class="content">
 <div class="title">Theorem</div>
 <div class="paragraph">
@@ -12048,7 +12048,8 @@ increasing</strong> if whenever \$x&lt;y\$, then \$f(x)&lt;f(y)\$.</p>
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on January 14, 2026.</em><br>
+<p><em>This chapter was last updated on March 16, 2026.</em><br>
+<em>Inserted content on the so-called “Chinese Remainder Theorem.”</em><br>
 <em>Inserted proof of the Division Algorithm using the Well-Ordering Principle.</em><br>
 <em>Revised the sections/subsections on partial orders, well-ordering, and modular arithmetic.</em><br>
 <em>Made other minor revisions and fixed typos.</em><br></p>
@@ -12599,6 +12600,69 @@ Using the Well-Ordering Principle (as an axiom) lets you conclude that there mus
 </div>
 </div>
 </div>
+<div class="sect4">
+<h5 id="_greatest_common_divisors_section_in_progress">Greatest Common Divisors <mark>section in progress</mark></h5>
+<div class="paragraph">
+<p>In this subsection, we will use the Well-Ordering Principle to prove a theorem that will be used later in the chapter.</p>
+</div>
+<div class="paragraph">
+<p>Suppose that \(a\) and \(b\) are two positive integers. The <strong>greatest common divisor</strong> of \(a\) and \(b,\) abbreviated as <strong>gcd,</strong> is the greatest integer that divides both integers \(a\) and \(b.\) That is, the gcd of \(a\) and \(b\) is a divisor of both \(a\) and \(b,\) and is divisible by any other positive divisor of \(a\) and \(b.\)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>The greatest common divisor of the positive integers \(a\) and \(b\) can be written in the form \(t \cdot a + u \cdot b\) for some integers \(t\) and \(u.\)</p>
+</div>
+<div class="paragraph">
+<div class="title">Proof</div>
+<p>Before starting the formal proof, let&#8217;s look at a specific example. The greatest common divisor of \(60\) and \(42\) is \(6\) since \(6\) is a divisor of both \(60\) and \(42,\) and
+\(6\)
+is divisible by any other positive divisor of \(60\) and \(42.\)
+You can easily verify that \((-2) \cdot 60 + 3 \cdot 42 = 6.\)<br>
+<span class="small">NOTE: The proof of this lemma will be an <strong>existence proof,</strong> that is, the proof will show that the integers \(t\) and \(u\) must exist but will not tell you how to compute their values. Later, in the <a href=./induction.html>Proofs: Mathematical Induction</a> chapter, you will validate an algorithm that can be used to compute the values of \(t\) and \(u\) .</span></p>
+</div>
+<div class="paragraph">
+<p>For the formal proof, suppose that \(a\) and \(b\) are positive integers with \(a > b.\) Define the set \(S\) to be \[ S = \{ x \cdot a + y \cdot b \, : \, x \text{ and } y \text{ are integers.} \} \cap \mathbb{N}_{&gt;0} \] that is, \(S\) is the set of all positive values that the expression \(x \cdot a + y \cdot b\) can have when you substitute integers for both \(x\) and \(y.\)</p>
+</div>
+<div class="paragraph">
+<p>Notice that \(S\) is a nonempty subset of \(\mathbb{N},\) because both \(a = 1 \cdot a + 0 \cdot b\) and \(b = 0 \cdot a + 1 \cdot b\) are elements of \(S.\)</p>
+</div>
+<div class="paragraph">
+<p>Now apply the Well-Ordering Principle, which states that there is a least element \(m\) in \(S,\) that is, \(m\) is the least positive value of the expression \(x \cdot a + y \cdot b,\) so there are integers \(t\) and \(u\)
+such that \(m = t \cdot a + u \cdot b.\)</p>
+</div>
+<div class="paragraph">
+<p>Next, we&#8217;ll prove that \(m,\) which is equal to \(t \cdot a + u \cdot b,\) is the greatest common divisor of \(a\) and \(b.\)</p>
+</div>
+<div class="paragraph">
+<p>First, we claim that \(m\) divides each of \(a\) and \(b.\) To show this,
+we can use the Division Algorithm to write \(a = q \cdot m + r\) where \(q\) is a nonnegative integer and \(m > r \geq 0.\) Rewrite \(a = q \cdot m + r\) by solving for \(r\) to get \(r = a - q \cdot m = a - q \cdot (t \cdot a + u \cdot b)) = (1 - q \cdot t) \cdot a + (-q \cdot u) \cdot b.\)
+That is, the remainder \(r\) can be written in the form \(x \cdot a + y \cdot b,\) but since \(m\) is the smallest positive integer in \(S,\) this implies that the remainder \(r\) must equal \(0,\) and \(m\) must divide \(a.\) We can use
+the same argument, <em>mutatis mutandis,</em> to show that \(m\) must divide \(b.\)<br>
+<span class="small">The Latin phrase <em>mutatis mutandis</em> roughly translates as “changing what needs to be changed.”</span></p>
+</div>
+<div class="paragraph">
+<p>Secondly, notice that if the positive integer \(c\) divides both \(a\) and \(b\) then \(c\) will divide any value of \(x \cdot a + y \cdot b\) where \(x\) and \(y\) are integers (This was proven in the <a href=./proofs.html#linear_combination_of_multiples_is_a_multiple>Proofs: Basic Techniques</a> chapter.) This shows that if the positive integer \(c\) divides \(a\) and \(b\) then \(c\) divides \(t \cdot a + u \cdot b,\) that is, \(c\) divides \(m.\)</p>
+</div>
+<div class="paragraph">
+<p>So, \(m = t \cdot a + u \cdot b\) is a positive integer that divides both \(a\) and \(b\) and is also divisible by every other positive integer that divides both \(a\) and \(b,\) which shows that \(m = t \cdot a + u \cdot b\) is the greatest common divisor of \(a\) and \(b.\)</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Corollary</div>
+<div class="paragraph">
+<p>If \(a\) and \(b\) are positive integers with \(a > b,\) and \(a\) and \(b\) have no common prime divisors, then there are integers \(t\) and \(u\) such that \(t \cdot a + u \cdot b = 1.\)</p>
+</div>
+<div class="paragraph">
+<div class="title">Proof</div>
+<p>If \(a\) and \(b\) are positive integers that have no common prime divisors, then the greatest common divisor of \(a\) and \(b\) is \(1.\) You only need to apply the lemma to justify that there must be integers \(t\) and \(u\) such that \(t \cdot a + u \cdot b = 1.\)</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -12758,8 +12822,160 @@ Since \(4 \cdot 7 \equiv_{12} 4,\) four 7-hour intervals must pass before the cl
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_sunzis_method_the_chinese_remainder_theorem_section_in_progress">9.6. Sunzi&#8217;s Method (The “Chinese Remainder Theorem”) <mark>section in progress</mark></h3>
 <div class="paragraph">
-<p>MORE TO COME!</p>
+<p>In this section, you will learn
+a method for solving
+a simultaneous system of linear congruences
+that has application to <a href=https://en.wikipedia.org/wiki/Chinese_remainder_theorem#Encryption>encryption.</a></p>
+</div>
+<div class="paragraph">
+<p>This method is based on the solution of a problem
+from
+<a href=https://en.wikipedia.org/wiki/Sunzi_Suanjing>孫子算經 (“The Mathematical Classic of Sun Zi”)</a> which was written sometime during the 3rd, 4th, or 5th century AD.
+The box below presents an
+<a href=https://zh-wikisource-org.translate.goog/wiki/%E5%AD%AB%E5%AD%90%E7%AE%97%E7%B6%93?_x_tr_sl=zh-TW&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp#%E5%8D%B7%E4%B8%8B>English translation,</a> using Google Translate, of the <a href=https://zh.wikisource.org/wiki/%E5%AD%AB%E5%AD%90%E7%AE%97%E7%B6%93>original problem.</a></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Problem</div>
+<p>There is an unknown number of objects. When counted in groups of three, two remain; when counted in groups of five, three remain; when counted in groups of seven, two remain. How many objects are there?</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This can be stated using modular arithmetic notation as follows.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Problem</div>
+<p>Solve the following system of congruences.
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 2 \\
+n \equiv_{5} 3 \\
+n \equiv_{7} 2
+\end{aligned}
+\end{equation}</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can verify that <em>one</em> solution is \(23,\) but in this section, we will build up a method for finding <em>all solutions</em> of
+any such system of congruences.</p>
+</div>
+<div class="sect3">
+<h4 id="_step_1">9.6.1. Step 1</h4>
+<div class="paragraph">
+<p>First notice that one solution \(n\) of the simultaneous system
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 0 \\
+n \equiv_{5} 0 \\
+n \equiv_{7} 0
+\end{aligned}
+\end{equation}
+is the <strong>least common multiple</strong> of \(3,\) \(5,\) and \(7,\) which is \(105.\)
+That is, dividing \(105\) by each of those primes leaves a remainder of \(0.\)</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, notice that each integer multiple \(105 \cdot k\) is a solution as well. This shows that the set of <em>all</em> solutions to this system is \(\{ 105 \cdot k \, : \, k \in \mathbb{Z} \}.\)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_2a">9.6.2. Step 2a</h4>
+<div class="paragraph">
+<p>Next, we will find one solution of the simultaneous system
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 1 \\
+n \equiv_{5} 0 \\
+n \equiv_{7} 0
+\end{aligned}
+\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>Notice that any solution must be a multiple of \(5 \cdot 7 = 35\) that leaves a remainder of \(1\) when it is divided by \(3.\) For now, we can just use “trial-and-error” to find a solution.</p>
+</div>
+<div class="paragraph">
+<p>\(0 \equiv_{3} = 0\) since \(0 = 0 \cdot 3 + 0\)<br>
+\(35 \equiv_{3} = 2\) since \(35 = 11 \cdot 3 + 2\)<br>
+\(70 \equiv_{3} = 1\) since \(35 = 23 \cdot 3 + 1\)<br>
+<span class="small">Notice that the remainders will repeat periodically for the multiples of \(35.\)</span></p>
+</div>
+<div class="paragraph">
+<p>So one solution of this system of congruences is \(70.\)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_2b">9.6.3. Step 2b</h4>
+<div class="paragraph">
+<p>Next, find one solution of the simultaneous system
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 0 \\
+n \equiv_{5} 1 \\
+n \equiv_{7} 0
+\end{aligned}
+\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>Notice that any solution must be a multiple of \(3 \cdot 7 = 21\) that leaves a remainder of \(1\) when it is divided by \(5.\) Again, we can just use “trial-and-error” to find a solution.</p>
+</div>
+<div class="paragraph">
+<p>\(0 \equiv_{5} = 0\) since \(0 = 0 \cdot 5 + 0\)<br>
+\(21 \equiv_{5} = 1\) since \(21 = 4 \cdot 5 + 1\)</p>
+</div>
+<div class="paragraph">
+<p>So one solution of this system of congruences is \(21.\)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_2c">9.6.4. Step 2c</h4>
+<div class="paragraph">
+<p>And now we find one solution of the simultaneous system
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 0 \\
+n \equiv_{5} 0 \\
+n \equiv_{7} 1
+\end{aligned}
+\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>Any solution must be a multiple of \(3 \cdot 5 = 15\) that leaves a remainder of \(1\) when it is divided by \(7.\) Once again, we use “trial-and-error” to find a solution.</p>
+</div>
+<div class="paragraph">
+<p>\(0 equiv_{7} 0\) since \(0 = 0 \cdot 7 + 0\)<br>
+\(15 equiv_{7} 1\) since \(15 = 2 \cdot 7 + 1\)</p>
+</div>
+<div class="paragraph">
+<p>So one solution of this system of congruences is \(15.\)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_3">9.6.5. Step 3</h4>
+<div class="paragraph">
+<p>We can now find <em>all</em> solutions of the simultaneous system
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 2 \\
+n \equiv_{5} 3 \\
+n \equiv_{7} 2
+\end{aligned}
+\end{equation}</p>
+</div>
+<div class="paragraph">
+<p>Each solution must be of the form \((2 \cdot 70) + (3 \cdot 21) + (2 \cdot 15) + (105 \cdot k)\) where \(k\) can be any integer.</p>
+</div>
+<div class="paragraph">
+<p>That is, \(233 + 105 \cdot k\) is a solution for each integer \(k.\)
+Notice that \(23\) corresponds to \(k = -2.\)</p>
+</div>
 </div>
 </div>
 </div>

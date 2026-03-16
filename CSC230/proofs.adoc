@@ -904,6 +904,9 @@ This example shows that it is not enough to verify that a proposition or predica
 //In a direct proof, we make an argument that $p \rightarrow q$ must be True. This means that we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
 In a direct proof, we make an argument that a conditional statement $p \rightarrow q$ must be True. This means that we can assume that the premise $p$ is True and apply _modus ponens_ to prove that $q$ must be True, too. 
 
+// MKD March 13 2026 inserted anchor 
+[[linear_combination_of_multiples_is_a_multiple]]
+
 //	direct	if integers a and b are divisible by c, then so is ma+nb for any integers m and n. 
 .Theorem
 ****

@@ -7,7 +7,9 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on January 14, 2026._ + 
+_This chapter was last updated on March 16, 2026._ + 
+//_Inserted content on “Sunzi's theorem” (also know as the “Chinese Remainder Theorem.”)_ + 
+_Inserted content on the so-called “Chinese Remainder Theorem.”_ + 
 _Inserted proof of the Division Algorithm using the Well-Ordering Principle._ + 
 _Revised the sections/subsections on partial orders, well-ordering, and modular arithmetic._ + 
 _Made other minor revisions and fixed typos._ + 
@@ -617,6 +619,70 @@ Therefore, you can conclude that $q$ and $r$ exist even if it is not feasible to
 
 ****
 
+// MKD March 13 2026 - new subsection
+//“”
+
+==== Greatest Common Divisors #section in progress# 
+
+
+In this subsection, we will use the Well-Ordering Principle to prove a theorem that will be used later in the chapter. 
+ 
+ 
+Suppose that $a$ and $b$ are two positive integers. The *greatest common divisor* of $a$ and $b,$ abbreviated as *gcd,* is the greatest integer that divides both integers $a$ and $b.$ That is, the gcd of $a$ and $b$ is a divisor of both $a$ and $b,$ and is divisible by any other positive divisor of $a$ and $b.$
+
+
+//.Lemma - Generalized Pigeonhole Principle
+//If $a$ and $b$ are positive integers with $a > b,$ then the greatest common divisor can be written in the form $t \cdot a + u \cdot b$ for some integers $t$ and $u.$ 
+.Theorem 
+****
+The greatest common divisor of the positive integers $a$ and $b$ can be written in the form $t \cdot a + u \cdot b$ for some integers $t$ and $u.$ 
+
+.Proof 
+
+Before starting the formal proof, let's look at a specific example. The greatest common divisor of $60$ and $42$ is $6$ since $6$ is a divisor of both $60$ and $42,$ and 
+$6$ 
+is divisible by any other positive divisor of $60$ and $42.$
+//there is no greater number that divides both $60 = 6 \cdot 10$ and $42 = 6 \cdot 7.$ 
+You can easily verify that $(-2) \cdot 60 + 3 \cdot 42 = 6.$ + 
+[small]#NOTE: The proof of this lemma will be an *existence proof,* that is, the proof will show that the integers $t$ and $u$ must exist but will not tell you how to compute their values. Later, in the link:./induction.html[Proofs: Mathematical Induction] chapter, you will validate an algorithm that can be used to compute the values of $t$ and $u$ .#
+
+For the formal proof, suppose that $a$ and $b$ are positive integers with $a > b.$ Define the set $S$ to be \[ S = \{ x \cdot a + y \cdot b \, : \, x \text{ and } y \text{ are integers.} \} \cap \mathbb{N}_{>0} \] that is, $S$ is the set of all positive values that the expression $x \cdot a + y \cdot b$ can have when you substitute integers for both $x$ and $y.$ 
+
+
+Notice that $S$ is a nonempty subset of $\mathbb{N},$ because both $a = 1 \cdot a + 0 \cdot b$ and $b = 0 \cdot a + 1 \cdot b$ are elements of $S.$ 
+
+Now apply the Well-Ordering Principle, which states that there is a least element $m$ in $S,$ that is, $m$ is the least positive value of the expression $x \cdot a + y \cdot b,$ so there are integers $t$ and $u$ 
+//that make the expression have this least positive value, that is, there are integers $t$ and $u$ 
+such that $m = t \cdot a + u \cdot b.$ 
+//is the smallest value in $S.$ 
+
+Next, we'll prove that $m,$ which is equal to $t \cdot a + u \cdot b,$ is the greatest common divisor of $a$ and $b.$ 
+
+First, we claim that $m$ divides each of $a$ and $b.$ To show this, 
+we can use the Division Algorithm to write $a = q \cdot m + r$ where $q$ is a nonnegative integer and $m > r \geq 0.$ Rewrite $a = q \cdot m + r$ by solving for $r$ to get $r = a - q \cdot m = a - q \cdot (t \cdot a + u \cdot b)) = (1 - q \cdot t) \cdot a + (-q \cdot u) \cdot b.$ 
+//which shows that $r$ would be in $S$ if $r were positive. But 
+That is, the remainder $r$ can be written in the form $x \cdot a + y \cdot b,$ but since $m$ is the smallest positive integer in $S,$ this implies that the remainder $r$ must equal $0,$ and $m$ must divide $a.$ We can use 
+// a nearly identical 
+the same argument, _mutatis mutandis,_ to show that $m$ must divide $b.$ + 
+[small]#The Latin phrase _mutatis mutandis_ roughly translates as “changing what needs to be changed.”# 
+
+Secondly, notice that if the positive integer $c$ divides both $a$ and $b$ then $c$ will divide any value of $x \cdot a + y \cdot b$ where $x$ and $y$ are integers (This was proven in the link:./proofs.html#linear_combination_of_multiples_is_a_multiple[Proofs: Basic Techniques] chapter.) This shows that if the positive integer $c$ divides $a$ and $b$ then $c$ divides $t \cdot a + u \cdot b,$ that is, $c$ divides $m.$ 
+
+So, $m = t \cdot a + u \cdot b$ is a positive integer that divides both $a$ and $b$ and is also divisible by every other positive integer that divides both $a$ and $b,$ which shows that $m = t \cdot a + u \cdot b$ is the greatest common divisor of $a$ and $b.$
+
+****
+
+
+.Corollary 
+****
+If $a$ and $b$ are positive integers with $a > b,$ and $a$ and $b$ have no common prime divisors, then there are integers $t$ and $u$ such that $t \cdot a + u \cdot b = 1.$ 
+
+.Proof 
+
+If $a$ and $b$ are positive integers that have no common prime divisors, then the greatest common divisor of $a$ and $b$ is $1.$ You only need to apply the lemma to justify that there must be integers $t$ and $u$ such that $t \cdot a + u \cdot b = 1.$  
+
+****
+
 
 
 
@@ -786,10 +852,220 @@ Since $4 \cdot 7 \equiv_{12} 4,$ four 7-hour intervals must pass before the cloc
 ****
 
 
-MORE TO COME!
-
+//MORE TO COME! 
 
 // MKD Dec 1 2025 you want to insert Chinese Remainder Theorem somewhere in this subsection 
 // https://en.wikipedia.org/wiki/Chinese_remainder_theorem
 // MKD Jan 17 2026 include link below in CRT subsection
-// https://mathshistory.st-andrews.ac.uk/Biographies/Sun_Zi/
+// https://mathshistory.st-andrews.ac.uk/Biographies/Sun_Zi/ 
+
+// March 15 2026 more links on CRT 
+// https://en.wikipedia.org/wiki/Chinese_remainder_theorem#Encryption 
+// https://yawnoc.github.io/sun-tzu/iii/26 
+ 
+ 
+//=== Sunzi's theorem (The “Chinese Remainder Theorem”) #section in progress# 
+//== The “Chinese Remainder Theorem” #section in progress# 
+== Sunzi's Method (The “Chinese Remainder Theorem”) #section in progress# 
+
+In this section, you will learn 
+//how to solve 
+a method for solving 
+a simultaneous system of linear congruences 
+//. This has 
+that has application to link:https://en.wikipedia.org/wiki/Chinese_remainder_theorem#Encryption[encryption.] 
+//cryptography. 
+
+This method is based on the solution of a problem 
+from 
+// the ancient treatise //link:https://en.wikipedia.org/wiki/Sunzi_Suanjing[孫子算經 (“Sun Tzŭ's Computational Classic”)] which dates back to the 3rd to 5th centuries AD.
+link:https://en.wikipedia.org/wiki/Sunzi_Suanjing[孫子算經 (“The Mathematical Classic of Sun Zi”)] which was written sometime during the 3rd, 4th, or 5th century AD. 
+The box below presents an 
+link:https://zh-wikisource-org.translate.goog/wiki/%E5%AD%AB%E5%AD%90%E7%AE%97%E7%B6%93?_x_tr_sl=zh-TW&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp#%E5%8D%B7%E4%B8%8B[English translation,] using Google Translate, of the link:https://zh.wikisource.org/wiki/%E5%AD%AB%E5%AD%90%E7%AE%97%E7%B6%93[original problem.]  
+
+// The Mathematical Classic of Sun Zi
+
+//(“Sunzi Suanjing,” or 
+
+//There are certain things whose number is unknown. If we count them by threes, we have two left over; by fives, we have three left over; and by sevens, two are left over. How many things are there?
+
+====
+.Problem  
+There is an unknown number of objects. When counted in groups of three, two remain; when counted in groups of five, three remain; when counted in groups of seven, two remain. How many objects are there? 
+====
+
+//.Answer: Twenty-three.
+//The method is as follows: When counting by threes, if there are two left over, add 140; when counting by fives, if there are three left over, add 63; when counting by sevens, if there are two left over, add 30. Add these together to get 233. Subtract 210 from this number to get the result. Whenever counting by threes, if there is one left over, add 70; when counting by fives, if there is one left over, add 21; when counting by sevens, if there is one left over, add 15. For numbers greater than 160, subtract 15 from this number to get the result.
+
+This can be stated using modular arithmetic notation as follows. 
+
+====
+.Problem  
+Solve the following system of congruences.
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 2 \\ 
+n \equiv_{5} 3 \\ 
+n \equiv_{7} 2
+\end{aligned}
+\end{equation}
+====
+
+// & = 43 \cdot 10 + 2 & q {} & = 43  & r {} & = 2 & s & = [2] \\ 
+// 43 {} & = 4 \cdot 10 + 3   & q {} & = 4   & r {} & = 3 & s & = [2, 3] \\ 
+// 4 {} & = 0 \cdot 10 + 4    & q {} & = 0   & r {} & = 4 & s & = [2, 3, 4] \\ 
+
+
+
+You can verify that _one_ solution is $23,$ but in this section, we will build up a method for finding _all solutions_ of 
+any such system of congruences.  
+
+
+=== Step 1 
+//: Least Common Multiples
+
+First notice that one solution $n$ of the simultaneous system 
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 0 \\ 
+n \equiv_{5} 0 \\ 
+n \equiv_{7} 0
+\end{aligned}
+\end{equation} 
+is the *least common multiple* of $3,$ $5,$ and $7,$ which is $105.$ 
+That is, dividing $105$ by each of those primes leaves a remainder of $0.$ 
+
+Furthermore, notice that each integer multiple $105 \cdot k$ is a solution as well. This shows that the set of _all_ solutions to this system is $\{ 105 \cdot k \, : \, k \in \mathbb{Z} \}.$
+
+
+=== Step 2a
+
+Next, we will find one solution of the simultaneous system 
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 1 \\ 
+n \equiv_{5} 0 \\ 
+n \equiv_{7} 0
+\end{aligned}
+\end{equation}  
+
+Notice that any solution must be a multiple of $5 \cdot 7 = 35$ that leaves a remainder of $1$ when it is divided by $3.$ For now, we can just use “trial-and-error” to find a solution. 
+
+$0 \equiv_{3} = 0$ since $0 = 0 \cdot 3 + 0$ + 
+$35 \equiv_{3} = 2$ since $35 = 11 \cdot 3 + 2$ + 
+$70 \equiv_{3} = 1$ since $35 = 23 \cdot 3 + 1$ + 
+[small]#Notice that the remainders will repeat periodically for the multiples of $35.$# 
+
+So one solution of this system of congruences is $70.$
+
+  
+=== Step 2b 
+
+Next, find one solution of the simultaneous system 
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 0 \\ 
+n \equiv_{5} 1 \\ 
+n \equiv_{7} 0
+\end{aligned}
+\end{equation}  
+
+Notice that any solution must be a multiple of $3 \cdot 7 = 21$ that leaves a remainder of $1$ when it is divided by $5.$ Again, we can just use “trial-and-error” to find a solution. 
+
+$0 \equiv_{5} = 0$ since $0 = 0 \cdot 5 + 0$ + 
+$21 \equiv_{5} = 1$ since $21 = 4 \cdot 5 + 1$ 
+
+So one solution of this system of congruences is $21.$
+
+=== Step 2c 
+
+And now we find one solution of the simultaneous system 
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 0 \\ 
+n \equiv_{5} 0 \\ 
+n \equiv_{7} 1
+\end{aligned}
+\end{equation}  
+
+Any solution must be a multiple of $3 \cdot 5 = 15$ that leaves a remainder of $1$ when it is divided by $7.$ Once again, we use “trial-and-error” to find a solution. 
+
+$0 equiv_{7} 0$ since $0 = 0 \cdot 7 + 0$ + 
+$15 equiv_{7} 1$ since $15 = 2 \cdot 7 + 1$ 
+
+So one solution of this system of congruences is $15.$
+
+
+=== Step 3 
+
+We can now find _all_ solutions of the simultaneous system 
+\begin{equation}
+\begin{aligned}
+n \equiv_{3} 2 \\ 
+n \equiv_{5} 3 \\ 
+n \equiv_{7} 2
+\end{aligned}
+\end{equation}  
+
+Each solution must be of the form $(2 \cdot 70) + (3 \cdot 21) + (2 \cdot 15) + (105 \cdot k)$ where $k$ can be any integer. 
+
+That is, $233 + 105 \cdot k$ is a solution for each integer $k.$ 
+Notice that $23$ corresponds to $k = -2.$
+
+
+
+
+//“”
+//$14 \equiv_{12} 2$
+
+////
+// MKD March 16 2026 in progress start
+=== Solving a System of Two Congruences 
+
+
+First, notice that if two positive integers $a$ and $b$ have a greatest common divisor $m$ that is greater than $1,$ then there are systems of congruences of the form  
+\begin{equation}
+\begin{aligned}
+n \equiv_{a} 1 \\ 
+n \equiv_{b} 1
+\end{aligned}
+\end{equation} 
+that have no solutions. As an example, 
+\begin{equation}
+\begin{aligned}
+n \equiv_{15} 1 \\ 
+n \equiv_{21} 1
+\end{aligned}
+\end{equation} 
+has no solution. 
+
+Secondly, notice that for any two positive integers $a$ and $b,$ the solution set of the system of congruences 
+\begin{equation}
+\begin{aligned}
+n \equiv_{a} 0 \\ 
+n \equiv_{b} 0
+\end{aligned}
+\end{equation} 
+is \{ k\, : \, \}
+
+****
+.Example {counter:mkdrelex} - Solving a linear congruence
+--
+--
+
+For any two positive integers $a$ and $b,$ the solution set of the system of congruences
+
+\begin{equation}
+\begin{aligned}
+n \equiv_{a} 0 \\ 
+n \equiv_{b} 0
+\end{aligned}
+\end{equation}
+
+is the set of 
+
+
+****
+
+// MKD March 16 2026 in progress end
+////
