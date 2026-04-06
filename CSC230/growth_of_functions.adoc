@@ -7,7 +7,8 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on March 7, 2026._ + 
+_This chapter was last updated on March 27, 2026._ + 
+_inserted brief note on big Omega ($\Omega$) notation._ + 
 _inserted "Check Your Understanding" for floor and ceiling functions._
 //[small]#Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.#
 
@@ -322,13 +323,26 @@ Traditionally, computer scientists are much more interested in the idea that "_f
 
 ****
 .Definition
-*_f_ is of order at most _g_* means that there exist positive real number constants $B$ and $x_{0}$ so that \[ |f(x)| \leq B|g(x)| \text{ for all } x  > x_{0}.\] This is usually stated (by computer scientists) as "$f(x)$ is Big _O_  of $g(x)$" and written as $f(x) = O(g(x)).$
+*_f_ is of order at most _g_* means that there exist positive real number constants $B$ and $x_{0}$ so that \[ |f(x)| \leq B|g(x)| \text{ for all } x  > x_{0}.\] This is usually stated (by computer scientists) as "$f(x)$ is big _O_  of $g(x)$" and written as $f(x) = O(g(x)).$
 ****
+////
+[small]#NOTE: There is also big Omega ($\Omega$) notation that uses only the first part of the inequality from the definition of big Theta. Saying that the  function $f$ is big Omega of $g,$ also written as $f = \Omega(g),$ means that $f$ grows at least at the rate of $g,$ that is, $g$ is a lower bound for $f$ for sufficiently large values of the input variable. For example, $0.0001 x^2 = \Omega(x)$ since a quadratic function grows at least at the rate of a linear function. Big Omega is not discussed in further detail in this textbook.#
+////
+[small]#NOTE: There is also big Omega ($\Omega$) notation that uses only the first part of the inequality used to define big Theta. You would say “_f_ is of order at least _g_” or “$f$ is big Omega of $g$” and write $f = \Omega(g).$ For example, $0.0001 x^2 = \Omega(x)$ since a quadratic function grows at least at the rate of a linear function; more precisely, $ x \leq 0.0001 x^2$ for all $x > 10000.$ Big Omega will not be discussed in further detail in this textbook.# 
 
 
 //image::imagesMKD/BigOmegaXPlusSinX.png[BigOmegaXPlusSinX,1178,1062,float="right",align="center"]
 image::imagesMKD/BigOmegaXPlusSinX.png[BigOmegaXPlusSinX,354,319,float="right",align="center"]
-Note that Big _O_  only gives an upper bound on the growth rate of functions. That is, the function $f(x) = x + \sin(x)$ with domain and range $\mathbb{R},$ used in an earlier example, is $O(x)$ but also is $O(x^{2})$ and is $O(2^{x}).$ 
+Note that Big _O_  only gives an upper bound on the growth rate of functions. That is, the function $f(x) = x + \sin(x)$ with domain and range $\mathbb{R},$ used in an earlier example, is $O(x)$ but also is $O(x^{2})$ and is $O(2^{x}).$ + 
+[small]#However, big _O_ notation is commonly used to indicate the “tighest upper bound” possible as discussed link:https://en.wikipedia.org/wiki/Big_O_notation#Quality_of_approximations_using_different_notation[here.] For example, you can expect the statement “$f$ is big-_O_ of $x$” to mean that the graph of the function $f$ has a straight line of nonzero slope as an asymptote.# 
+
+// MKD Mar 27 2026 
+// This is NOT the same as $f$ is big-Theta of $x$): 
+//	Example 1. $x \sin^{2}(x)$ is $O(x)$ but not $\Omega(x)$ 
+//	Example 2. $left\lceil x \right\rceil - \left\lfloor x \right\rfloor$ is $O(x)$ but not $\Omega(x)$ 
+// in each example, the function has infinitely-many zeroes, so has no lower bound other than the constant function 0.
+
+
 
 ////
 Computer programmers  are often concerned with two questions:

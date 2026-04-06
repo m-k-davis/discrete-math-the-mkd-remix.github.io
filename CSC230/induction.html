@@ -631,7 +631,11 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on February 14, 2026.
+        This chapter was last updated on April 6, 2026.
+       </em>
+       <br/>
+       <em>
+        Inserted discussion of Extended Euclidean algorithm
        </em>
        <br/>
        <em>
@@ -2178,7 +2182,7 @@ What changes could you make to the drawing to create a drawing of a complete gra
         In this section, we’ll prove that the Euclidean Algorithm as described below correctly computes the greatest common divisor of two positive integers.
        </p>
       </div>
-      <div class="ulist">
+      <div class="ulist" id="euclidean_algorithm_for_gcd">
        <ul>
         <li>
          <p>
@@ -2844,6 +2848,182 @@ How can you use the recursive definition of
           </a>
           to apply the Induction Hypothesis?
          </p>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_greatest_common_divisors_revisited_section_in_progress">
+        11.6.1. Greatest Common Divisors Revisited
+        <mark>
+         section in progress
+        </mark>
+       </h4>
+       <div class="paragraph">
+        <p>
+         <a href="./relations.html#gcd_is_a_linear_combination">
+          Earlier in the textbook,
+         </a>
+         the Well-Ordering Principle was used to prove that the greatest common divisor of two positive integers \(a\) and \(b\) can be written in the form \(t \cdot a + u \cdot b\) for some integers \(t\) and \(u.\)
+The proof was a nonconstructive existence proof: It established that such numbers \(t\) and \(u\) must exist but gave no hint as to
+         <em>
+          how to compute
+         </em>
+         their values.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In this subsection, we will use strong induction to give an alternate proof.  In fact, we prove a bit more: Every remainder computed by the
+         <a href="./induction.html#euclidean_algorithm_for_gcd">
+          Euclidean algorithm
+         </a>
+         can be written in tne form \(t \cdot a + u \cdot b,\) and the algorithm can be extended to tell you how to compute those values.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Lemma
+         </div>
+         <div class="paragraph">
+          <p>
+           For positive integers \(a\) and \(b\) such that \(a &gt; b,\) each remainder computed in the
+           <a href="./induction.html#euclidean_algorithm_for_gcd">
+            Euclidean algorithm
+           </a>
+           can be written in the form \(t \cdot a + u \cdot b\) for some integers \(t\) and \(u.\)
+          </p>
+         </div>
+         <div class="openblock proof">
+          <div class="title">
+           Proof
+          </div>
+          <div class="content">
+           <div class="click_oblique">
+           </div>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Start by assuming that \(a\) and \(b\) are positive integers such that \(a &gt; b.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Let \(P(n)\) be the predicate "In the Euclidean algorithm, each remainder \(r_{0}, \ldots , r_{n}\) can be written in the form \(t_{i} \cdot a + u_{i} \cdot b\) for some finite sequences of integers \(t_{0}, \ldots , t_{n}\) and \(u_{0}, \ldots , u_{n}.\)"
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           We will prove that \((\forall n \in \mathbb{N})P(n)\) is True.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           <strong>
+            Basis Step:
+           </strong>
+           Recall that \(b\) is treated as the “0th” remainder \(r_{0}\) by the Euclidean algorithm, so we can set \(t_{0} = 0\) and \(u_{0} = 1\) to get \(t_{0} \cdot a + u_{0} \cdot b = b = r_{0},\) which shows that the proposition \(P(0)\) is True.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Next, we will also prove that \(P(1)\) is True, because \(n = 1\) corresponds to the case where we actually do at least one division! We can write \(a = q_{1} \cdot b + r_{1}\) where \(q_{1}\) and \(r_{1}\) are natural numbers and \(0 \leq r_{1} &lt; b.\) Solving the equation for \(r_{1}\) gives \(r_{1} = a - q_{1} \cdot b\) so we set  \(t_{1} = 1\) and \(u_{1} = -q_{1}\) to get \(t_{1} \cdot a + u_{1} \cdot b = r_{1}.\) This shows that the proposition \(P(1)\) is True.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           <strong>
+            Induction Step:
+           </strong>
+           First, we assume as the induction hypothesis that \[P(i) \text { is True for all natural numbers } i \text{ such that } i \leq k \] where we can assume that the integer \(k\) is greater than or equal to \(1\) (since the cases where \(k \in \{ 0, 1 \}\) were already dealt with in the Basis Step.) That is, we assume that the single proposition \(P(0) \land \cdots \land P(k)\) is True, where \(k\) is some integer greater than or equal to 1.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Secondly, we will prove that the conditional \(( P(0) \land \cdots \land P(k) ) \rightarrow P(k+1)\) must be True, which means we can use
+           <em>
+            modus ponens
+           </em>
+           to show that \(P(k+1)\) is also True.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           From the induction hypothesis we can assume that both
+\(r_{k-1} = t_{k-1} \cdot a + u_{k-1} \cdot b\) and
+\(r_{k} = t_{k} \cdot a + u_{k} \cdot b\) are True for some integers
+\(t_{k-1},\) \(u_{k-1},\) \(t_{k}\) and \(u_{k-1}.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           We now show how to compute \(t_{k+1}\) and \(u_{k+1}.\) At step \(k+1\) of the Euclidean algorithm, you divide \(r_{k-1}\) by \(r_{k}\) to get
+\(r_{k-1} = q_{k+1} \cdot r_{k} + r_{k+1}\) where \(q_{k+1}\) and \(r_{k+1}\) are the newly-computed quotient and remainder, respectively.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Substituting in the previous equation gives us \((t_{k-1} \cdot a + u_{k-1} \cdot b)) = q_{k+1} \cdot (t_{k} \cdot a + u_{k} \cdot b) + r_{k+1}\) which can be solved for \(r_{k+1}\) to get \(r_{k+1} = (t_{k-1} \cdot a + u_{k-1}  \cdot b) - q_{k+1} \cdot (t_{k} \cdot a + u_{k} \cdot b)\) and using a bit of algebra lets us rewrite this as \(r_{k+1} = (t_{k-1} - q_{k+1} \cdot t_{k}) \cdot a + (u_{k-1} - q_{k+1} \cdot u_{k}) \cdot b.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Summarizing, if we set
+
+\[ t_{k+1} = - q_{k+1} \cdot t_{k} + t_{k-1} \] 
+\[ u_{k+1} = - q_{k+1} \cdot u_{k} + t_{k-1} \] then we get
++
+\[r_{k+1} = t_{k+1} \cdot a + u_{k+1} \cdot b\] which is what we wanted to show. Therefore, \(P(k+1)\) is True, too. That is, \((P(0) \land \cdots \land P(k)) \rightarrow P(k+1).\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           <strong>
+            Conclusion Step:
+           </strong>
+           We have proven both the Basis Step and the Induction Step. Therefore, we can conclude that each remainder computed in the Euclidean algorithm can be written in the form \(t \cdot a + u \cdot b\) for some integers \(t\) and \(u\) no matter how many remainders need to be computed.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Q.E.D.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         This
+         <a href="https://pythontutor.com/visualize.html#code=%23%20initialize%20integers%20a%20and%20b%20with%20a%20%3E%20b%20%3E%200%0Aa%20%3D%2060%20%2329%20%2389%20%2326480501%20%23306711848392386673%0Ab%20%3D%2042%20%2317%20%2355%20%238841577%20%20%23184004991308363647%0A%0A%23%20initialize%20other%20variables%0A%23%201.%20lists%20make%20code%20easy%20to%20analyze,%20but%20are%20inefficient%20%0A%23%202.%20values%20in%20lists%20t%20and%20u%20satisfy%20the%20equation%0A%23%20%20%20%20%20%20%20remainders%5Bi%5D%20%3D%20t%5Bi%5D*a%20%2B%20u%5Bi%5D*b%20%0Ai%20%3D%200%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20array%20index%0Aquotients%20%20%3D%20%5BNone%5D%20%23%20%220th%22%20quotient%20is%20not%20used%0Aremainders%20%3D%20%5Bb%5D%20%20%20%20%23%20%220th%22%20remainder%20is%20b%20%0At%20%3D%20%5B0%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20a%0Au%20%3D%20%5B1%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20b%20%0Aprint%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%0A%23%20do%20the%20first%20division%20outside%20the%20loop%0Ai%20%3D%201%0Aquotients.append%28a%20//%20b%29%20%23%20%22div%22%0Aremainders.append%28a%20%25%20b%29%20%23%20%22mod%22%0At.append%281%29%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20a%0Au.append%28-quotients%5B1%5D%29%20%20%23%20multiplier%20for%20b%20%0Aprint%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%0A%23%20loop%20until%20remainders%5Bi%5D%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Awhile%20%28remainders%5Bi%5D%29%20%3E%200%3A%0A%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20quotients.append%28%20remainders%5Bi-2%5D%20//%20remainders%5Bi-1%5D%20%29%0A%20%20%20%20remainders.append%28%20remainders%5Bi-2%5D%20%25%20remainders%5Bi-1%5D%20%29%0A%20%20%20%20t.append%28%20t%5Bi-2%5D%20-%20quotients%5Bi%5D%20*%20t%5Bi-1%5D%20%29%0A%20%20%20%20u.append%28%20u%5Bi-2%5D%20-%20quotients%5Bi%5D%20*%20u%5Bi-1%5D%20%29%0A%20%20%20%20print%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%20%0Aprint%28f%22%5CnThe%20gcd%20of%20%7Ba%7D%20and%20%7Bb%7D%20is%20%7Bremainders%5Bi-1%5D%7D.%22%29&amp;curInstr=0&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;tryNestingObjects=true">
+          long Python code sample
+         </a>
+         implements the extended Euclidean algorithm and may help clarify what is going on in the proof.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Theorem
+         </div>
+         <div class="paragraph">
+          <p>
+           The greatest common divisor of the positive integers \(a\) and \(b\) can be written in the form \(t \cdot a + u \cdot b\) for some integers \(t\) and \(u.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Proof
+          </div>
+          <p>
+           We can assume that \(a &gt; b\) (if not, just swap the values of the variables!)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           We proved earlier in this chapter that the Euclidean algorithm computes the g.c.d as the last nonzero remainder. Now apply the previous lemma to conclude that the integers \(t\) and \(u\) exist and are computed as shown in the lemma.
+          </p>
+         </div>
         </div>
        </div>
       </div>

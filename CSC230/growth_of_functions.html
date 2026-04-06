@@ -631,7 +631,11 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on March 7, 2026.
+        This chapter was last updated on March 27, 2026.
+       </em>
+       <br/>
+       <em>
+        inserted brief note on big Omega (\(\Omega\)) notation.
        </em>
        <br/>
        <em>
@@ -1073,7 +1077,7 @@ For example, the earlier example shows that \(\Theta(x + \sin x)\) and \(\Theta(
             g
            </em>
           </strong>
-          means that there exist positive real number constants \(B\) and \(x_{0}\) so that \[ |f(x)| \leq B|g(x)| \text{ for all } x  &gt; x_{0}.\] This is usually stated (by computer scientists) as "\(f(x)\) is Big
+          means that there exist positive real number constants \(B\) and \(x_{0}\) so that \[ |f(x)| \leq B|g(x)| \text{ for all } x  &gt; x_{0}.\] This is usually stated (by computer scientists) as "\(f(x)\) is big
           <em>
            O
           </em>
@@ -1081,6 +1085,21 @@ For example, the earlier example shows that \(\Theta(x + \sin x)\) and \(\Theta(
          </p>
         </div>
        </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        <span class="small">
+         NOTE: There is also big Omega (\(\Omega\)) notation that uses only the first part of the inequality used to define big Theta. You would say “
+         <em>
+          f
+         </em>
+         is of order at least
+         <em>
+          g
+         </em>
+         ” or “\(f\) is big Omega of \(g\)” and write \(f = \Omega(g).\) For example, \(0.0001 x^2 = \Omega(x)\) since a quadratic function grows at least at the rate of a linear function; more precisely, \( x \leq 0.0001 x^2\) for all \(x &gt; 10000.\) Big Omega will not be discussed in further detail in this textbook.
+        </span>
+       </p>
       </div>
       <div class="imageblock right text-center">
        <div class="content">
@@ -1094,6 +1113,22 @@ For example, the earlier example shows that \(\Theta(x + \sin x)\) and \(\Theta(
          O
         </em>
         only gives an upper bound on the growth rate of functions. That is, the function \(f(x) = x + \sin(x)\) with domain and range \(\mathbb{R},\) used in an earlier example, is \(O(x)\) but also is \(O(x^{2})\) and is \(O(2^{x}).\)
+        <br/>
+        <span class="small">
+         However, big
+         <em>
+          O
+         </em>
+         notation is commonly used to indicate the “tighest upper bound” possible as discussed
+         <a href="https://en.wikipedia.org/wiki/Big_O_notation#Quality_of_approximations_using_different_notation">
+          here.
+         </a>
+         For example, you can expect the statement “\(f\) is big-
+         <em>
+          O
+         </em>
+         of \(x\)” to mean that the graph of the function \(f\) has a straight line of nonzero slope as an asymptote.
+        </span>
        </p>
       </div>
       <div class="paragraph">

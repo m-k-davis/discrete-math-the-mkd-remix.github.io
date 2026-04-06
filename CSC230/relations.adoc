@@ -633,6 +633,7 @@ Suppose that $a$ and $b$ are two positive integers. The *greatest common divisor
 
 //.Lemma - Generalized Pigeonhole Principle
 //If $a$ and $b$ are positive integers with $a > b,$ then the greatest common divisor can be written in the form $t \cdot a + u \cdot b$ for some integers $t$ and $u.$ 
+[[gcd_is_a_linear_combination]]
 .Theorem 
 ****
 The greatest common divisor of the positive integers $a$ and $b$ can be written in the form $t \cdot a + u \cdot b$ for some integers $t$ and $u.$ 

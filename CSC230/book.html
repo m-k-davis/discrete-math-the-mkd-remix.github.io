@@ -12608,7 +12608,7 @@ Using the Well-Ordering Principle (as an axiom) lets you conclude that there mus
 <div class="paragraph">
 <p>Suppose that \(a\) and \(b\) are two positive integers. The <strong>greatest common divisor</strong> of \(a\) and \(b,\) abbreviated as <strong>gcd,</strong> is the greatest integer that divides both integers \(a\) and \(b.\) That is, the gcd of \(a\) and \(b\) is a divisor of both \(a\) and \(b,\) and is divisible by any other positive divisor of \(a\) and \(b.\)</p>
 </div>
-<div class="sidebarblock">
+<div id="gcd_is_a_linear_combination" class="sidebarblock">
 <div class="content">
 <div class="title">Theorem</div>
 <div class="paragraph">
@@ -12990,8 +12990,7 @@ Notice that \(23\) corresponds to \(k = -2.\)</p>
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on March 17, 2025.</em><br>
-<span class="small">Contents locked until 11:59 p.m. Pacific Standard Time on May 23, 2025.</span></p>
+<p><em>This chapter was last updated on March 27, 2026.</em><br></p>
 </div>
 <div class="paragraph">
 <p>Many problems can be solved by counting the number of possible outcomes when choosing \(r\) elements from a set that contains \(n\) elements, with no repetition allowed (that is, each element can only be counted once). To be clear, this assumes that \(r\) and \(n\) are natural numbers and \(r \leq n.\)<br></p>
@@ -13679,7 +13678,8 @@ in the <a href=./induction.html>Proofs: Mathematical Induction</a> chapter that 
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on February 14, 2026.</em><br>
+<p><em>This chapter was last updated on April 6, 2026.</em><br>
+<em>Inserted discussion of Extended Euclidean algorithm</em><br>
 <em>Corrected formal definition of function in the "\(11^{n}-6\) is divisible by \(5\)" example.</em><br>
 <em>inserted proof of correctness of the MergeSort algorithm using strong induction</em><br>
 <em>Earlier updates include:</em><br>
@@ -14454,7 +14454,7 @@ What changes could you make to the drawing to create a drawing of a complete gra
 <div class="paragraph">
 <p>In this section, we&#8217;ll prove that the Euclidean Algorithm as described below correctly computes the greatest common divisor of two positive integers.</p>
 </div>
-<div class="ulist">
+<div id="euclidean_algorithm_for_gcd" class="ulist">
 <ul>
 <li>
 <p>Task: Given the positive integers \(a\) and \(b\) with \(a > b\),
@@ -14858,6 +14858,97 @@ How can you use the recursive definition of <a href=./recursion.html#rooted_tree
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_greatest_common_divisors_revisited_section_in_progress">11.6.1. Greatest Common Divisors Revisited <mark>section in progress</mark></h4>
+<div class="paragraph">
+<p><a href=./relations.html#gcd_is_a_linear_combination>Earlier in the textbook,</a> the Well-Ordering Principle was used to prove that the greatest common divisor of two positive integers \(a\) and \(b\) can be written in the form \(t \cdot a + u \cdot b\) for some integers \(t\) and \(u.\)
+The proof was a nonconstructive existence proof: It established that such numbers \(t\) and \(u\) must exist but gave no hint as to <em>how to compute</em> their values.</p>
+</div>
+<div class="paragraph">
+<p>In this subsection, we will use strong induction to give an alternate proof.  In fact, we prove a bit more: Every remainder computed by the  <a href=./induction.html#euclidean_algorithm_for_gcd>Euclidean algorithm</a> can be written in tne form \(t \cdot a + u \cdot b,\) and the algorithm can be extended to tell you how to compute those values.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Lemma</div>
+<div class="paragraph">
+<p>For positive integers \(a\) and \(b\) such that \(a > b,\) each remainder computed in the <a href=./induction.html#euclidean_algorithm_for_gcd>Euclidean algorithm</a> can be written in the form \(t \cdot a + u \cdot b\) for some integers \(t\) and \(u.\)</p>
+</div>
+<div class="openblock proof">
+<div class="title">Proof</div>
+<div class="content">
+<div class='click_oblique'>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Start by assuming that \(a\) and \(b\) are positive integers such that \(a > b.\)</p>
+</div>
+<div class="paragraph">
+<p>Let \(P(n)\) be the predicate "In the Euclidean algorithm, each remainder \(r_{0}, \ldots , r_{n}\) can be written in the form \(t_{i} \cdot a + u_{i} \cdot b\) for some finite sequences of integers \(t_{0}, \ldots , t_{n}\) and \(u_{0}, \ldots , u_{n}.\)"</p>
+</div>
+<div class="paragraph">
+<p>We will prove that \((\forall n \in \mathbb{N})P(n)\) is True.</p>
+</div>
+<div class="paragraph">
+<p><strong>Basis Step:</strong> Recall that \(b\) is treated as the “0th” remainder \(r_{0}\) by the Euclidean algorithm, so we can set \(t_{0} = 0\) and \(u_{0} = 1\) to get \(t_{0} \cdot a + u_{0} \cdot b = b = r_{0},\) which shows that the proposition \(P(0)\) is True.</p>
+</div>
+<div class="paragraph">
+<p>Next, we will also prove that \(P(1)\) is True, because \(n = 1\) corresponds to the case where we actually do at least one division! We can write \(a = q_{1} \cdot b + r_{1}\) where \(q_{1}\) and \(r_{1}\) are natural numbers and \(0 \leq r_{1} < b.\) Solving the equation for \(r_{1}\) gives \(r_{1} = a - q_{1} \cdot b\) so we set  \(t_{1} = 1\) and \(u_{1} = -q_{1}\) to get \(t_{1} \cdot a + u_{1} \cdot b = r_{1}.\) This shows that the proposition \(P(1)\) is True.</p>
+</div>
+<div class="paragraph">
+<p><strong>Induction Step:</strong> First, we assume as the induction hypothesis that \[P(i) \text { is True for all natural numbers } i \text{ such that } i \leq k \] where we can assume that the integer \(k\) is greater than or equal to \(1\) (since the cases where \(k \in \{ 0, 1 \}\) were already dealt with in the Basis Step.) That is, we assume that the single proposition \(P(0) \land \cdots \land P(k)\) is True, where \(k\) is some integer greater than or equal to 1.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, we will prove that the conditional \(( P(0) \land \cdots \land P(k) ) \rightarrow P(k+1)\) must be True, which means we can use <em>modus ponens</em> to show that \(P(k+1)\) is also True.</p>
+</div>
+<div class="paragraph">
+<p>From the induction hypothesis we can assume that both
+\(r_{k-1} = t_{k-1} \cdot a + u_{k-1} \cdot b\) and
+\(r_{k} = t_{k} \cdot a + u_{k} \cdot b\) are True for some integers
+\(t_{k-1},\) \(u_{k-1},\) \(t_{k}\) and \(u_{k-1}.\)</p>
+</div>
+<div class="paragraph">
+<p>We now show how to compute \(t_{k+1}\) and \(u_{k+1}.\) At step \(k+1\) of the Euclidean algorithm, you divide \(r_{k-1}\) by \(r_{k}\) to get
+\(r_{k-1} = q_{k+1} \cdot r_{k} + r_{k+1}\) where \(q_{k+1}\) and \(r_{k+1}\) are the newly-computed quotient and remainder, respectively.</p>
+</div>
+<div class="paragraph">
+<p>Substituting in the previous equation gives us \((t_{k-1} \cdot a + u_{k-1} \cdot b)) = q_{k+1} \cdot (t_{k} \cdot a + u_{k} \cdot b) + r_{k+1}\) which can be solved for \(r_{k+1}\) to get \(r_{k+1} = (t_{k-1} \cdot a + u_{k-1}  \cdot b) - q_{k+1} \cdot (t_{k} \cdot a + u_{k} \cdot b)\) and using a bit of algebra lets us rewrite this as \(r_{k+1} = (t_{k-1} - q_{k+1} \cdot t_{k}) \cdot a + (u_{k-1} - q_{k+1} \cdot u_{k}) \cdot b.\)</p>
+</div>
+<div class="paragraph">
+<p>Summarizing, if we set
+
+\[ t_{k+1} = - q_{k+1} \cdot t_{k} + t_{k-1} \] 
+\[ u_{k+1} = - q_{k+1} \cdot u_{k} + t_{k-1} \] then we get
++
+\[r_{k+1} = t_{k+1} \cdot a + u_{k+1} \cdot b\] which is what we wanted to show. Therefore, \(P(k+1)\) is True, too. That is, \((P(0) \land \cdots \land P(k)) \rightarrow P(k+1).\)</p>
+</div>
+<div class="paragraph">
+<p><strong>Conclusion Step:</strong> We have proven both the Basis Step and the Induction Step. Therefore, we can conclude that each remainder computed in the Euclidean algorithm can be written in the form \(t \cdot a + u \cdot b\) for some integers \(t\) and \(u\) no matter how many remainders need to be computed.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This <a href=https://pythontutor.com/visualize.html#code=%23%20initialize%20integers%20a%20and%20b%20with%20a%20%3E%20b%20%3E%200%0Aa%20%3D%2060%20%2329%20%2389%20%2326480501%20%23306711848392386673%0Ab%20%3D%2042%20%2317%20%2355%20%238841577%20%20%23184004991308363647%0A%0A%23%20initialize%20other%20variables%0A%23%201.%20lists%20make%20code%20easy%20to%20analyze,%20but%20are%20inefficient%20%0A%23%202.%20values%20in%20lists%20t%20and%20u%20satisfy%20the%20equation%0A%23%20%20%20%20%20%20%20remainders%5Bi%5D%20%3D%20t%5Bi%5D*a%20%2B%20u%5Bi%5D*b%20%0Ai%20%3D%200%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20array%20index%0Aquotients%20%20%3D%20%5BNone%5D%20%23%20%220th%22%20quotient%20is%20not%20used%0Aremainders%20%3D%20%5Bb%5D%20%20%20%20%23%20%220th%22%20remainder%20is%20b%20%0At%20%3D%20%5B0%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20a%0Au%20%3D%20%5B1%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20b%20%0Aprint%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%0A%23%20do%20the%20first%20division%20outside%20the%20loop%0Ai%20%3D%201%0Aquotients.append%28a%20//%20b%29%20%23%20%22div%22%0Aremainders.append%28a%20%25%20b%29%20%23%20%22mod%22%0At.append%281%29%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20a%0Au.append%28-quotients%5B1%5D%29%20%20%23%20multiplier%20for%20b%20%0Aprint%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%0A%23%20loop%20until%20remainders%5Bi%5D%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Awhile%20%28remainders%5Bi%5D%29%20%3E%200%3A%0A%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20quotients.append%28%20remainders%5Bi-2%5D%20//%20remainders%5Bi-1%5D%20%29%0A%20%20%20%20remainders.append%28%20remainders%5Bi-2%5D%20%25%20remainders%5Bi-1%5D%20%29%0A%20%20%20%20t.append%28%20t%5Bi-2%5D%20-%20quotients%5Bi%5D%20*%20t%5Bi-1%5D%20%29%0A%20%20%20%20u.append%28%20u%5Bi-2%5D%20-%20quotients%5Bi%5D%20*%20u%5Bi-1%5D%20%29%0A%20%20%20%20print%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%20%0Aprint%28f%22%5CnThe%20gcd%20of%20%7Ba%7D%20and%20%7Bb%7D%20is%20%7Bremainders%5Bi-1%5D%7D.%22%29&amp;curInstr=0&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;tryNestingObjects=true>long Python code sample</a> implements the extended Euclidean algorithm and may help clarify what is going on in the proof.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Theorem</div>
+<div class="paragraph">
+<p>The greatest common divisor of the positive integers \(a\) and \(b\) can be written in the form \(t \cdot a + u \cdot b\) for some integers \(t\) and \(u.\)</p>
+</div>
+<div class="paragraph">
+<div class="title">Proof</div>
+<p>We can assume that \(a > b\) (if not, just swap the values of the variables!)</p>
+</div>
+<div class="paragraph">
+<p>We proved earlier in this chapter that the Euclidean algorithm computes the g.c.d as the last nonzero remainder. Now apply the previous lemma to conclude that the integers \(t\) and \(u\) exist and are computed as shown in the lemma.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="merge_sort_strong_induction">11.7. Validating A Recursive Algorithm Using Strong Induction</h3>
@@ -15255,7 +15346,8 @@ f_0^2+f_1^2+f_2^2+ \cdots + f_n^2 =f_n \cdot\ f_{n+1}.
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on March 7, 2026.</em><br>
+<p><em>This chapter was last updated on March 27, 2026.</em><br>
+<em>inserted brief note on big Omega (\(\Omega\)) notation.</em><br>
 <em>inserted "Check Your Understanding" for floor and ceiling functions.</em></p>
 </div>
 <div class="paragraph">
@@ -15450,9 +15542,12 @@ I believe that both mathematicians and computer scientists agree that <span clas
 <div class="content">
 <div class="paragraph">
 <div class="title">Definition</div>
-<p><strong><em>f</em> is of order at most <em>g</em></strong> means that there exist positive real number constants \(B\) and \(x_{0}\) so that \[ |f(x)| \leq B|g(x)| \text{ for all } x  &gt; x_{0}.\] This is usually stated (by computer scientists) as "\(f(x)\) is Big <em>O</em>  of \(g(x)\)" and written as \(f(x) = O(g(x)).\)</p>
+<p><strong><em>f</em> is of order at most <em>g</em></strong> means that there exist positive real number constants \(B\) and \(x_{0}\) so that \[ |f(x)| \leq B|g(x)| \text{ for all } x  &gt; x_{0}.\] This is usually stated (by computer scientists) as "\(f(x)\) is big <em>O</em>  of \(g(x)\)" and written as \(f(x) = O(g(x)).\)</p>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p><span class="small">NOTE: There is also big Omega (\(\Omega\)) notation that uses only the first part of the inequality used to define big Theta. You would say “<em>f</em> is of order at least <em>g</em>” or “\(f\) is big Omega of \(g\)” and write \(f = \Omega(g).\) For example, \(0.0001 x^2 = \Omega(x)\) since a quadratic function grows at least at the rate of a linear function; more precisely, \( x \leq 0.0001 x^2\) for all \(x > 10000.\) Big Omega will not be discussed in further detail in this textbook.</span></p>
 </div>
 <div class="imageblock right text-center">
 <div class="content">
@@ -15460,7 +15555,8 @@ I believe that both mathematicians and computer scientists agree that <span clas
 </div>
 </div>
 <div class="paragraph">
-<p>Note that Big <em>O</em>  only gives an upper bound on the growth rate of functions. That is, the function \(f(x) = x + \sin(x)\) with domain and range \(\mathbb{R},\) used in an earlier example, is \(O(x)\) but also is \(O(x^{2})\) and is \(O(2^{x}).\)</p>
+<p>Note that Big <em>O</em>  only gives an upper bound on the growth rate of functions. That is, the function \(f(x) = x + \sin(x)\) with domain and range \(\mathbb{R},\) used in an earlier example, is \(O(x)\) but also is \(O(x^{2})\) and is \(O(2^{x}).\)<br>
+<span class="small">However, big <em>O</em> notation is commonly used to indicate the “tighest upper bound” possible as discussed <a href=https://en.wikipedia.org/wiki/Big_O_notation#Quality_of_approximations_using_different_notation>here.</a> For example, you can expect the statement “\(f\) is big-<em>O</em> of \(x\)” to mean that the graph of the function \(f\) has a straight line of nonzero slope as an asymptote.</span></p>
 </div>
 <div class="paragraph">
 <p>Big <em>O</em>  is typically used to analyze the worst case complexity of an algorithm.
@@ -16076,7 +16172,8 @@ words what it means that \( f(x)\) is <span class="underline">not</span> \( O(g(
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on February 14, 2026.</em><br>
+<p><em>This chapter was last updated on March 27, 2026.</em><br>
+<em>Inserted a brief section to mention the master theorem and the Akra–Bazzi method.</em><br>
 <em>Corrected text in Euclidean Algorithm example.</em><br>
 <em>added closed-form solution for the recurrence relation that describes the number of comparisons used by the MergeSort algorithm for lists of length a power of 2.</em><br></p>
 </div>
@@ -16812,10 +16909,50 @@ larger elements to the right, using a variable, say \(j\).</p>
 <p>To simplify the analysis, let&#8217;s <strong>assume that \(n\) is a power of \(2\)</strong> so that the ceiling and floor are not needed in the recurrence relation. \[ C(n) = C \left( \frac{n}{2} \right) + C \left( \frac{n}{2} \right) + (n - 1) \] where \(n\) is a power of \(2\) and \(C(1) = 0\) and \(C(2) = 1.\) Notice that the recursive step can be rewritten as \[ C(n) = 2 C \left( \frac{n}{2} \right) + (n - 1). \] It can be shown that the closed-form solution to this recurrence relation is a function that is \(O(n \log{n}).\)<br>
 <span class="small">Informal exercise: Verify that \(C(n) = n \cdot \log_{2}{(n)} - (n-1)\) is a closed-form solution of the simplified recurrence relation.</span></p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_big_o_analysis_of_divide_and_conquer_algorithms">13.5. Big-O Analysis of Divide-and-Conquer Algorithms</h3>
 <div class="paragraph">
-<p>MORE TO COME!</p>
+<p>The Merge Sort is
+just one
+example of a <strong>divide-and-conquer algorithm</strong> that
+breaks up a large problem into two or more smaller versions of the same problem and then combines the solutions of the smaller problems to find a solution to the original large problem.</p>
 </div>
+<div class="paragraph">
+<p>In many cases,
+the time complexity of
+a divide-and-conquer algorithm
+can be described by a recurrence relation of the form \[ T(n) = a T \left( \frac{n}{b} \right) + f(n)\] where</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(a\) and \(b\) stand for positive integer constants,</p>
+</li>
+<li>
+<p>either the function \(f\) or its \(\Theta(f)\) class is known,</p>
+</li>
+<li>
+<p>the input values for \(n\) are restricted to powers of the constant base \(b,\) and</p>
+</li>
+<li>
+<p>a basis for the recurrence relation is given, e.g., the value of \(T(1)\) is known.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In general, you don&#8217;t need to find a closed form for the function \(T\) (which may be difficult) but only to determine the big Theta of the function \(T,\)
+which is easier to do.</p>
+</div>
+<div class="paragraph">
+<p>To determine \(\Theta(T),\) you can use
+the  <a href=https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)>“master theorem”</a> originally described by Bentley, Haken, and Saxe (<a href=https://apps.dtic.mil/sti/tr/pdf/ADA064294.pdf>pdf link.</a>)
+Alternatively, you can use
+the
+<a href=https://en.wikipedia.org/wiki/Akra%E2%80%93Bazzi_method#Significance>Akra–Bazzi method</a>
+which works for this kind of recurrence relation as well as ones that are even more complicated.</p>
 </div>
 </div>
 </div>
