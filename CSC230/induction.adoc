@@ -2089,7 +2089,7 @@ $r_{k-1} = q_{k+1} \cdot r_{k} + r_{k+1}$ where $q_{k+1}$ and $r_{k+1}$ are the 
 Substituting in the previous equation gives us $(t_{k-1} \cdot a + u_{k-1} \cdot b)) = q_{k+1} \cdot (t_{k} \cdot a + u_{k} \cdot b) + r_{k+1}$ which can be solved for $r_{k+1}$ to get $r_{k+1} = (t_{k-1} \cdot a + u_{k-1}  \cdot b) - q_{k+1} \cdot (t_{k} \cdot a + u_{k} \cdot b)$ and using a bit of algebra lets us rewrite this as $r_{k+1} = (t_{k-1} - q_{k+1} \cdot t_{k}) \cdot a + (u_{k-1} - q_{k+1} \cdot u_{k}) \cdot b.$ 
 
 Summarizing, if we set 
-\[ t_{k+1} = - q_{k+1} \cdot t_{k} + t_{k-1} \] \[ u_{k+1} = - q_{k+1} \cdot u_{k} + t_{k-1} \] then we get 
+\[ t_{k+1} = - q_{k+1} \cdot t_{k} + t_{k-1} \] \[ u_{k+1} = - q_{k+1} \cdot u_{k} + u_{k-1} \] then we get 
 \[r_{k+1} = t_{k+1} \cdot a + u_{k+1} \cdot b\] which is what we wanted to show. Therefore, $P(k+1)$ is True, too. That is, $(P(0) \land \cdots \land P(k)) \rightarrow P(k+1).$
 
 *Conclusion Step:* We have proven both the Basis Step and the Induction Step. Therefore, we can conclude that each remainder computed in the Euclidean algorithm can be written in the form $t \cdot a + u \cdot b$ for some integers $t$ and $u$ no matter how many remainders need to be computed.
