@@ -334,7 +334,9 @@ Traditionally, computer scientists are much more interested in the idea that "_f
 //image::imagesMKD/BigOmegaXPlusSinX.png[BigOmegaXPlusSinX,1178,1062,float="right",align="center"]
 image::imagesMKD/BigOmegaXPlusSinX.png[BigOmegaXPlusSinX,354,319,float="right",align="center"]
 Note that Big _O_  only gives an upper bound on the growth rate of functions. That is, the function $f(x) = x + \sin(x)$ with domain and range $\mathbb{R},$ used in an earlier example, is $O(x)$ but also is $O(x^{2})$ and is $O(2^{x}).$ + 
-[small]#However, big _O_ notation is commonly used to indicate the “tighest upper bound” possible as discussed link:https://en.wikipedia.org/wiki/Big_O_notation#Quality_of_approximations_using_different_notation[here.] For example, you can expect the statement “$f$ is big-_O_ of $x$” to mean that the graph of the function $f$ has a straight line of nonzero slope as an asymptote.# 
+[small]#However, big _O_ notation is commonly used to indicate the “tighest upper bound” possible as discussed link:https://en.wikipedia.org/wiki/Big_O_notation#Quality_of_approximations_using_different_notation[here.]# 
+// MKD Apr 12 2026 this next statement is Flase! Fix it!!! 
+//For example, you can expect the statement “$f$ is big-_O_ of $x$” to mean that the graph of the function $f$ has a straight line of nonzero slope as an asymptote.# 
 
 // MKD Mar 27 2026 
 // This is NOT the same as $f$ is big-Theta of $x$): 
@@ -342,6 +344,10 @@ Note that Big _O_  only gives an upper bound on the growth rate of functions. Th
 //	Example 2. $left\lceil x \right\rceil - \left\lfloor x \right\rfloor$ is $O(x)$ but not $\Omega(x)$ 
 // in each example, the function has infinitely-many zeroes, so has no lower bound other than the constant function 0.
 
+
+// MKD Apr 12 2026 note, but may not belong here 
+// x*sin^{2}(x) is O(x) but not Big-Theta of x (it's not Big-Omega of x 
+// because if has zeroes at each multiple of \pi)
 
 
 ////

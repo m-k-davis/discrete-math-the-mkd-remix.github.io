@@ -13678,7 +13678,8 @@ in the <a href=./induction.html>Proofs: Mathematical Induction</a> chapter that 
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on April 6, 2026.</em><br>
+<p><em>This chapter was last updated on April 13, 2026.</em><br>
+<em>Inserted "Secret Sharing" exercise.</em><br>
 <em>Inserted discussion of Extended Euclidean algorithm</em><br>
 <em>Corrected formal definition of function in the "\(11^{n}-6\) is divisible by \(5\)" example.</em><br>
 <em>inserted proof of correctness of the MergeSort algorithm using strong induction</em><br>
@@ -14918,7 +14919,7 @@ The proof was a nonconstructive existence proof: It established that such number
 <p>Summarizing, if we set
 
 \[ t_{k+1} = - q_{k+1} \cdot t_{k} + t_{k-1} \] 
-\[ u_{k+1} = - q_{k+1} \cdot u_{k} + t_{k-1} \] then we get
+\[ u_{k+1} = - q_{k+1} \cdot u_{k} + u_{k-1} \] then we get
 +
 \[r_{k+1} = t_{k+1} \cdot a + u_{k+1} \cdot b\] which is what we wanted to show. Therefore, \(P(k+1)\) is True, too. That is, \((P(0) \land \cdots \land P(k)) \rightarrow P(k+1).\)</p>
 </div>
@@ -14931,7 +14932,10 @@ The proof was a nonconstructive existence proof: It established that such number
 </div>
 </div>
 <div class="paragraph">
-<p>This <a href=https://pythontutor.com/visualize.html#code=%23%20initialize%20integers%20a%20and%20b%20with%20a%20%3E%20b%20%3E%200%0Aa%20%3D%2060%20%2329%20%2389%20%2326480501%20%23306711848392386673%0Ab%20%3D%2042%20%2317%20%2355%20%238841577%20%20%23184004991308363647%0A%0A%23%20initialize%20other%20variables%0A%23%201.%20lists%20make%20code%20easy%20to%20analyze,%20but%20are%20inefficient%20%0A%23%202.%20values%20in%20lists%20t%20and%20u%20satisfy%20the%20equation%0A%23%20%20%20%20%20%20%20remainders%5Bi%5D%20%3D%20t%5Bi%5D*a%20%2B%20u%5Bi%5D*b%20%0Ai%20%3D%200%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20array%20index%0Aquotients%20%20%3D%20%5BNone%5D%20%23%20%220th%22%20quotient%20is%20not%20used%0Aremainders%20%3D%20%5Bb%5D%20%20%20%20%23%20%220th%22%20remainder%20is%20b%20%0At%20%3D%20%5B0%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20a%0Au%20%3D%20%5B1%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20b%20%0Aprint%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%0A%23%20do%20the%20first%20division%20outside%20the%20loop%0Ai%20%3D%201%0Aquotients.append%28a%20//%20b%29%20%23%20%22div%22%0Aremainders.append%28a%20%25%20b%29%20%23%20%22mod%22%0At.append%281%29%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20a%0Au.append%28-quotients%5B1%5D%29%20%20%23%20multiplier%20for%20b%20%0Aprint%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%0A%23%20loop%20until%20remainders%5Bi%5D%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Awhile%20%28remainders%5Bi%5D%29%20%3E%200%3A%0A%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20quotients.append%28%20remainders%5Bi-2%5D%20//%20remainders%5Bi-1%5D%20%29%0A%20%20%20%20remainders.append%28%20remainders%5Bi-2%5D%20%25%20remainders%5Bi-1%5D%20%29%0A%20%20%20%20t.append%28%20t%5Bi-2%5D%20-%20quotients%5Bi%5D%20*%20t%5Bi-1%5D%20%29%0A%20%20%20%20u.append%28%20u%5Bi-2%5D%20-%20quotients%5Bi%5D%20*%20u%5Bi-1%5D%20%29%0A%20%20%20%20print%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%20%0Aprint%28f%22%5CnThe%20gcd%20of%20%7Ba%7D%20and%20%7Bb%7D%20is%20%7Bremainders%5Bi-1%5D%7D.%22%29&amp;curInstr=0&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;tryNestingObjects=true>long Python code sample</a> implements the extended Euclidean algorithm and may help clarify what is going on in the proof.</p>
+<p>This <a href=https://pythontutor.com/visualize.html#code=%23%20initialize%20integers%20a%20and%20b%20with%20a%20%3E%20b%20%3E%200%0Aa%20%3D%2060%20%2329%20%2389%20%2326480501%20%23306711848392386673%0Ab%20%3D%2042%20%2317%20%2355%20%238841577%20%20%23184004991308363647%0A%0A%23%20initialize%20other%20variables%0A%23%201.%20lists%20make%20code%20easy%20to%20analyze,%20but%20are%20inefficient%20%0A%23%202.%20values%20in%20lists%20t%20and%20u%20satisfy%20the%20equation%0A%23%20%20%20%20%20%20%20remainders%5Bi%5D%20%3D%20t%5Bi%5D*a%20%2B%20u%5Bi%5D*b%20%0Ai%20%3D%200%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20array%20index%0Aquotients%20%20%3D%20%5BNone%5D%20%23%20%220th%22%20quotient%20is%20not%20used%0Aremainders%20%3D%20%5Bb%5D%20%20%20%20%23%20%220th%22%20remainder%20is%20b%20%0At%20%3D%20%5B0%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20a%0Au%20%3D%20%5B1%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20b%20%0Aprint%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%0A%23%20do%20the%20first%20division%20outside%20the%20loop%0Ai%20%3D%201%0Aquotients.append%28a%20//%20b%29%20%23%20%22div%22%0Aremainders.append%28a%20%25%20b%29%20%23%20%22mod%22%0At.append%281%29%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20multiplier%20for%20a%0Au.append%28-quotients%5B1%5D%29%20%20%23%20multiplier%20for%20b%20%0Aprint%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%0A%23%20loop%20until%20remainders%5Bi%5D%20is%200,%20last%20nonzero%20remainder%20is%20GCD%0Awhile%20%28remainders%5Bi%5D%29%20%3E%200%3A%0A%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20quotients.append%28%20remainders%5Bi-2%5D%20//%20remainders%5Bi-1%5D%20%29%0A%20%20%20%20remainders.append%28%20remainders%5Bi-2%5D%20%25%20remainders%5Bi-1%5D%20%29%0A%20%20%20%20t.append%28%20t%5Bi-2%5D%20-%20quotients%5Bi%5D%20*%20t%5Bi-1%5D%20%29%0A%20%20%20%20u.append%28%20u%5Bi-2%5D%20-%20quotients%5Bi%5D%20*%20u%5Bi-1%5D%20%29%0A%20%20%20%20print%28f%22%7Bremainders%5Bi%5D%7D%3D%28%7Bt%5Bi%5D%7D%29*%7Ba%7D%2B%28%7Bu%5Bi%5D%7D%29*%7Bb%7D%22%29%0A%20%0Aprint%28f%22%5CnThe%20gcd%20of%20%7Ba%7D%20and%20%7Bb%7D%20is%20%7Bremainders%5Bi-1%5D%7D.%22%29&amp;curInstr=0&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;tryNestingObjects=true>long Python code sample</a> implements the extended Euclidean algorithm and may help clarify what is going on in the proof of the lemma.</p>
+</div>
+<div class="paragraph">
+<p>Now we can reprove the theorem.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -14941,10 +14945,39 @@ The proof was a nonconstructive existence proof: It established that such number
 </div>
 <div class="paragraph">
 <div class="title">Proof</div>
-<p>We can assume that \(a > b\) (if not, just swap the values of the variables!)</p>
+<p>We can assume that \(a > b\) (If not, either \(a < b\) and you can just swap the values of the variables, or \(a = b\) and you can set \(t=0\) and \(u=1\) and be done.)</p>
 </div>
 <div class="paragraph">
 <p>We proved earlier in this chapter that the Euclidean algorithm computes the g.c.d as the last nonzero remainder. Now apply the previous lemma to conclude that the integers \(t\) and \(u\) exist and are computed as shown in the lemma.</p>
+</div>
+<div class="paragraph">
+<p>Q.E.D.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Why would anyone care about representing the g.c.d. in this way? The following exercise gives an application.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Exercise - Sharing a Secret</div>
+<p>A string of ASCII characters has been encoded as a bitstring.
+The bitstring can also be interpreted as the base-two representation of a certain positive integer \(c.\)
+When \(c\) is divided by the prime integer \(15485863\) the remainder is  \(14949833.\)
+When \(c\) is divided by the prime integer \(15485867\) the remainder is  \(9874900.\)
+Find the value of \(c,\) assuming that \(c < (15485863)(15485867).\)</p>
+</div>
+<div class="paragraph">
+<p>Once you have found the value of \(c\) you can edit  <a href=https://pythontutor.com/visualize.html#code=def%20myDecoder%28theCode%29%3A%0A%20%20%20%20theASCIIcharacters%20%3D%20%5B%5D%0A%20%20%20%20while%20theCode%20%3E%200%3A%0A%20%20%20%20%20%20%20%20theASCIIcharacters.append%28chr%28theCode%25256%29%29%0A%20%20%20%20%20%20%20%20theCode%20%3D%20theCode%20//%20256%0A%20%20%20%20theASCIIcharacters.reverse%28%29%0A%20%20%20%20print%28%20%22%22.join%28theASCIIcharacters%29%20%29%0A%0AmyDecoder%28336877085985%29%0A%23%20336877085985%20is%20hexadecimal%200x4e6f706521&amp;curInstr=23&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3>this code snippet</a> to decode the number \(c\) back to the string.</p>
+</div>
+<div class="openblock click">
+<div class="title">Hint</div>
+<div class="content">
+<div class='click_oblique'>
+Use Sunzi&#8217;s Method (the Chinese Remainder Theorem) discussed in the Relations chapter. The extended Euclidean Algorithm can help you compute values that are divisible by one of the primes and leave a remainder of 1 when divided by the other prime.
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -15556,7 +15589,7 @@ I believe that both mathematicians and computer scientists agree that <span clas
 </div>
 <div class="paragraph">
 <p>Note that Big <em>O</em>  only gives an upper bound on the growth rate of functions. That is, the function \(f(x) = x + \sin(x)\) with domain and range \(\mathbb{R},\) used in an earlier example, is \(O(x)\) but also is \(O(x^{2})\) and is \(O(2^{x}).\)<br>
-<span class="small">However, big <em>O</em> notation is commonly used to indicate the “tighest upper bound” possible as discussed <a href=https://en.wikipedia.org/wiki/Big_O_notation#Quality_of_approximations_using_different_notation>here.</a> For example, you can expect the statement “\(f\) is big-<em>O</em> of \(x\)” to mean that the graph of the function \(f\) has a straight line of nonzero slope as an asymptote.</span></p>
+<span class="small">However, big <em>O</em> notation is commonly used to indicate the “tighest upper bound” possible as discussed <a href=https://en.wikipedia.org/wiki/Big_O_notation#Quality_of_approximations_using_different_notation>here.</a></span></p>
 </div>
 <div class="paragraph">
 <p>Big <em>O</em>  is typically used to analyze the worst case complexity of an algorithm.
