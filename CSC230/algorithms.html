@@ -631,7 +631,11 @@ $(document).on('page:load', ready2);
      <div class="paragraph">
       <p>
        <em>
-        This chapter was last updated on March 27, 2026.
+        This chapter was last updated on April 26, 2026.
+       </em>
+       <br/>
+       <em>
+        Inserted brief discussion of the Halting Problem.
        </em>
        <br/>
        <em>
@@ -2066,6 +2070,211 @@ the
          Akra–Bazzi method
         </a>
         which works for this kind of recurrence relation as well as ones that are even more complicated.
+       </p>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_a_brief_discussion_of_the_halting_problem_section_in_progress">
+       13.6. A Brief Discussion of the Halting Problem
+       <mark>
+        section in progress
+       </mark>
+      </h3>
+      <div class="paragraph">
+       <p>
+        It would be
+ideal
+if
+        <em>
+         every
+        </em>
+        problem could be solved using some algorithm, but Alan Turing proved in 1936 that this cannot be True.
+In this section, we will look at an informal proof that the Halting Problem cannot be solved by any algorithm.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         The Halting Problem
+        </div>
+        <div class="paragraph">
+         <p>
+          For any given algorithm \(A\) along with input \(I\) for \(A\), decide if the algorithm eventually halts (i.e., finishes running) or runs forever for the input \(I.\)
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        We seek an algorithm \(P\) that solves the Halting Problem. That is, the algorithm \(P\) must work for all possible ordered pairs \(( A, \, I )\) where \(A\) is an algorithm and \(I\) is some input to \(A.\)
+We describe such an algorithm below.
+       </p>
+      </div>
+      <div class="ulist">
+       <div class="title">
+        <em>
+         P
+        </em>
+       </div>
+       <ul>
+        <li>
+         <p>
+          Task: Given an algorithm \(A\) and input \(I\) for \(A\), decide whether \(A\) eventually halts or runs forever for the input \(I.\)
+         </p>
+        </li>
+        <li>
+         <p>
+          Input: An ordered pair \(( A, \, I )\) where \(A\) is an algorithm (e.g., source code) and \(I\) is input for \(A.\)
+         </p>
+        </li>
+        <li>
+         <p>
+          Steps: We don’t know these yet. In fact, we are trying to figure out what they could be!
+         </p>
+        </li>
+        <li>
+         <p>
+          Output: “Yes” if \(A\) halts for input \(I,\) or “No” if \(A\) runs forever for input \(I.\)
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        Notice that if we can figure out how to fill in the Steps,
+then \(P\)
+is a solution to the Halting Problem.
+        <br/>
+        That is, \(P(A, I)\) returns “Yes” if and only if \(A\) halts for input \(I,\) and
+\(P(A, I)\) returns “No” if and only if \(A\) runs forever for input \(I.\)
+        <br/>
+        <span class="small">
+         Note: If it helps, you can imagine that \(P\) is a program that, like a compiler or debugger, takes in source code or a compiled binary for program \(A\) and input \(I\) then executes some steps to determine whether \(A\) running on input \(I\) halts (“Yes”) or runs forever (“No”.)
+        </span>
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We will now use a “proof by contradiction” argument to show that no such \(P\) can exist!
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        To get the contradiction, first we assume that such a \(P\) does exist.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Secondly, we create another algorithm \(Q,\) based on \(P,\) described below.
+       </p>
+      </div>
+      <div class="ulist">
+       <div class="title">
+        <em>
+         Q
+        </em>
+       </div>
+       <ul>
+        <li>
+         <p>
+          Task: Given an algorithm \(A\), halt if \(A\) runs forever when \(A\) is given
+          <em>
+           itself
+          </em>
+          as its input, or run an infinite loop if \(A\) eventually halts when \(A\) is given
+          <em>
+           itself
+          </em>
+          as its input.
+         </p>
+        </li>
+        <li>
+         <p>
+          Input: An algorithm \(A\) (e.g., source code.)
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="ulist">
+       <ul>
+        <li>
+         <p>
+          Steps:
+         </p>
+         <div class="olist arabic">
+          <ol class="arabic">
+           <li>
+            <p>
+             If \(P(A, A)\) returns “Yes”
+            </p>
+            <div class="olist loweralpha">
+             <ol class="loweralpha" type="a">
+              <li>
+               <p>
+                run an infinite loop
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+           <li>
+            <p>
+             If \(P(A, A)\) returns “No”
+            </p>
+            <div class="olist loweralpha">
+             <ol class="loweralpha" type="a">
+              <li>
+               <p>
+                halt
+               </p>
+              </li>
+             </ol>
+            </div>
+           </li>
+          </ol>
+         </div>
+        </li>
+        <li>
+         <p>
+          Output: There is no output.
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="paragraph">
+       <p>
+        Note that \(Q(A)\) runs forever if and only if \(A\) halts for input \(A.\) That is, \(Q(A)\) does the “opposite” of what \(P(A, \, A)\) indicates.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Thirdly, we now run \(Q\)
+        <em>
+         on itself as input!
+        </em>
+        This means that \(Q(Q)\) runs forever if and only if \(Q\) halts for input \(Q,\) which is a contradiction!
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        Now, it should be clear that \(Q\) exists if \(P\) exists, but the existence of \(Q\) gives us a contradiction. Therefore, it also must be the case that algorithm \(P\) does not exist!
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        For an alternative explanation of the proof, you can read
+        <a href="https://www.lel.ed.ac.uk/~gpullum/loopsnoop.html">
+         this poem
+        </a>
+        by Geoffrey K. Pullum.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        More information about the Halting Problem can be found at
+        <a href="https://en.wikipedia.org/wiki/Halting_problem#Background">
+         this Wikipedia page.
+        </a>
        </p>
       </div>
      </div>

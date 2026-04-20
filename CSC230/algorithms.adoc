@@ -9,7 +9,8 @@
 
 include::LinkToPublic.adoc[] 
 
-_This chapter was last updated on March 27, 2026._ + 
+_This chapter was last updated on April 26, 2026._ + 
+_Inserted brief discussion of the Halting Problem._ + 
 _Inserted a brief section to mention the master theorem and the Akra–Bazzi method._ +
 _Corrected text in Euclidean Algorithm example._ +
 _added closed-form solution for the recurrence relation that describes the number of comparisons used by the MergeSort algorithm for lists of length a power of 2._ + 
@@ -811,6 +812,101 @@ multiply to find that the complexity of Merge Sort is $O(n \log{n})$.
 
 //MKD merge sort ends 
 
+
+// MKD Apr 20 2026  
+//== Can EVERY Problem be Solved Using An Algorithm? #section in progress# 
+//== Can Algorithms Solve Every Possible Problem? #section in progress# 
+//== Can Algorithms Solve Every Possible Problem? #section in progress# 
+== A Brief Discussion of the Halting Problem #section in progress# 
+
+It would be 
+//nice 
+ideal 
+if _every_ problem could be solved using some algorithm, but Alan Turing proved in 1936 that this cannot be True. 
+//there are problems that cannot be solved. 
+In this section, we will look at an informal proof that the Halting Problem cannot be solved by any algorithm. 
+
+//The Halting Problem is the the following statement. 
+.The Halting Problem
+****
+For any given algorithm $A$ along with input $I$ for $A$, decide if the algorithm eventually halts (i.e., finishes running) or runs forever for the input $I.$ 
+****
+// a description of an arbitrary
+//Given any algorithm $A$ (e.g., a computer program) and its input $I$, decide if the algorithm will eventually finish running or if it will run forever. 
+//Given any algorithm $A$ and input $I$ for $A$, decide if the algorithm  eventually halts (i.e., finishes running) or runs forever for the input $I.$ 
+We seek an algorithm $P$ that solves the Halting Problem. That is, the algorithm $P$ must work for all possible ordered pairs $( A, \, I )$ where $A$ is an algorithm and $I$ is some input to $A.$ 
+We describe such an algorithm below.
+
+//Find an algorithm $P$ that can perform the following task: 
+//Consider the following algorithm that we will call $P.$ 
+//Let's _assume_ that we can find an algorithm $P$ that satisfies the following description. 
+//Consider the algorithm $P$ that satisfies the following description. 
+//Consider the algorithm $P$ described below. 
+
+
+//._P, the Decider_ 
+._P_ 
+** Task: Given an algorithm $A$ and input $I$ for $A$, decide whether $A$ eventually halts or runs forever for the input $I.$ 
+** Input: An ordered pair $( A, \, I )$ where $A$ is an algorithm (e.g., source code) and $I$ is input for $A.$  
+//** Steps:  
+//. (We don't know the steps - we are trying to find out if they even exist!!)
+//** Steps: We don't know these yet. In fact, we are trying to find out if they even exist!!
+** Steps: We don't know these yet. In fact, we are trying to figure out what they could be!
+//** Output: $P$ returns “Yes” if $A$ halts for input $I,$ and $P$ returns “No” if $A$ runs forever for input $I.$  
+** Output: “Yes” if $A$ halts for input $I,$ or “No” if $A$ runs forever for input $I.$  
+
+Notice that if we can figure out how to fill in the Steps,
+// If such a $P$ actually exists, it 
+then $P$ 
+is a solution to the Halting Problem. + 
+That is, $P(A, I)$ returns “Yes” if and only if $A$ halts for input $I,$ and 
+$P(A, I)$ returns “No” if and only if $A$ runs forever for input $I.$ + 
+[small]#Note: If it helps, you can imagine that $P$ is a program that, like a compiler or debugger, takes in source code or a compiled binary for program $A$ and input $I$ then executes some steps to determine whether $A$ running on input $I$ halts (“Yes”) or runs forever (“No”.)# 
+
+//and outputs either “Yes” or “No” as described above.  
+
+We will now use a “proof by contradiction” argument to show that no such $P$ can exist! 
+
+To get the contradiction, first we assume that such a $P$ does exist. 
+
+Secondly, we create another algorithm $Q,$ based on $P,$ described below.
+
+//._Q, the “Diagonalizer”_ 
+._Q_ 
+//** Task: Given an algorithm $A$, $Q$ decides whether $A$ eventually halts or runs forever when $A$ is given itself as its input. 
+** Task: Given an algorithm $A$, halt if $A$ runs forever when $A$ is given _itself_ as its input, or run an infinite loop if $A$ eventually halts when $A$ is given _itself_ as its input. 
+** Input: An algorithm $A$ (e.g., source code.) 
+////
+** Steps:  
+. Set string $s$ to the output $P(A, A)$
+. If s equals “Yes” 
+.. run an infinite loop
+. If s equals “No” 
+.. halt
+////
+** Steps:  
+. If $P(A, A)$ returns “Yes” 
+.. run an infinite loop
+. If $P(A, A)$ returns “No” 
+.. halt
+//** Output: None. 
+** Output: There is no output. 
+
+Note that $Q(A)$ runs forever if and only if $A$ halts for input $A.$ That is, $Q(A)$ does the “opposite” of what $P(A, \, A)$ indicates.
+
+Thirdly, we now run $Q$ _on itself as input!_ 
+This means that $Q(Q)$ runs forever if and only if $Q$ halts for input $Q,$ which is a contradiction! 
+
+Now, it should be clear that $Q$ exists if $P$ exists, but the existence of $Q$ gives us a contradiction. Therefore, it also must be the case that algorithm $P$ does not exist!
+
+ 
+
+//For each ordered pair input $( A, \, I ),$ where $A$ is an algorithm and $I$ is input for $A,$ the algorithm $P$ outputs "Yes" whenever $A$ eventually halts when processing $I$ or prints "No" if $A
+
+//For a alternate proof that the Halting Problem is undecidable, 
+For an alternative explanation of the proof, you can read link:https://www.lel.ed.ac.uk/~gpullum/loopsnoop.html[this poem] by Geoffrey K. Pullum.
+
+More information about the Halting Problem can be found at link:https://en.wikipedia.org/wiki/Halting_problem#Background[this Wikipedia page.]
 
 
 // start of Dijkstra
