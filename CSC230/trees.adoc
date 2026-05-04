@@ -7,7 +7,9 @@
 include::LinkToPublic.adoc[] 
 
 
-_This chapter was last updated on December 8, 2025._ + 
+_This chapter was last updated on May 4, 2026._ + 
+_Fixed some typos._ + 
+_Inserted links and very brief mention of depth-first and breadth-first traversals._ + 
 _Added more content to the section on binary trees: Tree traversal algorithms, Łukasiewicz's parentheses-free notation (“Polish notation”) and expression trees._ + 
 //_Added note on Jan Łukasiewicz's notation (usually called “Polish notation,” subsection to be added later)_ + 
 _Revised section on directed trees. Rewrote theorem on second characterization of trees._
@@ -1027,7 +1029,7 @@ $ \left[ 17, 3, 5, 31, 2 \right] .$
 ** Since $5$ is greater than the key $3$ at the left subtree's root, $5$ is assigned to the _right_ child of the left subtree's root. 
 * The next key, $31,$ is greater than the key $17$ at the root node, so $31$ is assigned to the right child of the root node. 
 * The last key, $2,$ is less than the key $17$ at the root node, so $2$ must be assigned to some node in the left subtree. 
-** Since $2$ is greater than $3,$ $2$ is assigned to the _left_ child of of the left subtree's root. 
+** Since $2$ is less than $3,$ $2$ is assigned to the _left_ child of of the left subtree's root. 
 
 The following animation illustrates the construction of this binary search tree. 
 
@@ -1311,7 +1313,17 @@ Binary Search Trees
 		
 //** Tree Traversal Strategies
 
-*** Algorithms for Depth- and breadth-first traversals
+*** Algorithms for depth-first and breadth-first traversal 
+// MKD May 4 2026 see following website for ideas 
+// https://courses.grainger.illinois.edu/cs225/sp2026/resources/bfs-dfs/ 
+// MKD May 4 2026 punting to Wikipedia for now 
+**** For now, you can visit the following two links 
+at Simple English Wikipedia for 
+//simple explanations of 
+the basic definitions of  link:https://simple.wikipedia.org/wiki/Depth-first_search[depth-first search (DFS)] and link:https://simple.wikipedia.org/wiki/Breadth-first_search[breadth-first search (BFS).] + 
+[small]#Note that each of preorder, inorder, and postorder traversal is an example of a depth-first traversal. + 
+As an example of breadth-first search, consider finding a shortest path between two vertices of a connected undirected graph (e.g., first assign each edge a weight of $1,$ then use link:./graph_theory.html#dijkstra_algorithm[Dijkstra's Algorithm] to find the path of minimal total weight between the two vertices, that path is the shortest path.)#  
+
 
 //** Expression Trees 
 // https://en.wikipedia.org/wiki/Binary_expression_tree

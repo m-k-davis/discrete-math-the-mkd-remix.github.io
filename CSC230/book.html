@@ -18134,7 +18134,7 @@ The second graph is not Hamiltonian.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_finding_a_shortest_path_in_a_weighted_graph_dijkstras_algorithm">14.15. Finding A Shortest Path in a Weighted Graph: Dijkstra&#8217;s Algorithm</h3>
+<h3 id="dijkstra_algorithm">14.15. Finding A Shortest Path in a Weighted Graph: Dijkstra&#8217;s Algorithm</h3>
 <div class="paragraph">
 <p>In some applications of graph theory, you need to find a "shortest path" between two vertices of a weighted graph. In the context, shortest may mean "of least distance" but could mean "of least cost" or something else, depending on what the edge weights represent.</p>
 </div>
@@ -18270,7 +18270,9 @@ At present, there is no known algorithm with polynomial worst-case time complexi
 <p><mark><strong>NOTICE:</strong> If you are NOT enrolled in the CSC 230 course that I teach at SFSU, you probably are looking for <a href=../index.html>the “public version”</a> of the book, which I only update between semesters. The version you are looking at now is the “CSC230 version” of the book, which I will be updating throughout the semester.</mark></p>
 </div>
 <div class="paragraph">
-<p><em>This chapter was last updated on December 8, 2025.</em><br>
+<p><em>This chapter was last updated on May 4, 2026.</em><br>
+<em>Fixed some typos.</em><br>
+<em>Inserted links and very brief mention of depth-first and breadth-first traversals.</em><br>
 <em>Added more content to the section on binary trees: Tree traversal algorithms, Łukasiewicz&#8217;s parentheses-free notation (“Polish notation”) and expression trees.</em><br>
 <em>Revised section on directed trees. Rewrote theorem on second characterization of trees.</em></p>
 </div>
@@ -19244,7 +19246,7 @@ binary search tree can be used to sort the keys and then quickly search for a ke
 <div class="ulist">
 <ul>
 <li>
-<p>Since \(2\) is greater than \(3,\) \(2\) is assigned to the <em>left</em> child of of the left subtree&#8217;s root.</p>
+<p>Since \(2\) is less than \(3,\) \(2\) is assigned to the <em>left</em> child of of the left subtree&#8217;s root.</p>
 </li>
 </ul>
 </div>
@@ -19501,7 +19503,18 @@ expression, you can see that the expression tree will have the minus sign at the
 <div class="ulist">
 <ul>
 <li>
-<p>Algorithms for Depth- and breadth-first traversals</p>
+<p>Algorithms for depth-first and breadth-first traversal</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For now, you can visit the following two links
+at Simple English Wikipedia for
+the basic definitions of  <a href=https://simple.wikipedia.org/wiki/Depth-first_search>depth-first search (DFS)</a> and <a href=https://simple.wikipedia.org/wiki/Breadth-first_search>breadth-first search (BFS).</a><br>
+<span class="small">Note that each of preorder, inorder, and postorder traversal is an example of a depth-first traversal.<br>
+As an example of breadth-first search, consider finding a shortest path between two vertices of a connected undirected graph (e.g., first assign each edge a weight of \(1,\) then use <a href=./graph_theory.html#dijkstra_algorithm>Dijkstra&#8217;s Algorithm</a> to find the path of minimal total weight between the two vertices, that path is the shortest path.)</span></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
